@@ -74,8 +74,19 @@ def main() -> int:
     L.append("| the rite | **%s clean** (`rodadas/%s`) · complete round: %s |" % (rito, ultima.name if ultima else "?", "yes" if rc.get("switch_on") is False and rc.get("reused") == 0 else str(rc)))
     L.append("| gate | `%s` |" % gate)
     L.append("| selftest | `%s` |" % selo.get("fail_closed_selftest"))
-    L.append("| citable deposit | Zenodo **[10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173)** (v331, 2026-09-08) \u2014 byte-identical: the record\u2019s md5 of `um.py` equals the sealed file\u2019s. Cite: *MIGUEL, L. (2026). Um: Absoluto [Dataset]. Zenodo.* |")
+    if versao == "331":
+        L.append("| citable deposit | Zenodo **[10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173)** (v331, 2026-09-08) \u2014 byte-identical: the record\u2019s md5 of `um.py` equals the sealed file\u2019s. Cite: *MIGUEL, L. (2026). Um: Absoluto [Dataset]. Zenodo.* |")
+    else:
+        L.append("| citable deposit | Zenodo **[10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173)** holds **v331** (2026-09-08; `um.py` `e1b74a907c403538`), byte-identical to THAT seal. **This seal is v%s, newer than the deposit** \u2014 a new Zenodo version is the operator\u2019s act. Cite: *MIGUEL, L. (2026). Um: Absoluto [Dataset]. Zenodo.* |" % versao)
     L.append("| the root of the proof tree | `the_root_of_the_proof_tree` — axioms read from the seal: `%s` · `TheRootOfTheProofTree.lean` `%s` |" % (raiz_ax, raiz_sha))
+    tela_ax = ar.get("TGLExt.the_answer_of_the_operator_08_09")
+    tela_f = d / "Lean" / "tgl_kernel" / "TGLExt" / "TheScreenIsFounded.lean"
+    col_f = d / "Lean" / "tgl_kernel" / "TGLExt" / "CollapseCostAndAttestation.lean"
+    cdef = selo.get("collapse_definition") or {}
+    if tela_ax is not None:
+        L.append("| the founded screen (v334) | `the_answer_of_the_operator_08_09` — axioms read from the seal: `%s` · `TheScreenIsFounded.lean` `%s` |" % (tela_ax, sha16(tela_f) if tela_f.is_file() else None))
+    if cdef:
+        L.append("| the collapse, typed (v333) | seal `collapse_definition.reading` = `%s` · `physical_collapse_proven` = `%s` · `cost_payment_status` = `%s` · `CollapseCostAndAttestation.lean` `%s` |" % (cdef.get("reading"), cdef.get("physical_collapse_proven"), cdef.get("cost_payment_status"), sha16(col_f) if col_f.is_file() else None))
     L.append("")
     L.append("## What is PROVED · o que está PROVADO `[REAL — theorem in kernel]`")
     L.append("")
@@ -86,8 +97,14 @@ def main() -> int:
     L.append("1. **H1 ∧ H2 ∧ H3 ⟹ the pentad** (Breuer corner · Name = 1 · coframe · Lorentz · δQ = κδA/8πG): the master theorem — Einstein's equation emerges from the three named hypotheses.")
     L.append("2. **Lemma 3 on the tower, for EVERY profile** — the aperiodic expectation (Cesàro mean of the modular flow); the lift fires on every tower.")
     L.append("3. uniqueness · 4. the modular flow is a horizon · 5. the exchanges of sites are horizons (the group of horizons).")
-    L.append("6. **The wall of H3**: no clock of the state closes both screens (the clock dichotomy) — a typed negative, and the most valuable part.")
+    L.append("6. **The wall of H3**: no clock of the state closes both screens (the clock dichotomy) — a typed negative, and the most valuable part. *Read from v334 on as the wall of EXTERNAL geometric screens: the founded screen (below) is not chosen.*")
     L.append("7. *The form does not fix the value*: covariance under horizons does not fix the normalisation of the area.")
+    if tela_ax is not None:
+        L.append("")
+        L.append("**The screen is founded (v334, `TheScreenIsFounded.lean`, one term `the_answer_of_the_operator_08_09` in the trio).** The operator\u2019s answer to \u201cwho chooses the screen and the clock of H3?\u201d, typed: the screen is not chosen, it is FOUNDED by the equality that operates. `foundedScreen P = {A \u2208 M : E A = A}` is the centralizer of the global state (`founded_screen_is_the_centralizer`), it is **one** (`the_screen_is_one`), **global** (invariant under every \u03c9-invariant horizon, `the_screen_is_global`), it keeps **modular time** (`the_screen_keeps_modular_time`), and it **reflects iff the equality operates** (`screen_reflects_iff_equality_operates`). Consequences, said beside the v331 root and never over it: H3 is no longer a hypothesis-choice; the clock dichotomy (045) is the wall of EXTERNAL geometric screens; the named hypotheses of nature are H1 (MIGUEL) and H2 (CARTAN); \u03b1 stays INPUT (`the_form_does_not_fix_the_value`). The bridge region\u2013algebra got its stake and its unit: `the_word_fixes_the_place` (055, the cocycle reading is injective on configurations) and `the_unit_is_the_axiom` (052, relative trace 1 \u27f9 area density \u00bd).")
+    if cdef:
+        L.append("")
+        L.append("**The collapse, typed (v333, `TGLCollapseSpecification`).** \u201cThe irreversible passage from superposition to the fixed point that preserves identity; it costs (half a nat locally, ln 2 per octave); it has no inverse; it is attested only by the reflex, never by self-declaration.\u201d Every clause is in kernel with the trio; the seal says `physical_collapse_proven = False` and `cost_payment_status = NOT_MEASURED` \u2014 three OPEN leaves of its own: the physical reflex, the selection of the occurrence, the payment.")
     L.append("")
     L.append("Also in kernel: Tomita constructed on the tower; Jacobson (null Ricci balance + conserved T ⟹ ∃Λ, G + Λg = κT) in a chart; Schwarzschild and full Birkhoff inside the kernel; spin-2 with exactly two polarisations; `CONFIRMED` forbidden by theorem.")
     L.append("")
@@ -95,7 +112,7 @@ def main() -> int:
     L.append("")
     L.append("## What is NOT proved · o que NÃO está provado `[OPEN / KNOWN / nature]`")
     L.append("")
-    L.append("- **Nature's:** that H1–H3 are *realised* by the world; the value of α (the fine-structure constant enters as `[KNOWN]`, β = α√e is derived from it). The nature tests so far: **NOT_FALSIFIED** within the local bulk at available sensitivity, and more sensitive data can revise — never CONFIRMED.")
+    L.append("- **Nature's:** that **H1 (MIGUEL) and H2 (CARTAN)** are *realised* by the world; the value of α (the fine-structure constant enters as `[KNOWN]`, β = α√e is derived from it); and, of what was H3, the **physical identification** of the founded screen with a causal horizon of spacetime (Bisognano–Wichmann beyond wedges) — open, with measured walls (v316, v317, 048). *Until v331 this line read \u201cH1–H3\u201d; from v334 the screen is founded, not chosen (the change is said beside, never over).* The nature tests so far: **NOT_FALSIFIED** within the local bulk at available sensitivity, and more sensitive data can revise — never CONFIRMED.")
     L.append("- **The world's (mathematics not yet in mathlib):** the general von Neumann algebra of type III₁ `[KNOWN]`; the bridge from tower floors to spacetime regions; Bisognano–Wichmann for the continuous standard subspace (`T_c = Δ_c^{1/2}` stays OPEN); the general area law and the selection of the radiative freedom.")
     L.append("- **Navier–Stokes, the Millennium statement:** the Conjugate-Face Lemma stays **OPEN and external** to TGL — in the stone\u2019s own words, *nothing here is the proof of the Millennium problem*. \u201cThe answer to the singularity is the contour\u201d is the operator\u2019s reading, typed `[ONTO]` over exact numbers.")
     L.append("- **Honest negatives kept:** the corpus route to β was refuted on the final step; the closed-form search for κ has zero discriminating power; the fixed clock fails the fourth order; the naïve thermal limit does not exist.")

@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 123 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 127 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -22,7 +22,7 @@ Pasta do repositorio the_boundary com 123 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-123 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas
+127 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas
 
 **DADOS**
 
@@ -151,7 +151,11 @@ Pasta do repositorio the_boundary com 123 arquivo(s) rastreado(s).
 | `rodada_v330_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v330_stdout.txt) |
 | `rodada_v331_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v331_stdout.txt) |
 | `rodada_v331_stdout_INTERMEDIARIA.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v331_stdout_INTERMEDIARIA.txt) |
+| `rodada_v332_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v332_stdout.txt) |
+| `rodada_v333_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v333_stdout.txt) |
+| `rodada_v334_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v334_stdout.txt) |
+| `rodada_v334_stdout_INTERMEDIARIA.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v334_stdout_INTERMEDIARIA.txt) |
 
 ---
 
-gerado por script de git ls-files em 2026-09-08 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-09 -- nao editar a mao

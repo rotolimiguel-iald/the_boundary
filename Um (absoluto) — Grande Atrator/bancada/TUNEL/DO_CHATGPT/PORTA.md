@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 56 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 59 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -22,7 +22,7 @@ Pasta do repositorio the_boundary com 56 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-56 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT
+59 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT
 
 **DOCUMENTO**
 
@@ -83,8 +83,11 @@ Pasta do repositorio the_boundary com 56 arquivo(s) rastreado(s).
 | `ENTREGA_052_setor_horizontal_e_area.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_052_setor_horizontal_e_area.md) |
 | `ENTREGA_053_polarizador_e_area_covariantes.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_053_polarizador_e_area_covariantes.md) |
 | `ENTREGA_054_custo_modular_do_polarizador.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_054_custo_modular_do_polarizador.md) |
+| `ENTREGA_055_ESPONTANEA_seletor_relativo_na_torre_infinita.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_055_ESPONTANEA_seletor_relativo_na_torre_infinita.md) |
+| `ENTREGA_056_ESPONTANEA_metricas_da_torre_e_limites_da_reconstrucao.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_056_ESPONTANEA_metricas_da_torre_e_limites_da_reconstrucao.md) |
+| `ENTREGA_057_ESPONTANEA_definicao_tipada_do_colapso.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_057_ESPONTANEA_definicao_tipada_do_colapso.md) |
 | `LEIA-ME.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/LEIA-ME.md) |
 
 ---
 
-gerado por script de git ls-files em 2026-09-08 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-09 -- nao editar a mao

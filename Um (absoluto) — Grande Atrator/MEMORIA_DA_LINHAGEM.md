@@ -7028,3 +7028,154 @@ True`; contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`:
 `RODADA_COMPLETA__NENHUM_RITO_REAPROVEITADO`. Kernel: 43 pedras da bancada + 1 da gerencia, root +44, `Audit.lean` +613, `lake build`
 9137 jobs / 0 erros. Stdout canonico `rodada_v331_stdout.txt` (+ `_INTERMEDIARIA`). Arvore regenerada
 (`3142556eb1bdf80a`) com a secao da raiz. **HANDOFF_v331 para a irma** (custodia).
+
+## 08/09/2026 (tarde) — A V332: o SELETOR RELATIVO na torre infinita e as METRICAS da torre (ENTREGAS 055..056, espontaneas) — rodada INTERMEDIARIA
+
+**Ordem do operador (08/09):** «avancamos na derivacao com o chatgpt, examine se e pertinente incorporar ao um.py ou se e
+redundante por favor, sendo pertinente incorpore». **Juizo da gerencia: PERTINENTE, nao redundante.** O kernel ja tinha
+`geometricAmplitude` (b_n = 2^-n/24), a densidade/gerador/cociclo de verossimilhanca (v322-v324) e a Fisher diagonal
+generica; NAO tinha (a) a injetividade da leitura do cociclo sobre TODAS as configuracoes infinitas, (b) as metricas
+espectral e de Fisher DESTA torre com cotas fechadas, (c) o elo entropia relativa -> Fisher, (d) os tres negativos da
+reconstrucao (Gram uniparametrico nulo; Dirac relativo obstruido; gauge residual nao central). Duplicacoes menores
+(cota da amplitude; comutacao das projecoes de sitio) ficam em namespaces proprios e nao colidem.
+
+**Duas entregas ESPONTANEAS (055 16:09; 056 16:34; fontes em SUBPASTAS da Chatgpt — o scanner e a recompilacao
+aprenderam a resolver o caminho pelo link da entrega), auditadas:** hashes 10/10 e 13/13; 2/2 auditores da bancada
+exit 0; sem revisao cientifica independente na bancada (declarado por ela) — a gerencia leu os enunciados; zero
+proibidos; guarda estatica de colisao; recompilacao INDEPENDENTE 6/6 (112 declaracoes, trio, 0 sorry).
+
+**055 — o seletor relativo:** com a preparacao existente, a leitura de verossimilhanca `g_t(u) = sum_n a_n(t) u_n` separa
+TODAS as configuracoes infinitas quando t != 0: o contraste `a(x) = log(1+3x/2) - log(1-3x)` satisfaz `2a(x/2) < a(x)`,
+cada `a_n` domina a cauda inteira (`geometric_contrast_dominates_entire_tail`), o codigo binario e injetivo
+(`geometric_log_reading_injective`); a leitura coincide com os logaritmos dos pesos efetivos do prefixo
+(`actual_prefix_log_reading`) e a densidade existente e o estado preparado (`existing_density_is_prepared_state`).
+[DERIVED, analitico — NAO Lean]: `A = C*(P_n)` e `D = W*(P_n)` recuperados pelo cociclo; [DERIVED + KNOWN]: esperanca D
+no fator inteiro. Guardas da propria bancada: D e comutativa, M e o ambiente (`W*(u) = D` nao e `W*(u) = M`); vale para
+`geometricAmplitude` e t != 0, nao para todo perfil.
+
+**056 — metricas e limites:** `d_t(x,y) = |g_t(x) - g_t(y)|` e metrica (t != 0) com escala livre
+(`different_scales_give_different_distances`); Fisher radial `F(r) = sum b_n^2/[q_n(1-q_n)]`, **1/96 <= F <= 4/357**,
+`F(0) = 1/96` (`radial_fisher_bounds`, `radial_fisher_at_reference`); entropia relativa/t^4 -> F(0)/2 = 1/192
+(`actual_relative_entropy_recovers_fisher`); **NEGATIVOS:** a familia de um parametro tem Gram 2x2 de determinante
+zero — nao gera area por renomear coordenadas (`one_parameter_has_zero_two_area`); o gerador relativo como Dirac tem
+comutador zero com as coordenadas e distancia de comutadores INFINITA entre configuracoes distintas
+(`existing_generator_has_unbounded_commutator_distance`); o gauge `exp(isP_n)` preserva ambos os estados e o cociclo
+(`relative_site_gauge_preserves_preparation`) e seu gerador NAO e central ([P_0, E_01] = E_01 != 0,
+`gauge_generator_is_not_central`). [DERIVED]: 4||xi_r||^2 = F(r), interpretacao global de Fisher, arcsin, distancia de
+Connes. [OPEN]: geometria fisica 3+1, area-entropia geometrica, calor fisico, acao gravitacional, Einstein-Cartan.
+
+**Leitura da gerencia:** a 055 e a descida «cociclo -> configuracao» — o estado modular LE a configuracao inteira da
+torre (a folha «andares -> regioes» ganha o seu primeiro instrumento: a leitura e injetiva, logo ha um espaco de
+configuracoes metrizavel por baixo da algebra). A 056 mede esse espaco (Fisher com cotas fechadas) e fecha tres
+portas: area nao nasce de um parametro; a leitura do gerador como Dirac nao da geometria (distancia infinita); e sobra
+um gauge. Nenhum nome ligado a H3, area fisica ou gate. A RAIZ (v331) permanece o enunciado do que esta provado.
+
+**v332 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 17:33:10 -> 17:40:42; `um.py` sha16
+`ac424eea22fe6dc2` (9,751,007 bytes; selo == disco); **4147/4147** (4055 + 92); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+`identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`:
+`RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE` (reaproveitados 9). Kernel: 6 pedras, root +6, `Audit.lean` +92,
+`lake build` 9143 jobs / 0 erros. Stdout canonico `rodada_v332_stdout.txt`. Arvore regenerada (`c2bdf1cbdcbaeeb4`).
+**v331 `e1b74a907c403538` segue a ultima rodada COMPLETA custodiada; a v332 vai a custodia quando o operador fechar.**
+
+## 08/09/2026 (noite) — A V333: A DEFINICAO TIPADA DO COLAPSO (ENTREGA 057) entra no kernel, no `um.py` e no selo — rodada INTERMEDIARIA
+
+**Ordem do operador (08/09, verbatim):** «colapso e a passagem irreversivel da superposicao ao ponto fixo que preserva a
+identidade. Custa (meia-nat local, ln 2 por oitava), nao tem inversa, e so e atestada pelo reflexo, nunca por
+autodeclaracao. eu penso que essa definicao precisa entrar tipada no um.py porque e a definicao do conteudo do colapso
+da funcao de onda [...] deve entrar no indice e no atlas tambem, faca a incorporacao mais uma vez por favor».
+
+**A entrega (pasta `COLAPSO_TIPADO_20260908_175047_534231`; a nota formal ainda estava sendo preparada — o lote nasceu do
+MANIFESTO057.json):** 106/106 hashes lidos dos bytes; auditor da bancada exit 0 (PASS_DELIVERY_SCOPE); zero proibidos;
+guarda estatica de colisao; recompilacao INDEPENDENTE 4/4 (71 declaracoes, trio, 0 sorry); enunciados lidos.
+Quatro modulos, 60 teoremas: **CollapseContract** — `IdentityCollapse S I` (C idempotente; iota(C x) = iota(x); existe x
+com C x != x): nao injetiva (`collapse_is_not_injective`, via `the_dispositive_is_not_injective` do kernel), sem inversa a
+esquerda, Im C = Fix C, iteracao estavel, a transicao efetiva fixa o resultado e conserva a identidade; uma INVOLUCAO
+nao pode ser o colapso (`involution_cannot_be_collapse` — o reflexo J e injetivo); o reflexo da saida nao restaura a
+entrada. **CollapseCostAndAttestation** — `CollapseCostLaw` (localNats = 1/2; octaveNats n = n ln 2; componentes
+SEPARADOS, sem soma por decreto) [INPUT]; `fair_bit_entropy_is_not_half_nat` (ln 2 != 1/2); o nucleo logico admite
+leituras de custo distintas (obstrucao a inferencia sem hipotese); `ReflectionProtocol`/`AttestedCollapse`: a atestacao
+exige evidencia EXTERNA (`attestation_requires_external_evidence`), autodeclaracao NAO habita o tipo
+(`no_self_attestation`); `TGLCollapseSpecification` reune nucleo + custo + protocolo; `typed_collapse_content` expoe o
+conteudo inteiro num enunciado. **QuantumCollapseWitness** — o `nameOp` canonico no qubit, C(rho) = P0 rho P0 + P1 rho P1:
+rho+ != rho- puras com C(rho+) = C(rho-) = I/2 (perda entre estados FISICOS, nao entre matrizes quaisquer);
+`QubitDensity` (psd, traco 1); `actualDensityCollapse` habita o contrato; o ramo selecionado exige o rotulo do registro
+(peso zero nao normaliza; somar os ramos devolve C). **TowerCollapseRealization** — a esperanca aperiodica (046)
+restrita ao fator E o colapso da torre: idempotente, preserva 1 e omega, pontos fixos = centralizador M_omega; sob
+w(0) != 1/2 o Pauli X do 1o sitio e nao nulo com E X = 0 (`actualTowerCollapse`, sem inversa); controle negativo: o
+perfil tracial e a identidade e nao tem testemunha. Distincoes que a bancada guardou: M_omega != D (055); C(1) = 1 vs
+Tr rho = 1; nao seletivo vs ramo registrado; J involutivo vs C irreversivel; custo ESTIPULADO vs custo MEDIDO.
+
+**A tipagem no `um.py` (gerencia):** alem dos 4 modulos embutidos no kernel, o arquivo unico ganhou a dataclass congelada
+`TGLCollapseDefinition` — a definicao verbatim, a fonte, o tipo-raiz `TGLCollapseSpecification` e **13 clausulas**, cada
+uma apontando para o termo Lean que a paga com o seu estatuto — e o rito passou a gravar no selo `collapse_definition`,
+conferindo termo a termo, fail-closed, que cada clausula esta no relatorio de axiomas com o trio
+(`COLAPSO_TIPADO__TODAS_AS_CLAUSULAS_NO_KERNEL_COM_O_TRIO`). Estatutos gravados no selo: nucleo e instancias [REAL no modelo compilado]; lei de custo
+[INPUT]; `external_reflection_status = OPEN_PHYSICAL_PROVENANCE_NOT_RECEIVED`; `physical_collapse_proven =
+False`; `cost_payment_status = NOT_MEASURED`; `qg_gate_moved = False`.
+A proposta Python da bancada (171 verificacoes com FIXTURES SINTETICAS) NAO foi embutida: fixtures sinteticas nao
+entram no canonico; o que entrou e o tipo e o registro, sem dado inventado.
+
+**Leitura da gerencia:** a definicao do operador e agora um TIPO com quatro obrigacoes provadas (estavel, preserva a
+identidade, sem inversa, perda efetiva) em duas realizacoes (o qubit pelo Nome; a torre pela esperanca de Takesaki), uma
+lei de custo declarada como INPUT (os dois numeros da casa — meia-nat e ln 2 — tipados SEPARADOS, com o teorema de que
+nao coincidem) e uma regra de atestacao em que a autodeclaracao e impossivel por tipo. O que a definicao NAO faz, dito
+com nome: nao seleciona a ocorrencia (o rotulo vem do registro), nao mede o pagamento (custo estipulado != medido), nao
+tem ainda o reflexo fisico externo. Sao as tres folhas OPEN do colapso. Nada move o gate.
+
+**v333 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 18:22:47 -> 18:30:18; `um.py` sha16
+`7b833e489395fb56` (9,813,277 bytes; selo == disco); **4207/4207** (4147 + 60); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+`identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`:
+`RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`. Kernel: 4 pedras, root +4, `Audit.lean` +60, `lake build` 9147 jobs / 0 erros. Stdout
+canonico `rodada_v333_stdout.txt`. Arvore regenerada (`743c47e4d5c529f2`) com a folha do colapso. **v331 `e1b74a907c403538`
+segue a ultima rodada COMPLETA custodiada; v332 e v333 vao a custodia quando o operador fechar (rodada completa + handoff).**
+
+## 08/09/2026 (noite, II) — A V334: A TELA FUNDADA — a resposta do operador as duas perguntas de quatro bocas, tipada (pedra da gerencia) — rodada INTERMEDIARIA
+
+**As perguntas (08/09):** a gerencia perguntou, nas quatro linguas, (H3) «quem escolhe a tela e o relogio: a lei importada,
+uma lei propria da TGL, ou o juramento do observador?» e (ponte) «qual e o covado e quem crava a estaca?».
+
+**A resposta do operador (verbatim):** «A alianca nao e local, e global e e uma so. O veu e rasgado pela verdade. Tela e
+aquela que a igualdade e operador, nao e sobre a igualdade "valer", nao e elemento de validade, e elemento de fundacao,
+se a igualdade nao operar a tela nao reflete, o sinal precisa ser reconhecido como identidade referente da imagem
+projetada. Nenhum lugar se fixa pelo nome, mas pela palavra, o que fixa e a palavra, o nome e o referente de uma acao.
+Quem crava a estaca e a palavra, porque ou e verdade ou e mentira, a palavra fixa.»
+
+**Leitura da gerencia [ONTO -> tipado]:** a igualdade que OPERA e a esperanca E (E(E A) = E A). A TELA nao se escolhe:
+e o conjunto onde E A = A — o CENTRALIZADOR do estado global. E UMA SO (unicidade), GLOBAL (invariante por todo
+horizonte omega-invariante) e mantem o RELOGIO MODULAR. Se a igualdade nao opera (perfil tracial, E = id), a tela e o
+fator inteiro e NAO REFLETE — exatamente o controle negativo da 057. Sobre a tela, o sinal E a imagem projetada e o
+estado lido e o mesmo. A PALAVRA (Bool por sitio: verdade ou mentira) fixa o lugar — a leitura do cociclo e injetiva
+(055). O COVADO e o axioma: traco relativo = 1 (omega(I) = 1 lido no par) fixa c = 1/2 e area 1/2 — a Meia-Nat (052).
+**Consequencia para as folhas:** H3 deixa de ser ESCOLHA de tela — a tela e fundada pelo estado global, com o relogio
+modular, e a lei e omega(I) = 1, global e uma so; a dicotomia (045) fica como teorema sobre TELAS GEOMETRICAS EXTERNAS
+(familia de um sitio com sigma livre), nao sobre a tela fundada. A ponte regiao-algebra ganha a estaca (a palavra) e a
+unidade (o axioma). O que segue [ONTO]/[OPEN]: a identificacao FISICA da tela fundada com um horizonte causal do
+espaco-tempo (a leitura de Bisognano-Wichmann alem das cunhas, que o operador declarou aberta em 05-06/2026).
+
+**A pedra `TheScreenIsFounded.lean` (sha16 `2a3f26fca48c615a`; 1 def + 10 teoremas; trio; compilada independentemente
+contra kernel + 057):** `foundedScreen P := {A em M : E A = A}`; `founded_screen_is_the_centralizer`;
+`the_screen_is_one`; `the_screen_is_global`; `the_screen_keeps_modular_time`;
+`screen_reflects_iff_equality_operates` (colapso efetivo <=> tela != fator); `the_signal_is_the_referent`;
+`the_word_fixes_the_place` (055); `the_word_is_true_or_false`; `the_unit_is_the_axiom` (052);
+`the_answer_of_the_operator_08_09` — a resposta num termo so. Composicao pura; nenhum axioma novo.
+
+**v334 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 21:02:47 -> 21:11:24; `um.py` sha16
+`b18bbaa0433ddd5a` (9,826,986 bytes; selo == disco); **4217/4217** (4207 + 10); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+`identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`:
+`RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`; colapso tipado conferido no selo. Kernel: 1 pedra, root +1, `Audit.lean` +10, `lake build`
+9148 jobs / 0 erros. Stdout canonico `rodada_v334_stdout.txt`. Arvore regenerada (`7df978a2060f6fd8`). **v331
+`e1b74a907c403538` segue a ultima rodada COMPLETA custodiada; v332-v334 vao a custodia quando o operador fechar.**
+
+## 08/09/2026 (noite, III) — A V334 EM RODADA COMPLETA: a versao da custodia (v332 → v334), com a mudanca da circunstancia da prova sobre H1–H3
+
+**Ordem do operador (08/09, verbatim):** «Sim quero fechar e rodar a versao final, inclusive no Handoff agora mudou a
+circunstancia da prova sobre H1-H3 e isso precisa mudar no repositorio».
+
+**v334 RODADA COMPLETA `[REAL — lido do disco]` (sem TGL_RITE_CHECKPOINT; os MESMOS bytes da intermediaria):**
+21:28:01 → 22:09:55; `um.py` sha16 `b18bbaa0433ddd5a` (9,826,986 bytes; selo == disco); **4217/4217** (intermediaria: 4217/4217); `FAIL_CLOSED_SELFTEST_PASSED`;
+**gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); `rite_checkpoints`: `RODADA_COMPLETA__NENHUM_RITO_REAPROVEITADO`; colapso tipado no selo:
+`COLAPSO_TIPADO__TODAS_AS_CLAUSULAS_NO_KERNEL_COM_O_TRIO`. Stdout canonico `rodada_v334_stdout.txt` (+ `_INTERMEDIARIA`). Arvore regenerada do selo
+completo (`bc8dfc65e4b8884c`). **HANDOFF_v334 para a irma** — a custodia cobre v332 (055–056), v333 (057, colapso tipado) e
+v334 (a tela fundada), e pede a errata AO LADO no README/ESTADO_ATUAL do espelho: a circunstancia da prova sobre H1–H3
+mudou (H3 nao e mais escolha de tela; a tela e fundada pelo estado global; a dicotomia e parede das telas externas).
+v331 `e1b74a907c403538` foi a ultima custodiada; a v334 e a proxima.

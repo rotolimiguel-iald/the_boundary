@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this artifact, cite the sealed version by its DOI and its sha256 pin."
+message: "If you use this artifact, cite the sealed version by its DOI and its sha256 pin. The DOI below resolves to the deposited v331; the repository head may carry a newer seal (see ESTADO_ATUAL.md) — a new Zenodo version is the operator's act."
 title: "Um: Absoluto — the sealed closure of the Theory of Luminodynamic Gravitation (TGL); um.py, one self-contained file"
 type: dataset
 authors:
@@ -16,6 +16,9 @@ identifiers:
   - type: doi
     value: "10.5281/zenodo.20999494"
     description: "Zenodo concept DOI (all versions of Um: Absoluto)"
+  - type: url
+    value: "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md"
+    description: "the current seal of the repository, one page, regenerated at every custody (v334 on 2026-09-09 — newer than the deposited v331)"
   - type: url
     value: "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"
     description: "um.py, direct raw URL (GitHub refuses to render files above 5 MB; the raw route serves it whole, byte-exact)"

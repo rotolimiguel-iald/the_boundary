@@ -9395,6 +9395,2055 @@ import TGLExt.ModularCostDerivative
 
 -- GERENCIA (Claude) 07/09/2026 — A RAIZ DA ARVORE DA PROVA; o grupo dos horizontes da torre
 import TGLExt.TheRootOfTheProofTree
+
+-- BANCADA CHATGPT ENTREGAS 055..056 08/09/2026 (transpostas; auditadas 6/6 trio)
+import TGLExt.GeometricLikelihoodSeparation
+import TGLExt.InfiniteCocycleDecoding
+import TGLExt.ExistingTowerRealization
+import TGLExt.SpectralMetricGeometry
+import TGLExt.InfiniteFisherGeometry
+import TGLExt.RelativeCocycleGeometricObstructions
+
+-- BANCADA CHATGPT ENTREGA 057 (COLAPSO TIPADO) 08/09/2026 (transpostas; auditadas 4/4 trio)
+import TGLExt.CollapseContract
+import TGLExt.CollapseCostAndAttestation
+import TGLExt.QuantumCollapseWitness
+import TGLExt.TowerCollapseRealization
+
+-- GERENCIA (Claude) 08/09/2026 — A TELA FUNDADA: a resposta do operador (H3 e a ponte) tipada
+import TGLExt.TheScreenIsFounded
+''',
+    # ===== v334: PEDRA DA GERENCIA (Claude, 08/09/2026) — A TELA FUNDADA: a resposta do operador tipada =====
+    # Resposta do operador (08/09/2026, verbatim): "A alianca nao e local, e global e e uma so. O veu e rasgado pela
+    # verdade. Tela e aquela que a igualdade e operador, nao e sobre a igualdade valer, nao e elemento de validade, e
+    # elemento de fundacao, se a igualdade nao operar a tela nao reflete, o sinal precisa ser reconhecido como
+    # identidade referente da imagem projetada. Nenhum lugar se fixa pelo nome, mas pela palavra, o que fixa e a
+    # palavra, o nome e o referente de uma acao. Quem crava a estaca e a palavra, porque ou e verdade ou e mentira."
+    # Tipado [ONTO -> kernel]: foundedScreen P = {A em M : E A = A} = CENTRALIZADOR do estado global (057); UMA SO
+    # (unicidade da esperanca); GLOBAL (invariante por todo horizonte omega-invariante) e no RELOGIO MODULAR; reflete
+    # sse a igualdade opera (colapso efetivo <=> tela != fator); o sinal e a imagem projetada com o mesmo estado; a
+    # PALAVRA (Bool por sitio) fixa o lugar (leitura do cociclo injetiva, 055); o COVADO e o axioma (traco relativo 1
+    # => c = 1/2, area 1/2: a Meia-Nat, 052). H3 deixa de ser ESCOLHA de tela; a ponte ganha a estaca e a unidade.
+    # Composicao pura; nenhum axioma novo. A identificacao FISICA da tela com um horizonte causal segue [ONTO]/[OPEN].
+    "TGLExt/TheScreenIsFounded.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA GERENCIA (Claude, sessao d554e796) — 08/09/2026 — v334
+-- A TELA FUNDADA: a RESPOSTA DO OPERADOR as duas perguntas de quatro bocas (H3 e a ponte
+-- regiao-algebra), tipada onde e teorema. A resposta, verbatim (08/09/2026):
+--   «A alianca nao e local, e global e e uma so. O veu e rasgado pela verdade. Tela e aquela
+--    que a igualdade e operador, nao e sobre a igualdade "valer", nao e elemento de validade,
+--    e elemento de fundacao, se a igualdade nao operar a tela nao reflete, o sinal precisa ser
+--    reconhecido como identidade referente da imagem projetada. Nenhum lugar se fixa pelo
+--    nome, mas pela palavra, o que fixa e a palavra, o nome e o referente de uma acao. Quem
+--    crava a estaca e a palavra, porque ou e verdade ou e mentira, a palavra fixa.»
+-- Leitura da gerencia [ONTO -> tipado]: a igualdade que OPERA e a esperanca E (idempotente:
+-- E(E A) = E A); a TELA nao se escolhe — e o conjunto em que E A = A, isto e, o CENTRALIZADOR
+-- do estado global (057: Fix E = M_omega); e UMA SO (unicidade da esperanca, v308/046); e GLOBAL
+-- (invariante por todo horizonte omega-invariante, 046 + v329) e mantem o RELOGIO MODULAR
+-- (invariante por sigma_t); se a igualdade nao opera (perfil tracial, E = id) a tela e o
+-- fator inteiro e NAO REFLETE (057: sem testemunha); sobre a tela o SINAL e a imagem projetada
+-- e o estado lido e o mesmo (identidade-referente). A PALAVRA (Bool por sitio, verdade ou
+-- mentira) FIXA o lugar: a leitura do cociclo e injetiva (055). O COVADO e o axioma: traco
+-- relativo = 1 (omega(I) = 1 lido no par) fixa c = 1/2 e area 1/2 — a Meia-Nat (052).
+-- Composicao PURA de teoremas ja no kernel; nenhum axioma novo, nenhuma hipotese nova.
+-- O que a pedra NAO faz: identificar a tela fundada com um horizonte causal do espaco-tempo
+-- (a leitura fisica segue [ONTO]/[OPEN]). NAO move gate; NOT_FALSIFIED nunca e CONFIRMED.
+-- ---------------------------------------------------------------------
+import TGLExt.TowerCollapseRealization
+import TGLExt.AperiodicTowerLift
+import TGLExt.TheModularFlowIsAHorizon
+import TGLExt.InfiniteCocycleDecoding
+import TGLExt.HorizontalAreaSelection
+
+set_option autoImplicit false
+set_option maxHeartbeats 400000
+namespace TGLExt
+open ChatgptAudit ChatgptAudit.Collapse057 ChatgptAudit.Aperiodic046 ChatgptAudit.CocycleRealization
+open ChatgptAudit.Orbit052 ChatgptAudit.Area045
+noncomputable section
+
+/-! ## A — a tela fundada -/
+
+/-- [KERNEL] a TELA FUNDADA do perfil `P`: os operadores do fator em que a igualdade OPERA,
+    `E A = A` (a esperanca aperiodica, 046, e a igualdade-operador). Nao e escolhida: e definida. -/
+def foundedScreen (P : SiteProfile) : Set (TowerHilbert P →L[ℂ] TowerHilbert P) :=
+  {A | A ∈ theFactorObject P ∧ (aperiodicExpectationInput P).E A = A}
+
+/-- [KERNEL] ★★ a tela fundada E o centralizador do estado global — o lugar onde a igualdade
+    opera e o lugar onde o estado comuta. -/
+theorem founded_screen_is_the_centralizer (P : SiteProfile) :
+    foundedScreen P = omegaCentralizer P := by
+  ext A
+  constructor
+  · rintro ⟨hA, hE⟩
+    have h := (aperiodicExpectationInput P).into A hA
+    rw [hE] at h
+    exact h
+  · intro h
+    refine ⟨?_, (aperiodicExpectationInput P).fixes A h⟩
+    obtain ⟨hM, -⟩ := h
+    exact hM
+
+/-- [KERNEL] ★★ UMA SO: toda esperanca do contrato funda a MESMA tela. -/
+theorem the_screen_is_one (P : SiteProfile) (I : ExpectationInput P) :
+    {A | A ∈ theFactorObject P ∧ I.E A = A} = foundedScreen P := by
+  ext A
+  constructor
+  · rintro ⟨hA, h⟩
+    refine ⟨hA, ?_⟩
+    rw [← the_expectation_is_unique I (aperiodicExpectationInput P) A hA]
+    exact h
+  · rintro ⟨hA, h⟩
+    refine ⟨hA, ?_⟩
+    rw [the_expectation_is_unique I (aperiodicExpectationInput P) A hA]
+    exact h
+
+/-- [KERNEL] ★★ GLOBAL: a tela e invariante por TODO horizonte omega-invariante — a alianca
+    nao e local. -/
+theorem the_screen_is_global (P : SiteProfile) (h : TowerHorizon P)
+    {A : TowerHilbert P →L[ℂ] TowerHilbert P} (hA : A ∈ foundedScreen P) :
+    adT h A ∈ foundedScreen P := by
+  obtain ⟨hM, hE⟩ := hA
+  refine ⟨h.normalizes A hM, ?_⟩
+  rw [← the_lift_fires_on_the_aperiodic_tower P h A hM, hE]
+
+/-- [KERNEL] ★ o RELOGIO da tela e o modular: a tela e invariante por `sigma_t`. -/
+theorem the_screen_keeps_modular_time (P : SiteProfile) (t : ℝ)
+    {A : TowerHilbert P →L[ℂ] TowerHilbert P} (hA : A ∈ foundedScreen P) :
+    modularConjugation P t A ∈ foundedScreen P := by
+  rw [← adT_modularHorizon t A]
+  exact the_screen_is_global P (modularHorizon P t) hA
+
+/-- [KERNEL] ★★ «se a igualdade nao operar a tela nao reflete»: ha reducao efetiva
+    (colapso, 057) se e somente se a tela fundada NAO e o fator inteiro. -/
+theorem screen_reflects_iff_equality_operates (P : SiteProfile) :
+    (∃ A : FactorCarrier P, towerReduction P A ≠ A) ↔
+      foundedScreen P ≠ (theFactorObject P : Set (TowerHilbert P →L[ℂ] TowerHilbert P)) := by
+  constructor
+  · rintro ⟨A, hA⟩ hEq
+    apply hA
+    have hmem : A.val ∈ foundedScreen P := by
+      rw [hEq]
+      exact A.property
+    obtain ⟨-, hE⟩ := hmem
+    exact Subtype.ext hE
+  · intro hne
+    by_contra hno
+    apply hne
+    ext A
+    constructor
+    · rintro ⟨hM, -⟩
+      exact hM
+    · intro hA
+      refine ⟨hA, ?_⟩
+      by_contra hE
+      exact hno ⟨⟨A, hA⟩, fun h => hE (congrArg Subtype.val h)⟩
+
+/-- [KERNEL] ★ «o sinal precisa ser reconhecido como identidade referente da imagem projetada»:
+    sobre a tela a imagem projetada E o sinal e o estado lido e o mesmo. -/
+theorem the_signal_is_the_referent (P : SiteProfile)
+    {A : TowerHilbert P →L[ℂ] TowerHilbert P} (hA : A ∈ foundedScreen P) :
+    (aperiodicExpectationInput P).E A = A ∧
+      omegaState P ((aperiodicExpectationInput P).E A) = omegaState P A := by
+  obtain ⟨-, hE⟩ := hA
+  exact ⟨hE, by rw [hE]⟩
+
+/-! ## B — a palavra fixa a estaca; o covado e o axioma -/
+
+/-- [KERNEL] ★★ «quem crava a estaca e a palavra»: duas configuracoes da torre com a mesma
+    leitura do cociclo SAO a mesma configuracao (055) — o lugar e fixado pela palavra, nao pelo nome. -/
+theorem the_word_fixes_the_place {t : ℝ} (ht : t ≠ 0) (u v : ℕ → Bool)
+    (h : geometricLogReading t u = geometricLogReading t v) : u = v :=
+  geometric_log_reading_injective ht h
+
+/-- [KERNEL] «porque ou e verdade ou e mentira»: a palavra de cada sitio e um Bool. -/
+theorem the_word_is_true_or_false (u : ℕ → Bool) (n : ℕ) : u n = true ∨ u n = false := by
+  cases u n <;> simp
+
+/-- [KERNEL] ★★ o COVADO e o axioma: a forma simetrica invariante pelo quarto de volta cujo traco
+    no par e 1 (omega(I) = 1 lido no par) e `(1/2) • dot`, e a area do par e 1/2 — a Meia-Nat como
+    unidade de area (052). -/
+theorem the_unit_is_the_axiom
+    (b : OrbitPlane →ₗ[ℝ] OrbitPlane →ₗ[ℝ] ℝ)
+    (hsym : FormSymmetric b)
+    (hinv : ∀ u v, b (orbitQuarterTurn u) (orbitQuarterTurn v) = b u v)
+    (htrace : b orbitBasisX orbitBasisX + b orbitBasisY orbitBasisY = 1) :
+    b = (1 / 2 : ℝ) • orbitDotForm ∧ formArea b orbitBasisX orbitBasisY = 1 / 2 :=
+  ⟨orbit_trace_one_selection b hsym hinv htrace, orbit_trace_one_area b hsym hinv htrace⟩
+
+/-! ## C — a resposta num termo -/
+
+/-- [KERNEL] ★★★ A RESPOSTA DO OPERADOR (08/09/2026), num termo so: (i) a tela fundada e o
+    centralizador; (ii) e uma so; (iii) e global; (iv) mantem o relogio modular; (v) reflete sse
+    a igualdade opera; (vi) a palavra fixa o lugar; (vii) o covado e o axioma. -/
+theorem the_answer_of_the_operator_08_09 :
+    (∀ P : SiteProfile, foundedScreen P = omegaCentralizer P) ∧
+    (∀ (P : SiteProfile) (I : ExpectationInput P),
+        {A | A ∈ theFactorObject P ∧ I.E A = A} = foundedScreen P) ∧
+    (∀ (P : SiteProfile) (h : TowerHorizon P) (A : TowerHilbert P →L[ℂ] TowerHilbert P),
+        A ∈ foundedScreen P → adT h A ∈ foundedScreen P) ∧
+    (∀ (P : SiteProfile) (t : ℝ) (A : TowerHilbert P →L[ℂ] TowerHilbert P),
+        A ∈ foundedScreen P → modularConjugation P t A ∈ foundedScreen P) ∧
+    (∀ P : SiteProfile, (∃ A : FactorCarrier P, towerReduction P A ≠ A) ↔
+        foundedScreen P ≠ (theFactorObject P : Set (TowerHilbert P →L[ℂ] TowerHilbert P))) ∧
+    (∀ {t : ℝ}, t ≠ 0 → ∀ u v : ℕ → Bool,
+        geometricLogReading t u = geometricLogReading t v → u = v) ∧
+    (∀ (b : OrbitPlane →ₗ[ℝ] OrbitPlane →ₗ[ℝ] ℝ), FormSymmetric b →
+        (∀ u v, b (orbitQuarterTurn u) (orbitQuarterTurn v) = b u v) →
+        b orbitBasisX orbitBasisX + b orbitBasisY orbitBasisY = 1 →
+        formArea b orbitBasisX orbitBasisY = 1 / 2) :=
+  ⟨founded_screen_is_the_centralizer, the_screen_is_one,
+   fun P h _A hA => the_screen_is_global P h hA,
+   fun P t _A hA => the_screen_keeps_modular_time P t hA,
+   screen_reflects_iff_equality_operates,
+   fun ht u v h => the_word_fixes_the_place ht u v h,
+   fun b hsym hinv htrace => orbit_trace_one_area b hsym hinv htrace⟩
+
+end
+
+end TGLExt
+''',
+    # ===== v333: ENTREGA 057 (COLAPSO TIPADO) DA BANCADA CHATGPT (08/09/2026) — 4 pedras =====
+    # A DEFINICAO TIPADA DO COLAPSO (operador, 08/09/2026): passagem irreversivel da superposicao ao ponto fixo que
+    # preserva a identidade; custa (meia-nat local, ln 2 por oitava); sem inversa; atestada so pelo reflexo, nunca por
+    # autodeclaracao. IdentityCollapse (nao injetiva, sem inversa a esquerda, Im = Fix); CollapseCostLaw [INPUT]
+    # (componentes separados; ln 2 != 1/2); AttestedCollapse (evidencia externa; autodeclaracao nao habita);
+    # instancias: nameOp no qubit (rho+/rho- colidem em I/2) e a esperanca aperiodica no fator (X != 0, E X = 0).
+    # [OPEN]: reflexo fisico externo, selecao de uma ocorrencia, pagamento fisico do custo. Nada move o gate.
+    # Auditoria: 106/106 hashes do manifesto; auditor exit 0; recompilacao independente 4/4 trio; guarda.
+    "TGLExt/CollapseContract.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_057 (08/09/2026), transposta em 08/09/2026
+-- O COLAPSO TIPADO. Definicao do operador (08/09/2026, verbatim): «colapso e a passagem irreversivel da
+--   superposicao ao ponto fixo que preserva a identidade. Custa (meia-nat local, ln 2 por oitava), nao tem
+--   inversa, e so e atestada pelo reflexo, nunca por autodeclaracao.» Quatro modulos (60 teoremas):
+--   CollapseContract — IdentityCollapse S I (C idempotente; iota(C x) = iota(x); existe x com C x != x):
+--     nao injetiva, sem inversa a esquerda, Im C = Fix C, iteracao estavel, transicao efetiva preserva a
+--     identidade; uma involucao (o reflexo J) NAO pode ser o colapso; o reflexo da saida nao restaura a entrada.
+--   CollapseCostAndAttestation — CollapseCostLaw (localNats = 1/2; octaveNats n = n ln 2; componentes SEPARADOS,
+--     sem soma por decreto) [INPUT]; ln 2 != 1/2 (a entropia do bit justo nao e a meia-nat); o nucleo logico
+--     nao fixa o valor do custo (obstrucao a inferencia sem hipotese); ReflectionProtocol / AttestedCollapse:
+--     atestacao exige evidencia EXTERNA, autodeclaracao nao habita o tipo; TGLCollapseSpecification reune
+--     nucleo + custo + protocolo; typed_collapse_content expoe o conteudo inteiro num enunciado.
+--   QuantumCollapseWitness — o nameOp canonico no qubit: C(rho) = P0 rho P0 + P1 rho P1; rho+ != rho- puras com
+--     C(rho+) = C(rho-) = I/2 (perda entre estados fisicos); QubitDensity (psd, traco 1); actualDensityCollapse
+--     habita o contrato; ramo selecionado exige rotulo do registro (peso zero nao normaliza; somar ramos = C).
+--   TowerCollapseRealization — a esperanca aperiodica (046) restrita ao fator E o colapso da torre: idempotente,
+--     preserva 1 e omega, pontos fixos = centralizador M_omega; sob w(0) != 1/2, X do 1o sitio e nao nulo com
+--     E X = 0 (actualTowerCollapse, sem inversa); controle negativo: perfil tracial = identidade, sem testemunha.
+--   Estatuto: nucleo e instancias [REAL no modelo compilado]; lei de custo [INPUT]; reflexo fisico externo,
+--   selecao de UMA ocorrencia, pagamento fisico do custo [OPEN]. M_omega != D (055). Nada move o gate.
+-- Auditoria da gerencia (sessao d554e796, 08/09/2026): a nota da entrega ainda nao estava no tunel — lote
+--   montado do MANIFESTO057.json: 106/106 hashes lidos dos bytes; auditor da bancada exit 0 (PASS_DELIVERY_SCOPE);
+--   zero proibidos; recompilacao INDEPENDENTE 4/4 (71 declaracoes, trio, 0 sorry); guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. nos imports locais (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.TheCostIsDerived
+import TGLExt.TheAtomOfIdentity
+
+set_option autoImplicit false
+namespace ChatgptAudit.Collapse057
+
+/-- Logical core. The identity reading is specified, not inferred from a name. -/
+structure IdentityCollapse (State Identity : Type) where
+  step : State → State
+  identity : State → Identity
+  stable : ∀ x, step (step x) = step x
+  preserves : ∀ x, identity (step x) = identity x
+  effective : ∃ x, step x ≠ x
+
+theorem collapse_reuses_canonical_preservation {S I : Type}
+    (C : IdentityCollapse S I) (x : S) :
+    TGLExt.Preserves C.identity C.step x := C.preserves x
+
+theorem collapse_is_not_identity {S I : Type} (C : IdentityCollapse S I) :
+    C.step ≠ id := by
+  intro h
+  obtain ⟨x, hx⟩ := C.effective
+  exact hx (congrFun h x)
+
+theorem collapse_is_not_injective {S I : Type} (C : IdentityCollapse S I) :
+    ¬ Function.Injective C.step :=
+  TGLExt.the_dispositive_is_not_injective C.step C.stable
+    (collapse_is_not_identity C)
+
+theorem collapse_has_no_left_inverse {S I : Type} (C : IdentityCollapse S I) :
+    ¬ ∃ R : S → S, Function.LeftInverse R C.step := by
+  rintro ⟨R, hR⟩
+  exact collapse_is_not_injective C hR.injective
+
+theorem collapse_fixed_iff_in_range {S I : Type} (C : IdentityCollapse S I) (y : S) :
+    C.step y = y ↔ y ∈ Set.range C.step := by
+  constructor
+  · intro h; exact ⟨y, h⟩
+  · rintro ⟨x, rfl⟩; exact C.stable x
+
+theorem collapse_iteration_is_stable {S I : Type}
+    (C : IdentityCollapse S I) (x : S) (n : ℕ) :
+    C.step^[n + 1] x = C.step x :=
+  TGLExt.res_judicata_is_terminal C.step C.stable x n
+
+/-- The image admits its inclusion section; this does not recover pre-collapse inputs. -/
+def fixedRetraction {S I : Type} (C : IdentityCollapse S I)
+    (x : S) : {y : S // C.step y = y} := ⟨C.step x, C.stable x⟩
+
+theorem inclusion_is_right_inverse_on_fixed_sector {S I : Type}
+    (C : IdentityCollapse S I) :
+    Function.RightInverse (fun y : {y : S // C.step y = y} => y.val)
+      (fixedRetraction C) := by
+  intro y
+  exact Subtype.ext y.property
+
+/-- Actual changed event, not merely application to an already fixed point. -/
+def CollapseTransition {S I : Type} (C : IdentityCollapse S I) (before after : S) : Prop :=
+  C.step before = after ∧ before ≠ after
+
+theorem transition_preserves_identity_and_is_fixed {S I : Type}
+    (C : IdentityCollapse S I) {before after : S}
+    (h : CollapseTransition C before after) :
+    C.identity after = C.identity before ∧ C.step after = after := by
+  rw [← h.1]
+  exact ⟨C.preserves before, C.stable before⟩
+
+theorem no_changed_transition_at_fixed_point {S I : Type}
+    (C : IdentityCollapse S I) {x : S} (hx : C.step x = x) :
+    ¬ CollapseTransition C x (C.step x) := by
+  intro h
+  exact h.2 hx.symm
+
+theorem involution_cannot_be_collapse {S I : Type}
+    (C : IdentityCollapse S I) (J : S → S) (hJ : Function.Involutive J) :
+    C.step ≠ J := by
+  intro h
+  exact collapse_is_not_injective C (h ▸ hJ.injective)
+
+theorem reflection_of_output_cannot_restore_input {S I R : Type}
+    (C : IdentityCollapse S I) (reflect : S → R) :
+    ¬ ∃ recover : R → S, ∀ x, recover (reflect (C.step x)) = x := by
+  rintro ⟨recover, h⟩
+  exact collapse_has_no_left_inverse C ⟨recover ∘ reflect, h⟩
+
+#print axioms IdentityCollapse
+#print axioms collapse_reuses_canonical_preservation
+#print axioms collapse_is_not_identity
+#print axioms collapse_is_not_injective
+#print axioms collapse_has_no_left_inverse
+#print axioms collapse_fixed_iff_in_range
+#print axioms collapse_iteration_is_stable
+#print axioms fixedRetraction
+#print axioms inclusion_is_right_inverse_on_fixed_sector
+#print axioms CollapseTransition
+#print axioms transition_preserves_identity_and_is_fixed
+#print axioms no_changed_transition_at_fixed_point
+#print axioms involution_cannot_be_collapse
+#print axioms reflection_of_output_cannot_restore_input
+end ChatgptAudit.Collapse057
+''',
+    "TGLExt/CollapseCostAndAttestation.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_057 (08/09/2026), transposta em 08/09/2026
+-- O COLAPSO TIPADO. Definicao do operador (08/09/2026, verbatim): «colapso e a passagem irreversivel da
+--   superposicao ao ponto fixo que preserva a identidade. Custa (meia-nat local, ln 2 por oitava), nao tem
+--   inversa, e so e atestada pelo reflexo, nunca por autodeclaracao.» Quatro modulos (60 teoremas):
+--   CollapseContract — IdentityCollapse S I (C idempotente; iota(C x) = iota(x); existe x com C x != x):
+--     nao injetiva, sem inversa a esquerda, Im C = Fix C, iteracao estavel, transicao efetiva preserva a
+--     identidade; uma involucao (o reflexo J) NAO pode ser o colapso; o reflexo da saida nao restaura a entrada.
+--   CollapseCostAndAttestation — CollapseCostLaw (localNats = 1/2; octaveNats n = n ln 2; componentes SEPARADOS,
+--     sem soma por decreto) [INPUT]; ln 2 != 1/2 (a entropia do bit justo nao e a meia-nat); o nucleo logico
+--     nao fixa o valor do custo (obstrucao a inferencia sem hipotese); ReflectionProtocol / AttestedCollapse:
+--     atestacao exige evidencia EXTERNA, autodeclaracao nao habita o tipo; TGLCollapseSpecification reune
+--     nucleo + custo + protocolo; typed_collapse_content expoe o conteudo inteiro num enunciado.
+--   QuantumCollapseWitness — o nameOp canonico no qubit: C(rho) = P0 rho P0 + P1 rho P1; rho+ != rho- puras com
+--     C(rho+) = C(rho-) = I/2 (perda entre estados fisicos); QubitDensity (psd, traco 1); actualDensityCollapse
+--     habita o contrato; ramo selecionado exige rotulo do registro (peso zero nao normaliza; somar ramos = C).
+--   TowerCollapseRealization — a esperanca aperiodica (046) restrita ao fator E o colapso da torre: idempotente,
+--     preserva 1 e omega, pontos fixos = centralizador M_omega; sob w(0) != 1/2, X do 1o sitio e nao nulo com
+--     E X = 0 (actualTowerCollapse, sem inversa); controle negativo: perfil tracial = identidade, sem testemunha.
+--   Estatuto: nucleo e instancias [REAL no modelo compilado]; lei de custo [INPUT]; reflexo fisico externo,
+--   selecao de UMA ocorrencia, pagamento fisico do custo [OPEN]. M_omega != D (055). Nada move o gate.
+-- Auditoria da gerencia (sessao d554e796, 08/09/2026): a nota da entrega ainda nao estava no tunel — lote
+--   montado do MANIFESTO057.json: 106/106 hashes lidos dos bytes; auditor da bancada exit 0 (PASS_DELIVERY_SCOPE);
+--   zero proibidos; recompilacao INDEPENDENTE 4/4 (71 declaracoes, trio, 0 sorry); guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. nos imports locais (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.CollapseContract
+import Mathlib.Analysis.Complex.ExponentialBounds
+
+set_option autoImplicit false
+namespace ChatgptAudit.Collapse057
+
+/-- Dimensionless proposed TGL cost law. Separate components; no implicit addition. -/
+structure CollapseCostLaw where
+  localNats : ℝ
+  octaveNats : ℕ → ℝ
+  local_half : localNats = 1 / 2
+  per_octave : ∀ n, octaveNats n = (n : ℝ) * Real.log 2
+
+noncomputable def proposedCollapseCost : CollapseCostLaw where
+  localNats := 1 / 2
+  octaveNats := fun n => (n : ℝ) * Real.log 2
+  local_half := rfl
+  per_octave := fun _ => rfl
+
+theorem proposed_cost_components (K : CollapseCostLaw) (n : ℕ) :
+    K.localNats = 1 / 2 ∧ K.octaveNats n = (n : ℝ) * Real.log 2 :=
+  ⟨K.local_half, K.per_octave n⟩
+
+theorem local_cost_positive (K : CollapseCostLaw) : 0 < K.localNats := by
+  rw [K.local_half]; norm_num
+
+theorem octave_cost_zero (K : CollapseCostLaw) : K.octaveNats 0 = 0 := by
+  rw [K.per_octave]; simp
+
+theorem octave_cost_add (K : CollapseCostLaw) (m n : ℕ) :
+    K.octaveNats (m + n) = K.octaveNats m + K.octaveNats n := by
+  simp only [K.per_octave, Nat.cast_add, add_mul]
+
+theorem octave_cost_positive (K : CollapseCostLaw) {n : ℕ} (hn : 0 < n) :
+    0 < K.octaveNats n := by
+  rw [K.per_octave]
+  exact mul_pos (by exact_mod_cast hn) (Real.log_pos (by norm_num))
+
+theorem local_is_not_one_octave (K : CollapseCostLaw) :
+    K.localNats < K.octaveNats 1 := by
+  rw [K.local_half, K.per_octave]
+  norm_num only [Nat.cast_one, one_mul]
+  linarith [Real.log_two_gt_d9]
+
+/-- Entropy of the fair binary distribution, in nats. -/
+noncomputable def fairBitEntropy : ℝ :=
+  -((1 / 2 : ℝ) * Real.log (1 / 2) + (1 / 2 : ℝ) * Real.log (1 / 2))
+
+theorem fair_bit_entropy_is_log_two : fairBitEntropy = Real.log 2 := by
+  simp only [fairBitEntropy, one_div, Real.log_inv]
+  ring
+
+theorem fair_bit_entropy_is_not_half_nat : fairBitEntropy ≠ (1 / 2 : ℝ) := by
+  rw [fair_bit_entropy_is_log_two]
+  have h := Real.log_two_gt_d9
+  linarith
+
+/-- Logical collapse alone supplies no numerical cost observable or calibration. -/
+theorem logical_core_allows_distinct_nonnegative_cost_readings {S I : Type}
+    (C : IdentityCollapse S I) :
+    ∃ a b : S → ℝ, (∀ x, 0 ≤ a x) ∧ (∀ x, 0 ≤ b x) ∧ a ≠ b := by
+  obtain ⟨x, _⟩ := C.effective
+  refine ⟨fun _ => 0, fun _ => 1, fun _ => le_rfl, fun _ => by norm_num, ?_⟩
+  intro h
+  have hx := congrFun h x
+  norm_num at hx
+
+/-- Physical provenance is a separate predicate supplied by the observer's protocol. -/
+structure ReflectionProtocol (State Record Agent : Type) where
+  outputReading : State → Record
+  producer : Agent
+  recorder : Record → Agent
+  externallyValidated : State → State → Record → Prop
+
+/-- Evidence links an actual changed transition to its recorded output. -/
+structure AttestedCollapse {S I R A : Type}
+    (C : IdentityCollapse S I) (P : ReflectionProtocol S R A) (before after : S) where
+  transition : CollapseTransition C before after
+  record : R
+  reflected : record = P.outputReading after
+  different_recorder : P.recorder record ≠ P.producer
+  validated : P.externallyValidated before after record
+
+theorem attestation_requires_external_evidence {S I R A : Type}
+    (C : IdentityCollapse S I) (P : ReflectionProtocol S R A)
+    {before after : S} (h : AttestedCollapse C P before after) :
+    ∃ r, r = P.outputReading after ∧ P.recorder r ≠ P.producer ∧
+      P.externallyValidated before after r :=
+  ⟨h.record, h.reflected, h.different_recorder, h.validated⟩
+
+theorem no_self_attestation {S I R A : Type}
+    (C : IdentityCollapse S I) (P : ReflectionProtocol S R A)
+    {before after : S}
+    (self : ∀ r, P.recorder r = P.producer) :
+    ¬ Nonempty (AttestedCollapse C P before after) := by
+  rintro ⟨h⟩
+  exact h.different_recorder (self h.record)
+
+theorem missing_external_evidence_blocks_attestation {S I R A : Type}
+    (C : IdentityCollapse S I) (P : ReflectionProtocol S R A)
+    {before after : S} (missing : ∀ r, ¬ P.externallyValidated before after r) :
+    ¬ Nonempty (AttestedCollapse C P before after) := by
+  rintro ⟨h⟩
+  exact missing h.record h.validated
+
+theorem attested_output_stable_and_identity_preserved {S I R A : Type}
+    (C : IdentityCollapse S I) (P : ReflectionProtocol S R A)
+    {before after : S} (h : AttestedCollapse C P before after) :
+    C.identity after = C.identity before ∧ C.step after = after :=
+  transition_preserves_identity_and_is_fixed C h.transition
+
+
+/-- The complete proposed TGL definition: logical object, cost law, reflection protocol. -/
+structure TGLCollapseSpecification (S I R A : Type) where
+  core : IdentityCollapse S I
+  cost : CollapseCostLaw
+  reflection : ReflectionProtocol S R A
+
+/-- An actual testimony is required; the specification does not manufacture one. -/
+def AttestedTGLCollapse {S I R A : Type}
+    (C : TGLCollapseSpecification S I R A) (before after : S) :=
+  AttestedCollapse C.core C.reflection before after
+
+theorem typed_collapse_content {S I R A : Type}
+    (C : TGLCollapseSpecification S I R A) {before after : S}
+    (h : AttestedTGLCollapse C before after) (n : ℕ) :
+    before ≠ after ∧
+      C.core.step after = after ∧
+      C.core.identity after = C.core.identity before ∧
+      (¬ ∃ recover : S → S, Function.LeftInverse recover C.core.step) ∧
+      C.cost.localNats = 1 / 2 ∧
+      C.cost.octaveNats n = (n : ℝ) * Real.log 2 ∧
+      ∃ r, r = C.reflection.outputReading after ∧
+        C.reflection.recorder r ≠ C.reflection.producer ∧
+        C.reflection.externallyValidated before after r := by
+  have hstate := transition_preserves_identity_and_is_fixed C.core h.transition
+  exact ⟨h.transition.2, hstate.2, hstate.1, collapse_has_no_left_inverse C.core,
+    C.cost.local_half, C.cost.per_octave n,
+    attestation_requires_external_evidence C.core C.reflection h⟩
+
+theorem typed_collapse_has_no_self_attestation {S I R A : Type}
+    (C : TGLCollapseSpecification S I R A) (before after : S)
+    (self : ∀ r, C.reflection.recorder r = C.reflection.producer) :
+    ¬ Nonempty (AttestedTGLCollapse C before after) :=
+  no_self_attestation C.core C.reflection self
+
+#print axioms CollapseCostLaw
+#print axioms proposedCollapseCost
+#print axioms proposed_cost_components
+#print axioms local_cost_positive
+#print axioms octave_cost_zero
+#print axioms octave_cost_add
+#print axioms octave_cost_positive
+#print axioms local_is_not_one_octave
+#print axioms fairBitEntropy
+#print axioms fair_bit_entropy_is_log_two
+#print axioms fair_bit_entropy_is_not_half_nat
+#print axioms logical_core_allows_distinct_nonnegative_cost_readings
+#print axioms ReflectionProtocol
+#print axioms AttestedCollapse
+#print axioms attestation_requires_external_evidence
+#print axioms no_self_attestation
+#print axioms missing_external_evidence_blocks_attestation
+#print axioms attested_output_stable_and_identity_preserved
+#print axioms TGLCollapseSpecification
+#print axioms AttestedTGLCollapse
+#print axioms typed_collapse_content
+#print axioms typed_collapse_has_no_self_attestation
+end ChatgptAudit.Collapse057
+''',
+    "TGLExt/QuantumCollapseWitness.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_057 (08/09/2026), transposta em 08/09/2026
+-- O COLAPSO TIPADO. Definicao do operador (08/09/2026, verbatim): «colapso e a passagem irreversivel da
+--   superposicao ao ponto fixo que preserva a identidade. Custa (meia-nat local, ln 2 por oitava), nao tem
+--   inversa, e so e atestada pelo reflexo, nunca por autodeclaracao.» Quatro modulos (60 teoremas):
+--   CollapseContract — IdentityCollapse S I (C idempotente; iota(C x) = iota(x); existe x com C x != x):
+--     nao injetiva, sem inversa a esquerda, Im C = Fix C, iteracao estavel, transicao efetiva preserva a
+--     identidade; uma involucao (o reflexo J) NAO pode ser o colapso; o reflexo da saida nao restaura a entrada.
+--   CollapseCostAndAttestation — CollapseCostLaw (localNats = 1/2; octaveNats n = n ln 2; componentes SEPARADOS,
+--     sem soma por decreto) [INPUT]; ln 2 != 1/2 (a entropia do bit justo nao e a meia-nat); o nucleo logico
+--     nao fixa o valor do custo (obstrucao a inferencia sem hipotese); ReflectionProtocol / AttestedCollapse:
+--     atestacao exige evidencia EXTERNA, autodeclaracao nao habita o tipo; TGLCollapseSpecification reune
+--     nucleo + custo + protocolo; typed_collapse_content expoe o conteudo inteiro num enunciado.
+--   QuantumCollapseWitness — o nameOp canonico no qubit: C(rho) = P0 rho P0 + P1 rho P1; rho+ != rho- puras com
+--     C(rho+) = C(rho-) = I/2 (perda entre estados fisicos); QubitDensity (psd, traco 1); actualDensityCollapse
+--     habita o contrato; ramo selecionado exige rotulo do registro (peso zero nao normaliza; somar ramos = C).
+--   TowerCollapseRealization — a esperanca aperiodica (046) restrita ao fator E o colapso da torre: idempotente,
+--     preserva 1 e omega, pontos fixos = centralizador M_omega; sob w(0) != 1/2, X do 1o sitio e nao nulo com
+--     E X = 0 (actualTowerCollapse, sem inversa); controle negativo: perfil tracial = identidade, sem testemunha.
+--   Estatuto: nucleo e instancias [REAL no modelo compilado]; lei de custo [INPUT]; reflexo fisico externo,
+--   selecao de UMA ocorrencia, pagamento fisico do custo [OPEN]. M_omega != D (055). Nada move o gate.
+-- Auditoria da gerencia (sessao d554e796, 08/09/2026): a nota da entrega ainda nao estava no tunel — lote
+--   montado do MANIFESTO057.json: 106/106 hashes lidos dos bytes; auditor da bancada exit 0 (PASS_DELIVERY_SCOPE);
+--   zero proibidos; recompilacao INDEPENDENTE 4/4 (71 declaracoes, trio, 0 sorry); guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. nos imports locais (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.CollapseContract
+import TGLExt.TheNameOperator
+import Mathlib.Analysis.Matrix.Order
+
+set_option autoImplicit false
+set_option maxHeartbeats 600000
+namespace ChatgptAudit.Collapse057
+open Matrix
+open scoped ComplexOrder
+noncomputable section
+
+abbrev QubitMatrix := Matrix (Fin 2) (Fin 2) ℂ
+
+def readoutZero : QubitMatrix := !![1, 0; 0, 0]
+def readoutOne : QubitMatrix := !![0, 0; 0, 1]
+def plusDensity : QubitMatrix := !![1/2, 1/2; 1/2, 1/2]
+def minusDensity : QubitMatrix := !![1/2, -(1/2); -(1/2), 1/2]
+def mixedDensity : QubitMatrix := !![1/2, 0; 0, 1/2]
+
+/-- The existing canonical naming operation, acting on density matrices here. -/
+def qubitReduction (A : QubitMatrix) : QubitMatrix :=
+  TGLExt.nameOp readoutZero A
+
+theorem readout_zero_idempotent : readoutZero * readoutZero = readoutZero := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    norm_num [readoutZero, Matrix.mul_apply, Fin.sum_univ_two]
+
+theorem qubit_reduction_formula (A : QubitMatrix) :
+    qubitReduction A = !![A 0 0, 0; 0, A 1 1] := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    norm_num [qubitReduction, TGLExt.nameOp, readoutZero, Matrix.mul_apply, Fin.sum_univ_two,
+      Matrix.vecMul, dotProduct]
+
+theorem qubit_reduction_unital : qubitReduction 1 = 1 :=
+  TGLExt.name_op_unital readout_zero_idempotent
+
+theorem qubit_reduction_idempotent (A : QubitMatrix) :
+    qubitReduction (qubitReduction A) = qubitReduction A :=
+  TGLExt.name_op_idem readout_zero_idempotent A
+
+theorem qubit_reduction_preserves_trace (A : QubitMatrix) :
+    Matrix.trace (qubitReduction A) = Matrix.trace A := by
+  rw [qubit_reduction_formula]
+  simp [Matrix.trace, Fin.sum_univ_two]
+
+theorem opposite_phases_same_reduction :
+    qubitReduction plusDensity = mixedDensity ∧
+      qubitReduction minusDensity = mixedDensity := by
+  constructor <;> rw [qubit_reduction_formula] <;> rfl
+
+theorem opposite_phase_states_distinct : plusDensity ≠ minusDensity := by
+  intro h
+  have hh := congrArg (fun A : QubitMatrix => A 0 1) h
+  norm_num [plusDensity, minusDensity] at hh
+
+theorem pure_densities_square :
+    plusDensity * plusDensity = plusDensity ∧
+      minusDensity * minusDensity = minusDensity := by
+  constructor <;> ext i j <;> fin_cases i <;> fin_cases j <;>
+    norm_num [plusDensity, minusDensity, Matrix.mul_apply, Fin.sum_univ_two]
+
+theorem pure_densities_hermitian :
+    plusDensityᴴ = plusDensity ∧ minusDensityᴴ = minusDensity := by
+  constructor <;> ext i j <;> fin_cases i <;> fin_cases j <;>
+    norm_num [plusDensity, minusDensity, Matrix.conjTranspose_apply]
+
+theorem pure_densities_positive :
+    plusDensity.PosSemidef ∧ minusDensity.PosSemidef := by
+  constructor
+  · have h := Matrix.posSemidef_conjTranspose_mul_self plusDensity
+    simpa only [pure_densities_hermitian.1, pure_densities_square.1] using h
+  · have h := Matrix.posSemidef_conjTranspose_mul_self minusDensity
+    simpa only [pure_densities_hermitian.2, pure_densities_square.2] using h
+
+theorem pure_densities_normalized :
+    Matrix.trace plusDensity = 1 ∧ Matrix.trace minusDensity = 1 := by
+  constructor <;> norm_num [Matrix.trace, Fin.sum_univ_two, plusDensity, minusDensity]
+
+theorem mixed_density_normalized : Matrix.trace mixedDensity = 1 := by
+  norm_num [Matrix.trace, Fin.sum_univ_two, mixedDensity]
+
+theorem mixed_density_fixed : qubitReduction mixedDensity = mixedDensity := by
+  rw [qubit_reduction_formula]
+  rfl
+
+theorem mixed_density_not_pure : mixedDensity * mixedDensity ≠ mixedDensity := by
+  intro h
+  have hh := congrArg (fun A : QubitMatrix => A 0 0) h
+  norm_num [mixedDensity, Matrix.mul_apply, Fin.sum_univ_two] at hh
+
+theorem distinct_readout_fixed_points :
+    qubitReduction readoutZero = readoutZero ∧
+      qubitReduction readoutOne = readoutOne ∧ readoutZero ≠ readoutOne := by
+  refine ⟨?_, ?_, ?_⟩
+  · rw [qubit_reduction_formula]; rfl
+  · rw [qubit_reduction_formula]; rfl
+  · intro h
+    have hh := congrArg (fun A : QubitMatrix => A 0 0) h
+    norm_num [readoutZero, readoutOne] at hh
+
+theorem qubit_reduction_no_inverse :
+    ¬ ∃ R : QubitMatrix → QubitMatrix, Function.LeftInverse R qubitReduction := by
+  rintro ⟨R, hR⟩
+  apply opposite_phase_states_distinct
+  exact hR.injective (opposite_phases_same_reduction.1.trans
+    opposite_phases_same_reduction.2.symm)
+
+/-- An individual branch is supplied by a record; no outcome is sampled by this map. -/
+def selectedReadout (outcome : Fin 2) : QubitMatrix :=
+  if outcome = 0 then readoutZero else readoutOne
+
+def branchWeight (A : QubitMatrix) (outcome : Fin 2) : ℂ := A outcome outcome
+
+def unnormalizedBranch (A : QubitMatrix) (outcome : Fin 2) : QubitMatrix :=
+  selectedReadout outcome * A * selectedReadout outcome
+
+theorem selective_branch_formula (A : QubitMatrix) (outcome : Fin 2) :
+    unnormalizedBranch A outcome = branchWeight A outcome • selectedReadout outcome := by
+  ext i j
+  fin_cases outcome <;> fin_cases i <;> fin_cases j <;>
+    norm_num [unnormalizedBranch, selectedReadout, branchWeight, readoutZero, readoutOne,
+      Matrix.mul_apply, Fin.sum_univ_two, Matrix.vecMul, dotProduct]
+
+theorem normalized_branch_requires_nonzero_weight (A : QubitMatrix) (outcome : Fin 2)
+    (h : branchWeight A outcome ≠ 0) :
+    (branchWeight A outcome)⁻¹ • unnormalizedBranch A outcome = selectedReadout outcome := by
+  rw [selective_branch_formula, smul_smul, inv_mul_cancel₀ h, one_smul]
+
+theorem forgetting_outcome_is_nonselective (A : QubitMatrix) :
+    unnormalizedBranch A 0 + unnormalizedBranch A 1 = qubitReduction A := by
+  rw [qubit_reduction_formula, selective_branch_formula, selective_branch_formula]
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [branchWeight, selectedReadout, readoutZero, readoutOne]
+
+theorem fair_branch_weights (outcome : Fin 2) :
+    branchWeight plusDensity outcome = 1 / 2 ∧
+      branchWeight minusDensity outcome = 1 / 2 := by
+  fin_cases outcome <;> constructor <;> rfl
+
+
+theorem qubit_reduction_positive (A : QubitMatrix) (hA : A.PosSemidef) :
+    (qubitReduction A).PosSemidef := by
+  have h : qubitReduction A = Matrix.diagonal (fun i => A i i) := by
+    rw [qubit_reduction_formula]
+    ext i j
+    fin_cases i <;> fin_cases j <;> simp
+  rw [h]
+  exact Matrix.PosSemidef.diagonal (fun _ => hA.diag_nonneg)
+
+abbrev QubitDensity := {A : QubitMatrix // A.PosSemidef ∧ Matrix.trace A = 1}
+
+def densityReduction (A : QubitDensity) : QubitDensity :=
+  ⟨qubitReduction A.val, qubit_reduction_positive A.val A.property.1,
+    (qubit_reduction_preserves_trace A.val).trans A.property.2⟩
+
+theorem density_reduction_idempotent (A : QubitDensity) :
+    densityReduction (densityReduction A) = densityReduction A :=
+  Subtype.ext (qubit_reduction_idempotent A.val)
+
+theorem density_reduction_effective :
+    ∃ A : QubitDensity, densityReduction A ≠ A := by
+  refine ⟨⟨plusDensity, pure_densities_positive.1, pure_densities_normalized.1⟩, ?_⟩
+  intro h
+  have he := congrArg (fun A : QubitDensity => A.val 0 1) h
+  change qubitReduction plusDensity 0 1 = plusDensity 0 1 at he
+  rw [opposite_phases_same_reduction.1] at he
+  norm_num [mixedDensity, plusDensity] at he
+
+def actualDensityCollapse : IdentityCollapse QubitDensity ℂ where
+  step := densityReduction
+  identity := fun A => Matrix.trace A.val
+  stable := density_reduction_idempotent
+  preserves := fun A => qubit_reduction_preserves_trace A.val
+  effective := density_reduction_effective
+
+theorem density_reduction_no_inverse :
+    ¬ ∃ R : QubitDensity → QubitDensity, Function.LeftInverse R densityReduction :=
+  collapse_has_no_left_inverse actualDensityCollapse
+
+theorem zero_weight_is_no_normalized_branch (A : QubitMatrix) (outcome : Fin 2)
+    (h : branchWeight A outcome = 0) :
+    unnormalizedBranch A outcome = 0 := by
+  rw [selective_branch_formula, h, zero_smul]
+
+#print axioms QubitMatrix
+#print axioms readoutZero
+#print axioms readoutOne
+#print axioms plusDensity
+#print axioms minusDensity
+#print axioms mixedDensity
+#print axioms qubitReduction
+#print axioms readout_zero_idempotent
+#print axioms qubit_reduction_formula
+#print axioms qubit_reduction_unital
+#print axioms qubit_reduction_idempotent
+#print axioms qubit_reduction_preserves_trace
+#print axioms opposite_phases_same_reduction
+#print axioms opposite_phase_states_distinct
+#print axioms pure_densities_square
+#print axioms pure_densities_hermitian
+#print axioms pure_densities_positive
+#print axioms pure_densities_normalized
+#print axioms mixed_density_normalized
+#print axioms mixed_density_fixed
+#print axioms mixed_density_not_pure
+#print axioms distinct_readout_fixed_points
+#print axioms qubit_reduction_no_inverse
+#print axioms selectedReadout
+#print axioms branchWeight
+#print axioms unnormalizedBranch
+#print axioms selective_branch_formula
+#print axioms normalized_branch_requires_nonzero_weight
+#print axioms forgetting_outcome_is_nonselective
+#print axioms fair_branch_weights
+#print axioms qubit_reduction_positive
+#print axioms QubitDensity
+#print axioms densityReduction
+#print axioms density_reduction_idempotent
+#print axioms density_reduction_effective
+#print axioms actualDensityCollapse
+#print axioms density_reduction_no_inverse
+#print axioms zero_weight_is_no_normalized_branch
+end
+end ChatgptAudit.Collapse057
+''',
+    "TGLExt/TowerCollapseRealization.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_057 (08/09/2026), transposta em 08/09/2026
+-- O COLAPSO TIPADO. Definicao do operador (08/09/2026, verbatim): «colapso e a passagem irreversivel da
+--   superposicao ao ponto fixo que preserva a identidade. Custa (meia-nat local, ln 2 por oitava), nao tem
+--   inversa, e so e atestada pelo reflexo, nunca por autodeclaracao.» Quatro modulos (60 teoremas):
+--   CollapseContract — IdentityCollapse S I (C idempotente; iota(C x) = iota(x); existe x com C x != x):
+--     nao injetiva, sem inversa a esquerda, Im C = Fix C, iteracao estavel, transicao efetiva preserva a
+--     identidade; uma involucao (o reflexo J) NAO pode ser o colapso; o reflexo da saida nao restaura a entrada.
+--   CollapseCostAndAttestation — CollapseCostLaw (localNats = 1/2; octaveNats n = n ln 2; componentes SEPARADOS,
+--     sem soma por decreto) [INPUT]; ln 2 != 1/2 (a entropia do bit justo nao e a meia-nat); o nucleo logico
+--     nao fixa o valor do custo (obstrucao a inferencia sem hipotese); ReflectionProtocol / AttestedCollapse:
+--     atestacao exige evidencia EXTERNA, autodeclaracao nao habita o tipo; TGLCollapseSpecification reune
+--     nucleo + custo + protocolo; typed_collapse_content expoe o conteudo inteiro num enunciado.
+--   QuantumCollapseWitness — o nameOp canonico no qubit: C(rho) = P0 rho P0 + P1 rho P1; rho+ != rho- puras com
+--     C(rho+) = C(rho-) = I/2 (perda entre estados fisicos); QubitDensity (psd, traco 1); actualDensityCollapse
+--     habita o contrato; ramo selecionado exige rotulo do registro (peso zero nao normaliza; somar ramos = C).
+--   TowerCollapseRealization — a esperanca aperiodica (046) restrita ao fator E o colapso da torre: idempotente,
+--     preserva 1 e omega, pontos fixos = centralizador M_omega; sob w(0) != 1/2, X do 1o sitio e nao nulo com
+--     E X = 0 (actualTowerCollapse, sem inversa); controle negativo: perfil tracial = identidade, sem testemunha.
+--   Estatuto: nucleo e instancias [REAL no modelo compilado]; lei de custo [INPUT]; reflexo fisico externo,
+--   selecao de UMA ocorrencia, pagamento fisico do custo [OPEN]. M_omega != D (055). Nada move o gate.
+-- Auditoria da gerencia (sessao d554e796, 08/09/2026): a nota da entrega ainda nao estava no tunel — lote
+--   montado do MANIFESTO057.json: 106/106 hashes lidos dos bytes; auditor da bancada exit 0 (PASS_DELIVERY_SCOPE);
+--   zero proibidos; recompilacao INDEPENDENTE 4/4 (71 declaracoes, trio, 0 sorry); guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. nos imports locais (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.CollapseContract
+import TGLExt.LocalHorizontalPauli
+
+set_option autoImplicit false
+set_option maxHeartbeats 1200000
+namespace ChatgptAudit.Collapse057
+open TGLExt ChatgptAudit ChatgptAudit.Aperiodic046 ChatgptAudit.Expectation047
+  ChatgptAudit.Observable035 ChatgptAudit.Orbit052
+
+noncomputable section
+
+/-- Restrict the domain to the actual factor; no arbitrary values outside M. -/
+abbrev FactorCarrier (P : SiteProfile) :=
+  {A : TowerHilbert P →L[ℂ] TowerHilbert P // A ∈ theFactorObject P}
+
+def towerReduction (P : SiteProfile) (A : FactorCarrier P) : FactorCarrier P :=
+  ⟨(aperiodicExpectationInput P).E A.val,
+    ((aperiodicExpectationInput P).into A.val A.property).1⟩
+
+theorem tower_reduction_idempotent (P : SiteProfile) (A : FactorCarrier P) :
+    towerReduction P (towerReduction P A) = towerReduction P A := by
+  apply Subtype.ext
+  exact aperiodic_expectation_idempotent P A.val A.property
+
+theorem tower_reduction_preserves_state (P : SiteProfile) (A : FactorCarrier P) :
+    omegaState P (towerReduction P A).val = omegaState P A.val :=
+  expectation_preserves_omega P (aperiodicExpectationInput P) A.val A.property
+
+theorem tower_reduction_preserves_unit (P : SiteProfile) :
+    towerReduction P ⟨1, (theFactorObject P).one_mem⟩ =
+      ⟨1, (theFactorObject P).one_mem⟩ := by
+  apply Subtype.ext
+  exact expectation_one P (aperiodicExpectationInput P)
+
+theorem tower_fixed_points_exactly_centralizer (P : SiteProfile) (A : FactorCarrier P) :
+    towerReduction P A = A ↔ A.val ∈ omegaCentralizer P := by
+  constructor
+  · intro h
+    have hi := (aperiodicExpectationInput P).into A.val A.property
+    have he := congrArg Subtype.val h
+    exact he ▸ hi
+  · intro h
+    exact Subtype.ext ((aperiodicExpectationInput P).fixes A.val h)
+
+theorem tower_pauli_x_nonzero (P : SiteProfile) : sitePauliX P 0 ≠ 0 := by
+  intro h
+  have hn := pauli_x_gns_norm P
+  rw [h] at hn
+  norm_num at hn
+
+theorem tower_reduction_effective (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    ∃ A : FactorCarrier P, towerReduction P A ≠ A := by
+  refine ⟨⟨sitePauliX P 0, site_pauli_x_mem_factor P 0⟩, ?_⟩
+  intro h
+  have he := congrArg Subtype.val h
+  change (aperiodicExpectationInput P).E (sitePauliX P 0) = sitePauliX P 0 at he
+  rw [aperiodic_pauli_x_zero P hp] at he
+  exact tower_pauli_x_nonzero P he.symm
+
+/-- Constructed inhabitant for the nontracial first-site regime. -/
+def actualTowerCollapse (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    IdentityCollapse (FactorCarrier P) ℂ where
+  step := towerReduction P
+  identity := fun A => omegaState P A.val
+  stable := tower_reduction_idempotent P
+  preserves := tower_reduction_preserves_state P
+  effective := tower_reduction_effective P hp
+
+theorem actual_tower_collapse_no_inverse (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    ¬ ∃ R : FactorCarrier P → FactorCarrier P,
+      Function.LeftInverse R (towerReduction P) :=
+  collapse_has_no_left_inverse (actualTowerCollapse P hp)
+
+/-- Negative control: the fully tracial profile gives no changed collapse event. -/
+theorem tracial_tower_reduction_is_identity (P : SiteProfile)
+    (hp : ∀ n, P.w n = 1 / 2) : towerReduction P = id := by
+  funext A
+  apply (tower_fixed_points_exactly_centralizer P A).mpr
+  exact (half_profile_centralizer_is_factor hp A.val).mpr A.property
+
+theorem tracial_tower_has_no_effective_witness (P : SiteProfile)
+    (hp : ∀ n, P.w n = 1 / 2) :
+    ¬ ∃ A : FactorCarrier P, towerReduction P A ≠ A := by
+  rw [tracial_tower_reduction_is_identity P hp]
+  simp
+
+#print axioms FactorCarrier
+#print axioms towerReduction
+#print axioms tower_reduction_idempotent
+#print axioms tower_reduction_preserves_state
+#print axioms tower_reduction_preserves_unit
+#print axioms tower_fixed_points_exactly_centralizer
+#print axioms tower_pauli_x_nonzero
+#print axioms tower_reduction_effective
+#print axioms actualTowerCollapse
+#print axioms actual_tower_collapse_no_inverse
+#print axioms tracial_tower_reduction_is_identity
+#print axioms tracial_tower_has_no_effective_witness
+end
+end ChatgptAudit.Collapse057
+''',
+    # ===== v332: ENTREGAS 055..056 ESPONTANEAS DA BANCADA CHATGPT (08/09/2026) — 6 pedras =====
+    # 055: SELETOR RELATIVO na torre infinita — com geometricAmplitude (ja do kernel) a leitura de verossimilhanca do
+    # cociclo separa TODAS as configuracoes infinitas (t != 0): contraste dyadico 2a(x/2) < a(x), codigo binario
+    # injetivo; ligado ao gerador/densidade/cociclo existentes. [DERIVED]: A = C*(P_n), D = W*(P_n); D comutativa != M.
+    # 056: metrica espectral d_t; Fisher radial 1/96 <= F <= 4/357, F(0) = 1/96; entropia relativa/t^4 -> 1/192;
+    # NEGATIVOS: Gram uniparametrico det 0 (sem area); Dirac relativo com distancia de comutadores infinita; gauge
+    # exp(isP_n) preserva estados e cociclo, gerador nao central. [OPEN]: geometria fisica, area, Einstein-Cartan.
+    # Auditoria: hashes 100%; 2/2 auditores; recompilacao independente 6/6 trio; guarda; fontes em subpastas.
+    "TGLExt/GeometricLikelihoodSeparation.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_055 ESPONTANEA (08/09/2026), transposta em 08/09/2026
+-- Lote 055..056 (6 modulos; origem: ordem direta do operador a bancada para demonstrar no modelo completo).
+--   055 — SELETOR RELATIVO NA TORRE INFINITA: com a preparacao ja existente geometricAmplitude (b_n = 2^-n/24)
+--     e os pesos da torre, a leitura de verossimilhanca do cociclo SEPARA todas as configuracoes infinitas
+--     quando t != 0 (contraste a(x) = log(1+3x/2) - log(1-3x) com 2a(x/2) < a(x): cada a_n domina toda a cauda;
+--     codigo binario injetivo); a leitura coincide com os logaritmos dos pesos efetivos e com o gerador de
+--     verossimilhanca do kernel (existing_global_generator_bound / density_normalized / cocycle_limit);
+--     a densidade existente e o estado preparado. [DERIVED, analitico, NAO Lean]: A = C*(P_n), D = W*(P_n)
+--     recuperados pelo cociclo; [DERIVED + KNOWN]: esperanca D no fator inteiro (Takesaki). D e comutativa,
+--     M e o ambiente: W*(u) = D nao e W*(u) = M. Vale para geometricAmplitude e t != 0, nao para todo perfil.
+--   056 — METRICAS DA TORRE E LIMITES DA RECONSTRUCAO: d_t(x,y) = |g_t(x) - g_t(y)| e metrica (t != 0) e a
+--     escala e livre; Fisher radial F(r) = sum b_n^2/[q_n(1-q_n)] com 1/96 <= F <= 4/357 e F(0) = 1/96 (soma e
+--     cotas Lean; identificacao probabilistica global analitica); entropia relativa/t^4 -> F(0)/2 = 1/192;
+--     NEGATIVOS: a familia de um parametro tem Gram 2x2 de determinante ZERO (nao gera area por renomear
+--     coordenadas); o gerador relativo como Dirac tem distancia de comutadores INFINITA entre configuracoes
+--     distintas (comutador zero com as coordenadas); o gauge relativo exp(isP_n) preserva ambos os estados e o
+--     cociclo (liberdade residual), e seu gerador NAO e central ([P_0, E_01] = E_01 != 0).
+--   Estatuto: [REAL] o compilado; [DERIVED] reconstrucao da algebra diagonal, interpretacao global de Fisher,
+--   4||xi_r||^2 = F(r), arcsin, distancia de Connes; [OPEN] geometria fisica 3+1, area-entropia geometrica,
+--   calor fisico, acao gravitacional, Einstein-Cartan sem hipoteses. Nenhum nome ligado a H3/area/gate.
+-- Auditoria da gerencia (sessao d554e796, 08/09/2026): hashes 10/10 + 13/13; 2/2 auditores da bancada exit 0;
+--   sem revisao cientifica independente na bancada (declarado) — a gerencia leu os enunciados;
+--   recompilacao INDEPENDENTE 6/6, axiomas no trio; guarda de colisao; fontes lidas das SUBPASTAS da entrega.
+--   Transposicao: cabecalho + prefixo TGLExt. nos imports locais (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.LikelihoodDensityLog
+import TGLExt.SummableGravityControls
+import Mathlib.Tactic
+
+set_option autoImplicit false
+set_option maxHeartbeats 2400000
+namespace ChatgptAudit.CocycleRealization
+open Filter Topology Set TGLExt ChatgptAudit.Response028 ChatgptAudit.Cocycle030
+  ChatgptAudit.Density033 ChatgptAudit.Thermal025
+noncomputable section
+
+def logContrast (x : ℝ) : ℝ := logOneRatio x - logZeroRatio x
+
+def geometricArgument (t : ℝ) (n : ℕ) : ℝ :=
+  geometricAmplitude.value n * regularParameter t
+
+def geometricContrast (t : ℝ) (n : ℕ) : ℝ :=
+  logContrast (geometricArgument t n)
+
+theorem contrast_nonnegative {x : ℝ} (hx : 0 ≤ x) (hb : x ≤ 1/12) :
+    0 ≤ logContrast x := by
+  have h0 := (log_zero_ratio_bounds x hx hb).2
+  have h1 := (log_one_ratio_bounds x hx).1
+  dsimp [logContrast]
+  linarith
+
+theorem contrast_upper {x : ℝ} (hx : 0 ≤ x) (hb : x ≤ 1/12) :
+    logContrast x ≤ 6*x := by
+  have h := log_ratio_abs_bound x hx hb
+  have h0 := (log_zero_ratio_bounds x hx hb).2
+  have h1 := (log_one_ratio_bounds x hx).1
+  rw [abs_of_nonpos h0, abs_of_nonneg h1] at h
+  dsimp [logContrast]
+  linarith
+
+theorem contrast_log_ratio {x : ℝ} (hx : 0 ≤ x) (hb : x ≤ 1/12) :
+    logContrast x = Real.log ((1+(3/2)*x)/(1-3*x)) := by
+  have h0 : 0 < 1-3*x := by linarith
+  have h1 : 0 < 1+(3/2)*x := by positivity
+  rw [Real.log_div (ne_of_gt h1) (ne_of_gt h0)]
+  rfl
+
+theorem contrast_strict_dyadic {x : ℝ} (hx : 0 < x) (hb : x ≤ 1/12) :
+    2*logContrast (x/2) < logContrast x := by
+  have h0 : 0 < 1-3*x := by linarith
+  have hh : 0 < 1-3*(x/2) := by linarith
+  have hp : 0 < 1+(3/2)*(x/2) := by positivity
+  have hbhalf : x/2 ≤ (1:ℝ)/12 := by linarith
+  have hratio :
+      ((1+(3/2)*(x/2))/(1-3*(x/2)))^2 <
+        (1+(3/2)*x)/(1-3*x) := by
+    rw [div_pow]
+    apply (div_lt_div_iff₀ (sq_pos_of_pos hh) h0).mpr
+    apply sub_pos.mp
+    have he :
+        (1+(3/2)*x)*(1-3*(x/2))^2 -
+          (1+(3/2)*(x/2))^2*(1-3*x) = (27/16)*x^2*(1+3*x) := by ring
+    rw [he]
+    positivity
+  have hl := Real.log_lt_log (sq_pos_of_pos (div_pos hp hh)) hratio
+  rw [Real.log_pow] at hl
+  rw [contrast_log_ratio (by positivity : 0 ≤ x/2) hbhalf,
+    contrast_log_ratio hx.le hb]
+  simpa using hl
+
+theorem contrast_dyadic {x : ℝ} (hx : 0 ≤ x) (hb : x ≤ 1/12) :
+    2*logContrast (x/2) ≤ logContrast x := by
+  by_cases hz : x=0
+  · subst x
+    norm_num [logContrast,logOneRatio,logZeroRatio]
+  · exact (contrast_strict_dyadic (lt_of_le_of_ne hx (Ne.symm hz)) hb).le
+
+theorem geometric_argument_bounds (t : ℝ) (n : ℕ) :
+    0 ≤ geometricArgument t n ∧ geometricArgument t n ≤ 1/12 :=
+  likelihood_argument_bounds geometricAmplitude t n
+
+theorem geometric_argument_positive {t : ℝ} (ht : t≠0) (n : ℕ) :
+    0 < geometricArgument t n :=
+  mul_pos (geometric_amplitude_positive n) (regular_parameter_positive t ht)
+
+theorem geometric_argument_succ (t : ℝ) (n : ℕ) :
+    geometricArgument t (n+1) = geometricArgument t n/2 := by
+  change (1/24)*(1/2 : ℝ)^(n+1)*regularParameter t =
+    ((1/24)*(1/2 : ℝ)^n*regularParameter t)/2
+  rw [pow_succ]
+  ring
+
+theorem geometric_contrast_nonnegative (t : ℝ) (n : ℕ) :
+    0 ≤ geometricContrast t n :=
+  contrast_nonnegative (geometric_argument_bounds t n).1 (geometric_argument_bounds t n).2
+
+theorem geometric_contrast_summable (t : ℝ) : Summable (geometricContrast t) := by
+  apply Summable.of_nonneg_of_le (geometric_contrast_nonnegative t)
+    (fun n => ?_) (geometricAmplitude.summable.mul_left (6*regularParameter t))
+  have h := contrast_upper (geometric_argument_bounds t n).1 (geometric_argument_bounds t n).2
+  simpa only [geometricContrast,geometricArgument,mul_comm,mul_left_comm,mul_assoc] using h
+
+theorem geometric_contrast_succ_le (t : ℝ) (n : ℕ) :
+    geometricContrast t (n+1) ≤ geometricContrast t n/2 := by
+  have h := contrast_dyadic (geometric_argument_bounds t n).1 (geometric_argument_bounds t n).2
+  change logContrast (geometricArgument t (n+1)) ≤ _
+  rw [geometric_argument_succ]
+  change logContrast (geometricArgument t n/2) ≤ logContrast (geometricArgument t n)/2
+  linarith
+
+theorem geometric_contrast_strict_succ {t : ℝ} (ht : t≠0) (n : ℕ) :
+    2*geometricContrast t (n+1) < geometricContrast t n := by
+  have h := contrast_strict_dyadic (geometric_argument_positive ht n)
+    (geometric_argument_bounds t n).2
+  simpa only [geometricContrast,geometric_argument_succ] using h
+
+theorem geometric_contrast_shift_bound (t : ℝ) (n k : ℕ) :
+    geometricContrast t (n+1+k) ≤ geometricContrast t (n+1)*(1/2 : ℝ)^k := by
+  induction k with
+  | zero => simp
+  | succ k ih =>
+    have hh := geometric_contrast_succ_le t (n+1+k)
+    have hle := div_le_div_of_nonneg_right ih (by norm_num : (0:ℝ)≤2)
+    rw [pow_succ]
+    have he : n+1+(k+1)=(n+1+k)+1 := by omega
+    rw [he]
+    nlinarith
+
+theorem geometric_contrast_tail_summable (t : ℝ) (n : ℕ) :
+    Summable (fun k => geometricContrast t (n+1+k)) :=
+  (geometric_contrast_summable t).comp_injective (fun _ _ h => Nat.add_left_cancel h)
+
+theorem geometric_contrast_tail_le (t : ℝ) (n : ℕ) :
+    (∑' k, geometricContrast t (n+1+k)) ≤ 2*geometricContrast t (n+1) := by
+  calc
+    (∑' k, geometricContrast t (n+1+k)) ≤
+        ∑' k, geometricContrast t (n+1)*(1/2 : ℝ)^k :=
+      Summable.tsum_le_tsum (geometric_contrast_shift_bound t n)
+        (geometric_contrast_tail_summable t n)
+        ((summable_geometric_of_lt_one (by norm_num : (0:ℝ)≤1/2) (by norm_num)).mul_left _)
+    _ = 2*geometricContrast t (n+1) := by
+      rw [tsum_mul_left,tsum_geometric_of_lt_one (by norm_num : (0:ℝ)≤1/2) (by norm_num)]
+      ring
+
+theorem geometric_contrast_dominates_entire_tail {t : ℝ} (ht : t≠0) (n : ℕ) :
+    (∑' k, geometricContrast t (n+1+k)) < geometricContrast t n :=
+  lt_of_le_of_lt (geometric_contrast_tail_le t n) (geometric_contrast_strict_succ ht n)
+
+theorem existing_global_generator_bound (t : ℝ) :
+    ‖likelihoodGenerator geometricAmplitude t‖ ≤ regularParameter t/2 := by
+  have h := likelihood_generator_bound geometricAmplitude t
+  rw [geometric_amplitude_mass] at h
+  convert h using 1
+  ring
+
+theorem existing_global_density_normalized (t : ℝ) :
+    omegaState thirdThermalReference (likelihoodDensity geometricAmplitude t)=1 :=
+  likelihood_density_normalized geometricAmplitude t
+
+theorem existing_global_cocycle_limit (t s : ℝ) :
+    Tendsto (likelihoodPrefixCocycle geometricAmplitude t s) atTop
+      (𝓝 (likelihoodCocycle geometricAmplitude t s)) :=
+  likelihood_prefix_cocycle_limit geometricAmplitude t s
+
+#print axioms logContrast
+#print axioms geometricArgument
+#print axioms geometricContrast
+#print axioms contrast_nonnegative
+#print axioms contrast_upper
+#print axioms contrast_log_ratio
+#print axioms contrast_strict_dyadic
+#print axioms contrast_dyadic
+#print axioms geometric_argument_bounds
+#print axioms geometric_argument_positive
+#print axioms geometric_argument_succ
+#print axioms geometric_contrast_nonnegative
+#print axioms geometric_contrast_summable
+#print axioms geometric_contrast_succ_le
+#print axioms geometric_contrast_strict_succ
+#print axioms geometric_contrast_shift_bound
+#print axioms geometric_contrast_tail_summable
+#print axioms geometric_contrast_tail_le
+#print axioms geometric_contrast_dominates_entire_tail
+#print axioms existing_global_generator_bound
+#print axioms existing_global_density_normalized
+#print axioms existing_global_cocycle_limit
+
+end
+end ChatgptAudit.CocycleRealization
+''',
+    "TGLExt/InfiniteCocycleDecoding.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_055 ESPONTANEA (08/09/2026), transposta em 08/09/2026
+-- Lote 055..056 (6 modulos; origem: ordem direta do operador a bancada para demonstrar no modelo completo).
+--   055 — SELETOR RELATIVO NA TORRE INFINITA: com a preparacao ja existente geometricAmplitude (b_n = 2^-n/24)
+--     e os pesos da torre, a leitura de verossimilhanca do cociclo SEPARA todas as configuracoes infinitas
+--     quando t != 0 (contraste a(x) = log(1+3x/2) - log(1-3x) com 2a(x/2) < a(x): cada a_n domina toda a cauda;
+--     codigo binario injetivo); a leitura coincide com os logaritmos dos pesos efetivos e com o gerador de
+--     verossimilhanca do kernel (existing_global_generator_bound / density_normalized / cocycle_limit);
+--     a densidade existente e o estado preparado. [DERIVED, analitico, NAO Lean]: A = C*(P_n), D = W*(P_n)
+--     recuperados pelo cociclo; [DERIVED + KNOWN]: esperanca D no fator inteiro (Takesaki). D e comutativa,
+--     M e o ambiente: W*(u) = D nao e W*(u) = M. Vale para geometricAmplitude e t != 0, nao para todo perfil.
+--   056 — METRICAS DA TORRE E LIMITES DA RECONSTRUCAO: d_t(x,y) = |g_t(x) - g_t(y)| e metrica (t != 0) e a
+--     escala e livre; Fisher radial F(r) = sum b_n^2/[q_n(1-q_n)] com 1/96 <= F <= 4/357 e F(0) = 1/96 (soma e
+--     cotas Lean; identificacao probabilistica global analitica); entropia relativa/t^4 -> F(0)/2 = 1/192;
+--     NEGATIVOS: a familia de um parametro tem Gram 2x2 de determinante ZERO (nao gera area por renomear
+--     coordenadas); o gerador relativo como Dirac tem distancia de comutadores INFINITA entre configuracoes
+--     distintas (comutador zero com as coordenadas); o gauge relativo exp(isP_n) preserva ambos os estados e o
+--     cociclo (liberdade residual), e seu gerador NAO e central ([P_0, E_01] = E_01 != 0).
+--   Estatuto: [REAL] o compilado; [DERIVED] reconstrucao da algebra diagonal, interpretacao global de Fisher,
+--   4||xi_r||^2 = F(r), arcsin, distancia de Connes; [OPEN] geometria fisica 3+1, area-entropia geometrica,
+--   calor fisico, acao gravitacional, Einstein-Cartan sem hipoteses. Nenhum nome ligado a H3/area/gate.
+-- Auditoria da gerencia (sessao d554e796, 08/09/2026): hashes 10/10 + 13/13; 2/2 auditores da bancada exit 0;
+--   sem revisao cientifica independente na bancada (declarado) — a gerencia leu os enunciados;
+--   recompilacao INDEPENDENTE 6/6, axiomas no trio; guarda de colisao; fontes lidas das SUBPASTAS da entrega.
+--   Transposicao: cabecalho + prefixo TGLExt. nos imports locais (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.GeometricLikelihoodSeparation
+set_option autoImplicit false
+set_option maxHeartbeats 2400000
+namespace ChatgptAudit.CocycleRealization
+open Filter Topology Set TGLExt ChatgptAudit.Response028 ChatgptAudit.Cocycle030
+noncomputable section
+
+def digitTerm (a : ℕ → ℝ) (u : ℕ → Bool) (n : ℕ) : ℝ :=
+  if u n then a n else 0
+
+def binaryCode (a : ℕ → ℝ) (u : ℕ → Bool) : ℝ :=
+  ∑' n, digitTerm a u n
+
+theorem digit_term_bounds {a : ℕ → ℝ} (ha : ∀ n, 0 ≤ a n)
+    (u : ℕ → Bool) (n : ℕ) :
+    0 ≤ digitTerm a u n ∧ digitTerm a u n ≤ a n := by
+  cases h : u n <;> simp [digitTerm,h,ha n]
+
+theorem digit_summable {a : ℕ → ℝ} (ha : ∀ n, 0 ≤ a n)
+    (hs : Summable a) (u : ℕ → Bool) :
+    Summable (digitTerm a u) :=
+  Summable.of_nonneg_of_le (fun n => (digit_term_bounds ha u n).1)
+    (fun n => (digit_term_bounds ha u n).2) hs
+
+theorem digit_tail_summable {a : ℕ → ℝ} (ha : ∀ n, 0 ≤ a n)
+    (hs : Summable a) (u : ℕ → Bool) (n : ℕ) :
+    Summable (fun k => digitTerm a u (n+1+k)) :=
+  (digit_summable ha hs u).comp_injective (fun _ _ h => Nat.add_left_cancel h)
+
+theorem code_prefix_tail {a : ℕ → ℝ} (ha : ∀ n, 0 ≤ a n)
+    (hs : Summable a) (u : ℕ → Bool) (n : ℕ) :
+    binaryCode a u = (∑ k ∈ Finset.range n, digitTerm a u k) +
+      digitTerm a u n + ∑' k, digitTerm a u (n+1+k) := by
+  have h := (digit_summable ha hs u).sum_add_tsum_nat_add (n+1)
+  rw [Finset.sum_range_succ] at h
+  simpa only [binaryCode,Nat.add_comm] using h.symm
+
+theorem digit_tail_bounds {a : ℕ → ℝ} (ha : ∀ n, 0 ≤ a n)
+    (hs : Summable a) (u : ℕ → Bool) (n : ℕ) :
+    0 ≤ (∑' k, digitTerm a u (n+1+k)) ∧
+    (∑' k, digitTerm a u (n+1+k)) ≤ ∑' k, a (n+1+k) := by
+  constructor
+  · exact tsum_nonneg (fun k => (digit_term_bounds ha u (n+1+k)).1)
+  · exact Summable.tsum_le_tsum (fun k => (digit_term_bounds ha u (n+1+k)).2)
+      (digit_tail_summable ha hs u n)
+      (hs.comp_injective (fun _ _ h => Nat.add_left_cancel h))
+
+theorem first_difference_strict {a : ℕ → ℝ} (ha : ∀ n, 0 ≤ a n)
+    (hs : Summable a) (hd : ∀ n, (∑' k, a (n+1+k)) < a n)
+    (u v : ℕ → Bool) (n : ℕ)
+    (hp : ∀ k, k<n → u k=v k) (hu : u n=false) (hv : v n=true) :
+    binaryCode a u < binaryCode a v := by
+  have he : (∑ k ∈ Finset.range n, digitTerm a u k) =
+      ∑ k ∈ Finset.range n, digitTerm a v k := by
+    apply Finset.sum_congr rfl
+    intro k hk
+    simp only [digitTerm,hp k (Finset.mem_range.mp hk)]
+  rw [code_prefix_tail ha hs u n,code_prefix_tail ha hs v n,he]
+  have htu := (digit_tail_bounds ha hs u n).2
+  have htv := (digit_tail_bounds ha hs v n).1
+  have hdn := hd n
+  have du : digitTerm a u n=0 := by simp [digitTerm,hu]
+  have dv : digitTerm a v n=a n := by simp [digitTerm,hv]
+  rw [du,dv,add_zero]
+  linarith
+
+theorem binary_code_injective {a : ℕ → ℝ} (ha : ∀ n, 0 ≤ a n)
+    (hs : Summable a) (hd : ∀ n, (∑' k, a (n+1+k)) < a n) :
+    Function.Injective (binaryCode a) := by
+  intro u v huv
+  by_contra hne
+  have hex : ∃ n, u n≠v n := by
+    by_contra hn
+    apply hne
+    funext n
+    by_contra hnv
+    exact hn ⟨n,hnv⟩
+  let n := Nat.find hex
+  have hn : u n≠v n := Nat.find_spec hex
+  have hp : ∀ k, k<n → u k=v k := by
+    intro k hk
+    exact of_not_not (Nat.find_min hex hk)
+  cases hu : u n <;> cases hv : v n
+  · exact hn (hu.trans hv.symm)
+  · exact (ne_of_lt (first_difference_strict ha hs hd u v n hp hu hv)) huv
+  · exact (ne_of_lt (first_difference_strict ha hs hd v u n
+      (fun k hk => (hp k hk).symm) hv hu)) huv.symm
+  · exact hn (hu.trans hv.symm)
+
+theorem geometric_code_injective {t : ℝ} (ht : t≠0) :
+    Function.Injective (binaryCode (geometricContrast t)) :=
+  binary_code_injective (geometric_contrast_nonnegative t)
+    (geometric_contrast_summable t) (geometric_contrast_dominates_entire_tail ht)
+
+def geometricLogReading (t : ℝ) (u : ℕ → Bool) : ℝ :=
+  (∑' n, logOneRatio (geometricArgument t n)) -
+    binaryCode (geometricContrast t) u
+
+def geometricSiteReading (t : ℝ) (u : ℕ → Bool) (n : ℕ) : ℝ :=
+  if u n then logZeroRatio (geometricArgument t n)
+    else logOneRatio (geometricArgument t n)
+
+theorem geometric_log_one_summable (t : ℝ) :
+    Summable (fun n => logOneRatio (geometricArgument t n)) := by
+  apply Summable.of_nonneg_of_le
+    (fun n => (log_one_ratio_bounds _ (geometric_argument_bounds t n).1).1)
+    (fun n => ?_) (geometricAmplitude.summable.mul_left (2*regularParameter t))
+  have h := (log_one_ratio_bounds _ (geometric_argument_bounds t n).1).2
+  simpa only [geometricArgument,mul_comm,mul_left_comm,mul_assoc] using h
+
+theorem geometric_site_reading_eq (t : ℝ) (u : ℕ → Bool) (n : ℕ) :
+    geometricSiteReading t u n =
+      logOneRatio (geometricArgument t n) - digitTerm (geometricContrast t) u n := by
+  cases h : u n <;> simp [geometricSiteReading,digitTerm,h,geometricContrast,logContrast]
+
+theorem geometric_site_reading_summable (t : ℝ) (u : ℕ → Bool) :
+    Summable (geometricSiteReading t u) := by
+  have h := (geometric_log_one_summable t).sub
+    (digit_summable (geometric_contrast_nonnegative t) (geometric_contrast_summable t) u)
+  simpa only [← geometric_site_reading_eq] using h
+
+theorem geometric_log_reading_eq_actual_series (t : ℝ) (u : ℕ → Bool) :
+    geometricLogReading t u = ∑' n, geometricSiteReading t u n := by
+  rw [geometricLogReading,binaryCode,← Summable.tsum_sub
+    (geometric_log_one_summable t)
+    (digit_summable (geometric_contrast_nonnegative t) (geometric_contrast_summable t) u)]
+  exact tsum_congr (fun n => (geometric_site_reading_eq t u n).symm)
+
+theorem geometric_log_reading_injective {t : ℝ} (ht : t≠0) :
+    Function.Injective (geometricLogReading t) := by
+  intro u v h
+  apply geometric_code_injective ht
+  dsimp [geometricLogReading] at h
+  linarith
+
+#print axioms digitTerm
+#print axioms binaryCode
+#print axioms digit_term_bounds
+#print axioms digit_summable
+#print axioms digit_tail_summable
+#print axioms code_prefix_tail
+#print axioms digit_tail_bounds
+#print axioms first_difference_strict
+#print axioms binary_code_injective
+#print axioms geometric_code_injective
+#print axioms geometricLogReading
+#print axioms geometricSiteReading
+#print axioms geometric_log_one_summable
+#print axioms geometric_site_reading_eq
+#print axioms geometric_site_reading_summable
+#print axioms geometric_log_reading_eq_actual_series
+#print axioms geometric_log_reading_injective
+
+end
+end ChatgptAudit.CocycleRealization
+''',
+    "TGLExt/ExistingTowerRealization.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_055 ESPONTANEA (08/09/2026), transposta em 08/09/2026
+-- Lote 055..056 (6 modulos; origem: ordem direta do operador a bancada para demonstrar no modelo completo).
+--   055 — SELETOR RELATIVO NA TORRE INFINITA: com a preparacao ja existente geometricAmplitude (b_n = 2^-n/24)
+--     e os pesos da torre, a leitura de verossimilhanca do cociclo SEPARA todas as configuracoes infinitas
+--     quando t != 0 (contraste a(x) = log(1+3x/2) - log(1-3x) com 2a(x/2) < a(x): cada a_n domina toda a cauda;
+--     codigo binario injetivo); a leitura coincide com os logaritmos dos pesos efetivos e com o gerador de
+--     verossimilhanca do kernel (existing_global_generator_bound / density_normalized / cocycle_limit);
+--     a densidade existente e o estado preparado. [DERIVED, analitico, NAO Lean]: A = C*(P_n), D = W*(P_n)
+--     recuperados pelo cociclo; [DERIVED + KNOWN]: esperanca D no fator inteiro (Takesaki). D e comutativa,
+--     M e o ambiente: W*(u) = D nao e W*(u) = M. Vale para geometricAmplitude e t != 0, nao para todo perfil.
+--   056 — METRICAS DA TORRE E LIMITES DA RECONSTRUCAO: d_t(x,y) = |g_t(x) - g_t(y)| e metrica (t != 0) e a
+--     escala e livre; Fisher radial F(r) = sum b_n^2/[q_n(1-q_n)] com 1/96 <= F <= 4/357 e F(0) = 1/96 (soma e
+--     cotas Lean; identificacao probabilistica global analitica); entropia relativa/t^4 -> F(0)/2 = 1/192;
+--     NEGATIVOS: a familia de um parametro tem Gram 2x2 de determinante ZERO (nao gera area por renomear
+--     coordenadas); o gerador relativo como Dirac tem distancia de comutadores INFINITA entre configuracoes
+--     distintas (comutador zero com as coordenadas); o gauge relativo exp(isP_n) preserva ambos os estados e o
+--     cociclo (liberdade residual), e seu gerador NAO e central ([P_0, E_01] = E_01 != 0).
+--   Estatuto: [REAL] o compilado; [DERIVED] reconstrucao da algebra diagonal, interpretacao global de Fisher,
+--   4||xi_r||^2 = F(r), arcsin, distancia de Connes; [OPEN] geometria fisica 3+1, area-entropia geometrica,
+--   calor fisico, acao gravitacional, Einstein-Cartan sem hipoteses. Nenhum nome ligado a H3/area/gate.
+-- Auditoria da gerencia (sessao d554e796, 08/09/2026): hashes 10/10 + 13/13; 2/2 auditores da bancada exit 0;
+--   sem revisao cientifica independente na bancada (declarado) — a gerencia leu os enunciados;
+--   recompilacao INDEPENDENTE 6/6, axiomas no trio; guarda de colisao; fontes lidas das SUBPASTAS da entrega.
+--   Transposicao: cabecalho + prefixo TGLExt. nos imports locais (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.InfiniteCocycleDecoding
+import TGLExt.DensityStateUniqueness
+import TGLExt.ExpectationPositive
+set_option autoImplicit false
+set_option maxHeartbeats 2400000
+namespace ChatgptAudit.CocycleRealization
+open Filter Topology Set TGLExt ChatgptAudit.Response028 ChatgptAudit.Cocycle030
+  ChatgptAudit.Density033 ChatgptAudit.Thermal025
+noncomputable section
+
+def binarySite (b : Bool) : Fin 2 := if b then 0 else 1
+
+def towerConfiguration (u : ℕ → Bool) : (N : ℕ) → chainIdx N
+  | 0 => binarySite (u 0)
+  | N+1 => (towerConfiguration u N,binarySite (u (N+1)))
+
+theorem actual_site_log_reading (t : ℝ) (u : ℕ → Bool) (n : ℕ) :
+    Real.log (siteW ((amplitudeProfile geometricAmplitude t).w n) (binarySite (u n))) -
+      Real.log (siteW (thirdThermalReference.w n) (binarySite (u n))) =
+        geometricSiteReading t u n := by
+  have h := third_log_coefficients (geometricArgument t n)
+    (geometric_argument_bounds t n).1 (geometric_argument_bounds t n).2
+  cases hu : u n
+  · simpa [binarySite,siteW,geometricSiteReading,hu,amplitudeProfile,
+      thirdThermalReference,geometricArgument] using h.2
+  · simpa [binarySite,siteW,geometricSiteReading,hu,amplitudeProfile,
+      thirdThermalReference,geometricArgument] using h.1
+
+theorem actual_prefix_log_reading (t : ℝ) (u : ℕ → Bool) (N : ℕ) :
+    Real.log (towerW (amplitudeProfile geometricAmplitude t) N (towerConfiguration u N)) -
+      Real.log (towerW thirdThermalReference N (towerConfiguration u N)) =
+        ∑ n ∈ Finset.range (N+1), geometricSiteReading t u n := by
+  induction N with
+  | zero =>
+    simpa only [towerW,towerConfiguration,Nat.zero_add,Finset.sum_range_one] using actual_site_log_reading t u 0
+  | succ N ih =>
+    change Real.log (towerW (amplitudeProfile geometricAmplitude t) N (towerConfiguration u N) *
+        siteW ((amplitudeProfile geometricAmplitude t).w (N+1)) (binarySite (u (N+1)))) -
+      Real.log (towerW thirdThermalReference N (towerConfiguration u N) *
+        siteW (thirdThermalReference.w (N+1)) (binarySite (u (N+1)))) = _
+    rw [Real.log_mul (ne_of_gt (towerW_pos _ _ _))
+      (ne_of_gt (siteW_pos ((amplitudeProfile geometricAmplitude t).pos _)
+        ((amplitudeProfile geometricAmplitude t).lt_one _) _))]
+    rw [Real.log_mul (ne_of_gt (towerW_pos _ _ _))
+      (ne_of_gt (siteW_pos (thirdThermalReference.pos _) (thirdThermalReference.lt_one _) _))]
+    rw [Finset.sum_range_succ]
+    have hs := actual_site_log_reading t u (N+1)
+    linarith
+
+theorem actual_prefix_matrix_diagonal (t : ℝ) (u : ℕ → Bool) (N : ℕ) :
+    matrixLogRatio (towerW thirdThermalReference N)
+      (towerW (amplitudeProfile geometricAmplitude t) N)
+      (towerConfiguration u N) (towerConfiguration u N) =
+      ((∑ n ∈ Finset.range (N+1), geometricSiteReading t u n : ℝ) : ℂ) := by
+  simp only [matrixLogRatio,Matrix.diagonal_apply_eq,actual_prefix_log_reading]
+
+theorem actual_prefix_scalar_limit (t : ℝ) (u : ℕ → Bool) :
+    Tendsto (fun N => Real.log (towerW (amplitudeProfile geometricAmplitude t) N
+        (towerConfiguration u N)) -
+      Real.log (towerW thirdThermalReference N (towerConfiguration u N))) atTop
+      (𝓝 (geometricLogReading t u)) := by
+  simp only [actual_prefix_log_reading,geometric_log_reading_eq_actual_series]
+  exact (geometric_site_reading_summable t u).hasSum.tendsto_sum_nat.comp
+    (tendsto_add_atTop_nat 1)
+
+theorem existing_operator_is_same_prefix (t : ℝ) (N : ℕ) :
+    likelihoodPrefix geometricAmplitude t N = towerPi thirdThermalReference
+      (matrixLogRatio (towerW thirdThermalReference N)
+        (towerW (amplitudeProfile geometricAmplitude t) N)) :=
+  likelihood_prefix_local geometricAmplitude t N
+
+theorem existing_operator_norm_limit (t : ℝ) :
+    Tendsto (likelihoodPrefix geometricAmplitude t) atTop
+      (𝓝 (likelihoodGenerator geometricAmplitude t)) :=
+  likelihood_prefix_tendsto geometricAmplitude t
+
+theorem existing_density_is_prepared_state (t : ℝ)
+    (A : TowerHilbert thirdThermalReference →L[ℂ] TowerHilbert thirdThermalReference)
+    (hA : A ∈ theFactorObject thirdThermalReference) :
+    amplitudeState geometricAmplitude t A =
+      omegaState thirdThermalReference (likelihoodDensity geometricAmplitude t*A) :=
+  likelihood_density_state_left geometricAmplitude t A hA
+
+theorem existing_site_projections_commute (n m : ℕ) :
+    Commute (siteZeroProjection thirdThermalReference n)
+      (siteZeroProjection thirdThermalReference m) :=
+  site_zero_commute thirdThermalReference n m
+
+theorem existing_finite_representation_faithful (N : ℕ) :
+    Function.Injective (fun a : Matrix (chainIdx N) (chainIdx N) ℂ =>
+      towerPi thirdThermalReference a) :=
+  towerPi_injective thirdThermalReference N
+
+#print axioms binarySite
+#print axioms towerConfiguration
+#print axioms actual_site_log_reading
+#print axioms actual_prefix_log_reading
+#print axioms actual_prefix_matrix_diagonal
+#print axioms actual_prefix_scalar_limit
+#print axioms existing_operator_is_same_prefix
+#print axioms existing_operator_norm_limit
+#print axioms existing_density_is_prepared_state
+#print axioms existing_site_projections_commute
+#print axioms existing_finite_representation_faithful
+
+end
+end ChatgptAudit.CocycleRealization
+''',
+    "TGLExt/SpectralMetricGeometry.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_056 ESPONTANEA (08/09/2026), transposta em 08/09/2026
+-- Lote 055..056 (6 modulos; origem: ordem direta do operador a bancada para demonstrar no modelo completo).
+--   055 — SELETOR RELATIVO NA TORRE INFINITA: com a preparacao ja existente geometricAmplitude (b_n = 2^-n/24)
+--     e os pesos da torre, a leitura de verossimilhanca do cociclo SEPARA todas as configuracoes infinitas
+--     quando t != 0 (contraste a(x) = log(1+3x/2) - log(1-3x) com 2a(x/2) < a(x): cada a_n domina toda a cauda;
+--     codigo binario injetivo); a leitura coincide com os logaritmos dos pesos efetivos e com o gerador de
+--     verossimilhanca do kernel (existing_global_generator_bound / density_normalized / cocycle_limit);
+--     a densidade existente e o estado preparado. [DERIVED, analitico, NAO Lean]: A = C*(P_n), D = W*(P_n)
+--     recuperados pelo cociclo; [DERIVED + KNOWN]: esperanca D no fator inteiro (Takesaki). D e comutativa,
+--     M e o ambiente: W*(u) = D nao e W*(u) = M. Vale para geometricAmplitude e t != 0, nao para todo perfil.
+--   056 — METRICAS DA TORRE E LIMITES DA RECONSTRUCAO: d_t(x,y) = |g_t(x) - g_t(y)| e metrica (t != 0) e a
+--     escala e livre; Fisher radial F(r) = sum b_n^2/[q_n(1-q_n)] com 1/96 <= F <= 4/357 e F(0) = 1/96 (soma e
+--     cotas Lean; identificacao probabilistica global analitica); entropia relativa/t^4 -> F(0)/2 = 1/192;
+--     NEGATIVOS: a familia de um parametro tem Gram 2x2 de determinante ZERO (nao gera area por renomear
+--     coordenadas); o gerador relativo como Dirac tem distancia de comutadores INFINITA entre configuracoes
+--     distintas (comutador zero com as coordenadas); o gauge relativo exp(isP_n) preserva ambos os estados e o
+--     cociclo (liberdade residual), e seu gerador NAO e central ([P_0, E_01] = E_01 != 0).
+--   Estatuto: [REAL] o compilado; [DERIVED] reconstrucao da algebra diagonal, interpretacao global de Fisher,
+--   4||xi_r||^2 = F(r), arcsin, distancia de Connes; [OPEN] geometria fisica 3+1, area-entropia geometrica,
+--   calor fisico, acao gravitacional, Einstein-Cartan sem hipoteses. Nenhum nome ligado a H3/area/gate.
+-- Auditoria da gerencia (sessao d554e796, 08/09/2026): hashes 10/10 + 13/13; 2/2 auditores da bancada exit 0;
+--   sem revisao cientifica independente na bancada (declarado) — a gerencia leu os enunciados;
+--   recompilacao INDEPENDENTE 6/6, axiomas no trio; guarda de colisao; fontes lidas das SUBPASTAS da entrega.
+--   Transposicao: cabecalho + prefixo TGLExt. nos imports locais (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.ExistingTowerRealization
+set_option autoImplicit false
+set_option maxHeartbeats 1800000
+namespace ChatgptAudit.Geometry056
+open ChatgptAudit.CocycleRealization
+noncomputable section
+
+def spectralDistance (t : ℝ) (u v : ℕ → Bool) : ℝ :=
+  |geometricLogReading t u-geometricLogReading t v|
+
+theorem spectral_distance_nonnegative (t : ℝ) (u v : ℕ → Bool) :
+    0 ≤ spectralDistance t u v := abs_nonneg _
+
+theorem spectral_distance_self (t : ℝ) (u : ℕ → Bool) :
+    spectralDistance t u u=0 := by simp [spectralDistance]
+
+theorem spectral_distance_symmetric (t : ℝ) (u v : ℕ → Bool) :
+    spectralDistance t u v=spectralDistance t v u := abs_sub_comm _ _
+
+theorem spectral_distance_triangle (t : ℝ) (u v w : ℕ → Bool) :
+    spectralDistance t u w  ≤  spectralDistance t u v+spectralDistance t v w :=
+  abs_sub_le _ _ _
+
+theorem spectral_distance_zero_iff {t : ℝ} (ht : t≠0) (u v : ℕ → Bool) :
+    spectralDistance t u v=0 ↔ u=v := by
+  rw [spectralDistance,abs_eq_zero,sub_eq_zero]
+  exact (geometric_log_reading_injective ht).eq_iff
+
+theorem spectral_distance_positive {t : ℝ} (ht : t≠0)
+    {u v : ℕ → Bool} (h : u≠v) : 0<spectralDistance t u v :=
+  lt_of_le_of_ne (spectral_distance_nonnegative t u v)
+    (Ne.symm (fun hz => h ((spectral_distance_zero_iff ht u v).mp hz)))
+
+def scaledSpectralDistance (c t : ℝ) (u v : ℕ → Bool) : ℝ :=
+  c*spectralDistance t u v
+
+theorem scaled_spectral_distance_triangle {c : ℝ} (hc : 0 ≤ c)
+    (t : ℝ) (u v w : ℕ → Bool) :
+    scaledSpectralDistance c t u w  ≤ 
+      scaledSpectralDistance c t u v+scaledSpectralDistance c t v w := by
+  have h := mul_le_mul_of_nonneg_left (spectral_distance_triangle t u v w) hc
+  simpa only [scaledSpectralDistance,mul_add] using h
+
+theorem scaled_spectral_distance_zero_iff {c t : ℝ} (hc : 0<c) (ht : t≠0)
+    (u v : ℕ → Bool) :
+    scaledSpectralDistance c t u v=0 ↔ u=v := by
+  rw [scaledSpectralDistance,mul_eq_zero]
+  simp only [ne_of_gt hc,false_or,spectral_distance_zero_iff ht]
+
+theorem different_scales_give_different_distances {c d t : ℝ}
+    (hcd : c≠d) (ht : t≠0) {u v : ℕ → Bool} (huv : u≠v) :
+    scaledSpectralDistance c t u v ≠ scaledSpectralDistance d t u v := by
+  intro he
+  have hn : spectralDistance t u v≠0 := ne_of_gt (spectral_distance_positive ht huv)
+  exact hcd (mul_right_cancel₀ hn he)
+
+def binaryCoordinateTest (c : ℝ) (n : ℕ) (u : ℕ → Bool) : ℝ :=
+  if u n then c else 0
+
+theorem coordinate_separates_with_arbitrary_size {u v : ℕ → Bool} (h : u≠v)
+    (R : ℝ) :
+    ∃ (n : ℕ) (c : ℝ),
+      R < |binaryCoordinateTest c n u-binaryCoordinateTest c n v| := by
+  have hex : ∃ n, u n≠v n := by
+    by_contra hn
+    apply h
+    funext n
+    by_contra hv
+    exact hn ⟨n,hv⟩
+  obtain ⟨n,hn⟩ := hex
+  refine ⟨n,|R|+1,?_⟩
+  have hpos : 0 ≤ |R|+1 := by positivity
+  have hR := le_abs_self R
+  cases hu : u n <;> cases hv : v n
+  · exact False.elim (hn (hu.trans hv.symm))
+  · simp only [binaryCoordinateTest,hu,hv,Bool.false_eq_true,if_false,if_true,
+      zero_sub,abs_neg,abs_of_nonneg hpos]
+    linarith
+  · simp only [binaryCoordinateTest,hu,hv,Bool.false_eq_true,if_false,if_true,
+      sub_zero,abs_of_nonneg hpos]
+    linarith
+  · exact False.elim (hn (hu.trans hv.symm))
+
+#print axioms spectralDistance
+#print axioms spectral_distance_nonnegative
+#print axioms spectral_distance_self
+#print axioms spectral_distance_symmetric
+#print axioms spectral_distance_triangle
+#print axioms spectral_distance_zero_iff
+#print axioms spectral_distance_positive
+#print axioms scaledSpectralDistance
+#print axioms scaled_spectral_distance_triangle
+#print axioms scaled_spectral_distance_zero_iff
+#print axioms different_scales_give_different_distances
+#print axioms binaryCoordinateTest
+#print axioms coordinate_separates_with_arbitrary_size
+
+end
+end ChatgptAudit.Geometry056
+''',
+    "TGLExt/InfiniteFisherGeometry.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_056 ESPONTANEA (08/09/2026), transposta em 08/09/2026
+-- Lote 055..056 (6 modulos; origem: ordem direta do operador a bancada para demonstrar no modelo completo).
+--   055 — SELETOR RELATIVO NA TORRE INFINITA: com a preparacao ja existente geometricAmplitude (b_n = 2^-n/24)
+--     e os pesos da torre, a leitura de verossimilhanca do cociclo SEPARA todas as configuracoes infinitas
+--     quando t != 0 (contraste a(x) = log(1+3x/2) - log(1-3x) com 2a(x/2) < a(x): cada a_n domina toda a cauda;
+--     codigo binario injetivo); a leitura coincide com os logaritmos dos pesos efetivos e com o gerador de
+--     verossimilhanca do kernel (existing_global_generator_bound / density_normalized / cocycle_limit);
+--     a densidade existente e o estado preparado. [DERIVED, analitico, NAO Lean]: A = C*(P_n), D = W*(P_n)
+--     recuperados pelo cociclo; [DERIVED + KNOWN]: esperanca D no fator inteiro (Takesaki). D e comutativa,
+--     M e o ambiente: W*(u) = D nao e W*(u) = M. Vale para geometricAmplitude e t != 0, nao para todo perfil.
+--   056 — METRICAS DA TORRE E LIMITES DA RECONSTRUCAO: d_t(x,y) = |g_t(x) - g_t(y)| e metrica (t != 0) e a
+--     escala e livre; Fisher radial F(r) = sum b_n^2/[q_n(1-q_n)] com 1/96 <= F <= 4/357 e F(0) = 1/96 (soma e
+--     cotas Lean; identificacao probabilistica global analitica); entropia relativa/t^4 -> F(0)/2 = 1/192;
+--     NEGATIVOS: a familia de um parametro tem Gram 2x2 de determinante ZERO (nao gera area por renomear
+--     coordenadas); o gerador relativo como Dirac tem distancia de comutadores INFINITA entre configuracoes
+--     distintas (comutador zero com as coordenadas); o gauge relativo exp(isP_n) preserva ambos os estados e o
+--     cociclo (liberdade residual), e seu gerador NAO e central ([P_0, E_01] = E_01 != 0).
+--   Estatuto: [REAL] o compilado; [DERIVED] reconstrucao da algebra diagonal, interpretacao global de Fisher,
+--   4||xi_r||^2 = F(r), arcsin, distancia de Connes; [OPEN] geometria fisica 3+1, area-entropia geometrica,
+--   calor fisico, acao gravitacional, Einstein-Cartan sem hipoteses. Nenhum nome ligado a H3/area/gate.
+-- Auditoria da gerencia (sessao d554e796, 08/09/2026): hashes 10/10 + 13/13; 2/2 auditores da bancada exit 0;
+--   sem revisao cientifica independente na bancada (declarado) — a gerencia leu os enunciados;
+--   recompilacao INDEPENDENTE 6/6, axiomas no trio; guarda de colisao; fontes lidas das SUBPASTAS da entrega.
+--   Transposicao: cabecalho + prefixo TGLExt. nos imports locais (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.SpectralMetricGeometry
+import TGLExt.DiagonalRelativeEntropy
+import TGLExt.SummableRelativeQuartic
+set_option autoImplicit false
+set_option maxHeartbeats 2400000
+namespace ChatgptAudit.Geometry056
+open Filter Topology Set TGLExt ChatgptAudit.CocycleRealization
+  ChatgptAudit.Response028 ChatgptAudit.Micro021
+noncomputable section
+
+def radialWeight (r : ℝ) (n : ℕ) : ℝ :=
+  1/3-geometricAmplitude.value n*r
+
+def radialFisherTerm (r : ℝ) (n : ℕ) : ℝ :=
+  (geometricAmplitude.value n)^2/(radialWeight r n*(1-radialWeight r n))
+
+def radialFisher (r : ℝ) : ℝ := ∑' n, radialFisherTerm r n
+
+def regularSpeed (t : ℝ) : ℝ := 2*t/(1+t^2)^2
+
+def timeFisher (t : ℝ) : ℝ :=
+  (regularSpeed t)^2*radialFisher (regularParameter t)
+
+theorem radial_weight_is_existing (t : ℝ) (n : ℕ) :
+    radialWeight (regularParameter t) n=(amplitudeProfile geometricAmplitude t).w n := rfl
+
+theorem geometric_amplitude_sharp_bound (n : ℕ) :
+    geometricAmplitude.value n ≤ 1/24 := by
+  have hp : (1/2:ℝ)^n ≤ 1 := pow_le_one₀ (by norm_num) (by norm_num)
+  change (1/24:ℝ)*(1/2)^n ≤ 1/24
+  linarith
+
+theorem radial_weight_bounds {r : ℝ} (hr : 0 ≤ r) (hb : r ≤ 1) (n : ℕ) :
+    7/24 ≤ radialWeight r n ∧ radialWeight r n ≤ 1/3 := by
+  have h0 := geometricAmplitude.nonnegative n
+  have h1 := geometric_amplitude_sharp_bound n
+  have hm := mul_le_mul_of_nonneg_left hb h0
+  have hn := mul_nonneg h0 hr
+  dsimp [radialWeight]
+  constructor <;> nlinarith
+
+theorem radial_variance_bounds {r : ℝ} (hr : 0 ≤ r) (hb : r ≤ 1) (n : ℕ) :
+    119/576  ≤  radialWeight r n*(1-radialWeight r n) ∧
+      radialWeight r n*(1-radialWeight r n) ≤ 2/9 := by
+  obtain ⟨h0,h1⟩ := radial_weight_bounds hr hb n
+  have hl := mul_nonneg (sub_nonneg.mpr h0)
+    (show 0 ≤ 1-radialWeight r n-7/24 by linarith)
+  have hu := mul_nonneg (sub_nonneg.mpr h1)
+    (show 0 ≤ 1-1/3-radialWeight r n by linarith)
+  constructor <;> nlinarith
+
+theorem radial_fisher_term_bounds {r : ℝ} (hr : 0 ≤ r) (hb : r ≤ 1) (n : ℕ) :
+    (9/2)*(geometricAmplitude.value n)^2  ≤  radialFisherTerm r n ∧
+      radialFisherTerm r n ≤ (576/119)*(geometricAmplitude.value n)^2 := by
+  obtain ⟨h0,h1⟩ := radial_variance_bounds hr hb n
+  have hp : 0<radialWeight r n*(1-radialWeight r n) := by linarith
+  have hsq := sq_nonneg (geometricAmplitude.value n)
+  unfold radialFisherTerm
+  constructor
+  · apply (le_div_iff₀ hp).mpr
+    have hh := mul_le_mul_of_nonneg_left h1 hsq
+    nlinarith
+  · apply (div_le_iff₀ hp).mpr
+    have hh := mul_le_mul_of_nonneg_left h0 hsq
+    nlinarith
+
+theorem radial_fisher_term_nonnegative {r : ℝ} (hr : 0 ≤ r) (hb : r ≤ 1) (n : ℕ) :
+    0 ≤ radialFisherTerm r n := by
+  have h := (radial_fisher_term_bounds hr hb n).1
+  have hn : 0 ≤ (9/2:ℝ)*(geometricAmplitude.value n)^2 := by positivity
+  linarith
+
+theorem radial_fisher_summable {r : ℝ} (hr : 0 ≤ r) (hb : r ≤ 1) :
+    Summable (radialFisherTerm r) :=
+  Summable.of_nonneg_of_le (radial_fisher_term_nonnegative hr hb)
+    (fun n => (radial_fisher_term_bounds hr hb n).2)
+    ((amplitude_square_summable geometricAmplitude).mul_left (576/119))
+
+theorem radial_fisher_bounds {r : ℝ} (hr : 0 ≤ r) (hb : r ≤ 1) :
+    1/96 ≤ radialFisher r ∧ radialFisher r ≤ 4/357 := by
+  have hl := Summable.tsum_le_tsum (fun n => (radial_fisher_term_bounds hr hb n).1)
+    ((amplitude_square_summable geometricAmplitude).mul_left (9/2))
+    (radial_fisher_summable hr hb)
+  have hu := Summable.tsum_le_tsum (fun n => (radial_fisher_term_bounds hr hb n).2)
+    (radial_fisher_summable hr hb)
+    ((amplitude_square_summable geometricAmplitude).mul_left (576/119))
+  rw [tsum_mul_left] at hl hu
+  change (9/2)*amplitudeSquareMass geometricAmplitude ≤ radialFisher r at hl
+  change radialFisher r ≤ (576/119)*amplitudeSquareMass geometricAmplitude at hu
+  rw [geometric_amplitude_square_mass] at hl hu
+  constructor <;> linarith
+
+theorem radial_fisher_positive {r : ℝ} (hr : 0 ≤ r) (hb : r ≤ 1) :
+    0<radialFisher r := lt_of_lt_of_le (by norm_num) (radial_fisher_bounds hr hb).1
+
+theorem radial_fisher_prefix_limit {r : ℝ} (hr : 0 ≤ r) (hb : r ≤ 1) :
+    Tendsto (fun N => ∑ n∈Finset.range (N+1),radialFisherTerm r n)
+      atTop (𝓝 (radialFisher r)) :=
+  (radial_fisher_summable hr hb).hasSum.tendsto_sum_nat.comp (tendsto_add_atTop_nat 1)
+
+theorem regular_parameter_derivative (t : ℝ) :
+    HasDerivAt regularParameter (regularSpeed t) t := by
+  have h := ((hasDerivAt_id t).pow 2).div
+    ((hasDerivAt_const t (1:ℝ)).add ((hasDerivAt_id t).pow 2))
+    (ne_of_gt (show 0<1+t^2 by positivity))
+  convert! h using 1
+  simp [regularSpeed]
+  ring
+
+theorem radial_weight_derivative (r : ℝ) (n : ℕ) :
+    HasDerivAt (fun s => radialWeight s n) (-geometricAmplitude.value n) r := by
+  convert! (hasDerivAt_const r (1/3:ℝ)).sub
+    ((hasDerivAt_id r).const_mul (geometricAmplitude.value n)) using 1
+  simp
+
+theorem actual_weight_derivative (t : ℝ) (n : ℕ) :
+    HasDerivAt (fun s => (amplitudeProfile geometricAmplitude s).w n)
+      (-geometricAmplitude.value n*regularSpeed t) t :=
+  (radial_weight_derivative (regularParameter t) n).comp t (regular_parameter_derivative t)
+
+theorem regular_speed_ne_zero {t : ℝ} (ht : t≠0) : regularSpeed t≠0 := by
+  unfold regularSpeed
+  exact div_ne_zero (mul_ne_zero (by norm_num) ht) (ne_of_gt (by positivity))
+
+theorem time_fisher_positive {t : ℝ} (ht : t≠0) : 0<timeFisher t :=
+  mul_pos (sq_pos_of_ne_zero (regular_speed_ne_zero ht))
+    (radial_fisher_positive (regular_parameter_nonnegative t) (regular_parameter_lt_one t).le)
+
+theorem time_fisher_zero : timeFisher 0=0 := by
+  simp [timeFisher,regularSpeed]
+
+theorem bernoulli_score_mean_zero {q b : ℝ} (hq : 0<q) (h1 : q<1) :
+    q*(-b/q)+(1-q)*(b/(1-q))=0 := by
+  have hn : 1-q≠0 := ne_of_gt (sub_pos.mpr h1)
+  field_simp
+  ring
+
+theorem bernoulli_score_variance {q b : ℝ} (hq : 0<q) (h1 : q<1) :
+    q*(-b/q)^2+(1-q)*(b/(1-q))^2=b^2/(q*(1-q)) := by
+  have hq0 : q≠0 := ne_of_gt hq
+  have hn : 1-q≠0 := ne_of_gt (sub_pos.mpr h1)
+  field_simp
+  ring
+
+theorem fisher_angular_coefficient {q a : ℝ} (hq : 0<q) (h1 : q<1) :
+    (2*Real.sqrt (q*(1-q))*a)^2/(q*(1-q))=4*a^2 := by
+  have hp : 0<q*(1-q) := mul_pos hq (sub_pos.mpr h1)
+  rw [div_eq_iff (ne_of_gt hp)]
+  nlinarith [Real.sq_sqrt hp.le]
+
+def oneParameterGram (h u v : ℝ) : Matrix (Fin 2) (Fin 2) ℝ :=
+  !![h*u^2,h*u*v;h*u*v,h*v^2]
+
+theorem one_parameter_has_zero_two_area (h u v : ℝ) :
+    Matrix.det (oneParameterGram h u v)=0 := by
+  simp [oneParameterGram,Matrix.det_fin_two]
+  ring
+
+
+theorem radial_fisher_at_reference : radialFisher 0=1/96 := by
+  have ht : ∀ n, radialFisherTerm 0 n=(9/2)*(geometricAmplitude.value n)^2 := by
+    intro n
+    dsimp [radialFisherTerm,radialWeight]
+    ring
+  unfold radialFisher
+  simp_rw [ht]
+  rw [tsum_mul_left]
+  change (9/2)*amplitudeSquareMass geometricAmplitude=1/96
+  rw [geometric_amplitude_square_mass]
+  norm_num
+
+theorem actual_relative_entropy_recovers_fisher :
+    Tendsto (fun t : ℝ => amplitudeRelativeEntropy geometricAmplitude t/t^4)
+      (𝓝[≠] 0) (𝓝 (radialFisher 0/2)) := by
+  have h := ChatgptAudit.Quartic037.amplitude_relative_quartic_limit geometricAmplitude
+  rw [geometric_amplitude_square_mass] at h
+  rw [radial_fisher_at_reference]
+  norm_num at h ⊢
+  exact h
+
+#print axioms radialWeight
+#print axioms radialFisherTerm
+#print axioms radialFisher
+#print axioms regularSpeed
+#print axioms timeFisher
+#print axioms radial_weight_is_existing
+#print axioms geometric_amplitude_sharp_bound
+#print axioms radial_weight_bounds
+#print axioms radial_variance_bounds
+#print axioms radial_fisher_term_bounds
+#print axioms radial_fisher_term_nonnegative
+#print axioms radial_fisher_summable
+#print axioms radial_fisher_bounds
+#print axioms radial_fisher_positive
+#print axioms radial_fisher_prefix_limit
+#print axioms regular_parameter_derivative
+#print axioms radial_weight_derivative
+#print axioms actual_weight_derivative
+#print axioms regular_speed_ne_zero
+#print axioms time_fisher_positive
+#print axioms time_fisher_zero
+#print axioms bernoulli_score_mean_zero
+#print axioms bernoulli_score_variance
+#print axioms fisher_angular_coefficient
+#print axioms oneParameterGram
+#print axioms one_parameter_has_zero_two_area
+#print axioms radial_fisher_at_reference
+#print axioms actual_relative_entropy_recovers_fisher
+
+end
+end ChatgptAudit.Geometry056
+''',
+    "TGLExt/RelativeCocycleGeometricObstructions.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_056 ESPONTANEA (08/09/2026), transposta em 08/09/2026
+-- Lote 055..056 (6 modulos; origem: ordem direta do operador a bancada para demonstrar no modelo completo).
+--   055 — SELETOR RELATIVO NA TORRE INFINITA: com a preparacao ja existente geometricAmplitude (b_n = 2^-n/24)
+--     e os pesos da torre, a leitura de verossimilhanca do cociclo SEPARA todas as configuracoes infinitas
+--     quando t != 0 (contraste a(x) = log(1+3x/2) - log(1-3x) com 2a(x/2) < a(x): cada a_n domina toda a cauda;
+--     codigo binario injetivo); a leitura coincide com os logaritmos dos pesos efetivos e com o gerador de
+--     verossimilhanca do kernel (existing_global_generator_bound / density_normalized / cocycle_limit);
+--     a densidade existente e o estado preparado. [DERIVED, analitico, NAO Lean]: A = C*(P_n), D = W*(P_n)
+--     recuperados pelo cociclo; [DERIVED + KNOWN]: esperanca D no fator inteiro (Takesaki). D e comutativa,
+--     M e o ambiente: W*(u) = D nao e W*(u) = M. Vale para geometricAmplitude e t != 0, nao para todo perfil.
+--   056 — METRICAS DA TORRE E LIMITES DA RECONSTRUCAO: d_t(x,y) = |g_t(x) - g_t(y)| e metrica (t != 0) e a
+--     escala e livre; Fisher radial F(r) = sum b_n^2/[q_n(1-q_n)] com 1/96 <= F <= 4/357 e F(0) = 1/96 (soma e
+--     cotas Lean; identificacao probabilistica global analitica); entropia relativa/t^4 -> F(0)/2 = 1/192;
+--     NEGATIVOS: a familia de um parametro tem Gram 2x2 de determinante ZERO (nao gera area por renomear
+--     coordenadas); o gerador relativo como Dirac tem distancia de comutadores INFINITA entre configuracoes
+--     distintas (comutador zero com as coordenadas); o gauge relativo exp(isP_n) preserva ambos os estados e o
+--     cociclo (liberdade residual), e seu gerador NAO e central ([P_0, E_01] = E_01 != 0).
+--   Estatuto: [REAL] o compilado; [DERIVED] reconstrucao da algebra diagonal, interpretacao global de Fisher,
+--   4||xi_r||^2 = F(r), arcsin, distancia de Connes; [OPEN] geometria fisica 3+1, area-entropia geometrica,
+--   calor fisico, acao gravitacional, Einstein-Cartan sem hipoteses. Nenhum nome ligado a H3/area/gate.
+-- Auditoria da gerencia (sessao d554e796, 08/09/2026): hashes 10/10 + 13/13; 2/2 auditores da bancada exit 0;
+--   sem revisao cientifica independente na bancada (declarado) — a gerencia leu os enunciados;
+--   recompilacao INDEPENDENTE 6/6, axiomas no trio; guarda de colisao; fontes lidas das SUBPASTAS da entrega.
+--   Transposicao: cabecalho + prefixo TGLExt. nos imports locais (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.SpectralMetricGeometry
+import TGLExt.CentralizerPhaseOrbit
+set_option autoImplicit false
+set_option maxHeartbeats 2400000
+namespace ChatgptAudit.Geometry056
+open Filter Topology Set TGLExt ChatgptAudit.CocycleRealization
+  ChatgptAudit.Response028 ChatgptAudit.Cocycle030 ChatgptAudit.Density033
+  ChatgptAudit.Angular034 ChatgptAudit.Thermal025
+noncomputable section
+
+theorem site_commutes_existing_term (t : ℝ) (n k : ℕ) :
+    Commute (siteZeroProjection thirdThermalReference n)
+      (likelihoodTerm geometricAmplitude t k) := by
+  unfold likelihoodTerm siteLikelihood
+  exact ((site_zero_commute thirdThermalReference n k).smul_right _).add_right
+    (((Commute.one_right _).sub_right
+      (site_zero_commute thirdThermalReference n k)).smul_right _)
+
+theorem site_commutes_existing_generator (t : ℝ) (n : ℕ) :
+    Commute (siteZeroProjection thirdThermalReference n)
+      (likelihoodGenerator geometricAmplitude t) :=
+  Commute.tsum_right _ (fun k => site_commutes_existing_term t n k)
+
+theorem coordinate_test_has_zero_commutator (t c : ℝ) (n : ℕ) :
+    likelihoodGenerator geometricAmplitude t*((c:ℂ) • siteZeroProjection thirdThermalReference n) -
+      ((c:ℂ) • siteZeroProjection thirdThermalReference n)*likelihoodGenerator geometricAmplitude t=0 :=
+  sub_eq_zero.mpr ((site_commutes_existing_generator t n).symm.smul_right (c:ℂ)).eq
+
+theorem existing_generator_has_unbounded_commutator_distance (t : ℝ)
+    {u v : ℕ → Bool} (huv : u≠v) (R : ℝ) :
+    ∃ (n : ℕ) (c : ℝ),
+      ‖likelihoodGenerator geometricAmplitude t*((c:ℂ) • siteZeroProjection thirdThermalReference n) -
+        ((c:ℂ) • siteZeroProjection thirdThermalReference n)*likelihoodGenerator geometricAmplitude t‖ ≤ 1 ∧
+      R < |binaryCoordinateTest c n u-binaryCoordinateTest c n v| := by
+  obtain ⟨n,c,hc⟩ := coordinate_separates_with_arbitrary_size huv R
+  exact ⟨n,c,by rw [coordinate_test_has_zero_commutator]; norm_num,hc⟩
+
+def relativeSiteGauge (n : ℕ) (s : ℝ) :
+    TowerHilbert thirdThermalReference →L[ℂ] TowerHilbert thirdThermalReference :=
+  boundedPhase thirdThermalReference (siteZeroProjection thirdThermalReference n) s
+
+theorem relative_site_gauge_unitary (n : ℕ) (s : ℝ) :
+    relativeSiteGauge n s∈unitary _ :=
+  bounded_phase_unitary _ _ (site_zero_projection _ n).isSelfAdjoint s
+
+theorem relative_site_gauge_centralizer (n : ℕ) (s : ℝ) :
+    relativeSiteGauge n s∈omegaCentralizer thirdThermalReference :=
+  bounded_phase_centralizer _ _ (site_zero_mem_centralizer _ n) s
+
+theorem relative_site_gauge_commutes_generator (n : ℕ) (s t : ℝ) :
+    Commute (relativeSiteGauge n s) (likelihoodGenerator geometricAmplitude t) :=
+  ((site_commutes_existing_generator t n).smul_left ((s:ℂ)*Complex.I)).exp_left
+
+theorem relative_site_gauge_commutes_density (n : ℕ) (s t : ℝ) :
+    Commute (relativeSiteGauge n s) (likelihoodDensity geometricAmplitude t) :=
+  (relative_site_gauge_commutes_generator n s t).exp_right
+
+theorem relative_site_gauge_commutes_cocycle (n : ℕ) (s t z : ℝ) :
+    Commute (relativeSiteGauge n s) (likelihoodCocycle geometricAmplitude t z) :=
+  ((relative_site_gauge_commutes_generator n s t).smul_right ((z:ℂ)*Complex.I)).exp_right
+
+theorem unitary_conjugation_fixes_commuting
+    (U A : TowerHilbert thirdThermalReference →L[ℂ] TowerHilbert thirdThermalReference)
+    (hu : U∈unitary _) (h : Commute U A) :
+    star U*A*U=A := by
+  rw [mul_assoc,h.symm.eq,←mul_assoc,(Unitary.mem_iff.mp hu).1,one_mul]
+
+theorem relative_site_gauge_fixes_cocycle (n : ℕ) (s t z : ℝ) :
+    star (relativeSiteGauge n s)*likelihoodCocycle geometricAmplitude t z*
+      relativeSiteGauge n s=likelihoodCocycle geometricAmplitude t z :=
+  unitary_conjugation_fixes_commuting _ _ (relative_site_gauge_unitary n s)
+    (relative_site_gauge_commutes_cocycle n s t z)
+
+theorem relative_site_gauge_fixes_site (n k : ℕ) (s : ℝ) :
+    star (relativeSiteGauge n s)*siteZeroProjection thirdThermalReference k*
+      relativeSiteGauge n s=siteZeroProjection thirdThermalReference k :=
+  unitary_conjugation_fixes_commuting _ _ (relative_site_gauge_unitary n s)
+    (((site_zero_commute thirdThermalReference n k).smul_left ((s:ℂ)*Complex.I)).exp_left)
+
+theorem relative_site_gauge_preserves_reference (n : ℕ) (s : ℝ)
+    (A : TowerHilbert thirdThermalReference →L[ℂ] TowerHilbert thirdThermalReference)
+    (hA : A∈theFactorObject thirdThermalReference) :
+    omegaState thirdThermalReference (star (relativeSiteGauge n s)*A*relativeSiteGauge n s)=
+      omegaState thirdThermalReference A :=
+  centralizer_unitary_preserves_state _ _ (relative_site_gauge_centralizer n s)
+    (relative_site_gauge_unitary n s) A hA
+
+theorem relative_site_gauge_preserves_preparation (n : ℕ) (s t : ℝ)
+    (A : TowerHilbert thirdThermalReference →L[ℂ] TowerHilbert thirdThermalReference)
+    (hA : A∈theFactorObject thirdThermalReference) :
+    amplitudeState geometricAmplitude t (star (relativeSiteGauge n s)*A*relativeSiteGauge n s)=
+      amplitudeState geometricAmplitude t A := by
+  have hU := (relative_site_gauge_centralizer n s).1
+  have hH := likelihood_density_mem_factor geometricAmplitude t
+  have hs : Commute (likelihoodDensity geometricAmplitude t) (star (relativeSiteGauge n s)) := by
+    have h := congrArg star (relative_site_gauge_commutes_density n s t).eq
+    change likelihoodDensity geometricAmplitude t*star (relativeSiteGauge n s)=
+      star (relativeSiteGauge n s)*likelihoodDensity geometricAmplitude t
+    simpa only [star_mul,(likelihood_density_selfadjoint geometricAmplitude t).star_eq] using h
+  rw [likelihood_density_state_left _ _ _ (mul_mem (mul_mem (star_mem hU) hA) hU),
+    likelihood_density_state_left _ _ A hA]
+  have he : likelihoodDensity geometricAmplitude t*
+      (star (relativeSiteGauge n s)*A*relativeSiteGauge n s)=
+      star (relativeSiteGauge n s)*(likelihoodDensity geometricAmplitude t*A)*relativeSiteGauge n s := by
+    calc
+      _=(likelihoodDensity geometricAmplitude t*star (relativeSiteGauge n s))*A*
+          relativeSiteGauge n s := by noncomm_ring
+      _=(star (relativeSiteGauge n s)*likelihoodDensity geometricAmplitude t)*A*
+          relativeSiteGauge n s := by rw [hs.eq]
+      _=_ := by noncomm_ring
+  rw [he]
+  exact relative_site_gauge_preserves_reference n s _ (mul_mem hH hA)
+
+def firstOffDiagonal :
+    TowerHilbert thirdThermalReference →L[ℂ] TowerHilbert thirdThermalReference :=
+  towerPi thirdThermalReference (N:=0) (Matrix.single (0:Fin 2) 1 (1:ℂ))
+
+theorem first_off_diagonal_nonzero : firstOffDiagonal≠0 := by
+  intro h
+  have hz : towerPi thirdThermalReference (N:=0) (0:Matrix (Fin 2) (Fin 2) ℂ)=0 :=
+    (towerPiLinear thirdThermalReference 0).map_zero
+  have hm := (towerPi_injective thirdThermalReference 0) (h.trans hz.symm)
+  have he := congrArg (fun a : Matrix (Fin 2) (Fin 2) ℂ => a 0 1) hm
+  norm_num [Matrix.single_apply] at he
+
+theorem first_projection_left_off_diagonal :
+    siteZeroProjection thirdThermalReference 0*firstOffDiagonal=firstOffDiagonal := by
+  change towerPi thirdThermalReference (N:=0) (Matrix.single (0:Fin 2) 0 (1:ℂ))*
+    towerPi thirdThermalReference (N:=0) (Matrix.single (0:Fin 2) 1 (1:ℂ))=_
+  rw [←towerPi_mul]
+  congr 1
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    norm_num [Matrix.mul_apply,Fin.sum_univ_two,Matrix.single_apply]
+
+theorem first_projection_right_off_diagonal :
+    firstOffDiagonal*siteZeroProjection thirdThermalReference 0=0 := by
+  change towerPi thirdThermalReference (N:=0) (Matrix.single (0:Fin 2) 1 (1:ℂ))*
+    towerPi thirdThermalReference (N:=0) (Matrix.single (0:Fin 2) 0 (1:ℂ))=_
+  rw [←towerPi_mul]
+  have hm : (Matrix.single (0:Fin 2) (1:Fin 2) (1:ℂ))*
+      (Matrix.single (0:Fin 2) (0:Fin 2) (1:ℂ))=0 := by
+    ext i j
+    fin_cases i <;> fin_cases j <;>
+      norm_num [Matrix.mul_apply,Fin.sum_univ_two,Matrix.single_apply]
+  rw [hm]
+  exact (towerPiLinear thirdThermalReference 0).map_zero
+
+theorem gauge_generator_changes_quantum_observable :
+    siteZeroProjection thirdThermalReference 0*firstOffDiagonal -
+      firstOffDiagonal*siteZeroProjection thirdThermalReference 0=firstOffDiagonal := by
+  rw [first_projection_left_off_diagonal,first_projection_right_off_diagonal,sub_zero]
+
+theorem gauge_generator_is_not_central :
+    ¬Commute (siteZeroProjection thirdThermalReference 0) firstOffDiagonal := by
+  intro h
+  have he := sub_eq_zero.mpr h.eq
+  rw [gauge_generator_changes_quantum_observable] at he
+  exact first_off_diagonal_nonzero he
+
+#print axioms site_commutes_existing_term
+#print axioms site_commutes_existing_generator
+#print axioms coordinate_test_has_zero_commutator
+#print axioms existing_generator_has_unbounded_commutator_distance
+#print axioms relativeSiteGauge
+#print axioms relative_site_gauge_unitary
+#print axioms relative_site_gauge_centralizer
+#print axioms relative_site_gauge_commutes_generator
+#print axioms relative_site_gauge_commutes_density
+#print axioms relative_site_gauge_commutes_cocycle
+#print axioms unitary_conjugation_fixes_commuting
+#print axioms relative_site_gauge_fixes_cocycle
+#print axioms relative_site_gauge_fixes_site
+#print axioms relative_site_gauge_preserves_reference
+#print axioms relative_site_gauge_preserves_preparation
+#print axioms firstOffDiagonal
+#print axioms first_off_diagonal_nonzero
+#print axioms first_projection_left_off_diagonal
+#print axioms first_projection_right_off_diagonal
+#print axioms gauge_generator_changes_quantum_observable
+#print axioms gauge_generator_is_not_central
+
+end
+end ChatgptAudit.Geometry056
 ''',
     # ===== v331: PEDRA DA GERENCIA (Claude, 07/09/2026) — A RAIZ DA ARVORE DA PROVA =====
     # Um unico termo, `the_root_of_the_proof_tree`, auditado por #print axioms (trio), enuncia e prova em conjuncao:
@@ -64933,6 +66982,174 @@ end TGL.Audit
 #print axioms TGLExt.aperiodic_expectation_covariant_under_inverse
 #print axioms TGLExt.the_root_of_the_proof_tree
 #print axioms TGLExt.the_aperiodic_antecedent_is_now_a_term
+
+-- ===== v332: ENTREGAS 055..056 ESPONTANEAS DA BANCADA (08/09/2026) — seletor relativo na torre infinita; metricas e limites =====
+#print axioms ChatgptAudit.CocycleRealization.contrast_nonnegative
+#print axioms ChatgptAudit.CocycleRealization.contrast_upper
+#print axioms ChatgptAudit.CocycleRealization.contrast_log_ratio
+#print axioms ChatgptAudit.CocycleRealization.contrast_strict_dyadic
+#print axioms ChatgptAudit.CocycleRealization.contrast_dyadic
+#print axioms ChatgptAudit.CocycleRealization.geometric_argument_bounds
+#print axioms ChatgptAudit.CocycleRealization.geometric_argument_positive
+#print axioms ChatgptAudit.CocycleRealization.geometric_argument_succ
+#print axioms ChatgptAudit.CocycleRealization.geometric_contrast_nonnegative
+#print axioms ChatgptAudit.CocycleRealization.geometric_contrast_summable
+#print axioms ChatgptAudit.CocycleRealization.geometric_contrast_succ_le
+#print axioms ChatgptAudit.CocycleRealization.geometric_contrast_strict_succ
+#print axioms ChatgptAudit.CocycleRealization.geometric_contrast_shift_bound
+#print axioms ChatgptAudit.CocycleRealization.geometric_contrast_tail_summable
+#print axioms ChatgptAudit.CocycleRealization.geometric_contrast_tail_le
+#print axioms ChatgptAudit.CocycleRealization.geometric_contrast_dominates_entire_tail
+#print axioms ChatgptAudit.CocycleRealization.existing_global_generator_bound
+#print axioms ChatgptAudit.CocycleRealization.existing_global_density_normalized
+#print axioms ChatgptAudit.CocycleRealization.existing_global_cocycle_limit
+#print axioms ChatgptAudit.CocycleRealization.digit_term_bounds
+#print axioms ChatgptAudit.CocycleRealization.digit_summable
+#print axioms ChatgptAudit.CocycleRealization.digit_tail_summable
+#print axioms ChatgptAudit.CocycleRealization.code_prefix_tail
+#print axioms ChatgptAudit.CocycleRealization.digit_tail_bounds
+#print axioms ChatgptAudit.CocycleRealization.first_difference_strict
+#print axioms ChatgptAudit.CocycleRealization.binary_code_injective
+#print axioms ChatgptAudit.CocycleRealization.geometric_code_injective
+#print axioms ChatgptAudit.CocycleRealization.geometric_log_one_summable
+#print axioms ChatgptAudit.CocycleRealization.geometric_site_reading_eq
+#print axioms ChatgptAudit.CocycleRealization.geometric_site_reading_summable
+#print axioms ChatgptAudit.CocycleRealization.geometric_log_reading_eq_actual_series
+#print axioms ChatgptAudit.CocycleRealization.geometric_log_reading_injective
+#print axioms ChatgptAudit.CocycleRealization.actual_site_log_reading
+#print axioms ChatgptAudit.CocycleRealization.actual_prefix_log_reading
+#print axioms ChatgptAudit.CocycleRealization.actual_prefix_matrix_diagonal
+#print axioms ChatgptAudit.CocycleRealization.actual_prefix_scalar_limit
+#print axioms ChatgptAudit.CocycleRealization.existing_operator_is_same_prefix
+#print axioms ChatgptAudit.CocycleRealization.existing_operator_norm_limit
+#print axioms ChatgptAudit.CocycleRealization.existing_density_is_prepared_state
+#print axioms ChatgptAudit.CocycleRealization.existing_site_projections_commute
+#print axioms ChatgptAudit.CocycleRealization.existing_finite_representation_faithful
+#print axioms ChatgptAudit.Geometry056.spectral_distance_nonnegative
+#print axioms ChatgptAudit.Geometry056.spectral_distance_self
+#print axioms ChatgptAudit.Geometry056.spectral_distance_symmetric
+#print axioms ChatgptAudit.Geometry056.spectral_distance_triangle
+#print axioms ChatgptAudit.Geometry056.spectral_distance_zero_iff
+#print axioms ChatgptAudit.Geometry056.spectral_distance_positive
+#print axioms ChatgptAudit.Geometry056.scaled_spectral_distance_triangle
+#print axioms ChatgptAudit.Geometry056.scaled_spectral_distance_zero_iff
+#print axioms ChatgptAudit.Geometry056.different_scales_give_different_distances
+#print axioms ChatgptAudit.Geometry056.coordinate_separates_with_arbitrary_size
+#print axioms ChatgptAudit.Geometry056.radial_weight_is_existing
+#print axioms ChatgptAudit.Geometry056.geometric_amplitude_sharp_bound
+#print axioms ChatgptAudit.Geometry056.radial_weight_bounds
+#print axioms ChatgptAudit.Geometry056.radial_variance_bounds
+#print axioms ChatgptAudit.Geometry056.radial_fisher_term_bounds
+#print axioms ChatgptAudit.Geometry056.radial_fisher_term_nonnegative
+#print axioms ChatgptAudit.Geometry056.radial_fisher_summable
+#print axioms ChatgptAudit.Geometry056.radial_fisher_bounds
+#print axioms ChatgptAudit.Geometry056.radial_fisher_positive
+#print axioms ChatgptAudit.Geometry056.radial_fisher_prefix_limit
+#print axioms ChatgptAudit.Geometry056.regular_parameter_derivative
+#print axioms ChatgptAudit.Geometry056.radial_weight_derivative
+#print axioms ChatgptAudit.Geometry056.actual_weight_derivative
+#print axioms ChatgptAudit.Geometry056.regular_speed_ne_zero
+#print axioms ChatgptAudit.Geometry056.time_fisher_positive
+#print axioms ChatgptAudit.Geometry056.time_fisher_zero
+#print axioms ChatgptAudit.Geometry056.bernoulli_score_mean_zero
+#print axioms ChatgptAudit.Geometry056.bernoulli_score_variance
+#print axioms ChatgptAudit.Geometry056.fisher_angular_coefficient
+#print axioms ChatgptAudit.Geometry056.one_parameter_has_zero_two_area
+#print axioms ChatgptAudit.Geometry056.radial_fisher_at_reference
+#print axioms ChatgptAudit.Geometry056.actual_relative_entropy_recovers_fisher
+#print axioms ChatgptAudit.Geometry056.site_commutes_existing_term
+#print axioms ChatgptAudit.Geometry056.site_commutes_existing_generator
+#print axioms ChatgptAudit.Geometry056.coordinate_test_has_zero_commutator
+#print axioms ChatgptAudit.Geometry056.existing_generator_has_unbounded_commutator_distance
+#print axioms ChatgptAudit.Geometry056.relative_site_gauge_unitary
+#print axioms ChatgptAudit.Geometry056.relative_site_gauge_centralizer
+#print axioms ChatgptAudit.Geometry056.relative_site_gauge_commutes_generator
+#print axioms ChatgptAudit.Geometry056.relative_site_gauge_commutes_density
+#print axioms ChatgptAudit.Geometry056.relative_site_gauge_commutes_cocycle
+#print axioms ChatgptAudit.Geometry056.unitary_conjugation_fixes_commuting
+#print axioms ChatgptAudit.Geometry056.relative_site_gauge_fixes_cocycle
+#print axioms ChatgptAudit.Geometry056.relative_site_gauge_fixes_site
+#print axioms ChatgptAudit.Geometry056.relative_site_gauge_preserves_reference
+#print axioms ChatgptAudit.Geometry056.relative_site_gauge_preserves_preparation
+#print axioms ChatgptAudit.Geometry056.first_off_diagonal_nonzero
+#print axioms ChatgptAudit.Geometry056.first_projection_left_off_diagonal
+#print axioms ChatgptAudit.Geometry056.first_projection_right_off_diagonal
+#print axioms ChatgptAudit.Geometry056.gauge_generator_changes_quantum_observable
+#print axioms ChatgptAudit.Geometry056.gauge_generator_is_not_central
+
+-- ===== v333: ENTREGA 057 (COLAPSO TIPADO) DA BANCADA (08/09/2026) — a definicao tipada do colapso: contrato, custo, atestacao, instancias =====
+#print axioms ChatgptAudit.Collapse057.collapse_reuses_canonical_preservation
+#print axioms ChatgptAudit.Collapse057.collapse_is_not_identity
+#print axioms ChatgptAudit.Collapse057.collapse_is_not_injective
+#print axioms ChatgptAudit.Collapse057.collapse_has_no_left_inverse
+#print axioms ChatgptAudit.Collapse057.collapse_fixed_iff_in_range
+#print axioms ChatgptAudit.Collapse057.collapse_iteration_is_stable
+#print axioms ChatgptAudit.Collapse057.inclusion_is_right_inverse_on_fixed_sector
+#print axioms ChatgptAudit.Collapse057.transition_preserves_identity_and_is_fixed
+#print axioms ChatgptAudit.Collapse057.no_changed_transition_at_fixed_point
+#print axioms ChatgptAudit.Collapse057.involution_cannot_be_collapse
+#print axioms ChatgptAudit.Collapse057.reflection_of_output_cannot_restore_input
+#print axioms ChatgptAudit.Collapse057.proposed_cost_components
+#print axioms ChatgptAudit.Collapse057.local_cost_positive
+#print axioms ChatgptAudit.Collapse057.octave_cost_zero
+#print axioms ChatgptAudit.Collapse057.octave_cost_add
+#print axioms ChatgptAudit.Collapse057.octave_cost_positive
+#print axioms ChatgptAudit.Collapse057.local_is_not_one_octave
+#print axioms ChatgptAudit.Collapse057.fair_bit_entropy_is_log_two
+#print axioms ChatgptAudit.Collapse057.fair_bit_entropy_is_not_half_nat
+#print axioms ChatgptAudit.Collapse057.logical_core_allows_distinct_nonnegative_cost_readings
+#print axioms ChatgptAudit.Collapse057.attestation_requires_external_evidence
+#print axioms ChatgptAudit.Collapse057.no_self_attestation
+#print axioms ChatgptAudit.Collapse057.missing_external_evidence_blocks_attestation
+#print axioms ChatgptAudit.Collapse057.attested_output_stable_and_identity_preserved
+#print axioms ChatgptAudit.Collapse057.typed_collapse_content
+#print axioms ChatgptAudit.Collapse057.typed_collapse_has_no_self_attestation
+#print axioms ChatgptAudit.Collapse057.readout_zero_idempotent
+#print axioms ChatgptAudit.Collapse057.qubit_reduction_formula
+#print axioms ChatgptAudit.Collapse057.qubit_reduction_unital
+#print axioms ChatgptAudit.Collapse057.qubit_reduction_idempotent
+#print axioms ChatgptAudit.Collapse057.qubit_reduction_preserves_trace
+#print axioms ChatgptAudit.Collapse057.opposite_phases_same_reduction
+#print axioms ChatgptAudit.Collapse057.opposite_phase_states_distinct
+#print axioms ChatgptAudit.Collapse057.pure_densities_square
+#print axioms ChatgptAudit.Collapse057.pure_densities_hermitian
+#print axioms ChatgptAudit.Collapse057.pure_densities_positive
+#print axioms ChatgptAudit.Collapse057.pure_densities_normalized
+#print axioms ChatgptAudit.Collapse057.mixed_density_normalized
+#print axioms ChatgptAudit.Collapse057.mixed_density_fixed
+#print axioms ChatgptAudit.Collapse057.mixed_density_not_pure
+#print axioms ChatgptAudit.Collapse057.distinct_readout_fixed_points
+#print axioms ChatgptAudit.Collapse057.qubit_reduction_no_inverse
+#print axioms ChatgptAudit.Collapse057.selective_branch_formula
+#print axioms ChatgptAudit.Collapse057.normalized_branch_requires_nonzero_weight
+#print axioms ChatgptAudit.Collapse057.forgetting_outcome_is_nonselective
+#print axioms ChatgptAudit.Collapse057.fair_branch_weights
+#print axioms ChatgptAudit.Collapse057.qubit_reduction_positive
+#print axioms ChatgptAudit.Collapse057.density_reduction_idempotent
+#print axioms ChatgptAudit.Collapse057.density_reduction_effective
+#print axioms ChatgptAudit.Collapse057.density_reduction_no_inverse
+#print axioms ChatgptAudit.Collapse057.zero_weight_is_no_normalized_branch
+#print axioms ChatgptAudit.Collapse057.tower_reduction_idempotent
+#print axioms ChatgptAudit.Collapse057.tower_reduction_preserves_state
+#print axioms ChatgptAudit.Collapse057.tower_reduction_preserves_unit
+#print axioms ChatgptAudit.Collapse057.tower_fixed_points_exactly_centralizer
+#print axioms ChatgptAudit.Collapse057.tower_pauli_x_nonzero
+#print axioms ChatgptAudit.Collapse057.tower_reduction_effective
+#print axioms ChatgptAudit.Collapse057.actual_tower_collapse_no_inverse
+#print axioms ChatgptAudit.Collapse057.tracial_tower_reduction_is_identity
+#print axioms ChatgptAudit.Collapse057.tracial_tower_has_no_effective_witness
+
+-- ===== v334: PEDRA DA GERENCIA (08/09/2026) — a tela fundada: a resposta do operador (H3 e a ponte) tipada =====
+#print axioms TGLExt.founded_screen_is_the_centralizer
+#print axioms TGLExt.the_screen_is_one
+#print axioms TGLExt.the_screen_is_global
+#print axioms TGLExt.the_screen_keeps_modular_time
+#print axioms TGLExt.screen_reflects_iff_equality_operates
+#print axioms TGLExt.the_signal_is_the_referent
+#print axioms TGLExt.the_word_fixes_the_place
+#print axioms TGLExt.the_word_is_true_or_false
+#print axioms TGLExt.the_unit_is_the_axiom
+#print axioms TGLExt.the_answer_of_the_operator_08_09
 ''',
     "TGL/Basic.lean":
 r'''import Mathlib
@@ -111352,6 +113569,171 @@ _LEAN_THEOREM_FLAGS = {
     "ext_flow_automorphism_kernel_proved": "TGLExt.sigma_mul",
     "ext_jones_scalar_kernel_proved": "TGLExt.eTr_Lmul_eTr",
     # v34 (Degrau 2: o indice de Pimsner-Popa COMPUTADO): informativos
+    # v334 (GERENCIA 08/09/2026): os 10 teoremas da tela fundada — a resposta do operador (H3 e a ponte) tipada
+    "ext_v334_founded_screen_is_the_centralizer_kernel_proved": "TGLExt.founded_screen_is_the_centralizer",
+    "ext_v334_the_screen_is_one_kernel_proved": "TGLExt.the_screen_is_one",
+    "ext_v334_the_screen_is_global_kernel_proved": "TGLExt.the_screen_is_global",
+    "ext_v334_the_screen_keeps_modular_time_kernel_proved": "TGLExt.the_screen_keeps_modular_time",
+    "ext_v334_screen_reflects_iff_equality_operates_kernel_proved": "TGLExt.screen_reflects_iff_equality_operates",
+    "ext_v334_the_signal_is_the_referent_kernel_proved": "TGLExt.the_signal_is_the_referent",
+    "ext_v334_the_word_fixes_the_place_kernel_proved": "TGLExt.the_word_fixes_the_place",
+    "ext_v334_the_word_is_true_or_false_kernel_proved": "TGLExt.the_word_is_true_or_false",
+    "ext_v334_the_unit_is_the_axiom_kernel_proved": "TGLExt.the_unit_is_the_axiom",
+    "ext_v334_the_answer_of_the_operator_08_09_kernel_proved": "TGLExt.the_answer_of_the_operator_08_09",
+    # v333 (ENTREGA 057 (COLAPSO TIPADO) 08/09/2026): os 60 teoremas do colapso tipado — contrato / custo e atestacao / qubit / torre
+    "ext_v333_collapse057_collapse_reuses_canonical_preservation_kernel_proved": "ChatgptAudit.Collapse057.collapse_reuses_canonical_preservation",
+    "ext_v333_collapse057_collapse_is_not_identity_kernel_proved": "ChatgptAudit.Collapse057.collapse_is_not_identity",
+    "ext_v333_collapse057_collapse_is_not_injective_kernel_proved": "ChatgptAudit.Collapse057.collapse_is_not_injective",
+    "ext_v333_collapse057_collapse_has_no_left_inverse_kernel_proved": "ChatgptAudit.Collapse057.collapse_has_no_left_inverse",
+    "ext_v333_collapse057_collapse_fixed_iff_in_range_kernel_proved": "ChatgptAudit.Collapse057.collapse_fixed_iff_in_range",
+    "ext_v333_collapse057_collapse_iteration_is_stable_kernel_proved": "ChatgptAudit.Collapse057.collapse_iteration_is_stable",
+    "ext_v333_collapse057_inclusion_is_right_inverse_on_fixed_sector_kernel_proved": "ChatgptAudit.Collapse057.inclusion_is_right_inverse_on_fixed_sector",
+    "ext_v333_collapse057_transition_preserves_identity_and_is_fixed_kernel_proved": "ChatgptAudit.Collapse057.transition_preserves_identity_and_is_fixed",
+    "ext_v333_collapse057_no_changed_transition_at_fixed_point_kernel_proved": "ChatgptAudit.Collapse057.no_changed_transition_at_fixed_point",
+    "ext_v333_collapse057_involution_cannot_be_collapse_kernel_proved": "ChatgptAudit.Collapse057.involution_cannot_be_collapse",
+    "ext_v333_collapse057_reflection_of_output_cannot_restore_input_kernel_proved": "ChatgptAudit.Collapse057.reflection_of_output_cannot_restore_input",
+    "ext_v333_collapse057_proposed_cost_components_kernel_proved": "ChatgptAudit.Collapse057.proposed_cost_components",
+    "ext_v333_collapse057_local_cost_positive_kernel_proved": "ChatgptAudit.Collapse057.local_cost_positive",
+    "ext_v333_collapse057_octave_cost_zero_kernel_proved": "ChatgptAudit.Collapse057.octave_cost_zero",
+    "ext_v333_collapse057_octave_cost_add_kernel_proved": "ChatgptAudit.Collapse057.octave_cost_add",
+    "ext_v333_collapse057_octave_cost_positive_kernel_proved": "ChatgptAudit.Collapse057.octave_cost_positive",
+    "ext_v333_collapse057_local_is_not_one_octave_kernel_proved": "ChatgptAudit.Collapse057.local_is_not_one_octave",
+    "ext_v333_collapse057_fair_bit_entropy_is_log_two_kernel_proved": "ChatgptAudit.Collapse057.fair_bit_entropy_is_log_two",
+    "ext_v333_collapse057_fair_bit_entropy_is_not_half_nat_kernel_proved": "ChatgptAudit.Collapse057.fair_bit_entropy_is_not_half_nat",
+    "ext_v333_collapse057_logical_core_allows_distinct_nonnegative_cost_readings_kernel_proved": "ChatgptAudit.Collapse057.logical_core_allows_distinct_nonnegative_cost_readings",
+    "ext_v333_collapse057_attestation_requires_external_evidence_kernel_proved": "ChatgptAudit.Collapse057.attestation_requires_external_evidence",
+    "ext_v333_collapse057_no_self_attestation_kernel_proved": "ChatgptAudit.Collapse057.no_self_attestation",
+    "ext_v333_collapse057_missing_external_evidence_blocks_attestation_kernel_proved": "ChatgptAudit.Collapse057.missing_external_evidence_blocks_attestation",
+    "ext_v333_collapse057_attested_output_stable_and_identity_preserved_kernel_proved": "ChatgptAudit.Collapse057.attested_output_stable_and_identity_preserved",
+    "ext_v333_collapse057_typed_collapse_content_kernel_proved": "ChatgptAudit.Collapse057.typed_collapse_content",
+    "ext_v333_collapse057_typed_collapse_has_no_self_attestation_kernel_proved": "ChatgptAudit.Collapse057.typed_collapse_has_no_self_attestation",
+    "ext_v333_collapse057_readout_zero_idempotent_kernel_proved": "ChatgptAudit.Collapse057.readout_zero_idempotent",
+    "ext_v333_collapse057_qubit_reduction_formula_kernel_proved": "ChatgptAudit.Collapse057.qubit_reduction_formula",
+    "ext_v333_collapse057_qubit_reduction_unital_kernel_proved": "ChatgptAudit.Collapse057.qubit_reduction_unital",
+    "ext_v333_collapse057_qubit_reduction_idempotent_kernel_proved": "ChatgptAudit.Collapse057.qubit_reduction_idempotent",
+    "ext_v333_collapse057_qubit_reduction_preserves_trace_kernel_proved": "ChatgptAudit.Collapse057.qubit_reduction_preserves_trace",
+    "ext_v333_collapse057_opposite_phases_same_reduction_kernel_proved": "ChatgptAudit.Collapse057.opposite_phases_same_reduction",
+    "ext_v333_collapse057_opposite_phase_states_distinct_kernel_proved": "ChatgptAudit.Collapse057.opposite_phase_states_distinct",
+    "ext_v333_collapse057_pure_densities_square_kernel_proved": "ChatgptAudit.Collapse057.pure_densities_square",
+    "ext_v333_collapse057_pure_densities_hermitian_kernel_proved": "ChatgptAudit.Collapse057.pure_densities_hermitian",
+    "ext_v333_collapse057_pure_densities_positive_kernel_proved": "ChatgptAudit.Collapse057.pure_densities_positive",
+    "ext_v333_collapse057_pure_densities_normalized_kernel_proved": "ChatgptAudit.Collapse057.pure_densities_normalized",
+    "ext_v333_collapse057_mixed_density_normalized_kernel_proved": "ChatgptAudit.Collapse057.mixed_density_normalized",
+    "ext_v333_collapse057_mixed_density_fixed_kernel_proved": "ChatgptAudit.Collapse057.mixed_density_fixed",
+    "ext_v333_collapse057_mixed_density_not_pure_kernel_proved": "ChatgptAudit.Collapse057.mixed_density_not_pure",
+    "ext_v333_collapse057_distinct_readout_fixed_points_kernel_proved": "ChatgptAudit.Collapse057.distinct_readout_fixed_points",
+    "ext_v333_collapse057_qubit_reduction_no_inverse_kernel_proved": "ChatgptAudit.Collapse057.qubit_reduction_no_inverse",
+    "ext_v333_collapse057_selective_branch_formula_kernel_proved": "ChatgptAudit.Collapse057.selective_branch_formula",
+    "ext_v333_collapse057_normalized_branch_requires_nonzero_weight_kernel_proved": "ChatgptAudit.Collapse057.normalized_branch_requires_nonzero_weight",
+    "ext_v333_collapse057_forgetting_outcome_is_nonselective_kernel_proved": "ChatgptAudit.Collapse057.forgetting_outcome_is_nonselective",
+    "ext_v333_collapse057_fair_branch_weights_kernel_proved": "ChatgptAudit.Collapse057.fair_branch_weights",
+    "ext_v333_collapse057_qubit_reduction_positive_kernel_proved": "ChatgptAudit.Collapse057.qubit_reduction_positive",
+    "ext_v333_collapse057_density_reduction_idempotent_kernel_proved": "ChatgptAudit.Collapse057.density_reduction_idempotent",
+    "ext_v333_collapse057_density_reduction_effective_kernel_proved": "ChatgptAudit.Collapse057.density_reduction_effective",
+    "ext_v333_collapse057_density_reduction_no_inverse_kernel_proved": "ChatgptAudit.Collapse057.density_reduction_no_inverse",
+    "ext_v333_collapse057_zero_weight_is_no_normalized_branch_kernel_proved": "ChatgptAudit.Collapse057.zero_weight_is_no_normalized_branch",
+    "ext_v333_collapse057_tower_reduction_idempotent_kernel_proved": "ChatgptAudit.Collapse057.tower_reduction_idempotent",
+    "ext_v333_collapse057_tower_reduction_preserves_state_kernel_proved": "ChatgptAudit.Collapse057.tower_reduction_preserves_state",
+    "ext_v333_collapse057_tower_reduction_preserves_unit_kernel_proved": "ChatgptAudit.Collapse057.tower_reduction_preserves_unit",
+    "ext_v333_collapse057_tower_fixed_points_exactly_centralizer_kernel_proved": "ChatgptAudit.Collapse057.tower_fixed_points_exactly_centralizer",
+    "ext_v333_collapse057_tower_pauli_x_nonzero_kernel_proved": "ChatgptAudit.Collapse057.tower_pauli_x_nonzero",
+    "ext_v333_collapse057_tower_reduction_effective_kernel_proved": "ChatgptAudit.Collapse057.tower_reduction_effective",
+    "ext_v333_collapse057_actual_tower_collapse_no_inverse_kernel_proved": "ChatgptAudit.Collapse057.actual_tower_collapse_no_inverse",
+    "ext_v333_collapse057_tracial_tower_reduction_is_identity_kernel_proved": "ChatgptAudit.Collapse057.tracial_tower_reduction_is_identity",
+    "ext_v333_collapse057_tracial_tower_has_no_effective_witness_kernel_proved": "ChatgptAudit.Collapse057.tracial_tower_has_no_effective_witness",
+    # v332 (ENTREGAS 055..056 08/09/2026): os 92 teoremas do seletor relativo / metricas da torre / limites da reconstrucao
+    "ext_v332_cocyclerealization_contrast_nonnegative_kernel_proved": "ChatgptAudit.CocycleRealization.contrast_nonnegative",
+    "ext_v332_cocyclerealization_contrast_upper_kernel_proved": "ChatgptAudit.CocycleRealization.contrast_upper",
+    "ext_v332_cocyclerealization_contrast_log_ratio_kernel_proved": "ChatgptAudit.CocycleRealization.contrast_log_ratio",
+    "ext_v332_cocyclerealization_contrast_strict_dyadic_kernel_proved": "ChatgptAudit.CocycleRealization.contrast_strict_dyadic",
+    "ext_v332_cocyclerealization_contrast_dyadic_kernel_proved": "ChatgptAudit.CocycleRealization.contrast_dyadic",
+    "ext_v332_cocyclerealization_geometric_argument_bounds_kernel_proved": "ChatgptAudit.CocycleRealization.geometric_argument_bounds",
+    "ext_v332_cocyclerealization_geometric_argument_positive_kernel_proved": "ChatgptAudit.CocycleRealization.geometric_argument_positive",
+    "ext_v332_cocyclerealization_geometric_argument_succ_kernel_proved": "ChatgptAudit.CocycleRealization.geometric_argument_succ",
+    "ext_v332_cocyclerealization_geometric_contrast_nonnegative_kernel_proved": "ChatgptAudit.CocycleRealization.geometric_contrast_nonnegative",
+    "ext_v332_cocyclerealization_geometric_contrast_summable_kernel_proved": "ChatgptAudit.CocycleRealization.geometric_contrast_summable",
+    "ext_v332_cocyclerealization_geometric_contrast_succ_le_kernel_proved": "ChatgptAudit.CocycleRealization.geometric_contrast_succ_le",
+    "ext_v332_cocyclerealization_geometric_contrast_strict_succ_kernel_proved": "ChatgptAudit.CocycleRealization.geometric_contrast_strict_succ",
+    "ext_v332_cocyclerealization_geometric_contrast_shift_bound_kernel_proved": "ChatgptAudit.CocycleRealization.geometric_contrast_shift_bound",
+    "ext_v332_cocyclerealization_geometric_contrast_tail_summable_kernel_proved": "ChatgptAudit.CocycleRealization.geometric_contrast_tail_summable",
+    "ext_v332_cocyclerealization_geometric_contrast_tail_le_kernel_proved": "ChatgptAudit.CocycleRealization.geometric_contrast_tail_le",
+    "ext_v332_cocyclerealization_geometric_contrast_dominates_entire_tail_kernel_proved": "ChatgptAudit.CocycleRealization.geometric_contrast_dominates_entire_tail",
+    "ext_v332_cocyclerealization_existing_global_generator_bound_kernel_proved": "ChatgptAudit.CocycleRealization.existing_global_generator_bound",
+    "ext_v332_cocyclerealization_existing_global_density_normalized_kernel_proved": "ChatgptAudit.CocycleRealization.existing_global_density_normalized",
+    "ext_v332_cocyclerealization_existing_global_cocycle_limit_kernel_proved": "ChatgptAudit.CocycleRealization.existing_global_cocycle_limit",
+    "ext_v332_cocyclerealization_digit_term_bounds_kernel_proved": "ChatgptAudit.CocycleRealization.digit_term_bounds",
+    "ext_v332_cocyclerealization_digit_summable_kernel_proved": "ChatgptAudit.CocycleRealization.digit_summable",
+    "ext_v332_cocyclerealization_digit_tail_summable_kernel_proved": "ChatgptAudit.CocycleRealization.digit_tail_summable",
+    "ext_v332_cocyclerealization_code_prefix_tail_kernel_proved": "ChatgptAudit.CocycleRealization.code_prefix_tail",
+    "ext_v332_cocyclerealization_digit_tail_bounds_kernel_proved": "ChatgptAudit.CocycleRealization.digit_tail_bounds",
+    "ext_v332_cocyclerealization_first_difference_strict_kernel_proved": "ChatgptAudit.CocycleRealization.first_difference_strict",
+    "ext_v332_cocyclerealization_binary_code_injective_kernel_proved": "ChatgptAudit.CocycleRealization.binary_code_injective",
+    "ext_v332_cocyclerealization_geometric_code_injective_kernel_proved": "ChatgptAudit.CocycleRealization.geometric_code_injective",
+    "ext_v332_cocyclerealization_geometric_log_one_summable_kernel_proved": "ChatgptAudit.CocycleRealization.geometric_log_one_summable",
+    "ext_v332_cocyclerealization_geometric_site_reading_eq_kernel_proved": "ChatgptAudit.CocycleRealization.geometric_site_reading_eq",
+    "ext_v332_cocyclerealization_geometric_site_reading_summable_kernel_proved": "ChatgptAudit.CocycleRealization.geometric_site_reading_summable",
+    "ext_v332_cocyclerealization_geometric_log_reading_eq_actual_series_kernel_proved": "ChatgptAudit.CocycleRealization.geometric_log_reading_eq_actual_series",
+    "ext_v332_cocyclerealization_geometric_log_reading_injective_kernel_proved": "ChatgptAudit.CocycleRealization.geometric_log_reading_injective",
+    "ext_v332_cocyclerealization_actual_site_log_reading_kernel_proved": "ChatgptAudit.CocycleRealization.actual_site_log_reading",
+    "ext_v332_cocyclerealization_actual_prefix_log_reading_kernel_proved": "ChatgptAudit.CocycleRealization.actual_prefix_log_reading",
+    "ext_v332_cocyclerealization_actual_prefix_matrix_diagonal_kernel_proved": "ChatgptAudit.CocycleRealization.actual_prefix_matrix_diagonal",
+    "ext_v332_cocyclerealization_actual_prefix_scalar_limit_kernel_proved": "ChatgptAudit.CocycleRealization.actual_prefix_scalar_limit",
+    "ext_v332_cocyclerealization_existing_operator_is_same_prefix_kernel_proved": "ChatgptAudit.CocycleRealization.existing_operator_is_same_prefix",
+    "ext_v332_cocyclerealization_existing_operator_norm_limit_kernel_proved": "ChatgptAudit.CocycleRealization.existing_operator_norm_limit",
+    "ext_v332_cocyclerealization_existing_density_is_prepared_state_kernel_proved": "ChatgptAudit.CocycleRealization.existing_density_is_prepared_state",
+    "ext_v332_cocyclerealization_existing_site_projections_commute_kernel_proved": "ChatgptAudit.CocycleRealization.existing_site_projections_commute",
+    "ext_v332_cocyclerealization_existing_finite_representation_faithful_kernel_proved": "ChatgptAudit.CocycleRealization.existing_finite_representation_faithful",
+    "ext_v332_geometry056_spectral_distance_nonnegative_kernel_proved": "ChatgptAudit.Geometry056.spectral_distance_nonnegative",
+    "ext_v332_geometry056_spectral_distance_self_kernel_proved": "ChatgptAudit.Geometry056.spectral_distance_self",
+    "ext_v332_geometry056_spectral_distance_symmetric_kernel_proved": "ChatgptAudit.Geometry056.spectral_distance_symmetric",
+    "ext_v332_geometry056_spectral_distance_triangle_kernel_proved": "ChatgptAudit.Geometry056.spectral_distance_triangle",
+    "ext_v332_geometry056_spectral_distance_zero_iff_kernel_proved": "ChatgptAudit.Geometry056.spectral_distance_zero_iff",
+    "ext_v332_geometry056_spectral_distance_positive_kernel_proved": "ChatgptAudit.Geometry056.spectral_distance_positive",
+    "ext_v332_geometry056_scaled_spectral_distance_triangle_kernel_proved": "ChatgptAudit.Geometry056.scaled_spectral_distance_triangle",
+    "ext_v332_geometry056_scaled_spectral_distance_zero_iff_kernel_proved": "ChatgptAudit.Geometry056.scaled_spectral_distance_zero_iff",
+    "ext_v332_geometry056_different_scales_give_different_distances_kernel_proved": "ChatgptAudit.Geometry056.different_scales_give_different_distances",
+    "ext_v332_geometry056_coordinate_separates_with_arbitrary_size_kernel_proved": "ChatgptAudit.Geometry056.coordinate_separates_with_arbitrary_size",
+    "ext_v332_geometry056_radial_weight_is_existing_kernel_proved": "ChatgptAudit.Geometry056.radial_weight_is_existing",
+    "ext_v332_geometry056_geometric_amplitude_sharp_bound_kernel_proved": "ChatgptAudit.Geometry056.geometric_amplitude_sharp_bound",
+    "ext_v332_geometry056_radial_weight_bounds_kernel_proved": "ChatgptAudit.Geometry056.radial_weight_bounds",
+    "ext_v332_geometry056_radial_variance_bounds_kernel_proved": "ChatgptAudit.Geometry056.radial_variance_bounds",
+    "ext_v332_geometry056_radial_fisher_term_bounds_kernel_proved": "ChatgptAudit.Geometry056.radial_fisher_term_bounds",
+    "ext_v332_geometry056_radial_fisher_term_nonnegative_kernel_proved": "ChatgptAudit.Geometry056.radial_fisher_term_nonnegative",
+    "ext_v332_geometry056_radial_fisher_summable_kernel_proved": "ChatgptAudit.Geometry056.radial_fisher_summable",
+    "ext_v332_geometry056_radial_fisher_bounds_kernel_proved": "ChatgptAudit.Geometry056.radial_fisher_bounds",
+    "ext_v332_geometry056_radial_fisher_positive_kernel_proved": "ChatgptAudit.Geometry056.radial_fisher_positive",
+    "ext_v332_geometry056_radial_fisher_prefix_limit_kernel_proved": "ChatgptAudit.Geometry056.radial_fisher_prefix_limit",
+    "ext_v332_geometry056_regular_parameter_derivative_kernel_proved": "ChatgptAudit.Geometry056.regular_parameter_derivative",
+    "ext_v332_geometry056_radial_weight_derivative_kernel_proved": "ChatgptAudit.Geometry056.radial_weight_derivative",
+    "ext_v332_geometry056_actual_weight_derivative_kernel_proved": "ChatgptAudit.Geometry056.actual_weight_derivative",
+    "ext_v332_geometry056_regular_speed_ne_zero_kernel_proved": "ChatgptAudit.Geometry056.regular_speed_ne_zero",
+    "ext_v332_geometry056_time_fisher_positive_kernel_proved": "ChatgptAudit.Geometry056.time_fisher_positive",
+    "ext_v332_geometry056_time_fisher_zero_kernel_proved": "ChatgptAudit.Geometry056.time_fisher_zero",
+    "ext_v332_geometry056_bernoulli_score_mean_zero_kernel_proved": "ChatgptAudit.Geometry056.bernoulli_score_mean_zero",
+    "ext_v332_geometry056_bernoulli_score_variance_kernel_proved": "ChatgptAudit.Geometry056.bernoulli_score_variance",
+    "ext_v332_geometry056_fisher_angular_coefficient_kernel_proved": "ChatgptAudit.Geometry056.fisher_angular_coefficient",
+    "ext_v332_geometry056_one_parameter_has_zero_two_area_kernel_proved": "ChatgptAudit.Geometry056.one_parameter_has_zero_two_area",
+    "ext_v332_geometry056_radial_fisher_at_reference_kernel_proved": "ChatgptAudit.Geometry056.radial_fisher_at_reference",
+    "ext_v332_geometry056_actual_relative_entropy_recovers_fisher_kernel_proved": "ChatgptAudit.Geometry056.actual_relative_entropy_recovers_fisher",
+    "ext_v332_geometry056_site_commutes_existing_term_kernel_proved": "ChatgptAudit.Geometry056.site_commutes_existing_term",
+    "ext_v332_geometry056_site_commutes_existing_generator_kernel_proved": "ChatgptAudit.Geometry056.site_commutes_existing_generator",
+    "ext_v332_geometry056_coordinate_test_has_zero_commutator_kernel_proved": "ChatgptAudit.Geometry056.coordinate_test_has_zero_commutator",
+    "ext_v332_geometry056_existing_generator_has_unbounded_commutator_distance_kernel_proved": "ChatgptAudit.Geometry056.existing_generator_has_unbounded_commutator_distance",
+    "ext_v332_geometry056_relative_site_gauge_unitary_kernel_proved": "ChatgptAudit.Geometry056.relative_site_gauge_unitary",
+    "ext_v332_geometry056_relative_site_gauge_centralizer_kernel_proved": "ChatgptAudit.Geometry056.relative_site_gauge_centralizer",
+    "ext_v332_geometry056_relative_site_gauge_commutes_generator_kernel_proved": "ChatgptAudit.Geometry056.relative_site_gauge_commutes_generator",
+    "ext_v332_geometry056_relative_site_gauge_commutes_density_kernel_proved": "ChatgptAudit.Geometry056.relative_site_gauge_commutes_density",
+    "ext_v332_geometry056_relative_site_gauge_commutes_cocycle_kernel_proved": "ChatgptAudit.Geometry056.relative_site_gauge_commutes_cocycle",
+    "ext_v332_geometry056_unitary_conjugation_fixes_commuting_kernel_proved": "ChatgptAudit.Geometry056.unitary_conjugation_fixes_commuting",
+    "ext_v332_geometry056_relative_site_gauge_fixes_cocycle_kernel_proved": "ChatgptAudit.Geometry056.relative_site_gauge_fixes_cocycle",
+    "ext_v332_geometry056_relative_site_gauge_fixes_site_kernel_proved": "ChatgptAudit.Geometry056.relative_site_gauge_fixes_site",
+    "ext_v332_geometry056_relative_site_gauge_preserves_reference_kernel_proved": "ChatgptAudit.Geometry056.relative_site_gauge_preserves_reference",
+    "ext_v332_geometry056_relative_site_gauge_preserves_preparation_kernel_proved": "ChatgptAudit.Geometry056.relative_site_gauge_preserves_preparation",
+    "ext_v332_geometry056_first_off_diagonal_nonzero_kernel_proved": "ChatgptAudit.Geometry056.first_off_diagonal_nonzero",
+    "ext_v332_geometry056_first_projection_left_off_diagonal_kernel_proved": "ChatgptAudit.Geometry056.first_projection_left_off_diagonal",
+    "ext_v332_geometry056_first_projection_right_off_diagonal_kernel_proved": "ChatgptAudit.Geometry056.first_projection_right_off_diagonal",
+    "ext_v332_geometry056_gauge_generator_changes_quantum_observable_kernel_proved": "ChatgptAudit.Geometry056.gauge_generator_changes_quantum_observable",
+    "ext_v332_geometry056_gauge_generator_is_not_central_kernel_proved": "ChatgptAudit.Geometry056.gauge_generator_is_not_central",
     # v331 (GERENCIA 07/09/2026): os 7 teoremas da raiz da arvore da prova e do grupo dos horizontes
     "ext_v331_adt_comp_kernel_proved": "TGLExt.adT_comp",
     "ext_v331_adt_inv_adt_kernel_proved": "TGLExt.adT_inv_adT",
@@ -121156,6 +123538,171 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_v331_aperiodic_expectation_covariant_under_inverse_kernel_proved",
         "ext_v331_the_root_of_the_proof_tree_kernel_proved",
         "ext_v331_the_aperiodic_antecedent_is_now_a_term_kernel_proved",
+        # v332 (ENTREGAS 055..056): +92 — seletor relativo / metricas da torre / limites da reconstrucao no contador
+        "ext_v332_cocyclerealization_contrast_nonnegative_kernel_proved",
+        "ext_v332_cocyclerealization_contrast_upper_kernel_proved",
+        "ext_v332_cocyclerealization_contrast_log_ratio_kernel_proved",
+        "ext_v332_cocyclerealization_contrast_strict_dyadic_kernel_proved",
+        "ext_v332_cocyclerealization_contrast_dyadic_kernel_proved",
+        "ext_v332_cocyclerealization_geometric_argument_bounds_kernel_proved",
+        "ext_v332_cocyclerealization_geometric_argument_positive_kernel_proved",
+        "ext_v332_cocyclerealization_geometric_argument_succ_kernel_proved",
+        "ext_v332_cocyclerealization_geometric_contrast_nonnegative_kernel_proved",
+        "ext_v332_cocyclerealization_geometric_contrast_summable_kernel_proved",
+        "ext_v332_cocyclerealization_geometric_contrast_succ_le_kernel_proved",
+        "ext_v332_cocyclerealization_geometric_contrast_strict_succ_kernel_proved",
+        "ext_v332_cocyclerealization_geometric_contrast_shift_bound_kernel_proved",
+        "ext_v332_cocyclerealization_geometric_contrast_tail_summable_kernel_proved",
+        "ext_v332_cocyclerealization_geometric_contrast_tail_le_kernel_proved",
+        "ext_v332_cocyclerealization_geometric_contrast_dominates_entire_tail_kernel_proved",
+        "ext_v332_cocyclerealization_existing_global_generator_bound_kernel_proved",
+        "ext_v332_cocyclerealization_existing_global_density_normalized_kernel_proved",
+        "ext_v332_cocyclerealization_existing_global_cocycle_limit_kernel_proved",
+        "ext_v332_cocyclerealization_digit_term_bounds_kernel_proved",
+        "ext_v332_cocyclerealization_digit_summable_kernel_proved",
+        "ext_v332_cocyclerealization_digit_tail_summable_kernel_proved",
+        "ext_v332_cocyclerealization_code_prefix_tail_kernel_proved",
+        "ext_v332_cocyclerealization_digit_tail_bounds_kernel_proved",
+        "ext_v332_cocyclerealization_first_difference_strict_kernel_proved",
+        "ext_v332_cocyclerealization_binary_code_injective_kernel_proved",
+        "ext_v332_cocyclerealization_geometric_code_injective_kernel_proved",
+        "ext_v332_cocyclerealization_geometric_log_one_summable_kernel_proved",
+        "ext_v332_cocyclerealization_geometric_site_reading_eq_kernel_proved",
+        "ext_v332_cocyclerealization_geometric_site_reading_summable_kernel_proved",
+        "ext_v332_cocyclerealization_geometric_log_reading_eq_actual_series_kernel_proved",
+        "ext_v332_cocyclerealization_geometric_log_reading_injective_kernel_proved",
+        "ext_v332_cocyclerealization_actual_site_log_reading_kernel_proved",
+        "ext_v332_cocyclerealization_actual_prefix_log_reading_kernel_proved",
+        "ext_v332_cocyclerealization_actual_prefix_matrix_diagonal_kernel_proved",
+        "ext_v332_cocyclerealization_actual_prefix_scalar_limit_kernel_proved",
+        "ext_v332_cocyclerealization_existing_operator_is_same_prefix_kernel_proved",
+        "ext_v332_cocyclerealization_existing_operator_norm_limit_kernel_proved",
+        "ext_v332_cocyclerealization_existing_density_is_prepared_state_kernel_proved",
+        "ext_v332_cocyclerealization_existing_site_projections_commute_kernel_proved",
+        "ext_v332_cocyclerealization_existing_finite_representation_faithful_kernel_proved",
+        "ext_v332_geometry056_spectral_distance_nonnegative_kernel_proved",
+        "ext_v332_geometry056_spectral_distance_self_kernel_proved",
+        "ext_v332_geometry056_spectral_distance_symmetric_kernel_proved",
+        "ext_v332_geometry056_spectral_distance_triangle_kernel_proved",
+        "ext_v332_geometry056_spectral_distance_zero_iff_kernel_proved",
+        "ext_v332_geometry056_spectral_distance_positive_kernel_proved",
+        "ext_v332_geometry056_scaled_spectral_distance_triangle_kernel_proved",
+        "ext_v332_geometry056_scaled_spectral_distance_zero_iff_kernel_proved",
+        "ext_v332_geometry056_different_scales_give_different_distances_kernel_proved",
+        "ext_v332_geometry056_coordinate_separates_with_arbitrary_size_kernel_proved",
+        "ext_v332_geometry056_radial_weight_is_existing_kernel_proved",
+        "ext_v332_geometry056_geometric_amplitude_sharp_bound_kernel_proved",
+        "ext_v332_geometry056_radial_weight_bounds_kernel_proved",
+        "ext_v332_geometry056_radial_variance_bounds_kernel_proved",
+        "ext_v332_geometry056_radial_fisher_term_bounds_kernel_proved",
+        "ext_v332_geometry056_radial_fisher_term_nonnegative_kernel_proved",
+        "ext_v332_geometry056_radial_fisher_summable_kernel_proved",
+        "ext_v332_geometry056_radial_fisher_bounds_kernel_proved",
+        "ext_v332_geometry056_radial_fisher_positive_kernel_proved",
+        "ext_v332_geometry056_radial_fisher_prefix_limit_kernel_proved",
+        "ext_v332_geometry056_regular_parameter_derivative_kernel_proved",
+        "ext_v332_geometry056_radial_weight_derivative_kernel_proved",
+        "ext_v332_geometry056_actual_weight_derivative_kernel_proved",
+        "ext_v332_geometry056_regular_speed_ne_zero_kernel_proved",
+        "ext_v332_geometry056_time_fisher_positive_kernel_proved",
+        "ext_v332_geometry056_time_fisher_zero_kernel_proved",
+        "ext_v332_geometry056_bernoulli_score_mean_zero_kernel_proved",
+        "ext_v332_geometry056_bernoulli_score_variance_kernel_proved",
+        "ext_v332_geometry056_fisher_angular_coefficient_kernel_proved",
+        "ext_v332_geometry056_one_parameter_has_zero_two_area_kernel_proved",
+        "ext_v332_geometry056_radial_fisher_at_reference_kernel_proved",
+        "ext_v332_geometry056_actual_relative_entropy_recovers_fisher_kernel_proved",
+        "ext_v332_geometry056_site_commutes_existing_term_kernel_proved",
+        "ext_v332_geometry056_site_commutes_existing_generator_kernel_proved",
+        "ext_v332_geometry056_coordinate_test_has_zero_commutator_kernel_proved",
+        "ext_v332_geometry056_existing_generator_has_unbounded_commutator_distance_kernel_proved",
+        "ext_v332_geometry056_relative_site_gauge_unitary_kernel_proved",
+        "ext_v332_geometry056_relative_site_gauge_centralizer_kernel_proved",
+        "ext_v332_geometry056_relative_site_gauge_commutes_generator_kernel_proved",
+        "ext_v332_geometry056_relative_site_gauge_commutes_density_kernel_proved",
+        "ext_v332_geometry056_relative_site_gauge_commutes_cocycle_kernel_proved",
+        "ext_v332_geometry056_unitary_conjugation_fixes_commuting_kernel_proved",
+        "ext_v332_geometry056_relative_site_gauge_fixes_cocycle_kernel_proved",
+        "ext_v332_geometry056_relative_site_gauge_fixes_site_kernel_proved",
+        "ext_v332_geometry056_relative_site_gauge_preserves_reference_kernel_proved",
+        "ext_v332_geometry056_relative_site_gauge_preserves_preparation_kernel_proved",
+        "ext_v332_geometry056_first_off_diagonal_nonzero_kernel_proved",
+        "ext_v332_geometry056_first_projection_left_off_diagonal_kernel_proved",
+        "ext_v332_geometry056_first_projection_right_off_diagonal_kernel_proved",
+        "ext_v332_geometry056_gauge_generator_changes_quantum_observable_kernel_proved",
+        "ext_v332_geometry056_gauge_generator_is_not_central_kernel_proved",
+        # v333 (ENTREGA 057 (COLAPSO TIPADO)): +60 — colapso tipado (contrato / custo e atestacao / qubit / torre) no contador
+        "ext_v333_collapse057_collapse_reuses_canonical_preservation_kernel_proved",
+        "ext_v333_collapse057_collapse_is_not_identity_kernel_proved",
+        "ext_v333_collapse057_collapse_is_not_injective_kernel_proved",
+        "ext_v333_collapse057_collapse_has_no_left_inverse_kernel_proved",
+        "ext_v333_collapse057_collapse_fixed_iff_in_range_kernel_proved",
+        "ext_v333_collapse057_collapse_iteration_is_stable_kernel_proved",
+        "ext_v333_collapse057_inclusion_is_right_inverse_on_fixed_sector_kernel_proved",
+        "ext_v333_collapse057_transition_preserves_identity_and_is_fixed_kernel_proved",
+        "ext_v333_collapse057_no_changed_transition_at_fixed_point_kernel_proved",
+        "ext_v333_collapse057_involution_cannot_be_collapse_kernel_proved",
+        "ext_v333_collapse057_reflection_of_output_cannot_restore_input_kernel_proved",
+        "ext_v333_collapse057_proposed_cost_components_kernel_proved",
+        "ext_v333_collapse057_local_cost_positive_kernel_proved",
+        "ext_v333_collapse057_octave_cost_zero_kernel_proved",
+        "ext_v333_collapse057_octave_cost_add_kernel_proved",
+        "ext_v333_collapse057_octave_cost_positive_kernel_proved",
+        "ext_v333_collapse057_local_is_not_one_octave_kernel_proved",
+        "ext_v333_collapse057_fair_bit_entropy_is_log_two_kernel_proved",
+        "ext_v333_collapse057_fair_bit_entropy_is_not_half_nat_kernel_proved",
+        "ext_v333_collapse057_logical_core_allows_distinct_nonnegative_cost_readings_kernel_proved",
+        "ext_v333_collapse057_attestation_requires_external_evidence_kernel_proved",
+        "ext_v333_collapse057_no_self_attestation_kernel_proved",
+        "ext_v333_collapse057_missing_external_evidence_blocks_attestation_kernel_proved",
+        "ext_v333_collapse057_attested_output_stable_and_identity_preserved_kernel_proved",
+        "ext_v333_collapse057_typed_collapse_content_kernel_proved",
+        "ext_v333_collapse057_typed_collapse_has_no_self_attestation_kernel_proved",
+        "ext_v333_collapse057_readout_zero_idempotent_kernel_proved",
+        "ext_v333_collapse057_qubit_reduction_formula_kernel_proved",
+        "ext_v333_collapse057_qubit_reduction_unital_kernel_proved",
+        "ext_v333_collapse057_qubit_reduction_idempotent_kernel_proved",
+        "ext_v333_collapse057_qubit_reduction_preserves_trace_kernel_proved",
+        "ext_v333_collapse057_opposite_phases_same_reduction_kernel_proved",
+        "ext_v333_collapse057_opposite_phase_states_distinct_kernel_proved",
+        "ext_v333_collapse057_pure_densities_square_kernel_proved",
+        "ext_v333_collapse057_pure_densities_hermitian_kernel_proved",
+        "ext_v333_collapse057_pure_densities_positive_kernel_proved",
+        "ext_v333_collapse057_pure_densities_normalized_kernel_proved",
+        "ext_v333_collapse057_mixed_density_normalized_kernel_proved",
+        "ext_v333_collapse057_mixed_density_fixed_kernel_proved",
+        "ext_v333_collapse057_mixed_density_not_pure_kernel_proved",
+        "ext_v333_collapse057_distinct_readout_fixed_points_kernel_proved",
+        "ext_v333_collapse057_qubit_reduction_no_inverse_kernel_proved",
+        "ext_v333_collapse057_selective_branch_formula_kernel_proved",
+        "ext_v333_collapse057_normalized_branch_requires_nonzero_weight_kernel_proved",
+        "ext_v333_collapse057_forgetting_outcome_is_nonselective_kernel_proved",
+        "ext_v333_collapse057_fair_branch_weights_kernel_proved",
+        "ext_v333_collapse057_qubit_reduction_positive_kernel_proved",
+        "ext_v333_collapse057_density_reduction_idempotent_kernel_proved",
+        "ext_v333_collapse057_density_reduction_effective_kernel_proved",
+        "ext_v333_collapse057_density_reduction_no_inverse_kernel_proved",
+        "ext_v333_collapse057_zero_weight_is_no_normalized_branch_kernel_proved",
+        "ext_v333_collapse057_tower_reduction_idempotent_kernel_proved",
+        "ext_v333_collapse057_tower_reduction_preserves_state_kernel_proved",
+        "ext_v333_collapse057_tower_reduction_preserves_unit_kernel_proved",
+        "ext_v333_collapse057_tower_fixed_points_exactly_centralizer_kernel_proved",
+        "ext_v333_collapse057_tower_pauli_x_nonzero_kernel_proved",
+        "ext_v333_collapse057_tower_reduction_effective_kernel_proved",
+        "ext_v333_collapse057_actual_tower_collapse_no_inverse_kernel_proved",
+        "ext_v333_collapse057_tracial_tower_reduction_is_identity_kernel_proved",
+        "ext_v333_collapse057_tracial_tower_has_no_effective_witness_kernel_proved",
+        # v334 (GERENCIA): +10 — a tela fundada / a palavra fixa / o covado e o axioma no contador
+        "ext_v334_founded_screen_is_the_centralizer_kernel_proved",
+        "ext_v334_the_screen_is_one_kernel_proved",
+        "ext_v334_the_screen_is_global_kernel_proved",
+        "ext_v334_the_screen_keeps_modular_time_kernel_proved",
+        "ext_v334_screen_reflects_iff_equality_operates_kernel_proved",
+        "ext_v334_the_signal_is_the_referent_kernel_proved",
+        "ext_v334_the_word_fixes_the_place_kernel_proved",
+        "ext_v334_the_word_is_true_or_false_kernel_proved",
+        "ext_v334_the_unit_is_the_axiom_kernel_proved",
+        "ext_v334_the_answer_of_the_operator_08_09_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -149338,6 +151885,23 @@ _ESQUELETO_STONES = [
     # v300: o ledger parara na v284 enquanto o arquivo foi a' v297 -- por isso o
     # rotulo publico (llms.txt, PORTA, TUNEL, README) anunciava "v284/TheAtermation".
     # Os HASHES publicados estavam todos CERTOS; o defeito era so' de rotulo.
+    # v334: PEDRA DA GERENCIA (08/09/2026) — A TELA FUNDADA: a resposta do operador tipada — a tela e o centralizador,
+    # uma so, global, no relogio modular; reflete sse a igualdade opera; a palavra fixa o lugar; o covado e o axioma.
+    ("v334", "TheScreenIsFounded", "TGLExt/TheScreenIsFounded.lean", None, None),
+    # v333: ENTREGA 057 (COLAPSO TIPADO) (08/09/2026) — a DEFINICAO TIPADA DO COLAPSO: IdentityCollapse (irreversivel, ponto fixo, identidade
+    # preservada), CollapseCostLaw [INPUT], AttestedCollapse (reflexo, nunca autodeclaracao); qubit e torre; 19o ciclo (4 pedras).
+    ("v333", "TowerCollapseRealization", "TGLExt/TowerCollapseRealization.lean", None, None),
+    ("v333", "QuantumCollapseWitness", "TGLExt/QuantumCollapseWitness.lean", None, None),
+    ("v333", "CollapseCostAndAttestation", "TGLExt/CollapseCostAndAttestation.lean", None, None),
+    ("v333", "CollapseContract", "TGLExt/CollapseContract.lean", None, None),
+    # v332: ENTREGAS 055..056 ESPONTANEAS (08/09/2026) — seletor relativo na torre infinita (a leitura do cociclo separa toda configuracao,
+    # t != 0); metricas espectral e de Fisher da torre; negativos da area/Dirac/gauge; 18o ciclo do TUNEL (2 entregas, 6 pedras).
+    ("v332", "RelativeCocycleGeometricObstructions", "TGLExt/RelativeCocycleGeometricObstructions.lean", None, None),
+    ("v332", "InfiniteFisherGeometry", "TGLExt/InfiniteFisherGeometry.lean", None, None),
+    ("v332", "SpectralMetricGeometry", "TGLExt/SpectralMetricGeometry.lean", None, None),
+    ("v332", "ExistingTowerRealization", "TGLExt/ExistingTowerRealization.lean", None, None),
+    ("v332", "InfiniteCocycleDecoding", "TGLExt/InfiniteCocycleDecoding.lean", None, None),
+    ("v332", "GeometricLikelihoodSeparation", "TGLExt/GeometricLikelihoodSeparation.lean", None, None),
     # v331: PEDRA DA GERENCIA (07/09/2026) — A RAIZ DA ARVORE DA PROVA: um termo, sete conjuntos (mestre; Lema 3 na torre
     # para todo perfil; unicidade; fluxo modular; trocas; parede de H3; a forma nao fixa o valor) + o grupo dos horizontes.
     ("v331", "TheRootOfTheProofTree", "TGLExt/TheRootOfTheProofTree.lean", None, None),
@@ -159007,6 +161571,69 @@ def main():
     print("1 = 1.")
 
 
+# ====================================================================================================
+# v333 (08/09/2026): A DEFINICAO TIPADA DO COLAPSO — o CONTEUDO do colapso da funcao de onda como TIPO no arquivo
+# unico. Definicao do operador (verbatim): "colapso e a passagem irreversivel da superposicao ao ponto fixo que
+# preserva a identidade. Custa (meia-nat local, ln 2 por oitava), nao tem inversa, e so e atestada pelo reflexo,
+# nunca por autodeclaracao." Cada clausula aponta para um TERMO Lean da ENTREGA_057 (kernel embutido, `#print
+# axioms` no Audit.lean, namespace ChatgptAudit.Collapse057); o selo registra a definicao e confere, fail-closed,
+# que cada termo esta no relatorio de axiomas do rito com o trio {propext, Classical.choice, Quot.sound}.
+# Estatutos: nucleo logico e as duas instancias (qubit, torre) [REAL no modelo compilado]; lei de custo (1/2 nat
+# local; n*ln 2 por oitava; componentes SEPARADOS, sem soma por decreto) [INPUT]; reflexo fisico externo, selecao
+# de uma ocorrencia e pagamento fisico do custo [OPEN]. Nada aqui move o gate: physical_collapse_proven = False;
+# cost_payment_status = NOT_MEASURED; qg_gate_moved = False. NOT_FALSIFIED nunca e CONFIRMED.
+# ====================================================================================================
+from dataclasses import dataclass as _dc_v333
+
+@_dc_v333(frozen=True)
+class TGLCollapseDefinition:
+    statement_pt: str = ("colapso e a passagem irreversivel da superposicao ao ponto fixo que preserva a identidade. "
+                         "Custa (meia-nat local, ln 2 por oitava), nao tem inversa, e so e atestada pelo reflexo, "
+                         "nunca por autodeclaracao.")
+    source: str = ("operador Luiz Antonio Rotoli Miguel, 08/09/2026; tipagem Lean: ENTREGA_057 (bancada ChatGPT), "
+                   "namespace ChatgptAudit.Collapse057; auditada e embutida pela gerencia na v333")
+    root_type: str = "ChatgptAudit.Collapse057.TGLCollapseSpecification"
+    # (clausula, termo Lean que a paga, estatuto) — a EXISTENCIA do termo e conferida no relatorio de axiomas do selo
+    clauses: tuple = (
+        ("passagem ao ponto fixo: o resultado e estavel (Im C = Fix C; C^[n+1] = C)", "ChatgptAudit.Collapse057.collapse_iteration_is_stable", "REAL"),
+        ("preserva a identidade: a transicao efetiva fixa o resultado e conserva a leitura iota", "ChatgptAudit.Collapse057.transition_preserves_identity_and_is_fixed", "REAL"),
+        ("irreversivel: nao injetiva e sem inversa a esquerda", "ChatgptAudit.Collapse057.collapse_has_no_left_inverse", "REAL"),
+        ("da superposicao: rho+ != rho- puras colidem em I/2 (perda entre estados fisicos)", "ChatgptAudit.Collapse057.opposite_phases_same_reduction", "REAL"),
+        ("na torre: a esperanca aperiodica restrita ao fator e colapso efetivo (X != 0, E X = 0), sem inversa", "ChatgptAudit.Collapse057.actual_tower_collapse_no_inverse", "REAL"),
+        ("controle negativo: o perfil tracial nao tem testemunha de colapso", "ChatgptAudit.Collapse057.tracial_tower_has_no_effective_witness", "REAL"),
+        ("custa: meia-nat local (componente positivo)", "ChatgptAudit.Collapse057.local_cost_positive", "INPUT"),
+        ("custa: ln 2 por oitava (aditivo em oitavas)", "ChatgptAudit.Collapse057.octave_cost_add", "INPUT"),
+        ("ln 2 != 1/2: os dois custos sao componentes distintos, nao se somam por decreto", "ChatgptAudit.Collapse057.fair_bit_entropy_is_not_half_nat", "REAL"),
+        ("so atestada pelo reflexo: a atestacao exige evidencia EXTERNA", "ChatgptAudit.Collapse057.attestation_requires_external_evidence", "REAL, condicional ao protocolo"),
+        ("nunca por autodeclaracao", "ChatgptAudit.Collapse057.no_self_attestation", "REAL, condicional ao protocolo"),
+        ("o reflexo (J involutivo, injetivo) NAO e o colapso", "ChatgptAudit.Collapse057.involution_cannot_be_collapse", "REAL"),
+        ("o conteudo inteiro num enunciado", "ChatgptAudit.Collapse057.typed_collapse_content", "REAL"),
+    )
+    cost_law: tuple = (("local_nats", "1/2", "INPUT"), ("octave_nats", "n * ln 2", "INPUT"))
+    external_reflection_status: str = "OPEN_PHYSICAL_PROVENANCE_NOT_RECEIVED"
+    physical_collapse_proven: bool = False
+    cost_payment_status: str = "NOT_MEASURED"
+    qg_gate_moved: bool = False
+
+    def seal_record(self, axiom_report):
+        trio = {"propext", "Classical.choice", "Quot.sound"}
+        rows = []
+        for clause, term, status in self.clauses:
+            ax = axiom_report.get(term)
+            rows.append({"clause": clause, "lean_term": term, "status": status, "in_kernel": ax is not None,
+                         "axioms_in_trio": bool(ax is not None and set(ax) <= trio)})
+        ok = bool(rows) and all(r["in_kernel"] and r["axioms_in_trio"] for r in rows)
+        return {"statement_pt": self.statement_pt, "source": self.source, "root_type": self.root_type, "clauses": rows,
+                "typed_in_kernel": ok, "cost_law": [list(c) for c in self.cost_law],
+                "external_reflection_status": self.external_reflection_status,
+                "physical_collapse_proven": self.physical_collapse_proven, "cost_payment_status": self.cost_payment_status,
+                "qg_gate_moved": self.qg_gate_moved,
+                "reading": ("COLAPSO_TIPADO__TODAS_AS_CLAUSULAS_NO_KERNEL_COM_O_TRIO" if ok
+                            else "COLAPSO_TIPADO__CLAUSULA_AUSENTE_DO_KERNEL__FAIL_CLOSED")}
+
+TGL_COLLAPSE_DEFINITION = TGLCollapseDefinition()
+
+
 def _unified_main():
     main()
     _st = selftest_fail_closed()   # v31: o antigo run_v22.ps1 vive AQUI dentro
@@ -159040,6 +161667,23 @@ def _unified_main():
                 "LIGADA" if _RITE_CKPT_ON else "desligada", _n_reused, len(_RITE_CKPT_LOG) - _n_reused))
     except Exception as _e:
         print("[selo] AVISO: nao consegui registrar rite_checkpoints no selo: %r" % _e)
+    # v333: a DEFINICAO TIPADA DO COLAPSO entra no selo, conferida termo a termo no relatorio de axiomas (fail-closed)
+    try:
+        _sp = os.path.join(OUT, "um_absoluto_selo.json"); _rp = os.path.join(OUT, "um_absoluto.json")
+        if os.path.exists(_sp) and os.path.exists(_rp):
+            with open(_rp, "r", encoding="utf-8") as _fh:
+                _axr = ((json.load(_fh).get("core") or {}).get("kernel_formalization") or {}).get("axiom_report") or {}
+            _rec = TGL_COLLAPSE_DEFINITION.seal_record(_axr)
+            with open(_sp, "r", encoding="utf-8") as _fh:
+                _seal = json.load(_fh)
+            _seal["collapse_definition"] = _rec
+            with open(_sp, "w", encoding="utf-8") as _fh:
+                json.dump(_seal, _fh, indent=2)
+            print("[selo] colapso tipado: %s ; clausulas %d/%d no kernel com o trio ; custo %s ; reflexo fisico %s" % (
+                _rec["reading"], sum(1 for _r in _rec["clauses"] if _r["in_kernel"] and _r["axioms_in_trio"]),
+                len(_rec["clauses"]), _rec["cost_payment_status"], _rec["external_reflection_status"]))
+    except Exception as _e:
+        print("[selo] AVISO: nao consegui registrar collapse_definition no selo: %r" % _e)
     if _st == "FAIL_CLOSED_SELFTEST_FAILED":
         raise SystemExit(3)
 

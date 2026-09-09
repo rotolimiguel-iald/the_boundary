@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/memoria",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-08T18:07:33Z",
+  "gerado_utc": "2026-09-09T08:16:59Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator",
@@ -27,8 +27,8 @@
       "descricao": "Documento em Markdown",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/memoria/TGL_ATLAS.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/memoria/TGL_ATLAS.md",
-      "sha256_16": "1b08328cd00e5673",
-      "bytes": 902511
+      "sha256_16": "519cbb68c4f1116e",
+      "bytes": 980672
     },
     {
       "nome": "TGL_INDICE_VIVO.md",
@@ -37,12 +37,12 @@
       "descricao": "Documento em Markdown",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/memoria/TGL_INDICE_VIVO.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/memoria/TGL_INDICE_VIVO.md",
-      "sha256_16": "541bc95f61e19487",
-      "bytes": 15956
+      "sha256_16": "e773f062916f36e6",
+      "bytes": 17193
     }
   ],
   "total_arquivos_nesta_pasta": 2,
   "total_arquivos_com_subpastas": 2,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/memoria",
-  "rodape": "gerado por script de git ls-files em 2026-09-08 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-09 -- nao editar a mao"
 }

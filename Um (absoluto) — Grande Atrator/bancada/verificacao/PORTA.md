@@ -33,4 +33,4 @@ A verificacao adversarial: a tentativa registrada de derrubar o proprio resultad
 
 ---
 
-gerado por script de git ls-files em 2026-09-08 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-09 -- nao editar a mao

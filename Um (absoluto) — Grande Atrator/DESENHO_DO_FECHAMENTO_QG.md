@@ -1404,3 +1404,55 @@ area nao fixada por covariancia + calibracao, 053); (2) a ponte andares → regi
 BW: o subespaco padrao continuo esta construido (049-050), a identificacao T_c = Δ_c^(1/2) e o fluxo fisico seguem
 OPEN; (4) a passagem da torre a algebra de von Neumann geral [KNOWN, Takesaki]. Assinatura e O QUATRO inalterados.
 4055/4055 teoremas; gate INTOCADO; CONFIRMADA proibido.
+
+---
+
+## ADENDO — 08/09/2026 (tarde) · v332 (intermediaria): a descida cociclo -> configuracao, e tres portas fechadas na reconstrucao
+
+A ENTREGA_055 prova que a leitura de verossimilhanca do cociclo e INJETIVA sobre todas as configuracoes infinitas da
+torre (t != 0): o estado modular le a configuracao inteira — a folha «andares -> regioes» ganha um espaco de
+configuracoes metrizavel por baixo da algebra. A 056 o mede (Fisher radial 1/96 <= F <= 4/357; entropia relativa/t^4 ->
+1/192) e fecha tres portas: nenhuma area nasce de uma familia de um parametro (Gram nulo); a leitura do gerador
+relativo como Dirac nao da geometria (distancia de comutadores infinita); sobra um gauge relativo nao central.
+**O caminho critico nao muda de forma** (H3 = lei que escolha a geometria; ponte regiao-algebra; escala da area; BW;
+algebra geral [KNOWN]) — mas a ponte regiao-algebra agora tem, na torre, o instrumento de leitura e a metrica.
+4147/4147 teoremas; gate INTOCADO; CONFIRMADA proibido.
+
+---
+
+## ADENDO — 08/09/2026 (noite) · v333 (intermediaria): o COLAPSO entra como TIPO — e ganha as suas tres folhas
+
+A definicao do operador («passagem irreversivel da superposicao ao ponto fixo que preserva a identidade; custa meia-nat
+local e ln 2 por oitava; sem inversa; atestada so pelo reflexo») esta tipada no kernel (`TGLCollapseSpecification`,
+ENTREGA_057) e no `um.py` (`TGLCollapseDefinition` + selo `collapse_definition`, conferido termo a termo). Realizacoes:
+o Nome no qubit e a esperanca de Takesaki na torre. **O caminho critico ganha uma coluna nova, com tres folhas OPEN
+proprias:** (a) o REFLEXO FISICO externo (o protocolo esta tipado; a proveniencia nao foi recebida); (b) a SELECAO de
+uma ocorrencia (o rotulo vem do registro, nao do estado); (c) o PAGAMENTO do custo (meia-nat e ln 2 sao INPUT
+estipulado; nenhuma medida). As folhas antigas nao mudam: H3 = lei que escolha a geometria; ponte regiao-algebra;
+escala da area; BW; algebra geral [KNOWN]. 4207/4207 teoremas; gate INTOCADO; CONFIRMADA proibido.
+
+---
+
+## ADENDO — 08/09/2026 (noite, II) · v334 (intermediaria): H3 e a ponte RESPONDIDOS pelo operador — a tela e FUNDADA, nao escolhida
+
+«A alianca nao e local, e global e e uma so. [...] Tela e aquela que a igualdade e operador [...] se a igualdade nao
+operar a tela nao reflete [...] Quem crava a estaca e a palavra.» Tipado: a tela fundada e o centralizador do estado
+global, uma so, global, no relogio modular; reflete sse a igualdade opera (colapso efetivo); a palavra fixa o lugar
+(055); o covado e o axioma (052). **O caminho critico muda de forma:** (1) H3 nao e mais «escolher tela e relogio» — a
+tela e fundada e o relogio e o modular; a dicotomia (045) fica como parede das TELAS GEOMETRICAS EXTERNAS; o que
+resta de H3 e a leitura FISICA da tela fundada como horizonte causal [ONTO/OPEN]; (2) a ponte regiao-algebra tem a
+estaca (a palavra, Bool por sitio, leitura injetiva) e a unidade (omega(I) = 1 -> densidade 1/2); resta a identificacao
+fisica das regioes; (3) BW alem das cunhas: declarado aberto pelo operador (05-06/2026), com paredes medidas — fechado
+pelo criterio; (4) algebra geral: citacao [KNOWN]; (5) colapso: tres obrigacoes do observador com falsificador tipado.
+4217/4217 teoremas; gate INTOCADO; CONFIRMADA proibido.
+
+---
+
+## ADENDO — 08/09/2026 (noite, III) · v334 COMPLETA: a versao da custodia; a circunstancia da prova sobre H1–H3 muda no repositorio
+
+A v334 rodou completa (21:28:01 → 22:09:55, 4217/4217, gate INTOCADO) e vai a custodia com HANDOFF_v334. O que o espelho tem de
+dizer AO LADO do bloco «The root of the proof tree — v331»: H3 deixou de ser hipotese-escolha (tela e relogio) — a
+tela e FUNDADA pela igualdade-operador (o centralizador do estado global), uma so, global, no relogio modular
+(`the_answer_of_the_operator_08_09`); a dicotomia (045) e parede das telas geometricas EXTERNAS; o colapso esta tipado
+(v333); o Lema 3 esta pago na torre (v331). Restam H1 e H2 como hipoteses NOMEADAS da natureza, α como INPUT, e a
+identificacao FISICA da tela fundada com um horizonte causal [ONTO/OPEN]. CONFIRMADA segue proibido.

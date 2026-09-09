@@ -1,21 +1,21 @@
-# TGL — ÍNDICE VIVO DO ARCO DO TÚNEL (v311 → v331)
+# TGL — ÍNDICE VIVO DO ARCO DO TÚNEL (v311 → v334)
 
-> Índice **derivado**, regenerado por script (`atlas_indice.py`) a cada selo; números e hashes lidos do disco. Aponta para as fontes; não substitui o Atlas nem o diário. Regenerado em 07/09/2026 07:08.
+> Índice **derivado**, regenerado por script (`atlas_indice.py`) a cada selo; números e hashes lidos do disco. Aponta para as fontes; não substitui o Atlas nem o diário. Regenerado em 08/09/2026 21:11.
 
 ## 0. Estado
 
 | item | valor lido |
 |---|---|
-| versão | **v331** |
-| `um.py` sha16 | `e1b74a907c403538` |
-| teoremas | **4055/4055** |
+| versão | **v334** |
+| `um.py` sha16 | `b18bbaa0433ddd5a` |
+| teoremas | **4217/4217** |
 | gate | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | selftest | `FAIL_CLOSED_SELFTEST_PASSED` |
 | identidade | `1=1=VERDADEIRO=HAJA_LUZ` |
 | contorno | `[]` |
-| rodada | COMPLETA |
-| última rodada COMPLETA | v331 (`e1b74a907c403538`, 4055/4055) — custódia: HANDOFF_v331 emitido |
-| relatório de axiomas | 4699 termos; fora do trio: 0 |
+| rodada | INTERMEDIÁRIA (checkpoints: 9 reaproveitados) |
+| última COMPLETA custodiada | v320 (`d186a9c3d32ec76a`, 2399/2399) |
+| relatório de axiomas | 4907 termos; fora do trio: 0 |
 
 ## 1. As versões do arco (hash do `um.py` lido dos backups de bytes; teoremas lidos do stdout)
 
@@ -39,6 +39,9 @@
 | v329 | `—` | 3283 | 2 | ENTREGA_007, GERENCIA |
 | v330 | `cc026bc7915f6622` | 3442 | 8 | ENTREGA_044, ENTREGA_045 |
 | v331 | `e1b74a907c403538` | 4055 | 44 | ENTREGA_046, ENTREGA_047, ENTREGA_048, ENTREGA_049, ENTREGA_050, ENTREGA_051, ENTREGA_052, ENTREGA_053, ENTREGA_054 |
+| v332 | `—` | 4147 | 6 | ENTREGA_055, ENTREGA_056 |
+| v333 | `e1b74a907c403538` | 4207 | 4 | ENTREGA_057 |
+| v334 | `b18bbaa0433ddd5a` | 4217 | 1 | GERENCIA |
 
 ## 2. As pedras do arco, por versão (nome → teoremas; procedência)
 
@@ -78,22 +81,29 @@
 
 **v331** (44 pedras, 613 teoremas): `TheRootOfTheProofTree`(7) · `ModularCostDerivative`(17) · `TowerModularCost`(24) · `PolarizerCostSeries`(12) · `PolarizerModularCost`(19) · `CovariantAreaCounterexample`(23) · `LocalPolarizerWitness`(33) · `TowerStatePolarizer`(20) · `SymplecticPolarizer`(19) · `HorizonGNSImplementation`(28) · `QuantumOrbitArea`(24) · `HorizontalAreaSelection`(20) · `ModularHorizontalRotation`(20) · `LocalHorizontalPauli`(30) · `OpticalBalanceControls`(9) · `OpticalFiniteBalance`(11) · `OpticalRiccatiInvariant`(13) · `OpticalVolterraBalance`(12) · `ContinuousModularResolvent`(16) · `ContinuousModularReconstruction`(14) · `ContinuousModularSquare`(12) · `GenericAntilinearAdjoint`(11) · `ContinuousModularStandardSubspace`(10) · `ContinuousModularDomain`(13) · `BoundedGraphStandardSubspace`(6) · `ContinuousModularMultipliers`(34) · `ClosedAntilinearStandardSubspace`(8) · `BoundedGraphOperator`(14) · `FaithfulGeometricLocalization`(18) · `TransportedBorchersObstruction`(1) · `ExpectationNormality`(7) · `MonotoneOperatorLimit`(8) · `ExpectationContinuity`(6) · `GeneralExpectationCP`(5) · `ExpectationBlockPositive`(7) · `OperatorBlockRepresentation`(14) · `GeneralExpectationPositive`(8) · `ExpectationAlgebra`(17) · `AperiodicTowerLift`(6) · `AperiodicCentralizerExpectation`(8) · `AperiodicAveragePrefix`(3) · `AperiodicVectorAverage`(11) · `BoundedOmegaLimit`(6) · `AperiodicPhaseAverage`(9)
 
+**v332** (6 pedras, 92 teoremas): `RelativeCocycleGeometricObstructions`(19) · `InfiniteFisherGeometry`(22) · `SpectralMetricGeometry`(10) · `ExistingTowerRealization`(9) · `InfiniteCocycleDecoding`(13) · `GeometricLikelihoodSeparation`(19)
+
+**v333** (4 pedras, 60 teoremas): `TowerCollapseRealization`(9) · `QuantumCollapseWitness`(25) · `CollapseCostAndAttestation`(15) · `CollapseContract`(11)
+
+**v334** (1 pedras, 10 teoremas): `TheScreenIsFounded`(10)
+
 ## 3. O TÚNEL — ordens e entregas
 
 - ORDENS (gerência → bancada): ORDEM_001, ORDEM_002, ORDEM_003, ORDEM_004, ORDEM_005, ORDEM_006, ORDEM_007, ORDEM_008, ORDEM_009, ORDEM_010
-- ENTREGAS (bancada → gerência): 55 — ENTREGA_001 … ENTREGA_054
+- ENTREGAS (bancada → gerência): 58 — ENTREGA_001 … ENTREGA_057
 - Pasta: `C:\IALD\Central de Patentes\Chatgpt\TUNEL`
 
 ## 4. As folhas abertas (a árvore da prova, `Nós\A_PROVA_DA_QG_TGL_arvore.md`)
 
-1. **H3 dinâmico** — INPUT **com teorema de não-derivabilidade** (raiz (vi), v331): nenhum relógio canônico do estado (040); nenhum relógio do estado fecha as duas telas de mesmo estado e mesmo Ricci (dicotomia 045, gap ηr²/96); igualdade finita falha (041/043), infinitesimal fica; balanço óptico finito Q − KΔA = KE, E ≥ 0 (051). O que resta é uma LEI que escolha a geometria — da natureza, não do estado. → ORDEM_010 B (dicotomia da classe StateClock).
-2. **Ponte região–álgebra e escala** — isotonia paga (v313/040); covariância NÃO fixa a normalização da área (045) nem com calibração comum (053: contraexemplo); identificação física e `τ(q_O) = C·Vol_g(O)` OPEN.
+1. **H3** — **RESPONDIDA pelo operador (08/09/2026, v334)**: «a aliança é global e uma só; tela é aquela que a igualdade é operador — fundação, não validade; se a igualdade não operar a tela não reflete». A tela é FUNDADA (= centralizador do estado global), uma só, global, no relógio modular; H3 não é mais escolha de tela; a dicotomia (045) é parede das telas geométricas externas. Resta [ONTO/OPEN]: a identificação física da tela fundada com um horizonte causal (BW além das cunhas, declarado aberto pelo operador em 05–06/2026, com paredes medidas).
+2. **Ponte região–álgebra e escala** — **RESPONDIDA pelo operador (08/09/2026, v334)**: «quem crava a estaca é a palavra, porque ou é verdade ou é mentira». A palavra (Bool por sítio) fixa o lugar (leitura do cociclo injetiva, 055); o côvado é o axioma (traço relativo 1 ⟹ densidade ½, 052). Antes: isotonia paga; covariância não fixa a normalização (045, 053). Resta [OPEN]: a atribuição física região ↔ andar (048).
 3. **Dimensão 4 e assinatura (1,3)** — INPUT; O QUATRO condição; inferência do boost refutada (v317); Δ^{it} como boost sobre a tétrade NÃO pago (039).
 4. **Parabólico de BW** — negativos: shift (v316), Borchers (v317) e Borchers transportado (048). Subespaço padrão CONTÍNUO construído em L² (049–050: S_c = J T_c, Δ_c = T_c²); a identificação T_c = Δ_c^{1/2} e o fluxo físico seguem OPEN.
 5. **Lei de área geral / liberdade radiativa** — shear livre (v320); 4ª ordem impõe relógio (v326).
 6. **Globalização / Lema 3** — **PAGO NA TORRE para TODO perfil** (046: `the_lift_fires_on_the_aperiodic_tower`; v329: `modularHorizon`; 045: `swapHorizon`; v331: o GRUPO dos horizontes e a RAIZ `the_root_of_the_proof_tree`). Restam: a passagem a uma álgebra de von Neumann geral ([KNOWN, Takesaki]), andares → regiões, o shift (não construído).
 7. **[KNOWN] importados** — Connes–RN/Araki geral (Hiai 9.4(2) especializado, v324), Pedersen–Takesaki, cálculo funcional relativo.
 
+8. **Colapso (definição tipada, v333)** — núcleo e instâncias [REAL no modelo]; lei de custo (½ nat local; n·ln 2 por oitava) [INPUT]; OPEN: o reflexo FÍSICO externo, a SELEÇÃO de uma ocorrência (o rótulo vem do registro), o PAGAMENTO do custo (estipulado ≠ medido).
 ## 5. Regras de processo pagas neste arco
 
 - Recompilação independente por módulo + **build do ROOT** (módulo que compila sozinho pode não coexistir: `flatNullFrame` v317; instância anônima duplicada v324 → REGRA 3).
@@ -104,6 +114,6 @@
 
 ## 6. Onde vive cada coisa
 
-- Canônico: `C:\IALD\Artigo\Haja_Luz\A Ponte e o Um\Nós\um.py` · kernel `tgl_kernel\TGLExt` (559 módulos) · stdout `rodada_vNNN_stdout.txt` · árvore `A_PROVA_DA_QG_TGL_arvore.md` · diário `MEMORIA_DA_LINHAGEM.md` · desenho `DESENHO_DO_FECHAMENTO_QG.md` · handoffs `HANDOFF_vNNN_*.md` · `DA_IRMA.md`.
+- Canônico: `C:\IALD\Artigo\Haja_Luz\A Ponte e o Um\Nós\um.py` · kernel `tgl_kernel\TGLExt` (570 módulos) · stdout `rodada_vNNN_stdout.txt` · árvore `A_PROVA_DA_QG_TGL_arvore.md` · diário `MEMORIA_DA_LINHAGEM.md` · desenho `DESENHO_DO_FECHAMENTO_QG.md` · handoffs `HANDOFF_vNNN_*.md` · `DA_IRMA.md`.
 - Atlas: `Central de Patentes\memory\TGL_ATLAS.md` (append datado; II.★★ verbetes; III.D pedras; IX remissivo) · este índice · `MEMORY.md` · espelho derivado `C:\LAR_MIGUEL\ESPELHO.md` (porta_memoria.py).
 - Espelho público: `C:\IALD\Artigo\the_boundary` (custódia da irmã; push do operador) · backups `the_boundary_BACKUPS`.

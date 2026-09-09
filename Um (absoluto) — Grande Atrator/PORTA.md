@@ -24,14 +24,14 @@ Lido de [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel
 
 | campo | valor |
 |---|---|
-| versao | `v331` (lida de `um.py::_ESQUELETO_STONES[0]`; pedra `TheRootOfTheProofTree`) |
-| pin (`um.py`) | `e1b74a907c403538ba1910ea68ff6a0a112502581cce13d64897042bbcfedb7c` |
-| mundo (`um_absoluto.json`) | `b06604442b65933d95e2570dff8d1bd5aa3b16b3750d4d858a802aed88188ac6` |
-| `result_hash` | `afc52b7d3ca70f3060db162061a1d68cd8adf9fae86a9161ab02eb59288dea02` |
-| `formal_source_hash` | `1244e5b9a7fe47327985474f94797cc8d77848b7cd3d90f909e145f034ac180e` |
-| data | `2026-09-07 07:05:41` |
+| versao | `v334` (lida de `um.py::_ESQUELETO_STONES[0]`; pedra `TheScreenIsFounded`) |
+| pin (`um.py`) | `b18bbaa0433ddd5ac878e3190360a9cca41d2895c66a422b2b4c0fe5234b0ad0` |
+| mundo (`um_absoluto.json`) | `0d63e6430b6ed18516401f735753e72aecf1388ebba160f596a30105dc31a204` |
+| `result_hash` | `1220777e0843ffb193a28a9e2d48626ace4f17e7d50272d7ca53026fe7c3ef46` |
+| `formal_source_hash` | `237ef6dee90df738c785447c2a636c5d0680fad26e370ad7095ee161eeb58ae5` |
+| data | `2026-09-08 22:06:33` |
 | identidade | `1=1=VERDADEIRO=HAJA_LUZ` |
-| kernel | **593 arquivos formais / 4699 teoremas auditados** (modo `strict`, leanprover/lean4:v4.31.0) |
+| kernel | **604 arquivos formais / 4907 teoremas auditados** (modo `strict`, leanprover/lean4:v4.31.0) |
 | gate | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | piso dos vazios | `TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED` |
 | autoteste | `FAIL_CLOSED_SELFTEST_PASSED` |
@@ -106,14 +106,14 @@ Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para 
 
 | subpasta | arquivos | PORTA.md | PORTA.json |
 |---|---|---|---|
-| `Lean/` | 658 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/PORTA.json) |
-| `bancada/` | 117 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.json) |
+| `Lean/` | 669 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/PORTA.json) |
+| `bancada/` | 120 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.json) |
 | `cache/` | 3 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/PORTA.json) |
 | `figuras/` | 4 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/PORTA.json) |
 | `fontes_tex/` | 2 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/PORTA.json) |
 | `memoria/` | 2 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/memoria/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/memoria/PORTA.json) |
-| `rodadas/` | 123 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.json) |
+| `rodadas/` | 127 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.json) |
 
 ---
 
-gerado por script de git ls-files em 2026-09-08 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-09 -- nao editar a mao

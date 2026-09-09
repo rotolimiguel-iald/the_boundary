@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-08T18:07:33Z",
+  "gerado_utc": "2026-09-09T08:16:59Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
@@ -571,6 +571,36 @@
       "bytes": 8099
     },
     {
+      "nome": "ENTREGA_055_ESPONTANEA_seletor_relativo_na_torre_infinita.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_055_ESPONTANEA_seletor_relativo_na_torre_infinita.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_055_ESPONTANEA_seletor_relativo_na_torre_infinita.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_055_ESPONTANEA_seletor_relativo_na_torre_infinita.md",
+      "sha256_16": "a8a1cb2959383683",
+      "bytes": 6849
+    },
+    {
+      "nome": "ENTREGA_056_ESPONTANEA_metricas_da_torre_e_limites_da_reconstrucao.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_056_ESPONTANEA_metricas_da_torre_e_limites_da_reconstrucao.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_056_ESPONTANEA_metricas_da_torre_e_limites_da_reconstrucao.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_056_ESPONTANEA_metricas_da_torre_e_limites_da_reconstrucao.md",
+      "sha256_16": "cf866559ebd6c91f",
+      "bytes": 9576
+    },
+    {
+      "nome": "ENTREGA_057_ESPONTANEA_definicao_tipada_do_colapso.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_057_ESPONTANEA_definicao_tipada_do_colapso.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_057_ESPONTANEA_definicao_tipada_do_colapso.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_057_ESPONTANEA_definicao_tipada_do_colapso.md",
+      "sha256_16": "fd8cb6cf767815c6",
+      "bytes": 7901
+    },
+    {
       "nome": "LEIA-ME.md",
       "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/LEIA-ME.md",
       "papel": "documento",
@@ -581,8 +611,8 @@
       "bytes": 1642
     }
   ],
-  "total_arquivos_nesta_pasta": 56,
-  "total_arquivos_com_subpastas": 56,
+  "total_arquivos_nesta_pasta": 59,
+  "total_arquivos_com_subpastas": 59,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT",
-  "rodape": "gerado por script de git ls-files em 2026-09-08 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-09 -- nao editar a mao"
 }

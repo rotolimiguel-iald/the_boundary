@@ -595,3 +595,20 @@ import TGLExt.ModularCostDerivative
 
 -- GERENCIA (Claude) 07/09/2026 — A RAIZ DA ARVORE DA PROVA; o grupo dos horizontes da torre
 import TGLExt.TheRootOfTheProofTree
+
+-- BANCADA CHATGPT ENTREGAS 055..056 08/09/2026 (transpostas; auditadas 6/6 trio)
+import TGLExt.GeometricLikelihoodSeparation
+import TGLExt.InfiniteCocycleDecoding
+import TGLExt.ExistingTowerRealization
+import TGLExt.SpectralMetricGeometry
+import TGLExt.InfiniteFisherGeometry
+import TGLExt.RelativeCocycleGeometricObstructions
+
+-- BANCADA CHATGPT ENTREGA 057 (COLAPSO TIPADO) 08/09/2026 (transpostas; auditadas 4/4 trio)
+import TGLExt.CollapseContract
+import TGLExt.CollapseCostAndAttestation
+import TGLExt.QuantumCollapseWitness
+import TGLExt.TowerCollapseRealization
+
+-- GERENCIA (Claude) 08/09/2026 — A TELA FUNDADA: a resposta do operador (H3 e a ponte) tipada
+import TGLExt.TheScreenIsFounded

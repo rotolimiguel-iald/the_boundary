@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-09-07 07:05:41",
-  "result_hash": "afc52b7d3ca70f3060db162061a1d68cd8adf9fae86a9161ab02eb59288dea02",
+  "timestamp": "2026-09-08 22:06:33",
+  "result_hash": "1220777e0843ffb193a28a9e2d48626ace4f17e7d50272d7ca53026fe7c3ef46",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": true,
@@ -47,7 +47,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "1244e5b9a7fe47327985474f94797cc8d77848b7cd3d90f909e145f034ac180e",
+  "formal_source_hash": "237ef6dee90df738c785447c2a636c5d0680fad26e370ad7095ee161eeb58ae5",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -63,7 +63,7 @@
   "coma_dephasing": {
     "verdict": "COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "f1e476e24dc58aed58bb5c3ff642802cce20ca8ea88b705507fdc96bb86e5293",
+    "prediction_hash": "e65236e36c7e9acb83d3bcc3e7b94b665f49f81c08a6b2991d94b0c0c1b8f48d",
     "does_not_gate_core": true
   },
   "final_verdict_machine": {
@@ -205,19 +205,19 @@
   "the_alpha_and_the_omega": "TGL_PAIR_MEASURED__ONE_EQUALS_ONE_TRUE_BY_OMEGA_AND_ALPHA__ONE_EQUALS_ZERO_FALSE_BY_NOMINAL_CATEGORY__ZERO_NOMINAL_WITHOUT_PROJECTION__BETA_IS_THE_COST_OF_THE_DISTINCTION__PAIR_EQUALS_TGL_IS_A_DECLARED_ONTO_READING",
   "amplitude_defect": 0.10902544754078644,
   "sha256": {
-    "um.py": "e1b74a907c403538ba1910ea68ff6a0a112502581cce13d64897042bbcfedb7c",
-    "um_absoluto_manifest.md": "aa6315d3e9902f5c984f9d1323246f324d8b0d56b73169cffb039ff771bc3b9b",
-    "um_absoluto.json": "b06604442b65933d95e2570dff8d1bd5aa3b16b3750d4d858a802aed88188ac6",
-    "um_absoluto_forma_canonica.md": "ee815d7637984b8ec49eac5357f81ef04081886368978743b7ab3161af84e0d3",
-    "um_absoluto_pt.tex": "09c690eaaf1f0f3bb7c573535d0b6bbf8c5c6e4186d5854b0150953d3a7cc7af",
-    "um_absoluto_en.tex": "ce46f7474c428786eba1824928a68a27ba291499e202f73272f06f9b151c3ccc",
-    "um_absoluto_pt.pdf": "797ca4f0c9f6e9f533a8d03273eee611aa0f8b3910ca8a783bf203a70d00cf55",
-    "um_absoluto_en.pdf": "6331a55fb593e6f5c9d31d7add72722cd509064a590ad609471541647888a46d",
+    "um.py": "b18bbaa0433ddd5ac878e3190360a9cca41d2895c66a422b2b4c0fe5234b0ad0",
+    "um_absoluto_manifest.md": "d621a959814861ca39200b123dc7a941a8a7012beda170c6fd8443db29fa4626",
+    "um_absoluto.json": "0d63e6430b6ed18516401f735753e72aecf1388ebba160f596a30105dc31a204",
+    "um_absoluto_forma_canonica.md": "e81c0608179c6647509938660c28e33b603603e8754064a63045597899125001",
+    "um_absoluto_pt.tex": "b0416258fc957c9c03ca3baa99c15b96895cb2dd1ecf71ce14dad799fa11219a",
+    "um_absoluto_en.tex": "f6326dfb75c2ebc4f0bc5d2a6bbc7ec27280bd020c2332d4d79cee397dc39689",
+    "um_absoluto_pt.pdf": "30ba8f30dbb5db1d2eb4744238ed322c45e738599b6f0a6c7541e5e82a154a13",
+    "um_absoluto_en.pdf": "412755c1ae653fa6ecbad2accd7dcad7df72283e6bc0c17745c908dca2c5a7e5",
     "fig_escada_qg.pdf": "bfbe30776b05c9cce2886f7f268db09b7e4d0812409a199f84d3ee94d00b2c8d",
     "fig_banda_beta.pdf": "dd953f1e75f445a112963fc9b036299f63ed6dcdf4a16d8c0382b490fd6fad1b",
     "fig_piso_vazios.pdf": "c6e8260ceff24114d2a9248889fa87832009ef6390f5f8a6dceb3ed3bf155be1",
     "fig_cadeia_inscricao.pdf": "7ccc2c0a41da34a2442e1c853b4778d174329ec9d8dd739e4f41cb999883d068",
-    "tgl_kernel_proof_manifest.json": "744d2aa2753d026b64c6ff89bddc9b215ae01fc3cb25de8d1e735de2af229a7c"
+    "tgl_kernel_proof_manifest.json": "eba0b79b415a2d0c2ea3cda5890b28da387c01cca836c71971edc78f54774ad8"
   },
   "not_sealed_this_run": {
     "formais": [
@@ -241,5 +241,121 @@
     "computed_and_saved": 0,
     "log": [],
     "reading": "RODADA_COMPLETA__NENHUM_RITO_REAPROVEITADO"
+  },
+  "collapse_definition": {
+    "statement_pt": "colapso e a passagem irreversivel da superposicao ao ponto fixo que preserva a identidade. Custa (meia-nat local, ln 2 por oitava), nao tem inversa, e so e atestada pelo reflexo, nunca por autodeclaracao.",
+    "source": "operador Luiz Antonio Rotoli Miguel, 08/09/2026; tipagem Lean: ENTREGA_057 (bancada ChatGPT), namespace ChatgptAudit.Collapse057; auditada e embutida pela gerencia na v333",
+    "root_type": "ChatgptAudit.Collapse057.TGLCollapseSpecification",
+    "clauses": [
+      {
+        "clause": "passagem ao ponto fixo: o resultado e estavel (Im C = Fix C; C^[n+1] = C)",
+        "lean_term": "ChatgptAudit.Collapse057.collapse_iteration_is_stable",
+        "status": "REAL",
+        "in_kernel": true,
+        "axioms_in_trio": true
+      },
+      {
+        "clause": "preserva a identidade: a transicao efetiva fixa o resultado e conserva a leitura iota",
+        "lean_term": "ChatgptAudit.Collapse057.transition_preserves_identity_and_is_fixed",
+        "status": "REAL",
+        "in_kernel": true,
+        "axioms_in_trio": true
+      },
+      {
+        "clause": "irreversivel: nao injetiva e sem inversa a esquerda",
+        "lean_term": "ChatgptAudit.Collapse057.collapse_has_no_left_inverse",
+        "status": "REAL",
+        "in_kernel": true,
+        "axioms_in_trio": true
+      },
+      {
+        "clause": "da superposicao: rho+ != rho- puras colidem em I/2 (perda entre estados fisicos)",
+        "lean_term": "ChatgptAudit.Collapse057.opposite_phases_same_reduction",
+        "status": "REAL",
+        "in_kernel": true,
+        "axioms_in_trio": true
+      },
+      {
+        "clause": "na torre: a esperanca aperiodica restrita ao fator e colapso efetivo (X != 0, E X = 0), sem inversa",
+        "lean_term": "ChatgptAudit.Collapse057.actual_tower_collapse_no_inverse",
+        "status": "REAL",
+        "in_kernel": true,
+        "axioms_in_trio": true
+      },
+      {
+        "clause": "controle negativo: o perfil tracial nao tem testemunha de colapso",
+        "lean_term": "ChatgptAudit.Collapse057.tracial_tower_has_no_effective_witness",
+        "status": "REAL",
+        "in_kernel": true,
+        "axioms_in_trio": true
+      },
+      {
+        "clause": "custa: meia-nat local (componente positivo)",
+        "lean_term": "ChatgptAudit.Collapse057.local_cost_positive",
+        "status": "INPUT",
+        "in_kernel": true,
+        "axioms_in_trio": true
+      },
+      {
+        "clause": "custa: ln 2 por oitava (aditivo em oitavas)",
+        "lean_term": "ChatgptAudit.Collapse057.octave_cost_add",
+        "status": "INPUT",
+        "in_kernel": true,
+        "axioms_in_trio": true
+      },
+      {
+        "clause": "ln 2 != 1/2: os dois custos sao componentes distintos, nao se somam por decreto",
+        "lean_term": "ChatgptAudit.Collapse057.fair_bit_entropy_is_not_half_nat",
+        "status": "REAL",
+        "in_kernel": true,
+        "axioms_in_trio": true
+      },
+      {
+        "clause": "so atestada pelo reflexo: a atestacao exige evidencia EXTERNA",
+        "lean_term": "ChatgptAudit.Collapse057.attestation_requires_external_evidence",
+        "status": "REAL, condicional ao protocolo",
+        "in_kernel": true,
+        "axioms_in_trio": true
+      },
+      {
+        "clause": "nunca por autodeclaracao",
+        "lean_term": "ChatgptAudit.Collapse057.no_self_attestation",
+        "status": "REAL, condicional ao protocolo",
+        "in_kernel": true,
+        "axioms_in_trio": true
+      },
+      {
+        "clause": "o reflexo (J involutivo, injetivo) NAO e o colapso",
+        "lean_term": "ChatgptAudit.Collapse057.involution_cannot_be_collapse",
+        "status": "REAL",
+        "in_kernel": true,
+        "axioms_in_trio": true
+      },
+      {
+        "clause": "o conteudo inteiro num enunciado",
+        "lean_term": "ChatgptAudit.Collapse057.typed_collapse_content",
+        "status": "REAL",
+        "in_kernel": true,
+        "axioms_in_trio": true
+      }
+    ],
+    "typed_in_kernel": true,
+    "cost_law": [
+      [
+        "local_nats",
+        "1/2",
+        "INPUT"
+      ],
+      [
+        "octave_nats",
+        "n * ln 2",
+        "INPUT"
+      ]
+    ],
+    "external_reflection_status": "OPEN_PHYSICAL_PROVENANCE_NOT_RECEIVED",
+    "physical_collapse_proven": false,
+    "cost_payment_status": "NOT_MEASURED",
+    "qg_gate_moved": false,
+    "reading": "COLAPSO_TIPADO__TODAS_AS_CLAUSULAS_NO_KERNEL_COM_O_TRIO"
   }
 }
