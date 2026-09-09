@@ -5,7 +5,7 @@
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
   "doi_um_absoluto": "https://doi.org/10.5281/zenodo.22659173",
-  "gerado_utc": "2026-09-09T14:02:31Z",
+  "gerado_utc": "2026-09-09T14:13:27Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
     "versao": "v336",
@@ -150,7 +150,7 @@
       "papel": "outros",
       "descricao": "Como citar: DOI 10.5281/zenodo.22659173 (v331), autor, versao, e as URLs diretas do um.py e do selo",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff",
-      "sha256_16": "a9990bf4b1eeeffe",
+      "sha256_16": "4754fc3bd4158853",
       "bytes": 2720
     },
     {

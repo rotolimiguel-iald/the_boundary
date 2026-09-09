@@ -18,7 +18,7 @@ identifiers:
     description: "Zenodo concept DOI (all versions of Um: Absoluto)"
   - type: url
     value: "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md"
-    description: "the current seal of the repository, one page, regenerated at every custody (v334 on 2026-09-09 — newer than the deposited v331)"
+    description: "the current seal of the repository, one page, regenerated at every custody (v336 on 2026-09-09 — newer than the deposited v331)"
   - type: url
     value: "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"
     description: "um.py, direct raw URL (GitHub refuses to render files above 5 MB; the raw route serves it whole, byte-exact)"

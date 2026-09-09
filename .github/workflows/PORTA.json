@@ -4,7 +4,7 @@
   "titulo": ".github/workflows",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-09T14:02:31Z",
+  "gerado_utc": "2026-09-09T14:13:27Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": ".github",
