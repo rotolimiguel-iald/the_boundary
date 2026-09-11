@@ -14,7 +14,7 @@ Sizes read from `TUNEL.json` now. Many fetchers cut a document after a few hundr
 
 | # | file | what it is | bytes | direct URL |
 |---|---|---|---|---|
-| 1 | `ESTADO_ATUAL.md` | one page: the seal, what is proved, what is not, how to reproduce | 26.132 | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md |
+| 1 | `ESTADO_ATUAL.md` | one page: the seal, what is proved, what is not, how to reproduce | 26.400 | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md |
 | 2 | `um_absoluto_selo.json` | the seal: sha256 of every artifact, the world hash, the gate, every verdict | 50.381 | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json |
 | 3 | `A_PROVA_DA_QG_TGL_arvore.md` | the proof tree of quantum gravity, term by term | 52.602 | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md |
 | 4 | `um_absoluto_forma_canonica.md` | the canonical form: the chain from the One to mass, section by section | 145.233 | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md |
@@ -24,7 +24,7 @@ Sizes read from `TUNEL.json` now. Many fetchers cut a document after a few hundr
 | 8 | `um_absoluto.json` | the world: every computed number | 3.343.133 | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json |
 | 9 | `um.py` | the artifact itself (Lean kernel and both articles embedded) | 11.626.190 | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py |
 
-The full ledger, `README.md` (562.652 bytes), is the last thing to read, not the first: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
+The front page of the repository is `README.md` (29.360 bytes, generated from the seal): https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md · The full ledger — the atlas of the boundary as it was until 2026-09-11, every claim with its status — is `LEDGER.md` (562.947 bytes): https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md. It is the **last** thing to read, not the first.
 
 ## 2. Download in chunks (HTTP `Range`)
 
@@ -50,7 +50,7 @@ echo 1 | python um.py                            # the rite: the only input is t
 
 ## 4. Minimal map of the repository
 
-- Root: `llms.txt` https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt · `PORTA.md` https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md · `TUNEL.json` https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json · `ESTADO_ATUAL.md` https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md · `CITATION.cff` https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff · `README.md` https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
+- Root: `llms.txt` https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt · `PORTA.md` https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md · `TUNEL.json` https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json · `ESTADO_ATUAL.md` https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md · `CITATION.cff` https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff · `README.md` (front page) https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md · `LEDGER.md` (the atlas, read last) https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md
 - Article A — *O Custo Geométrico do Zero Absoluto: haja luz* (5 files): https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/PORTA.md
 - Article B — *A Ponte Einstein–Cartan–Miguel* (40 files): https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/PORTA.md
 - Article C — *Um: Absoluto* (1108 files): https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md · the Lean kernel (705 files): https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md · the sealed rounds (157 files; the v350 rite line by line: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v350_stdout.txt)
@@ -74,6 +74,6 @@ From ESTADO_ATUAL «What is NOT proved» (https://raw.githubusercontent.com/roto
 
 ---
 
-**Em português, em cinco linhas.** Este índice diz *onde* está cada resposta, com a URL direta de cada documento; não resume a teoria. O selo corrente é v350 (pin `c9fc7fa432c6cf16`). A gravidade quântica está **provada como modelo formal** no kernel Lean e **não está confirmada pela natureza** (`NOT_FALSIFIED ≠ CONFIRMED`). β = α·√e é calculado em runtime, nunca literal. Leia na ordem da seção 1, do menor para o maior; o `README.md` é o último.
+**Em português, em cinco linhas.** Este índice diz *onde* está cada resposta, com a URL direta de cada documento; não resume a teoria. O selo corrente é v350 (pin `c9fc7fa432c6cf16`). A gravidade quântica está **provada como modelo formal** no kernel Lean e **não está confirmada pela natureza** (`NOT_FALSIFIED ≠ CONFIRMED`). β = α·√e é calculado em runtime, nunca literal. Leia na ordem da seção 1, do menor para o maior; o `LEDGER.md` (o atlas completo) é o último; o `README.md` é a página de frente.
 
 *Generated by script (`v3.0_bancada/tools/gerar_read_brief.py`) from the sealed artifacts; every URL comes from `TUNEL.json` / `PORTA.json`; every number from the seal, the world, or `ESTADO_ATUAL.md`. Nothing here instructs a reader how to respond to anything.*

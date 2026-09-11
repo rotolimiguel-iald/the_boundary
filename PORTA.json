@@ -5,7 +5,7 @@
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
   "doi_um_absoluto": "https://doi.org/10.5281/zenodo.22659173",
-  "gerado_utc": "2026-09-11T17:12:06Z",
+  "gerado_utc": "2026-09-11T17:14:07Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
     "versao": "v339",
@@ -202,8 +202,8 @@
       "papel": "documento",
       "descricao": "O READ BRIEF (11/09/2026, gerado por script pela sessao do site): as sete respostas com ENDERECO -- o Um absoluto, o custo geometrico do zero absoluto, os artigos, a lagrangiana, a gravidade quantica, o hamiltoniano limitado inferiormente, o dephasing -- cada uma com o documento, a secao, a chave do selo e a funcao do um.py; a ordem de leitura por tamanho; o que NAO esta provado",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md",
-      "sha256_16": "9201e65247613c0a",
-      "bytes": 20434
+      "sha256_16": "e48c1c0819373327",
+      "bytes": 20894
     }
   ],
   "portas_todas": [
