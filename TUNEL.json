@@ -21,7 +21,7 @@
   "versao_da_pedra": "v339"
  },
  "regra": "NOT_FALSIFIED nunca e CONFIRMED. Fechar a arquitetura matematica interna nao e gravidade quantica confirmada. beta_TGL = alpha*sqrt(e) e CONSTANTE, nunca literal no codigo: e computada em runtime.",
- "n_arquivos": 1335,
+ "n_arquivos": 1336,
  "aliases_ausentes": [],
  "aliases": {
   "um.py": {
@@ -112,8 +112,8 @@
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
    "o_que_e": "O atlas da fronteira",
-   "sha256_16": "4d02715ece5d3e4a",
-   "bytes": 562652
+   "sha256_16": "45738ea13da58341",
+   "bytes": 562947
   },
   "llms": {
    "path": "llms.txt",
@@ -149,8 +149,8 @@
   {
    "path": ".gitignore",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitignore",
-   "bytes": 890,
-   "sha256_16": "87b3b75b9d78361d",
+   "bytes": 1091,
+   "sha256_16": "2bac9f06182b3baf",
    "papel": "outros"
   },
   {
@@ -443,8 +443,8 @@
   {
    "path": "ESTADO_ATUAL.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md",
-   "bytes": 26132,
-   "sha256_16": "b3d7f841a54a2a41",
+   "bytes": 26400,
+   "sha256_16": "11e2569d72fe41ff",
    "papel": "documento"
   },
   {
@@ -1311,8 +1311,8 @@
   {
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-   "bytes": 562652,
-   "sha256_16": "4d02715ece5d3e4a",
+   "bytes": 562947,
+   "sha256_16": "45738ea13da58341",
    "papel": "documento"
   },
   {
@@ -9436,17 +9436,24 @@
    "papel": "outros"
   },
   {
+   "path": "read-brief.md",
+   "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md",
+   "bytes": 20434,
+   "sha256_16": "9201e65247613c0a",
+   "papel": "documento"
+  },
+  {
    "path": "tools/gerar_estado_atual.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_estado_atual.py",
-   "bytes": 27948,
-   "sha256_16": "52441cab27094f0e",
+   "bytes": 28222,
+   "sha256_16": "59c5aaefaeb59118",
    "papel": "codigo"
   },
   {
    "path": "tools/gerar_portas.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_portas.py",
-   "bytes": 89402,
-   "sha256_16": "c2b18b297aff65ce",
+   "bytes": 90624,
+   "sha256_16": "9b1f68ccb8b55359",
    "papel": "codigo"
   },
   {

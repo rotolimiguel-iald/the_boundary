@@ -98,6 +98,7 @@ To reproduce the nature rites v340–v350 as sealed, clone the repository (not o
 
 | | raw |
 |---|---|
+| **the seven answers, each with its address** (the Read Brief: document · section · seal key · `um.py` function; reading order by size; what is NOT proved) | [`read-brief.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md) |
 | the seal | [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) |
 | the world (every computed number) | [`um_absoluto.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json) |
 | the proof tree, term by term | [`A_PROVA_DA_QG_TGL_arvore.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md) |

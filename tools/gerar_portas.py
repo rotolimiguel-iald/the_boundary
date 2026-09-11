@@ -248,6 +248,7 @@ DESC = {
     "README.md": "O atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le",
     "llms.txt": "A porta de entrada para IA (convencao llmstxt.org): as URLs raw diretas de tudo que importa",
     "ESTADO_ATUAL.md": "UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- comece aqui",
+    "read-brief.md": "O READ BRIEF (11/09/2026, gerado por script pela sessao do site): as sete respostas com ENDERECO -- o Um absoluto, o custo geometrico do zero absoluto, os artigos, a lagrangiana, a gravidade quantica, o hamiltoniano limitado inferiormente, o dephasing -- cada uma com o documento, a secao, a chave do selo e a funcao do um.py; a ordem de leitura por tamanho; o que NAO esta provado",
     "CITATION.cff": "Como citar: DOI 10.5281/zenodo.22659173 (v331), autor, versao, e as URLs diretas do um.py e do selo",
     # ----- Artigo 1
     A1 + "/tgl_paper_unified.py": "O CANONICO do Artigo 1: implementa, valida e renderiza a TGL num arquivo so (forma = conteudo)",
@@ -1012,6 +1013,8 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("## A porta de entrada")
     T.append("")
     T.append("- [ESTADO_ATUAL.md](%s): UMA PAGINA gerada do selo -- pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir em tres comandos. COMECE AQUI." % registra(url_raw("ESTADO_ATUAL.md")))
+    if os.path.isfile(os.path.join(REPO, "read-brief.md")):
+        T.append("- [read-brief.md](%s): O READ BRIEF -- as sete respostas com ENDERECO (o Um absoluto, o custo geometrico do zero absoluto, os artigos, a lagrangiana, a gravidade quantica, o hamiltoniano limitado inferiormente, o dephasing), cada uma com documento, secao, chave do selo e funcao do um.py; a ordem de leitura por tamanho; o que NAO esta provado. <= 30 KB." % registra(url_raw("read-brief.md")))
     T.append("- [PORTA.json (raiz)](%s): o manifesto de maquina -- selo corrente, as quatro portas abaixo e o mapa completo de todas as portas do repositorio." % registra(porta_json_url("")))
     T.append("- [PORTA.md (raiz)](%s): a mesma porta em leitura humana, com o selo e o mapa." % registra(porta_md_url("")))
     T.append("- [README.md](%s): o atlas da fronteira -- toda afirmacao com seu status e o link direto do arquivo onde se le." % registra(url_raw("README.md")))
@@ -1239,6 +1242,8 @@ def bloco_readme(dirs, sc):
     B.append("|---|---|---|")
     B.append("| **`llms.txt`** | the entry door (llmstxt.org): the three articles, the seal, the site | [raw](%s) |" % url_raw("llms.txt"))
     B.append("| **`ESTADO_ATUAL.md`** | **one page, generated from the seal**: pin, gate, what is PROVED, what is not, how to reproduce \u2014 start here | [raw](%s) |" % url_raw("ESTADO_ATUAL.md"))
+    if os.path.isfile(os.path.join(REPO, "read-brief.md")):
+        B.append("| **`read-brief.md`** | **the Read Brief**: the seven answers, each with its address (document \u00b7 section \u00b7 seal key \u00b7 `um.py` function), the reading order by size, what is NOT proved \u2014 \u2264 30 KB | [raw](%s) |" % url_raw("read-brief.md"))
     B.append("| **`TUNEL.json`** | **the tunnel** \u2014 the FLAT index: every file with its direct raw URL, size and hash. One request, no navigation | [raw](%s) |" % url_raw("TUNEL.json"))
     B.append("| **`TUNEL.md`** | the same tunnel, human-readable, with ASCII shortcuts | [raw](%s) |" % url_raw("TUNEL.md"))
     B.append("| **`PORTA.json`** (root) | the machine manifest: current seal + every door in the repository | [raw](%s) |" % porta_json_url(""))

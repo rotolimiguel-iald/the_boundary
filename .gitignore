@@ -34,3 +34,9 @@ cache/gw/*
 !cache/d1_camb/
 cache/d1_camb/*
 !cache/d1_camb/*.json
+
+# 11/09/2026 (direcao do site): as PORTAs de cache/ sao rastreadas -- nenhuma porta e beco (raw 404 medido em 11/09)
+!cache/PORTA.md
+!cache/PORTA.json
+!cache/gw/PORTA.md
+!cache/d1_camb/PORTA.md

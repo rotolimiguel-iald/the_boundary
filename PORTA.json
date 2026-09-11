@@ -5,7 +5,7 @@
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
   "doi_um_absoluto": "https://doi.org/10.5281/zenodo.22659173",
-  "gerado_utc": "2026-09-11T02:30:10Z",
+  "gerado_utc": "2026-09-11T17:07:15Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
     "versao": "v339",
@@ -162,8 +162,8 @@
       "papel": "outros",
       "descricao": "Arquivo de infraestrutura",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitignore",
-      "sha256_16": "87b3b75b9d78361d",
-      "bytes": 890
+      "sha256_16": "2bac9f06182b3baf",
+      "bytes": 1091
     },
     {
       "nome": "CITATION.cff",
@@ -178,16 +178,24 @@
       "papel": "documento",
       "descricao": "UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- comece aqui",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md",
-      "sha256_16": "b3d7f841a54a2a41",
-      "bytes": 26132
+      "sha256_16": "11e2569d72fe41ff",
+      "bytes": 26400
     },
     {
       "nome": "README.md",
       "papel": "documento",
       "descricao": "O atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-      "sha256_16": "4d02715ece5d3e4a",
-      "bytes": 562652
+      "sha256_16": "45738ea13da58341",
+      "bytes": 562947
+    },
+    {
+      "nome": "read-brief.md",
+      "papel": "documento",
+      "descricao": "O READ BRIEF (11/09/2026, gerado por script pela sessao do site): as sete respostas com ENDERECO -- o Um absoluto, o custo geometrico do zero absoluto, os artigos, a lagrangiana, a gravidade quantica, o hamiltoniano limitado inferiormente, o dephasing -- cada uma com o documento, a secao, a chave do selo e a funcao do um.py; a ordem de leitura por tamanho; o que NAO esta provado",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md",
+      "sha256_16": "9201e65247613c0a",
+      "bytes": 20434
     }
   ],
   "portas_todas": [
@@ -474,6 +482,6 @@
       "total_arquivos": 6
     }
   ],
-  "total_arquivos": 1335,
+  "total_arquivos": 1336,
   "rodape": "gerado por script de git ls-files em 2026-09-11 -- nao editar a mao"
 }

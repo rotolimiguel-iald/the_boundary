@@ -1,7 +1,7 @@
 {
-  "porta": "pipelines",
-  "porta_id": "pipelines",
-  "titulo": "pipelines",
+  "porta": "cache",
+  "porta_id": "cache",
+  "titulo": "cache",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "gerado_utc": "2026-09-11T17:07:15Z",
@@ -17,11 +17,18 @@
   },
   "portas_abaixo": [
     {
-      "nome": "eco_ancorado_v1",
-      "caminho": "pipelines/eco_ancorado_v1",
-      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/PORTA.md",
-      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/PORTA.json",
-      "total_arquivos": 39
+      "nome": "d1_camb",
+      "caminho": "cache/d1_camb",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/PORTA.json",
+      "total_arquivos": 3
+    },
+    {
+      "nome": "gw",
+      "caminho": "cache/gw",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/PORTA.json",
+      "total_arquivos": 10
     }
   ],
   "canonico_url": null,
@@ -29,7 +36,7 @@
   "dependencias": null,
   "arquivos": [],
   "total_arquivos_nesta_pasta": 0,
-  "total_arquivos_com_subpastas": 39,
-  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/pipelines",
+  "total_arquivos_com_subpastas": 13,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache",
   "rodape": "gerado por script de git ls-files em 2026-09-11 -- nao editar a mao"
 }

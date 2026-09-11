@@ -56,6 +56,7 @@ auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela n
 | `CITATION.cff` | Como citar: DOI 10.5281/zenodo.22659173 (v331), autor, versao, e as URLs diretas do um.py e do selo | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff) |
 | `ESTADO_ATUAL.md` | UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- comece aqui | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) |
 | `README.md` | O atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md) |
+| `read-brief.md` | O READ BRIEF (11/09/2026, gerado por script pela sessao do site): as sete respostas com ENDERECO -- o Um absoluto, o custo geometrico do zero absoluto, os artigos, a lagrangiana, a gravidade quantica, o hamiltoniano limitado inferiormente, o dephasing -- cada uma com o documento, a secao, a chave do selo e a funcao do um.py; a ordem de leitura por tamanho; o que NAO esta provado | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md) |
 
 ## OUTRAS PORTAS ABAIXO
 
@@ -123,4 +124,4 @@ auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela n
 
 ---
 
-Total rastreado por `git ls-files`: **1335 arquivos** (antes das portas). gerado por script de git ls-files em 2026-09-11 -- nao editar a mao
+Total rastreado por `git ls-files`: **1336 arquivos** (antes das portas). gerado por script de git ls-files em 2026-09-11 -- nao editar a mao

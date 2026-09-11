@@ -181,6 +181,8 @@ def main() -> int:
     L.append("")
     L.append("| | raw |")
     L.append("|---|---|")
+    if (RAIZ / "read-brief.md").is_file():
+        L.append("| **the seven answers, each with its address** (the Read Brief: document · section · seal key · `um.py` function; reading order by size; what is NOT proved) | [`read-brief.md`](%s) |" % raw("read-brief.md"))
     L.append("| the seal | [`um_absoluto_selo.json`](%s) |" % raw(A3 + "/um_absoluto_selo.json"))
     L.append("| the world (every computed number) | [`um_absoluto.json`](%s) |" % raw(A3 + "/um_absoluto.json"))
     L.append("| the proof tree, term by term | [`A_PROVA_DA_QG_TGL_arvore.md`](%s) |" % raw(A3 + "/A_PROVA_DA_QG_TGL_arvore.md"))

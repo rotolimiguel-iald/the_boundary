@@ -8,6 +8,7 @@ A REGRA DA PORTA: toda pasta canonica tem PORTA.md + PORTA.json; toda porta apon
 ## A porta de entrada
 
 - [ESTADO_ATUAL.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md): UMA PAGINA gerada do selo -- pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir em tres comandos. COMECE AQUI.
+- [read-brief.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md): O READ BRIEF -- as sete respostas com ENDERECO (o Um absoluto, o custo geometrico do zero absoluto, os artigos, a lagrangiana, a gravidade quantica, o hamiltoniano limitado inferiormente, o dephasing), cada uma com documento, secao, chave do selo e funcao do um.py; a ordem de leitura por tamanho; o que NAO esta provado. <= 30 KB.
 - [PORTA.json (raiz)](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.json): o manifesto de maquina -- selo corrente, as quatro portas abaixo e o mapa completo de todas as portas do repositorio.
 - [PORTA.md (raiz)](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md): a mesma porta em leitura humana, com o selo e o mapa.
 - [README.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md): o atlas da fronteira -- toda afirmacao com seu status e o link direto do arquivo onde se le.

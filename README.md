@@ -47,6 +47,7 @@
 |---|---|---|
 | **`llms.txt`** | the entry door (llmstxt.org): the three articles, the seal, the site | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt) |
 | **`ESTADO_ATUAL.md`** | **one page, generated from the seal**: pin, gate, what is PROVED, what is not, how to reproduce — start here | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) |
+| **`read-brief.md`** | **the Read Brief**: the seven answers, each with its address (document · section · seal key · `um.py` function), the reading order by size, what is NOT proved — ≤ 30 KB | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md) |
 | **`TUNEL.json`** | **the tunnel** — the FLAT index: every file with its direct raw URL, size and hash. One request, no navigation | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json) |
 | **`TUNEL.md`** | the same tunnel, human-readable, with ASCII shortcuts | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.md) |
 | **`PORTA.json`** (root) | the machine manifest: current seal + every door in the repository | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.json) |
