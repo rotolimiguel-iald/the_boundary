@@ -1,0 +1,122 @@
+eventos preparados: 21 | pulados: 51
+  GW150914               Mc_det= 30.8 dets=['H1', 'L1'] anc={'H1': 14.7, 'L1': 10.4} t_anc_ms={'H1': 23.4, 'L1': 17.6}
+  GW170814               Mc_det= 27.3 dets=['H1', 'L1'] anc={'H1': 7.0, 'L1': 9.4} t_anc_ms={'H1': 30.5, 'L1': 23.2}
+  GW190408_181802        Mc_det= 24.0 dets=['H1', 'L1'] anc={'H1': 8.0, 'L1': 8.0} t_anc_ms={'H1': 81.5, 'L1': 83.3}
+  GW190412               Mc_det= 15.3 dets=['H1', 'L1'] anc={'H1': 7.8, 'L1': 13.3} t_anc_ms={'H1': 64.9, 'L1': 61.8}
+  GW190512_180714        Mc_det= 18.8 dets=['L1'] anc={'L1': 8.9} t_anc_ms={'L1': 18.8}
+  GW190519_153544        Mc_det= 64.7 dets=['H1', 'L1'] anc={'H1': 6.3, 'L1': 8.7} t_anc_ms={'H1': 81.5, 'L1': 82.5}
+  GW190521               Mc_det=101.1 dets=['H1', 'L1'] anc={'H1': 6.5, 'L1': 8.5} t_anc_ms={'H1': 39.6, 'L1': 35.6}
+  GW190521_074359        Mc_det= 40.0 dets=['H1', 'L1'] anc={'H1': 8.6, 'L1': 16.0} t_anc_ms={'H1': 61.3, 'L1': 55.2}
+  GW190620_030421        Mc_det= 58.5 dets=['L1'] anc={'L1': 8.8} t_anc_ms={'L1': 3.9}
+  GW190630_185205        Mc_det= 29.7 dets=['L1'] anc={'L1': 11.7} t_anc_ms={'L1': 74.0}
+  GW190706_222641        Mc_det= 74.5 dets=['H1', 'L1'] anc={'H1': 8.0, 'L1': 6.3} t_anc_ms={'H1': 21.0, 'L1': 16.4}
+  GW190708_232457        Mc_det= 15.6 dets=['L1'] anc={'L1': 9.8} t_anc_ms={'L1': 79.6}
+  GW190828_063405        Mc_det= 34.4 dets=['H1', 'L1'] anc={'H1': 8.0, 'L1': 9.7} t_anc_ms={'H1': 51.0, 'L1': 49.3}
+  GW190910_112807        Mc_det= 43.4 dets=['L1'] anc={'L1': 10.3} t_anc_ms={'L1': 17.3}
+  GW191109_010717        Mc_det= 60.0 dets=['H1', 'L1'] anc={'H1': 6.4, 'L1': 10.4} t_anc_ms={'H1': 5.9, 'L1': 8.8}
+  GW191222_033537        Mc_det= 51.9 dets=['H1', 'L1'] anc={'H1': 6.7, 'L1': 9.5} t_anc_ms={'H1': 17.3, 'L1': 15.9}
+  GW200112_155838        Mc_det= 34.2 dets=['L1'] anc={'L1': 14.0} t_anc_ms={'L1': 86.7}
+  GW200129_065458        Mc_det= 32.5 dets=['H1', 'L1'] anc={'H1': 11.0, 'L1': 17.4} t_anc_ms={'H1': 22.0, 'L1': 26.6}
+  GW200224_222234        Mc_det= 41.5 dets=['H1', 'L1'] anc={'H1': 9.5, 'L1': 10.7} t_anc_ms={'H1': -2.9, 'L1': -5.1}
+  GW200311_115853        Mc_det= 32.9 dets=['H1', 'L1'] anc={'H1': 8.7, 'L1': 6.6} t_anc_ms={'H1': 93.0, 'L1': 85.9}
+  GW200322_091133        Mc_det= 27.7 dets=['L1'] anc={'L1': 9.8} t_anc_ms={'L1': 25.4}
+  ON  GW190910_112807        MAY a=0.476+-1.681 lnB=-0.01 52s OK edge=[]
+  ON  GW190910_112807        KMS a=0.376+-1.661 lnB=0.01 53s OK edge=[]
+  ON  GW190630_185205        MAY a=0.737+-1.594 lnB=-0.02 79s OK edge=[]
+  ON  GW190630_185205        KMS a=-0.405+-1.757 lnB=-0.11 88s OK edge=[]
+  ON  GW200112_155838        MAY a=-0.143+-1.740 lnB=0.07 92s OK edge=[]
+  ON  GW200112_155838        KMS a=0.349+-1.703 lnB=0.00 95s OK edge=[]
+  ON  GW190708_232457        MAY a=-0.208+-1.670 lnB=0.10 134s OK edge=[]
+  ON  GW190708_232457        KMS a=-0.577+-1.598 lnB=0.01 150s OK edge=[]
+  ON  GW190620_030421        KMS a=0.046+-1.729 lnB=0.01 151s OK edge=[]
+  ON  GW190620_030421        MAY a=-0.023+-1.734 lnB=0.03 162s OK edge=[]
+  ON  GW190512_180714        MAY a=0.106+-1.696 lnB=0.05 170s OK edge=[]
+  ON  GW191109_010717        MAY a=-0.410+-1.707 lnB=-0.04 175s OK edge=[]
+  ON  GW191109_010717        KMS a=0.217+-1.633 lnB=0.04 178s OK edge=[]
+  ON  GW190706_222641        MAY a=0.047+-1.720 lnB=0.01 180s OK edge=[]
+  ON  GW190521_074359        MAY a=-0.581+-1.696 lnB=-0.16 183s OK edge=[]
+  ON  GW190521_074359        KMS a=-0.036+-1.665 lnB=0.08 194s OK edge=[]
+  ON  GW191222_033537        MAY a=-0.456+-1.659 lnB=-0.01 203s OK edge=[]
+  ON  GW190512_180714        KMS a=0.029+-1.751 lnB=-0.02 209s OK edge=[]
+  ON  GW190521               MAY a=0.942+-1.507 lnB=-0.07 220s OK edge=[]
+  ON  GW190706_222641        KMS a=1.257+-1.460 lnB=-0.45 224s OK edge=[]
+  ON  GW191222_033537        KMS a=0.618+-1.696 lnB=-0.18 225s OK edge=[]
+  ON  GW190828_063405        MAY a=0.007+-1.628 lnB=0.16 247s OK edge=[]
+  ON  GW190828_063405        KMS a=-0.061+-1.711 lnB=0.02 249s OK edge=[]
+  ON  GW150914               KMS a=0.415+-1.688 lnB=0.00 253s OK edge=[]
+  ON  GW200311_115853        MAY a=-0.721+-1.618 lnB=-0.18 256s OK edge=[]
+  ON  GW190521               KMS a=0.769+-1.643 lnB=-0.14 258s OK edge=[]
+  ON  GW200224_222234        KMS a=0.585+-1.520 lnB=0.17 262s OK edge=[]
+  ON  GW150914               MAY a=-0.618+-1.623 lnB=-0.01 264s OK edge=[]
+  ON  GW200224_222234        MAY a=-1.189+-1.343 lnB=-0.17 266s OK edge=[]
+  ON  GW200311_115853        KMS a=0.787+-1.527 lnB=-0.07 275s OK edge=[]
+  ON  GW190519_153544        KMS a=0.759+-1.561 lnB=0.01 285s OK edge=[]
+  ON  GW190519_153544        MAY a=-0.524+-1.577 lnB=0.11 296s OK edge=[]
+  ON  GW200322_091133        MAY a=-1.671+-1.054 lnB=-0.64 256s OK edge=['m1', 'chi']
+  ON  GW190408_181802        MAY a=-1.199+-1.452 lnB=-0.21 308s OK edge=[]
+  ON  GW200129_065458        MAY a=0.952+-1.436 lnB=0.02 313s OK edge=[]
+  ON  GW200129_065458        KMS a=-0.126+-1.666 lnB=0.15 313s OK edge=[]
+  ON  GW170814               MAY a=0.532+-1.724 lnB=-0.11 325s OK edge=['dt_H1']
+  ON  GW190408_181802        KMS a=0.342+-1.675 lnB=0.04 326s OK edge=[]
+  ON  GW170814               KMS a=0.981+-1.422 lnB=-0.03 332s OK edge=['dt_H1']
+  ON  GW200322_091133        KMS a=-2.810+-0.178 lnB=-688.98 319s OK edge=['m1', 'chi']
+  ON  GW190412               MAY a=1.429+-1.177 lnB=-0.25 436s OK edge=[]
+  ON  GW190412               KMS a=-1.656+-1.102 lnB=-0.68 474s OK edge=[]
+  inj_a0   GW190630_185205        MAY a=-0.101+-1.706 52s OK
+  inj_a1_B GW190630_185205        MAY a=-0.102+-1.723 53s OK
+  inj_a1_A GW190630_185205        KMS a=0.013+-1.682 53s OK
+  inj_a0   GW190630_185205        KMS a=-0.017+-1.677 54s OK
+  inj_a1_A GW190630_185205        MAY a=-0.174+-1.723 55s OK
+  inj_a1_B GW190630_185205        KMS a=-0.090+-1.742 56s OK
+  inj_a0   GW200112_155838        MAY a=0.140+-1.703 62s OK
+  inj_a1_B GW200112_155838        MAY a=0.197+-1.768 62s OK
+  inj_a1_A GW200112_155838        MAY a=0.317+-1.702 63s OK
+  inj_a0   GW200112_155838        KMS a=0.483+-1.658 72s OK
+  inj_a1_A GW200112_155838        KMS a=0.472+-1.680 72s OK
+  inj_a1_B GW200112_155838        KMS a=0.489+-1.698 76s OK
+  inj_a0   GW190910_112807        MAY a=-1.721+-1.192 139s OK
+  inj_a0   GW191109_010717        KMS a=0.085+-1.646 158s OK
+  inj_a1_A GW190910_112807        MAY a=-1.793+-1.176 144s OK
+  inj_a1_B GW190910_112807        MAY a=-1.837+-1.142 147s OK
+  inj_a0   GW191109_010717        MAY a=-0.578+-1.592 179s OK
+  inj_a1_B GW191109_010717        KMS a=0.164+-1.654 170s OK
+  inj_a1_A GW191109_010717        MAY a=-0.204+-1.651 182s OK
+  inj_a0   GW190910_112807        KMS a=-1.616+-1.055 167s OK
+  inj_a1_A GW191109_010717        KMS a=0.277+-1.597 184s OK
+  inj_a1_B GW191109_010717        MAY a=-0.341+-1.648 191s OK
+  inj_a1_B GW190521_074359        KMS a=0.461+-1.402 278s OK
+  inj_a1_B GW150914               MAY a=-0.203+-1.655 287s OK
+  inj_a0   GW190521_074359        KMS a=1.175+-1.164 288s OK
+  inj_a1_B GW190521_074359        MAY a=-1.372+-1.317 291s OK
+  inj_a0   GW200224_222234        MAY a=1.914+-0.792 293s OK
+  inj_a1_B GW200224_222234        MAY a=1.961+-0.799 294s OK
+  inj_a0   GW200224_222234        KMS a=-0.243+-1.025 295s OK
+  inj_a1_A GW190910_112807        KMS a=0.302+-1.596 94s OK
+  inj_a0   GW150914               KMS a=0.204+-1.623 297s OK
+  inj_a1_A GW150914               KMS a=0.082+-1.675 300s OK
+  inj_a1_B GW190910_112807        KMS a=0.267+-1.650 87s OK
+  inj_a1_A GW190521_074359        KMS a=1.146+-1.158 301s OK
+  inj_a1_A GW200224_222234        MAY a=1.976+-0.788 302s OK
+  inj_a1_A GW150914               MAY a=-0.105+-1.698 305s OK
+  inj_a0   GW150914               MAY a=-0.194+-1.697 305s OK
+  inj_a1_B GW150914               KMS a=0.052+-1.642 308s OK
+  inj_a1_A GW200224_222234        KMS a=-1.597+-1.112 264s OK
+  inj_a1_B GW200224_222234        KMS a=-0.332+-1.042 282s OK
+  inj_a1_B GW200129_065458        MAY a=0.407+-1.636 343s OK
+  inj_a0   GW200129_065458        KMS a=-0.762+-1.656 347s OK
+  inj_a0   GW200129_065458        MAY a=-0.502+-1.524 354s OK
+  inj_a0   GW190521_074359        MAY a=-1.240+-1.402 361s OK
+  inj_a1_A GW200129_065458        KMS a=-0.680+-1.637 367s OK
+  inj_a1_B GW200129_065458        KMS a=-0.885+-1.522 373s OK
+  inj_a1_A GW190521_074359        MAY a=-1.507+-1.254 375s OK
+  inj_a1_A GW200129_065458        MAY a=-0.350+-1.587 406s OK
+  inj_a1_B GW190412               MAY a=2.946+-0.051 801s OK
+  inj_a0   GW190412               MAY a=2.944+-0.054 803s OK
+  inj_a1_A GW190412               MAY a=2.941+-0.060 813s OK
+  inj_a1_B GW190412               KMS a=-2.203+-0.500 867s OK
+  inj_a0   GW190412               KMS a=-1.665+-0.576 962s OK
+  inj_a1_A GW190412               KMS a=-1.550+-0.571 997s OK
+COMBINADO MAY: n=19 (borda excluidos 2) a=-0.2671+-0.8566 (z vs 0 -0.31; z vs 1 -1.48; poder 1.17) | ivw -0.0215+-0.3598 | peso max 0.09 (GW190412) | jackknife grade 0.69 sigma (GW190412) | lnB(sem/com) total -0.59 | inj a0 2.907+-0.054 (n=9) | inj a1 2.895+-0.059 (n=9) | familia B 2.913+-0.051 (n=9)
+COMBINADO KMS: n=19 (borda excluidos 2) a=1.0892+-0.8992 (z vs 0 1.21; z vs 1 0.10; poder 1.11) | ivw 0.1092+-0.3648 | peso max 0.11 (GW190412) | jackknife grade 0.90 sigma (GW190412) | lnB(sem/com) total -1.11 | inj a0 -0.785+-0.367 (n=9) | inj a1 -0.733+-0.382 (n=9) | familia B -1.170+-0.362 (n=9)
+OK -> /mnt/c/IALD/Artigo/Haja_Luz/A Ponte e o Um/cache/gw/ECHO_PE_V2_RESULT.json | 1480s
+exit=0 18:00:30

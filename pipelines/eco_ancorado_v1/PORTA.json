@@ -1,0 +1,418 @@
+{
+  "porta": "pipelines/eco_ancorado_v1",
+  "porta_id": "pipelines/eco_ancorado_v1",
+  "titulo": "pipelines/eco_ancorado_v1",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-09-11T02:30:10Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "pipelines",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "d1_camb_diagnostico.py",
+      "caminho": "pipelines/eco_ancorado_v1/d1_camb_diagnostico.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/d1_camb_diagnostico.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/d1_camb_diagnostico.py",
+      "sha256_16": "a8d6b10dddde1b8b",
+      "bytes": 4310
+    },
+    {
+      "nome": "d1_camb_run.py",
+      "caminho": "pipelines/eco_ancorado_v1/d1_camb_run.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/d1_camb_run.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/d1_camb_run.py",
+      "sha256_16": "f2e31f59d089f436",
+      "bytes": 2975
+    },
+    {
+      "nome": "d1_camb_run_v2.py",
+      "caminho": "pipelines/eco_ancorado_v1/d1_camb_run_v2.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/d1_camb_run_v2.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/d1_camb_run_v2.py",
+      "sha256_16": "6a7891dd6075a4df",
+      "bytes": 3653
+    },
+    {
+      "nome": "d1_camb_v1_full.log",
+      "caminho": "pipelines/eco_ancorado_v1/d1_camb_v1_full.log",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/d1_camb_v1_full.log",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/d1_camb_v1_full.log",
+      "sha256_16": "9486d80c512512f3",
+      "bytes": 7486
+    },
+    {
+      "nome": "d1_camb_v2_full.log",
+      "caminho": "pipelines/eco_ancorado_v1/d1_camb_v2_full.log",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/d1_camb_v2_full.log",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/d1_camb_v2_full.log",
+      "sha256_16": "27cd51df95a912d0",
+      "bytes": 7548
+    },
+    {
+      "nome": "echo_anchored_full.log",
+      "caminho": "pipelines/eco_ancorado_v1/echo_anchored_full.log",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/echo_anchored_full.log",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/echo_anchored_full.log",
+      "sha256_16": "cc001e55cb5c743b",
+      "bytes": 32643
+    },
+    {
+      "nome": "echo_anchored_v1.py",
+      "caminho": "pipelines/eco_ancorado_v1/echo_anchored_v1.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/echo_anchored_v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/echo_anchored_v1.py",
+      "sha256_16": "6298c44ff8934a15",
+      "bytes": 19551
+    },
+    {
+      "nome": "echo_anchored_v2.py",
+      "caminho": "pipelines/eco_ancorado_v1/echo_anchored_v2.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/echo_anchored_v2.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/echo_anchored_v2.py",
+      "sha256_16": "9e467a53b9158b4a",
+      "bytes": 19079
+    },
+    {
+      "nome": "echo_pe_v1.py",
+      "caminho": "pipelines/eco_ancorado_v1/echo_pe_v1.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/echo_pe_v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/echo_pe_v1.py",
+      "sha256_16": "1678ddc497a80824",
+      "bytes": 23162
+    },
+    {
+      "nome": "echo_pe_v1_full.log",
+      "caminho": "pipelines/eco_ancorado_v1/echo_pe_v1_full.log",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/echo_pe_v1_full.log",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/echo_pe_v1_full.log",
+      "sha256_16": "f8863235880d4e68",
+      "bytes": 4945
+    },
+    {
+      "nome": "echo_pe_v2.py",
+      "caminho": "pipelines/eco_ancorado_v1/echo_pe_v2.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/echo_pe_v2.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/echo_pe_v2.py",
+      "sha256_16": "ad51b73d9836686a",
+      "bytes": 26408
+    },
+    {
+      "nome": "echo_pe_v2_full.log",
+      "caminho": "pipelines/eco_ancorado_v1/echo_pe_v2_full.log",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/echo_pe_v2_full.log",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/echo_pe_v2_full.log",
+      "sha256_16": "5ec47ffe3c3a43f0",
+      "bytes": 9455
+    },
+    {
+      "nome": "echo_search_v1.py",
+      "caminho": "pipelines/eco_ancorado_v1/echo_search_v1.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/echo_search_v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/echo_search_v1.py",
+      "sha256_16": "fc8c6f61183a51eb",
+      "bytes": 16462
+    },
+    {
+      "nome": "echo_search_v1_full.log",
+      "caminho": "pipelines/eco_ancorado_v1/echo_search_v1_full.log",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/echo_search_v1_full.log",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/echo_search_v1_full.log",
+      "sha256_16": "82d35c41e24575c8",
+      "bytes": 2748
+    },
+    {
+      "nome": "extract_gw_echo_windows_v341.py",
+      "caminho": "pipelines/eco_ancorado_v1/extract_gw_echo_windows_v341.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/extract_gw_echo_windows_v341.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/extract_gw_echo_windows_v341.py",
+      "sha256_16": "82abaa36b3538d10",
+      "bytes": 3878
+    },
+    {
+      "nome": "extract_gw_windows_v340.py",
+      "caminho": "pipelines/eco_ancorado_v1/extract_gw_windows_v340.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/extract_gw_windows_v340.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/extract_gw_windows_v340.py",
+      "sha256_16": "8c9e8a3fbd698083",
+      "bytes": 4260
+    },
+    {
+      "nome": "h2_reproduction_v1.py",
+      "caminho": "pipelines/eco_ancorado_v1/h2_reproduction_v1.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/h2_reproduction_v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/h2_reproduction_v1.py",
+      "sha256_16": "5699669fdf3468ac",
+      "bytes": 16021
+    },
+    {
+      "nome": "h2_reproduction_v1_full.log",
+      "caminho": "pipelines/eco_ancorado_v1/h2_reproduction_v1_full.log",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/h2_reproduction_v1_full.log",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/h2_reproduction_v1_full.log",
+      "sha256_16": "98a9851b345e214f",
+      "bytes": 23874
+    },
+    {
+      "nome": "preregistro_v347_evidencia.json",
+      "caminho": "pipelines/eco_ancorado_v1/preregistro_v347_evidencia.json",
+      "papel": "resultado selado",
+      "descricao": "Evidencia de pre-inscricao da v347 (carimbo recuperado por mtime + hash recomputado -- errata dita)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/preregistro_v347_evidencia.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/preregistro_v347_evidencia.json",
+      "sha256_16": "d2a2fac6d1f5d0dc",
+      "bytes": 1150
+    },
+    {
+      "nome": "ringdown_dephasing_v1.py",
+      "caminho": "pipelines/eco_ancorado_v1/ringdown_dephasing_v1.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/ringdown_dephasing_v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/ringdown_dephasing_v1.py",
+      "sha256_16": "31a9f41da1b72321",
+      "bytes": 14086
+    },
+    {
+      "nome": "ringdown_dephasing_v2.py",
+      "caminho": "pipelines/eco_ancorado_v1/ringdown_dephasing_v2.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/ringdown_dephasing_v2.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/ringdown_dephasing_v2.py",
+      "sha256_16": "0793c58d6995194b",
+      "bytes": 18415
+    },
+    {
+      "nome": "ringdown_v1_full.log",
+      "caminho": "pipelines/eco_ancorado_v1/ringdown_v1_full.log",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/ringdown_v1_full.log",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/ringdown_v1_full.log",
+      "sha256_16": "ced8fecd0b4b0d6b",
+      "bytes": 24249
+    },
+    {
+      "nome": "ringdown_v2_full.log",
+      "caminho": "pipelines/eco_ancorado_v1/ringdown_v2_full.log",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/ringdown_v2_full.log",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/ringdown_v2_full.log",
+      "sha256_16": "e069b1eb7b69961d",
+      "bytes": 31714
+    },
+    {
+      "nome": "rite_d1_camb_v349.py",
+      "caminho": "pipelines/eco_ancorado_v1/rite_d1_camb_v349.py",
+      "papel": "codigo",
+      "descricao": "O rito D1 via CAMB (v349): V1 (maio intocado) + emenda V2 pre-inscrita",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/rite_d1_camb_v349.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/rite_d1_camb_v349.py",
+      "sha256_16": "68fe1b09c6345dd1",
+      "bytes": 23972
+    },
+    {
+      "nome": "rite_echo_pe_v347.py",
+      "caminho": "pipelines/eco_ancorado_v1/rite_echo_pe_v347.py",
+      "papel": "codigo",
+      "descricao": "O rito da PE bayesiana com eco (v347): V1 + emenda V2",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/rite_echo_pe_v347.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/rite_echo_pe_v347.py",
+      "sha256_16": "114d13776c33549e",
+      "bytes": 27903
+    },
+    {
+      "nome": "rite_echo_search_v348.py",
+      "caminho": "pipelines/eco_ancorado_v1/rite_echo_search_v348.py",
+      "papel": "codigo",
+      "descricao": "O rito da busca de ecos de longo atraso (v348), protocolo de 2025 herdado",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/rite_echo_search_v348.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/rite_echo_search_v348.py",
+      "sha256_16": "bbff026e0d42cffd",
+      "bytes": 10875
+    },
+    {
+      "nome": "rite_h2_v350.py",
+      "caminho": "pipelines/eco_ancorado_v1/rite_h2_v350.py",
+      "papel": "codigo",
+      "descricao": "O rito da reproducao de H2 com pycbc (v350): protocolo pre-registrado + leitor por hash",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/rite_h2_v350.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/rite_h2_v350.py",
+      "sha256_16": "a192134d66620235",
+      "bytes": 9909
+    },
+    {
+      "nome": "rite_ringdown_v346.py",
+      "caminho": "pipelines/eco_ancorado_v1/rite_ringdown_v346.py",
+      "papel": "codigo",
+      "descricao": "O rito ringdown vs dephasing (v346): V1 + emenda V2 (filtro casado)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/rite_ringdown_v346.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/rite_ringdown_v346.py",
+      "sha256_16": "dd95a416f5d74e52",
+      "bytes": 23673
+    },
+    {
+      "nome": "smoke_v347_result.json",
+      "caminho": "pipelines/eco_ancorado_v1/smoke_v347_result.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/smoke_v347_result.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/smoke_v347_result.json",
+      "sha256_16": "0feabd3e25a1afa2",
+      "bytes": 18717
+    },
+    {
+      "nome": "smoke_v347_result_V1only.json",
+      "caminho": "pipelines/eco_ancorado_v1/smoke_v347_result_V1only.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/smoke_v347_result_V1only.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/smoke_v347_result_V1only.json",
+      "sha256_16": "1228ec93c58eb5a0",
+      "bytes": 4382
+    },
+    {
+      "nome": "smoke_v348_prereg.json",
+      "caminho": "pipelines/eco_ancorado_v1/smoke_v348_prereg.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/smoke_v348_prereg.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/smoke_v348_prereg.json",
+      "sha256_16": "39d6591ebceb7b3c",
+      "bytes": 4095
+    },
+    {
+      "nome": "smoke_v349_prereg.json",
+      "caminho": "pipelines/eco_ancorado_v1/smoke_v349_prereg.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/smoke_v349_prereg.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/smoke_v349_prereg.json",
+      "sha256_16": "03966d73d8e29437",
+      "bytes": 3831
+    },
+    {
+      "nome": "smoke_v349_prereg_v2.json",
+      "caminho": "pipelines/eco_ancorado_v1/smoke_v349_prereg_v2.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/smoke_v349_prereg_v2.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/smoke_v349_prereg_v2.json",
+      "sha256_16": "8d2db7da4cba2812",
+      "bytes": 6869
+    },
+    {
+      "nome": "smoke_v349_result.json",
+      "caminho": "pipelines/eco_ancorado_v1/smoke_v349_result.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/smoke_v349_result.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/smoke_v349_result.json",
+      "sha256_16": "ed5b0214c04def85",
+      "bytes": 16730
+    },
+    {
+      "nome": "smoke_v350_prereg.json",
+      "caminho": "pipelines/eco_ancorado_v1/smoke_v350_prereg.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/smoke_v350_prereg.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/smoke_v350_prereg.json",
+      "sha256_16": "bdaa8e121b47c6a0",
+      "bytes": 3543
+    },
+    {
+      "nome": "smoke_v350_result.json",
+      "caminho": "pipelines/eco_ancorado_v1/smoke_v350_result.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/smoke_v350_result.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/smoke_v350_result.json",
+      "sha256_16": "c46a6d5d7f732d25",
+      "bytes": 9422
+    },
+    {
+      "nome": "tgl_camb_worker_v2fix.py",
+      "caminho": "pipelines/eco_ancorado_v1/tgl_camb_worker_v2fix.py",
+      "papel": "codigo",
+      "descricao": "A copia CORRIGIDA do worker CAMB de maio (o original em projetos_pyhton/IALD NAO foi alterado); ligada por sha256 a emenda V2 (v349)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/tgl_camb_worker_v2fix.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/tgl_camb_worker_v2fix.py",
+      "sha256_16": "87d457c797e79b17",
+      "bytes": 5543
+    },
+    {
+      "nome": "verify_wheels_pypi.py",
+      "caminho": "pipelines/eco_ancorado_v1/verify_wheels_pypi.py",
+      "papel": "codigo",
+      "descricao": "Conferencia de proveniencia das wheels (PyPI) antes de instalar",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/verify_wheels_pypi.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/verify_wheels_pypi.py",
+      "sha256_16": "f6db8b50388a8b37",
+      "bytes": 1380
+    },
+    {
+      "nome": "wsl_setup_lal.sh",
+      "caminho": "pipelines/eco_ancorado_v1/wsl_setup_lal.sh",
+      "papel": "outros",
+      "descricao": "Instalacao do instrumento (WSL 2 + Ubuntu 24.04 + Miniforge + lalsuite/bilby/gwpy/camb em /opt/lal_env) -- proveniencia conferida",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/wsl_setup_lal.sh",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/pipelines/eco_ancorado_v1/wsl_setup_lal.sh",
+      "sha256_16": "953264c81b15b298",
+      "bytes": 1847
+    }
+  ],
+  "total_arquivos_nesta_pasta": 39,
+  "total_arquivos_com_subpastas": 39,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/pipelines/eco_ancorado_v1",
+  "rodape": "gerado por script de git ls-files em 2026-09-11 -- nao editar a mao"
+}

@@ -27,3 +27,10 @@ um_grande_atrator_en.log
 # artefatos de execucao das portas (regenerados a cada rodada; nao entram em porta nenhuma)
 tools/relatorio_portas.json
 *.bak_*
+# v350: o cache de RESULTADOS dos ritos da natureza e' parte da reproducao (lido por hash pelo um.py em ../cache)
+!cache/gw/
+cache/gw/*
+!cache/gw/*.json
+!cache/d1_camb/
+cache/d1_camb/*
+!cache/d1_camb/*.json

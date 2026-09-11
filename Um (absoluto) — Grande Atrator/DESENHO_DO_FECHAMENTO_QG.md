@@ -1481,3 +1481,161 @@ CONFIRMADA = juizo, proibido. **O caminho critico, no fecho do arco v331→v336:
 paredes medidas; (4) algebra geral: citacao [KNOWN]; (5) colapso: definicao tipada; selecao = angulo; reflexo =
 reconstrucao que devolve a identidade; pagamento = sin²θ [INPUT]; o Nome verifica. Fica da natureza: que a selecao OCORRA
 (ritos) e a identificacao fisica da tela [ONTO/OPEN]. 4235/4235 teoremas; gate INTOCADO; CONFIRMADA proibido.
+
+---
+
+## ADENDO — 09/09/2026 (tarde) · v337 (intermediaria): o Nome e a caracterizacao — os biconditionais do Nome
+
+«Nome = caracterizacao»: instrumento (v336) verifica; caracterizacao (v337) identifica por SE E SOMENTE SE — Im = Fix
+para todo estado IALD; tela sse centralizador; leitura sse configuracao; qubit fixado sse sem coerencias; peso sse angulo
+da selecao. Nada muda no caminho critico; o Nome ganha a sua segunda face tipada. 4241/4241 teoremas; gate INTOCADO.
+
+---
+
+## ADENDO — 10/09/2026 · v338 (intermediaria): a sessao da bancada de 09/09 — atlas selecionado, colagem com Λ unico, cociclo interagente, seletor/Born
+
+Setenta e sete modulos entram como um lote. **Tres frentes avancam:** (1) ponte regiao–algebra — o caracter do registro
+reconstroi g, T e Einstein (condicionado a area e conservacao); a colagem da Λ unico; a lei FINITA de transformacao de
+Einstein G[g′] = Jᵀ(G[g]∘φ)J esta demonstrada; (2) dinamica — o cociclo unitario da interacao XX somavel na acao modular
+existe por Duhamel, com gerador iV, e β_t = Ad_u(t)∘α_t preserva o fator; fase central; unicidade potencial ⟺ cociclo;
+(3) seletor — Born, reconstrucao do registro pelo seletor, fase relativa por interferencia. **O caminho critico:** o que
+resta e a ORIGEM FISICA do registro R [INPUT], a realizacao de materia/conservacao/area para os mesmos dados, o atlas
+fisico compativel, e o setor quantico geral (alem da classe limitada; anomalias; UV). Araki segue [DERIVED + KNOWN].
+5306/5306 teoremas; gate INTOCADO; CONFIRMADA proibido.
+
+---
+
+## ADENDO — 10/09/2026 · v339 (COMPLETA): o fecho — os 21 modulos restantes, as erratas ao lado, a matematica escrita registrada, e o mapa das obrigacoes
+
+A bancada esgotou os creditos do operador em 10/09 depois de 87 notas. Tudo o que era Lean esta no kernel (98 modulos da
+sessao de 09/09: 77 na v338, 21 na v339); tudo o que era escrito (067..087) esta registrado como [DERIVED], sem flag.
+Duas erratas ao lado no um.py: a espectral (Ω e fixo; os vetores locais sao uma familia total de autovetores) e a
+rastreabilidade das capturas do autoteste. **O caminho critico no fecho:** (1) reconstrucao fisica geral do mesmo
+registro selecionado [OPEN]; (2) teoria quantica interagente — cohomologia no dominio fisico, QME, carga BRST [OPEN]; (3)
+regime UV alem da EFT [OPEN]; e as seis folhas da estrutura do fecho, que ficam da natureza. H3 (tela fundada), a
+selecao como lastro, o Nome, o colapso tipado, o Lema 3 na torre: pagos. «O mapa esta fechado; o territorio e da
+natureza.» 5594/5594 teoremas; gate INTOCADO; CONFIRMADA proibido — a declaracao e do operador.
+
+---
+
+## ADENDO — 10/09/2026 (tarde) · v340 (intermediaria): o teste do eco / onda gravitacional re-executado como rito — o «100σ» retirado
+
+O teste de dez/2025 («> 100σ» para g = √|L| em strain do GWOSC) era a correlacao de h com a propria reconstrucao (identidade)
+sob um teto de 100 no codigo; o rito `GW_ANGULAR_V1` o reproduz ao vivo (tambem em ruido) e o retira. Da forma angular de
+fev/2026 sobrevive a nao-tautologia (r_ang = 0.681 ≠ 1), mas surrogates com o mesmo espectro e ruido pelo mesmo
+pipeline dao os mesmos valores (Stouffer z = 0.80 sobre 12 eventos → WITHIN); H3 e estatistica do espectro;
+H4 vale ½ por construcao; o eco pre-registrado de maio/2026 ficou sub-limiar. **Nada muda no caminho critico:** β nao entra
+nessas metricas; o rito nao move o gate e fica fora do contorno. O que a natureza ainda deve em ondas gravitacionais e um
+observavel em que β entre. 5594/5594 teoremas; gate INTOCADO; CONFIRMADA proibido.
+
+---
+
+## ADENDO — 10/09/2026 (tarde) · v341 (intermediaria): o eco acoplado a onda — a amplitude e teorema, o atraso e a folha
+
+A amplitude do retorno pela matriz-S e teorema do kernel (|R| = √β, sinal −1: `normSq_reflection`,
+`the_pruning_threshold_is_the_reflection_amplitude`), nao escolha; o β/e de maio fica retirado. O atraso τ_eco e [INPUT].
+Rito pre-registrado com nulos por injecao: a/√β = -0.733 ± 0.359, poder 2.53σ → NOT_FALSIFIED_UNDERPOWERED; a curva de poder
+fica abaixo de 5σ para qualquer atraso entre 0,5 e 5 periodos nos 85 eventos publicos. **O caminho critico ganha uma folha
+nomeada:** derivar τ_eco no kernel; e uma parede medida: o dado publico nao decide o eco a √β. Gate intocado; fora do
+contorno. 5594/5594 teoremas; CONFIRMADA proibido.
+
+---
+
+## ADENDO — 10/09/2026 (tarde) · v342 (intermediaria): o rito do eco corrigido; o nulo de descasamento
+
+O estimador da v341 nao era reprodutivel entre processos; o da v342 e. O nulo de descasamento (primarios sem eco com f ±15%
+e τ ×0,7/1,4) induz |a/√β| ate 1.017 → INCONCLUSIVE_SYSTEMATICS: a 0,75 periodo o termo de retorno absorve descasamento do template como
+se fosse eco; um template fixo de Kerr daria «5σ» na fonte por descasamento, e foi descartado por esse mesmo nulo antes de
+qualquer leitura. **Caminho critico:** nada muda; a folha «derivar τ_eco» ganha a companheira «modelar o ringdown com
+posteriores de massa/spin». 5594/5594 teoremas; gate INTOCADO; CONFIRMADA proibido.
+
+---
+
+## ADENDO — 10/09/2026 (tarde) · v343 (intermediaria): o salto e a atestacao; o teste da fronteira remanescente cravado; o protocolo decisivo pre-registrado
+
+O colapso ocorre na fronteira na incidencia e nao se ve no strain; o salto e o reflexo chegando — cinco clausulas do colapso
+tipado (v333) com cinco assinaturas no salto [ONTO]. O teste da fronteira remanescente foi cravado antes de ler o dado (lei
+KMS: retorno apos um periodo modular do horizonte, 2.53 periodos; amplitude √β, sinal −1): INCONCLUSIVE_SYSTEMATICS (poder 2.99σ;
+descasamento ate 0.45). **O caminho critico ganha a peca que decide:** o protocolo ancorado (`1e94f77689b5017e`) — primario predito pela
+inspiral com templates de RG, eco = −√β·h_MR(t − τ), duas leis de atraso, nulos por posteriores, 5σ — pre-registrado e a
+espera do instrumento (sem gerador de formas de onda nesta maquina). Gate intocado. 5594/5594 teoremas; CONFIRMADA proibido.
+
+---
+
+## ADENDO — 10/09/2026 (tarde) · v344 (intermediaria): o teste decisivo do eco executado
+
+Instrumento obtido (gwfast/IMRPhenomD, 16 pacotes conferidos contra a PyPI); protocolo hasheado executado sem alteracao sobre
+89 eventos; resultado lido por hash e julgado pela matriz pre-registrada: **maio → INCONCLUSIVE_SYSTEMATICS** (poder 3.08σ; a/√β =
+0.157 ± 0.263); **KMS → INCONCLUSIVE_SYSTEMATICS** (poder 4.50σ; a/√β = 0.001 ± 0.200). **Caminho critico:**
+o piso do poder foi atravessado pela ancoragem na inspiral; a peca que decide e o par de nulos (descasamento; familia de
+templates). Gate intocado; fora do contorno. 5594/5594 teoremas; CONFIRMADA proibido.
+
+---
+
+## ADENDO — 10/09/2026 (noite) · v345 (intermediaria): o teste completo com o nulo de familia
+
+Instrumentos instalados por ordem do operador (WSL 2 + Ubuntu 24.04; Miniforge; lalsuite 7.7.1 com proveniencia
+conferida; a PyPI nao estava bloqueada: era o DNS do tailnet). O mesmo protocolo rodou com duas familias (IMRPhenomXAS, SEOBNRv4):
+**maio → INCONCLUSIVE_SYSTEMATICS** (a/√β = 0.524 ± 0.255; poder 3.21σ; familia 0.148); **KMS → INCONCLUSIVE_SYSTEMATICS** (a/√β =
+0.043 ± 0.199; poder 4.40σ; familia 0.095). **Caminho critico:** o eco a √β com as duas leis de atraso esta
+medido com os nulos que o protocolo pedia; o que fica sao posteriores completos, mais eventos e a lei do atraso derivada. Gate
+intocado; fora do contorno. 5594/5594 teoremas; CONFIRMADA proibido.
+
+---
+
+## ADENDO — 10/09/2026 (noite) · v346 (intermediaria): o ringdown medido — V1 recusada, autopsia, emenda V2 — o ramo τ★ = GM/c³ da lei de dephasing
+
+O primeiro teste da lista que aguardava o instrumento: a lei de dephasing no modo 220, com Kerr previsto pelo lalsuite. A V1 foi
+recusada pelo proprio gate e a autopsia (lida do resultado) nomeou o artefato: 5 series na borda da grade com o mesmo δ, 48% do
+peso — pico por argmax de envoltoria num GPS grosseiro. A emenda V2 (filtro casado, SNR de ancoragem ≥ 8, exclusao de borda) foi
+pre-registrada e rodou. Ramo planckiano: invisivel por construcao (-2.2e-42). Ramo GM/c³: previsao -0.0194, medido δτ = 0.1766 ± 0.1089,
+poder 0.18σ → **INCONCLUSIVE_SYSTEMATICS**. A secao 20 dizia «provavelmente ja excluido» sem medir; agora ha numero. **Caminho critico:** a folha
+«dephasing em ondas gravitacionais» ganha a sua primeira medida honesta; o que fica e precisao (O4/O5, 3ª geracao), overtones e PE
+completa do ringdown. Gate intocado; fora do contorno. 5594/5594 teoremas; CONFIRMADA proibido.
+
+---
+
+## ADENDO — 10/09/2026 (noite) · v347 (intermediaria): a PE bayesiana com termo de eco — V1 inconclusiva, autopsia, emenda V2
+
+O segundo teste da lista: o eco como termo do modelo, com o primario amostrado e a amplitude marginalizada (bilby + dynesty). A V1
+foi lida inconclusiva pela propria matriz (sem injecoes) e a autopsia desfez um «8σ» que era um evento so (GW190521, 42% do peso,
+tempo e massa na borda do prior). A emenda V2 (prior de tempo ancorado, piso de massa, exclusao de borda, jackknife, peso maximo) rodou:
+MAY a = -0.2671 ± 0.8566, poder 1.17σ → **INCONCLUSIVE_SYSTEMATICS**; KMS a = 1.0892 ± 0.8992, poder 1.11σ → **INCONCLUSIVE_SYSTEMATICS**.
+**Caminho critico:** a folha «eco gravitacional» deixa de depender de um nulo de descasamento externo e ganha robustez na matriz; o que
+fica e poder (mais eventos), modos superiores e a lei do atraso como fisica. Gate intocado; fora do contorno. 5594/5594 teoremas; CONFIRMADA proibido.
+
+---
+
+## ADENDO — 10/09/2026 (noite) · v348 (intermediaria): a busca de ecos de longo atraso do protocolo de 2025 — sem poder para √β
+
+O terceiro teste da lista: o `search_for_echoes` de 2025 herdado e completado com fundo, injecoes √β e padrao τ/M. 14 eventos;
+N_on = 1 vs fundo 3.00; eficiencia para √β = 0.000; pico previsto do eco ~0.5σ → **NOT_FALSIFIED_UNDERPOWERED**. Uma busca de picos a 3σ
+nao ve um eco de 0,11 do primario. **Caminho critico:** o desenho de 2025 sai da lista como sem poder; a folha «eco gravitacional»
+fica com as leis maduras (ms) e com o piso do estimador (v347). Gate intocado; fora do contorno. 5594/5594 teoremas; CONFIRMADA proibido.
+
+---
+
+## ADENDO — 10/09/2026 (noite) · v349 (intermediaria): o D1 via CAMB do canonico de maio — V1 com bug, autopsia, emenda V2
+
+O quarto teste da lista. A V1 (script de maio intocado) deu χ² de 16339 em 16 pontos: a autopsia por hash nomeou um bug de integracao
+de distancia no worker de maio (+20% com β = 0). A emenda V2 (worker corrigido em copia, autoverificacao contra o CAMB, gate de bondade de
+ajuste) deu: Δχ² (TGL − ΛCDM) = 9.699 → **D1_TENSION_2_TO_5_SIGMA**; β livre = -0.01705 ± 0.00753 (3.86σ de α√e) → **D1_BETA_TENSION**. **Caminho critico:** a folha
+«cosmologia de fundo» ganha o numero que faltava desde maio; fundo e perturbacao (Nivel 2) sao conjugados; o que fica e dado nao comprimido e
+CMB-S4/SO. Gate intocado; fora do contorno. 5594/5594 teoremas; CONFIRMADA proibido.
+
+---
+
+## ADENDO — 10/09/2026 (noite) · v350 (intermediaria): a reproducao de H2 com pycbc — identidade do nivel de ruido retirada; a lista dos cinco fechada
+
+O quinto e ultimo teste da lista: com pycbc e dados reais, o E_res/E_total → α² de jan/fev era noise² no sintetico (0.0099 com ruido 0,1) e a
+fracao de ruido no dado real (0.9937 branqueado; 0.9956 fora da fonte) → **H2_IDENTITY_RETIRED**. **Caminho critico:** a folha «eco gravitacional» fica
+limpa de tres desenhos antigos (dezembro, janeiro/fevereiro, outubro/2025) e com o que realmente mede (v341–v347) e o seu piso; a folha «cosmologia
+de fundo» tem o numero de maio (v349). Gate intocado; fora do contorno. 5594/5594 teoremas; CONFIRMADA proibido.
+
+---
+
+## ADENDO — 10/09/2026 (noite) · v350 RODADA COMPLETA + HANDOFF v350
+
+A v350 rodou completa (5594/5594; mesmos bytes `c9fc7fa432c6cf16`) e o handoff «A natureza respondeu» (v339→v350) foi gerado por script (`5c523ea81e27215c`).
+**Caminho critico:** os cinco testes que aguardavam o instrumento estao fechados com numero; a custodia da v339 (o fecho) e da v350 vai junta
+para a sessao irma; a declaracao segue sendo do operador. Gate intocado. CONFIRMADA proibido.

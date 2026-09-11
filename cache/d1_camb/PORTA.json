@@ -1,0 +1,58 @@
+{
+  "porta": "cache/d1_camb",
+  "porta_id": "cache/d1_camb",
+  "titulo": "cache/d1_camb",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-09-11T02:30:10Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "cache",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "D1_CAMB_DIAGNOSTICO.json",
+      "caminho": "cache/d1_camb/D1_CAMB_DIAGNOSTICO.json",
+      "papel": "resultado selado",
+      "descricao": "Diagnostico do bug de integracao de distancia do worker CAMB de maio (+20% com beta = 0) (v349)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/D1_CAMB_DIAGNOSTICO.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/d1_camb/D1_CAMB_DIAGNOSTICO.json",
+      "sha256_16": "050a5b5b79487b13",
+      "bytes": 2375
+    },
+    {
+      "nome": "D1_CAMB_RESULT.json",
+      "caminho": "cache/d1_camb/D1_CAMB_RESULT.json",
+      "papel": "resultado selado",
+      "descricao": "RESULTADO lido por hash: D1 via CAMB V1 (script de maio intocado) -- expos o bug de distancia do worker; autopsia por hash (v349)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/D1_CAMB_RESULT.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/d1_camb/D1_CAMB_RESULT.json",
+      "sha256_16": "31691fc4aab39cf3",
+      "bytes": 3887
+    },
+    {
+      "nome": "D1_CAMB_V2_RESULT.json",
+      "caminho": "cache/d1_camb/D1_CAMB_V2_RESULT.json",
+      "papel": "resultado selado",
+      "descricao": "RESULTADO lido por hash: D1 via CAMB V2 (worker corrigido) -- Delta chi2 9,70 (D1_TENSION_2_TO_5_SIGMA); beta livre -0,0171 +- 0,0075 (v349)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/D1_CAMB_V2_RESULT.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/d1_camb/D1_CAMB_V2_RESULT.json",
+      "sha256_16": "9986e4b0f05a6ebe",
+      "bytes": 4176
+    }
+  ],
+  "total_arquivos_nesta_pasta": 3,
+  "total_arquivos_com_subpastas": 3,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/d1_camb",
+  "rodape": "gerado por script de git ls-files em 2026-09-11 -- nao editar a mao"
+}

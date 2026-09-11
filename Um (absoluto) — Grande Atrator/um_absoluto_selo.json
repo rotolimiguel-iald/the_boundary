@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-09-09 10:42:14",
-  "result_hash": "95f8a271ef4f2ae7b1195d7e62093beb856d51d3a8b90266f13c6d234d8bc9f2",
+  "timestamp": "2026-09-10 21:00:45",
+  "result_hash": "59afd00b86155acbcbd2cc9d8fa90927c12fbf078cc930f41e0b5f3a2063a8ae",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": true,
@@ -47,7 +47,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "26b08f2892786f5fafdb956dfc52a8ccc7407dae347987b9af074cc97ebe69f6",
+  "formal_source_hash": "dc53a6e62ffe6c8f56f7f347d7081fc02430cefc31a6c6e2ec51e2323d128eab",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -63,7 +63,7 @@
   "coma_dephasing": {
     "verdict": "COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "7f974c29fd952ff6d47f894d28829b8dd8c16e50871d65a85f3ce4a3caebc1d1",
+    "prediction_hash": "97ec5ce914003f12927a5eedbec073292cc38ca537adf843a3c25b9d031e699a",
     "does_not_gate_core": true
   },
   "final_verdict_machine": {
@@ -75,6 +75,28 @@
     "does_not_gate_core": true
   },
   "dephasing_reach_verdict": "DEPHASING_PREDICTION_ARMED__REACH_DEFICIT_TEN_ORDERS_COMPUTED__NOT_A_LIVE_CHANNEL_TODAY__COSMOLOGICAL_FACES_ARE_THE_LIVE_ONES",
+  "gw_angular_rite_verdict": "TGL_GW_ANGULAR_V1__DECEMBER_100SIGMA_RETIRED_AS_CAPPED_IDENTITY__SQRT_ENVELOPE_NOT_TAUTOLOGICAL_BUT_NOISE_GIVES_SAME_VALUES__PHASE_COHERENCE_WITHIN_PSD_MATCHED_SURROGATES__H3_DFOLDS_IS_SPECTRUM_STATISTIC__H4_CCI_IS_IDENTITY__ECHO_SUBTHRESHOLD_PREREGISTERED_MAY_2026__BETA_DOES_NOT_ENTER__NOT_A_FALSIFIER__GATE_UNTOUCHED",
+  "gw_echo_rite_verdict": "TGL_GW_ECHO_COUPLED_V1__AMPLITUDE_SQRT_BETA_FROM_KERNEL__DELAY_LAW_MAY_2026_INPUT__INCONCLUSIVE_SYSTEMATICS__POWER_2P5_OF_5_SIGMA__TEMPLATE_MISMATCH_INDUCES_UP_TO_1P0__MAY_ESTIMATOR_LACKED_RINGDOWN_ONLY_NULL__BETA_ENTERS__OUTSIDE_CONTOUR__GATE_UNTOUCHED",
+  "gw_echo_kms_rite_verdict": "TGL_GW_ECHO_KMS_V1__AMPLITUDE_SQRT_BETA_FROM_KERNEL__DELAY_LAW_KMS_MODULAR_PERIOD_CANDIDATE__INCONCLUSIVE_SYSTEMATICS__POWER_3P0_OF_5_SIGMA__TEMPLATE_MISMATCH_INDUCES_UP_TO_0P5__MAY_ESTIMATOR_LACKED_RINGDOWN_ONLY_NULL__BETA_ENTERS__OUTSIDE_CONTOUR__GATE_UNTOUCHED",
+  "echo_anchored_protocol_verdict": "TGL_ECHO_ANCHORED_AWAITING_INSTRUMENT__PROTOCOL_PRE_REGISTERED_1e94f77689b5017e__PRIMARY_ANCHORED_BY_INSPIRAL_TEMPLATE__TWO_DELAY_LAWS__BETA_ENTERS__GATE_UNTOUCHED",
+  "echo_anchored_result_verdict": "TGL_ECHO_ANCHORED_V1__RESULT_READ_BY_HASH__INSTRUMENT_GWFAST_IMRPHENOMD__MAY_INCONCLUSIVE_SYSTEMATICS__KMS_INCONCLUSIVE_SYSTEMATICS__POWER_MAY_3P1_KMS_4P5_OF_5_SIGMA__BETA_ENTERS__OUTSIDE_CONTOUR__GATE_UNTOUCHED",
+  "echo_anchored_result_v2_verdict": "TGL_ECHO_ANCHORED_V2__RESULT_READ_BY_HASH__INSTRUMENT_LALSUITE_TWO_FAMILIES__MAY_INCONCLUSIVE_SYSTEMATICS__KMS_INCONCLUSIVE_SYSTEMATICS__POWER_MAY_3P2_KMS_4P4_OF_5_SIGMA__BETA_ENTERS__OUTSIDE_CONTOUR__GATE_UNTOUCHED",
+  "ringdown_dephasing_protocol_verdict": "TGL_RINGDOWN_DEPHASING_V1__PROTOCOL_PRE_REGISTERED_a3d941e56d3d33c5__BRANCH_A_INVISIBLE_BY_CONSTRUCTION__BRANCH_B_TO_BE_MEASURED__GATE_UNTOUCHED",
+  "ringdown_dephasing_result_verdict": "TGL_RINGDOWN_DEPHASING_V1__RESULT_READ_BY_HASH__GATE_REFUSED__MIN_SERIES__MATRIX_WOULD_READ_INCONCLUSIVE_SYSTEMATICS__SEE_AMENDMENT_V2__GATE_UNTOUCHED",
+  "ringdown_dephasing_amendment_v2_verdict": "TGL_RINGDOWN_DEPHASING_V2__AMENDMENT_PRE_REGISTERED_3449885389a2529a__AUTOPSY_OF_V1_READ__5_OF_23_SERIES_ON_GRID_EDGE__GATE_UNTOUCHED",
+  "ringdown_dephasing_result_v2_verdict": "TGL_RINGDOWN_DEPHASING_V2__RESULT_READ_BY_HASH__INCONCLUSIVE_SYSTEMATICS__DELTA_TAU_0P1766__BRANCH_B_PRED_M0P0194__POWER_0P2_OF_5_SIGMA__BRANCH_A_INVISIBLE__GATE_UNTOUCHED",
+  "echo_pe_protocol_verdict": "TGL_ECHO_PE_V1__PROTOCOL_PRE_REGISTERED_26d150a16dafc42e__PRIMARY_SAMPLED_AMPLITUDE_MARGINALIZED__TWO_DELAY_LAWS__BETA_ENTERS__GATE_UNTOUCHED",
+  "echo_pe_result_verdict": "TGL_ECHO_PE_V1__RESULT_READ_BY_HASH__BILBY_DYNESTY_LALSUITE__MAY_INCONCLUSIVE_SYSTEMATICS__KMS_INCONCLUSIVE_SYSTEMATICS__POWER_MAY_7P5_KMS_4P2_OF_5_SIGMA__GATE_UNTOUCHED",
+  "echo_pe_amendment_v2_verdict": "TGL_ECHO_PE_V2__AMENDMENT_PRE_REGISTERED_b8cdd291f3e9631b__AUTOPSY_OF_V1_READ__NO_INJECTIONS_PRIOR_EDGES_SINGLE_EVENT_DOMINANCE__GATE_UNTOUCHED",
+  "echo_pe_result_v2_verdict": "TGL_ECHO_PE_V2__RESULT_READ_BY_HASH__BILBY_DYNESTY_LALSUITE__MAY_INCONCLUSIVE_SYSTEMATICS__KMS_INCONCLUSIVE_SYSTEMATICS__POWER_MAY_1P2_KMS_1P1_OF_5_SIGMA__GATE_UNTOUCHED",
+  "echo_search_protocol_verdict": "TGL_ECHO_SEARCH_V1__PROTOCOL_PRE_REGISTERED_2538d15cc8cb7a6a__OCTOBER_2025_FORM_INHERITED__BACKGROUND_INJECTION_PATTERN_ADDED__GATE_UNTOUCHED",
+  "echo_search_result_verdict": "TGL_ECHO_SEARCH_V1__RESULT_READ_BY_HASH__NOT_FALSIFIED_UNDERPOWERED__N_ON_1_B_EXP_3P0__E_DET_0P0__LOUD_EVENTS_0__GATE_UNTOUCHED",
+  "d1_camb_protocol_verdict": "TGL_D1_CAMB_V1__PROTOCOL_PRE_REGISTERED_6dd7c9c104f20ebd__MAY_2026_SCRIPT_UNCHANGED__BACKGROUND_ONLY__GATE_UNTOUCHED",
+  "d1_camb_result_verdict": "TGL_D1_CAMB_V1__RESULT_READ_BY_HASH__BESTFIT_D1_LCDM_PREFERRED_5SIGMA__DELTA_CHI2_2222P96__MCMC_D1_BETA_FALSIFIED__BETA_M0P0500_PM_0P0000__GATE_UNTOUCHED",
+  "d1_camb_amendment_v2_verdict": "TGL_D1_CAMB_V2__AMENDMENT_PRE_REGISTERED_c12b36722ed4544b__AUTOPSY_OF_V1_READ__MAY_WORKER_DISTANCE_BUG_NAMED__FIXED_COPY_BOUND_BY_SHA256__GATE_UNTOUCHED",
+  "d1_camb_result_v2_verdict": "TGL_D1_CAMB_V2__RESULT_READ_BY_HASH__BESTFIT_D1_TENSION_2_TO_5_SIGMA__DELTA_CHI2_9P70__MCMC_D1_BETA_TENSION__BETA_M0P0171_PM_0P0075__GATE_UNTOUCHED",
+  "h2_reproduction_protocol_verdict": "TGL_H2_REPRODUCTION_V1__PROTOCOL_PRE_REGISTERED_2fe17b8341465488__FEB_2026_ECHO_ANALYSIS_COPIED__REAL_DATA_WITH_PYCBC__GATE_UNTOUCHED",
+  "h2_reproduction_result_verdict": "TGL_H2_REPRODUCTION_V1__RESULT_READ_BY_HASH__H2_IDENTITY_RETIRED__SYNTHETIC_0P0099__REAL_WHITENED_0P994__OFF_0P996__Z_VS_ALPHA2_2252P2__GATE_UNTOUCHED",
   "cosmological_errata_verdict": "PANTHEON_CANONICAL_1593__THEORY_WITHIN_1P25_SIGMA__TGL_NOT_PREFERRED_BY_BIC_WITH_FREE_BETA__OLD_3P8_TENSION_WAS_PARAMETRIZATION_A",
   "renormalization_wall_verdict": "GOROFF_SAGNOTTI_WALL_TYPED_OPEN__TWO_ROUTES_NAMED__BREUER_FINITENESS_MAY_NOT_BE_CITED_AS_UV_ANSWER",
   "graviton_not_a_particle_verdict": "WEINBERG_WITTEN_TYPED__GRAVITON_IS_THE_IDENTITY_NOT_A_PROPAGATING_QUANTUM__ESCAPE_CONDITIONAL_ON_CURRENT_TYPING",
@@ -205,19 +227,19 @@
   "the_alpha_and_the_omega": "TGL_PAIR_MEASURED__ONE_EQUALS_ONE_TRUE_BY_OMEGA_AND_ALPHA__ONE_EQUALS_ZERO_FALSE_BY_NOMINAL_CATEGORY__ZERO_NOMINAL_WITHOUT_PROJECTION__BETA_IS_THE_COST_OF_THE_DISTINCTION__PAIR_EQUALS_TGL_IS_A_DECLARED_ONTO_READING",
   "amplitude_defect": 0.10902544754078644,
   "sha256": {
-    "um.py": "f1f330e24120f9bece3473bfd8af59038bb9dcd09af079d0ddaae7bfb228503a",
-    "um_absoluto_manifest.md": "0466285c87326a96ee81916af38e1fcd19db368ea55692a66cc662a8d260c3cf",
-    "um_absoluto.json": "96bebb1a346bd56333cb9bcbddb62ca2f8070a5a132f9b8670f4ff01083dc431",
-    "um_absoluto_forma_canonica.md": "db4de7aa76e3d503d4b0ded34e560de4d0ba021ce94fb2418529fadc24a37d90",
-    "um_absoluto_pt.tex": "73fc02cf8f03ae9335eed1aaf871319539b317b9e859d1fc471676a5fb3a176b",
-    "um_absoluto_en.tex": "c5e2137eafa25c601de2c673a59fc5d15d4bda0373a33aa2d39fb8c0ded8a673",
-    "um_absoluto_pt.pdf": "49931f476b042c99768ffe0ec3bf5f93bc36eda5a5e20becf1afb3311248dbcc",
-    "um_absoluto_en.pdf": "71b7c041a363b083a6226a57de7f57ee5ae003bbd42b523e6826fd043e20b7e4",
+    "um.py": "c9fc7fa432c6cf16dadcb926ee44f6b70656122f53cb7336dba52863c070208c",
+    "um_absoluto_manifest.md": "2231b3f1a8fb708ea3d2d8e4fe95b9d041fd90dedb41006e3c4f4bb24dd5db76",
+    "um_absoluto.json": "9b51fdd53626b9dc71b1aa7e14860727460920ceb944c68df71d26a1703f1c5f",
+    "um_absoluto_forma_canonica.md": "1621f540a2a2c459e0bda8348c64dcbaa96c6bfa66f076df5501625b1bcee4b6",
+    "um_absoluto_pt.tex": "289e8bd3a27c56384152bdc42672177ad53b4b1b0ec7aae16916d79defa69bfc",
+    "um_absoluto_en.tex": "cd42209339035801768b13ebf0c647a363044cc1b031d3a3fa64f82832868e33",
+    "um_absoluto_pt.pdf": "23662a77e2e417abf39729a2739a447abeca8f0e85444c335c7fc8e897bed192",
+    "um_absoluto_en.pdf": "c0b6ec5ca4bc47cffb7fd3c9952a49c72938c924e3401d35f82083ccc539b8f8",
     "fig_escada_qg.pdf": "bfbe30776b05c9cce2886f7f268db09b7e4d0812409a199f84d3ee94d00b2c8d",
     "fig_banda_beta.pdf": "dd953f1e75f445a112963fc9b036299f63ed6dcdf4a16d8c0382b490fd6fad1b",
     "fig_piso_vazios.pdf": "c6e8260ceff24114d2a9248889fa87832009ef6390f5f8a6dceb3ed3bf155be1",
     "fig_cadeia_inscricao.pdf": "7ccc2c0a41da34a2442e1c853b4778d174329ec9d8dd739e4f41cb999883d068",
-    "tgl_kernel_proof_manifest.json": "4302c1f65adc70ecbb0c319e387aaedd8c77082f1b546e567fff6b1a329d4801"
+    "tgl_kernel_proof_manifest.json": "e3e96b585b2c960d917c8d7415d7743c9e849925478997e05180192c4ff99d00"
   },
   "not_sealed_this_run": {
     "formais": [
@@ -227,6 +249,7 @@
       "the_mode_of_discharge"
     ],
     "recusas_de_dado": [
+      "ringdown_dephasing_result",
       "void_floor_kappa_v5",
       "void_floor_kappa_v6",
       "void_floor_v12",
@@ -357,5 +380,154 @@
     "cost_payment_status": "NOT_MEASURED",
     "qg_gate_moved": false,
     "reading": "COLAPSO_TIPADO__TODAS_AS_CLAUSULAS_NO_KERNEL_COM_O_TRIO"
+  },
+  "collapse_echo_correspondence": {
+    "question_pt": "antes do salto e acumulo de densidade, o salto representa o colapso?",
+    "answer_pt": "o salto e a atestacao do colapso, nao o colapso: o colapso ocorre na fronteira na incidencia; antes do salto ha acumulo sem atestacao (so o primario, autodeclaracao: nenhum contraste = o piso tracial); o salto e o reflexo chegando ao detector. Quanto dura o acumulo e a lei do atraso.",
+    "rows": [
+      {
+        "clause": "so atestada pelo reflexo, nunca por autodeclaracao",
+        "terms": [
+          {
+            "lean_term": "ChatgptAudit.Collapse057.attestation_requires_external_evidence",
+            "in_kernel": true,
+            "axioms_in_trio": true
+          },
+          {
+            "lean_term": "ChatgptAudit.Collapse057.no_self_attestation",
+            "in_kernel": true,
+            "axioms_in_trio": true
+          },
+          {
+            "lean_term": "ChatgptAudit.Collapse057.tracial_tower_has_no_effective_witness",
+            "in_kernel": true,
+            "axioms_in_trio": true
+          }
+        ],
+        "signature_in_jump": "a chegada do eco (o reflexo) no detector; o primario sozinho nao atesta; antes do salto nao ha contraste (o piso tracial)",
+        "status": "ONTO",
+        "all_terms_in_kernel": true
+      },
+      {
+        "clause": "passagem ao ponto fixo que preserva a identidade",
+        "terms": [
+          {
+            "lean_term": "ChatgptAudit.Collapse057.transition_preserves_identity_and_is_fixed",
+            "in_kernel": true,
+            "axioms_in_trio": true
+          },
+          {
+            "lean_term": "ChatgptAudit.Collapse057.collapse_iteration_is_stable",
+            "in_kernel": true,
+            "axioms_in_trio": true
+          }
+        ],
+        "signature_in_jump": "a mesma forma modular e^(-t/tau) cos(omega t) multiplicada por um fator F: nada novo, o mesmo Nome",
+        "status": "ONTO",
+        "all_terms_in_kernel": true
+      },
+      {
+        "clause": "custa (meia-nat local, ln 2 por oitava)",
+        "terms": [
+          {
+            "lean_term": "ChatgptAudit.Collapse057.local_cost_positive",
+            "in_kernel": true,
+            "axioms_in_trio": true
+          },
+          {
+            "lean_term": "ChatgptAudit.Collapse057.octave_cost_add",
+            "in_kernel": true,
+            "axioms_in_trio": true
+          },
+          {
+            "lean_term": "TGLExt.the_pruning_threshold_is_the_reflection_amplitude",
+            "in_kernel": true,
+            "axioms_in_trio": true
+          },
+          {
+            "lean_term": "TGLExt.normSq_reflection_add_transmission",
+            "in_kernel": true,
+            "axioms_in_trio": true
+          },
+          {
+            "lean_term": "TGLExt.sin_thetaMiguel",
+            "in_kernel": true,
+            "axioms_in_trio": true
+          }
+        ],
+        "signature_in_jump": "amplitude sqrt(beta) (a Palavra) e energia beta (o Nome): o peso refletido pela matriz-S em theta_Miguel",
+        "status": "ONTO (os termos: REAL)",
+        "all_terms_in_kernel": true
+      },
+      {
+        "clause": "irreversivel: nao tem inversa",
+        "terms": [
+          {
+            "lean_term": "ChatgptAudit.Collapse057.collapse_has_no_left_inverse",
+            "in_kernel": true,
+            "axioms_in_trio": true
+          },
+          {
+            "lean_term": "ChatgptAudit.Collapse057.reflection_of_output_cannot_restore_input",
+            "in_kernel": true,
+            "axioms_in_trio": true
+          }
+        ],
+        "signature_in_jump": "sinal -1 (reflexao = -sin theta): o reflexo e a onda invertida; nenhum evento posterior desfaz o primeiro",
+        "status": "ONTO",
+        "all_terms_in_kernel": true
+      },
+      {
+        "clause": "o reflexo J (involutivo) NAO e o colapso; J(J(Nome)) = Nome",
+        "terms": [
+          {
+            "lean_term": "ChatgptAudit.Collapse057.involution_cannot_be_collapse",
+            "in_kernel": true,
+            "axioms_in_trio": true
+          },
+          {
+            "lean_term": "TGLExt.J_squared_is_one",
+            "in_kernel": true,
+            "axioms_in_trio": true
+          },
+          {
+            "lean_term": "TGLExt.light_crosses_without_loss",
+            "in_kernel": true,
+            "axioms_in_trio": true
+          }
+        ],
+        "signature_in_jump": "o segundo eco, amplitude beta e sinal +, restaura o sinal original (J^2 = 1); o eco atesta, o colapso ficou na fronteira",
+        "status": "ONTO",
+        "all_terms_in_kernel": true
+      }
+    ],
+    "typed_terms_in_kernel": true,
+    "jump_factor": {
+      "MAY": {
+        "delay_periods": 0.7467596533690638,
+        "tau_e_over_tau_d": 0.7218506587758496,
+        "abs_F_minus_1": 0.22576262345500808,
+        "abs_F": 1.0296412214355288,
+        "arg_F_deg": -12.663103371806224,
+        "second_echo_amplitude": 0.012031300400803142,
+        "second_echo_sign": 1.0
+      },
+      "KMS": {
+        "delay_periods": 2.528014386792775,
+        "tau_e_over_tau_d": 2.4436896694515347,
+        "abs_F_minus_1": 1.2630985139399111,
+        "abs_F": 2.2544581109344897,
+        "arg_F_deg": -5.630318010193901,
+        "second_echo_amplitude": 0.012031300400803142,
+        "second_echo_sign": 1.0
+      }
+    },
+    "open": [
+      "a identificacao fisica da tela fundada (v334) com a fronteira do remanescente",
+      "a lei do atraso (quanto dura o acumulo): MAY [INPUT] ou KMS [candidato com ascendencia]",
+      "a atestacao so se le com o primario ancorado antes do salto (templates de RG calibrados pela inspiral)"
+    ],
+    "statute": "ONTO -- leitura das clausulas no salto; nao e evidencia; nao move o gate",
+    "reading": "COLLAPSE_ECHO_CORRESPONDENCE_TYPED__ONTO__FIVE_CLAUSES_FIVE_SIGNATURES__NOT_EVIDENCE__GATE_UNTOUCHED"
   }
 }

@@ -278,6 +278,31 @@ DESC = {
     A3 + "/fig_escada_qg.pdf": "Figura: a escada da gravitacao quantica (os degraus do gate)",
     A3 + "/fig_piso_vazios.pdf": "Figura: o piso dos vazios (o falsificador cosmologico)",
     A3 + "/one_input.txt": "A entrada unica do rito: o digito 1",
+    A3 + "/O_FECHAMENTO_ESTRUTURA.md": "O FECHO (v339): a estrutura em seis pecas; a DECLARACAO de fecho e' ato do operador; o que fica de obrigacao (reconstrucao fisica geral, teoria interagente, UV, as seis folhas da natureza)",
+    A3 + "/rodadas/tgl_kernel_build_capture.txt": "Captura por etapa (principal) do lake build do kernel embutido -- rastreabilidade da compilacao (v339+)",
+    A3 + "/rodadas/tgl_kernel_audit_capture.txt": "Captura por etapa (principal) do #print axioms de cada teorema -- rastreabilidade da auditoria (v339+)",
+    "cache/gw/ECHO_ANCHORED_V1_RESULT.json": "RESULTADO lido por hash pelo um.py: eco ancorado V1 (gwfast/IMRPhenomD) -- MAY e KMS INCONCLUSIVE_SYSTEMATICS (v344)",
+    "cache/gw/ECHO_ANCHORED_V2_RESULT.json": "RESULTADO lido por hash: eco ancorado V2 (lalsuite, duas familias de template, nulo de familia) -- INCONCLUSIVE_SYSTEMATICS (v345)",
+    "cache/gw/ECHO_PE_V1_RESULT.json": "RESULTADO lido por hash: PE bayesiana com termo de eco V1 (bilby/dynesty) -- inconclusiva; autopsia na V2 (v347)",
+    "cache/gw/ECHO_PE_V2_RESULT.json": "RESULTADO lido por hash: PE bayesiana com eco V2 (emenda pre-inscrita; injecoes) -- MAY/KMS INCONCLUSIVE_SYSTEMATICS, piso do estimador (v347)",
+    "cache/gw/ECHO_SEARCH_V1_RESULT.json": "RESULTADO lido por hash: busca de ecos de longo atraso (protocolo de 2025) -- NOT_FALSIFIED_UNDERPOWERED, desenho retirado (v348)",
+    "cache/gw/GWOSC_WINDOWS_V1.manifest.json": "Manifesto (sha256 por serie) das janelas GWOSC de 4 kHz usadas pelos ritos GW; o .npz (111 MB) NAO vai -- regeneravel pelo extrator",
+    "cache/gw/GWOSC_ECHO_WINDOWS_V1.manifest.json": "Manifesto (sha256 por serie) das janelas [-16,+4] s para o eco; o .npz (9 MB) NAO vai -- regeneravel pelo extrator",
+    "cache/gw/H2_REPRODUCTION_V1_RESULT.json": "RESULTADO lido por hash: reproducao de H2 com pycbc -- H2_IDENTITY_RETIRED (o alpha^2 de jan/fev era noise^2) (v350)",
+    "cache/gw/RINGDOWN_DEPHASING_V1_RESULT.json": "RESULTADO lido por hash: ringdown vs dephasing V1 -- recusado pelo gate (borda da grade); autopsia (v346)",
+    "cache/gw/RINGDOWN_DEPHASING_V2_RESULT.json": "RESULTADO lido por hash: ringdown vs dephasing V2 (filtro casado) -- INCONCLUSIVE_SYSTEMATICS, poder 0,18 sigma (v346)",
+    "cache/d1_camb/D1_CAMB_RESULT.json": "RESULTADO lido por hash: D1 via CAMB V1 (script de maio intocado) -- expos o bug de distancia do worker; autopsia por hash (v349)",
+    "cache/d1_camb/D1_CAMB_DIAGNOSTICO.json": "Diagnostico do bug de integracao de distancia do worker CAMB de maio (+20% com beta = 0) (v349)",
+    "cache/d1_camb/D1_CAMB_V2_RESULT.json": "RESULTADO lido por hash: D1 via CAMB V2 (worker corrigido) -- Delta chi2 9,70 (D1_TENSION_2_TO_5_SIGMA); beta livre -0,0171 +- 0,0075 (v349)",
+    "pipelines/eco_ancorado_v1/wsl_setup_lal.sh": "Instalacao do instrumento (WSL 2 + Ubuntu 24.04 + Miniforge + lalsuite/bilby/gwpy/camb em /opt/lal_env) -- proveniencia conferida",
+    "pipelines/eco_ancorado_v1/verify_wheels_pypi.py": "Conferencia de proveniencia das wheels (PyPI) antes de instalar",
+    "pipelines/eco_ancorado_v1/tgl_camb_worker_v2fix.py": "A copia CORRIGIDA do worker CAMB de maio (o original em projetos_pyhton/IALD NAO foi alterado); ligada por sha256 a emenda V2 (v349)",
+    "pipelines/eco_ancorado_v1/rite_h2_v350.py": "O rito da reproducao de H2 com pycbc (v350): protocolo pre-registrado + leitor por hash",
+    "pipelines/eco_ancorado_v1/rite_d1_camb_v349.py": "O rito D1 via CAMB (v349): V1 (maio intocado) + emenda V2 pre-inscrita",
+    "pipelines/eco_ancorado_v1/rite_echo_search_v348.py": "O rito da busca de ecos de longo atraso (v348), protocolo de 2025 herdado",
+    "pipelines/eco_ancorado_v1/rite_echo_pe_v347.py": "O rito da PE bayesiana com eco (v347): V1 + emenda V2",
+    "pipelines/eco_ancorado_v1/rite_ringdown_v346.py": "O rito ringdown vs dephasing (v346): V1 + emenda V2 (filtro casado)",
+    "pipelines/eco_ancorado_v1/preregistro_v347_evidencia.json": "Evidencia de pre-inscricao da v347 (carimbo recuperado por mtime + hash recomputado -- errata dita)",
     A3 + "/rodadas/rodada_v212_stdout.txt": "Transcricao integral do stdout da rodada v206 -- o rito por extenso",
     A3 + "/cache/CHAIN_OF_CUSTODY.json": "Cadeia de custodia dos dados externos usados pelos ritos",
     A3 + "/cache/coma_blind/coma_distance_reveal.json": "O revelador cego de Coma -- DADO, nao codigo (o protocolo exige zero ocorrencias do valor na fonte)",
@@ -993,6 +1018,7 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("- [site oficial](%s): a face publica da teoria; a porta acima da raiz." % SITE)
     T.append("- [repositorio](%s): a arvore no GitHub." % GH)
     T.append("- [Zenodo DOI 10.5281/zenodo.22659173](%s): o deposito CITAVEL do Um: Absoluto -- guarda a v331 (08/09/2026; um.py e1b74a907c403538, md5 eadfe51b52d73fe4... conferido pela API).%s" % (DOI_UM, "" if sc["versao"] == "v331" else " ATENCAO: o selo corrente deste repositorio e' %s, MAIS NOVO que o deposito; versao nova no Zenodo e' ato do operador." % sc["versao"]))
+    T.append("- cache/ e pipelines/ (v340-v350, A NATUREZA RESPONDEU): os RESULTADOS dos cinco testes pre-registrados (JSON lidos POR HASH pelo um.py em ../cache; sem eles o rito emite AWAITING_RESULT_FILE e o selo muda) e os pipelines que os produziram (WSL + lalsuite/bilby/camb/pycbc). Nenhum falsificou, nenhum confirmou, todos ganharam numero; nenhum move o gate. Exemplo: [ECHO_ANCHORED_V2_RESULT.json](%s) e [rite_h2_v350.py](%s)." % (url_raw("cache/gw/ECHO_ANCHORED_V2_RESULT.json"), url_raw("pipelines/eco_ancorado_v1/rite_h2_v350.py")))
     T.append("")
     T.append("## Artigo 1 -- O Custo Geometrico do Zero Absoluto: haja luz")
     T.append("")

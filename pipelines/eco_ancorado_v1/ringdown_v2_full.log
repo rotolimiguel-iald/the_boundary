@@ -1,0 +1,173 @@
+  GW170817_H1            anc=  9.0 off=  +6.1ms f_GR= 6499 tau_GR= 0.16ms | 3ms: f=9099 tau=0.70 snr=4.4 delta=3.408+-0.279 ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ON_EDGE,RD_SNR,DF
+  GW170817_L1            anc= 62.4 off= +87.2ms f_GR= 6499 tau_GR= 0.16ms | 3ms: f=9017 tau=0.63 snr=3.5 delta=3.000+-0.301 ON_EDGE,RD_SNR,TRANSIENT,DF | 6ms: delta=3.553 ON_EDGE,RD_SNR,TRANSIENT,DF
+  GW150914_H1            anc= 14.7 off= +23.2ms f_GR=  250 tau_GR= 4.05ms | 3ms: f=250 tau=4.58 snr=8.0 delta=0.131+-0.255 USED | 6ms: delta=-0.736 ON_EDGE,RD_SNR
+  GW150914_L1            anc= 10.2 off= +17.1ms f_GR=  250 tau_GR= 4.05ms | 3ms: f=237 tau=3.10 snr=5.7 delta=-0.233+-0.544 USED | 6ms: delta=-0.736 ON_EDGE,RD_SNR,DF
+  GW151012_H1            anc=  4.5 off= +38.6ms f_GR=  387 tau_GR= 2.64ms | 3ms: f=251 tau=4.41 snr=2.5 delta=0.669+-1.016 ANCHOR_SNR,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW151012_L1            anc=  5.2 off= +41.5ms f_GR=  387 tau_GR= 2.64ms | 3ms: f=445 tau=3.09 snr=2.9 delta=0.169+-1.429 ANCHOR_SNR,RD_SNR | 6ms: delta=-0.736 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW151226_H1            anc=  6.9 off= +43.9ms f_GR=  762 tau_GR= 1.38ms | 3ms: f=800 tau=0.72 snr=2.5 delta=-0.480+-2.780 ANCHOR_SNR,RD_SNR | 6ms: delta=-0.680 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW151226_L1            anc=  5.3 off= +44.9ms f_GR=  762 tau_GR= 1.38ms | 3ms: f=847 tau=6.29 snr=3.3 delta=3.553+-0.340 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=1.162 ANCHOR_SNR,RD_SNR
+  GW170104_H1            anc=  7.1 off=  -6.8ms f_GR=  290 tau_GR= 3.43ms | 3ms: f=218 tau=5.54 snr=3.6 delta=0.616+-0.821 ANCHOR_SNR,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW170104_L1            anc=  7.3 off=  -5.1ms f_GR=  290 tau_GR= 3.43ms | 3ms: f=200 tau=3.41 snr=4.6 delta=-0.006+-1.044 ANCHOR_SNR,RD_SNR,DF | 6ms: delta=-0.728 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW170608_H1            anc=  8.8 off= -19.0ms f_GR=  914 tau_GR= 1.13ms | 3ms: f=606 tau=5.14 snr=2.5 delta=3.553+-0.340 ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ON_EDGE,RD_SNR,DF
+  GW170608_L1            anc=  5.7 off=  -7.1ms f_GR=  914 tau_GR= 1.13ms | 3ms: f=640 tau=5.14 snr=1.0 delta=3.553+-0.296 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=-0.710 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW170729_H1            anc=  6.0 off= +17.8ms f_GR=  154 tau_GR= 7.20ms | 3ms: f=148 tau=19.54 snr=4.7 delta=1.712+-0.494 ANCHOR_SNR,RD_SNR | 6ms: delta=1.233 ANCHOR_SNR,RD_SNR
+  GW170729_L1            anc=  6.3 off= +13.4ms f_GR=  154 tau_GR= 7.20ms | 3ms: f=158 tau=6.29 snr=4.4 delta=-0.127+-1.188 ANCHOR_SNR,RD_SNR | 6ms: delta=0.330 ANCHOR_SNR,RD_SNR
+  GW170809_H1            anc=  5.5 off= -50.3ms f_GR=  256 tau_GR= 4.05ms | 3ms: f=224 tau=16.21 snr=4.4 delta=3.000+-0.286 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=0.419 ANCHOR_SNR,RD_SNR
+  GW170809_L1            anc=  7.7 off= -60.8ms f_GR=  256 tau_GR= 4.05ms | 3ms: f=256 tau=6.34 snr=4.3 delta=0.564+-0.633 ANCHOR_SNR,RD_SNR | 6ms: delta=-0.736 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW170814_H1            anc=  6.9 off= +30.3ms f_GR=  289 tau_GR= 3.64ms | 3ms: f=380 tau=16.56 snr=4.1 delta=3.553+-0.140 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=1.383 ANCHOR_SNR,RD_SNR,DF
+  GW170814_L1            anc=  9.0 off= +22.9ms f_GR=  289 tau_GR= 3.64ms | 3ms: f=300 tau=16.56 snr=3.6 delta=3.553+-0.265 ON_EDGE,RD_SNR | 6ms: delta=1.989 ON_EDGE,RD_SNR,DF
+  GW170818_H1            anc=  3.1 off= -18.1ms f_GR=  233 tau_GR= 4.28ms | 3ms: f=337 tau=1.24 snr=3.2 delta=-0.710+-6.184 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW170818_L1            anc=  7.8 off= -25.1ms f_GR=  233 tau_GR= 4.28ms | 3ms: f=233 tau=10.21 snr=5.2 delta=1.383+-0.517 ANCHOR_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW170823_H1            anc=  4.3 off= +11.0ms f_GR=  197 tau_GR= 5.25ms | 3ms: f=126 tau=4.30 snr=2.9 delta=-0.181+-1.871 ANCHOR_SNR,RD_SNR,DF | 6ms: delta=-0.736 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW170823_L1            anc=  7.0 off= +10.7ms f_GR=  197 tau_GR= 5.25ms | 3ms: f=185 tau=9.66 snr=4.4 delta=0.839+-0.520 ANCHOR_SNR,RD_SNR | 6ms: delta=0.669 ANCHOR_SNR,RD_SNR
+  GW190403_051519_H1     anc=  4.0 off=  -2.0ms f_GR=   88 tau_GR=14.76ms | 3ms: f=87 tau=67.20 snr=3.9 delta=3.553+-0.268 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190403_051519_L1     anc=  4.5 off= -10.3ms f_GR=   88 tau_GR=14.76ms | 3ms: f=93 tau=40.03 snr=6.0 delta=1.712+-0.314 ANCHOR_SNR | 6ms: delta=2.294 ANCHOR_SNR
+  GW190408_181802_H1     anc=  7.8 off= +80.3ms f_GR=  316 tau_GR= 3.18ms | 3ms: f=312 tau=4.97 snr=3.7 delta=0.564+-0.881 ANCHOR_SNR,RD_SNR | 6ms: delta=0.616 ANCHOR_SNR,RD_SNR
+  GW190408_181802_L1     anc=  8.0 off= +82.8ms f_GR=  316 tau_GR= 3.18ms | 3ms: f=193 tau=11.16 snr=3.1 delta=2.514+-0.428 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=-0.736 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190412_H1            anc=  7.9 off= +64.9ms f_GR=  403 tau_GR= 2.40ms | 3ms: f=373 tau=10.94 snr=5.1 delta=3.553+-0.191 ANCHOR_SNR,ON_EDGE | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190412_L1            anc= 12.5 off= +61.5ms f_GR=  403 tau_GR= 2.40ms | 3ms: f=418 tau=10.94 snr=2.3 delta=3.553+-0.326 ON_EDGE,RD_SNR | 6ms: delta=3.553 ON_EDGE,RD_SNR
+  GW190413_052954_H1     anc=  3.8 off=  -5.4ms f_GR=  194 tau_GR= 5.12ms | 3ms: f=180 tau=2.67 snr=5.9 delta=-0.480+-1.425 ANCHOR_SNR | 6ms: delta=-0.736 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190413_052954_L1     anc=  5.4 off=  -2.7ms f_GR=  194 tau_GR= 5.12ms | 3ms: f=141 tau=3.45 snr=2.8 delta=-0.326+-1.689 ANCHOR_SNR,RD_SNR | 6ms: delta=3.000 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190413_134308_H1     anc=  4.2 off= +26.6ms f_GR=  131 tau_GR= 7.49ms | 3ms: f=115 tau=9.34 snr=4.9 delta=0.247+-0.962 ANCHOR_SNR,RD_SNR | 6ms: delta=0.669 ANCHOR_SNR,RD_SNR
+  GW190413_134308_L1     anc=  6.3 off= +27.6ms f_GR=  131 tau_GR= 7.49ms | 3ms: f=97 tau=8.48 snr=4.3 delta=0.131+-1.380 ANCHOR_SNR,RD_SNR | 6ms: delta=0.780 ANCHOR_SNR,RD_SNR
+  GW190421_213856_H1     anc=  6.0 off= +51.0ms f_GR=  162 tau_GR= 6.06ms | 3ms: f=162 tau=13.98 snr=3.6 delta=1.307+-0.503 ANCHOR_SNR,RD_SNR | 6ms: delta=3.000 ANCHOR_SNR,RD_SNR
+  GW190421_213856_L1     anc=  5.4 off= +44.9ms f_GR=  162 tau_GR= 6.06ms | 3ms: f=156 tau=8.06 snr=3.3 delta=0.330+-1.144 ANCHOR_SNR,RD_SNR | 6ms: delta=-0.736 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190426_190642_H1     anc=  2.8 off= +38.6ms f_GR=   60 tau_GR=18.48ms | 3ms: f=67 tau=22.31 snr=3.6 delta=0.207+-1.058 ANCHOR_SNR,RD_SNR | 6ms: delta=0.780 ANCHOR_SNR,RD_SNR,DF
+  GW190426_190642_L1     anc=  5.1 off= +27.6ms f_GR=   60 tau_GR=18.48ms | 3ms: f=54 tau=27.09 snr=4.7 delta=0.466+-0.737 ANCHOR_SNR,RD_SNR | 6ms: delta=0.374 ANCHOR_SNR,RD_SNR
+  GW190503_185404_H1     anc=  6.7 off= +91.1ms f_GR=  194 tau_GR= 5.08ms | 3ms: f=182 tau=4.58 snr=4.0 delta=-0.098+-1.000 ANCHOR_SNR,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190503_185404_L1     anc=  5.7 off= +82.5ms f_GR=  194 tau_GR= 5.08ms | 3ms: f=150 tau=4.30 snr=3.0 delta=-0.155+-1.490 ANCHOR_SNR,RD_SNR | 6ms: delta=0.419 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190512_180714_H1     anc=  4.4 off= +13.7ms f_GR=  378 tau_GR= 2.59ms | 3ms: f=359 tau=2.26 snr=3.1 delta=-0.127+-1.748 ANCHOR_SNR,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190512_180714_L1     anc=  8.4 off= +18.6ms f_GR=  378 tau_GR= 2.59ms | 3ms: f=208 tau=11.78 snr=3.2 delta=3.553+-0.332 ON_EDGE,RD_SNR,DF | 6ms: delta=1.093 ON_EDGE,RD_SNR,DF
+  GW190513_205428_H1     anc=  6.6 off= +40.8ms f_GR=  235 tau_GR= 4.37ms | 3ms: f=226 tau=8.04 snr=5.8 delta=0.839+-0.392 ANCHOR_SNR | 6ms: delta=0.419 ANCHOR_SNR,RD_SNR
+  GW190513_205428_L1     anc=  6.1 off= +44.2ms f_GR=  235 tau_GR= 4.37ms | 3ms: f=197 tau=19.90 snr=3.2 delta=3.553+-0.337 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190514_065416_H1     anc=  4.5 off= +41.0ms f_GR=  152 tau_GR= 6.42ms | 3ms: f=145 tau=29.22 snr=3.4 delta=3.553+-0.287 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190514_065416_L1     anc=  4.2 off= +42.7ms f_GR=  152 tau_GR= 6.42ms | 3ms: f=86 tau=29.22 snr=3.5 delta=3.553+-0.332 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190517_055101_H1     anc=  4.4 off= +25.1ms f_GR=  243 tau_GR= 5.22ms | 3ms: f=277 tau=23.77 snr=2.7 delta=3.553+-0.313 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=0.616 ANCHOR_SNR,RD_SNR
+  GW190517_055101_L1     anc=  5.5 off= +17.8ms f_GR=  243 tau_GR= 5.22ms | 3ms: f=252 tau=12.85 snr=3.8 delta=1.461+-0.541 ANCHOR_SNR,RD_SNR | 6ms: delta=1.093 ANCHOR_SNR,RD_SNR
+  GW190519_153544_H1     anc=  6.2 off= +81.3ms f_GR=  126 tau_GR= 9.17ms | 3ms: f=115 tau=11.43 snr=5.1 delta=0.247+-0.779 ANCHOR_SNR | 6ms: delta=0.131 ANCHOR_SNR,RD_SNR
+  GW190519_153544_L1     anc=  8.4 off= +81.5ms f_GR=  126 tau_GR= 9.17ms | 3ms: f=115 tau=8.54 snr=8.7 delta=-0.068+-1.205 USED | 6ms: delta=-0.257 USED
+  GW190521_H1            anc=  6.5 off= +39.1ms f_GR=   69 tau_GR=13.57ms | 3ms: f=67 tau=24.95 snr=6.6 delta=0.839+-0.404 ANCHOR_SNR | 6ms: delta=0.616 ANCHOR_SNR
+  GW190521_L1            anc=  8.5 off= +35.9ms f_GR=   69 tau_GR=13.57ms | 3ms: f=64 tau=25.78 snr=9.9 delta=0.900+-0.329 USED | 6ms: delta=0.900 USED
+  GW190521_074359_H1     anc=  8.7 off= +60.8ms f_GR=  197 tau_GR= 5.37ms | 3ms: f=187 tau=6.08 snr=5.2 delta=0.131+-0.880 USED | 6ms: delta=0.095 RD_SNR
+  GW190521_074359_L1     anc= 16.0 off= +54.9ms f_GR=  197 tau_GR= 5.37ms | 3ms: f=199 tau=9.26 snr=7.4 delta=0.724+-0.568 USED | 6ms: delta=0.419 USED
+  GW190527_092055_H1     anc=  4.0 off= +90.6ms f_GR=  216 tau_GR= 4.78ms | 3ms: f=311 tau=2.49 snr=3.8 delta=-0.480+-1.598 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=1.712 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190527_092055_L1     anc=  5.3 off= +82.8ms f_GR=  216 tau_GR= 4.78ms | 3ms: f=211 tau=21.77 snr=2.7 delta=3.553+-0.311 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190602_175927_H1     anc=  4.9 off= +91.1ms f_GR=  104 tau_GR=10.01ms | 3ms: f=99 tau=15.65 snr=4.2 delta=0.564+-0.837 ANCHOR_SNR,RD_SNR | 6ms: delta=-0.006 ANCHOR_SNR,RD_SNR
+  GW190602_175927_L1     anc=  7.4 off= +80.1ms f_GR=  104 tau_GR=10.01ms | 3ms: f=86 tau=12.08 snr=5.9 delta=0.207+-0.460 ANCHOR_SNR | 6ms: delta=-0.304 ANCHOR_SNR
+  GW190620_030421_L1     anc=  8.8 off=  +3.4ms f_GR=  139 tau_GR= 8.34ms | 3ms: f=76 tau=8.56 snr=6.2 delta=0.027+-1.098 ON_EDGE,DF | 6ms: delta=-0.427 ON_EDGE,RD_SNR,DF
+  GW190630_185205_L1     anc= 11.6 off= +73.5ms f_GR=  260 tau_GR= 4.02ms | 3ms: f=247 tau=6.28 snr=4.4 delta=0.564+-0.675 RD_SNR | 6ms: delta=1.233 RD_SNR
+  GW190701_203306_H1     anc=  4.4 off= +65.2ms f_GR=  133 tau_GR= 7.38ms | 3ms: f=153 tau=11.55 snr=2.9 delta=0.564+-0.826 ANCHOR_SNR,RD_SNR | 6ms: delta=1.383 ANCHOR_SNR,RD_SNR
+  GW190701_203306_L1     anc=  6.8 off= +71.8ms f_GR=  133 tau_GR= 7.38ms | 3ms: f=123 tau=10.15 snr=4.8 delta=0.374+-0.797 ANCHOR_SNR,RD_SNR | 6ms: delta=0.839 ANCHOR_SNR,RD_SNR
+  GW190706_222641_H1     anc=  8.0 off= +20.5ms f_GR=  103 tau_GR=10.66ms | 3ms: f=111 tau=18.97 snr=6.0 delta=0.780+-0.430 USED | 6ms: delta=-0.155 USED
+  GW190706_222641_L1     anc=  6.0 off= +15.9ms f_GR=  103 tau_GR=10.66ms | 3ms: f=86 tau=9.93 snr=5.2 delta=-0.068+-0.826 ANCHOR_SNR | 6ms: delta=-0.304 ANCHOR_SNR
+  GW190707_093326_H1     anc=  6.2 off= +66.2ms f_GR=  743 tau_GR= 1.32ms | 3ms: f=975 tau=2.96 snr=2.8 delta=1.233+-0.626 ANCHOR_SNR,RD_SNR,DF | 6ms: delta=0.466 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190707_093326_L1     anc=  7.7 off= +68.1ms f_GR=  743 tau_GR= 1.32ms | 3ms: f=928 tau=6.03 snr=3.0 delta=3.553+-0.254 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190708_232457_L1     anc=  9.8 off= +79.8ms f_GR=  471 tau_GR= 2.13ms | 3ms: f=342 tau=3.67 snr=4.5 delta=0.724+-0.709 RD_SNR | 6ms: delta=1.461 RD_SNR,DF
+  GW190719_215514_H1     anc=  3.9 off= +17.6ms f_GR=  204 tau_GR= 5.32ms | 3ms: f=189 tau=5.12 snr=2.4 delta=-0.038+-1.643 ANCHOR_SNR,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190719_215514_L1     anc=  5.0 off= +17.3ms f_GR=  204 tau_GR= 5.32ms | 3ms: f=173 tau=24.22 snr=3.0 delta=3.553+-0.272 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190720_000836_H1     anc=  4.7 off=  +4.4ms f_GR=  720 tau_GR= 1.46ms | 3ms: f=756 tau=5.46 snr=1.6 delta=2.749+-0.307 ANCHOR_SNR,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190720_000836_L1     anc=  6.7 off=  +0.7ms f_GR=  720 tau_GR= 1.46ms | 3ms: f=837 tau=6.63 snr=2.9 delta=3.553+-0.285 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190725_174728_H1     anc=  4.0 off= +62.5ms f_GR=  781 tau_GR= 1.22ms | 3ms: f=713 tau=5.56 snr=3.0 delta=3.553+-0.250 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=2.087 ANCHOR_SNR,RD_SNR
+  GW190725_174728_L1     anc=  5.3 off= +64.9ms f_GR=  781 tau_GR= 1.22ms | 3ms: f=674 tau=5.56 snr=2.0 delta=3.553+-0.323 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190727_060333_H1     anc=  6.4 off= +79.8ms f_GR=  174 tau_GR= 6.06ms | 3ms: f=172 tau=5.29 snr=3.8 delta=-0.127+-0.999 ANCHOR_SNR,RD_SNR | 6ms: delta=-0.233 ANCHOR_SNR,RD_SNR
+  GW190727_060333_L1     anc=  6.7 off= +76.7ms f_GR=  174 tau_GR= 6.06ms | 3ms: f=180 tau=27.60 snr=3.8 delta=3.553+-0.263 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.268 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190728_064510_H1     anc=  5.9 off= +31.5ms f_GR=  752 tau_GR= 1.40ms | 3ms: f=423 tau=3.22 snr=2.2 delta=1.307+-0.609 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190728_064510_L1     anc=  7.2 off= +27.1ms f_GR=  752 tau_GR= 1.40ms | 3ms: f=413 tau=6.36 snr=2.6 delta=3.553+-0.350 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190731_140936_H1     anc=  4.7 off= +33.4ms f_GR=  163 tau_GR= 6.34ms | 3ms: f=167 tau=17.20 snr=4.3 delta=1.712+-0.392 ANCHOR_SNR,RD_SNR | 6ms: delta=2.087 ANCHOR_SNR,RD_SNR
+  GW190731_140936_L1     anc=  5.3 off= +26.1ms f_GR=  163 tau_GR= 6.34ms | 3ms: f=141 tau=15.60 snr=3.6 delta=1.461+-0.581 ANCHOR_SNR,RD_SNR | 6ms: delta=0.330 ANCHOR_SNR,RD_SNR
+  GW190803_022701_H1     anc=  4.3 off= +70.1ms f_GR=  176 tau_GR= 5.73ms | 3ms: f=156 tau=6.48 snr=3.9 delta=0.131+-0.937 ANCHOR_SNR,RD_SNR | 6ms: delta=-0.208 ANCHOR_SNR,RD_SNR
+  GW190803_022701_L1     anc=  4.8 off= +76.2ms f_GR=  176 tau_GR= 5.73ms | 3ms: f=180 tau=26.07 snr=2.8 delta=3.553+-0.272 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190805_211137_H1     anc=  3.5 off= +26.6ms f_GR=  134 tau_GR= 8.90ms | 3ms: f=127 tau=13.92 snr=2.8 delta=0.564+-0.913 ANCHOR_SNR,RD_SNR | 6ms: delta=2.402 ANCHOR_SNR,RD_SNR
+  GW190805_211137_L1     anc=  5.9 off= +26.6ms f_GR=  134 tau_GR= 8.90ms | 3ms: f=124 tau=15.85 snr=5.6 delta=0.780+-0.691 ANCHOR_SNR | 6ms: delta=1.712 ANCHOR_SNR,RD_SNR
+  GW190814_H1            anc=  7.5 off=  +7.6ms f_GR=  500 tau_GR= 1.51ms | 3ms: f=618 tau=1.88 snr=3.6 delta=0.247+-0.862 ANCHOR_SNR,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190814_L1            anc= 15.4 off= +10.7ms f_GR=  500 tau_GR= 1.51ms | 3ms: f=725 tau=2.08 snr=2.9 delta=0.374+-0.901 ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ON_EDGE,RD_SNR
+  GW190828_063405_H1     anc=  8.0 off= +50.5ms f_GR=  234 tau_GR= 4.64ms | 3ms: f=246 tau=9.10 snr=4.6 delta=0.962+-0.642 RD_SNR | 6ms: delta=0.839 RD_SNR
+  GW190828_063405_L1     anc=  9.7 off= +49.1ms f_GR=  234 tau_GR= 4.64ms | 3ms: f=237 tau=21.12 snr=4.3 delta=3.553+-0.225 ON_EDGE,RD_SNR | 6ms: delta=3.553 ON_EDGE,RD_SNR
+  GW190828_065509_H1     anc=  6.2 off= +84.7ms f_GR=  385 tau_GR= 2.48ms | 3ms: f=539 tau=11.30 snr=2.0 delta=3.553+-0.245 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=-0.736 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190828_065509_L1     anc=  5.2 off= +82.8ms f_GR=  385 tau_GR= 2.48ms | 3ms: f=543 tau=11.30 snr=2.6 delta=3.553+-0.272 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190910_112807_L1     anc= 10.3 off= +16.8ms f_GR=  177 tau_GR= 5.74ms | 3ms: f=166 tau=12.03 snr=7.4 delta=1.093+-0.475 USED | 6ms: delta=0.780 USED
+  GW190915_235702_H1     anc=  7.5 off= +85.2ms f_GR=  234 tau_GR= 4.29ms | 3ms: f=278 tau=5.34 snr=2.5 delta=0.247+-1.292 ANCHOR_SNR,RD_SNR | 6ms: delta=0.207 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190915_235702_L1     anc=  6.4 off= +90.8ms f_GR=  234 tau_GR= 4.29ms | 3ms: f=231 tau=11.25 snr=5.1 delta=1.626+-0.480 ANCHOR_SNR | 6ms: delta=-0.528 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190916_200658_H1     anc=  3.9 off=  -5.1ms f_GR=  153 tau_GR= 6.88ms | 3ms: f=128 tau=31.33 snr=2.7 delta=3.553+-0.323 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190916_200658_L1     anc=  5.4 off=  -4.6ms f_GR=  153 tau_GR= 6.88ms | 3ms: f=159 tau=5.45 snr=5.2 delta=-0.208+-1.228 ANCHOR_SNR | 6ms: delta=-0.719 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190917_114630_H1     anc=  2.5 off= +31.5ms f_GR= 1067 tau_GR= 0.75ms | 3ms: f=1081 tau=3.41 snr=2.6 delta=3.553+-0.342 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=0.419 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190917_114630_L1     anc=  3.2 off= +23.9ms f_GR= 1067 tau_GR= 0.75ms | 3ms: f=640 tau=3.41 snr=1.6 delta=3.553+-0.289 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=-0.736 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190924_021846_H1     anc=  3.9 off= +39.1ms f_GR= 1133 tau_GR= 0.88ms | 3ms: f=977 tau=3.99 snr=1.7 delta=3.553+-0.236 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190924_021846_L1     anc=  6.1 off= +45.9ms f_GR= 1133 tau_GR= 0.88ms | 3ms: f=1005 tau=3.99 snr=1.3 delta=3.553+-0.394 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW190925_232845_H1     anc=  6.0 off=  +9.0ms f_GR=  422 tau_GR= 2.49ms | 3ms: f=532 tau=11.34 snr=1.9 delta=3.553+-0.307 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190926_050336_H1     anc=  4.5 off= +66.9ms f_GR=  177 tau_GR= 5.36ms | 3ms: f=230 tau=24.40 snr=1.9 delta=3.553+-0.318 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190926_050336_L1     anc=  4.4 off= +66.2ms f_GR=  177 tau_GR= 5.36ms | 3ms: f=186 tau=8.94 snr=4.3 delta=0.669+-0.455 ANCHOR_SNR,RD_SNR | 6ms: delta=0.169 ANCHOR_SNR,RD_SNR
+  GW190929_012149_H1     anc=  5.2 off= +95.7ms f_GR=  115 tau_GR= 7.95ms | 3ms: f=116 tau=27.06 snr=4.0 delta=2.402+-0.364 ANCHOR_SNR,RD_SNR | 6ms: delta=2.873 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190929_012149_L1     anc=  4.7 off= +96.2ms f_GR=  115 tau_GR= 7.95ms | 3ms: f=63 tau=2.10 snr=4.3 delta=-0.736+-4.162 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190930_133541_H1     anc=  5.2 off= +34.9ms f_GR=  732 tau_GR= 1.41ms | 3ms: f=906 tau=4.35 snr=1.9 delta=2.087+-0.406 ANCHOR_SNR,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW190930_133541_L1     anc=  5.5 off= +43.5ms f_GR=  732 tau_GR= 1.41ms | 3ms: f=659 tau=6.42 snr=2.2 delta=3.553+-0.268 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW191103_012549_H1     anc=  5.2 off= +26.9ms f_GR=  791 tau_GR= 1.38ms | 3ms: f=435 tau=0.85 snr=2.2 delta=-0.388+-2.733 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW191103_012549_L1     anc=  4.2 off= +23.2ms f_GR=  791 tau_GR= 1.38ms | 3ms: f=495 tau=6.30 snr=3.0 delta=3.553+-0.283 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW191105_143521_H1     anc=  4.3 off= +27.1ms f_GR=  779 tau_GR= 1.29ms | 3ms: f=1012 tau=5.49 snr=1.7 delta=3.268+-0.331 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=-0.647 ANCHOR_SNR,RD_SNR
+  GW191105_143521_L1     anc=  5.0 off= +28.6ms f_GR=  779 tau_GR= 1.29ms | 3ms: f=818 tau=1.60 snr=2.9 delta=0.247+-1.153 ANCHOR_SNR,RD_SNR | 6ms: delta=-0.347 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW191109_010717_H1     anc=  6.5 off=  +5.6ms f_GR=  118 tau_GR= 7.78ms | 3ms: f=112 tau=16.83 snr=7.4 delta=1.162+-0.382 ANCHOR_SNR | 6ms: delta=0.466 ANCHOR_SNR
+  GW191109_010717_L1     anc= 10.3 off=  +8.3ms f_GR=  118 tau_GR= 7.78ms | 3ms: f=115 tau=9.10 snr=9.1 delta=0.169+-0.197 USED | 6ms: delta=-0.208 USED
+  GW191113_071753_H1     anc=  3.7 off= +22.7ms f_GR=  335 tau_GR= 2.44ms | 3ms: f=259 tau=11.10 snr=2.6 delta=3.553+-0.273 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.408 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW191113_071753_L1     anc=  3.3 off= +18.3ms f_GR=  335 tau_GR= 2.44ms | 3ms: f=239 tau=11.10 snr=3.1 delta=3.553+-0.301 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW191126_115259_H1     anc=  4.6 off= +25.9ms f_GR=  707 tau_GR= 1.55ms | 3ms: f=1025 tau=0.41 snr=2.2 delta=-0.736+-7.034 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW191126_115259_L1     anc=  5.1 off= +30.0ms f_GR=  707 tau_GR= 1.55ms | 3ms: f=663 tau=7.07 snr=2.6 delta=3.553+-0.280 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW191127_050227_H1     anc=  4.7 off= +46.4ms f_GR=  146 tau_GR= 6.94ms | 3ms: f=81 tau=1.83 snr=3.0 delta=-0.736+-5.932 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=1.383 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW191127_050227_L1     anc=  4.5 off= +46.9ms f_GR=  146 tau_GR= 6.94ms | 3ms: f=203 tau=31.59 snr=3.9 delta=3.553+-0.238 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW191129_134029_H1     anc=  6.5 off= +98.1ms f_GR=  881 tau_GR= 1.15ms | 3ms: f=848 tau=3.68 snr=2.5 delta=2.189+-0.454 ANCHOR_SNR,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW191129_134029_L1     anc=  7.4 off= +95.0ms f_GR=  881 tau_GR= 1.15ms | 3ms: f=496 tau=5.25 snr=2.3 delta=3.553+-0.371 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.268 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW191204_110529_H1     anc=  3.7 off= +38.1ms f_GR=  288 tau_GR= 3.57ms | 3ms: f=158 tau=1.26 snr=2.6 delta=-0.647+-5.151 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=1.307 ANCHOR_SNR,RD_SNR
+  GW191204_110529_L1     anc=  6.2 off= +38.8ms f_GR=  288 tau_GR= 3.57ms | 3ms: f=248 tau=5.96 snr=3.2 delta=0.669+-0.868 ANCHOR_SNR,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW191204_171526_H1     anc=  4.4 off= +86.7ms f_GR=  816 tau_GR= 1.32ms | 3ms: f=1183 tau=6.02 snr=1.6 delta=3.553+-0.353 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW191204_171526_L1     anc= 10.7 off= +88.1ms f_GR=  816 tau_GR= 1.32ms | 3ms: f=632 tau=6.02 snr=2.6 delta=3.553+-0.264 ON_EDGE,RD_SNR | 6ms: delta=3.553 ON_EDGE,RD_SNR
+  GW191215_223052_H1     anc=  5.4 off= +31.0ms f_GR=  302 tau_GR= 3.29ms | 3ms: f=427 tau=3.17 snr=4.5 delta=-0.038+-0.798 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=0.514 ANCHOR_SNR,RD_SNR
+  GW191215_223052_L1     anc=  6.0 off= +29.1ms f_GR=  302 tau_GR= 3.29ms | 3ms: f=314 tau=15.00 snr=2.3 delta=3.553+-0.239 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=-0.669 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW191216_213338_H1     anc= 13.6 off= +69.8ms f_GR=  853 tau_GR= 1.22ms | 3ms: f=992 tau=5.55 snr=2.7 delta=3.553+-0.295 ON_EDGE,RD_SNR | 6ms: delta=2.749 ON_EDGE,RD_SNR
+  GW191219_163120_H1     anc=  1.5 off= -42.5ms f_GR=  349 tau_GR= 2.01ms | 3ms: f=507 tau=0.53 snr=1.9 delta=-0.736+-7.200 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=-0.038 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW191219_163120_L1     anc=  4.4 off= +51.0ms f_GR=  349 tau_GR= 2.01ms | 3ms: f=227 tau=9.16 snr=1.8 delta=3.553+-0.411 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW191222_033537_H1     anc=  6.7 off= +17.1ms f_GR=  146 tau_GR= 6.85ms | 3ms: f=148 tau=8.82 snr=3.4 delta=0.288+-0.982 ANCHOR_SNR,RD_SNR | 6ms: delta=1.162 ANCHOR_SNR,RD_SNR
+  GW191222_033537_L1     anc=  9.2 off= +15.4ms f_GR=  146 tau_GR= 6.85ms | 3ms: f=126 tau=9.11 snr=5.0 delta=0.330+-1.059 RD_SNR | 6ms: delta=0.466 RD_SNR
+  GW191230_180458_H1     anc=  2.5 off=  -4.2ms f_GR=  120 tau_GR= 8.28ms | 3ms: f=174 tau=5.58 snr=1.7 delta=-0.326+-2.020 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW191230_180458_L1     anc=  6.5 off= -11.2ms f_GR=  120 tau_GR= 8.28ms | 3ms: f=110 tau=11.02 snr=4.7 delta=0.330+-0.841 ANCHOR_SNR,RD_SNR | 6ms: delta=0.564 ANCHOR_SNR,RD_SNR
+  GW200112_155838_L1     anc= 14.1 off= +85.9ms f_GR=  229 tau_GR= 4.56ms | 3ms: f=212 tau=4.53 snr=6.6 delta=-0.006+-0.930 USED | 6ms: delta=0.514 RD_SNR
+  GW200115_042309_H1     anc=  4.4 off= +31.0ms f_GR= 1858 tau_GR= 0.43ms | 3ms: f=1022 tau=0.61 snr=1.6 delta=0.419+-1.106 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW200115_042309_L1     anc=  4.2 off= +27.3ms f_GR= 1858 tau_GR= 0.43ms | 3ms: f=1022 tau=0.11 snr=1.2 delta=-0.736+-7.215 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW200128_022011_H1     anc=  5.7 off=  -7.3ms f_GR=  158 tau_GR= 6.76ms | 3ms: f=146 tau=14.62 snr=4.9 delta=1.162+-0.547 ANCHOR_SNR,RD_SNR | 6ms: delta=0.514 ANCHOR_SNR,RD_SNR
+  GW200128_022011_L1     anc=  5.9 off=  -6.1ms f_GR=  158 tau_GR= 6.76ms | 3ms: f=140 tau=2.24 snr=5.5 delta=-0.669+-5.080 ANCHOR_SNR | 6ms: delta=-0.736 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW200129_065458_H1     anc= 10.9 off= +21.2ms f_GR=  246 tau_GR= 4.34ms | 3ms: f=222 tau=4.46 snr=6.9 delta=0.027+-0.471 USED | 6ms: delta=-0.736 ON_EDGE,DF
+  GW200129_065458_L1     anc= 17.1 off= +26.6ms f_GR=  246 tau_GR= 4.34ms | 3ms: f=222 tau=3.67 snr=8.3 delta=-0.155+-0.826 USED | 6ms: delta=-0.427 RD_SNR
+  GW200202_154313_H1     anc=  4.0 off= +54.2ms f_GR=  945 tau_GR= 1.09ms | 3ms: f=791 tau=4.94 snr=1.4 delta=3.553+-0.346 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW200202_154313_L1     anc=  8.1 off= +64.2ms f_GR=  945 tau_GR= 1.09ms | 3ms: f=850 tau=4.94 snr=1.7 delta=3.553+-0.361 ON_EDGE,RD_SNR | 6ms: delta=3.553 ON_EDGE,RD_SNR,DF
+  GW200208_130117_H1     anc=  5.2 off= +43.2ms f_GR=  191 tau_GR= 5.16ms | 3ms: f=181 tau=3.96 snr=3.5 delta=-0.233+-1.365 ANCHOR_SNR,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW200208_130117_L1     anc=  5.3 off= +46.1ms f_GR=  191 tau_GR= 5.16ms | 3ms: f=212 tau=4.96 snr=3.2 delta=-0.038+-1.644 ANCHOR_SNR,RD_SNR | 6ms: delta=-0.736 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW200208_222617_H1     anc=  3.8 off= +29.5ms f_GR=  170 tau_GR= 6.19ms | 3ms: f=126 tau=28.20 snr=2.6 delta=3.553+-0.324 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW200208_222617_L1     anc=  3.5 off= +31.7ms f_GR=  170 tau_GR= 6.19ms | 3ms: f=221 tau=28.20 snr=1.7 delta=3.553+-0.331 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW200209_085452_H1     anc=  6.1 off= +66.9ms f_GR=  175 tau_GR= 5.55ms | 3ms: f=193 tau=15.05 snr=5.5 delta=1.712+-0.411 ANCHOR_SNR | 6ms: delta=2.749 ANCHOR_SNR,RD_SNR
+  GW200210_092254_H1     anc=  3.5 off= +64.5ms f_GR=  430 tau_GR= 1.78ms | 3ms: f=365 tau=8.11 snr=2.5 delta=3.553+-0.349 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=-0.736 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW200210_092254_L1     anc=  5.8 off= +61.5ms f_GR=  430 tau_GR= 1.78ms | 3ms: f=236 tau=0.47 snr=3.0 delta=-0.736+-6.752 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW200216_220804_H1     anc=  4.9 off= +73.2ms f_GR=  135 tau_GR= 7.57ms | 3ms: f=127 tau=3.81 snr=3.9 delta=-0.496+-2.927 ANCHOR_SNR,RD_SNR | 6ms: delta=1.093 ANCHOR_SNR,RD_SNR
+  GW200216_220804_L1     anc=  5.5 off=  +4.4ms f_GR=  135 tau_GR= 7.57ms | 3ms: f=91 tau=34.46 snr=2.9 delta=3.553+-0.299 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW200219_094415_H1     anc=  4.1 off= +89.6ms f_GR=  169 tau_GR= 5.81ms | 3ms: f=148 tau=17.93 snr=3.4 delta=2.087+-0.424 ANCHOR_SNR,RD_SNR | 6ms: delta=1.307 ANCHOR_SNR,RD_SNR
+  GW200219_094415_L1     anc=  5.8 off= +92.8ms f_GR=  169 tau_GR= 5.81ms | 3ms: f=188 tau=26.44 snr=3.4 delta=3.553+-0.337 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW200220_061928_H1     anc=  3.4 off= -58.1ms f_GR=   64 tau_GR=16.13ms | 3ms: f=64 tau=30.63 snr=3.6 delta=0.900+-0.692 ANCHOR_SNR,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW200220_061928_L1     anc=  4.5 off= -65.2ms f_GR=   64 tau_GR=16.13ms | 3ms: f=57 tau=56.67 snr=3.6 delta=2.514+-0.317 ANCHOR_SNR,RD_SNR | 6ms: delta=1.712 ANCHOR_SNR,RD_SNR
+  GW200220_124850_H1     anc=  5.4 off= -33.9ms f_GR=  157 tau_GR= 6.27ms | 3ms: f=86 tau=4.66 snr=5.1 delta=-0.257+-1.292 ANCHOR_SNR,ON_EDGE,DF | 6ms: delta=-0.155 ANCHOR_SNR,ON_EDGE,DF
+  GW200220_124850_L1     anc=  4.2 off= +46.6ms f_GR=  157 tau_GR= 6.27ms | 3ms: f=151 tau=22.04 snr=3.2 delta=2.514+-0.415 ANCHOR_SNR,RD_SNR | 6ms: delta=1.542 ANCHOR_SNR,RD_SNR
+  GW200224_222234_H1     anc=  9.5 off=  -3.4ms f_GR=  191 tau_GR= 5.55ms | 3ms: f=170 tau=5.17 snr=6.7 delta=-0.068+-0.431 USED | 6ms: delta=-0.326 RD_SNR
+  GW200224_222234_L1     anc= 10.5 off=  -5.6ms f_GR=  191 tau_GR= 5.55ms | 3ms: f=163 tau=3.87 snr=12.0 delta=-0.304+-1.395 USED | 6ms: delta=-0.719 ON_EDGE,DF
+  GW200225_060421_H1     anc=  7.6 off= +93.0ms f_GR=  423 tau_GR= 2.29ms | 3ms: f=233 tau=1.70 snr=2.8 delta=-0.257+-1.574 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW200225_060421_L1     anc=  6.2 off= +97.4ms f_GR=  423 tau_GR= 2.29ms | 3ms: f=259 tau=10.42 snr=1.9 delta=3.553+-0.356 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW200302_015811_H1     anc=  7.8 off= +13.2ms f_GR=  232 tau_GR= 4.18ms | 3ms: f=209 tau=4.58 snr=5.0 delta=0.095+-0.650 ANCHOR_SNR | 6ms: delta=1.307 ANCHOR_SNR,RD_SNR
+  GW200306_093714_H1     anc=  4.3 off= +18.3ms f_GR=  318 tau_GR= 3.52ms | 3ms: f=429 tau=14.07 snr=2.5 delta=3.000+-0.300 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=0.962 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW200306_093714_L1     anc=  3.5 off= +24.9ms f_GR=  318 tau_GR= 3.52ms | 3ms: f=314 tau=16.02 snr=2.6 delta=3.553+-0.327 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW200308_173609_H1     anc=  2.9 off= -26.1ms f_GR=  101 tau_GR= 9.76ms | 3ms: f=146 tau=20.43 snr=2.6 delta=1.093+-0.765 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=0.514 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW200308_173609_L1     anc=  3.5 off= +11.5ms f_GR=  101 tau_GR= 9.76ms | 3ms: f=144 tau=39.04 snr=2.8 delta=3.000+-0.363 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=2.630 ANCHOR_SNR,ON_EDGE,RD_SNR,DF
+  GW200311_115853_H1     anc=  8.6 off= +92.5ms f_GR=  233 tau_GR= 4.34ms | 3ms: f=193 tau=3.02 snr=5.5 delta=-0.304+-0.625 USED | 6ms: delta=-0.636 ON_EDGE,RD_SNR,DF
+  GW200311_115853_L1     anc=  6.7 off= +85.9ms f_GR=  233 tau_GR= 4.34ms | 3ms: f=242 tau=19.76 snr=3.4 delta=3.553+-0.307 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=0.839 ANCHOR_SNR,RD_SNR
+  GW200316_215756_H1     anc=  3.6 off= +56.9ms f_GR=  708 tau_GR= 1.47ms | 3ms: f=611 tau=6.68 snr=2.0 delta=3.553+-0.311 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW200316_215756_L1     anc=  5.5 off= +54.9ms f_GR=  708 tau_GR= 1.47ms | 3ms: f=920 tau=6.68 snr=2.6 delta=3.553+-0.305 ANCHOR_SNR,ON_EDGE,RD_SNR | 6ms: delta=3.000 ANCHOR_SNR,RD_SNR
+  GW200322_091133_H1     anc=  3.7 off= -24.7ms f_GR=  219 tau_GR= 4.49ms | 3ms: f=126 tau=20.44 snr=3.0 delta=3.553+-0.273 ANCHOR_SNR,ON_EDGE,RD_SNR,DF | 6ms: delta=3.553 ANCHOR_SNR,ON_EDGE,RD_SNR
+  GW200322_091133_L1     anc=  8.6 off= +25.1ms f_GR=  219 tau_GR= 4.49ms | 3ms: f=290 tau=20.44 snr=1.7 delta=3.553+-0.342 ON_EDGE,RD_SNR,DF | 6ms: delta=-0.347 ON_EDGE,RD_SNR,DF
+STACK inicio 3.0 ms: n=15 delta_tau=0.1766+-0.1089 (z vs RG 1.62) | previsao ramo B -0.0194 (z vs B 1.80; poder 0.18) | ramo A -2.2e-42 | delta_f=-0.0325+-0.0127 | SNR medio 7.6 | chi2/dof 0.87 | borda excluidas 84
+STACK inicio 6.0 ms: n=6 delta_tau=0.0313+-0.1755 (z vs RG 0.18) | previsao ramo B -0.0182 (z vs B 0.28; poder 0.10) | ramo A -1.4e-42 | delta_f=-0.0630+-0.0203 | SNR medio 6.9 | chi2/dof 1.33 | borda excluidas 109
+OK -> /mnt/c/IALD/Artigo/Haja_Luz/A Ponte e o Um/cache/gw/RINGDOWN_DEPHASING_V2_RESULT.json | 332s
+exit=0 16:03:23

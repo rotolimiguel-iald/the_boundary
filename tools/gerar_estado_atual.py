@@ -95,6 +95,22 @@ def main() -> int:
         L.append("| the selection is the ballast; IALD is a state (v335) | `the_selection_is_the_ballast` — axioms read from the seal: `%s` · `TheSelectionIsTheBallast.lean` `%s` |" % (bal_ax, sha16(bal_f) if bal_f.is_file() else None))
     if nom_ax is not None:
         L.append("| the Name is the instrument (v336) | `the_name_is_the_instrument` — axioms read from the seal: `%s` · `TheNameIsTheInstrument.lean` `%s` |" % (nom_ax, sha16(nom_f) if nom_f.is_file() else None))
+    car_ax = ar.get("TGLExt.the_name_is_the_characterization")
+    car_f = d / "Lean" / "tgl_kernel" / "TGLExt" / "TheNameIsTheCharacterization.lean"
+    if car_ax is not None:
+        L.append("| the Name is the characterization (v337) | `the_name_is_the_characterization` — axioms read from the seal: `%s` · `TheNameIsTheCharacterization.lean` `%s` |" % (car_ax, sha16(car_f) if car_f.is_file() else None))
+    fech_f = d / "O_FECHAMENTO_ESTRUTURA.md"
+    if fech_f.is_file():
+        L.append("| the close (v339) | [`O_FECHAMENTO_ESTRUTURA.md`](%s) `%s` — the structure in six pieces; **the declaration of closure is the operator\u2019s act**. The bench session of 09/09 (98 Lean modules, v338\u2013v339) is in the kernel; the written mathematics 067\u2013087 is registered `[DERIVED]`, no flag; two errata beside (the modular spectrum: \u03a9 fixed and total eigenvectors; the captures per stage) |" % (raw(A3 + "/O_FECHAMENTO_ESTRUTURA.md"), sha16(fech_f)))
+    NAT = [("gw_angular_rite_verdict", "GW angular (v340) \u2014 the \u201c100\u03c3\u201d of December retired as identity + cap"), ("gw_echo_rite_verdict", "coupled echo, MAY delay law (v341\u2013v342)"),
+           ("gw_echo_kms_rite_verdict", "coupled echo, KMS delay law (v343)"), ("echo_anchored_result_verdict", "anchored echo V1 \u2014 gwfast/IMRPhenomD (v344)"),
+           ("echo_anchored_result_v2_verdict", "anchored echo V2 \u2014 lalsuite, two template families (v345)"), ("ringdown_dephasing_result_v2_verdict", "ringdown vs dephasing V2 (v346)"),
+           ("echo_pe_result_v2_verdict", "Bayesian PE with echo term V2 \u2014 bilby (v347)"), ("echo_search_result_verdict", "long-delay echo search, 2025 protocol (v348)"),
+           ("d1_camb_result_v2_verdict", "D1 via CAMB V2 (v349)"), ("h2_reproduction_result_verdict", "H2 reproduction with pycbc (v350)")]
+    nat = [(k, lab, selo.get(k)) for k, lab in NAT if selo.get(k)]
+    if nat:
+        assert not any("CONFIRMED" in str(v) for _, _, v in nat), "veredito CONFIRMED no selo — PARAR"
+        L.append("| nature answers (v340\u2013v350) | **%d final verdicts read from the seal, none FALSIFIED, none CONFIRMED** \u2014 table below; %d seal fields in all (`gw_*`, `echo_*`, `ringdown_*`, `d1_camb_*`, `h2_*`); all outside the contour of v314, none gates the core |" % (len(nat), sum(1 for k in selo if k.startswith(("gw_", "echo_", "ringdown_", "d1_camb_", "h2_")))))
     L.append("")
     L.append("## What is PROVED · o que está PROVADO `[REAL — theorem in kernel]`")
     L.append("")
@@ -124,6 +140,22 @@ def main() -> int:
     L.append("Also in kernel: Tomita constructed on the tower; Jacobson (null Ricci balance + conserved T ⟹ ∃Λ, G + Λg = κT) in a chart; Schwarzschild and full Birkhoff inside the kernel; spin-2 with exactly two polarisations; `CONFIRMED` forbidden by theorem.")
     L.append("")
     L.append("**Navier–Stokes, said expressly** (stone 113, `TGLExt/TheStokesContour.lean`, axioms in the trio): what is PROVED in kernel is the Stokes contour, `the_stokes_contour` — the series criterion of the dammed dyadic cascade `4·e^{−2τ} < 1 ⟺ τ > ln 2`; the **gap** `2/3 < ln 2 < 2/3 + 0.027` (the Millennium problem in miniature, typed); the half-nat is **insufficient** (`½ < ⅔`); the conjugate faces `1/3 + 2/3 = 1`; `e^{ln 2} = 2`, one bit per octave. Theorem 1 of the dammed dyadic model is proved in classical analysis inside `um.py`, and the live dyadic laboratory reruns it at every rite.")
+    if nat:
+        L.append("")
+        L.append("## Nature answers \u00b7 a natureza respondeu (v340\u2013v350) `[REAL \u2014 verdicts read from the seal; NOT_FALSIFIED \u2260 CONFIRMED]`")
+        L.append("")
+        L.append("Five pre-registered tests (hash before the data; result read back by hash by `um.py` from `../cache`), run on this machine with WSL 2 + lalsuite, bilby, camb and pycbc. **None falsified, none confirmed, all got a number.** Three older designs retired as identity or as powerless (the \u201c100\u03c3\u201d of December 2025, v340; the peak search of 2025, v348; E_res/E_total \u2192 \u03b1\u00b2 of Jan/Feb 2026, v350). Three pipeline bugs autopsied by hash and amended by a pre-registered V2 (the ringdown envelope, v346; the PE priors, v347; the distance in the May CAMB worker, v349). Every rite is additive (`does_not_gate_core = True`, outside the contour of v314); the gate did not move.")
+        L.append("")
+        L.append("| rite | verdict in the seal |")
+        L.append("|---|---|")
+        for k, lab, v in nat:
+            L.append("| %s | `%s` (`%s`) |" % (lab, v, k))
+        L.append("")
+        L.append("**The numbers behind the strings (from the result files, read by hash):** ringdown V2 \u03b4\u03c4 = 0.1766 \u00b1 0.1089, branch B predicted \u22120.0194, power 0.18\u03c3 of 5 (the Planckian branch A is invisible by construction); PE V2 a/\u221a\u03b2: MAY \u22120.267 \u00b1 0.857, KMS 1.089 \u00b1 0.899, paired response to injections \u2248 0 where it should be 1 (the estimator\u2019s floor); echo search N_on = 1 vs background 3.00, efficiency for \u221a\u03b2 = 0.000 (design retired as powerless); D1 via CAMB V2 \u0394\u03c7\u00b2(TGL \u2212 \u039bCDM) = 9.70 (2\u20135\u03c3 tension) and free \u03b2 = \u22120.0171 \u00b1 0.0075 (3.9\u03c3 from \u03b1\u221ae, with the analytic approximation declared); H2: the synthetic \u201c\u03b1\u00b2\u201d = 0.0099 was the square of the generator\u2019s noise level, the real whitened data give 0.994 in the source vs 0.996 off-source \u2014 identity retired.")
+        L.append("")
+        L.append("**Statuses.** Echo amplitude \u221a\u03b2 with sign \u22121 `[REAL, kernel: Smat_reflection]`; delay laws MAY `[INPUT]` and KMS `[CANDIDATE]`; the dephasing law `[REAL in form]` with \u03c4\u2605 `[INPUT]`; Kerr, PhenomD/SEOBNR/XAS, CAMB, Planck/DESI/SH0ES `[KNOWN]`; the analytic TGL on top of CAMB `[DECLARED]`; the 0.1\u20132 s delay and E_res/E_total \u2192 \u03b1\u00b2 `[CONJECTURE, 2025/2026, retired]`. **What remains, with a number:** the ringdown asks ~28\u00d7 more precision for the GM/c\u00b3 branch; a PE with a free primary has no power for echoes at delays \u2264 2.5 periods (fix the primary by independent information); the compressed background reads TGL with fixed \u03b2 at \u0394\u03c7\u00b2 \u2248 +10; the \u201cecho\u201d leaf is clean of the 2025/2026 designs. *Cosmology never becomes mathematical proof.*")
+        L.append("")
+        L.append("**Reproduction.** The results are PART of the reproduction: `um.py` reads [`cache/gw/*_RESULT.json`](%s) and [`cache/d1_camb/*.json`](%s) by hash from `../cache` (relative to itself); without them the rite emits `AWAITING_RESULT_FILE` and the seal changes. The pre-registered pipelines that produced them (extractors, ringdown V1/V2, anchored echo V1/V2, PE V1/V2, search, D1 driver + corrected worker, H2, logs, pre-registration smokes) are in [`pipelines/eco_ancorado_v1/`](%s), with `wsl_setup_lal.sh` and `verify_wheels_pypi.py`. The GWOSC strain windows (`.npz`, 120 MB) are not in the repository: public data, regenerable by the extractors." % (raw("cache/gw/ECHO_ANCHORED_V2_RESULT.json"), raw("cache/d1_camb/D1_CAMB_V2_RESULT.json"), raw("pipelines/eco_ancorado_v1/rite_h2_v350.py")))
     L.append("")
     L.append("## What is NOT proved · o que NÃO está provado `[OPEN / KNOWN / nature]`")
     L.append("")
@@ -131,6 +163,7 @@ def main() -> int:
     L.append("- **The world's (mathematics not yet in mathlib):** the general von Neumann algebra of type III₁ `[KNOWN]`; the bridge from tower floors to spacetime regions; Bisognano–Wichmann for the continuous standard subspace (`T_c = Δ_c^{1/2}` stays OPEN); the general area law and the selection of the radiative freedom.")
     L.append("- **Navier–Stokes, the Millennium statement:** the Conjugate-Face Lemma stays **OPEN and external** to TGL — in the stone\u2019s own words, *nothing here is the proof of the Millennium problem*. \u201cThe answer to the singularity is the contour\u201d is the operator\u2019s reading, typed `[ONTO]` over exact numbers.")
     L.append("- **Honest negatives kept:** the corpus route to β was refuted on the final step; the closed-form search for κ has zero discriminating power; the fixed clock fails the fourth order; the naïve thermal limit does not exist.")
+    L.append("- **The six leaves of nature (v339, the close):** that the selection occurs; the physical identification of the founded screen; the signature; the 3+1 geometry and the scale of the area; the payment of the cost; \u03b1-free. And what the bench left as obligations: the general physical reconstruction of the same register; the interacting quantum theory (cohomology on the physical domain, QME, BRST charge); the UV regime. **The map is closed; the territory is nature\u2019s** \u2014 the declaration of closure is the operator\u2019s act, never CONFIRMED.")
     L.append("")
     L.append("## Reproduce it · reproduza `[REAL — three commands]`")
     L.append("")
@@ -141,6 +174,8 @@ def main() -> int:
     L.append("```")
     L.append("")
     L.append("The kernel alone: `cd \"%s/Lean/tgl_kernel\" && lake build` (Lean 4 v4.31.0 + mathlib pinned in `lake-manifest.json`); then `#print axioms` of any term in [`tgl_kernel_proof_manifest.json`](%s). GitHub does not render `um.py` (above 5 MB): the raw link above serves the whole file, byte-exact (`* -text`)." % (A3, raw(A3 + "/Lean/tgl_kernel_proof_manifest.json")))
+    L.append("")
+    L.append("To reproduce the nature rites v340\u2013v350 as sealed, clone the repository (not only `um.py`): they read their results from `../cache` by hash \u2014 see *Nature answers* above.")
     L.append("")
     L.append("## Direct doors · portas diretas")
     L.append("")
@@ -157,6 +192,12 @@ def main() -> int:
     L.append("| the canonical form (the theory in its mature statement) | [`um_absoluto_forma_canonica.md`](%s) |" % raw(A3 + "/um_absoluto_forma_canonica.md"))
     L.append("| the artifact\u2019s own manifest | [`um_absoluto_manifest.md`](%s) |" % raw(A3 + "/um_absoluto_manifest.md"))
     L.append("| how to cite | [`CITATION.cff`](%s) \u00b7 DOI [10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173) |" % raw("CITATION.cff"))
+    if (RAIZ / "cache" / "gw" / "ECHO_ANCHORED_V2_RESULT.json").is_file():
+        L.append("| the results of the nature rites (read by hash by `um.py`) | [`cache/gw/`](%s) \u00b7 [`cache/d1_camb/`](%s) |" % (raw("cache/gw/ECHO_ANCHORED_V2_RESULT.json"), raw("cache/d1_camb/D1_CAMB_V2_RESULT.json")))
+    if (RAIZ / "pipelines" / "eco_ancorado_v1" / "rite_h2_v350.py").is_file():
+        L.append("| the pre-registered pipelines of the nature rites | [`pipelines/eco_ancorado_v1/`](%s) |" % raw("pipelines/eco_ancorado_v1/rite_h2_v350.py"))
+    if (RAIZ / A3 / "O_FECHAMENTO_ESTRUTURA.md").is_file():
+        L.append("| the structure of the close (six pieces; the declaration is the operator\u2019s) | [`O_FECHAMENTO_ESTRUTURA.md`](%s) |" % raw(A3 + "/O_FECHAMENTO_ESTRUTURA.md"))
     L.append("")
     L.append("## Reading order \u00b7 ordem de leitura `[for readers that truncate]`")
     L.append("")

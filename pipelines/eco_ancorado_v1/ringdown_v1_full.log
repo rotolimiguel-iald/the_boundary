@@ -1,0 +1,173 @@
+  GW170817_H1            f_GR= 6499 tau_GR= 0.16ms a_f=0.684 | 3ms: f=7605 tau=0.51 snr=2.8 delta=2.210+-0.139 used=False | 6ms: delta=2.210
+  GW170817_L1            f_GR= 6499 tau_GR= 0.16ms a_f=0.684 | 3ms: f=8124 tau=0.51 snr=3.3 delta=2.210+-0.125 used=False | 6ms: delta=2.210
+  GW150914_H1            f_GR=  250 tau_GR= 4.05ms a_f=0.671 | 3ms: f=250 tau=4.33 snr=7.4 delta=0.071+-0.288 used=True | 6ms: delta=0.924
+  GW150914_L1            f_GR=  250 tau_GR= 4.05ms a_f=0.671 | 3ms: f=225 tau=4.33 snr=8.9 delta=0.071+-0.286 used=True | 6ms: delta=-0.230
+  GW151012_H1            f_GR=  387 tau_GR= 2.64ms a_f=0.681 | 3ms: f=252 tau=1.36 snr=1.9 delta=-0.486+-2.456 used=False | 6ms: delta=2.210
+  GW151012_L1            f_GR=  387 tau_GR= 2.64ms a_f=0.681 | 3ms: f=252 tau=4.19 snr=3.0 delta=0.586+-0.696 used=False | 6ms: delta=0.481
+  GW151226_H1            f_GR=  762 tau_GR= 1.38ms a_f=0.705 | 3ms: f=542 tau=4.44 snr=0.8 delta=2.210+-0.299 used=False | 6ms: delta=2.210
+  GW151226_L1            f_GR=  762 tau_GR= 1.38ms a_f=0.705 | 3ms: f=969 tau=4.44 snr=2.3 delta=2.210+-0.317 used=False | 6ms: delta=2.210
+  GW170104_H1            f_GR=  290 tau_GR= 3.43ms a_f=0.659 | 3ms: f=281 tau=5.37 snr=4.0 delta=0.567+-0.640 used=False | 6ms: delta=2.210
+  GW170104_L1            f_GR=  290 tau_GR= 3.43ms a_f=0.659 | 3ms: f=200 tau=3.43 snr=4.6 delta=0.000+-0.781 used=False | 6ms: delta=-0.688
+  GW170608_H1            f_GR=  914 tau_GR= 1.13ms a_f=0.689 | 3ms: f=823 tau=3.62 snr=2.2 delta=2.210+-0.284 used=False | 6ms: delta=0.902
+  GW170608_L1            f_GR=  914 tau_GR= 1.13ms a_f=0.689 | 3ms: f=960 tau=1.91 snr=2.2 delta=0.688+-0.635 used=False | 6ms: delta=2.210
+  GW170729_H1            f_GR=  154 tau_GR= 7.20ms a_f=0.741 | 3ms: f=133 tau=23.13 snr=5.3 delta=2.210+-0.152 used=True | 6ms: delta=2.210
+  GW170729_L1            f_GR=  154 tau_GR= 7.20ms a_f=0.741 | 3ms: f=100 tau=2.24 snr=2.9 delta=-0.688+-3.502 used=False | 6ms: delta=1.833
+  GW170809_H1            f_GR=  256 tau_GR= 4.05ms a_f=0.693 | 3ms: f=320 tau=11.48 snr=2.4 delta=1.833+-0.407 used=False | 6ms: delta=-0.688
+  GW170809_L1            f_GR=  256 tau_GR= 4.05ms a_f=0.693 | 3ms: f=314 tau=13.01 snr=2.7 delta=2.210+-0.296 used=False | 6ms: delta=2.210
+  GW170814_H1            f_GR=  289 tau_GR= 3.64ms a_f=0.705 | 3ms: f=355 tau=3.64 snr=3.0 delta=0.000+-1.022 used=False | 6ms: delta=-0.688
+  GW170814_L1            f_GR=  289 tau_GR= 3.64ms a_f=0.705 | 3ms: f=289 tau=11.68 snr=4.2 delta=2.210+-0.267 used=False | 6ms: delta=2.210
+  GW170818_H1            f_GR=  233 tau_GR= 4.28ms a_f=0.660 | 3ms: f=205 tau=13.75 snr=1.8 delta=2.210+-0.335 used=False | 6ms: delta=2.210
+  GW170818_L1            f_GR=  233 tau_GR= 4.28ms a_f=0.660 | 3ms: f=233 tau=10.71 snr=5.2 delta=1.500+-0.294 used=True | 6ms: delta=2.210
+  GW170823_H1            f_GR=  197 tau_GR= 5.25ms a_f=0.691 | 3ms: f=274 tau=1.74 snr=3.5 delta=-0.668+-3.089 used=False | 6ms: delta=2.210
+  GW170823_L1            f_GR=  197 tau_GR= 5.25ms a_f=0.691 | 3ms: f=128 tau=1.64 snr=1.9 delta=-0.688+-3.676 used=False | 6ms: delta=2.210
+  GW190403_051519_H1     f_GR=   88 tau_GR=14.76ms a_f=0.824 | 3ms: f=91 tau=47.38 snr=4.0 delta=2.210+-0.215 used=False | 6ms: delta=2.210
+  GW190403_051519_L1     f_GR=   88 tau_GR=14.76ms a_f=0.824 | 3ms: f=98 tau=47.38 snr=4.1 delta=2.210+-0.250 used=False | 6ms: delta=2.210
+  GW190408_181802_H1     f_GR=  316 tau_GR= 3.18ms a_f=0.665 | 3ms: f=326 tau=10.19 snr=3.8 delta=2.210+-0.258 used=False | 6ms: delta=1.816
+  GW190408_181802_L1     f_GR=  316 tau_GR= 3.18ms a_f=0.665 | 3ms: f=300 tau=5.71 snr=1.8 delta=0.797+-0.669 used=False | 6ms: delta=-0.544
+  GW190412_H1            f_GR=  403 tau_GR= 2.40ms a_f=0.634 | 3ms: f=317 tau=7.71 snr=2.4 delta=2.210+-0.314 used=False | 6ms: delta=-0.600
+  GW190412_L1            f_GR=  403 tau_GR= 2.40ms a_f=0.634 | 3ms: f=463 tau=7.71 snr=2.2 delta=2.210+-0.365 used=False | 6ms: delta=2.210
+  GW190413_052954_H1     f_GR=  194 tau_GR= 5.12ms a_f=0.658 | 3ms: f=233 tau=16.45 snr=1.8 delta=2.210+-0.361 used=False | 6ms: delta=2.210
+  GW190413_052954_L1     f_GR=  194 tau_GR= 5.12ms a_f=0.658 | 3ms: f=200 tau=16.45 snr=2.7 delta=2.210+-0.255 used=False | 6ms: delta=2.210
+  GW190413_134308_H1     f_GR=  131 tau_GR= 7.49ms a_f=0.646 | 3ms: f=100 tau=24.05 snr=3.5 delta=2.210+-0.280 used=False | 6ms: delta=2.210
+  GW190413_134308_L1     f_GR=  131 tau_GR= 7.49ms a_f=0.646 | 3ms: f=101 tau=4.75 snr=4.8 delta=-0.366+-1.250 used=False | 6ms: delta=1.321
+  GW190421_213856_H1     f_GR=  162 tau_GR= 6.06ms a_f=0.644 | 3ms: f=125 tau=4.99 snr=4.4 delta=-0.176+-0.974 used=False | 6ms: delta=2.210
+  GW190421_213856_L1     f_GR=  162 tau_GR= 6.06ms a_f=0.644 | 3ms: f=156 tau=19.45 snr=3.4 delta=2.210+-0.328 used=False | 6ms: delta=2.210
+  GW190426_190642_H1     f_GR=   60 tau_GR=18.48ms a_f=0.744 | 3ms: f=56 tau=59.32 snr=3.0 delta=2.210+-0.234 used=False | 6ms: delta=2.210
+  GW190426_190642_L1     f_GR=   60 tau_GR=18.48ms a_f=0.744 | 3ms: f=42 tau=59.32 snr=5.1 delta=2.210+-0.204 used=True | 6ms: delta=2.210
+  GW190503_185404_H1     f_GR=  194 tau_GR= 5.08ms a_f=0.650 | 3ms: f=126 tau=16.32 snr=3.2 delta=2.210+-0.270 used=False | 6ms: delta=0.668
+  GW190503_185404_L1     f_GR=  194 tau_GR= 5.08ms a_f=0.650 | 3ms: f=217 tau=16.32 snr=2.7 delta=2.210+-0.304 used=False | 6ms: delta=2.210
+  GW190512_180714_H1     f_GR=  378 tau_GR= 2.59ms a_f=0.643 | 3ms: f=297 tau=8.30 snr=1.4 delta=2.210+-0.303 used=False | 6ms: delta=-0.329
+  GW190512_180714_L1     f_GR=  378 tau_GR= 2.59ms a_f=0.643 | 3ms: f=526 tau=2.24 snr=2.1 delta=-0.133+-1.259 used=False | 6ms: delta=2.210
+  GW190513_205428_H1     f_GR=  235 tau_GR= 4.37ms a_f=0.685 | 3ms: f=219 tau=14.03 snr=6.2 delta=2.210+-0.155 used=True | 6ms: delta=1.060
+  GW190513_205428_L1     f_GR=  235 tau_GR= 4.37ms a_f=0.685 | 3ms: f=247 tau=14.03 snr=1.4 delta=2.210+-0.288 used=False | 6ms: delta=2.210
+  GW190514_065416_H1     f_GR=  152 tau_GR= 6.42ms a_f=0.642 | 3ms: f=99 tau=10.24 snr=3.8 delta=0.595+-0.536 used=False | 6ms: delta=2.210
+  GW190514_065416_L1     f_GR=  152 tau_GR= 6.42ms a_f=0.642 | 3ms: f=120 tau=7.36 snr=1.8 delta=0.147+-0.961 used=False | 6ms: delta=-0.006
+  GW190517_055101_H1     f_GR=  243 tau_GR= 5.22ms a_f=0.814 | 3ms: f=297 tau=16.76 snr=2.7 delta=2.210+-0.289 used=False | 6ms: delta=2.210
+  GW190517_055101_L1     f_GR=  243 tau_GR= 5.22ms a_f=0.814 | 3ms: f=251 tau=10.04 snr=4.5 delta=0.924+-0.450 used=False | 6ms: delta=1.500
+  GW190519_153544_H1     f_GR=  126 tau_GR= 9.17ms a_f=0.765 | 3ms: f=111 tau=29.43 snr=2.7 delta=2.210+-0.311 used=False | 6ms: delta=2.210
+  GW190519_153544_L1     f_GR=  126 tau_GR= 9.17ms a_f=0.765 | 3ms: f=141 tau=17.44 snr=3.2 delta=0.902+-0.543 used=False | 6ms: delta=2.016
+  GW190521_H1            f_GR=   69 tau_GR=13.57ms a_f=0.597 | 3ms: f=69 tau=31.68 snr=5.4 delta=1.335+-0.296 used=True | 6ms: delta=0.383
+  GW190521_L1            f_GR=   69 tau_GR=13.57ms a_f=0.597 | 3ms: f=62 tau=17.63 snr=8.5 delta=0.299+-0.359 used=True | 6ms: delta=0.383
+  GW190521_074359_H1     f_GR=  197 tau_GR= 5.37ms a_f=0.708 | 3ms: f=274 tau=1.67 snr=2.2 delta=-0.688+-3.496 used=False | 6ms: delta=2.210
+  GW190521_074359_L1     f_GR=  197 tau_GR= 5.37ms a_f=0.708 | 3ms: f=160 tau=7.95 snr=11.1 delta=0.481+-0.180 used=True | 6ms: delta=0.576
+  GW190527_092055_H1     f_GR=  216 tau_GR= 4.78ms a_f=0.690 | 3ms: f=184 tau=15.35 snr=2.1 delta=2.210+-0.322 used=False | 6ms: delta=2.210
+  GW190527_092055_L1     f_GR=  216 tau_GR= 4.78ms a_f=0.690 | 3ms: f=248 tau=15.35 snr=1.2 delta=2.210+-0.269 used=False | 6ms: delta=2.210
+  GW190602_175927_H1     f_GR=  104 tau_GR=10.01ms a_f=0.697 | 3ms: f=122 tau=32.12 snr=1.8 delta=2.210+-0.344 used=False | 6ms: delta=2.210
+  GW190602_175927_L1     f_GR=  104 tau_GR=10.01ms a_f=0.697 | 3ms: f=85 tau=32.12 snr=3.5 delta=2.210+-0.238 used=False | 6ms: delta=2.210
+  GW190620_030421_L1     f_GR=  139 tau_GR= 8.34ms a_f=0.766 | 3ms: f=108 tau=5.63 snr=6.7 delta=-0.325+-1.129 used=True | 6ms: delta=-0.329
+  GW190630_185205_L1     f_GR=  260 tau_GR= 4.02ms a_f=0.699 | 3ms: f=182 tau=12.90 snr=3.2 delta=2.210+-0.277 used=False | 6ms: delta=2.210
+  GW190701_203306_H1     f_GR=  133 tau_GR= 7.38ms a_f=0.649 | 3ms: f=185 tau=5.62 snr=3.0 delta=-0.239+-1.346 used=False | 6ms: delta=-0.325
+  GW190701_203306_L1     f_GR=  133 tau_GR= 7.38ms a_f=0.649 | 3ms: f=118 tau=23.70 snr=5.1 delta=2.210+-0.229 used=True | 6ms: delta=2.210
+  GW190706_222641_H1     f_GR=  103 tau_GR=10.66ms a_f=0.734 | 3ms: f=89 tau=12.15 snr=6.1 delta=0.140+-0.378 used=True | 6ms: delta=0.383
+  GW190706_222641_L1     f_GR=  103 tau_GR=10.66ms a_f=0.734 | 3ms: f=80 tau=34.21 snr=3.7 delta=2.210+-0.239 used=False | 6ms: delta=2.210
+  GW190707_093326_H1     f_GR=  743 tau_GR= 1.32ms a_f=0.648 | 3ms: f=604 tau=4.25 snr=2.1 delta=2.210+-0.270 used=False | 6ms: delta=2.210
+  GW190707_093326_L1     f_GR=  743 tau_GR= 1.32ms a_f=0.648 | 3ms: f=1033 tau=1.31 snr=1.9 delta=-0.012+-1.170 used=False | 6ms: delta=2.210
+  GW190708_232457_L1     f_GR=  471 tau_GR= 2.13ms a_f=0.665 | 3ms: f=364 tau=6.83 snr=1.4 delta=2.210+-0.345 used=False | 6ms: delta=2.210
+  GW190719_215514_H1     f_GR=  204 tau_GR= 5.32ms a_f=0.726 | 3ms: f=133 tau=4.41 snr=4.0 delta=-0.171+-1.023 used=False | 6ms: delta=0.140
+  GW190719_215514_L1     f_GR=  204 tau_GR= 5.32ms a_f=0.726 | 3ms: f=133 tau=9.56 snr=2.7 delta=0.797+-0.586 used=False | 6ms: delta=0.006
+  GW190720_000836_H1     f_GR=  720 tau_GR= 1.46ms a_f=0.701 | 3ms: f=806 tau=4.67 snr=2.1 delta=2.210+-0.229 used=False | 6ms: delta=2.210
+  GW190720_000836_L1     f_GR=  720 tau_GR= 1.46ms a_f=0.701 | 3ms: f=601 tau=3.00 snr=2.4 delta=1.060+-0.385 used=False | 6ms: delta=2.210
+  GW190725_174728_H1     f_GR=  781 tau_GR= 1.22ms a_f=0.619 | 3ms: f=508 tau=0.38 snr=2.7 delta=-0.688+-3.724 used=False | 6ms: delta=2.210
+  GW190725_174728_L1     f_GR=  781 tau_GR= 1.22ms a_f=0.619 | 3ms: f=508 tau=0.38 snr=0.7 delta=-0.688+-3.534 used=False | 6ms: delta=2.210
+  GW190727_060333_H1     f_GR=  174 tau_GR= 6.06ms a_f=0.706 | 3ms: f=113 tau=1.89 snr=2.0 delta=-0.688+-3.771 used=False | 6ms: delta=2.210
+  GW190727_060333_L1     f_GR=  174 tau_GR= 6.06ms a_f=0.706 | 3ms: f=174 tau=5.00 snr=3.2 delta=-0.176+-1.431 used=False | 6ms: delta=0.913
+  GW190728_064510_H1     f_GR=  752 tau_GR= 1.40ms a_f=0.703 | 3ms: f=1046 tau=0.44 snr=2.1 delta=-0.688+-3.581 used=False | 6ms: delta=1.661
+  GW190728_064510_L1     f_GR=  752 tau_GR= 1.40ms a_f=0.703 | 3ms: f=499 tau=4.48 snr=1.9 delta=2.210+-0.348 used=False | 6ms: delta=1.193
+  GW190731_140936_H1     f_GR=  163 tau_GR= 6.34ms a_f=0.691 | 3ms: f=133 tau=20.35 snr=4.5 delta=2.210+-0.167 used=False | 6ms: delta=-0.325
+  GW190731_140936_L1     f_GR=  163 tau_GR= 6.34ms a_f=0.691 | 3ms: f=204 tau=20.35 snr=2.0 delta=2.210+-0.289 used=False | 6ms: delta=2.210
+  GW190803_022701_H1     f_GR=  176 tau_GR= 5.73ms a_f=0.670 | 3ms: f=115 tau=4.36 snr=1.8 delta=-0.239+-1.511 used=False | 6ms: delta=2.210
+  GW190803_022701_L1     f_GR=  176 tau_GR= 5.73ms a_f=0.670 | 3ms: f=194 tau=18.38 snr=2.9 delta=2.210+-0.244 used=False | 6ms: delta=2.210
+  GW190805_211137_H1     f_GR=  134 tau_GR= 8.90ms a_f=0.782 | 3ms: f=113 tau=28.57 snr=1.8 delta=2.210+-0.156 used=False | 6ms: delta=2.210
+  GW190805_211137_L1     f_GR=  134 tau_GR= 8.90ms a_f=0.782 | 3ms: f=118 tau=15.11 snr=6.3 delta=0.698+-0.485 used=True | 6ms: delta=0.688
+  GW190814_H1            f_GR=  500 tau_GR= 1.51ms a_f=0.282 | 3ms: f=375 tau=4.85 snr=2.4 delta=2.210+-0.277 used=False | 6ms: delta=-0.688
+  GW190814_L1            f_GR=  500 tau_GR= 1.51ms a_f=0.282 | 3ms: f=516 tau=4.85 snr=2.6 delta=2.210+-0.323 used=False | 6ms: delta=-0.486
+  GW190828_063405_H1     f_GR=  234 tau_GR= 4.64ms a_f=0.726 | 3ms: f=187 tau=14.89 snr=2.0 delta=2.210+-0.325 used=False | 6ms: delta=2.210
+  GW190828_063405_L1     f_GR=  234 tau_GR= 4.64ms a_f=0.726 | 3ms: f=172 tau=2.57 snr=5.9 delta=-0.447+-0.511 used=True | 6ms: delta=2.210
+  GW190828_065509_H1     f_GR=  385 tau_GR= 2.48ms a_f=0.620 | 3ms: f=250 tau=0.77 snr=1.9 delta=-0.688+-4.344 used=False | 6ms: delta=2.210
+  GW190828_065509_L1     f_GR=  385 tau_GR= 2.48ms a_f=0.620 | 3ms: f=404 tau=7.96 snr=2.1 delta=2.210+-0.286 used=False | 6ms: delta=2.210
+  GW190910_112807_L1     f_GR=  177 tau_GR= 5.74ms a_f=0.678 | 3ms: f=153 tau=18.44 snr=8.6 delta=2.210+-0.223 used=True | 6ms: delta=1.661
+  GW190915_235702_H1     f_GR=  234 tau_GR= 4.29ms a_f=0.666 | 3ms: f=169 tau=13.76 snr=1.8 delta=2.210+-0.345 used=False | 6ms: delta=2.210
+  GW190915_235702_L1     f_GR=  234 tau_GR= 4.29ms a_f=0.666 | 3ms: f=325 tau=2.86 snr=1.8 delta=-0.333+-1.717 used=False | 6ms: delta=2.210
+  GW190916_200658_H1     f_GR=  153 tau_GR= 6.88ms a_f=0.706 | 3ms: f=127 tau=22.09 snr=2.5 delta=2.210+-0.329 used=False | 6ms: delta=2.210
+  GW190916_200658_L1     f_GR=  153 tau_GR= 6.88ms a_f=0.706 | 3ms: f=169 tau=8.35 snr=2.6 delta=0.213+-0.854 used=False | 6ms: delta=-0.480
+  GW190917_114630_H1     f_GR= 1067 tau_GR= 0.75ms a_f=0.390 | 3ms: f=695 tau=2.41 snr=2.6 delta=2.210+-0.281 used=False | 6ms: delta=-0.688
+  GW190917_114630_L1     f_GR= 1067 tau_GR= 0.75ms a_f=0.390 | 3ms: f=907 tau=0.36 snr=2.0 delta=-0.515+-2.417 used=False | 6ms: delta=2.210
+  GW190924_021846_H1     f_GR= 1133 tau_GR= 0.88ms a_f=0.657 | 3ms: f=1576 tau=2.81 snr=1.9 delta=2.210+-0.397 used=False | 6ms: delta=1.816
+  GW190924_021846_L1     f_GR= 1133 tau_GR= 0.88ms a_f=0.657 | 3ms: f=946 tau=2.81 snr=1.7 delta=2.210+-0.387 used=False | 6ms: delta=2.210
+  GW190925_232845_H1     f_GR=  422 tau_GR= 2.49ms a_f=0.703 | 3ms: f=422 tau=8.00 snr=1.9 delta=2.210+-0.244 used=False | 6ms: delta=2.210
+  GW190926_050336_H1     f_GR=  177 tau_GR= 5.36ms a_f=0.615 | 3ms: f=218 tau=17.21 snr=2.1 delta=2.210+-0.315 used=False | 6ms: delta=-0.486
+  GW190926_050336_L1     f_GR=  177 tau_GR= 5.36ms a_f=0.615 | 3ms: f=246 tau=2.75 snr=2.6 delta=-0.486+-2.473 used=False | 6ms: delta=0.292
+  GW190929_012149_H1     f_GR=  115 tau_GR= 7.95ms a_f=0.571 | 3ms: f=117 tau=25.54 snr=2.3 delta=2.210+-0.329 used=False | 6ms: delta=2.210
+  GW190929_012149_L1     f_GR=  115 tau_GR= 7.95ms a_f=0.571 | 3ms: f=122 tau=15.31 snr=2.5 delta=0.924+-0.567 used=False | 6ms: delta=-0.444
+  GW190930_133541_H1     f_GR=  732 tau_GR= 1.41ms a_f=0.690 | 3ms: f=820 tau=4.53 snr=2.4 delta=2.210+-0.242 used=False | 6ms: delta=1.816
+  GW190930_133541_L1     f_GR=  732 tau_GR= 1.41ms a_f=0.690 | 3ms: f=477 tau=1.81 snr=2.6 delta=0.284+-0.854 used=False | 6ms: delta=2.210
+  GW191103_012549_H1     f_GR=  791 tau_GR= 1.38ms a_f=0.733 | 3ms: f=687 tau=0.67 snr=2.5 delta=-0.515+-2.271 used=False | 6ms: delta=1.500
+  GW191103_012549_L1     f_GR=  791 tau_GR= 1.38ms a_f=0.733 | 3ms: f=535 tau=4.44 snr=3.3 delta=2.210+-0.255 used=False | 6ms: delta=2.210
+  GW191105_143521_H1     f_GR=  779 tau_GR= 1.29ms a_f=0.665 | 3ms: f=951 tau=4.13 snr=2.5 delta=2.210+-0.291 used=False | 6ms: delta=0.586
+  GW191105_143521_L1     f_GR=  779 tau_GR= 1.29ms a_f=0.665 | 3ms: f=896 tau=2.82 snr=2.0 delta=1.193+-0.470 used=False | 6ms: delta=2.210
+  GW191109_010717_H1     f_GR=  118 tau_GR= 7.78ms a_f=0.576 | 3ms: f=78 tau=24.98 snr=3.8 delta=2.210+-0.283 used=False | 6ms: delta=2.210
+  GW191109_010717_L1     f_GR=  118 tau_GR= 7.78ms a_f=0.576 | 3ms: f=100 tau=15.94 snr=10.1 delta=1.048+-0.268 used=True | 6ms: delta=0.797
+  GW191113_071753_H1     f_GR=  335 tau_GR= 2.44ms a_f=0.421 | 3ms: f=263 tau=7.82 snr=3.1 delta=2.210+-0.297 used=False | 6ms: delta=2.210
+  GW191113_071753_L1     f_GR=  335 tau_GR= 2.44ms a_f=0.421 | 3ms: f=466 tau=7.82 snr=2.5 delta=2.210+-0.289 used=False | 6ms: delta=2.210
+  GW191126_115259_H1     f_GR=  707 tau_GR= 1.55ms a_f=0.734 | 3ms: f=707 tau=4.99 snr=1.2 delta=2.210+-0.304 used=False | 6ms: delta=2.210
+  GW191126_115259_L1     f_GR=  707 tau_GR= 1.55ms a_f=0.734 | 3ms: f=460 tau=0.55 snr=1.3 delta=-0.647+-3.372 used=False | 6ms: delta=2.210
+  GW191127_050227_H1     f_GR=  146 tau_GR= 6.94ms a_f=0.676 | 3ms: f=137 tau=10.27 snr=2.9 delta=0.481+-0.638 used=False | 6ms: delta=-0.515
+  GW191127_050227_L1     f_GR=  146 tau_GR= 6.94ms a_f=0.676 | 3ms: f=142 tau=17.24 snr=2.4 delta=1.485+-0.408 used=False | 6ms: delta=-0.647
+  GW191129_134029_H1     f_GR=  881 tau_GR= 1.15ms a_f=0.677 | 3ms: f=896 tau=3.70 snr=1.9 delta=2.210+-0.329 used=False | 6ms: delta=2.210
+  GW191129_134029_L1     f_GR=  881 tau_GR= 1.15ms a_f=0.677 | 3ms: f=574 tau=3.25 snr=1.7 delta=1.816+-0.404 used=False | 6ms: delta=-0.688
+  GW191204_110529_H1     f_GR=  288 tau_GR= 3.57ms a_f=0.686 | 3ms: f=353 tau=11.46 snr=2.2 delta=2.210+-0.240 used=False | 6ms: delta=2.210
+  GW191204_110529_L1     f_GR=  288 tau_GR= 3.57ms a_f=0.686 | 3ms: f=339 tau=8.28 snr=4.3 delta=1.321+-0.355 used=False | 6ms: delta=2.210
+  GW191204_171526_H1     f_GR=  816 tau_GR= 1.32ms a_f=0.722 | 3ms: f=681 tau=4.24 snr=1.6 delta=2.210+-0.299 used=False | 6ms: delta=2.210
+  GW191204_171526_L1     f_GR=  816 tau_GR= 1.32ms a_f=0.722 | 3ms: f=531 tau=1.84 snr=1.2 delta=0.391+-0.627 used=False | 6ms: delta=2.210
+  GW191215_223052_H1     f_GR=  302 tau_GR= 3.29ms a_f=0.659 | 3ms: f=420 tau=2.20 snr=2.2 delta=-0.333+-1.920 used=False | 6ms: delta=-0.176
+  GW191215_223052_L1     f_GR=  302 tau_GR= 3.29ms a_f=0.659 | 3ms: f=238 tau=10.58 snr=2.2 delta=2.210+-0.296 used=False | 6ms: delta=-0.688
+  GW191216_213338_H1     f_GR=  853 tau_GR= 1.22ms a_f=0.695 | 3ms: f=922 tau=3.91 snr=1.9 delta=2.210+-0.316 used=False | 6ms: delta=2.210
+  GW191219_163120_H1     f_GR=  349 tau_GR= 2.01ms a_f=0.115 | 3ms: f=470 tau=0.92 snr=2.6 delta=-0.541+-2.370 used=False | 6ms: delta=2.210
+  GW191219_163120_L1     f_GR=  349 tau_GR= 2.01ms a_f=0.115 | 3ms: f=227 tau=0.63 snr=1.6 delta=-0.688+-4.083 used=False | 6ms: delta=1.833
+  GW191222_033537_H1     f_GR=  146 tau_GR= 6.85ms a_f=0.664 | 3ms: f=112 tau=5.61 snr=5.1 delta=-0.181+-0.651 used=True | 6ms: delta=0.000
+  GW191222_033537_L1     f_GR=  146 tau_GR= 6.85ms a_f=0.664 | 3ms: f=95 tau=13.33 snr=6.3 delta=0.947+-0.479 used=True | 6ms: delta=2.016
+  GW191230_180458_H1     f_GR=  120 tau_GR= 8.28ms a_f=0.659 | 3ms: f=120 tau=2.58 snr=1.6 delta=-0.688+-1.715 used=False | 6ms: delta=0.000
+  GW191230_180458_L1     f_GR=  120 tau_GR= 8.28ms a_f=0.659 | 3ms: f=153 tau=26.59 snr=4.0 delta=2.210+-0.230 used=False | 6ms: delta=2.210
+  GW200112_155838_L1     f_GR=  229 tau_GR= 4.56ms a_f=0.698 | 3ms: f=291 tau=14.63 snr=1.8 delta=2.210+-0.306 used=False | 6ms: delta=-0.230
+  GW200115_042309_H1     f_GR= 1858 tau_GR= 0.43ms a_f=0.383 | 3ms: f=2044 tau=1.38 snr=1.9 delta=2.210+-0.376 used=False | 6ms: delta=-0.688
+  GW200115_042309_L1     f_GR= 1858 tau_GR= 0.43ms a_f=0.383 | 3ms: f=1210 tau=0.13 snr=0.9 delta=-0.688+-4.133 used=False | 6ms: delta=2.210
+  GW200128_022011_H1     f_GR=  158 tau_GR= 6.76ms a_f=0.715 | 3ms: f=103 tau=12.22 snr=4.5 delta=0.808+-0.484 used=False | 6ms: delta=2.210
+  GW200128_022011_L1     f_GR=  158 tau_GR= 6.76ms a_f=0.715 | 3ms: f=186 tau=21.71 snr=1.6 delta=2.210+-0.294 used=False | 6ms: delta=2.210
+  GW200129_065458_H1     f_GR=  246 tau_GR= 4.34ms a_f=0.716 | 3ms: f=185 tau=7.33 snr=10.1 delta=0.688+-0.270 used=True | 6ms: delta=0.213
+  GW200129_065458_L1     f_GR=  246 tau_GR= 4.34ms a_f=0.716 | 3ms: f=238 tau=3.14 snr=6.5 delta=-0.277+-0.537 used=True | 6ms: delta=2.210
+  GW200202_154313_H1     f_GR=  945 tau_GR= 1.09ms a_f=0.685 | 3ms: f=1021 tau=3.49 snr=2.5 delta=2.210+-0.248 used=False | 6ms: delta=0.947
+  GW200202_154313_L1     f_GR=  945 tau_GR= 1.09ms a_f=0.685 | 3ms: f=769 tau=3.49 snr=3.3 delta=2.210+-0.358 used=False | 6ms: delta=-0.181
+  GW200208_130117_H1     f_GR=  191 tau_GR= 5.16ms a_f=0.650 | 3ms: f=131 tau=16.55 snr=2.6 delta=2.210+-0.349 used=False | 6ms: delta=2.210
+  GW200208_130117_L1     f_GR=  191 tau_GR= 5.16ms a_f=0.650 | 3ms: f=141 tau=16.55 snr=2.7 delta=2.210+-0.249 used=False | 6ms: delta=2.210
+  GW200208_222617_H1     f_GR=  170 tau_GR= 6.19ms a_f=0.706 | 3ms: f=125 tau=19.88 snr=2.7 delta=2.210+-0.342 used=False | 6ms: delta=2.210
+  GW200208_222617_L1     f_GR=  170 tau_GR= 6.19ms a_f=0.706 | 3ms: f=111 tau=1.93 snr=3.0 delta=-0.688+-3.972 used=False | 6ms: delta=1.349
+  GW200209_085452_H1     f_GR=  175 tau_GR= 5.55ms a_f=0.638 | 3ms: f=152 tau=17.81 snr=3.4 delta=2.210+-0.281 used=False | 6ms: delta=2.210
+  GW200210_092254_H1     f_GR=  430 tau_GR= 1.78ms a_f=0.307 | 3ms: f=401 tau=5.72 snr=2.1 delta=2.210+-0.321 used=False | 6ms: delta=2.210
+  GW200210_092254_L1     f_GR=  430 tau_GR= 1.78ms a_f=0.307 | 3ms: f=328 tau=5.72 snr=2.5 delta=2.210+-0.341 used=False | 6ms: delta=2.210
+  GW200216_220804_H1     f_GR=  135 tau_GR= 7.57ms a_f=0.683 | 3ms: f=188 tau=2.36 snr=2.4 delta=-0.688+-3.935 used=False | 6ms: delta=1.060
+  GW200216_220804_L1     f_GR=  135 tau_GR= 7.57ms a_f=0.683 | 3ms: f=88 tau=2.36 snr=2.6 delta=-0.688+-4.181 used=False | 6ms: delta=-0.688
+  GW200219_094415_H1     f_GR=  169 tau_GR= 5.81ms a_f=0.649 | 3ms: f=236 tau=2.47 snr=2.8 delta=-0.574+-2.293 used=False | 6ms: delta=2.210
+  GW200219_094415_L1     f_GR=  169 tau_GR= 5.81ms a_f=0.649 | 3ms: f=228 tau=7.09 snr=2.6 delta=0.221+-0.905 used=False | 6ms: delta=0.586
+  GW200220_061928_H1     f_GR=   64 tau_GR=16.13ms a_f=0.688 | 3ms: f=46 tau=51.77 snr=2.0 delta=2.210+-0.256 used=False | 6ms: delta=0.126
+  GW200220_061928_L1     f_GR=   64 tau_GR=16.13ms a_f=0.688 | 3ms: f=42 tau=24.17 snr=2.3 delta=0.499+-0.784 used=False | 6ms: delta=2.210
+  GW200220_124850_H1     f_GR=  157 tau_GR= 6.27ms a_f=0.648 | 3ms: f=102 tau=1.95 snr=2.3 delta=-0.688+-3.931 used=False | 6ms: delta=-0.133
+  GW200220_124850_L1     f_GR=  157 tau_GR= 6.27ms a_f=0.648 | 3ms: f=169 tau=18.91 snr=3.2 delta=2.016+-0.265 used=False | 6ms: delta=0.924
+  GW200224_222234_H1     f_GR=  191 tau_GR= 5.55ms a_f=0.712 | 3ms: f=168 tau=5.91 snr=6.8 delta=0.064+-0.394 used=True | 6ms: delta=-0.444
+  GW200224_222234_L1     f_GR=  191 tau_GR= 5.55ms a_f=0.712 | 3ms: f=169 tau=1.73 snr=3.9 delta=-0.688+-4.054 used=False | 6ms: delta=2.210
+  GW200225_060421_H1     f_GR=  423 tau_GR= 2.29ms a_f=0.633 | 3ms: f=312 tau=7.34 snr=2.0 delta=2.210+-0.235 used=False | 6ms: delta=2.210
+  GW200225_060421_L1     f_GR=  423 tau_GR= 2.29ms a_f=0.633 | 3ms: f=395 tau=7.34 snr=2.0 delta=2.210+-0.277 used=False | 6ms: delta=0.688
+  GW200302_015811_H1     f_GR=  232 tau_GR= 4.18ms a_f=0.636 | 3ms: f=204 tau=8.61 snr=5.7 delta=1.060+-0.273 used=True | 6ms: delta=0.688
+  GW200306_093714_H1     f_GR=  318 tau_GR= 3.52ms a_f=0.746 | 3ms: f=420 tau=11.29 snr=1.8 delta=2.210+-0.329 used=False | 6ms: delta=1.471
+  GW200306_093714_L1     f_GR=  318 tau_GR= 3.52ms a_f=0.746 | 3ms: f=420 tau=2.08 snr=2.4 delta=-0.408+-1.841 used=False | 6ms: delta=2.210
+  GW200308_173609_H1     f_GR=  101 tau_GR= 9.76ms a_f=0.648 | 3ms: f=108 tau=19.99 snr=3.8 delta=1.048+-0.414 used=False | 6ms: delta=-0.688
+  GW200308_173609_L1     f_GR=  101 tau_GR= 9.76ms a_f=0.648 | 3ms: f=66 tau=7.47 snr=3.5 delta=-0.235+-1.346 used=False | 6ms: delta=0.464
+  GW200311_115853_H1     f_GR=  233 tau_GR= 4.34ms a_f=0.674 | 3ms: f=233 tau=13.93 snr=1.9 delta=2.210+-0.374 used=False | 6ms: delta=2.210
+  GW200311_115853_L1     f_GR=  233 tau_GR= 4.34ms a_f=0.674 | 3ms: f=152 tau=2.56 snr=2.8 delta=-0.411+-2.004 used=False | 6ms: delta=2.210
+  GW200316_215756_H1     f_GR=  708 tau_GR= 1.47ms a_f=0.695 | 3ms: f=461 tau=0.46 snr=2.9 delta=-0.688+-3.440 used=False | 6ms: delta=-0.547
+  GW200316_215756_L1     f_GR=  708 tau_GR= 1.47ms a_f=0.695 | 3ms: f=612 tau=4.71 snr=2.5 delta=2.210+-0.314 used=False | 6ms: delta=2.210
+  GW200322_091133_H1     f_GR=  219 tau_GR= 4.49ms a_f=0.647 | 3ms: f=234 tau=14.41 snr=3.1 delta=2.210+-0.289 used=False | 6ms: delta=2.210
+  GW200322_091133_L1     f_GR=  219 tau_GR= 4.49ms a_f=0.647 | 3ms: f=304 tau=4.44 snr=6.1 delta=-0.012+-1.122 used=True | 6ms: delta=-0.688
+STACK inicio 3.0 ms: n=23 delta_tau=1.3962+-0.0569 (z vs RG 24.54) | previsao ramo B -0.0209 (z vs B 24.90; poder 0.37) | ramo A -2.3e-42 | delta_f=-0.1302+-0.0085 | SNR medio 6.9
+STACK inicio 6.0 ms: n=18 delta_tau=1.1853+-0.0757 (z vs RG 15.65) | previsao ramo B -0.0200 (z vs B 15.92; poder 0.26) | ramo A -2.1e-42 | delta_f=-0.0918+-0.0110 | SNR medio 6.6
+OK -> /mnt/c/IALD/Artigo/Haja_Luz/A Ponte e o Um/cache/gw/RINGDOWN_DEPHASING_V1_RESULT.json | 342s
+exit=0 15:47:40

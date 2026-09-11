@@ -7253,3 +7253,652 @@ COMPLETA** (sem a chave; a versao da custodia) 10:05:27 → 10:50:21; `um.py` sh
 `COLAPSO_TIPADO__TODAS_AS_CLAUSULAS_NO_KERNEL_COM_O_TRIO`. Kernel: 1 pedra, root +1, `Audit.lean` +10, `lake build` 9150 jobs / 0 erros. Stdout canonico
 `rodada_v336_stdout.txt` (+ `_INTERMEDIARIA`). Arvore regenerada (`38d4a995c047f5f5`). **HANDOFF_v336 para a irma** (cobre v335 e
 v336; a v334 ja esta no espelho).
+
+## 09/09/2026 (tarde) — A V337: O NOME E A CARACTERIZACAO (pedra da gerencia) — rodada INTERMEDIARIA
+
+**Cunhagem do operador (09/09, verbatim):** «Nome = caracterizacao». **Leitura da gerencia:** caracterizar e dar o SE E
+SOMENTE SE. O Nome nao apenas verifica (v336: o reflexo preserva a identidade do referente) — ele IDENTIFICA o referente
+por biconditional. Instrumento verifica; caracterizacao identifica.
+
+**Tipado — `TheNameIsTheCharacterization.lean` (sha16 `d2fb9ce7f7b8ec88`; 6 teoremas; trio; compilada independentemente contra
+o kernel):** `iald_name_characterizes_the_recognized` (para todo estado IALD: fixado pelo reconhecimento sse na imagem —
+Im = Fix); `name_characterizes_the_screen` (na tela fundada sse no centralizador, v334 como biconditional);
+`reading_characterizes_the_configuration` (mesma leitura do cociclo sse mesma configuracao, 055);
+`qubit_name_characterizes_the_diagonal` (fixado pelo Nome-operador do qubit sse as coerencias sao zero, 057);
+`angle_characterizes_the_weight` (no quadrante da fronteira, sin²θ = p sse θ = arcsin √p, v335); num termo
+`the_name_is_the_characterization`. Composicao pura; nenhum axioma novo.
+
+**v337 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 14:04:15 -> 14:12:39; `um.py` sha16
+`e2f9a889c2dcf6f4` (9,860,115 bytes; selo == disco); **4241/4241** (4235 + 6); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+`identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`:
+`RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`; colapso tipado conferido. Kernel: 1 pedra, root +1, `Audit.lean` +6, `lake build` 9151
+jobs / 0 erros. Stdout canonico `rodada_v337_stdout.txt`. Arvore regenerada (`88f84af29b57c2c6`). **v336 `f1f330e24120f9be`
+e a ultima COMPLETA, custodiada pela irma em 09/09; a v337 vai a custodia quando o operador fechar.**
+
+## 10/09/2026 — A V338: A SESSAO INTEIRA DA BANCADA DE 09/09 (ENTREGAS 058..062, 77 modulos) — rodada INTERMEDIARIA
+
+**Ordem do operador (10/09):** «avancei muito com o chatgpt naquela sessao de trabalho, gostaria que vc observasse todo o
+avanco e como isso deve ser incorporado ao um.py». **O que a bancada produziu em 09/09 (le a v337 e trabalha sobre ela):**
+cinco entregas espontaneas e uma CADEIA de copias integradas (63 → 72 → 77 modulos), cada elo com recibo de compilacao
+conjunta (raiz + duas auditorias, exit 0, sem avisos) e auditoria estatica independente (1755/1755 no elo 77). A bancada
+NAO executou o um.py, nao criou flags nem selo: as copias sao de trabalho. **Como entrou:** a gerencia NAO usou a copia
+integrada — montou o lote pela cadeia de recibos (`INTEGRATION_RESULT.json` 77 → 72 → 63), leu os 77 hashes dos bytes das
+fontes congeladas (77/77), varreu proibidos (0), guarda de colisao (0), recompilou INDEPENDENTEMENTE os 77 contra o kernel
+v337 (77/77, axiomas no trio, 0 sorry), transpos com cabecalho + prefixo TGLExt. (+ regra 3) e embutiu como UM lote.
+
+**O que cada entrega paga (estatutos da bancada, conferidos nos enunciados):**
+- **058 — ATLAS GRAVITACIONAL SELECIONADO** (`SelectedGravitationalAtlas`): continuidade + amostras densas + cortes
+  racionais determinam todos os campos do registro em U; a leitura canonica `geometricLogReading` caracteriza a
+  sequencia booleana; a selecao por classe INSTANCIA `IALDState` e os teoremas do Nome (v335–v337); o decodificador
+  devolve classe, g, T e os pesos; **Einstein do registro decodificado decorre das leis de area e conservacao do registro
+  original** (`character_reconstructs_einstein_from_area`, condicional). [OPEN] origem fisica do registro, erro finito.
+- **059** (13 modulos): caracter completo reconstroi g/T/Einstein condicionado a area e conservacao; **colagem** fornece
+  Λ unico nas cartas compativeis; naturalidade infinitesimal de Ricci/escalar/Einstein em carta curva; potencial XX
+  somavel auto-adjunto com cauda em norma; exemplo de acoplamento atestado.
+- **060** (18 modulos): **o cociclo unitario infinito do potencial XX somavel na acao modular canonica** — cortes
+  u_N(t) = exp(it(H_N + V_N))exp(−itH_N), Duhamel, limite em norma uniforme em compactos, u(s+t) = u(s)α_s(u(t)),
+  u′(t) = u(t)α_t(iV); o grupo β_t = Ad_u(t)∘α_t preserva o fator; **transformacao finita de Levi-Civita/Ricci/escalar/
+  Einstein**: G[g′] = Jᵀ(G[g]∘φ)J nas sobreposicoes metricas abertas.
+- **061** (9 modulos): interacao local somavel com termos NAO comutativos (testemunha explicita); unicidade potencial ⟺
+  cociclo; fase central Z^{−it} (gerador i(V − logZ·I)); colagem suave selecionada → Λ global unico; **estado perturbado
+  de Araki [DERIVED + KNOWN, analitico — NAO Lean]**.
+- **062** (5 modulos): `CanonicalSelectorBorn` (θ(a) = ½(arctan a + π/2); p = ‖Pψ_a‖² recupera a; o vetor normalizado
+  perde o escalar — o peso conservado e parte do lastro), `SelectorRecordReconstruction` (o seletor efetivo reconhece o
+  caracter de R e recupera g, T), `AngularSelectorIntertwining` (PE = EP₊, W(θ)E = ES(θ)), `RelativePhaseCharacter`
+  ((2p_X − 1) + i(2p_Y − 1) = e^{2iθ}: duas probabilidades de interferencia recuperam a fase), `BondLocalityEstimates`
+  (suporte, estabilizacao e majorante de comutadores sem somabilidade global).
+
+**Juizo da gerencia:** PERTINENTE e nao redundante — a bancada constroi SOBRE as pedras v331–v337 (a raiz, IALDState, a tela
+fundada, a selecao como lastro, o Nome) e leva tres frentes adiante: (1) a ponte regiao–algebra (atlas selecionado,
+colagem, Λ unico, lei finita de transformacao de Einstein); (2) a dinamica (o cociclo da interacao na acao modular — o
+Lema 3 com interacao); (3) o seletor e o registro (Born, fase relativa: a selecao e o lastro, agora com o decodificador).
+**O que fica, dito pela propria bancada:** a origem fisica do registro R [INPUT]; materia/conservacao/area para os mesmos
+dados; atlas fisico compativel; alem da classe globalmente limitada, anomalias e UV. Nada move o gate; H3/tela fundada,
+JS e os falsificadores NAO sao reabertos.
+
+**v338 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 19:57:23 → 20:05:26; `um.py` sha16
+`7748416797668ffc` (11,048,796 bytes; selo == disco); **5306/5306** (4241 + 1065); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+`identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`:
+`RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`; colapso tipado conferido. Kernel: 77 pedras, root +77, `Audit.lean` +1065, `lake build` 9228
+jobs / 0 erros. Stdout canonico `rodada_v338_stdout.txt`. Arvore regenerada (`7f8e693227d705b5`). **v336 `f1f330e24120f9be` e a
+ultima COMPLETA custodiada; v337–v338 vao a custodia quando o operador fechar.**
+
+## 10/09/2026 — A V339: OS 21 MODULOS RESTANTES DA BANCADA (ENTREGAS 063..066), DUAS ERRATAS AO LADO NO um.py, A MATEMATICA ESCRITA 067..087 REGISTRADA — RODADA COMPLETA, a versao do FECHO
+
+**Ordem do operador (10/09, verbatim):** «avancei ate onde consegui no chatgpt ate acabarem meus creditos por la, agora cabe a
+voce terminar o que estavamos fazendo, porque ja estamos no fechamento mesmo».
+
+**O que a bancada deixou (09/09 noite → 10/09 manha, notas 063..087):** tres elos a mais na cadeia de copias integradas
+(83 → 93 → 98 modulos): **21 modulos Lean** (063: 6; 065: 10; 066: 5) — os unicos alem dos 77 ja na v338; e, de 067 a
+087, **vinte e uma notas de MATEMATICA ESCRITA REVISADA** (CAS, sem Lean, sem execucao), em que a propria bancada repete:
+«nao promover demonstracoes escritas a flags de compilacao»; «nao registrar como concluido». A bancada tambem pediu duas
+correcoes ao canonico: a errata ESPECTRAL no artigo e a RASTREABILIDADE das capturas do autoteste.
+
+**Os 21 modulos, auditados e incorporados:** lote montado pela cadeia de recibos (98 → 93 → 83, os 77 ja no kernel
+pulados); 21/21 hashes lidos dos bytes; zero proibidos; guarda de colisao; recompilacao INDEPENDENTE 21/21 contra o
+kernel v338 (axiomas no trio, 0 sorry); transposicao com cabecalho + prefixo TGLExt. (+ regra 3). **063 — resposta Gibbs
+ANTES da fonte e o limite local de interacoes extensivas:** o protocolo misto (W = X + Z, medicao Z, s = v²t², k > 0) paga
+a igualdade das respostas de entropia e de energia de referencia na ordem quadratica; a fonte passa a ser CALCULADA da
+resposta, com conservacao por closed/wave; o seletor transporta o registro; **o limite local de interacoes extensivas
+passou em Lean** (a «proxima prova» que a 062 nomeava); a lei fisica de area e a metrica seguem entradas; Araki/GNS/
+KMS no fecho C* por escrito [DERIVED + KNOWN], com contraexemplo a extensao normal universal ao fator original. **065 —
+caracter finito e Fisher-Lorentz:** estabilidade do prefixo do caracter, resolucao finita, controle de malha do registro,
+cotas de erro da resposta finita, precisao finita de Gibbs misto, janela de amostragem; metrica de FISHER-LORENTZ
+selecionada; variacao da densidade de materia escalar; ponte Fisher-Gibbs; conservacao sigma. **066 — sigma dos mesmos
+P e Gibbs assinado:** phi_j = √(P_j/(1 − P_s)) e a metrica dos mesmos P; resposta de Gibbs ASSINADA (dois sinais com
+probabilidades positivas); esperanca negativa renormalizada (separada de probabilidade negativa); cobertura;
+reconstrucao por DEZ LIMITES (`SignedGibbsFiniteRecord`); T e entrada.
+
+**As duas erratas AO LADO no `um.py` (gerencia, a pedido da bancada):** (1) **espectral** — o paragrafo do artigo (EN e
+PT) dizia «o espectro modular e puramente continuo, de modo que nao ha autovetor onde estar»; o kernel prova o contrario
+na construcao concreta: Ω e fixo pelo fluxo modular (`modularFlow_fixes_omega`) e os vetores locais formam uma familia
+TOTAL de autovetores (`delta_eigenvector`, `localEigenvectors_total`). A frase fica; ao lado entra o erratum, nas duas
+linguas, com a redacao segura: exterioridade e ausencia de periodo global nao implicam ausencia de modos estacionarios; o
+espectro total, o espectro pontual e os invariantes do fator sao coisas distintas; o que o rio poupa segue sendo o
+centralizador. (2) **rastreabilidade** — o autoteste (sorry injetado, depois restaurado) chamava o verificador duas vezes
+e REESCREVIA as capturas de build/auditoria nos mesmos nomes da rodada principal; a captura em disco podia descrever a
+compilacao restaurada, nao a principal (divergencia medida pela bancada na v338). Agora cada etapa grava capturas
+proprias (`_CAPTURE_STAGE`: principal, `_selftest_tampered`, `_selftest_restored`), a falha de escrita e VISIVEL (aviso
+impresso, nao `pass`), e o resultado registra os nomes dos arquivos. Nenhum enunciado Lean mudou; o gate nao se moveu.
+
+**A matematica escrita 067..087, registrada como [DERIVED] — sem flag, sem teorema contado:** dinamica livre local e
+estado fisico linear (067: probabilidades agrupadas com inverso a direita; estado quase livre positivo no fundo sigma;
+CCR); representacao global no cilindro S³ com Nash, BRST livre Einstein-sigma, Hadamard/Feynman, coeficiente de calor
+sigma a uma volta, tensor quartico e FRW corrigida (068); interacao causal c0 e calor completo (069); cohomologia
+relativa e RG (070); primitivas suaves e covariancia (071); fundos, contratermos e positividade formal (072);
+polarizacao BRST, dominio de Wick e cohomologia (073); translacao natural, curvatura e completacao (074); descida natural
+relativa (075, com a lista «NAO registrar como concluido»: primitiva total de Ω, nulidade da classe de anomalia, familia
+admissivel de contratermos, carga interagente, QME); modulos BRST, correntes e transgressao caracteristica (076);
+truncagens BRST e levantamento de Pontryagin (077); residuo A6 (078); liberdade de correcao e funcional impar (079);
+geracao E4 (080); representantes E5 (081); setor sem derivadas e diferencial CE (082); derivadas de Weyl e limite do
+detector (083); criterio da corrente e canal de Euler (084); invariantes nulos e corrente natural (085); divergencia
+injetiva e lider cubico (086); **087: N₁ CE aciclico; N₂ relativo so H⁴ de posto 2; CE inteiro graus 4/7/10 de postos
+2/4/2; a densidade par completa de Weyl da uma linha livre em H⁴ do BRST classico completo, com detector em C₆; Pontryagin
+completo e s-exato.** O dominio e um espaco-forma lorentziano 4D com sigma constante projetado — NAO o fundo fisico. A
+bancada e explicita: a nova linha em H⁴ nao e, sozinha, uma anomalia fisica nem refuta o criterio; QME, UV e a
+reconstrucao geral dos mesmos dados continuam abertos.
+
+**O que fica, no fecho, dito pela bancada e conferido pela gerencia (o mapa das quatro obrigacoes, 087):** (1)
+reconstrucao fisica geral — obter R, g, T, conservacao, calor e area do MESMO registro selecionado, com realizacao e
+compatibilidade num atlas fisico (a fase/ramo e o H3 interno NAO voltam a lista); (2) teoria quantica interagente — os
+grupos e mapas da cohomologia no dominio fisico, QME, carga BRST, estado fisico interagente; (3) integracao — FEITA nesta
+v339 para tudo o que era Lean; (4) regime UV — uma rota com alcance explicito alem da expansao perturbativa. E as seis
+folhas da estrutura do fecho (`O_FECHAMENTO_ESTRUTURA.md`): que a selecao ocorra (ritos); a identificacao fisica da
+tela fundada; a assinatura; a geometria 3+1 e a escala da area; o pagamento do custo; o valor alpha-livre.
+
+**v339 SELADA `[REAL — lido do disco]`:** rodada INTERMEDIARIA (checkpoints) 08:28:36 → 08:36:03 (5594/5594); depois **RODADA
+COMPLETA** (sem a chave; a versao do fecho e da custodia) 08:36:03 → 09:12:23; `um.py` sha16 `2de6295cdf2da077` (11,376,788 bytes; selo ==
+disco); **5594/5594** (5306 + 288); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); `identity_true = True`;
+contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`: `RODADA_COMPLETA__NENHUM_RITO_REAPROVEITADO`; colapso tipado:
+`COLAPSO_TIPADO__TODAS_AS_CLAUSULAS_NO_KERNEL_COM_O_TRIO`; capturas em disco: ['tgl_kernel_audit_capture.txt', 'tgl_kernel_audit_capture_selftest_restored.txt', 'tgl_kernel_audit_capture_selftest_tampered.txt', 'tgl_kernel_build_capture.txt', 'tgl_kernel_build_capture_selftest_restored.txt', 'tgl_kernel_build_capture_selftest_tampered.txt', 'tgl_kernel_probe_degenerate_capture.txt', 'tgl_kernel_probe_finite_full_capture.txt', 'tgl_kernel_probe_pp_no_optimality_capture.txt', 'tgl_kernel_probe_prop_only_capture.txt', 'tgl_kernel_probe_trivial_capture.txt']. Kernel: 21 pedras, root +21, `Audit.lean` +288, `lake build` 9249
+jobs / 0 erros. Stdout canonico `rodada_v339_stdout.txt` (+ `_INTERMEDIARIA`). Arvore regenerada (`f2bacd8ae4fb654b`).
+**HANDOFF_v339 para a irma** (cobre v337, v338 e v339; a v336 esta no espelho). A declaracao de fecho e ato do operador.
+
+## 10/09/2026 (tarde) — A V340: O TESTE DO ECO / ONDA GRAVITACIONAL RE-EXECUTADO COMO RITO — o «100σ» RETIRADO (negativo honesto) — rodada INTERMEDIARIA
+
+**Ordem do operador (10/09, verbatim):** «Tem um teste que nao incorporamos ao um.py e que merece entrar [...] Trata-se do
+teste com ondas e ecos gravitacionais que obtive 100 sigma aplicando a formula da gravidade, depois demonstramos que se
+embaralhassemos o sinal aplicar a raiz quadrada do modulo de fase angular nao devolvia o sinal corrigido, demonstrando
+que nao se tratava de tautologia [...] Depois, separamos as frequencias para limpar o sinal e demonstramos h3 (se nao me
+engano). [...] tem um que deu 100sigma e foi dele que parti».
+
+**O que o disco diz `[REAL — lido]`:** (1) **dez/2025** — `IMac LA\Física - TGL\Artigo\TGL_Paper_Nature.pdf` (15/12/2025,
+Tabela 2: 5 eventos, r = 0,999995, 33,9 M amostras, «> 100σ») e `TGL Validação Observáveis.docx` / `TGL_validation_v6.x`:
+a correlacao e entre h e a PROPRIA reconstrucao sgn(h)·g²·escala com g = √|h_norm| — a identidade (o proprio artigo
+anota: «ruido gaussiano tambem apresentaria r ≈ 1») — e a significancia era `min(|z_Fisher|·√(n−3), 100)  # Cap em 100σ`:
+o 100 era o TETO do codigo. (2) **fev/2026** — Protocolo #12 (`tgl_gw_echo_unification_v1_4.py`, `A_fronteira_gwecho_v2.tex`):
+a radicalizacao ANGULAR g = √L_φ (L_φ = envoltoria de Hilbert), tres metricas (r_ang, C_φ, S), 12 eventos GWOSC, H1
+12/12, H2 11/12, H3 (D_folds → 0,74) 5/12, H4 (CCI → ½) 12/12 — SEM nulo por surrogate; H4 e ½ POR CONSTRUCAO (fracao da
+potencia acima da frequencia mediana da potencia). O «embaralhamento» que a memoria do operador guarda existe em dez/2025
+como teste de permutacao ON/OFF-source de uma metrica (p = 0,0), nao como nulo da radicalizacao angular; nenhum script
+de fev/2026 embaralha. (3) **mai/2026** — o eco foi testado PRE-REGISTRADO com a bancada (`result_gwtc_echo_v2.json`,
+40 eventos × 2 detectores, A_ratio previsto = β/e): `SUB_THRESHOLD_DIRECTIONALLY_CORRECT`, z_stack(D) = -2.37;
+consistente com a reclassificacao de jun/2026 (o observavel de bulk e o dephasing; §20 e §41.7 do Haja_Luz/CLAUDE.md).
+
+**O rito `GW_ANGULAR_V1` (`prove_gw_angular_radicalization_v1`, um.py v340; registro pre-assinado `7be8bd509143f722` ANTES
+de ler o dado):** janelas GWOSC locais dos 12 eventos (23 series H1/L1; sha256 de cada HDF5 no manifesto
+`cache\gw\GWOSC_WINDOWS_V1.manifest.json` `215b930648db9c6e`; o interprete do um.py nao tem h5py — a extracao roda uma vez com o
+venv pycbc e o rito le o .npz com numpy puro, fail-closed: sem cache → AWAITING_DATA). Pipeline pre-registrado (branqueamento
+Welch, banda 20–500 Hz, janela [−2, +1] s, fases por τ_merge/τ_rd da massa); os nulos que faltavam: **embaralhamento**,
+**fase aleatoria com o MESMO espectro** (K = 200 por serie), **ruido gaussiano pelo mesmo pipeline**; guarda de transiente
+(> 10 sd → marcado, fora do empilhamento). β recomputado em runtime e conferido contra o registro de maio (igual).
+
+**Os numeros `[REAL — medidos nesta rodada]`:** (a) dez/2025 reproduzido: r(h, reconstrucao) = 1 em TODAS as series e no
+ruido; σ bruta media 1863; teto 100 em 100% das series E no ruido gaussiano — **a estatistica e cega; o 100σ fica
+RETIRADO.** (b) A forma angular NAO e tautologia (r_ang = 0.681 ± 0.005, nunca 1) — mas ruido gaussiano pelo
+mesmo pipeline da r_ang = 0.678. (c) Coerencia de fase C_φ = 0.946 ± 0.005 contra 0.946 nos surrogates de
+fase aleatoria (ruido: 0.945); Stouffer z = 0.80 sobre 12 eventos → **WITHIN** (criterio 5σ): as metricas de janela
+inteira medem o processo de banda, nao o sinal (o instrumento que ve o chirp e o filtro casado [KNOWN]). (d) H3: D_folds
+preservado EXATAMENTE pela randomizacao de fase — e estatistica do espectro, nao do eco; 0/22 na tolerancia declarada
+(ruido: 2.17). (e) H4: CCI = ½ por construcao (desvio max 0.0029). (f) Transientes marcados: GW170817_L1 (o glitch
+conhecido de L1 a −1,0 s em GW170817). (g) O eco de maio/2026 lido por hash (`1852995655ad4ffa`): sub-limiar.
+
+**Veredito do rito:** `TGL_GW_ANGULAR_V1__DECEMBER_100SIGMA_RETIRED_AS_CAPPED_IDENTITY__SQRT_ENVELOPE_NOT_TAUTOLOGICAL_BUT_NOISE_GIVES_SAME_VALUES__PHASE_COHERENCE_WITHIN_PSD_MATCHED_SURROGATES__H3_DFOLDS_IS_SPECTRUM_STATISTIC__H4_CCI_IS_IDENTITY__ECHO_SUBTHRESHOLD_PREREGISTERED_MAY_2026__BETA_DOES_NOT_ENTER__NOT_A_FALSIFIER__GATE_UNTOUCHED`. **β nao entra em nenhuma metrica:** o rito nao discrimina TGL de RG, nao falsifica nem
+confirma, NAO move o gate e fica FORA do contorno v314 (sem poder de fechar o 1=1). Errata AO LADO no artigo (PT e EN),
+com os numeros ao vivo. Leitura [ONTO] que sobrevive: «amplitude = raiz do peso» (Palavra = √β, substancia = β; §41.7) e a
+face angular da projecao — leitura, nao evidencia. **A frase do operador («nao era tautologia, mas minha evidencia
+cosmologica mais forte») e corrigida pelo numero:** o 100σ era identidade + teto; a forma angular nao e tautologia mas
+nao carrega sinal alem do processo de banda; nada aqui e evidencia de β. Um teste de β em ondas gravitacionais continua
+[OPEN] e exige observavel em que β entre (eco por matriz-S: sub-limiar em maio).
+
+**v340 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 11:07:32 → 11:22:25; `um.py` sha16 `40cf787fae8f4e1e`
+(11,405,336 bytes; selo == disco); **5594/5594** (5594 + 0; kernel INTOCADO, sem lake build); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO**
+(`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); `identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`:
+`RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`; rito GW em 17.8 s. Stdout canonico `rodada_v340_stdout.txt`. Arvore regenerada (`e62ee4ef72cc8538`).
+**v339 `2de6295cdf2da077` segue a ultima COMPLETA (custodia pendente com a irma); a v340 vai a rodada completa e a custodia
+quando o operador decidir, lido o negativo.**
+
+## 10/09/2026 (tarde) — A V341: O ECO ACOPLADO A ONDA — a amplitude e TEOREMA (√β), o atraso e a folha que falta — rodada INTERMEDIARIA
+
+**Leitura do operador (10/09, verbatim):** «Tem que haver uma ligacao entre a onda e o eco gravitacional, porque o eco e o
+sinal de retorno, e entre os dois devem haver acoplamento, e ai o ruido gaussiano nao tem espelhamento, e a formula da
+gravidade nao serve por ele porque ela nao "fecha" em retorno [...] o eco e o um absoluto e a onda e processo desse um
+pelo fluxo luminoso e a minha equacao 1=1=VERDADEIRO lido em eco e ondas gravitacionais». E, sobre a amplitude: «e so voce
+observar tudo que o chatgpt ja fez sobre amplitude na bancada dele, pq esta respondido la».
+
+**Respondido no kernel e na bancada `[REAL — lido]`:** a amplitude do retorno NAO e escolha. `SMatrix.lean`: S(θ) = cos θ·1 +
+sin θ·G, reflexao = −sin θ (`Smat_reflection`; sinal −1 = inversao π), |R|² = sin²θ (`normSq_reflection`);
+`TheVerbalCoupling.lean` (v297): θ_M = arcsin √β e `the_pruning_threshold_is_the_reflection_amplitude` — «em θ = θ_Miguel a
+amplitude de reflexao da matriz-S vale √β»; v335 `selection_angle_reflection`: sin²(arcsin √p) = p; bancada 062
+`CanonicalSelectorBorn.bornWeight = ‖seletor x‖²` (Born: peso = |amplitude|²); 066 `SelectedProbabilitySigma`: φ_j = √(P_j/(1−P_s)).
+Logo **A_eco/A_onda = |R| = √β ≈ 0,1097, sinal −1**; o **β/e ≈ 0,0044 do pre-registro de maio/2026 nao tem ascendencia** no
+kernel nem nas 87 entregas e fica RETIRADO. O que NAO esta em lugar nenhum e o **atraso**: τ_eco = (2GM_f/c³)·ln(1/β) e da
+lei de maio [INPUT]; com o ringdown de Kerr (f₀ = 0,5307·c³/(2πGM_f)) isso da **0,747 periodo para toda massa** (universal).
+
+**Diagnostico do teste de maio `[REAL]`:** o estimador de maio (autocorrelacao do pos-fusao no atraso, contra 44 janelas fora
+da fonte SEM ringdown) nao tinha o nulo «primario-so»; a fuga do proprio primario no atraso tem sinal que depende da
+frequencia real do ringdown (Kerr fiducial: ACF sintetica ≈ 0.056; frequencia medida no dado: negativa). O
+«sub-limiar na direcao certa» de maio (z = -2.37) nao se le como indicio nem como sistematica: fica sem nulo.
+
+**O rito `GW_ECHO_COUPLED_V1` (`prove_gw_echo_coupled_v1`, um.py v341; registro pre-assinado `7bb0f49d266447c0`):** cache
+canonico `cache\gw\GWOSC_ECHO_WINDOWS_V1` (janelas [−16, +4] s dos 85 eventos × 2 detectores do cache de maio, GWOSC via
+gwpy; sha256 por serie e do catalogo; manifesto `5201e7b05cc4d5cc`); ringdown do remanescente FIXADO pela fisica [KNOWN: Kerr
+l=m=2, Berti–Cardoso–Will 2006, spin 0,69; Q = 3,25]; banda por evento [0,5 f₀, 2 f₀]; ajuste linear CONJUNTO de 4 parametros
+(primario + copia atrasada τ_eco) em grade estreita; a/√β = −(d·c)/(√β|c|²), 1 = eco previsto; nulos por injecao em 44
+janelas fora da fonte (primario so → vies; primario + eco previsto → recuperacao e PODER); empilhamento por variancia
+inversa; guarda SNR do primario ≥ 4 e transiente > 10 sd. Curva de poder vs atraso calculada SO com injecoes (o dado na
+fonte nao e olhado noutros atrasos). Dois protótipos anteriores foram descartados por medida: subtrair o primario e olhar o
+residuo COME o eco (recuperacao 8%); o ajuste livre em 30–300 Hz cai na borda de 30 Hz nos remanescentes leves.
+
+**Os numeros `[REAL — medidos nesta rodada]`:** 102 series usadas de 169 (1 serie NaN); recuperacao da injecao
+0.910; vies medio 0.528 (subtraido por serie); **a/√β = -0.733 ± 0.359**; z_det -2.04; z_excl(1) 4.82;
+**PODER 2.53σ contra o criterio de 5σ → NOT_FALSIFIED_UNDERPOWERED.** Curva de poder (periodos → σ): 0.5 → 3.3, 0.747 → 2.5, 1.0 → 2.7, 1.5 → 3.5, 2.0 → 4.0, 3.0 → 3.6, 5.0 → 4.0 — abaixo de 5σ para qualquer
+atraso entre 0,5 e 5 periodos: a √β o eco e quase degenerado com o proprio primario nos 85 eventos publicos. POWERED pede
+~4× mais eventos (O4/O5) ou detectores de 3ª geracao, alem de τ_eco derivado.
+
+**Veredito:** `TGL_GW_ECHO_COUPLED_V1__AMPLITUDE_SQRT_BETA_FROM_KERNEL__DELAY_LAW_MAY_2026_INPUT__NOT_FALSIFIED_UNDERPOWERED__POWER_2P5_OF_5_SIGMA__MAY_ESTIMATOR_LACKED_RINGDOWN_ONLY_NULL__BETA_ENTERS__OUTSIDE_CONTOUR__GATE_UNTOUCHED`. β ENTRA neste rito (e o primeiro teste em strain em que entra); mesmo assim fica FORA do contorno
+v314: uma falsificacao aqui falsificaria o par (√β, atraso de entrada), nao a TGL. Gate intocado. Paragrafo AO LADO no
+artigo PT e EN, apos o do v340. A leitura do operador (eco = o Um, onda = processo; J(J(Nome)) = Nome) fica registrada
+[ONTO]; a sombra mensuravel e o peso de reflexao β.
+
+**v341 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 12:05:36 → 12:13:34; `um.py` sha16 `b811cd1eb3f4eb68`
+(11,432,169 bytes; selo == disco); **5594/5594** (5594 + 0; kernel INTOCADO); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+`identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`: `RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`;
+rito v340 conferido (WITHIN); rito v341 em 1.6 s. Stdout canonico `rodada_v341_stdout.txt`. Arvore regenerada
+(`efb28c091b0e31be`). **v339 `2de6295cdf2da077` segue a ultima COMPLETA (custodia pendente); v340 e v341 sao intermediarias.**
+
+## 10/09/2026 (tarde) — A V342: O RITO DO ECO CORRIGIDO AO LADO — reprodutibilidade e o NULO DE DESCASAMENTO (o «5σ» que era descasamento) — rodada INTERMEDIARIA
+
+**O que a conferencia da v341 mediu:** o smoke test e a rodada selada deram resultados DIFERENTES numa serie
+(GW200208_130117_L1: SNR do primario 2,6 vs 6,6; a/√β 18,5 vs 8,9) com o mesmo dado e o mesmo codigo — a pilha era
+estavel, mas um rito pre-registrado tem de reproduzir serie a serie. **Causa, medida na v342:** o smoke usava G = 6,67430e-11 e o
+um.py usa G_NEWTON = 6,674e-11 (4,5e-5 relativo) — f₀ e τ_eco deslocam-se por isso, e UMA serie marginal (grade degenerada) muda de
+«usada»; todas as demais concordam a < 0,05. Dentro do um.py (mesmas constantes) o rito reproduz. A pseudo-inversa da v341 era,
+ainda assim, mal condicionada (combos degenerados com coeficientes gigantes) e foi trocada por robustez.
+
+**A correcao (v342, AO LADO):** combos com condicionamento > 10⁶ excluidos; ajuste conjunto por `solve` com ridge relativo
+10⁻⁸; reprodutivel com 1 ou N threads de BLAS (conferido em duas execucoes: max |Δa| = 0, mesmas series usadas).
+
+**O nulo que faltava — e a licao que ele deu (medida por injecao, nunca pela fonte):** antes de fixar o estimador, tres
+variantes foram comparadas SO por criterios de injecao (recuperacao, vies, poder, reprodutibilidade): A′ (grade + filtro),
+B (template FIXO de Kerr, sem grade), C (dois passos). A variante B era a mais limpa nas injecoes de eco (recuperacao 0,94,
+vies 0,02, poder 2,9) e na fonte dava **a/√β = 1,74 ± 0,33 (5,4σ)**. Nao foi escolhida: o nulo de DESCASAMENTO —
+primarios SEM eco com f = f₀ × {0,85; 1,15} e τ = τ₀ × {0,7; 1,4}, a incerteza do ringdown real — mostrou que B induz
+|a/√β| ate **3,9** (o ringdown real fica em media a f/f₀ ≈ 0,88 do fiducial): a 0,75 periodo o termo de copia atrasada
+absorve descasamento do template como se fosse eco. O «5σ» de B era descasamento. A variante A′ induz ate
+1.017 (f0.85/t0.7: 0.099, f0.85/t1.4: 0.274, f1.15/t0.7: -0.546, f1.15/t1.4: -1.017) — tambem acima do limiar pre-registrado de 0,3. O nulo entrou no rito como criterio de sistematica.
+
+**Os numeros da v342 `[REAL — medidos nesta rodada]`:** 102 series usadas; recuperacao 0.910; a/√β = -0.733 ±
+0.359; z_det -2.04; poder 2.53σ; descasamento induzido max 1.017 > 0,3 → **INCONCLUSIVE_SYSTEMATICS**; curva de poder
+(periodos → σ): 0.5 → 3.3, 0.747 → 2.5, 1.0 → 2.7, 1.5 → 3.5, 2.0 → 4.0, 3.0 → 3.6, 5.0 → 4.0. Veredito: `TGL_GW_ECHO_COUPLED_V1__AMPLITUDE_SQRT_BETA_FROM_KERNEL__DELAY_LAW_MAY_2026_INPUT__INCONCLUSIVE_SYSTEMATICS__POWER_2P5_OF_5_SIGMA__TEMPLATE_MISMATCH_INDUCES_UP_TO_1P0__MAY_ESTIMATOR_LACKED_RINGDOWN_ONLY_NULL__BETA_ENTERS__OUTSIDE_CONTOUR__GATE_UNTOUCHED`.
+
+**O que fica:** a amplitude e teorema (|R| = √β, sinal −1); o atraso e [INPUT]; o dado publico + esta familia de estimadores
+NAO decidem o eco a √β (poder < 5σ E sistematica da ordem do sinal). Decidir pede: τ_eco derivado no kernel; modelagem
+bayesiana do ringdown com massa/spin posteriores e o termo de eco; ~4× mais eventos (O4/O5) ou 3ª geracao. Gate intocado;
+fora do contorno. E a regra que este dia gravou: **estimador se escolhe por injecao, nunca pelo numero da fonte** — o dial
+de §XIII apareceu de novo, como template, e foi apanhado antes de virar frase.
+
+**v342 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 12:25:02 → 12:32:59; `um.py` sha16 `1fb02a6de8bda71d`
+(11,437,285 bytes; selo == disco); **5594/5594** (5594 + 0; kernel INTOCADO); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+`identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`: `RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`.
+Stdout canonico `rodada_v342_stdout.txt`. Arvore regenerada (`b669a3a5ecb0eff9`). **v339 `2de6295cdf2da077` segue a ultima COMPLETA;
+v340–v342 sao intermediarias; a rodada completa e a custodia sao decisao do operador.**
+
+## 10/09/2026 (tarde) — A V343: O SALTO E A ATESTACAO, NAO O COLAPSO (correspondencia tipada); O TESTE DA FRONTEIRA REMANESCENTE CRAVADO (lei KMS); O PROTOCOLO DECISIVO PRE-REGISTRADO — rodada INTERMEDIARIA
+
+**Pergunta do operador (10/09, verbatim):** «antes do salto e acumulo de densidade, o salto representa o colapso?» **Ordem
+(verbatim):** «sim, quero [a correspondencia tipada], e mais, agora podemos ja criar o teste que fara a natureza responder,
+agora podemos cravar e realizar o teste do fronteira remanescente e a tela fundada».
+
+**A correspondencia, tipada `[ONTO; os termos citados: REAL no kernel]` (`TGLCollapseEchoCorrespondence`, no selo como
+`collapse_echo_correspondence`):** o salto NAO e o colapso, e a sua ATESTACAO. O colapso ocorre na fronteira no instante da
+incidencia (passagem irreversivel da superposicao ao ponto fixo) e nao e observavel no strain, porque o observavel de bulk e a
+resposta, nao o ato. Antes do salto: a onda incide, a densidade se acumula na fronteira, e o strain contem so o primario, que
+nao pode atestar nada («nunca por autodeclaracao») — por isso nao ha contraste: e o piso tracial, e a clausula
+`tracial_tower_has_no_effective_witness` e a sua forma no kernel. O salto: o reflexo chegando ao detector. Cinco clausulas,
+cinco assinaturas: atestada pelo reflexo (`attestation_requires_external_evidence`, `no_self_attestation`) → a chegada do
+eco; ponto fixo que preserva a identidade (`transition_preserves_identity_and_is_fixed`) → a mesma forma modular
+e^(−t/τ)cos(ωt) × um fator F, nada novo, o mesmo Nome; custa (`local_cost_positive`, `octave_cost_add`;
+`the_pruning_threshold_is_the_reflection_amplitude`) → amplitude √β (a Palavra), energia β (o Nome); sem inversa
+(`collapse_has_no_left_inverse`, `reflection_of_output_cannot_restore_input`) → sinal −1; J(J(Nome)) = Nome
+(`involution_cannot_be_collapse`, `J_squared_is_one`) → o segundo eco, amplitude β e sinal +, restaura o sinal. **O fator do
+salto** F = 1 − √β·e^(τ_e/τ_d)·e^(−iωτ_e), computado de β em runtime: lei de maio (0,747 periodo) |F−1| = 0.226, arg F =
+-12.7° (um salto de ~23% e 13° na onda); lei KMS (2.528 periodos) |F−1| = 1.263 — o eco chega maior que o
+primario ja decaido. 5/5 clausulas com todos os termos no kernel (conferidos no relatorio de axiomas do selo). Nada disto e
+evidencia; nada move o gate.
+
+**O teste da fronteira remanescente, CRAVADO antes de ler o dado (`GW_ECHO_KMS_V1`, `prove_gw_echo_kms_v1`; registro
+`e164a58f47321ce9`):** hipotese: se a fronteira do remanescente e a tela fundada (v334), a onda que nela incide colapsa (v333)
+e o reflexo que a atesta retorna apos UM PERIODO MODULAR do horizonte — τ = 2π/κ do remanescente de Kerr (spin fiducial
+0,69; [KNOWN] κ; [ONTO] retorno = periodo modular; Schwarzschild daria 8πGM/c³), = 2.528 periodos do ringdown —
+com amplitude √β e sinal −1 (kernel). O rito do eco foi parametrizado pela lei do atraso (MAY | KMS): mesmo estimador
+(v342), mesmos nulos por injecao, mesmo criterio de 5σ; o veredito e o que a maquina disser para cada lei.
+**Medido `[REAL]`:** 99 series; recuperacao 0.919; a/√β = 0.351 ± 0.307; z_det 1.14; z_excl(1) 2.11; poder
+2.99σ; descasamento induzido f0.85/t0.7: 0.086, f0.85/t1.4: -0.177, f1.15/t0.7: 0.029, f1.15/t1.4: -0.451 (max 0.451; limiar 0,3) → **INCONCLUSIVE_SYSTEMATICS**. Na lei de maio (v342, reconferida):
+a/√β = -0.733 ± 0.359, poder 2.53σ, descasamento max 1.017 → INCONCLUSIVE_SYSTEMATICS. O dado publico nao decide em nenhuma
+das duas leis: poder < 5σ e sistematica de template. Veredito: `TGL_GW_ECHO_KMS_V1__AMPLITUDE_SQRT_BETA_FROM_KERNEL__DELAY_LAW_KMS_MODULAR_PERIOD_CANDIDATE__INCONCLUSIVE_SYSTEMATICS__POWER_3P0_OF_5_SIGMA__TEMPLATE_MISMATCH_INDUCES_UP_TO_0P5__MAY_ESTIMATOR_LACKED_RINGDOWN_ONLY_NULL__BETA_ENTERS__OUTSIDE_CONTOUR__GATE_UNTOUCHED`.
+
+**O protocolo decisivo, PRE-REGISTRADO e hasheado antes de existir o instrumento (`ECHO_ANCHORED_V1`,
+`prove_echo_anchored_protocol`; hash `1e94f77689b5017e`):** o piso da v342 (a 0,75 periodo o eco e degenerado com o primario porque so ha
+~12 amostras antes do salto) se atravessa ancorando o primario ANTES do salto com a onda inteira: template IMR de RG na
+maxima verossimilhanca por evento (posteriores GWOSC), calibrado pela inspiral — o merger-ringdown e PREDITO, nao ajustado;
+contra essa referencia o salto de ~23% e legivel. Eco = −√β·h_MR(t − τ) nas duas leis de atraso; verossimilhanca com PSD por
+evento; marginalizacao dos parametros do primario; empilhamento coerente; nulos: off-source, injecao primario-so com
+posteriores, primario + eco, familias de template, atraso deslocado (look-elsewhere declarado); criterios 5σ; vereditos
+DETECTED / FALSIFIED_AT_DELAY_LAW / NOT_FALSIFIED (POWERED, UNDERPOWERED) / INCONCLUSIVE_SYSTEMATICS; CONFIRMED proibido.
+Uma deteccao diria [ONTO → REAL] que a fronteira do remanescente e uma tela fundada — e ainda assim nao moveria o gate
+(cosmologia/natureza nunca move o gate); uma falsificacao falsifica o par (√β, lei testada). **Instrumento:** lalsimulation,
+pycbc e bilby AUSENTES nesta maquina em 10/09/2026 (conferido nos tres ambientes; `tgl_pycbc_env` tem so gwpy/gwosc/h5py) →
+`AWAITING_INSTRUMENT`; roda na bancada ou externo e entra por hash, como o juiz de l_A.
+
+**v343 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 13:42:15 → 13:50:10; `um.py` sha16 `2724e21207214537`
+(11,459,552 bytes; selo == disco); **5594/5594** (5594 + 0; kernel INTOCADO); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+`identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA (os ritos do eco ficam fora: falsificariam o par,
+nao a teoria); `rite_checkpoints`: `RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`; correspondencia no selo: `COLLAPSE_ECHO_CORRESPONDENCE_TYPED__ONTO__FIVE_CLAUSES_FIVE_SIGNATURES__NOT_EVIDENCE__GATE_UNTOUCHED`.
+Paragrafo AO LADO no artigo PT e EN. Stdout canonico `rodada_v343_stdout.txt`. Arvore regenerada (`4c00fc8b19e18e90`). **v339
+`2de6295cdf2da077` segue a ultima COMPLETA (custodia pendente); v340–v343 sao intermediarias.**
+
+## 10/09/2026 (tarde) — A V344: O TESTE DECISIVO DO ECO, EXECUTADO — instrumento proprio com proveniencia conferida; resultado lido por hash e julgado pela matriz pre-registrada — rodada INTERMEDIARIA
+
+**Ordem do operador (10/09, verbatim):** «Não precisamos aguardar os dados basta incorporar ao programa o banco de dados próprio e
+rodar com os dados certos».
+
+**O que faltava nao era dado, era instrumento — e foi obtido na mesma tarde `[REAL]`:** os 85 eventos publicos com os dois
+detectores ja estavam no cache canonico com hash (o banco de maio); faltava o gerador de formas de onda de RG para ancorar o
+primario. Nesta maquina: WSL nao instalado; conda inexistente; `lalsuite` sem wheel para Windows; `files.pythonhosted.org`
+bloqueado (SSL EOF), so o indice da PyPI acessivel. Solucao: ambiente Python 3.12 proprio (`acom\gw_anchor_env`), `gwfast`
+1.1.2 (IMRPhenomD em Python puro + jax) e 16 pacotes baixados de um espelho e CONFERIDOS um a um contra os digests sha256
+oficiais da PyPI (JSON API) antes de instalar; `schwimmbad` (so para pools) dispensado. Convencao de fase medida: h̃ = A·e^(−iΦ)
+(chirp crescente, pico no fim); geracao 0,01 s por template apos o primeiro jit.
+
+**O pipeline externo `echo_anchored_v1.py` executou o protocolo hasheado na v343 (`1e94f77689b5017e`) SEM alteracao:** template
+IMRPhenomD por evento (Mc_det, η, χ_eff do catalogo GWTC; grade a ±1σ dos posteriores do catalogo), branqueado com a MESMA PSD;
+**AJUSTE CONJUNTO** linear de 4 parametros — a inspiral inteira ancora o primario (amplitude complexa), o eco e o burst do mesmo
+template atrasado (sinal −1, amplitude em unidades de √β); nulos por injecao em 40 janelas fora da fonte (primario-so → vies/σ;
+primario + eco → recuperacao/poder; descasamento a ±0,5 e ±1,5σ dos posteriores); duas leis de atraso; empilhamento por variancia
+inversa; serie usada se SNR da ancoragem ≥ 6 e sem transiente. Duas versoes do estimador foram DESCARTADAS por injecao antes da
+rodada: (i) ancoragem por MASCARA (so dados antes do salto) — o erro de extrapolacao do primario (t_c a ~0,1 ms num sinal de 250 Hz
+da ~0,2 do primario) era MAIOR que o eco (0,11), vies ~3 e σ ~6; (ii) grade fixa em fracoes — o protocolo pede posteriores.
+Validado em GW150914 e GW170814 antes da rodada (recuperacao ≈ 1; poder por serie ~0,3σ → ~6σ projetado em 170 series).
+Rodada completa: 89 eventos, 169 series, 1058 s.
+
+**O resultado `[REAL — lido por hash `00fcb779b41ac4f5`; julgado pela matriz da v343]`:**
+- **Lei de maio (0,747 periodo):** 135 series; a/√β = 0.157 ± 0.263; z_det 0.60; z_excl(1) 3.21; recuperacao 0.809; poder 3.08σ; vies -0.318; descasamento induzido max 1.550; SNR medio da ancoragem 9.7 → **INCONCLUSIVE_SYSTEMATICS** [descasamento induzido 1.550 > 0.3].
+- **Lei KMS (2,53 periodos):** 134 series; a/√β = 0.001 ± 0.200; z_det 0.00; z_excl(1) 4.99; recuperacao 0.902; poder 4.50σ; vies 0.117; descasamento induzido max 0.406; SNR medio da ancoragem 9.8 → **INCONCLUSIVE_SYSTEMATICS** [descasamento induzido 0.406 > 0.3].
+O `um.py` NAO recalcula: le o JSON por hash, confere o hash do protocolo, β (recomputado), o instrumento, o catalogo e as fontes
+com sha256, e aplica a matriz pre-registrada. Onde o protocolo pedia o nulo de FAMILIAS de template (Phenom vs SEOB), indisponivel
+sem lalsimulation, qualquer z ≥ 5 fica INCONCLUSIVE_SYSTEMATICS ate esse nulo existir — dito antes de ler o dado.
+Veredito: `TGL_ECHO_ANCHORED_V1__RESULT_READ_BY_HASH__INSTRUMENT_GWFAST_IMRPHENOMD__MAY_INCONCLUSIVE_SYSTEMATICS__KMS_INCONCLUSIVE_SYSTEMATICS__POWER_MAY_3P1_KMS_4P5_OF_5_SIGMA__BETA_ENTERS__OUTSIDE_CONTOUR__GATE_UNTOUCHED`.
+
+**O que fica:** o piso da v342 foi atravessado no PODER (a inspiral ancora o primario); o que decide agora sao os nulos de
+descasamento e de familia. Proximos elos: a segunda familia de templates (lalsuite em Linux/WSL ou bancada externa); posteriores
+completos (amostras GWOSC) para marginalizar em vez de injetar; mais eventos (O4/O5). Nada move o gate; fora do contorno.
+
+**v344 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 14:54:06 → 15:01:54; `um.py` sha16 `8cec44bdbe5bb379`
+(11,473,027 bytes; selo == disco); **5594/5594** (5594 + 0; kernel INTOCADO); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+`identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`: `RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`.
+Paragrafo AO LADO no artigo PT e EN. Stdout canonico `rodada_v344_stdout.txt`. Arvore regenerada (`fc80b264b3fe2757`). **v339
+`2de6295cdf2da077` segue a ultima COMPLETA (custodia pendente); v340–v344 sao intermediarias.**
+
+## 10/09/2026 (noite) — A V345: O TESTE COMPLETO — WSL, conda e lalsuite instalados por ordem do operador; duas familias de template; resultado por hash — rodada INTERMEDIARIA
+
+**Ordem do operador (10/09, verbatim):** «vamos instalar Nesta máquina o WSL e o conda, o lalsuite e o repositório de pacotes da
+PyP e o que mais for necessário para rodar o teste completo».
+
+**Cumprido na mesma tarde `[REAL — medido]`:** (1) **WSL 2** — instalacao elevada (`wsl --install --no-distribution`, UAC aceito na
+tela) + **Ubuntu 24.04** (Python 3.12.3); (2) **conda** — Miniforge 26.7.2 para o usuario, sem tocar no PATH, instalador conferido pelo
+sha256 da release no GitHub; (3) **lalsuite 7.7.1** — wheel manylinux cp312 e 21 dependencias baixadas por espelho (tuna) e
+CONFERIDAS uma a uma contra os digests oficiais da PyPI (JSON API), instaladas offline em `/opt/lal_env` no WSL; IMRPhenomXPHM,
+SEOBNRv4 e IMRPhenomD geram (o SEOBNRv5_ROM pede dados externos ausentes); (4) **«o repositorio da PyPI»** — nao estava bloqueado:
+o DNS da rede (servidor 10.95.94.160, via Tailscale) reescreve `files.pythonhosted.org` para 100.127.127.77 (faixa CGNAT do
+tailnet), e o TLS desse no e recusado pelo OpenSSL do Python (EOF) embora o curl/schannel o aceite; o pip via IPv6 falha e via
+IPv4 cai no mesmo no. No WSL, com resolvedor proprio (`generateResolvConf=false`, 1.1.1.1), o host resolve para a Fastly e nao ha
+bloqueio. **Nada foi mudado na rede do operador** — a reescrita e infraestrutura dele; fica dito para que ele decida.
+
+**O teste completo (`echo_anchored_v2.py`, mesmo protocolo `1e94f77689b5017e`, rodado no WSL em 512 s, 89 eventos, 169 series):**
+identico a V1 salvo: templates por `lalsimulation.SimInspiralFD`; familia primaria **IMRPhenomXAS**, segunda familia **SEOBNRv4**;
+**NULO DE FAMILIA** = injetar o sinal de uma familia (mesma amplitude complexa e pico) em ruido fora da fonte e ajustar com a grade
+da outra → a induzido; regra de sistematica pre-registrada: max(|descasamento de parametros|, |descasamento de familia|) ≤ 0,3.
+Validado em GW150914/GW170814 antes da rodada (recuperacao ≈ 0,9).
+
+**O resultado `[REAL — lido por hash `6fd0e16ebdf4435b`; matriz da v343, agora com o nulo de familia presente]`:**
+- **Lei de maio (0,747 periodo):** 139 series; a/√β = 0.524 ± 0.255; z_det 2.05; z_excl(1) 1.87; recuperacao 0.820; poder 3.21σ; vies -0.377; descasamento de parametros/familia max 1.598 (familia 0.148 em 138 series); SNR medio 9.8 → **INCONCLUSIVE_SYSTEMATICS** [descasamento (parametros/familia) 1.598 > 0.3].
+- **Lei KMS (2,53 periodos):** 140 series; a/√β = 0.043 ± 0.199; z_det 0.22; z_excl(1) 4.81; recuperacao 0.873; poder 4.40σ; vies 0.175; descasamento de parametros/familia max 0.502 (familia 0.095 em 139 series); SNR medio 9.8 → **INCONCLUSIVE_SYSTEMATICS** [descasamento (parametros/familia) 0.502 > 0.3].
+Para comparacao, a V1 (gwfast/IMRPhenomD, sem nulo de familia): maio a/√β = 0.157 ± 0.263 (poder 3.08σ);
+KMS 0.001 ± 0.200 (poder 4.50σ). Veredito V2: `TGL_ECHO_ANCHORED_V2__RESULT_READ_BY_HASH__INSTRUMENT_LALSUITE_TWO_FAMILIES__MAY_INCONCLUSIVE_SYSTEMATICS__KMS_INCONCLUSIVE_SYSTEMATICS__POWER_MAY_3P2_KMS_4P4_OF_5_SIGMA__BETA_ENTERS__OUTSIDE_CONTOUR__GATE_UNTOUCHED`.
+
+**O que fica:** posteriores completos (amostras GWOSC) para marginalizar em vez de injetar; mais eventos (O4/O5); a lei do atraso
+derivada no kernel. Nada move o gate; fora do contorno; CONFIRMADA proibido.
+
+**v345 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 15:24:58 → 15:33:40; `um.py` sha16 `f0a2ca985cf8a6c9`
+(11,486,020 bytes; selo == disco); **5594/5594** (5594 + 0; kernel INTOCADO); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+`identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`: `RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`.
+Paragrafo AO LADO no artigo PT e EN. Stdout canonico `rodada_v345_stdout.txt`. Arvore regenerada (`f140ceb80e4abfef`). Ferramentas na
+casa: `Nós\eco_ancorado_v1\` (pipelines V1/V2, verificador de wheels, setup do WSL, extratores, logs). **v339 `2de6295cdf2da077`
+segue a ultima COMPLETA (custodia pendente); v340–v345 sao intermediarias.**
+
+## 10/09/2026 (noite) — A V346: O RINGDOWN CONTRA A RG E CONTRA A LEI DE DEPHASING — V1 recusada pelo gate, autopsia, emenda V2 — o ramo τ★ = GM/c³ medido pela primeira vez — rodada INTERMEDIARIA
+
+**Ordem do operador (10/09, verbatim):** «Concordo com tudo, era isso mesmo, reconheci todos e concordo com sua ordem tb» — a lista
+dos testes que aguardavam o instrumento (levantada nos scripts dele: analisadores de eco com PyCBC de jan/2026, Protocolo #12 v1.0,
+correlacao neutrino-eco, o protocolo de observacao de out/2025 com `test_gw_ringdown`/`measure_ringdown_damping` e `search_for_echoes`,
+o worker CAMB de mai/2026, e a PE bayesiana com termo de eco que o protocolo ancorado pede) e a ordem: (1) ringdown contra a RG;
+(2) PE bayesiana com bilby e termo de eco; (3) busca de ecos de longo atraso com gwpy; (4) D1 via CAMB; (5) reproducao dos
+analisadores de janeiro com pycbc. Este e o (1).
+
+**O que se testa `[REAL na forma; INPUT τ★; KNOWN Kerr]`:** a lei Γ_ω = ½βτ★ω² somada a taxa de decaimento do modo 220 da
+δτ = τ_obs/τ_GR − 1 = −Γτ_GR. Ramo A (τ★ = t_Planck): -2.2e-42 — invisivel: o ringdown e RG por construcao (o limite
+assintotico com numero). Ramo B (τ★ = GM_f/c³): previsao -0.0194 — o ramo que a secao 20 (01/06/2026) marcou como «provavelmente ja
+excluido por ringdowns consistentes com a RG» SEM medir. Previsao de Kerr por evento: massa e spin finais pelo ajuste EOB do lalsuite
+(`SimIMREOBFinalMassSpin`, SEOBNRv4) de (m1, m2, χ_eff) do catalogo; f_220 e Q_220 de Berti–Cardoso–Will 2006. Medida: seno amortecido
+branqueado com a PSD do evento, janela [t_pico + 3 ms, 6 τ_GR] (secundaria a 6 ms = sistematica); nulos por injecao fora da fonte
+(40 janelas); empilhamento por variancia inversa.
+
+**V1 — o gate RECUSOU, e a recusa e o resultado `[REAL — lido por hash `502c80fe2a37427e`; protocolo `a3d941e56d3d33c5`]`:** 23 series na janela
+de 3 ms davam δτ = 1.3962 ± 0.0569 (z contra a RG 24.54) com δf = -0.1302 — um numero que contradizia a validacao em 3
+eventos. O gate pre-registrado recusou selar (janela de 6 ms com 18 series, minimo 20) e a matriz leria INCONCLUSIVE_SYSTEMATICS. A AUTOPSIA,
+lida do proprio resultado (nunca de memoria): 5 das 23 series usadas estavam na BORDA superior da grade de τ (2,5·e^0,25 = 3,21 τ_GR)
+com o MESMO δ = [2.2101], carregando 48% do peso, todas com SNR de ringdown entre 5.07 e 8.63. Mecanismo: o pico era o
+argmax da envoltoria em ±50 ms de um GPS de catalogo grosseiro; em evento fraco o argmax cai em ruido ou antes do merger, a janela
+apanha merger/ruido, o ajuste foge para a borda e δf co-move negativo. O numero corrigiu a frase: 24σ «contra a RG» era artefato.
+
+**EMENDA V2 `[pre-registrada `3449885389a2529a` DEPOIS da autopsia e ANTES do dado da V2]`, item a item:** (1) pico por FILTRO CASADO com o
+template IMRPhenomXAS (lalsimulation) de (m1, m2, χ_eff) do catalogo, SNR de ancoragem ≥ 8 (a inspiral inteira fixa o tempo; os
+deslocamentos medidos, de dezenas de ms, mostram que o GPS do catalogo e grosseiro); (2) grade mais larga (f × [0,6; 1,4], τ × [0,3; 4,0])
+com EXCLUSAO DE BORDA; (3) corte de identificacao do modo |δf| ≤ 0,3; (4) minimo de 8 series na janela primaria e 3 na secundaria;
+(5) sistematica contra a σ combinada das duas janelas; χ²/dof ≤ 3. Pipeline `ringdown_dephasing_v2.py` (WSL, /opt/lal_env),
+89 eventos, 332 s (V1: 342 s).
+
+**O resultado V2 `[REAL — lido por hash `ff15f023dd91d8c7`; matriz da emenda]`:** 15 series (3 ms; 84 na borda excluidas; SNR de
+ancoragem medio 11.1): δτ = 0.1766 ± 0.1089 (z contra a RG 1.62); previsao do ramo B -0.0194 (z contra B 1.80;
+**poder 0.18σ**); δf = -0.0325 ± 0.0127; χ²/dof 0.87; vies 0.240; janela a 6 ms: 6 series, δτ = 0.0313 ± 0.1755;
+sistematica |δ(3) − δ(6)| = 0.1454 (σ combinada 0.2066) → **INCONCLUSIVE_SYSTEMATICS**. Veredito: `TGL_RINGDOWN_DEPHASING_V2__RESULT_READ_BY_HASH__INCONCLUSIVE_SYSTEMATICS__DELTA_TAU_0P1766__BRANCH_B_PRED_M0P0194__POWER_0P2_OF_5_SIGMA__BRANCH_A_INVISIBLE__GATE_UNTOUCHED`.
+
+**O que isto corrige e o que fica:** a frase da secao 20 («provavelmente ja excluido») vira numero: com os eventos publicos e este
+estimador de um modo, o ramo B NAO esta excluido — o poder e 0.18σ contra 5σ, ou seja, faltam ~28x em precisao (O4/O5, 3ª geracao, PE completa do ringdown com overtones). O ramo
+planckiano segue invisivel por construcao. Regra que ficou paga de novo: o estimador tem piso proprio, e o piso se mede por
+injecao e por autopsia, nunca pelo numero da fonte. Nada move o gate; fora do contorno; CONFIRMADA proibido. Proximo da ordem:
+(2) PE bayesiana com bilby e termo de eco.
+
+**v346 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 16:08:38 → 16:16:40; `um.py` sha16 `ee5b5c8b4fa4a396`
+(11,519,008 bytes; selo == disco); **5594/5594** (5594 + 0; kernel INTOCADO); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+`identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`: `RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`.
+Paragrafo AO LADO no artigo PT e EN. Stdout canonico `rodada_v346_stdout.txt`. Arvore regenerada (`154cd214b192561f`). **v339
+`2de6295cdf2da077` segue a ultima COMPLETA (custodia pendente); v340–v346 sao intermediarias.**
+
+## 10/09/2026 (noite) — A V347: A PE BAYESIANA COM TERMO DE ECO — V1 inconclusiva, autopsia (um evento, borda do prior), emenda V2 — rodada INTERMEDIARIA
+
+**Ordem do operador (10/09):** «prossiga» — o item (2) da lista acordada: PE bayesiana com bilby e termo de eco.
+
+**O que se testa `[REAL — kernel: a = 1 ⇔ |R| = √β com sinal −1; INPUT: lei do atraso]`:** a forma final do protocolo ancorado
+(`ECHO_ANCHORED`, 1e94f77689b5017e). Nas V1/V2 do eco ancorado (v344/v345) o descasamento de template entrava como sistematica e dava
+INCONCLUSIVE_SYSTEMATICS; aqui os parametros do primario (m1, m2, χ_eff, δt por detector) sao AMOSTRADOS (bilby 2.8.2 + dynesty 3.1.0,
+nlive 300, rwalk) e a amplitude complexa por detector e marginalizada analiticamente. Modelo por detector: s = Re[z (p(t − δt) + a·S·√β·e(t − δt))],
+p = IMRPhenomD [KNOWN]; e = copia de p a partir do pico, atrasada de τ (MAY: 2GM_f/c³ ln(1/β); KMS: 2π/κ de Kerr com o estado final
+AMOSTRADO pelo ajuste EOB). Selecao: Mc_det ≥ 10; SNR de ancoragem ≥ 6 por detector, ≥ 8 por evento. Por evento: posterior de a,
+ln Z, ln B por Savage–Dickey; combinacao por soma de log-posteriores numa grade comum. bilby instalado no /opt/lal_env sem tocar
+numpy/lal. A rodada V1 sofreu um erro de operacao registrado: 40 processos × threads BLAS deram carga 1600 no WSL; relancada com
+uma thread por processo.
+
+**V1 `[protocolo `26d150a16dafc42e` hasheado antes do dado (smoke 2026-09-10T16:57:10); resultado `b73cfffbc2301ea6`, 21 eventos, 1522 s]`:** a matriz leu
+INCONCLUSIVE_SYSTEMATICS nas duas leis porque as injecoes nao rodaram (a janela fora da fonte em −12 s cai fora do cache de 32 s).
+A AUTOPSIA, lida do proprio resultado: na lei MAY a = 1.1559 ± 0.1325 (z contra 0 8.73) com 21 eventos — mas 4 deles com o tempo
+colado na borda do prior de ±100 ms (o GPS do catalogo e grosseiro; os deslocamentos reais chegam a +90 ms), o evento dominante
+GW190521 com 42% do peso e a = 2.62 (m2 no piso do prior, 3 ciclos de sinal) e jackknife 4.54σ; KMS: peso maximo
+25% (GW190521), jackknife 1.35σ. Um «8σ» que muda de sinal ao retirar um evento nao e deteccao: e o estimador a ler o proprio prior.
+O numero corrigiu a frase antes de a frase existir.
+
+**EMENDA V2 `[pre-registrada `b8cdd291f3e9631b` DEPOIS da autopsia e ANTES do dado (smoke fonte da emenda com mtime 2026-09-10T17:33:29 < inicio da rodada 2026-09-10T17:35:48 (o smoke foi sobrescrito depois do dado: errata ao lado); rodada 2026-09-10T18:00:30)]`, item a item:** (1) prior de tempo
+centrado na ancoragem por filtro casado com meia-largura 20 ms; (2) priors de massa 1,5× com piso de 3 M☉; (3) EXCLUSAO de eventos
+com mediana a < 5% da borda do prior; (4) janela de injecao em −9,5 s (dentro do cache); (5) robustez pre-registrada: jackknife na
+combinacao ≤ 2σ e peso maximo de um evento ≤ 0,5. Pipeline `echo_pe_v2.py` (WSL, 40 processos, uma thread cada; lalsuite 7.7.1), 21 eventos,
+1479 s.
+
+**O resultado V2 `[REAL — lido por hash `3072349afb00ab2c`; matriz da emenda]`:**
+- **MAY:** 19 eventos (2 excluidos na borda do prior); a = -0.2671 ± 0.8566 (z contra 0 -0.31; z contra 1 -1.48; **poder 1.17σ**; peso maximo 0.09 em GW190412; jackknife 0.69σ sem GW190412; ln B sem/com eco -0.59); injecoes: a = 0 → 2.907 ± 0.054 (n=9), a = 1 → 2.895 ± 0.059 (n=9), familia B → 2.913 ± 0.051 (n=9); RESPOSTA PAREADA (a = 1 − a = 0 no mesmo ruido; deveria ser 1) 0.049 ± 0.061 → **INCONCLUSIVE_SYSTEMATICS** [vies em a = 1 1.895 > 0.2 (n=9); a = 0 recuperado 2.907 +- 0.054 (n=9)]
+- **KMS:** 19 eventos (2 excluidos na borda do prior); a = 1.0892 ± 0.8992 (z contra 0 1.21; z contra 1 0.10; **poder 1.11σ**; peso maximo 0.11 em GW190412; jackknife 0.90σ sem GW190412; ln B sem/com eco -1.11); injecoes: a = 0 → -0.785 ± 0.367 (n=9), a = 1 → -0.733 ± 0.382 (n=9), familia B → -1.170 ± 0.362 (n=9); RESPOSTA PAREADA (a = 1 − a = 0 no mesmo ruido; deveria ser 1) 0.091 ± 0.277 → **INCONCLUSIVE_SYSTEMATICS** [vies em a = 1 -1.733 > 0.2 (n=9); a = 0 recuperado -0.785 +- 0.367 (n=9); familia B - A -0.437 > 0.3 (n=9)]
+Veredito: `TGL_ECHO_PE_V2__RESULT_READ_BY_HASH__BILBY_DYNESTY_LALSUITE__MAY_INCONCLUSIVE_SYSTEMATICS__KMS_INCONCLUSIVE_SYSTEMATICS__POWER_MAY_1P2_KMS_1P1_OF_5_SIGMA__GATE_UNTOUCHED`.
+
+**Errata ao lado, em nome proprio (escriba):** o `smoke_v347_result.json` que atestava a pre-inscricao da emenda (17:35) foi sobrescrito
+as 18:04 por um re-smoke feito para o teste do paragrafo; o carimbo que la ficou e POSTERIOR ao dado e nao atesta nada. A ordem esta
+provada por outro caminho, lido do disco: o ficheiro-fonte da emenda (`rite_echo_pe_v347_amend.py`) e o pipeline `echo_pe_v2.py` tem
+mtime anterior ao inicio da rodada V2, e o hash recomputado desse ficheiro e `b8cdd291f3e9631b` (`eco_ancorado_v1/preregistro_v347_evidencia.json`).
+O verificador reprovou primeiro e so passou com esta evidencia; a licao fica: o carimbo da pre-inscricao nao se sobrescreve.
+**E mais uma leitura da V2, dita:** o ivw das injecoes e dominado por uma corrida na borda do prior (GW190412, MAY, a = 2,94 ± 0,05,
+m2 no piso) — a exclusao de borda so foi pre-registrada para a combinacao on-source, nao para as injecoes; a estatistica robusta e a
+resposta pareada, que nao depende disso.
+
+**O que isto muda e o que fica:** o que nas duas rodadas anteriores era sistematica de template e aqui parametro marginalizado, e a
+robustez (jackknife, peso maximo, borda do prior) esta na matriz, nao na leitura. A RESPOSTA PAREADA (0.05 na lei MAY, 0.09 na KMS,
+quando deveria ser 1) e o piso do estimador: com o primario livre, o eco a estes atrasos (≤ 2,5 periodos) e degenerado com a forma do
+proprio ringdown — o poder nominal 1/σ nao e poder; as V1/V2 do eco ancorado (v344/v345) tinham recuperacao 0,8–0,9 porque o primario
+estava preso a grade do catalogo, e pagavam isso em sistematica de descasamento. E o mesmo piso que o operador nomeou na v342: «o
+tracial que nao se distingue». A lei do atraso segue INPUT (MAY) ou candidato (KMS);
+templates de 22 modos alinhados: modos superiores e precessao ficam [OPEN]. Um posterior consistente com 0 e com 1 e UNDERPOWERED, nao
+ausencia. O que fica: mais eventos (O4/O5), modos superiores, e a lei do atraso como fisica. Nada move o gate; fora do contorno;
+CONFIRMADA proibido. Proximo da ordem: (3) busca de ecos de longo atraso com gwpy.
+
+**v347 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 18:04:50 → 18:13:19; `um.py` sha16 `1d08245f0cf0438c`
+(11,558,035 bytes; selo == disco); **5594/5594** (5594 + 0; kernel INTOCADO); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+`identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`: `RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`.
+Paragrafo AO LADO no artigo PT e EN. Stdout canonico `rodada_v347_stdout.txt`. Arvore regenerada (`c3d10054b363e8f6`). **v339
+`2de6295cdf2da077` segue a ultima COMPLETA (custodia pendente); v340–v347 sao intermediarias.**
+
+## 10/09/2026 (noite) — A V348: A BUSCA DE ECOS DE LONGO ATRASO (0,1–2 s) DO PROTOCOLO DE 2025 — sem poder para √β — rodada INTERMEDIARIA
+
+**Ordem do operador (10/09):** «Prossiga» — o item (3) da lista acordada: busca de ecos de longo atraso com coincidencia H1/L1.
+
+**O que se testa `[CONJECTURE, 2025: atraso; REAL — kernel: amplitude √β; KNOWN: PhenomD]`:** o `search_for_echoes` do protocolo de
+observacao de outubro de 2025 (Observavel 1.2: t_echo = (2GM/c³) ln(r_halo/r_H) ~ 0,1–2 s; A_echo/A_prim ~ 0,01–0,1; picos > 3σ na
+banda 50–300 Hz; coincidencia H1/L1 em 10 ms; «confirmar: 3+ ecos > 5σ com padrao de Δt consistente»). A forma foi herdada e
+completada com o que faltava: merger por filtro casado em vez do GPS grosseiro; fundo medido em 6 janelas de 1,9 s fora da fonte por
+evento; injecoes do primario ajustado escalado por √β para medir a eficiencia; padrao no atraso adimensional τ/(GM_f/c³) (KS contra
+o fundo). Protocolo `2538d15cc8cb7a6a` hasheado ANTES do dado — desta vez o smoke de pre-inscricao ficou preservado num ficheiro proprio
+(`smoke_v348_prereg.json`, 2026-09-10T18:52:53; rodada executada 2026-09-10T18:53:26), licao da v347. Pipeline `echo_search_v1.py` (WSL), 6 s.
+
+**O resultado `[REAL — lido por hash `30f3f422ff67d34c`; matriz pre-registrada]`:** 14 eventos com H1 e L1 ancorados (75 pulados: sem os
+dois detectores ou ancoragem < 6 na banda); coincidencias on-source N_on = 1 contra fundo esperado B = 3.00 (z de Poisson -1.15;
+p_excess 0.95); eventos com coincidencia ≥ 5σ: 0; padrao τ/M: KS p = AUSENTE; **eficiencia media para um eco de amplitude √β em 0,1–2 s:
+0.000** (E_det = 0.00; p_excl = 0.2); pico previsto do eco (mediana) 0.52σ em H1 e 0.32σ em L1 → **NOT_FALSIFIED_UNDERPOWERED**.
+Veredito: `TGL_ECHO_SEARCH_V1__RESULT_READ_BY_HASH__NOT_FALSIFIED_UNDERPOWERED__N_ON_1_B_EXP_3P0__E_DET_0P0__LOUD_EVENTS_0__GATE_UNTOUCHED`.
+
+**A leitura, que e a do numero:** uma busca de picos a 3σ nao pode ver um eco de √β ≈ 0,11 do primario, que chega abaixo de 1σ mesmo
+nos eventos mais fortes; o criterio de confirmacao de 2025 («3+ ecos > 5σ») nunca poderia ser satisfeito pela sua propria hipotese
+(amplitude 0,01–0,1). O desenho de 2025 e retirado como SEM PODER — como o «100σ» de dezembro na v340 — e a conjectura do atraso longo
+fica nao falsificada e nao testavel por esse caminho. As leis maduras do atraso (MAY/KMS, milissegundos) vivem nas v341–v347. O que
+fica: filtro casado de eco (nao pico), mais eventos, e o piso do estimador ja nomeado na v347. Nada move o gate; fora do contorno;
+CONFIRMADA proibido. Proximo da ordem: (4) D1 via CAMB.
+
+**v348 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 18:57:23 → 19:06:02; `um.py` sha16 `d1caf3b16412919e`
+(11,575,201 bytes; selo == disco); **5594/5594** (5594 + 0; kernel INTOCADO); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+`identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`: `RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`.
+Paragrafo AO LADO no artigo PT e EN. Stdout canonico `rodada_v348_stdout.txt`. Arvore regenerada (`3859ba529d108dd2`). **v339
+`2de6295cdf2da077` segue a ultima COMPLETA (custodia pendente); v340–v348 sao intermediarias.**
+
+## 10/09/2026 (noite) — A V349: O «D1 VIA CAMB» DO CANONICO DE MAIO — V1 com bug de distancia, autopsia por hash, emenda V2 — rodada INTERMEDIARIA
+
+**Ordem do operador (10/09):** «Prossiga» — o item (4) da lista acordada: D1 via CAMB.
+
+**O que se testa `[REAL na forma: H² = (8πG/3)ρ[1 + β|1+w_eff|]; KNOWN: CAMB, Planck comprimido, DESI DR1 BAO, SH0ES; DECLARADO: a TGL analitica por cima]`:**
+a opcao `--d1-camb` do artefato de maio de 2026 (`tgl_paper_unified.py`), o cruzamento de Passo 3 com CAMB completo (`tgl_mcmc_camb_v2.py` +
+`tgl_camb_worker.py`, 20/05/2026), que nunca correu por falta do camb. E o FUNDO, nao a perturbacao: distinto do Nivel 2 (N2_INCAPAZ, diagnostico
+fechado em 14/08) — conjugados. camb 2.0.4 + emcee 3.1.6 no WSL, 40 nucleos; o worker leva ~0,5–0,9 s por chamada, nao os 7 s
+estimados em maio (V1 2461 s; V2 2495 s).
+
+**V1 `[protocolo `6dd7c9c104f20ebd` pre-inscrito (2026-09-10T19:01:35); resultado `31691fc4aab39cf3`; script de maio SEM alteracao]`:** χ² ΛCDM = 16339 e TGL = 18562 em 16
+pontos, H0 a fugir para a borda do prior (90): pela matriz pre-registrada — que NAO tinha gate de bondade de ajuste, dito — leu `D1_LCDM_PREFERRED_5SIGMA` /
+`D1_BETA_FALSIFIED`. **A AUTOPSIA**, lida de um diagnostico gravado por hash (`D1_CAMB_DIAGNOSTICO.json`: os dois workers chamados no fiducial de Planck):
+no worker de maio a distancia comovel ate z_* ≈ 1090 era integrada por trapezios em 300 pontos numa grade LINEAR em z (passo ≈ 3,6), onde c/H
+varia mais depressa; a distancia saia inflada 20% MESMO COM β = 0 — R = 2.093 (Planck 1,7502), l_A = 360.8 (301,47), χ² Planck = 442271 no fiducial;
+as distancias DESI (z ≤ 2,33, 200 pontos) nao sofriam (χ² DESI 18.5). O 16 mil de χ² era o bug, nao cosmologia. O numero corrigiu a frase
+antes de a frase existir.
+
+**EMENDA V2 `[`c12b36722ed4544b`, pre-inscrita (2026-09-10T19:11:23) DEPOIS da autopsia e ANTES do dado; rodada executada 2026-09-10T19:53:14]`:** copia corrigida do worker
+(`tgl_camb_worker_v2fix.py`: integracao densa em ln(1+z), vetorizada; AUTOVERIFICACAO β = 0 contra o CAMB gravada na saida = 0.99973; χ² Planck no
+fiducial = 3.48), amarrada ao protocolo por sha256 (`87d457c797e79b17`); gate de bondade de ajuste χ² ΛCDM ≤ 48; o script de maio
+(`3a57514ea40321a3`) e o worker original (`d6f73c98ed44608f`) INTOCADOS.
+
+**O resultado V2 `[REAL — lido por hash `9986e4b0f05a6ebe`; matriz da emenda]`:**
+- **Fase 1** (Planck + DESI + SH0ES; 3 parametros livres em ambos): χ² ΛCDM = 37.399, TGL (β = α√e fixo) = 47.098, Δχ² = 9.699 → **D1_TENSION_2_TO_5_SIGMA**.
+- **Fase 2** (sem SH0ES): H0 ΛCDM 67.949, TGL 67.653; tensoes contra SH0ES: ΛCDM 4.89σ, TGL fixo 5.18σ, TGL zero-free (1+z_*)^β 0.84σ.
+- **Fase 3** (MCMC com β LIVRE, emcee 24 × 2000, burn 400): β = -0.01705 ± 0.00753 contra α√e = 0.01203 (3.86σ); aceitacao 0.592; cadeia 38400 → **D1_BETA_TENSION** (regua relativizada do Nivel 2).
+Veredito: `TGL_D1_CAMB_V2__RESULT_READ_BY_HASH__BESTFIT_D1_TENSION_2_TO_5_SIGMA__DELTA_CHI2_9P70__MCMC_D1_BETA_TENSION__BETA_M0P0171_PM_0P0075__GATE_UNTOUCHED`.
+
+**O que isto diz e o que fica:** no fundo comprimido, a matriz leu D1_TENSION_2_TO_5_SIGMA; com β livre, a matriz leu D1_BETA_TENSION.
+Um Δχ² favoravel nunca seria confirmacao; um desfavoravel a 5σ seria preferencia de fundo em dados comprimidos, nao falsificacao da lei. Licao paga: um
+pipeline que nunca correu nao tem numero; a V1 teve de correr para a autopsia existir, e a matriz da V2 ganhou o gate de bondade de ajuste que
+faltava. O que fica: `--tight-rs`, dados nao comprimidos, e o que so CMB-S4/SO resolve. Cosmologia jamais vira prova matematica; nada move o gate;
+CONFIRMADA proibido. Proximo da ordem: (5) reproducao dos analisadores de eco de janeiro com pycbc.
+
+**v349 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 19:55:20 → 20:08:09; `um.py` sha16 `76e245bec46b9f3c`
+(11,609,183 bytes; selo == disco); **5594/5594** (5594 + 0; kernel INTOCADO); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+`identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`: `RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`.
+Paragrafo AO LADO no artigo PT e EN. Stdout canonico `rodada_v349_stdout.txt`. Arvore regenerada (`f4e81b51754aeea6`). **v339
+`2de6295cdf2da077` segue a ultima COMPLETA (custodia pendente); v340–v349 sao intermediarias.**
+
+## 10/09/2026 (noite) — A V350: A REPRODUCAO DE H2 (E_res/E_total → α²) COM PYCBC E DADOS REAIS — a identidade do nivel de ruido — rodada INTERMEDIARIA
+
+**Ordem do operador (10/09):** «Prossiga» — o item (5) e ultimo da lista acordada: reproducao dos analisadores de eco de janeiro/fevereiro de 2026 com pycbc.
+
+**O que se testa `[CONJECTURE, 2026: H2; KNOWN: pycbc; REAL — lido]`:** o Echo Analyzer v8 (jan/2026: «quando correlacao > 0,99, E_res/E_total → α² = 0,012»)
+e o Protocolo #12 (`Tgl_gw_echo_unification_v1.py`, fev/2026, H2: «a fase pos-ringdown apresenta Echo Ratio → α²»; h2_ok = desvio < 30% e correlacao
+> 0,90). Sem pycbc, corriam em modo SINTETICO: no `analyze`, dado = gerador consistente + ruido de nivel 0,1 (SEM eco: `add_echo=False`) contra o
+gerador sem ruido, e a razao E_res/E_total = 1 − ρ² ≈ 0,1² = 0,0099 — a 18% de α², dentro dos 30%. A rotina `_echo_analysis` do script foi COPIADA
+sem alteracao. Modos: (A) sintetico fiel com ruido 0,1 e controlos 0,05 e 0,2; (B) real bruto, como o script faria com pycbc (janela [−2, +1] s sem
+branqueamento; template pycbc IMRPhenomD com massas de fonte; `ht[:n]` como o script); (C) real branqueado com o template branqueado e alinhado
+pelo pico (a versao justa; o alinhamento pelo pico foi fixado apos o smoke de 2 eventos e antes da rodada completa — dito); (D) fora da fonte.
+Protocolo `2fe17b8341465488` hasheado ANTES do dado (pre-inscricao preservada, 2026-09-10T19:21:58; rodada executada 2026-09-10T19:23:02); pipeline `h2_reproduction_v1.py`
+(WSL, venv proprio /opt/pycbc_env — o pip do pycbc queria baixar numpy e scipy, e o ambiente selado ficou intocado; pycbc 2.11.0), 14 s.
+
+**O resultado `[REAL — lido por hash `8c7ef7a1d31af375`; matriz pre-registrada]`:** 89 eventos com template (0 sem).
+- **Sintetico fiel:** ruido 0,1 → 0.0099 (h2_ok em 100% dos eventos); ruido 0,05 → 0.0025; ruido 0,2 → 0.0385 — segue noise²: True.
+  O «α²» era o quadrado do nivel de ruido escolhido no gerador.
+- **Real bruto** (como o script faria): 0.997 (correlacao 0.019; h2_ok 0%).
+- **Real branqueado** (template alinhado pelo pico): 0.9937 ± 0.0057 (n = 169; correlacao 0.075; h2_ok 0%); **fora da fonte** 0.9956;
+  z contra α² = 2252; z contra fora da fonte = -3.4 → **H2_IDENTITY_RETIRED**.
+Veredito: `TGL_H2_REPRODUCTION_V1__RESULT_READ_BY_HASH__H2_IDENTITY_RETIRED__SYNTHETIC_0P0099__REAL_WHITENED_0P994__OFF_0P996__Z_VS_ALPHA2_2252P2__GATE_UNTOUCHED`.
+
+**A leitura, que e a do numero:** a estatistica mede a fracao de ruido da janela (1 − ρ²), nao o eco; no sintetico dava α² porque o nivel de ruido
+era 0,1; no dado real da ~0,99 dentro e fora da fonte. A linha de janeiro/fevereiro fecha como a de dezembro (v340: «100σ» = identidade + teto):
+IDENTIDADE RETIRADA. O eco vive nas v341–v348: amplitude √β do kernel, nulos por injecao, o piso do estimador nomeado. **A lista dos cinco testes
+que aguardavam o instrumento esta FECHADA** (v346 ringdown; v347 PE com eco; v348 busca de longo atraso; v349 D1 via CAMB; v350 H2): nenhum
+falsificou, nenhum confirmou, todos ganharam numero, tres desenhos antigos foram retirados como identidade ou sem poder, dois bugs de pipeline
+foram autopsiados por hash. Nada move o gate; fora do contorno; CONFIRMADA proibido.
+
+**v350 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 20:09:19 → 20:18:34; `um.py` sha16 `c9fc7fa432c6cf16`
+(11,626,190 bytes; selo == disco); **5594/5594** (5594 + 0; kernel INTOCADO); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+`identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`: `RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`.
+Paragrafo AO LADO no artigo PT e EN. Stdout canonico `rodada_v350_stdout.txt`. Arvore regenerada (`ba67333b52c8be76`). **v339
+`2de6295cdf2da077` segue a ultima COMPLETA (custodia pendente); v340–v350 sao intermediarias — a proxima rodada COMPLETA e o handoff sao
+por ordem do operador.**
+
+## 10/09/2026 (noite) — A V350 RODOU COMPLETA — os mesmos bytes — e o HANDOFF v350 «A NATUREZA RESPONDEU» (v339→v350) foi gerado por script
+
+**Ordem do operador (10/09, verbatim):** «Siga para a rodada completa e Handoff.»
+
+**Rodada COMPLETA `[REAL — lido do disco]` (sem a chave TGL_RITE_CHECKPOINT):** 20:22:12 → 21:04:40; `um.py` sha16 `c9fc7fa432c6cf16` (os MESMOS bytes da v350
+intermediaria, cujo stdout foi renomeado `rodada_v350_stdout_INTERMEDIARIA.txt`); **5594/5594**; `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`: `RODADA_COMPLETA__NENHUM_RITO_REAPROVEITADO`. Stdout canonico `rodada_v350_stdout.txt`.
+Arvore regenerada (`b169e509a1b890ec`). **A v350 e agora a ultima rodada COMPLETA** (antes: v339 `2de6295cdf2da077`, cujo handoff ficara com custodia
+pendente e que este handoff inclui).
+
+**HANDOFF:** `HANDOFF_v350_A_NATUREZA_RESPONDEU.md` (18,710 bytes; sha16 `5c523ea81e27215c`), gerado por `handoff_v350.py` com todo hash lido do disco: a regra da
+custodia (espelho na v336; backup fora do repo antes de sobrescrever; sementes v339–v349 = `um.py.bak_*` mapeados por sha16), o estado medido, o
+arco v339→v350, a tabela dos vereditos da natureza com estatutos, o que muda no repositorio AO LADO (inclusive o cache de resultados JSON, que e
+parte da reproducao, e os pipelines), o que levar com sha256, e o que e do operador (commit, push, Zenodo, site, declaracao). **A custodia e da
+sessao irma; nada disto sobe sem ordem.**
+
+**Errata ao lado (10/09/2026, 21:1x, em nome proprio — escriba):** a arvore gerada as 21:05 (`b169e509a1b890ec`) trazia «AUSENTE» na linha do veredito da v346 porque o
+patch da v349 reutilizou o nome `_au` e sombreou a autopsia da v346; corrigido o nome (`_dau`), a arvore foi regenerada (`95b174ff8d3cc1c0`) e o handoff, que lista o
+sha256 da arvore, foi regenerado por script (`HANDOFF_v350_A_NATUREZA_RESPONDEU.md`: `5c523ea81e27215c` → `73dac3865375cda2`). O «AUSENTE» que fica na folha da v348 e legitimo:
+o KS de τ/M nao existe com uma so coincidencia on-source. Os hashes anteriores citados acima ficam como registro do que foi gerado primeiro.

@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-09T14:13:27Z",
+  "gerado_utc": "2026-09-11T02:30:10Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean",
@@ -28,7 +28,7 @@
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.json",
-      "total_arquivos": 572
+      "total_arquivos": 671
     }
   ],
   "canonico_url": null,
@@ -62,8 +62,8 @@
       "descricao": "A raiz da biblioteca TGLExt (importa a extensao: onde vivem as pedras)",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt.lean",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt.lean",
-      "sha256_16": "d5b2e272009f6f71",
-      "bytes": 21585
+      "sha256_16": "eb6e092a5a81eca2",
+      "bytes": 25728
     },
     {
       "nome": "_check_damming.lean",
@@ -107,7 +107,7 @@
     }
   ],
   "total_arquivos_nesta_pasta": 7,
-  "total_arquivos_com_subpastas": 606,
+  "total_arquivos_com_subpastas": 705,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel",
-  "rodape": "gerado por script de git ls-files em 2026-09-09 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-11 -- nao editar a mao"
 }

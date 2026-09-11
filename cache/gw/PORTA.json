@@ -1,0 +1,128 @@
+{
+  "porta": "cache/gw",
+  "porta_id": "cache/gw",
+  "titulo": "cache/gw",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-09-11T02:30:10Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "cache",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "ECHO_ANCHORED_V1_RESULT.json",
+      "caminho": "cache/gw/ECHO_ANCHORED_V1_RESULT.json",
+      "papel": "resultado selado",
+      "descricao": "RESULTADO lido por hash pelo um.py: eco ancorado V1 (gwfast/IMRPhenomD) -- MAY e KMS INCONCLUSIVE_SYSTEMATICS (v344)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/ECHO_ANCHORED_V1_RESULT.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/gw/ECHO_ANCHORED_V1_RESULT.json",
+      "sha256_16": "709744d4e1d1c6d3",
+      "bytes": 362930
+    },
+    {
+      "nome": "ECHO_ANCHORED_V2_RESULT.json",
+      "caminho": "cache/gw/ECHO_ANCHORED_V2_RESULT.json",
+      "papel": "resultado selado",
+      "descricao": "RESULTADO lido por hash: eco ancorado V2 (lalsuite, duas familias de template, nulo de familia) -- INCONCLUSIVE_SYSTEMATICS (v345)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/ECHO_ANCHORED_V2_RESULT.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/gw/ECHO_ANCHORED_V2_RESULT.json",
+      "sha256_16": "6fd0e16ebdf4435b",
+      "bytes": 364990
+    },
+    {
+      "nome": "ECHO_PE_V1_RESULT.json",
+      "caminho": "cache/gw/ECHO_PE_V1_RESULT.json",
+      "papel": "resultado selado",
+      "descricao": "RESULTADO lido por hash: PE bayesiana com termo de eco V1 (bilby/dynesty) -- inconclusiva; autopsia na V2 (v347)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/ECHO_PE_V1_RESULT.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/gw/ECHO_PE_V1_RESULT.json",
+      "sha256_16": "b73cfffbc2301ea6",
+      "bytes": 751503
+    },
+    {
+      "nome": "ECHO_PE_V2_RESULT.json",
+      "caminho": "cache/gw/ECHO_PE_V2_RESULT.json",
+      "papel": "resultado selado",
+      "descricao": "RESULTADO lido por hash: PE bayesiana com eco V2 (emenda pre-inscrita; injecoes) -- MAY/KMS INCONCLUSIVE_SYSTEMATICS, piso do estimador (v347)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/ECHO_PE_V2_RESULT.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/gw/ECHO_PE_V2_RESULT.json",
+      "sha256_16": "3072349afb00ab2c",
+      "bytes": 1693653
+    },
+    {
+      "nome": "ECHO_SEARCH_V1_RESULT.json",
+      "caminho": "cache/gw/ECHO_SEARCH_V1_RESULT.json",
+      "papel": "resultado selado",
+      "descricao": "RESULTADO lido por hash: busca de ecos de longo atraso (protocolo de 2025) -- NOT_FALSIFIED_UNDERPOWERED, desenho retirado (v348)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/ECHO_SEARCH_V1_RESULT.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/gw/ECHO_SEARCH_V1_RESULT.json",
+      "sha256_16": "30f3f422ff67d34c",
+      "bytes": 49325
+    },
+    {
+      "nome": "GWOSC_ECHO_WINDOWS_V1.manifest.json",
+      "caminho": "cache/gw/GWOSC_ECHO_WINDOWS_V1.manifest.json",
+      "papel": "resultado selado",
+      "descricao": "Manifesto (sha256 por serie) das janelas [-16,+4] s para o eco; o .npz (9 MB) NAO vai -- regeneravel pelo extrator",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/GWOSC_ECHO_WINDOWS_V1.manifest.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/gw/GWOSC_ECHO_WINDOWS_V1.manifest.json",
+      "sha256_16": "5201e7b05cc4d5cc",
+      "bytes": 104397
+    },
+    {
+      "nome": "GWOSC_WINDOWS_V1.manifest.json",
+      "caminho": "cache/gw/GWOSC_WINDOWS_V1.manifest.json",
+      "papel": "resultado selado",
+      "descricao": "Manifesto (sha256 por serie) das janelas GWOSC de 4 kHz usadas pelos ritos GW; o .npz (111 MB) NAO vai -- regeneravel pelo extrator",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/GWOSC_WINDOWS_V1.manifest.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/gw/GWOSC_WINDOWS_V1.manifest.json",
+      "sha256_16": "215b930648db9c6e",
+      "bytes": 22475
+    },
+    {
+      "nome": "H2_REPRODUCTION_V1_RESULT.json",
+      "caminho": "cache/gw/H2_REPRODUCTION_V1_RESULT.json",
+      "papel": "resultado selado",
+      "descricao": "RESULTADO lido por hash: reproducao de H2 com pycbc -- H2_IDENTITY_RETIRED (o alpha^2 de jan/fev era noise^2) (v350)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/H2_REPRODUCTION_V1_RESULT.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/gw/H2_REPRODUCTION_V1_RESULT.json",
+      "sha256_16": "8c7ef7a1d31af375",
+      "bytes": 148108
+    },
+    {
+      "nome": "RINGDOWN_DEPHASING_V1_RESULT.json",
+      "caminho": "cache/gw/RINGDOWN_DEPHASING_V1_RESULT.json",
+      "papel": "resultado selado",
+      "descricao": "RESULTADO lido por hash: ringdown vs dephasing V1 -- recusado pelo gate (borda da grade); autopsia (v346)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/RINGDOWN_DEPHASING_V1_RESULT.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/gw/RINGDOWN_DEPHASING_V1_RESULT.json",
+      "sha256_16": "502c80fe2a37427e",
+      "bytes": 209114
+    },
+    {
+      "nome": "RINGDOWN_DEPHASING_V2_RESULT.json",
+      "caminho": "cache/gw/RINGDOWN_DEPHASING_V2_RESULT.json",
+      "papel": "resultado selado",
+      "descricao": "RESULTADO lido por hash: ringdown vs dephasing V2 (filtro casado) -- INCONCLUSIVE_SYSTEMATICS, poder 0,18 sigma (v346)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/RINGDOWN_DEPHASING_V2_RESULT.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/gw/RINGDOWN_DEPHASING_V2_RESULT.json",
+      "sha256_16": "ff15f023dd91d8c7",
+      "bytes": 247065
+    }
+  ],
+  "total_arquivos_nesta_pasta": 10,
+  "total_arquivos_com_subpastas": 10,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/gw",
+  "rodape": "gerado por script de git ls-files em 2026-09-11 -- nao editar a mao"
+}

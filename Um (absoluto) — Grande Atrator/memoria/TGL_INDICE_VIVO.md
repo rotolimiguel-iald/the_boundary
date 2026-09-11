@@ -1,21 +1,21 @@
-# TGL — ÍNDICE VIVO DO ARCO DO TÚNEL (v311 → v336)
+# TGL — ÍNDICE VIVO DO ARCO DO TÚNEL (v311 → v350)
 
-> Índice **derivado**, regenerado por script (`atlas_indice.py`) a cada selo; números e hashes lidos do disco. Aponta para as fontes; não substitui o Atlas nem o diário. Regenerado em 09/09/2026 10:50.
+> Índice **derivado**, regenerado por script (`atlas_indice.py`) a cada selo; números e hashes lidos do disco. Aponta para as fontes; não substitui o Atlas nem o diário. Regenerado em 10/09/2026 21:05.
 
 ## 0. Estado
 
 | item | valor lido |
 |---|---|
-| versão | **v336** |
-| `um.py` sha16 | `f1f330e24120f9be` |
-| teoremas | **4235/4235** |
+| versão | **v350** |
+| `um.py` sha16 | `c9fc7fa432c6cf16` |
+| teoremas | **5594/5594** |
 | gate | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | selftest | `FAIL_CLOSED_SELFTEST_PASSED` |
 | identidade | `1=1=VERDADEIRO=HAJA_LUZ` |
 | contorno | `[]` |
 | rodada | COMPLETA |
-| última rodada COMPLETA | v336 (`f1f330e24120f9be`, 4235/4235) — custódia: HANDOFF_v336 emitido |
-| relatório de axiomas | 4925 termos; fora do trio: 0 |
+| última rodada COMPLETA | v350 (`c9fc7fa432c6cf16`, 5594/5594) — custódia: HANDOFF_v350 emitido |
+| relatório de axiomas | 6657 termos; fora do trio: 0 |
 
 ## 1. As versões do arco (hash do `um.py` lido dos backups de bytes; teoremas lidos do stdout)
 
@@ -43,7 +43,21 @@
 | v333 | `e1b74a907c403538` | 4207 | 4 | ENTREGA_057 |
 | v334 | `—` | 4217 | 1 | GERENCIA |
 | v335 | `b18bbaa0433ddd5a` | 4225 | 1 | GERENCIA |
-| v336 | `f1f330e24120f9be` | 4235 | 1 | GERENCIA |
+| v336 | `—` | 4235 | 1 | GERENCIA |
+| v337 | `f1f330e24120f9be` | 4241 | 1 | GERENCIA |
+| v338 | `f1f330e24120f9be` | 5306 | 77 | ENTREGA_062 |
+| v339 | `2de6295cdf2da077` | 5594 | 21 | ENTREGA_067 |
+| v340 | `40cf787fae8f4e1e` | 5594 | 0 | fiação |
+| v341 | `b811cd1eb3f4eb68` | 5594 | 0 | fiação |
+| v342 | `2de6295cdf2da077` | 5594 | 0 | fiação |
+| v343 | `2724e21207214537` | 5594 | 0 | fiação |
+| v344 | `8cec44bdbe5bb379` | 5594 | 0 | fiação |
+| v345 | `f0a2ca985cf8a6c9` | 5594 | 0 | fiação |
+| v346 | `ee5b5c8b4fa4a396` | 5594 | 0 | fiação |
+| v347 | `1d08245f0cf0438c` | 5594 | 0 | fiação |
+| v348 | `d1caf3b16412919e` | 5594 | 0 | fiação |
+| v349 | `76e245bec46b9f3c` | 5594 | 0 | fiação |
+| v350 | `c9fc7fa432c6cf16` | 5594 | 0 | fiação |
 
 ## 2. As pedras do arco, por versão (nome → teoremas; procedência)
 
@@ -93,18 +107,35 @@
 
 **v336** (1 pedras, 10 teoremas): `TheNameIsTheInstrument`(10)
 
+**v337** (1 pedras, 6 teoremas): `TheNameIsTheCharacterization`(6)
+
+**v338** (77 pedras, 1065 teoremas): `RelativePhaseCharacter`(24) · `SelectorRecordReconstruction`(12) · `BondLocalityEstimates`(18) · `AngularSelectorIntertwining`(24) · `CanonicalSelectorBorn`(15) · `LocalInteractionUniqueness`(5) · `NoncommutingLocalWitness`(18) · `LocalInteractionDynamics`(16) · `LocalInteractionGenerator`(6) · `LocalInteractionCocycle`(21) · `UnitaryCocycleUniqueness`(6) · `CentralScalarPhase`(18) · `SmoothSelectedAtlasGluing`(5) · `LocalInteractionData`(21) · `FiniteEinsteinNaturality`(5) · `FiniteRicciContraction`(4) · `SelectedAtlasGluing`(2) · `FiniteCoordinateCurvature`(6) · `TopologicalAtlasGluing`(2) · `FiniteCurvatureAlgebra`(5) · `SelectedGravitationalAtlas`(27) · `GravitationalChartGluing`(10) · `FiniteLeviCivita`(8) · `PauliPerturbedDynamics`(16) · `PauliCocycleGenerator`(7) · `ScalarEinsteinLieNaturality`(15) · `UnifiedRecordedPreparation`(16) · `FiniteCoordinateMap`(22) · `PauliInteractionCocycle`(28) · `RicciLieNaturality`(10) · `GravitationalResponseRecord`(13) · `CocycleNormLimit`(15) · `EulerMetricPullback`(15) · `LeviCivitaLieVariation`(10) · `GeneralSourceResponseReconstruction`(10) · `GeneralSourceEinsteinBridge`(3) · `SummableInteractionModularOrbit`(24) · `MetricEinsteinVariation`(3) · `LieMetricJets`(10) · `GeneralSourceUnitaryRealization`(19) · `SpectatorCancellation`(5) · `AdmissiblePauliInteraction`(10) · `MetricRicciVariation`(12) · `StaticDynamicUnitary`(9) · `JointCoherentGravitation`(12) · `UnitarySourceCalibration`(17) · `FisherCorrectedEinstein`(11) · `ScatteringOutcomeRecord`(23) · `BoundedPerturbationCocycle`(13) · `PauliInteractionWitness`(24) · `JointCurvatureVariation`(10) · `StaticDynamicMixture`(19) · `JointPreparationCovariance`(14) · `SignedCovectorCoverage`(18) · `AffineSamplingObstruction`(11) · `ProbabilityRecordState`(19) · `GeneralMetricClausius`(6) · `SelectionOutcomeRecord`(24) · `CanonicalCocycleDerivative`(4) · `DerivativeFromLinearCutoffError`(4) · `FiniteLevelExponentials`(5) · `FiniteModularHamiltonian`(20) · `UnitaryDuhamel`(12) · `SummablePauliInteraction`(24) · `FiniteResponseReconstruction`(10) · `LeviCivitaMetricVariation`(14) · `CurvatureNonlinearVariation`(19) · `JointUnitaryPreparation`(21) · `FiniteCoherentSources`(19) · `FisherInformationTensor`(22) · `GeneralLinearizedGauge`(20) · `GeneralAngularTensorCodec`(32) · `GeneralMetricEinstein`(15) · `ConeVolumeReconstruction`(12) · `ModularOpticalIdentity`(17) · `SelectedAmplitudeGeometry`(17) · `SelectionAngleReconstruction`(7)
+
+**v339** (21 pedras, 288 teoremas): `SignedGibbsFiniteRecord`(2) · `SignedGibbsCoverage`(13) · `RenormalizedNegativeExpectation`(15) · `SignedGibbsResponse`(18) · `SelectedProbabilitySigma`(19) · `GibbsSamplingWindow`(7) · `SelectedFisherGibbsBridge`(8) · `MixedGibbsFiniteAccuracy`(7) · `RecordCharacterMeshControl`(4) · `FiniteCharacterResolution`(8) · `SigmaMatterConservation`(12) · `ScalarMatterDensityVariation`(17) · `SelectedFisherLorentzMetric`(21) · `FiniteResponseErrorBounds`(9) · `CharacterPrefixStability`(15) · `MixedGibbsGravitationalBridge`(15) · `SmallTimeLocalDynamics`(12) · `MixedQuadraticGibbsResponse`(27) · `FiniteCommutatorEvolution`(16) · `ProbeResponseRecord`(15) · `TransverseGibbsResponse`(28)
+
 ## 3. O TÚNEL — ordens e entregas
 
 - ORDENS (gerência → bancada): ORDEM_001, ORDEM_002, ORDEM_003, ORDEM_004, ORDEM_005, ORDEM_006, ORDEM_007, ORDEM_008, ORDEM_009, ORDEM_010
-- ENTREGAS (bancada → gerência): 58 — ENTREGA_001 … ENTREGA_057
+- ENTREGAS (bancada → gerência): 88 — ENTREGA_001 … ENTREGA_087
 - Pasta: `C:\IALD\Central de Patentes\Chatgpt\TUNEL`
 
 ## 4. As folhas abertas (a árvore da prova, `Nós\A_PROVA_DA_QG_TGL_arvore.md`)
 
 1. **H3** — **RESPONDIDA pelo operador (08/09/2026, v334)**: «a aliança é global e uma só; tela é aquela que a igualdade é operador — fundação, não validade; se a igualdade não operar a tela não reflete». A tela é FUNDADA (= centralizador do estado global), uma só, global, no relógio modular; H3 não é mais escolha de tela; a dicotomia (045) é parede das telas geométricas externas. Resta [ONTO/OPEN]: a identificação física da tela fundada com um horizonte causal (BW além das cunhas, declarado aberto pelo operador em 05–06/2026, com paredes medidas).
-2. **Ponte região–álgebra e escala** — **RESPONDIDA pelo operador (08/09/2026, v334)**: «quem crava a estaca é a palavra, porque ou é verdade ou é mentira». A palavra (Bool por sítio) fixa o lugar (leitura do cociclo injetiva, 055); o côvado é o axioma (traço relativo 1 ⟹ densidade ½, 052). Antes: isotonia paga; covariância não fixa a normalização (045, 053). Resta [OPEN]: a atribuição física região ↔ andar (048).
+2. **Ponte região–álgebra e escala** — RESPONDIDA pelo operador (v334: a palavra fixa, o côvado é o axioma); **v338**: o caráter do registro reconstrói g, T e Einstein (condicionado a área e conservação), a colagem dá Λ único, a lei finita de transformação de Einstein está demonstrada. Resta [INPUT/OPEN]: a ORIGEM FÍSICA do registro R, a realização de matéria/conservação/área para os mesmos dados, o atlas físico compatível.
 3. **Dimensão 4 e assinatura (1,3)** — INPUT; O QUATRO condição; inferência do boost refutada (v317); Δ^{it} como boost sobre a tétrade NÃO pago (039).
 4. **Parabólico de BW** — negativos: shift (v316), Borchers (v317) e Borchers transportado (048). Subespaço padrão CONTÍNUO construído em L² (049–050: S_c = J T_c, Δ_c = T_c²); a identificação T_c = Δ_c^{1/2} e o fluxo físico seguem OPEN.
+4b. **Setor quântico interagente, anomalias e UV** — a bancada levou por escrito (067–087) até a linha livre em H⁴ do BRST clássico completo num espaço-forma; o que fica [OPEN]: a cohomologia no domínio físico, QME, carga BRST, estado físico interagente, e uma rota UV com alcance explícito além da EFT. Nada disto é teorema do kernel.
+4c. **Um teste de β em ondas gravitacionais [OPEN]** — o rito GW_ANGULAR_V1 (v340) retirou o «100σ» de dez/2025 (identidade + teto) e mediu que as métricas angulares de fev/2026 não distinguem o strain real de ruído com o mesmo espectro; H3 é estatística do espectro e H4 vale ½ por construção; o eco pré-registrado de maio/2026 ficou sub-limiar. β não entra em nenhuma dessas métricas: um teste de β em GW exige observável em que β entre.
+4d. **O eco acoplado (v341)** — a amplitude do retorno é teorema (|R| = √β, sinal −1); o atraso τ_eco é [INPUT] e o dado público não decide (poder < 5σ para qualquer atraso entre 0,5 e 5 períodos). Fica [OPEN]: derivar τ_eco no kernel; mais eventos (O4/O5) ou detectores de 3ª geração. (v342: o nulo de descasamento mostra que, a 0,75 período, o termo de retorno absorve descasamento do template como se fosse eco — INCONCLUSIVE_SYSTEMATICS; um template fixo daria «5σ» por descasamento.)
+4e. **A fronteira remanescente como tela fundada (v343)** — cravado: se a fronteira do remanescente é a tela fundada, a atestação (o eco) retorna após um período modular do horizonte com amplitude √β e sinal −1; o rito KMS no dado público não decide; o protocolo decisivo (primário ancorado pela inspiral com templates de RG) está pré-registrado e hasheado, AWAITING_INSTRUMENT. O salto é a atestação, não o colapso [ONTO].
+4f. **O teste decisivo executado (v344)** — instrumento obtido com proveniência conferida; protocolo executado sem alteração; resultado lido por hash e julgado pela matriz pré-registrada (MAY → INCONCLUSIVE_SYSTEMATICS; KMS → INCONCLUSIVE_SYSTEMATICS). O que fica: o nulo de família de templates; posteriores completos; mais eventos.
+4g. **O teste completo (v345)** — WSL + lalsuite instalados por ordem do operador; duas famílias de template; o nulo de família presente; resultado por hash: MAY → INCONCLUSIVE_SYSTEMATICS; KMS → INCONCLUSIVE_SYSTEMATICS. O que fica: posteriores completos; mais eventos; a lei do atraso derivada.
+4h. **O ringdown medido (v346)** — a lei de dephasing no modo 220: ramo planckiano invisível por construção; V1 recusada pelo próprio gate (autópsia: AUSENTE séries na borda da grade com o mesmo δ); emenda V2 pré-registrada (filtro casado, exclusão de borda) mede pela primeira vez o ramo τ★ = GM/c³ (a seção 20 o dava por «provavelmente excluído» sem medir): INCONCLUSIVE_SYSTEMATICS (poder 0.18σ). O que fica: precisão de ringdown de O4/O5 e 3ª geração; overtones; PE completa.
+4i. **A PE com eco (v347)** — a forma bayesiana do protocolo ancorado: o descasamento de template virou parâmetro marginalizado; a V1 foi lida inconclusiva e a autópsia desfez um «8σ» de um só evento; emenda V2: MAY INCONCLUSIVE_SYSTEMATICS (a = -0.267 ± 0.857, poder 1.17σ); KMS INCONCLUSIVE_SYSTEMATICS (a = 1.089 ± 0.899, poder 1.11σ). O que fica: mais eventos (O4/O5), modos superiores, a lei do atraso como física.
+4j. **A busca de longo atraso (v348)** — o `search_for_echoes` de 2025 herdado e completado (fundo, injeções √β, padrão τ/M): NOT_FALSIFIED_UNDERPOWERED (N_on 1 vs fundo 3.00; eficiência para √β 0.000). Uma busca de picos a 3σ não vê um eco de 0,11 do primário; o desenho de 2025 é retirado como sem poder.
+4k. **O D1 via CAMB (v349)** — a V1 (script de maio intocado) expôs um bug de integração de distância (autópsia por hash); emenda V2 com o worker corrigido em cópia: Δχ² (TGL − ΛCDM) = 9.699 → D1_TENSION_2_TO_5_SIGMA; β livre = -0.01705 ± 0.00753 → D1_BETA_TENSION. Fundo, não perturbação; conjugado do Nível 2.
+4l. **A reprodução de H2 (v350)** — com pycbc e dados reais, o E_res/E_total → α² de jan/fev era o quadrado do nível de ruído do gerador sintético (0.0099 com ruído 0,1; segue noise²); no dado real é a fração de ruído (0.9937 branqueado, 0.9956 fora da fonte): H2_IDENTITY_RETIRED. A lista dos cinco testes que aguardavam o instrumento está fechada.
 5. **Lei de área geral / liberdade radiativa** — shear livre (v320); 4ª ordem impõe relógio (v326).
 6. **Globalização / Lema 3** — **PAGO NA TORRE para TODO perfil** (046: `the_lift_fires_on_the_aperiodic_tower`; v329: `modularHorizon`; 045: `swapHorizon`; v331: o GRUPO dos horizontes e a RAIZ `the_root_of_the_proof_tree`). Restam: a passagem a uma álgebra de von Neumann geral ([KNOWN, Takesaki]), andares → regiões, o shift (não construído).
 7. **[KNOWN] importados** — Connes–RN/Araki geral (Hiai 9.4(2) especializado, v324), Pedersen–Takesaki, cálculo funcional relativo.
@@ -120,6 +151,6 @@
 
 ## 6. Onde vive cada coisa
 
-- Canônico: `C:\IALD\Artigo\Haja_Luz\A Ponte e o Um\Nós\um.py` · kernel `tgl_kernel\TGLExt` (572 módulos) · stdout `rodada_vNNN_stdout.txt` · árvore `A_PROVA_DA_QG_TGL_arvore.md` · diário `MEMORIA_DA_LINHAGEM.md` · desenho `DESENHO_DO_FECHAMENTO_QG.md` · handoffs `HANDOFF_vNNN_*.md` · `DA_IRMA.md`.
+- Canônico: `C:\IALD\Artigo\Haja_Luz\A Ponte e o Um\Nós\um.py` · kernel `tgl_kernel\TGLExt` (671 módulos) · stdout `rodada_vNNN_stdout.txt` · árvore `A_PROVA_DA_QG_TGL_arvore.md` · diário `MEMORIA_DA_LINHAGEM.md` · desenho `DESENHO_DO_FECHAMENTO_QG.md` · handoffs `HANDOFF_vNNN_*.md` · `DA_IRMA.md`.
 - Atlas: `Central de Patentes\memory\TGL_ATLAS.md` (append datado; II.★★ verbetes; III.D pedras; IX remissivo) · este índice · `MEMORY.md` · espelho derivado `C:\LAR_MIGUEL\ESPELHO.md` (porta_memoria.py).
 - Espelho público: `C:\IALD\Artigo\the_boundary` (custódia da irmã; push do operador) · backups `the_boundary_BACKUPS`.
