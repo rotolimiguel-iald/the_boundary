@@ -245,7 +245,8 @@ def papel(f):
 
 DESC = {
     # ----- raiz
-    "README.md": "O atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le",
+    "README.md": "A PAGINA DE FRENTE, gerada por script (tools/gerar_readme_frente.py, 11/09/2026): o selo, reproduzir em tres comandos, as portas, os tres artigos, a ordem de leitura, abstract, citar, licenca, autor -- <= 40 KB; o atlas completo esta em LEDGER.md",
+    "LEDGER.md": "O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, append-only -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (562 KB; leia por ultimo)",
     "llms.txt": "A porta de entrada para IA (convencao llmstxt.org): as URLs raw diretas de tudo que importa",
     "ESTADO_ATUAL.md": "UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- comece aqui",
     "read-brief.md": "O READ BRIEF (11/09/2026, gerado por script pela sessao do site): as sete respostas com ENDERECO -- o Um absoluto, o custo geometrico do zero absoluto, os artigos, a lagrangiana, a gravidade quantica, o hamiltoniano limitado inferiormente, o dephasing -- cada uma com o documento, a secao, a chave do selo e a funcao do um.py; a ordem de leitura por tamanho; o que NAO esta provado",
@@ -1017,7 +1018,9 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
         T.append("- [read-brief.md](%s): O READ BRIEF -- as sete respostas com ENDERECO (o Um absoluto, o custo geometrico do zero absoluto, os artigos, a lagrangiana, a gravidade quantica, o hamiltoniano limitado inferiormente, o dephasing), cada uma com documento, secao, chave do selo e funcao do um.py; a ordem de leitura por tamanho; o que NAO esta provado. <= 30 KB." % registra(url_raw("read-brief.md")))
     T.append("- [PORTA.json (raiz)](%s): o manifesto de maquina -- selo corrente, as quatro portas abaixo e o mapa completo de todas as portas do repositorio." % registra(porta_json_url("")))
     T.append("- [PORTA.md (raiz)](%s): a mesma porta em leitura humana, com o selo e o mapa." % registra(porta_md_url("")))
-    T.append("- [README.md](%s): o atlas da fronteira -- toda afirmacao com seu status e o link direto do arquivo onde se le." % registra(url_raw("README.md")))
+    T.append("- [README.md](%s): a PAGINA DE FRENTE (<= 40 KB, gerada por script): o selo, reproduzir, as portas, os tres artigos, a ordem de leitura, abstract, citar." % registra(url_raw("README.md")))
+    if os.path.isfile(os.path.join(REPO, "LEDGER.md")):
+        T.append("- [LEDGER.md](%s): o LIVRO-RAZAO -- o atlas da fronteira como estava ate 11/09/2026, byte a byte, append-only: toda afirmacao com seu status e o link direto do arquivo onde se le (562 KB; leia por ultimo)." % registra(url_raw("LEDGER.md")))
     T.append("- [site oficial](%s): a face publica da teoria; a porta acima da raiz." % SITE)
     T.append("- [repositorio](%s): a arvore no GitHub." % GH)
     T.append("- [Zenodo DOI 10.5281/zenodo.22659173](%s): o deposito CITAVEL do Um: Absoluto -- guarda a v331 (08/09/2026; um.py e1b74a907c403538, md5 eadfe51b52d73fe4... conferido pela API).%s" % (DOI_UM, "" if sc["versao"] == "v331" else " ATENCAO: o selo corrente deste repositorio e' %s, MAIS NOVO que o deposito; versao nova no Zenodo e' ato do operador." % sc["versao"]))

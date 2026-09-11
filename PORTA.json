@@ -5,7 +5,7 @@
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
   "doi_um_absoluto": "https://doi.org/10.5281/zenodo.22659173",
-  "gerado_utc": "2026-09-11T17:07:15Z",
+  "gerado_utc": "2026-09-11T17:12:06Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
     "versao": "v339",
@@ -133,7 +133,7 @@
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.json",
       "canonico_url": null,
       "comando": null,
-      "total_arquivos": 6
+      "total_arquivos": 7
     }
   ],
   "arquivos_raiz": [
@@ -182,12 +182,20 @@
       "bytes": 26400
     },
     {
-      "nome": "README.md",
+      "nome": "LEDGER.md",
       "papel": "documento",
-      "descricao": "O atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le",
-      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+      "descricao": "O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, append-only -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (562 KB; leia por ultimo)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md",
       "sha256_16": "45738ea13da58341",
       "bytes": 562947
+    },
+    {
+      "nome": "README.md",
+      "papel": "documento",
+      "descricao": "A PAGINA DE FRENTE, gerada por script (tools/gerar_readme_frente.py, 11/09/2026): o selo, reproduzir em tres comandos, as portas, os tres artigos, a ordem de leitura, abstract, citar, licenca, autor -- <= 40 KB; o atlas completo esta em LEDGER.md",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+      "sha256_16": "76e43209048d3aed",
+      "bytes": 29360
     },
     {
       "nome": "read-brief.md",
@@ -479,9 +487,9 @@
       "pasta": "tools",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.json",
-      "total_arquivos": 6
+      "total_arquivos": 7
     }
   ],
-  "total_arquivos": 1336,
+  "total_arquivos": 1338,
   "rodape": "gerado por script de git ls-files em 2026-09-11 -- nao editar a mao"
 }

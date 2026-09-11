@@ -21,7 +21,7 @@
   "versao_da_pedra": "v339"
  },
  "regra": "NOT_FALSIFIED nunca e CONFIRMED. Fechar a arquitetura matematica interna nao e gravidade quantica confirmada. beta_TGL = alpha*sqrt(e) e CONSTANTE, nunca literal no codigo: e computada em runtime.",
- "n_arquivos": 1336,
+ "n_arquivos": 1338,
  "aliases_ausentes": [],
  "aliases": {
   "um.py": {
@@ -112,8 +112,8 @@
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
    "o_que_e": "O atlas da fronteira",
-   "sha256_16": "45738ea13da58341",
-   "bytes": 562947
+   "sha256_16": "76e43209048d3aed",
+   "bytes": 29360
   },
   "llms": {
    "path": "llms.txt",
@@ -1274,6 +1274,13 @@
    "papel": "resultado selado"
   },
   {
+   "path": "LEDGER.md",
+   "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md",
+   "bytes": 562947,
+   "sha256_16": "45738ea13da58341",
+   "papel": "documento"
+  },
+  {
    "path": "O Custo Geométrico do Zero Absoluto — Haja Luz/T6_protocol_prompts.txt",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/T6_protocol_prompts.txt",
    "bytes": 16671,
@@ -1311,8 +1318,8 @@
   {
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-   "bytes": 562947,
-   "sha256_16": "45738ea13da58341",
+   "bytes": 29360,
+   "sha256_16": "76e43209048d3aed",
    "papel": "documento"
   },
   {
@@ -9452,8 +9459,15 @@
   {
    "path": "tools/gerar_portas.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_portas.py",
-   "bytes": 90624,
-   "sha256_16": "9b1f68ccb8b55359",
+   "bytes": 91357,
+   "sha256_16": "9c127c4a190947ae",
+   "papel": "codigo"
+  },
+  {
+   "path": "tools/gerar_readme_frente.py",
+   "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_readme_frente.py",
+   "bytes": 12420,
+   "sha256_16": "3463ee1fdbc6ba7c",
    "papel": "codigo"
   },
   {
