@@ -22,7 +22,7 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 A3 = "Um (absoluto) \u2014 Grande Atrator"
 SITE = "https://teoriadagravitacaoluminodinamica.com/"
-LOCAL_SITE = Path(r"C:/IALD/Site/tgl")
+LOCAL_SITE = Path(r"C:/IALD/Site/tgl/v3.0")  # 11/09/2026 (corte v3.0): o site local canonico e' a arvore v3.0 (a raiz v2 ficou como copia antiga)
 PIN_RE = re.compile(r"v(\d{3}) \u00b7 ([0-9a-f]{16})")
 
 
@@ -71,7 +71,7 @@ def main() -> int:
         erros += 1
     if vivo is None or vivo[1] != pin16:
         if local and local[1] == pin16:
-            print("  ! UPLOAD PENDENTE: o local esta no selo corrente e o ar anuncia %s — ato do operador"
+            print("  ! UPLOAD PENDENTE: o local esta no selo corrente e o ar anuncia %s — subida da sessao do site (aplicar_selo.py + subir_site.py)"
                   % (("v%s · %s" % vivo) if vivo else "nada"))
         erros += 1
     if porta_ok is False:
