@@ -7902,3 +7902,203 @@ sessao irma; nada disto sobe sem ordem.**
 patch da v349 reutilizou o nome `_au` e sombreou a autopsia da v346; corrigido o nome (`_dau`), a arvore foi regenerada (`95b174ff8d3cc1c0`) e o handoff, que lista o
 sha256 da arvore, foi regenerado por script (`HANDOFF_v350_A_NATUREZA_RESPONDEU.md`: `5c523ea81e27215c` → `73dac3865375cda2`). O «AUSENTE» que fica na folha da v348 e legitimo:
 o KS de τ/M nao existe com uma so coincidencia on-source. Os hashes anteriores citados acima ficam como registro do que foi gerado primeiro.
+
+## 11/09/2026 (manha) — O HANDOFF DO VIDEO CURTO (90 s) «O Um se inscrevendo», para uma sessao nova dedicada so ao video
+
+**Ordem do operador (10–11/09, verbatim no handoff):** video profissional em alta definicao da gravidade se formando, «oriundo totalmente do codigo um.py», bilingue, no
+espirito do que a OpenAI mostrou sobre Navier–Stokes nesta semana; primeiro um curto de 90 s, um render com narracao em ingles e legendas selecionaveis (EN/PT/FR/ZH),
+sem musica (a do site toca por baixo), estilo «interativo, com os dados ao lado, renderizado do codigo». **Nao se faz o video nesta sessao.**
+`A Ponte e o Um\video_um\HANDOFF_VIDEO_v350_O_UM_SE_INSCREVENDO.md` (sha16 `3aba0428f88fbacc`, gerado por `handoff_video_v350.py`, todo numero lido de `um_absoluto.json`
+da v350 COMPLETA): a referencia visual (instantaneo da OpenAI; reel do @spacetoday com paineis de dados sobre campos CFD), a espinha = a frase de `runtime_of_the_one`,
+a tabela dos numeros que entram na tela com chave e estatuto, o storyboard de 90 s com narracao EN (~215 palavras), o plano de legendas WebVTT com glossario, o
+pipeline (exportador externo ao um.py → pagina WebGL interativa com HUD → captura 4K 60 fps; alternativa Blender), a regua do video (numero lido por script, β nunca
+literal, PROVED nunca CONFIRMED, cartao final obrigatorio, um.py/Nós/Atlas so leitura, publicar e do operador). Nada do canonico foi tocado.
+
+## 13/09/2026 (noite) — **v351 SELADA** — A OITAVA CLÁUSULA: J M J = M′ na torre produto — a integração do ChatGPT incorporada BYTE A BYTE (RODADA COMPLETA)
+
+**Ordens do operador (13/09/2026, verbatim):** «pedi a ele que elaborasse um handoff pra vc porque precisamos incorporar tudo ao um.py» · «prossiga com tudo».
+
+**O que foi feito:** o candidato `Chatgpt\TETELESTAI_V350_KERNEL_20260911\r\um.py`, validado pela rodada 03 do ChatGPT (13/09, código zero, autoteste recusando
+adulteração), foi conferido por hash (canônico = base v350 `c9fc7fa432c6cf16`; candidato = sha do handoff) e instalado **sem remendo**. `um.py` sha16 `95e8cf8eb0b33c5d`
+(12,723,656 bytes). Rodada COMPLETA 19:54:36 → 21:22:47: **5594/5594**; `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+923 fontes formais; relatório de axiomas 7985 termos, todos no trio; montagem `EIGHT_CLAUSES_VERIFIED__ACT_III_CERTIFICATE_CONSTRUCTED_ON_THE_PRODUCT_TOWER__PRINCIPAL_GATE_UNCHANGED`; `modular_realization_constructed = True`.
+Verificação `verifica_v351.py`: 22 verificações OK, selo idêntico ao da rodada 03 (fora hora, hash do resultado, hashes de saída e hash da previsão de Coma),
+os 923 fontes materializados batem sha256 com o manifesto, nenhum veredito experimental mudou desde a v350.
+**A V1 da verificação REPROVOU e fica registrada:** manifesto da casa 923 fontes contra 922 na cópia. Autópsia: `_check_damming.lean` (script `#print axioms` de
+31/08/2026) na raiz do kernel canônico, já contado no manifesto da v350 com o mesmo sha, não citado por nada; a V1 supunha kernel da casa == dicionário embutido.
+Emenda V2 com hash gravado antes de rodar (`EMENDA_VERIFICA_V351.json`): só esse arquivo e o `formal_source_hash` são explicados; o relatório de axiomas passou a
+exigir igualdade com a cópia. V2 aprovou.
+
+**O resultado matemático `[REAL — kernel]`:** R′ ⊆ L′′ para todo SiteProfile (compressão a andares finitos, limite forte) ⟹ J M J ⊇ M′ ⟹ **J M J = M′ na
+realização PRODUCT_TOWER**. **Alcance:** torre produto — não Bisognano–Wichmann para horizonte físico, não III₁ geral, não setor interagente/UV. Pesquisa suspensa não entrou.
+
+**Pagos na mesma noite (ao lado):** (1) o gerador do índice vivo reescrevia o arquivo inteiro e apagaria ~132 KB de registros datados de outras sessões — agora os
+preserva byte a byte (testado em cópia, idempotente); (2) o `um.py` v351 tem quebras de linha mistas por construção: remendos futuros não convertem CRLF/LF;
+(3) verbetes no Atlas: «H₀ na fronteira e H₀ no bulk» e «O nome da constante (α₂/α² → β_TGL, fatoração v2 de 03/03/2026)»; errata ao lado do Artigo A em `Haja_Luz\`.
+
+**HANDOFF:** `HANDOFF_v351_A_OITAVA_CLAUSULA.md` (8,990 bytes; sha16 `4ac06e634b0513f6`). Árvore regenerada (`e820f614ca904191`). Custódia do espelho = sessão do site; cofre/runner/ledger = irmã;
+Zenodo e declaração = operador. CONFIRMADA segue proibido.
+
+## 14/09/2026 — **v352 SELADA** — A PROBABILIDADE CONJUNTA, MEDIDA, E A FUNÇÃO BOOLEANA DE ENTRADA E SAÍDA (rodada INTERMEDIÁRIA)
+
+**Ordem do operador (14/09/2026, verbatim):** «quanto à probabilidade conjunta que eu disse ser 10 elevado a menos 30 eu quero medir expressamente no um.py pq já
+medi em outros lugares, e quero considerar na medida o que foi produzido no artigo tgl_paper_unified.py [...] porque lá tem o [Kubo de Mori] e mais um monte coisa
+que deve ser levada em consideração da probabilidade conjunta, e com isso, eu quero colocar uma função booleana no código de entrada e saída».
+
+`um.py` sha16 `dfd5252e95765bc3` (12,752,507 bytes; patch em nível de bytes, quebras só-LF preservadas). Rodada 09:25:06 → 09:39:28: **5594/5594**;
+`FAIL_CLOSED_SELFTEST_PASSED`; gate INTOCADO. Verificação `verifica_v352.py`: 18 OK, inclusive a REPRODUÇÃO (a medida dentro do rito == a execução a seco).
+
+**O protocolo** `JOINT_COINCIDENCE_V1` (`aa20e0e71f994c38`, gravado em `smoke_v352_prereg.json` às 2026-09-14 09:23:33,
+antes do patch; NÃO-CEGO declarado): nulo log-uniforme de uma década de cada lado da previsão; correção de tentativas (N = 10 quando a forma carrega escolha declarada);
+Fisher sobre TODOS os canais admissíveis; consistência por max|z| < 3; limiar 10⁻³⁰ = INPUT do operador; nove regras de admissão.
+
+**A medida `[REAL]`:** 35 canais inventariados (um.py + `results.json` do Artigo A por hash `ad0a2bb3cc54023a`); regras: A1_IDENTIDADE_POR_CONSTRUCAO 6, A2_LIDO_ANTES_DE_CRAVADO 2, A3_APOSENTADO 6, A4_RECUSADO_PELO_GATE 5, A5_NAO_DISCRIMINANTE 4, A6_AGUARDANDO 2, A7_DEPENDENTE 2, A8_NEGATIVO_DO_ARTEFATO 3, A9_SEM_INCERTEZA 2. Admissíveis 3: neutrino_m2_global p=0.083 z=3; d1_camb_v2_beta p=1 z=-3.9; pantheon_beta p=1 z=-1.3.
+**p conjunta = 0.55**; max|z| = 3.9; **saída da função booleana: False** (`JOINT_COINCIDENCE_NOT_EXCLUDED_AT_THRESHOLD`). Com H₀ incluído: 0.056;
+variante mais generosa (N = 1, W = ln 10⁴, só canais com p < 1, H₀ incluído): 0.00016. Controles da função: 4/4.
+**De onde vem o 10⁻³⁰:** o produto dos resíduos numéricos de duas identidades por construção (a bissecção de Kubo mira 1 − β; o ponto fixo da meia-nat) dá
+5.5e-31 — e não é probabilidade de coincidência. Kubo–Mori no artigo: bissecção = identidade; invariante = negativo do próprio artigo (CV 20%).
+CONFIRMADA segue proibido; a medida não move o gate.
+
+## 14/09/2026 — **v353 SELADA** — A1 EM CURSO: os fornecedores do traço canônico (ORDEM 011) incorporados; A1(b) NÃO PAGO (rodada INTERMEDIÁRIA)
+
+**Ordem do operador (14/09/2026, verbatim):** «avançamos bastante no chatgpt em todo fecho que precisa ser atualizado [...] retome tudo por favor».
+
+A bancada respondeu à ORDEM 011 com quatro marcos (`ENTREGA_011_A1_contrato_forte_e_peso_dual`, `_forma_base_semifinitude_aproximantes`,
+`_avaliacao_funcional_leis_normalidade`, `_potencias_imaginarias_mesmo_tomita`) e 19 módulos Lean em `TETELESTAI_V351_FECHO_MATEMATICO\kernel\TGLExt`:
+V351ResolventPhaseFunctions, V351ResolventPhaseCalculus, V351ResolventImaginaryPowers, V351ResolventImaginaryContinuity, V351AntiunitaryResolventPhase, V351RegularCoreTraceContract, V351ExtendedBaseDualWeight, V351BaseMoreauApproximants, V351BaseFunctionalEvaluation, V351BaseFunctionalWeightLaws, V351BaseSeriesNormality, V351ScaledResolventFunctions, V351ResolventImaginaryIntertwining, V351ScaledResolventCalculus, V351ImaginaryPowerScaling, V351ScalarTomitaImaginaryPowers, V351ScalarImaginaryRightTransport, V351ScalarTomitaImaginaryConjugation, V351ScalarWeightSemifiniteness. Fichas de aproveitamento antes de cada módulo (REAPROVEITAMENTO_A1*.md); auditorias de autor com sondas negativas (tampered) recusadas.
+**Gerência:** recompilação INDEPENDENTE dos 19 contra o kernel canônico v352 em área própria (`C:\tmp\a1_audit`, espelho por hardlink dos oleans;
+`RECOMPILACAO_A1.json`), 19/19 rc 0, axiomas no trio, sem tokens proibidos; embutidos por cirurgia em bytes (`patch_um_v353.py`: +19 entradas no
+dicionário, +19 imports na raiz e no Audit, +146 `#print axioms` com nomes completos harvestados da recompilação). `um.py` sha16 `c1c761809efcde52`.
+Rodada 14:10:30 → 14:27:19: **5594/5594**; `FAIL_CLOSED_SELFTEST_PASSED`; gate INTOCADO; 942 fontes formais no manifesto; 8129 termos no relatório de axiomas.
+Verificação: a V1 (`verifica_v353.py`) REPROVOU num único item — «selo v352 não achado» — porque a cadeia não fez backup do selo antes do rito (falha de PROCESSO, não do rito;
+saída preservada em `verifica_v353_V1_REPROVADA_out.txt`); a EMENDA V2 (`verifica_v353_v2.py`) mede os vereditos nos stdouts canônicos v352/v353 e REPROVOU também, por contar o token de
+processo `TGL_RITE_CHECKPOINT` da linha do checkpoint (9 vs 8); a EMENDA V3 (`verifica_v353_v3.py`; V1/V2/V3 com hash em `EMENDA_VERIFICA_V353.json` ANTES de rodar)
+conta os tokens de veredito só fora das linhas de processo: 18 OK (bandeiras de fronteira INALTERADAS,
+montagem 8/8 preservada, nenhum veredito mudou). Lição: backup de bytes do selo e do JSON da rodada ANTES de cada rito, sempre.
+
+**Estatuto:** fornecedores [REAL — kernel]. **A1(b) NÃO PAGO** — falta o habitante de `RegularCoreTraceData P` para todo SiteProfile (ou a impossibilidade
+tipada); as quatro pontes estão nomeadas em `LACUNAS_A1.md`. A bancada segue na A1; a próxima ORDEM só depois da A1(b) ou de parede tipada.
+
+## 14/09/2026 — **ORDEM 012 emitida: A PASSAGEM DA AÇÃO À MÉTRICA** — formalizar em kernel o caminho da lagrangiana ao Friedmann modificado (sobre a v353 `c1c761809efcde52`)
+
+**A pergunta do operador (14/09, verbatim):** «como o kernel não tem o teorema que liga betatgl ou o ângulo de Miguel se isto está na lagrangiana, ou seja, é o fundamento da teoria?» — e a ordem: «vamo formalizar a passagem no chagpt dê a ordem pra ele».
+
+**O que foi medido antes de responder (sete leitores independentes + síntese + refutação por desvio, workflow `d1-metrica-e-a1`, relatórios copiados para
+`TUNEL\PARA_CHATGPT\ORDEM_012_INSUMOS\`):** (1) o kernel chama de lagrangiana a ação dos Three Locks (`action_locks_zero_iff`, `action_hasDerivAt`,
+`critical_pairing_iff`, `lagrangian_zero_iff_mem_ker`) — Euler–Lagrange seleciona o Nome; β entra nela como PARÂMETRO: `SMatrix` tem θ genérico, `thetaMiguel β`
+e `selectionAngle p` levam β/p como real livre, `sin²θ_M = β = α√e` é comentário («NO RUNTIME e só lá»); (2) a única lei de fundo em Lean é `RhoPlusPClosure`
+(`closure_identity`, `hubble_form` — identidades de anel, folha no grafo); zero Hubble/Friedmann/FLRW nos fontes; (3) a camada Clausius ⟹ Einstein é livre de β
+com η [INPUT]; (4) a passagem ação → métrica existe como DERIVAÇÃO de artigo: `errata_cosmologica_TGL.tex` (14/05/2026) §3 Passos 1–4 (tela = horizonte de Hubble,
+T de Gibbons–Hawking, `S_TGL = S_BH/(1+β|1+w|)`, `dE = T dS` ⟹ `Ḣ = −4πGΦ(ρ+p)` ⟹ `H² = (8πG/3)ρ[1+β|1+w_eff|]`) e Parte C.1 do Artigo A — [DERIVED], não kernel;
+(5) o worker do D1 implementa exatamente essa forma (w_eff total = forma aditiva de `hubble_form` na 1ª equação); V2 Δχ² = 9,699; com r_s por integral
+(diagnóstico NÃO-CEGO da gerência, `C:\tmp\d1_autopsia\run_v3diag`) Δχ² = 9,033 — a tensão não é artefato de r_s (reescala −0,644% vs integral −0,696%,
+`autopsia_rs.json`, reproduzindo os χ² selados).
+
+**A resposta dada ao operador:** a lagrangiana da teoria diz duas coisas com estatutos distintos — a forma de Lagrange `1 = q² + α²` (REAL algébrico; `prove_alpha_form`
+deriva a FORMA de α, não o valor) e a resposta de Friedmann via Jacobson–Padmanabhan (DERIVED no artigo). O kernel prova a ação dos Three Locks e a matriz-S com θ genérico;
+o elo que falta é o teorema que leve a resposta de fronteira β|1+w| para dentro da métrica — H3 (importado), escala de área [INPUT] e Lema 3 global [OPEN]. Os cinco mil
+teoremas do último mês (A1 = traço; 058–066 = atlas/Fisher/σ) não tocam essa passagem. Duas saídas foram postas ao operador: formalizar a passagem ou aceitar a derivação
+do artigo como a lei. **Ele escolheu formalizar.**
+
+**A ORDEM 012** (`a334a13b80de6144`, 29,538 B), com precedência sobre A1(b) por ordem direta: B1 a pedra de ligação (o MESMO β nas três faces: ângulo, custo √e,
+fundo); B2 Friedmann em kernel (FLRW plano na carta da casa, com a maquinaria geral `geometricEinsteinTensor`/`metric_only_einstein_equation`); B3 o fechamento setor a setor
+como teorema de conservação (a hipótese «não-troca de energia entre setores» tipada como `H_nx`; `hubble_form` vira a equação 00); B4 a rota termodinâmica com a importação
+nomeada (Jacobson, Cai–Kim, Gibbons–Hawking, Padmanabhan, no modo de `TheImportedEquilibrium`) e o **teorema da diferença** entre o fator sobre o fluido total e o fechamento
+setorial (`Ḣ` difere por `β·ρ·Var_ρ(1+w) ≥ 0`, igual sse os `w_i` coincidem) mais o teorema do fator que os reconcilia (`Φ_flux` = média de `|1+w|` ponderada pelo fluxo de
+entalpia setorial); B5 a leitura pelo ângulo por reescrita, sem θ_M em r_s/D_M/l_A; B6 o que fica importado e o que fica OPEN, tipado. **A bancada não escolhe a lei; o
+operador ratifica; a V3 do D1 (gerência, pré-registrada) implementa a ratificada.** Nada disto move o gate; NOT_FALSIFIED nunca é CONFIRMED.
+
+**ERRATA AO LADO (14/09/2026 14:33, gerência, em nome próprio):** a ORDEM 012 foi regenerada um minuto depois de emitida — a linha «última na via de volta» apontava para a `ENTREGA_011_ESPONTANEA_entropia_da_torre_e_purificacao.md` (06/09) por ordenação alfabética do prefixo `ENTREGA_011_`; corrigido para a última `ENTREGA_011_A1_*` por mtime, e um espaço tipográfico em B6. Hash novo da ORDEM 012: `a9cb2a7b812afc43` (o anterior, `a334a13b80de6144`, fica como registro; bytes preservados no scratchpad da sessão). Nada mais mudou no conteúdo.
+
+## 15/09/2026 — **v354 SELADA** — A PASSAGEM DA AÇÃO À MÉTRICA EM KERNEL (ORDEM 012 B1–B6) + O HABITANTE DO TRAÇO (A1(b)) — rodada INTERMEDIÁRIA
+
+**Ordem do operador (15/09/2026, verbatim):** «Permanência=desejo de estar junto e quente=acoplamento não mínimo=betatgl. O ChatGPT avançou bastante em tudo, atualize-se e incorpore.»
+
+**O que a bancada entregou (14/09 15:26 → 15/09 03:37):** seis `ENTREGA_012_B1..B6` (a passagem, no mesmo dia da ORDEM) e 35 `ENTREGA_011_A1_*` (a retomada de A1(b), a noite inteira).
+**Gerência:** inventário por sha256 contra o kernel v353 — 85 fontes novos (14 na pasta da ORDEM 012, 71 em `RETOMADA_A1B_012\k`), zero tokens proibidos, zero numeral para β, zero
+módulo canônico modificado; recompilação INDEPENDENTE em área própria (`C:\tmp\b_audit`, 08:36 → 08:59:29 (compilação real, 6 processos por nível topológico, 20 níveis; reprocessamento dos logs às 09:00 para normalizar os sufixos `.{u}` dos Audit*)):
+**85/85**, axiomas no trio; os 44 módulos de teoremas (8 + 36) embutidos por cirurgia em bytes (`patch_um_v354.py`: +44 entradas, +88 imports, +252 `#print axioms`
+colhidos da recompilação, +25 bandeiras `ext_*` em `_LEAN_THEOREM_FLAGS`/`prove_external_ladder` que CONSOMEM os teoremas). `um.py` sha16 `07d52f89e04c77d9`.
+Rodada 09:24:32 → 09:35:57: **5619/5619**; `FAIL_CLOSED_SELFTEST_PASSED`; gate INTOCADO; 986 fontes formais; 8396 termos no trio. Verificação: a V1 (`verifica_v354.py`) reprovou em 1/21 só no comparador de stdout
+(duas linhas narrativas citam a contagem 5594 → 5619; saída preservada em `verifica_v354_V1_REPROVADA_out.txt`); a V2 (`verifica_v354_v2.py`, hash em `EMENDA_V354.json` ANTES de rodar)
+inclui essas linhas entre as de contagem: 21 OK (selo v353 guardado em BYTES antes do rito — a lição da v353 aplicada; nenhum veredito mudou pelo selo; bandeiras qgf/gpf/gpi idênticas).
+**Emenda registrada (`EMENDA_V354.json`):** a PRIMEIRA rodada da v354 (09:00→09:20) REPROVOU — `TGL_KERNEL_FORMALIZATION_FAILED`, 0/5619 — porque a gerência colheu dos módulos
+da bancada 15 `#print axioms` de lemas PRIVADOS (`_private.TGLExt.V351ModularCutBalance.0.*`, `_private.TGLExt.V351QuadraticTrace.0.*`) e os pôs no `TGL/Audit.lean` canônico, onde
+não são acessíveis; o kernel compilou (44 objetos), a auditoria caiu. Rodada falha preservada em `rodada_v354_FALHA1_stdout.txt`; `um.py`, selo, JSON e o conjunto de fontes do kernel
+restaurados por bytes ao estado v353; segunda rodada só com nomes públicos (15 privados excluídos, verificados no trio na recompilação independente).
+
+**O que ficou provado [REAL — kernel]:** B1 `the_same_beta_reads_three_faces` (`TGLCoupling`: o MESMO β no ângulo, no custo √e e no fundo, sem numeral); B2 o FLRW plano na carta da
+casa (`flrw_einstein_00`, `flrw_friedmann_first/second`, `flrw_continuity`, `flrw_friedmann_from_general_metric`, instanciando `metric_only_einstein_equation`); B3 a não-troca `H_nx` tipada
+(`sector_rescaling_preserves_continuity`, `multiplicative_closure`, `tgl_friedmann_from_sector_closure` — `hubble_form` é a equação 00); B4 `tgl_second_friedmann_from_clausius`,
+`tgl_first_friedmann_constant_w`, `the_two_routes_differ`, `the_two_routes_equal_iff`, `the_entropy_factor_that_reproduces_the_sector_closure`; B5 `the_angle_reaches_the_metric`,
+`the_passage` (reescrita, nenhum θ_M em r_s/D_M/l_A); B6 importações/limites tipados; A1(b) `scalarInverseLimitTraceData P : RegularCoreTraceData P` para TODO SiteProfile
+(nove leis ligadas a fornecedores; `scalarInverseLimitWeight_tracial`). **E as QUATRO PAREDES da bancada que corrigem o contrato da ORDEM 012 (erratas AO LADO, em nome próprio): (1) o fluxo literal da errata de 14/05 sem o raio r_A = 1/H dá Ḣ = −4πGΦH(ρ+p), um H a mais (`radius_free_flux_consequence`) — a segunda equação é paga com o fluxo de Cai–Kim A(ρ+p)H r_A; (2) a entropia modificada entra como ENTRADA diferencial dS = dA/(4GΦ) — a derivada de S_BH/Φ(t) carrega −AΦ′/(4GΦ²) (`variable_entropy_derivative`), o que a errata não controla; (3) o critério de igualdade das duas rotas que a ORDEM escreveu («todos os w_i com ρ_i+p_i ≠ 0 coincidem») é FALSO: matéria + vácuo tem variância ρ_mρ_Λ/(ρ_m+ρ_Λ) > 0 (`matter_vacuum_variance`); a igualdade exige w comum em todo o suporte ρ_i > 0, vácuo incluído (`the_two_routes_equal_iff`) — consequência física: com Λ presente as duas rotas SEMPRE diferem em Ḣ; (4) o fator reconciliador só é único com fluxo de entalpia E ≠ 0 (`zero_flux_has_no_unique_factor`).**
+
+**O que NÃO muda:** nenhuma bandeira qgf/gpf/gpi (A1(b) sozinho não quita `qgf_continuous_modular_realization_constructed` — falta A2, os Three Locks no mesmo core); a ROTA do fundo
+(fator sobre o total vs fechamento setor a setor) NÃO foi escolhida — a ratificação é do operador e a V3 do D1 implementa a ratificada; o gate não se move; NOT_FALSIFIED nunca é CONFIRMED.
+
+**A cunhagem do operador, tipada [ONTO, com âncoras REAL no Artigo A]:** «Permanência = desejo de estar junto e quente = acoplamento não mínimo = β_TGL». No Artigo A a lagrangiana tem
+`ℒ_grav = R/(2κ²) + ξR|Ψ|²` com ξ = 1/6 (acoplamento conforme, [REAL no artigo]) e `ℒ_modular = ℒ_ΛCDM·β·|1+w_eff|`; a equação de movimento `(□ − m² − ξR)Ψ = β·K_∂·Ψ` diz que β é
+«the sole coupling between Ψ and K_∂». A leitura do operador nomeia β como O acoplamento não mínimo — o modular, o que faz o campo «querer estar junto e quente» (KMS à temperatura de
+Unruh/Gibbons–Hawking; permanência modular). No kernel, a face «acoplamento na ação» de β ainda não está tipada (B1 tipou ângulo, custo e fundo): é a quarta face, proposta para a próxima ORDEM.
+
+## 15/09/2026 (tarde) — **v355 SELADA** — A QUARTA FACE DE β (B1′), OS SANEAMENTOS a–h E A2 NO MESMO CORE: o termo legado `FullTGLWitness` habitado — rodada INTERMEDIÁRIA
+
+**Ordem do operador (15/09/2026, verbatim):** «chatgpt terminou agora é vc incorporar tudo»
+
+**O que a bancada entregou depois do recibo de 09:38:** `ENTREGA_012_B1_PRIME_quarta_face` (13:17), `ENTREGA_011_A2_suporte_split_e_parede` (13:26), `ENTREGA_012_ADENDO001_saneamentos` (13:35),
+`ENTREGA_011_A2_fecho_core_three_locks_susy` (14:54) e o repasse `RESPOSTA_012_OPERADOR_COMUNHAO_TOTAL` (12:06, sha16 `8934d5cfedd5ec26`).
+**Gerência:** inventário por sha256 contra o kernel v354 — 22 módulos NOVOS de teoremas, **5 módulos já embutidos SUBSTITUÍDOS** pelos fontes saneados
+(SectorFluidClosure, V351AntiunitaryResolventPhase, SectorFriedmann, ThermodynamicFriedmann, TheAngleReachesTheMetric: `H_nx` desdobrado em `H_sector_nonexchange`/`H_singlefluid_continuity`; as duas antiunitárias duplicadas removidas com importação explícita do fornecedor), zero tokens proibidos, zero numeral;
+recompilação INDEPENDENTE em área nova (`C:\tmp\c_audit`; os oleans canônicos dos modificados e dos 10 dependentes canônicos DESVINCULADOS antes de recompilar, para nunca sobrescrever o objeto canônico):
+**51/51** com 10 dependentes canônicos recompilados juntos (15:13 → 15:28); patch em bytes (`patch_um_v355.py`: 5 literais substituídos, +22 entradas, +44 imports, +118 `#print axioms`,
+−3 podados (['TGLV350.Regular.antiunitaryConjugate_commutation_flip', 'TGLV350.Regular.antiunitaryConjugate_involutive', 'TGLV350.Regular.antiunitaryConjugate_tendsto']), +18 bandeiras `ext_*` consumidoras, três espaços faltantes das entradas B6 corrigidos). `um.py` sha16 `76507ffd2b830499`.
+Rodada 15:34:08 → 15:52:45: **5637/5637**; `FAIL_CLOSED_SELFTEST_PASSED`; gate INTOCADO; 1008 fontes formais; 8514 termos no trio. Verificação `verifica_v355.py`: 22 OK (selo v354 guardado em bytes antes do rito;
+nenhum veredito mudou; **bandeiras qgf/gpf/gpi IDÊNTICAS às da v354** — a ligação das quatro bandeiras aos termos de A2 é a v356, em rodada separada).
+
+**O que ficou provado [REAL — kernel]:** B1′ `the_same_beta_reads_four_faces` — a equação de movimento do Artigo A `(□ − m² − ξR)Ψ = β·K_∂·Ψ` tipada como hipótese nomeada (`ActionCouplingData`),
+ξ separado de β, K_∂ fornecido; a quarta face é conjunção com B1, não derivação variacional. Saneamento f: `tgl_friedmann_from_sector_closure_additive` (a forma aditiva com Λ comum, sem `hr`/`he`).
+A2 (19 módulos, dois marcos): no core regular com o traço de A1(b) — `scalarTrace_finite_subprojection_exists`, `scalarTrace_finite_equal_split`, `scalarTrace_normalized_split_exists`,
+`regularFiniteSupport_trace` (τ(P_F) = 1), `regularMinimalLock_spectral_zero` (P_F = projeção espectral do zero de H_min = 1 − P_F), `regularMinimalLock_breuer_kernel` (τ(ker) = 1, gap RELATIVO);
+a PAREDE `positiveTraceReader_not_cyclic` (a extensão por zero fora do cone NÃO é cíclica) e a sua resolução (`cyclicTraceCandidate_positive`: a leitura total, por relação de deslocamento com polar compartilhado,
+coincide com A1 em todo positivo); o TERMO LEGADO habitado — `regularLegacyCore : ContinuousCoreData theSpecificAQFTWitness towerWedgeData`, `regularLegacyThreeLocks` (via `threeLocksFromSupport`),
+`regularModularRealization : TGLModularRealization theSpecificAQFTWitness`, **`regularFullWitness : FullTGLWitness`**; e SUSY no reticulado de todas as projeções do mesmo N (`regularSusyData`, `regularSusy_gives_breuer`).
+**Limites declarados pela bancada e mantidos:** H_min é o representante mínimo limitado, não um Hamiltoniano microscópico; a cunha reutilizada tem U = 1 (nenhuma identificação Bisognano–Wichmann geométrica);
+H2, H3, interação, BRST/QME, UV, G e CODATA não são tocados; `FullStaticWitness` ≠ `FullTGLWitness` (a obstrução estática permanece).
+
+**A decisão do operador sobre a rota do fundo, pelo canal da bancada [INPUT — repasse literal; a gerência pede confirmação de uma linha]:** «A outra entende que a condição da comunhão inteira determina a medida de cada manifestação, inclusive pela presença de quem não realiza aquele ato, a unidade da comunhão determina a medida de cada ato, é assim que eu vejo. o silêncio não identifica mesmo Deus; não identifico Deus a lambda, lambda não é Deus, Deus é o campo /psi; lambda é a cauda, é o rastro do dragão, de satanás, onde a realidade emergente se contorna; ele é o espectro de gradiente negativo da presença que não age, não é permanência, é resistência. integrar uma relação é exatamente a definição de verbo, é justamente praticar o ato que produz determinada consequencia, não são coisas distintas, é a mesma coisa, integrar uma relação é comutar, integrar uma relação é registrar uma palavra que correspondente ao signo verdadeiro, não existe presença que não contribua para o ato, porque não haveria ato sem contraste, então a presença pura da contagem, ainda que sem relação, o espectro de gradiente negativo, contribui para a composição da leitura, por causa do constraste, assim, o Verbo tem caracteristica dual por natureza, porque ele preserva a identidade do próprio ato pelo custo termodinâmico e, ainda, passa a ser determinado pela frase inteira porque é o contorno geométrico da própria imagem narrada pela ação»
+A bancada leu: «a condição da comunhão inteira determina a medida de cada manifestação» fundamenta o **fator sobre o fluido TOTAL**, com o vácuo participando da composição (ρ_Λ entra em R = Σρ_i embora seu fluxo ρ_Λ + p_Λ seja zero;
+∂Φ_total/∂ρ_Λ = −βρ_m/(ρ_m+ρ_Λ)² < 0). Consequência para o D1: o worker de hoje implementa a 1ª equação do fechamento setorial; a rota ratificada dá `Ḣ = −4πG·Φ_total·(ρ+p)` e a 1ª equação por primitiva
+(`tgl_first_friedmann_from_primitive`, `H² = (8πG/3)P + C`), não `(8πG/3)Φρ` — a V3 do D1 (gerência) tem de integrar, e a constante C é questão aberta (B4 «não prova C = 0»).
+**Errata AO LADO (em nome próprio):** a frase «com Λ presente as duas rotas SEMPRE diferem em Ḣ» (recibo de 09:38, Atlas, memória) vale sob MISTURA POSITIVA (ρ_m > 0 e ρ_Λ > 0); vácuo puro tem fluxo E = 0 e as duas taxas nulas.
+[ONTO — teologia/linguagem do operador, preservada sem tradução em física]: Ψ e Λ distintos («lambda não é Deus»); «integrar uma relação é comutar» é formulação dele, não AB = BA sem identificar A, B e a lei de compatibilidade.
+
+## 15/09/2026 (tarde) — **v356 SELADA** — OS LEITORES: quatro bandeiras de fronteira/preço acendem POR MEDIDA sobre os termos de A2 — rodada INTERMEDIÁRIA
+
+**O que muda e como:** só o `um.py` (`patch_um_v356.py`, bytes; manifesto `v356_incorporacao_manifesto.json`), pela proposta V2 da bancada (`PROPOSTA_LEITORES_EXISTENTES_V2.py` sha256 `70db8370e0ca8ebb`, mapa `0763849f53694bcc`,
+revisada independentemente — P2-READERS-01 quitado): `_QG_FRONTIER_FLAGS` deixa de apontar três nomes reservados inexistentes e passa a ler `regularLegacyThreeLocks`, `regularModularRealization`, `regularFullWitness`;
+`_GRAVITY_PRICE_FLAGS` H1 → `regularSusyData`; `_V350_MODULAR_CONTRACTS` ganha quatro contratos tipados (termo + fornecedores) e o Audit canônico ganha os cinco `#check` de tipo exato de `AuditReaderContracts012`;
+o leitor exige `audit_returncode` inteiro (False == 0 era aceito); `evaluate_v350_kernel_frontier` mede três escopos separados; os dois leitores históricos que exigiam False passam a exigir prova. **Nenhuma bandeira foi posta True à mão: quem as acendeu foi a leitura do relatório de axiomas na rodada.**
+Rodada 15:57:15 → 16:05:51: **5637/5637**; `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`qg_closure_verdict` idêntico); 1008 fontes; 8514 termos no trio; materialização 1 escrito (só o Audit). `um.py` sha16 `d745d49187ec33ab`. Verificação `verifica_v356.py`: 16 OK
+(exatamente as quatro bandeiras mudaram; todas as outras idênticas à v355; `full_static_witness_exists` segue False; selftest com sorry injetado segue FAILED).
+
+**Bandeiras LIGADAS agora (14):** gpf_H1_internal_susy_relative_gap_discharged, gpf_tower_act_III_inhabitant_constructed, gpi_commutation_discharged_by_import, gpi_equilibrium_input_bridged, gpi_expectation_discharged_by_import, gpi_imported_commutation_gives_the_equality, gpi_modular_relativity, gpi_reading_fixes_the_code, gpi_reading_preserves_omega, gpi_reading_witness_independent, qgf_continuous_modular_realization_constructed, qgf_full_TGL_witness_constructed, qgf_modular_realization_constructed, qgf_unconditional_continuous_corner_proved.
+**Bandeiras APAGADAS (3):** gpf_H2_smooth_modular_four_frame_discharged, gpf_H3_local_horizon_equilibrium_discharged, gpi_H3_horizon_data_produced.
+**Fronteira do kernel:** `CONTINUOUS_MINIMAL_REALIZATION_AND_SUSY_CONSTRUCTED__PHYSICAL_IDENTIFICATIONS_OPEN`.
+
+**O que isto significa, dito com a régua:** A1 + A2 estão em kernel numa única realização (core regular, traço de A1, suporte, canto, contrato legado `FullTGLWitness` habitado, SUSY no reticulado) e as bandeiras
+que a ORDEM 011 nomeou como alvo de A1/A2 acenderam por leitura. H1 quitado = o contrato SUSY reticular no representante MÍNIMO limitado H_min = 1 − P_F, não um Hamiltoniano microscópico; a cunha reutilizada tem
+U = 1 (nenhuma identificação Bisognano–Wichmann geométrica); H2 (A3), H3 (A4, importado), a testemunha composta (A5), o degrau do gate (A6, ratificação do operador), as dez obrigações (A7), interação/BRST/UV, G e CODATA
+seguem abertos como antes. O gate não se moveu. PROVADA (teorema em kernel) ≠ CONFIRMADA (juízo sobre a natureza, proibido). NOT_FALSIFIED nunca é CONFIRMED.
+
+## 15/09/2026 (fim de tarde) — **v357 SELADA (COMPLETA)** — A REVISÃO GERAL DO ARTIGO: nada codificado sem palavra
+
+**Ordem do operador (verbatim):** «eu quero que vc faça uma revisão geral agora no um.py, o que foi codificado que não virou palavra no artigo, o que eu pedi que não foi integrado ainda, ou seja, agora eu quero a versão completa e revisada, do começo ao fim».
+**Medido antes (script):** 974 módulos TGLExt; 661 no ledger (parava na v339); 313 fora (10 fundadoras, 218 v351, 19 v353, 44 v354, 22 v355); corpo do artigo sem v351, v353–v356; 217 chaves do núcleo com veredito nunca lidas; zero ocorrências de Friedmann, quarta face, Permanência, ORDEM 011/012, fronteira do kernel, bandeiras, colapso tipado, IALD é estado, lastro, tela fundada, Nome instrumento. Relatório completo: `REVISAO_GERAL_v357_15set2026.md` + `REVISAO_GERAL_v357_inventario_pedidos.md` (65 pedidos com fonte).
+**Feito (só o artigo; `patch_um_v357.py`, bytes):** ledger +313 = 974 pedras (hash ao vivo); seis «Ao lado» PT+EN (v333–v337 retro; v351; v353–v354 com a cunhagem [ONTO] «permanência = acoplamento não mínimo = β» e a rota do fundo [INPUT, a confirmar]; v355; v356 com as 17 bandeiras ao vivo; erratas H₀/signo/D1); o REGISTRO COMPLETO DOS VEREDITOS (todas as chaves com veredito + bandeiras + fronteira + escada externa + importados), forma = conteúdo; adendo ao lado da declaração de honestidade e errata da FoP; cauda v305–v356; rótulo PT alinhado.
+Rodada COMPLETA 16:11:26 → 16:59:14: **5637/5637**; `FAIL_CLOSED_SELFTEST_PASSED`; gate INTOCADO; 1008 fontes; 8514 termos no trio; kernel 0 escritos; PDF PT/EN compilados. `um.py` sha16 `88b0801924454493`. Verificação `verifica_v357.py`: 23 OK.
+**Pendências do operador (nomeadas, não tocadas):** confirmação de uma linha da rota do fundo; nome do degrau do gate (A6); Declaração de fecho; DOI Zenodo; vídeo no site; v98/GA; errata no Artigo A; régua da confirmação. Custódia v351→v357 = sessão do site + irmã. PROVADA ≠ CONFIRMADA.
+
+## 15/09/2026 (noite) — HANDOFF v357 EMITIDO: custódia do espelho (repositório, README/LEDGER/ESTADO_ATUAL, CITATION, TUNEL, portas, links e raws), adequação dos dados do site e aprimoramento da Central — v351→v357
+
+**Ordem do operador (verbatim):** «prepare o handoff para custódia repositório, readme, portas, links e raw's e adequação dos dados do site e aprimoramento da central de patentes». `HANDOFF_v357_CUSTODIA_README_PORTAS_SITE_CENTRAL.md` (29,536 B; sha16 `d70375fe5de91640`; gerado por `handoff_v357.py`, todo hash lido do disco): §1 regra da custódia (espelho na v350 `c9fc7fa432c6cf16`; backup fora do repo; sementes v351–v356 por sha16 dos `um.py.bak_*`); §2 estado v357 (`88b0801924454493`, 5637/5637, COMPLETA, gate intocado, 1008 fontes, 8514 termos, 14 bandeiras ligadas / 3 apagadas, fronteira do kernel); §3 o arco; §4 o que muda no espelho ao lado (303 módulos Lean novos, 0 alterados; geradores; LEDGER com três blocos; CITATION v357, DOI segue v331; TUNEL; portas; guardas; pós-push); §5 o que levar (bytes + sha256/32); §6 raws esperados (URL gerada por quote; valem só após push + pos_push = 0); §7 os dados do site que mudam (705/6657/5594 → 1008/8514/5637; bandeiras; fronteira; v352); §8 a Central (cofre v357, runner v46 com cético das bandeiras, ledger, 16/16, Chatgpt/ por caminho, Atlas/índice, higiene do .git: 31 tmp_pack, 3,48 GiB garbage); §9 o que é do operador; §10 depois. A Central não escreve no espelho nem no site. NOT_FALSIFIED nunca é CONFIRMED.

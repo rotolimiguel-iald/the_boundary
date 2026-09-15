@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-11T17:14:07Z",
+  "gerado_utc": "2026-09-15T22:01:57Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
@@ -15,7 +15,22 @@
     "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
     "site_url": "https://teoriadagravitacaoluminodinamica.com"
   },
-  "portas_abaixo": [],
+  "portas_abaixo": [
+    {
+      "nome": "ORDEM_012_INSUMOS",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/PORTA.json",
+      "total_arquivos": 9
+    },
+    {
+      "nome": "ORDEM_012_RECIBO_INSUMOS",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_RECIBO_INSUMOS",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_RECIBO_INSUMOS/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_RECIBO_INSUMOS/PORTA.json",
+      "total_arquivos": 12
+    }
+  ],
   "canonico_url": null,
   "comando": null,
   "dependencias": null,
@@ -119,10 +134,50 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_010_horizontes_concretos_aperiodico_e_o_relogio_apos_a_obstrucao.md",
       "sha256_16": "735308cf70aff21d",
       "bytes": 6848
+    },
+    {
+      "nome": "ORDEM_011_fecho_matematico_da_realizacao_concreta.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_011_fecho_matematico_da_realizacao_concreta.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_011_fecho_matematico_da_realizacao_concreta.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_011_fecho_matematico_da_realizacao_concreta.md",
+      "sha256_16": "2457c9b136025aeb",
+      "bytes": 19503
+    },
+    {
+      "nome": "ORDEM_012_RECIBO_002_v355_v356_e_sequencia_A3_A6.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_RECIBO_002_v355_v356_e_sequencia_A3_A6.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_RECIBO_002_v355_v356_e_sequencia_A3_A6.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_RECIBO_002_v355_v356_e_sequencia_A3_A6.md",
+      "sha256_16": "c1cfdad3f738755f",
+      "bytes": 10908
+    },
+    {
+      "nome": "ORDEM_012_RECIBO_E_ADENDO_001_quarta_face_e_sequencia.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_RECIBO_E_ADENDO_001_quarta_face_e_sequencia.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_RECIBO_E_ADENDO_001_quarta_face_e_sequencia.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_RECIBO_E_ADENDO_001_quarta_face_e_sequencia.md",
+      "sha256_16": "679cdc94d90f4fea",
+      "bytes": 37599
+    },
+    {
+      "nome": "ORDEM_012_a_passagem_da_acao_a_metrica.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_a_passagem_da_acao_a_metrica.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_a_passagem_da_acao_a_metrica.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_a_passagem_da_acao_a_metrica.md",
+      "sha256_16": "a9cb2a7b812afc43",
+      "bytes": 29534
     }
   ],
-  "total_arquivos_nesta_pasta": 10,
-  "total_arquivos_com_subpastas": 10,
+  "total_arquivos_nesta_pasta": 14,
+  "total_arquivos_com_subpastas": 35,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT",
-  "rodape": "gerado por script de git ls-files em 2026-09-11 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-15 -- nao editar a mao"
 }

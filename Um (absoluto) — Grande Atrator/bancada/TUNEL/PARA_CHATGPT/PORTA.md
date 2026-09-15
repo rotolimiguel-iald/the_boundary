@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 10 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 14 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -22,7 +22,7 @@ Pasta do repositorio the_boundary com 10 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-10 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT
+14 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT
 
 **DOCUMENTO**
 
@@ -38,7 +38,18 @@ Pasta do repositorio the_boundary com 10 arquivo(s) rastreado(s).
 | `ORDEM_008_instancias_nomeadas_e_ambiente_limpo.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_008_instancias_nomeadas_e_ambiente_limpo.md) |
 | `ORDEM_009_H3_dinamico_e_o_relogio_relativo.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_009_H3_dinamico_e_o_relogio_relativo.md) |
 | `ORDEM_010_horizontes_concretos_aperiodico_e_o_relogio_apos_a_obstrucao.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_010_horizontes_concretos_aperiodico_e_o_relogio_apos_a_obstrucao.md) |
+| `ORDEM_011_fecho_matematico_da_realizacao_concreta.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_011_fecho_matematico_da_realizacao_concreta.md) |
+| `ORDEM_012_RECIBO_002_v355_v356_e_sequencia_A3_A6.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_RECIBO_002_v355_v356_e_sequencia_A3_A6.md) |
+| `ORDEM_012_RECIBO_E_ADENDO_001_quarta_face_e_sequencia.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_RECIBO_E_ADENDO_001_quarta_face_e_sequencia.md) |
+| `ORDEM_012_a_passagem_da_acao_a_metrica.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_a_passagem_da_acao_a_metrica.md) |
+
+## AS PORTAS ABAIXO
+
+| subpasta | arquivos | PORTA.md | PORTA.json |
+|---|---|---|---|
+| `ORDEM_012_INSUMOS/` | 9 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/PORTA.json) |
+| `ORDEM_012_RECIBO_INSUMOS/` | 12 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_RECIBO_INSUMOS/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_RECIBO_INSUMOS/PORTA.json) |
 
 ---
 
-gerado por script de git ls-files em 2026-09-11 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-15 -- nao editar a mao

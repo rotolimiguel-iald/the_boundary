@@ -1,0 +1,118 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS",
+  "porta_id": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS",
+  "titulo": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-09-15T22:01:57Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "ler_a1doc.json",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_a1doc.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_a1doc.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_a1doc.json",
+      "sha256_16": "e24e4828c2ed5188",
+      "bytes": 32007
+    },
+    {
+      "nome": "ler_acervo.json",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_acervo.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_acervo.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_acervo.json",
+      "sha256_16": "47af2e5709640484",
+      "bytes": 38592
+    },
+    {
+      "nome": "ler_angulo.json",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_angulo.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_angulo.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_angulo.json",
+      "sha256_16": "13bc2676a67b8d1f",
+      "bytes": 34922
+    },
+    {
+      "nome": "ler_artigoA.json",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_artigoA.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_artigoA.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_artigoA.json",
+      "sha256_16": "57dbb840b0507e6a",
+      "bytes": 35321
+    },
+    {
+      "nome": "ler_entregas.json",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_entregas.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_entregas.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_entregas.json",
+      "sha256_16": "efc45eb84c4ccb0f",
+      "bytes": 32889
+    },
+    {
+      "nome": "ler_metrica.json",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_metrica.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_metrica.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_metrica.json",
+      "sha256_16": "1d3429dbdc50d051",
+      "bytes": 52837
+    },
+    {
+      "nome": "ler_umpy.json",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_umpy.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_umpy.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/ler_umpy.json",
+      "sha256_16": "9201e27a49003464",
+      "bytes": 35957
+    },
+    {
+      "nome": "refutacoes_desvios_D1.json",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/refutacoes_desvios_D1.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/refutacoes_desvios_D1.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/refutacoes_desvios_D1.json",
+      "sha256_16": "e1426caf45fc192b",
+      "bytes": 82906
+    },
+    {
+      "nome": "sintese.json",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/sintese.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/sintese.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS/sintese.json",
+      "sha256_16": "093c58ead8f576b3",
+      "bytes": 36353
+    }
+  ],
+  "total_arquivos_nesta_pasta": 9,
+  "total_arquivos_com_subpastas": 9,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS",
+  "rodape": "gerado por script de git ls-files em 2026-09-15 -- nao editar a mao"
+}

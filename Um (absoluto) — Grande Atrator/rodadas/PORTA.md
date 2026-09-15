@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 157 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 166 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -22,7 +22,7 @@ Pasta do repositorio the_boundary com 157 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-157 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas
+166 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas
 
 **DADOS**
 
@@ -174,6 +174,15 @@ Pasta do repositorio the_boundary com 157 arquivo(s) rastreado(s).
 | `rodada_v349_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v349_stdout.txt) |
 | `rodada_v350_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v350_stdout.txt) |
 | `rodada_v350_stdout_INTERMEDIARIA.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v350_stdout_INTERMEDIARIA.txt) |
+| `rodada_v351_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v351_stdout.txt) |
+| `rodada_v352_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v352_stdout.txt) |
+| `rodada_v353_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v353_stdout.txt) |
+| `rodada_v354_FALHA1_stdout.txt` | Saida REPROVADA preservada (v354): 15 #print axioms _private.* no Audit -> TGL_KERNEL_FORMALIZATION_FAILED; emenda e rerodada | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v354_FALHA1_stdout.txt) |
+| `rodada_v354_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v354_stdout.txt) |
+| `rodada_v355_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v355_stdout.txt) |
+| `rodada_v356_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v356_stdout.txt) |
+| `rodada_v357_ABORTADA1_stdout.txt` | Rodada ABORTADA preservada (v357): interrompida aos 3 min pela gerencia -- o ensaio a seco pegou um & nao escapado; emenda e rerodada | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v357_ABORTADA1_stdout.txt) |
+| `rodada_v357_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v357_stdout.txt) |
 | `tgl_kernel_audit_capture.txt` | Captura por etapa (principal) do #print axioms de cada teorema -- rastreabilidade da auditoria (v339+) | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/tgl_kernel_audit_capture.txt) |
 | `tgl_kernel_audit_capture_selftest_restored.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/tgl_kernel_audit_capture_selftest_restored.txt) |
 | `tgl_kernel_audit_capture_selftest_tampered.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/tgl_kernel_audit_capture_selftest_tampered.txt) |
@@ -188,4 +197,4 @@ Pasta do repositorio the_boundary com 157 arquivo(s) rastreado(s).
 
 ---
 
-gerado por script de git ls-files em 2026-09-11 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-15 -- nao editar a mao

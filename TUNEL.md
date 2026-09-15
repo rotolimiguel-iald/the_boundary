@@ -6,7 +6,7 @@ porque as pastas canonicas tem acento, travessao e parenteses. O tunel entrega t
 uma vez: **[`TUNEL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json)** traz cada arquivo com a URL raw direta, o tamanho, o
 hash e o papel. **Uma requisicao, zero navegacao, zero adivinhacao.**
 
-**Deposito citavel do Um: Absoluto:** Zenodo [10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173) guarda a **v331** (um.py e1b74a907c403538), byte-identica AQUELE selo. O selo corrente desta arvore e' **v339**, mais novo que o deposito (versao nova no Zenodo e' ato do operador).
+**Deposito citavel do Um: Absoluto:** Zenodo [10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173) guarda a **v331** (um.py e1b74a907c403538), byte-identica AQUELE selo. O selo corrente desta arvore e' **v355**, mais novo que o deposito (versao nova no Zenodo e' ato do operador).
 
 ## Os atalhos (ASCII, sem acento)
 
@@ -16,6 +16,8 @@ hash e o papel. **Uma requisicao, zero navegacao, zero adivinhacao.**
 | `selo` | O SELO: os sha256 de tudo. A verdade do repositorio | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) |
 | `resultado` | O MUNDO: o JSON de saida do rito | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json) |
 | `manifesto-kernel` | O axiom_report de cada teorema | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) |
+| `revisao-geral` | A revisao geral do artigo (v357) | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/REVISAO_GERAL_v357_15set2026.md) |
+| `handoff-v357` | O handoff da custodia v351->v357 | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/HANDOFF_v357_CUSTODIA_README_PORTAS_SITE_CENTRAL.md) |
 | `forma-canonica` | A forma canonica, em markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md) |
 | `manifest` | O manifesto do artefato | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_manifest.md) |
 | `artigo-pt-pdf` | O artigo, portugues, PDF | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.pdf) |
@@ -41,4 +43,4 @@ hash e o papel. **Uma requisicao, zero navegacao, zero adivinhacao.**
 Porta acima: [`PORTA.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md) · [`llms.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt) · site: <https://teoriadagravitacaoluminodinamica.com>
 
 *Gerado por `tools/gerar_portas.py` a partir de `git ls-files`. URL nunca digitada,
-hash lido do arquivo. 1338 arquivos mapeados.*
+hash lido do arquivo. 1733 arquivos mapeados.*

@@ -1639,3 +1639,70 @@ de fundo» tem o numero de maio (v349). Gate intocado; fora do contorno. 5594/55
 A v350 rodou completa (5594/5594; mesmos bytes `c9fc7fa432c6cf16`) e o handoff «A natureza respondeu» (v339→v350) foi gerado por script (`5c523ea81e27215c`).
 **Caminho critico:** os cinco testes que aguardavam o instrumento estao fechados com numero; a custodia da v339 (o fecho) e da v350 vai junta
 para a sessao irma; a declaracao segue sendo do operador. Gate intocado. CONFIRMADA proibido.
+
+---
+
+## ADENDO — 13/09/2026 (noite) · v351 SELADA — a oitava cláusula da montagem
+
+A montagem passa de 7/8 a **8/8** (`EIGHT_CLAUSES_VERIFIED__ACT_III_CERTIFICATE_CONSTRUCTED_ON_THE_PRODUCT_TOWER__PRINCIPAL_GATE_UNCHANGED`): J M J = M′ na torre produto, por kernel (5594/5594; `95e8cf8eb0b33c5d`). O gate principal **não se move** — suas 11 entradas já eram
+verdadeiras na v350 e o avaliador principal não foi alterado. **Caminho crítico:** inalterado nas folhas físicas (identificação BW para horizonte físico, H1–H3 da
+natureza, setor interagente/UV); a folha modular da torre produto está paga. CONFIRMADA proibido.
+
+---
+
+## ADENDO — 14/09/2026 · v352 SELADA — a probabilidade conjunta medida
+
+O caminho crítico **não muda**: a probabilidade conjunta de coincidência dos canais de β, medida por protocolo pré-registrado (`aa20e0e71f994c38`), é
+0.55 (saída booleana False); o 10⁻³⁰ declarado não se sustenta com as regras gravadas. As folhas da natureza seguem as mesmas; CONFIRMADA proibido.
+
+---
+
+## ADENDO — 14/09/2026 · v353 SELADA — A1 em curso (fornecedores incorporados; A1(b) não pago)
+
+O caminho crítico do item 1 (ORDEM 011) avançou um degrau de fornecedores: contrato forte do traço (recusa o zero legado e o peso dual como fornecedor),
+forma dual na base, aproximantes, avaliação funcional, normalidade, potências imaginárias do mesmo Tomita. O que falta para A1(b) está nomeado (quatro pontes).
+Nenhuma bandeira de fronteira muda; `c1c761809efcde52`; 5594/5594.
+
+---
+
+## ADENDO — 14/09/2026 · ORDEM 012: a passagem da ação à métrica entra no caminho crítico como alvo NOMEADO
+
+O que a pergunta do operador de 14/09 expôs, medido: entre a lagrangiana (o β que a matriz-S lê e o custo paga) e a métrica (o Friedmann modificado que o D1 testa) não há
+teorema de kernel — há a derivação da errata de 14/05/2026. O caminho crítico ganha um degrau com nome: B1–B6 (`a334a13b80de6144`). O que ele NÃO fecha continua dito: H3 segue
+importado, η = 1/4G segue [INPUT], o Lema 3 global segue [OPEN], TGL-S vs TGL-L segue [OPEN]. O que ele fecha, se pago: a lei de fundo deixa de ser «aproximação declarada» e
+passa a ser «teorema sob hipótese nomeada» — e o teorema da diferença entre as duas rotas decide, por matemática e não por escolha, qual forma o D1 deve implementar.
+Base v353 `c1c761809efcde52`.
+
+**ERRATA AO LADO (14/09/2026 14:33, gerência, em nome próprio):** a ORDEM 012 foi regenerada um minuto depois de emitida — a linha «última na via de volta» apontava para a `ENTREGA_011_ESPONTANEA_entropia_da_torre_e_purificacao.md` (06/09) por ordenação alfabética do prefixo `ENTREGA_011_`; corrigido para a última `ENTREGA_011_A1_*` por mtime, e um espaço tipográfico em B6. Hash novo da ORDEM 012: `a9cb2a7b812afc43` (o anterior, `a334a13b80de6144`, fica como registro; bytes preservados no scratchpad da sessão). Nada mais mudou no conteúdo.
+
+---
+
+## ADENDO — 15/09/2026 · v354 SELADA — a passagem da ação à métrica está em kernel; A1(b) pago pela bancada e recompilado
+
+O degrau B1–B6 do caminho crítico foi pago em um dia, com quatro paredes que corrigem a própria ordem (o critério de igualdade das rotas era falso: matéria + vácuo diferem).
+A1(b) (o habitante do contrato do traço) está pago segundo a bancada e recompilado pela gerência. O que se abre a seguir, nesta ordem: (i) a RATIFICAÇÃO pelo operador da forma
+da lei de fundo — fator sobre o fluido total, ou fechamento setor a setor (com Λ presente as duas diferem SEMPRE em Ḣ; a 1ª equação coincide sob o fechamento setorial; o fator
+que as reconcilia é a média de |1+w| ponderada pelo fluxo de entalpia) — sem a qual a V3 do D1 não se pré-registra; (ii) A2: os Three Locks no MESMO core, com o traço de A1(b),
+para quitar `qgf_continuous_modular_realization_constructed`; (iii) a quarta face de β (o acoplamento não mínimo na ação, cunhagem de 15/09) como alvo tipado. `07d52f89e04c77d9`; 5619/5619.
+
+---
+
+## ADENDO — 15/09/2026 (tarde) · v355 SELADA — A2 no mesmo core: o termo legado `FullTGLWitness` está HABITADO; as bandeiras esperam a v356
+
+A1(b) + A2 estão em kernel na mesma realização (core regular, traço de A1, suporte, canto, contrato legado, SUSY). O que separa isso de «quatro bandeiras de fronteira verdadeiras» é só o leitor do `um.py`,
+que hoje aponta para nomes reservados inexistentes; a proposta da bancada (contratos tipados + `AuditReaderContracts012`) entra na v356, com verificação de que SÓ as quatro bandeiras mudam e o gate não.
+O que continua aberto e nomeado: H2 (four-frame na geometria do fluxo), H3 (importado), a identificação física de H_min e da cunha (U = 1), UV. Rota do fundo: fator sobre o total [INPUT do operador];
+V3 do D1 por primitiva, com C em aberto. `76507ffd2b830499`; 5637/5637.
+
+---
+
+## ADENDO — 15/09/2026 (tarde) · v356 SELADA — as bandeiras de A1/A2 acenderam por medida; o caminho crítico encolhe para H2, H3, testemunha composta e o degrau do gate
+
+Ligadas: gpf_H1_internal_susy_relative_gap_discharged, gpf_tower_act_III_inhabitant_constructed, gpi_commutation_discharged_by_import, gpi_equilibrium_input_bridged, gpi_expectation_discharged_by_import, gpi_imported_commutation_gives_the_equality, gpi_modular_relativity, gpi_reading_fixes_the_code, gpi_reading_preserves_omega, gpi_reading_witness_independent, qgf_continuous_modular_realization_constructed, qgf_full_TGL_witness_constructed, qgf_modular_realization_constructed, qgf_unconditional_continuous_corner_proved. Apagadas: gpf_H2_smooth_modular_four_frame_discharged, gpf_H3_local_horizon_equilibrium_discharged, gpi_H3_horizon_data_produced. O gate não se move (a função só lê os selos de sempre). Próximo degrau da ORDEM 011: A3 (H2, o four-frame na geometria do fluxo — ou a parede do «quatro»),
+A4 (H3 pelo modo importado sobre o horizonte correto), A5 (`canonicalFullTGLWitness` compatível: hoje há `regularFullWitness : FullTGLWitness` — falta a compatibilidade demonstrada com A3/A4), A6 (o degrau do gate: proposta da bancada, ratificação do operador). `d745d49187ec33ab`; 5637/5637.
+
+---
+
+## ADENDO — 15/09/2026 (fim de tarde) · v357 SELADA (COMPLETA) — a revisão geral do artigo: o caminho crítico não muda; o que muda é que tudo o que está em kernel e em rito agora tem palavra
+
+Nenhuma bandeira, veredito ou selo mudou; o gate não se moveu. O artigo passou a carregar o ledger completo (974 pedras), os «Ao lado» v333–v356 e o registro completo dos vereditos (forma = conteúdo). Próximo degrau: A3 (H2), A4 (H3 importado), A5, A6 (ratificação do operador). Pendente do operador: a confirmação da rota do fundo (fator sobre o total) antes da V3 do D1. `88b0801924454493`; 5637/5637.

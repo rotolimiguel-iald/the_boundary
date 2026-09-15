@@ -32,6 +32,7 @@ def sha16(p: Path) -> str:
 def main() -> int:
     d = RAIZ / A3
     selo = json.loads((d / "um_absoluto_selo.json").read_text(encoding="utf-8"))
+    mundo_json = json.loads((d / "um_absoluto.json").read_text(encoding="utf-8"))
     man = json.loads((d / "Lean" / "tgl_kernel_proof_manifest.json").read_text(encoding="utf-8"))
     ar, fmap = man["axiom_report"], man["formal_files_sha256"]
     sujos = sum(1 for v in ar.values() if any(a not in TRIO for a in (v or [])))
@@ -111,6 +112,41 @@ def main() -> int:
     if nat:
         assert not any("CONFIRMED" in str(v) for _, _, v in nat), "veredito CONFIRMED no selo — PARAR"
         L.append("| nature answers (v340\u2013v350) | **%d final verdicts read from the seal, none FALSIFIED, none CONFIRMED** \u2014 table below; %d seal fields in all (`gw_*`, `echo_*`, `ringdown_*`, `d1_camb_*`, `h2_*`); all outside the contour of v314, none gates the core |" % (len(nat), sum(1 for k in selo if k.startswith(("gw_", "echo_", "ringdown_", "d1_camb_", "h2_")))))
+    asm = selo.get("the_assembly_is_done")
+    if asm:
+        assert "CONFIRMED" not in str(asm)
+        L.append("| the assembly (v351) | `the_assembly_is_done` = `%s` \u2014 the ChatGPT handoff incorporated byte by byte: J M J = M\u2032 on the product tower; eight clauses verified; the principal gate unchanged (`HANDOFF_v351_A_OITAVA_CLAUSULA.md`) |" % asm)
+    jc = selo.get("joint_coincidence_result_verdict")
+    if jc:
+        assert "CONFIRMED" not in str(jc), "veredito CONFIRMED no selo \u2014 PARAR"
+        L.append("| the joint probability, measured (v352) | `%s` \u2014 p_joint 0.546, boolean False, 3 of 35 admissible; the na\u00efve product (the \u201c10\u207b\u00b3\u2070\u201d) is a product of residues of identities, invalid; gate untouched |" % jc)
+    kfm = ((mundo_json.get("core") or {}).get("kernel_formalization") or {})
+    fl = {k: v for k, v in kfm.items() if k.startswith(("gpf_", "gpi_", "qgf_"))}
+    if fl:
+        lig = sorted(k for k, v in fl.items() if v is True)
+        apg = sorted(k for k, v in fl.items() if v is False)
+        L.append("| frontier and price flags (v353\u2013v356) | **%d lit by measurement / %d off** \u2014 read from `um_absoluto.json` \u2192 `core.kernel_formalization`: a typed contract on the A2 terms plus exact-type `#check` in the Audit, never \u201cconfirmed\u201d. Off: %s |" % (len(lig), len(apg), ", ".join("`%s`" % k for k in apg)))
+    kfr = ((((mundo_json.get("core") or {}).get("qg_closure") or {}).get("gate") or {}).get("kernel_frontier") or {})
+    if kfr.get("verdict"):
+        L.append("| the kernel frontier (v356) | `%s` \u00b7 scope `%s` \u00b7 remaining: %s |" % (kfr["verdict"], kfr.get("scope"), ", ".join("`%s`" % r for r in kfr.get("remaining", []))))
+    rev_f = d / "REVISAO_GERAL_v357_15set2026.md"
+    if rev_f.is_file():
+        L.append("| the general review (v357) | [`REVISAO_GERAL_v357_15set2026.md`](%s) `%s` \u2014 the article now carries every stone (ledger 974/974), \u201cBeside\u201d v333\u2013v356 PT+EN, the complete register of the 242 live verdicts, the addendum to the honesty declaration, the FoP erratum; kernel, rites, readers and seals identical to v356 |" % (raw(A3 + "/REVISAO_GERAL_v357_15set2026.md"), sha16(rev_f)))
+    L.append("")
+    L.append("### The arc v351\u2192v357 \u00b7 o arco `[REAL \u2014 sha16 read from the byte copies kept outside the repository]`")
+    L.append("")
+    L.append("| version | `um.py` sha16 | rite | round | what entered |")
+    L.append("|---|---|---|---|---|")
+    for row in (("v351", "95e8cf8eb0b33c5d", "5594/5594", "COMPLETE", "the ChatGPT handoff incorporated byte by byte: J M J = M\u2032 on the product tower, assembly 8/8; 218 stones V350*"),
+                ("v352", "dfd5252e95765bc3", "5594/5594", "intermediate", "the joint probability measured in the program (p 0.55; boolean False; the 10\u207b\u00b3\u2070 is a product of residues of identities)"),
+                ("v353", "c1c761809efcde52", "5594/5594", "intermediate", "ORDER 011 A1: 19 suppliers of the canonical trace (independently recompiled 19/19)"),
+                ("v354", "07d52f89e04c77d9", "5619/5619", "intermediate", "ORDER 012 B1\u2013B6 (the passage from the action to the metric; four walls correct the order) + A1(b): 44 stones; the rejected run `rodada_v354_FALHA1` kept"),
+                ("v355", "76507ffd2b830499", "5637/5637", "intermediate", "B1\u2032 (the fourth face), sanitizations a\u2013h, A2 (support, split, corner, `regularFullWitness : FullTGLWitness`, SUSY): 22 stones"),
+                ("v356", "d745d49187ec33ab", "5637/5637", "intermediate", "the readers: four flags of A1/A2 lit by measurement (typed contract + exact-type `#check` in the Audit); `kernel_frontier` V2"),
+                ("v357", "88b0801924454493", "5637/5637", "COMPLETE", "the general review of the article; the aborted run `rodada_v357_ABORTADA1` kept (the dry run caught an unescaped \u201c&\u201d)")):
+        L.append("| %s | `%s` | %s | %s | %s |" % row)
+    L.append("")
+    L.append("*The intermediate `um.py` copies and their stdouts live outside the repository (`the_boundary_BACKUPS/um_v35N_<sha16>`); the stdouts v351\u2013v357 are in `rodadas/`. PROVED \u2260 CONFIRMED.*")
     L.append("")
     L.append("## What is PROVED · o que está PROVADO `[REAL — theorem in kernel]`")
     L.append("")

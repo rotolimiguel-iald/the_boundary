@@ -1,6 +1,6 @@
 # The Boundary — Theory of Luminodynamic Gravitation (TGL)
 
-<!-- FRENTE:GERADA por tools/gerar_readme_frente.py em 2026-09-11 a partir de PORTA.json / TUNEL.json / um_absoluto_selo.json / LEDGER.md — não editar à mão -->
+<!-- FRENTE:GERADA por tools/gerar_readme_frente.py em 2026-09-15 a partir de PORTA.json / TUNEL.json / um_absoluto_selo.json / LEDGER.md — não editar à mão -->
 
 [![kernel — rebuilt and re-audited on GitHub's machines](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml/badge.svg)](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22659173.svg)](https://doi.org/10.5281/zenodo.22659173)
 
@@ -12,10 +12,10 @@
 
 | what | value |
 |---|---|
-| version · versão | **v350** (sealed 2026-09-10 21:00:45) |
-| `um.py` sha256 | `c9fc7fa432c6cf16dadcb926ee44f6b70656122f53cb7336dba52863c070208c` — 11.626.190 bytes, one file: [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py) |
-| the world · the seal | [`um_absoluto.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json) (3.343.133 bytes) · [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) (50.381 bytes) |
-| Lean kernel | **705 formal files · 6657 audited terms**, axioms ⊆ `{propext, Classical.choice, Quot.sound}`, zero `sorry` (leanprover/lean4:v4.31.0) — [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) |
+| version · versão | **v357** (sealed 2026-09-15 16:51:02) |
+| `um.py` sha256 | `88b080192445449363159c2cad7803b337670d571caf334f682be5b4f7602513` — 13.383.911 bytes, one file: [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py) |
+| the world · the seal | [`um_absoluto.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json) (3.692.839 bytes) · [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) (50.733 bytes) |
+| Lean kernel | **1008 formal files · 8514 audited terms**, axioms ⊆ `{propext, Classical.choice, Quot.sound}`, zero `sorry` (leanprover/lean4:v4.31.0) — [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) |
 | gate | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | the ruler | **PROVED** = a theorem in the kernel (`#print axioms`). **CONFIRMED** = a judgement about nature — forbidden here, by theorem. `NOT_FALSIFIED ≠ CONFIRMED`. β = α·√e is computed at runtime, never a literal. Cosmology never becomes mathematical proof. |
 
@@ -23,7 +23,7 @@
 
 ```bash
 curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"
-sha256sum um.py            # must print c9fc7fa432c6cf16dadcb926ee44f6b70656122f53cb7336dba52863c070208c
+sha256sum um.py            # must print 88b080192445449363159c2cad7803b337670d571caf334f682be5b4f7602513
 echo 1 | python um.py      # the rite: materializes the Lean kernel, builds it, audits every theorem, re-derives the chain, emits the article
 ```
 
@@ -52,16 +52,16 @@ GitHub raw and Zenodo honour HTTP `Range` (206): read `um.py` in pieces (`curl -
 | Article **2** — *A Ponte Einstein–Cartan–Miguel* | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/PORTA.md) · [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/PORTA.json) | [`A Ponte Einstein Cartan Miguel.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/A%20Ponte%20Einstein%20Cartan%20Miguel.tex) |
 | Article **3** — *Um: Absoluto* | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md) · [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json) | [`um.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py) |
 | *Genesis da Unificação* — the lineage | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md) · [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json) | — |
-| the Lean kernel (705 files; 705 hashed, 701 `.lean`, 6657 theorems audited) | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md) · [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.json) | [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) |
+| the Lean kernel (1008 files; 1008 hashed, 1004 `.lean`, 8514 theorems audited) | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md) · [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.json) | [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) |
 | the bench (`bancada/`) — what failed | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md) · [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.json) | [`04_CATALOGO_FALSOS_POSITIVOS.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/04_CATALOGO_FALSOS_POSITIVOS.md) |
 
-**Current seal, read from the artifact** — pin `um.py` `c9fc7fa432c6cf16` · last stone in the ledger: `SignedGibbsFiniteRecord` (`v339`) ·
-world `9b51fdd53626b9dc` · `result_hash` `59afd00b86155acb` · 2026-09-10 21:00:45 · kernel **705/6657** — source of truth:
+**Current seal, read from the artifact** — pin `um.py` `88b0801924454493` · last stone in the ledger: `TheSameBetaReadsFourFaces` (`v355`) ·
+world `1203eb6e10db2271` · `result_hash` `9427c8ef12067287` · 2026-09-15 16:51:02 · kernel **1008/8514** — source of truth:
 [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json).
-Citable deposit: **Zenodo [10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173)** holds **v331** (`um.py` `e1b74a907c403538`), byte-identical to THAT seal; **this seal is v339, newer than the deposit** — a new Zenodo version is the operator’s act.
+Citable deposit: **Zenodo [10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173)** holds **v331** (`um.py` `e1b74a907c403538`), byte-identical to THAT seal; **this seal is v355, newer than the deposit** — a new Zenodo version is the operator’s act.
 
 > ### ⬇ Fetching the artifact — GitHub will **not** render it
-> `um.py` is **11.09 MB**, and GitHub’s blob viewer refuses files above ~5 MB: the
+> `um.py` is **12.76 MB**, and GitHub’s blob viewer refuses files above ~5 MB: the
 > page loads (HTTP 200) but shows only the size and a *View raw* link — **it looks
 > empty**. That is a viewer limit, not a broken link. Four routes serve the whole
 > file; all four were verified against the sealed pin (Zenodo: the record’s md5 of um.py read from its API):
@@ -71,7 +71,7 @@ Citable deposit: **Zenodo [10.5281/zenodo.22659173](https://doi.org/10.5281/zeno
 > | **raw** (canonical — what every door already points to) | `curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"` |
 > | **clone** | `git clone --depth 1 https://github.com/rotolimiguel-iald/the_boundary` |
 > | **archive** | `curl -L -o boundary.tar.gz "https://codeload.github.com/rotolimiguel-iald/the_boundary/tar.gz/refs/heads/main"` |
-> | **Zenodo** (the citable deposit — holds v331; this tree is v339) | [10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173) |
+> | **Zenodo** (the citable deposit — holds v331; this tree is v355) | [10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173) |
 >
 > **If you are an AI:** start at `llms.txt`, follow the raw URLs, and **never conclude
 > from a blob page that a file is missing**. After fetching, check the sha256 against
@@ -196,7 +196,7 @@ poderia cair vale mais do que um que não diz.*
 
 ## The ledger · o livro-razão
 
-[`LEDGER.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md) is this README **as it was until 2026-09-11** — the atlas of the boundary: every claim with its status, every status with the file where it is read, the seals, the refutations and the false positives that did not pass, the reading protocol, the thematic atlas and the raw file index (3.751 lines, 29.361 bytes, sha256 `45738ea13da583416d499f8907a9bf176a8d6fa5efa78ae710e78a8779507f21`). It is kept **byte-exact** and append-only: nothing was removed when this front page was generated. The raw file index it carries is superseded by [`TUNEL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json) / [`TUNEL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.md), which are regenerated at every custody.
+[`LEDGER.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md) is this README **as it was until 2026-09-15** — the atlas of the boundary: every claim with its status, every status with the file where it is read, the seals, the refutations and the false positives that did not pass, the reading protocol, the thematic atlas and the raw file index (3.770 lines, 29.366 bytes, sha256 `89c84e351c2e228a8292b47ab5d89beb99e53fac96945a8fa4a56539faa6f3eb`). It is kept **byte-exact** and append-only: nothing was removed when this front page was generated. The raw file index it carries is superseded by [`TUNEL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json) / [`TUNEL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.md), which are regenerated at every custody.
 
 ## Citing This Work
 
@@ -300,4 +300,4 @@ dialogue throughout the development of TGL.
 
 ---
 
-*Generated by script (`tools/gerar_readme_frente.py`) from the sealed artifacts on 2026-09-11. Every URL comes from `TUNEL.json` / `PORTA.json`; every number from the seal. The gate does not move by this page. NOT_FALSIFIED ≠ CONFIRMED.*
+*Generated by script (`tools/gerar_readme_frente.py`) from the sealed artifacts on 2026-09-15. Every URL comes from `TUNEL.json` / `PORTA.json`; every number from the seal. The gate does not move by this page. NOT_FALSIFIED ≠ CONFIRMED.*

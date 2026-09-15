@@ -1,3 +1,292 @@
+
+import TGLExt.TheSameBetaReadsFourFaces
+import TGLExt.V354BoundedPolar
+import TGLExt.V354SelfAdjointPowerKernel
+import TGLExt.V354TraceShiftEquivalence
+import TGLExt.ActionCouplingControls
+import TGLExt.V354PolarIntertwining
+import TGLExt.SectorFriedmannAdditive
+import TGLExt.V354CyclicTraceCompletion
+import TGLExt.V354FiniteTraceSupport
+import TGLExt.V354PositiveTraceTransport
+import TGLExt.V354PositiveShiftCompatibility
+import TGLExt.V354SpectralThreshold
+import TGLExt.V354RegularMatrixCorner
+import TGLExt.V354FiniteEqualSplit
+import TGLExt.V354NormalizedSplit
+import TGLExt.V354RegularSupport
+import TGLExt.V354CoreProjectionLattice
+import TGLExt.V354PositiveTraceReader
+import TGLExt.V354ProjectionTraceSubadditivity
+import TGLExt.V354RegularLegacyWitness
+import TGLExt.V354TraceReaderWall
+import TGLExt.V354RegularSusy
+import TGLExt.V351RegularFlowAbsorption
+import TGLExt.V351ScalarGNSClosedness
+import TGLExt.V351ScalarRightActionLimits
+import TGLExt.V351ScalarRightActionAlgebra
+import TGLExt.V351RegularPositiveGraph
+import TGLExt.V351ScalarMultiplierCalculus
+import TGLExt.V351RegularSpectralGraph
+import TGLExt.V351FourierTranslation
+import TGLExt.V351RegularImaginaryPowers
+import TGLExt.V351RegularGeneratorAffiliation
+import TGLExt.V351SineResolventApprox
+import TGLExt.V351RegularGeneratorDualScaling
+import TGLExt.V351InverseGeneratorCutoff
+import TGLExt.V351InverseCutoffCFC
+import TGLExt.V351PerturbedWeightNorm
+import TGLExt.V351PerturbedWeightOrder
+import TGLExt.V351WeightAverageRecovery
+import TGLExt.V351CutoffAverageCommutation
+import TGLExt.V351AllPositiveWeightOrder
+import TGLExt.V351AveragePolarRight
+import TGLExt.V351AverageFixedPair
+import TGLExt.V351ScalarImaginaryLeftTransport
+import TGLExt.V351ScalarImaginaryCoreAction
+import TGLExt.V351RegulatorWeightOrder
+import TGLExt.V351InverseLimitWeight
+import TGLExt.V351InverseLimitFaithful
+import TGLExt.V351InverseLimitScaling
+import TGLExt.V351RegularDomainCut
+import TGLExt.V351InverseLimitSemifiniteness
+import TGLExt.V351InverseLimitTracialExtension
+import TGLExt.V351InverseLimitFiniteMinorants
+import TGLExt.V351ModularFixedVectors
+import TGLExt.V351ModularImplementation
+import TGLExt.V351ModularCutBalance
+import TGLExt.V351QuadraticTrace
+import TGLExt.V351RegularCoreTraceConstruction
+import TGLExt.FLRWGeometry
+import TGLExt.FLRWFieldEquations
+import TGLExt.TheSameBetaReadsThreeFaces
+import TGLExt.SectorFluidClosure
+import TGLExt.SectorFriedmann
+import TGLExt.ThermodynamicFriedmann
+import TGLExt.SectorRouteComparison
+import TGLExt.TheAngleReachesTheMetric
+import TGLExt.V351ResolventPhaseFunctions
+import TGLExt.V351ResolventPhaseCalculus
+import TGLExt.V351ResolventImaginaryPowers
+import TGLExt.V351ResolventImaginaryContinuity
+import TGLExt.V351AntiunitaryResolventPhase
+import TGLExt.V351RegularCoreTraceContract
+import TGLExt.V351ExtendedBaseDualWeight
+import TGLExt.V351BaseMoreauApproximants
+import TGLExt.V351BaseFunctionalEvaluation
+import TGLExt.V351BaseFunctionalWeightLaws
+import TGLExt.V351BaseSeriesNormality
+import TGLExt.V351ScaledResolventFunctions
+import TGLExt.V351ResolventImaginaryIntertwining
+import TGLExt.V351ScaledResolventCalculus
+import TGLExt.V351ImaginaryPowerScaling
+import TGLExt.V351ScalarTomitaImaginaryPowers
+import TGLExt.V351ScalarImaginaryRightTransport
+import TGLExt.V351ScalarTomitaImaginaryConjugation
+import TGLExt.V351ScalarWeightSemifiniteness
+import TGLExt.V350GateContract
+import TGLExt.V350WedgeModularData
+import TGLExt.V350RegularGeneratedAlgebra
+import TGLExt.V350RegularDualAction
+import TGLExt.V350L2BoundedStrongContinuity
+import TGLExt.V350RegularTopology
+import TGLExt.V350RegularNormality
+import TGLExt.V350CoreContractCounterexample
+import TGLExt.V350DualWeightExhaustion
+import TGLExt.V350DualClosedForm
+import TGLExt.V350DualFormTransport
+import TGLExt.V350DualFormFaithfulness
+import TGLExt.V350DualCutNormality
+import TGLExt.V350DualFormNormality
+import TGLExt.V350PositiveResolvent
+import TGLExt.V350DualResolvent
+import TGLExt.V350DualVariational
+import TGLExt.V350DualFormSupport
+import TGLExt.V350ResolventGraph
+import TGLExt.V350DualSupportOperator
+import TGLExt.V350DualEnergyOnResolvent
+import TGLExt.V350PartialOperatorSquare
+import TGLExt.V350ResolventSquareRoot
+import TGLExt.V350DualSquareRoot
+import TGLExt.V350DualSquareRootFormBound
+import TGLExt.V350DualFormVariationalBound
+import TGLExt.V350DualFormRepresentation
+import TGLExt.V350FormMinimizerUniqueness
+import TGLExt.V350DualResolventFixed
+import TGLExt.V350DualFixedCore
+import TGLExt.V350ResolventGraphTransport
+import TGLExt.V350DualSupportTransport
+import TGLExt.V350DualFixedFormAffiliation
+import TGLExt.V350PositiveFormCone
+import TGLExt.V350DualFixedWeightLaws
+import TGLExt.V350RegularApproximation
+import TGLExt.V350FourierL1L2
+import TGLExt.V350RegularFiniteWeight
+import TGLExt.V350DualSemifiniteIdeal
+import TGLExt.V350BoundedDualValues
+import TGLExt.V350BoundedFiniteSquares
+import TGLExt.V350FixedCoreShiftCommutation
+import TGLExt.V350FourierUniqueness
+import TGLExt.V350CharacterLocality
+import TGLExt.V350L2MeasurableCut
+import TGLExt.V350FixedCoreLocality
+import TGLExt.V350UnitIntervalProjection
+import TGLExt.V350TranslationCorrelation
+import TGLExt.V350UnitIntervalShiftProjection
+import TGLExt.V350ConstantFibreCandidate
+import TGLExt.V350L2CutIntegral
+import TGLExt.V350ZeroFromTranslatedCuts
+import TGLExt.V350ConstantFibreIdentification
+import TGLExt.V350StrongOperatorField
+import TGLExt.V350OperatorFieldFaithfulness
+import TGLExt.V350TwistedCommutantField
+import TGLExt.V350RegularCoreCommutant
+import TGLExt.V350FixedCoreBaseIdentification
+import TGLExt.V350FixedBaseEquivalence
+import TGLExt.V350BoundedBaseDualValues
+import TGLExt.V350ScalarDualWeightFaithfulness
+import TGLExt.V350ScalarDualWeight
+import TGLExt.V350ScalarModularInvariance
+import TGLExt.V350RegularScalarWeightCertificate
+import TGLExt.V350ContractionAdjointLimit
+import TGLExt.V350StrongBoundedApplication
+import TGLExt.V350FiniteDualStarCore
+import TGLExt.V350ScalarGNSOrbit
+import TGLExt.V350ScalarGNSLinear
+import TGLExt.V350ScalarGNSAction
+import TGLExt.V350OperatorFieldAlgebra
+import TGLExt.V350ScalarGNSCompletion
+import TGLExt.V350DualOrbitRepresentation
+import TGLExt.V350ReducingStarRepresentation
+import TGLExt.V350ScalarGNSRepresentation
+import TGLExt.V350DualOrbitStrongLimits
+import TGLExt.V350ScalarGNSStarApproximation
+import TGLExt.V350ScalarGNSStarDensity
+import TGLExt.V350ScalarTomitaGraph
+import TGLExt.V350ScalarGNSStrongContinuity
+import TGLExt.V350ScalarGNSNormality
+import TGLExt.V350DualCutLinearMap
+import TGLExt.V350ScalarBoundedCuts
+import TGLExt.V350ScalarCutNormality
+import TGLExt.V350ScalarGNSCutMaps
+import TGLExt.V350ScalarGNSCutNorm
+import TGLExt.V350ScalarCutVacuum
+import TGLExt.V350ScalarCutCyclicSpace
+import TGLExt.V350ScalarCutVectorFunctional
+import TGLExt.V350ScalarCutGNSProperties
+import TGLExt.V350L2PositiveMultiplier
+import TGLExt.V350L2GaussianProfile
+import TGLExt.V350FibreVonNeumann
+import TGLExt.V350ScalarGaussianVacuum
+import TGLExt.V350SeparatingCyclicCommutant
+import TGLExt.V350DualOrbitVonNeumann
+import TGLExt.V350ScalarGaussianGNSMap
+import TGLExt.V350VectorTomitaClosability
+import TGLExt.V350ScalarGaussianClosureTransport
+import TGLExt.V350ScalarClosedTomita
+import TGLExt.V350ScalarTomitaStandardSubspace
+import TGLExt.V350AntilinearAdjointGraph
+import TGLExt.V350ScalarTomitaAdjoint
+import TGLExt.V350AntilinearComposition
+import TGLExt.V350ScalarTomitaSquare
+import TGLExt.V350ClosedAntilinearResolvent
+import TGLExt.V350PositiveSurjectiveResolvent
+import TGLExt.V350ScalarTomitaSelfAdjoint
+import TGLExt.V350PartialPositiveResolvent
+import TGLExt.V350ScalarTomitaResolvent
+import TGLExt.V350ScalarTomitaPositiveRoot
+import TGLExt.V350PartialSquareEnergy
+import TGLExt.V350ScalarTomitaRootEnergy
+import TGLExt.V350RealGraphCore
+import TGLExt.V350ScalarTomitaGraphCore
+import TGLExt.V350PartialSquareGraphCore
+import TGLExt.V350GraphCoreNormTransfer
+import TGLExt.V350ScalarTomitaRootGraphCore
+import TGLExt.V350ScalarTomitaRootDomain
+import TGLExt.V350PartialSelfadjointRange
+import TGLExt.V350DenseAntilinearExtension
+import TGLExt.V350ScalarTomitaPolarFactor
+import TGLExt.V350ScalarTomitaResolventFlip
+import TGLExt.V350ScalarTomitaPolarResolvent
+import TGLExt.V350AntiunitaryPositiveConjugation
+import TGLExt.V350ScalarTomitaPolarInvolution
+import TGLExt.V350ScalarWeightDomain
+import TGLExt.V350ScalarWeightOrbit
+import TGLExt.V350ShiftCharacterAverage
+import TGLExt.V350ScalarRightAverage
+import TGLExt.V350ScalarWeightCompletion
+import TGLExt.V350ScalarWeightAction
+import TGLExt.V350ScalarWeightSandwich
+import TGLExt.V350ScalarWeightStarCore
+import TGLExt.V350ScalarWeightTomitaIdentification
+import TGLExt.V350LocalRightModularTransport
+import TGLExt.V350HomogeneousCommutantTransport
+import TGLExt.V350ScalarHomogeneousRightOrbit
+import TGLExt.V350HomogeneousRightData
+import TGLExt.V350ScalarHomogeneousRightGNS
+import TGLExt.V350ScalarRightStarGraph
+import TGLExt.V350ScalarRightClosedTomita
+import TGLExt.V350ScalarRightTomitaAdjoint
+import TGLExt.V350HomogeneousRightSquareDomain
+import TGLExt.V350MatrixUnitRightSquare
+import TGLExt.V350ScalarRegularRightGNS
+import TGLExt.V350ScalarRegularRightTomita
+import TGLExt.V350ScalarRegularRightSquare
+import TGLExt.V350ScalarRegularRightPolar
+import TGLExt.V350ScalarRegularPolarCommutation
+import TGLExt.V350ScalarRegularRightContinuity
+import TGLExt.V350PositiveRootIntertwining
+import TGLExt.V350ScaledPositiveResolvent
+import TGLExt.V350ScaledResolventRoots
+import TGLExt.V350ScaledRootGraphTransport
+import TGLExt.V350MatrixUnitResolventScaling
+import TGLExt.V350MatrixUnitRootScaling
+import TGLExt.V350MatrixUnitPolarTransport
+import TGLExt.V350MatrixUnitPolarCommutation
+import TGLExt.V350LevelExpectationUniformBound
+import TGLExt.V350LevelExpectationStrongLimit
+import TGLExt.V350LocalBasePolarCommutation
+import TGLExt.V350BasePolarStrongLimit
+import TGLExt.V350FiniteSetFibreRead
+import TGLExt.V350FibreSlices
+import TGLExt.V350ReducingCommutantTransport
+import TGLExt.V350ScalarGNSGeneratorTransport
+import TGLExt.V350CorePolarInclusion
+import TGLExt.V350DenseLinearPolarExtension
+import TGLExt.V350BoundedInjectivePolar
+import TGLExt.V350ScalarGaussianImage
+import TGLExt.V350ScalarGaussianUnitary
+import TGLExt.V350ScalarRightRegularization
+import TGLExt.V350ScalarCommutantRegularization
+import TGLExt.V350ScalarRightAdjointPair
+import TGLExt.V350ScalarCommutantSandwich
+import TGLExt.V350ScalarPairedRightAlgebra
+import TGLExt.V350ScalarGaussianRightPairs
+import TGLExt.V350ScalarRightPairVector
+import TGLExt.V350ScalarRightHilbertCore
+import TGLExt.V350ReducingCommutantCompression
+import TGLExt.V350ReducingBicommutantLift
+import TGLExt.V350SeparatingRestrictionVonNeumann
+import TGLExt.V350ScalarGNSVonNeumann
+import TGLExt.V350ComplexGraphProjection
+import TGLExt.V350ScalarRightMultiplicationGraph
+import TGLExt.V350HilbertProjectionBlocks
+import TGLExt.V350ScalarRightProjectionPair
+import TGLExt.V350FixedVectorGraphCore
+import TGLExt.V350ScalarRightGraphCore
+import TGLExt.V350ScalarTomitaAdjointPolar
+import TGLExt.V350ScalarRightConjugateGraph
+import TGLExt.V350RealPhaseVariational
+import TGLExt.V350ScalarPhaseVariational
+import TGLExt.V350ScalarTomitaBidual
+import TGLExt.V350ScalarRightFunctionalStability
+import TGLExt.V350SquareResolventSupport
+import TGLExt.V350ScalarRightSquareApproximation
+import TGLExt.V350ScalarSquareAdjointTest
+import TGLExt.V350ScalarPairedMultiplicationGraph
+import TGLExt.V350HilbertProjectionOrder
+import TGLExt.V350ScalarPairedProjectionBlocks
+import TGLExt.V350ScalarWeightedProjectionTest
 import TGL.Basic
 import TGL.HalfNat
 import TGL.AreaScale
@@ -6983,3 +7272,1896 @@ end TGL.Audit
 #print axioms ChatgptAudit.SignedGibbsCoverage.measured_gibbs_limits_reconstruct_source
 #print axioms ChatgptAudit.SignedGibbsFinite.ten_entropy_limits_reconstruct_source
 #print axioms ChatgptAudit.SignedGibbsFinite.ten_modular_limits_reconstruct_source
+
+-- 2026-09-11, isolated v350 extension: closed modular certificate, product tower only.
+#print axioms TGLExt.qgConverse_JMJ_contains_commutant
+#print axioms TGLExt.qgFrontier_modularRealization
+#print axioms TGLExt.qgPrice_towerActIII_inhabitantConstructed
+#print axioms TGLExt.V350Gate.checkedConverse
+#print axioms TGLExt.V350Gate.checkedModular
+#print axioms TGLExt.V350Gate.checkedActIII
+#print axioms TGLExt.V350Continuous.towerAntiunitary
+#print axioms TGLExt.V350Continuous.factorFlow
+#print axioms TGLExt.V350Continuous.towerWedgeData
+#print axioms TGLExt.V350Continuous.same_conjugation
+
+-- Regular continuous representation; no canonical trace or core flag is asserted.
+#print axioms TGLV350.Regular.fibreRepresentation
+#print axioms TGLV350.Regular.fibre_injective
+#print axioms TGLV350.Regular.shift_mul
+#print axioms TGLV350.Regular.shift_star
+#print axioms TGLV350.Regular.shift_commutes_fibre
+#print axioms TGLV350.Regular.shift_strongly_continuous
+#print axioms TGLV350.Regular.fibre_jointly_continuous
+#print axioms TGLV350.Regular.regular_mul
+#print axioms TGLV350.Regular.regular_unitary
+#print axioms TGLV350.Regular.regular_covariance_on_factor
+#print axioms TGLV350.Regular.regular_strongly_continuous
+#print axioms TGLV350.Regular.regularCoreAlgebra
+#print axioms TGLV350.Regular.regularCoreEmbedding_injective
+#print axioms TGLV350.Regular.regularCore_minimal
+
+-- Dual automorphisms on the whole regular algebra and bounded strong limits.
+-- These declarations do not supply a canonical trace or discharge Three Locks.
+#print axioms TGLV350.Regular.characterMultiplier_unitary
+#print axioms TGLV350.Regular.characterMultiplier_commutes_fibre
+#print axioms TGLV350.Regular.characterMultiplier_weyl
+#print axioms TGLV350.Regular.characterMultiplier_strongly_continuous
+#print axioms TGLV350.Regular.generated_transport
+#print axioms TGLV350.Regular.generatedAutomorphism
+#print axioms TGLV350.Regular.regularDualAction
+#print axioms TGLV350.Regular.regularDualAction_zero
+#print axioms TGLV350.Regular.regularDualAction_add
+#print axioms TGLV350.Regular.regularDualAction_fixes_embedding
+#print axioms TGLV350.Regular.dualAmbient_regular
+#print axioms TGLV350.Regular.regularDualAction_strongly_continuous
+#print axioms TGLV350.Regular.dualAmbient_preserves_strong_continuity
+#print axioms TGLV350.Regular.fibre_norm_le
+#print axioms TGLV350.Regular.fibre_bounded_jointly_continuous
+#print axioms TGLV350.Regular.fibre_bounded_strongly_continuous
+#print axioms TGLV350.Regular.fibre_tendsto_of_uniformly_bounded
+#print axioms TGLV350.Regular.vonNeumann_wot_closed
+#print axioms TGLV350.Regular.regularCore_wot_closed
+
+-- Order normality of the actual inclusion; no trace or core flag follows from this alone.
+#print axioms TGLV350.Regular.fibre_nonneg_iff
+#print axioms TGLV350.Regular.fibre_le_iff
+#print axioms TGLV350.Regular.isLUB_fibre_of_monotone_strong_limit
+#print axioms TGLV350.Regular.fibre_preserves_positive_isLUB
+#print axioms TGLV350.Regular.strong_tendsto_wot
+#print axioms TGLV350.Regular.vonNeumann_mem_of_strong_limit
+#print axioms TGLV350.Regular.vonNeumann_isLUB_of_coe_isLUB
+#print axioms TGLV350.Regular.vonNeumann_exists_positive_isLUB
+#print axioms TGLV350.Regular.vonNeumann_isLUB_coe
+#print axioms TGLV350.Regular.vonNeumann_exists_positive_isLUB_of_bddAbove
+#print axioms TGLV350.Regular.regularCoreEmbedding_coe
+#print axioms TGLV350.Regular.regularCoreEmbedding_preserves_positive_isLUB
+#print axioms TGLV350.Regular.regularCoreEmbedding_preserves_positive_directed_isLUB
+
+-- A legacy core contract admits zero trace, but this countermodel cannot have Three Locks.
+#print axioms TGLV350.ContractAudit.zeroTraceLegacyCore
+#print axioms TGLV350.ContractAudit.legacy_contract_accepts_zero_trace
+#print axioms TGLV350.ContractAudit.zeroTraceLegacyCore_has_no_threeLocks
+
+-- Strong dual cuts and extended quadratic evaluations, not yet a canonical trace.
+#print axioms TGLV350.StrongIntegral.operatorIntegral
+#print axioms TGLV350.StrongIntegral.operatorIntegral_norm_le
+#print axioms TGLV350.StrongIntegral.operatorIntegral_mem
+#print axioms TGLV350.StrongIntegral.inner_operatorIntegral
+#print axioms TGLV350.StrongIntegral.operatorIntegral_nonneg
+#print axioms TGLV350.StrongIntegral.operatorIntegral_mono_interval
+#print axioms TGLV350.Regular.dualIntegralFamily
+#print axioms TGLV350.Regular.dualWeightCut_apply
+#print axioms TGLV350.Regular.dualWeightCut_norm_le
+#print axioms TGLV350.Regular.dualWeightCut_nonneg
+#print axioms TGLV350.Regular.dualWeightCut_mono_radius
+#print axioms TGLV350.Regular.dualWeightCut_mem
+#print axioms TGLV350.Regular.dualWeightCut_fibre
+#print axioms TGLV350.Regular.dualWeightCut_one
+#print axioms TGLV350.Regular.normalizedDualCut_nonneg
+#print axioms TGLV350.Regular.normalizedDualCut_mem
+#print axioms TGLV350.Regular.dualQuadraticIntegral_zero
+#print axioms TGLV350.Regular.dualQuadraticIntegral_add
+#print axioms TGLV350.Regular.dualQuadraticIntegral_dual_invariant
+#print axioms TGLV350.Regular.dualWeightCut_quadratic
+#print axioms TGLV350.Regular.dualWeightCut_quadratic_le
+#print axioms TGLV350.Regular.dualQuadraticIntegral_one
+#print axioms TGLV350.Regular.lintegral_eq_iSup_symmetric_cuts
+#print axioms TGLV350.Regular.dualQuadraticIntegral_eq_iSup_cuts
+#print axioms TGLV350.Regular.dual_unit_cut_supremum_infinite
+
+-- Closed positive forms and finite domains, not a spectral operator or canonical trace.
+#print axioms TGLV350.Regular.operatorQuadratic_smul
+#print axioms TGLV350.Regular.operatorQuadratic_parallelogram
+#print axioms TGLV350.Regular.dualQuadraticIntegral_smul_vector
+#print axioms TGLV350.Regular.dualQuadraticIntegral_smul_operator
+#print axioms TGLV350.Regular.dualQuadraticIntegral_parallelogram
+#print axioms TGLV350.Regular.dualQuadraticIntegral_add_vector_le
+#print axioms TGLV350.Regular.dualCutEvaluation_continuous
+#print axioms TGLV350.Regular.dualQuadraticIntegral_lowerSemicontinuous
+#print axioms TGLV350.Regular.ClosedPositiveForm.finiteDomain
+#print axioms TGLV350.Regular.ClosedPositiveForm.isClosed_sublevel
+#print axioms TGLV350.Regular.dualClosedPositiveForm
+#print axioms TGLV350.Regular.dualClosedPositiveForm_one_domain
+#print axioms TGLV350.Regular.dualClosedPositiveForm_zero_domain
+#print axioms TGLV350.Regular.dualQuadraticIntegral_commutant_invariant
+#print axioms TGLV350.Regular.dualAffiliatedPositiveForm
+
+-- Bimodule and dual transport laws, plus faithfulness of the positive evaluation family.
+-- These are not a construction of a canonical scalar trace or its semifinitude.
+#print axioms TGLV350.Regular.operatorQuadratic_conjugate
+#print axioms TGLV350.Regular.dualQuadraticIntegral_bimodule
+#print axioms TGLV350.Regular.base_conjugate_mem
+#print axioms TGLV350.Regular.dualBaseConjugatedForm
+#print axioms TGLV350.Regular.dualBaseConjugatedForm_value
+#print axioms TGLV350.Regular.dualAmbient_commute
+#print axioms TGLV350.Regular.dualQuadraticIntegral_transport
+#print axioms TGLV350.Regular.dualQuadraticIntegral_vector_dual_invariant
+#print axioms TGLV350.Regular.dualFiniteDomain_dual_invariant
+#print axioms TGLV350.Regular.dualQuadraticIntegrand_continuous
+#print axioms TGLV350.Regular.dualQuadraticIntegral_zero_iff_integrand_zero
+#print axioms TGLV350.Regular.dualQuadraticIntegral_zero_implies_apply_zero
+#print axioms TGLV350.Regular.dualQuadraticIntegral_faithful
+#print axioms TGLV350.Regular.dualQuadraticIntegral_detects_nonzero_positive
+#print axioms TGLV350.Regular.dualQuadraticIntegral_mono
+
+-- Normality of extended form evaluations on arbitrary positive directed nets.
+-- A base-valued weight, its semifinitude and the canonical scalar trace remain open.
+#print axioms TGLV350.Regular.intervalIntegral_tendsto_of_uniform
+#print axioms TGLV350.Regular.dualRealQuadratic_continuous
+#print axioms TGLV350.Regular.dualRealQuadratic_mono
+#print axioms TGLV350.Regular.dualAmbient_tendsto_strong
+#print axioms TGLV350.Regular.dualRealQuadratic_uniform_on_compact
+#print axioms TGLV350.Regular.dualWeightCut_tendsto_quadratic
+#print axioms TGLV350.Regular.dualQuadraticIntegral_of_monotone_strong_limit
+#print axioms TGLV350.Regular.dualQuadraticIntegral_preserves_positive_isLUB
+#print axioms TGLV350.Regular.dualQuadraticIntegral_preserves_internal_isLUB
+#print axioms TGLV350.Regular.regularDualForm_preserves_internal_isLUB
+
+-- Strong resolvent limit in the same core, with a finite-domain energy bound.
+-- Spectral representation of the form and the canonical trace remain open.
+#print axioms TGLV350.Regular.positiveResolvent_left_inverse
+#print axioms TGLV350.Regular.positiveResolvent_right_inverse
+#print axioms TGLV350.Regular.positiveResolvent_nonneg
+#print axioms TGLV350.Regular.positiveResolvent_le_one
+#print axioms TGLV350.Regular.positiveResolvent_antitone
+#print axioms TGLV350.Regular.positiveResolvent_injective
+#print axioms TGLV350.Regular.positiveResolvent_mem
+#print axioms TGLV350.Regular.vonNeumann_antitone_contraction_limit
+#print axioms TGLV350.Regular.normalizedDualCut_mono_radius
+#print axioms TGLV350.Regular.normalizedDualCut_quadratic
+#print axioms TGLV350.Regular.dualQuadraticIntegral_eq_iSup_normalized_cuts
+#print axioms TGLV350.Regular.dualCutResolvent_antitone
+#print axioms TGLV350.Regular.exists_dualResolvent_limit
+#print axioms TGLV350.Regular.positiveResolvent_energy_bound
+#print axioms TGLV350.Regular.dualResolvent_limit_energy_bound
+#print axioms TGLV350.Regular.dualResolvent_limit_range_finite
+#print axioms TGLV350.Regular.dualResolvent_limit_one_eq_zero
+#print axioms TGLV350.Regular.dualCutResolvent_zero
+#print axioms TGLV350.Regular.dualResolvent_limit_zero_eq_one
+
+-- Variational minimum, actual form support, and a positive self-adjoint graph.
+-- The square-root form equality and canonical trace are not yet discharged.
+#print axioms TGLV350.Regular.positiveResolvent_energy_identity
+#print axioms TGLV350.Regular.positiveResolvent_minimizes_energy
+#print axioms TGLV350.Regular.dualEnergy_eq_iSup_cuts
+#print axioms TGLV350.Regular.dualResolvent_limit_minimizes_energy
+#print axioms TGLV350.Regular.linear_coefficient_zero_of_nonnegative_quadratic
+#print axioms TGLV350.Regular.ClosedPositiveForm.zero_minimizer_orthogonal
+#print axioms TGLV350.Regular.dualResolvent_kernel_eq_finiteDomain_orthogonal
+#print axioms TGLV350.Regular.dualResolvent_range_closure_eq_finiteDomain_closure
+#print axioms TGLV350.Regular.resolvent_graph_equation
+#print axioms TGLV350.Regular.resolvent_graph_closed
+#print axioms TGLV350.Regular.resolvent_graph_domain_dense
+#print axioms TGLV350.Regular.resolvent_graph_selfadjoint
+#print axioms TGLV350.Regular.resolvent_graph_positive
+#print axioms TGLV350.Regular.resolvent_graph_resolvent_equation
+#print axioms TGLV350.Regular.dualResolvent_maps_into_support
+#print axioms TGLV350.Regular.dualSupportResolvent_apply
+#print axioms TGLV350.Regular.dualSupportResolvent_nonneg
+#print axioms TGLV350.Regular.dualSupportResolvent_le_one
+#print axioms TGLV350.Regular.dualSupportResolvent_injective
+#print axioms TGLV350.Regular.dualSupportOperator_closed
+#print axioms TGLV350.Regular.dualSupportOperator_dense
+#print axioms TGLV350.Regular.dualSupportOperator_selfadjoint
+#print axioms TGLV350.Regular.dualSupportOperator_positive
+#print axioms TGLV350.Regular.dualSupportOperator_resolvent_equation
+#print axioms TGLV350.Regular.exists_dualSupportOperator
+
+-- Finite operator-domain energy, a positive self-adjoint square root, and S^2=T.
+-- Equality of the full finite form domain with D(S), and the canonical trace, remain open.
+#print axioms TGLV350.Regular.ClosedPositiveForm.minimizer_energy_identity
+#print axioms TGLV350.Regular.dualResolvent_limit_energy_identity
+#print axioms TGLV350.Regular.dualSupportOperator_inverse_parameter
+#print axioms TGLV350.Regular.dualSupportOperator_domain_finite
+#print axioms TGLV350.Regular.dualSupportOperator_energy_identity
+#print axioms TGLV350.Regular.dualSupportOperator_energy_ennreal
+#print axioms TGLV350.Regular.partialOperatorSquare
+#print axioms TGLV350.Regular.partialOperatorSquare_domain_iff
+#print axioms TGLV350.Regular.partialOperatorSquare_graph_iff
+#print axioms TGLV350.Regular.boundedGraph_square_eq_resolvent
+#print axioms TGLV350.Regular.positive_sqrt_injective
+#print axioms TGLV350.Regular.resolvent_sqrt_pair_commute
+#print axioms TGLV350.Regular.resolvent_sqrt_pair_square_sum
+#print axioms TGLV350.Regular.resolventSquareRoot_domain
+#print axioms TGLV350.Regular.resolventSquareRoot_closed
+#print axioms TGLV350.Regular.resolventSquareRoot_dense
+#print axioms TGLV350.Regular.resolventSquareRoot_formalAdjoint
+#print axioms TGLV350.Regular.resolventSquareRoot_selfadjoint
+#print axioms TGLV350.Regular.resolventSquareRoot_positive
+#print axioms TGLV350.Regular.resolventSquareRoot_square
+#print axioms TGLV350.Regular.boundedPositiveSquareRoot
+#print axioms TGLV350.Regular.boundedPositiveSquareRoot_sq
+#print axioms TGLV350.Regular.dualSupportSquareRoot_domain
+#print axioms TGLV350.Regular.dualSupportSquareRoot_closed
+#print axioms TGLV350.Regular.dualSupportSquareRoot_dense
+#print axioms TGLV350.Regular.dualSupportSquareRoot_selfadjoint
+#print axioms TGLV350.Regular.dualSupportSquareRoot_positive
+#print axioms TGLV350.Regular.dualSupportSquareRoot_square
+#print axioms TGLV350.Regular.dualSupportSquareRoot_energy_on_operator_domain
+#print axioms TGLV350.Regular.exists_dualSupportSquareRoot
+
+-- Full form representation now proved on the same support. The canonical trace remains open.
+#print axioms TGLV350.Regular.lsc_le_continuous_of_dense
+#print axioms TGLV350.Regular.bounded_graph_form_upper_bound
+#print axioms TGLV350.Regular.resolventSquareRoot_form_upper_bound
+#print axioms TGLV350.Regular.dualSupportSquareRoot_form_upper_bound
+#print axioms TGLV350.Regular.dualSupportSquareRoot_domain_finite
+#print axioms TGLV350.Regular.inner_norm_bound_of_variational_bound
+#print axioms TGLV350.Regular.exists_preimage_of_inner_bound
+#print axioms TGLV350.Regular.dualResolvent_variational_dual_bound
+#print axioms TGLV350.Regular.boundedPositiveSquareRoot_energy
+#print axioms TGLV350.Regular.resolvent_sqrt_pair_norm_sum
+#print axioms TGLV350.Regular.resolventSquareRoot_form_lower_bound
+#print axioms TGLV350.Regular.dualSupportSquareRoot_form_lower_bound
+#print axioms TGLV350.Regular.dualSupportSquareRoot_domain_iff_finite
+#print axioms TGLV350.Regular.dualSupportSquareRoot_form_eq
+#print axioms TGLV350.Regular.dualQuadraticIntegral_finite_iff_squareRoot_domain
+#print axioms TGLV350.Regular.exists_dualFormRepresentation
+
+-- The same variational resolvent lies in the concrete dual fixed-point algebra.
+-- Equality of this algebra with the amplified base and the canonical weight remain open.
+#print axioms TGLV350.Regular.ClosedPositiveForm.midpoint_finite_and_bound
+#print axioms TGLV350.Regular.norm_midpoint_sub_identity
+#print axioms TGLV350.Regular.ClosedPositiveForm.minimizer_unique
+#print axioms TGLV350.Regular.ClosedPositiveForm.minimizer_transport
+#print axioms TGLV350.Regular.ClosedPositiveForm.resolvent_equivariant
+#print axioms TGLV350.Regular.dualResolvent_limit_commutes_character
+#print axioms TGLV350.Regular.dualResolvent_limit_dual_fixed
+#print axioms TGLV350.Regular.dualResolvent_limit_commutes_unitary_commutant
+#print axioms TGLV350.Regular.exists_dualResolvent_fixed
+#print axioms TGLV350.Regular.starCommutantAlgebra
+#print axioms TGLV350.Regular.dualAmbient_fixed_iff_commutes
+#print axioms TGLV350.Regular.dualFixedCore
+#print axioms TGLV350.Regular.dualFixedCore_mem_iff
+#print axioms TGLV350.Regular.amplified_factor_mem_dualFixedCore
+#print axioms TGLV350.Regular.dualResolvent_mem_dualFixedCore
+#print axioms TGLV350.Regular.exists_dualFixedFormRepresentation
+
+-- Affiliation of the same extended form with the concrete fixed algebra.
+-- This includes the infinite part, but does not identify the fixed algebra with the base.
+#print axioms TGLV350.Regular.bounded_graph_transport_of_commute
+#print axioms TGLV350.Regular.complement_commutes_of_commute
+#print axioms TGLV350.Regular.positive_sqrt_commutes_of_commute
+#print axioms TGLV350.Regular.resolvent_graph_transport_of_commute
+#print axioms TGLV350.Regular.resolvent_sqrt_graph_transport_of_commute
+#print axioms TGLV350.Regular.range_closure_maps_of_commute
+#print axioms TGLV350.Regular.dualSupport_maps_of_commute
+#print axioms TGLV350.Regular.dualSupportCommutingMap
+#print axioms TGLV350.Regular.dualSupportCommutingMap_apply
+#print axioms TGLV350.Regular.dualSupportResolvent_commutes_map
+#print axioms TGLV350.Regular.dualSupportOperator_graph_transport
+#print axioms TGLV350.Regular.dualSupportSquareRoot_graph_transport
+#print axioms TGLV350.Regular.selfadjoint_commutes_star_of_commute
+#print axioms TGLV350.Regular.graph_transport_iff_of_left_inverse
+#print axioms TGLV350.Regular.dualSupportCommutingMap_star_cancel
+#print axioms TGLV350.Regular.dualSupportOperator_unitary_graph_iff
+#print axioms TGLV350.Regular.dualSupportSquareRoot_unitary_graph_iff
+#print axioms TGLV350.Regular.dualQuadraticIntegral_finite_unitary_commuting
+#print axioms TGLV350.Regular.dualQuadraticIntegral_unitary_commuting
+#print axioms TGLV350.Regular.dualQuadraticIntegral_fixed_commutant_invariant
+#print axioms TGLV350.Regular.dualFixedAffiliatedPositiveForm
+#print axioms TGLV350.Regular.dualFixedAffiliatedPositiveForm_value
+
+-- Ordered affiliated forms and the faithful normal form-valued weight into F.
+-- Base identification, algebraic semifiniteness and the canonical trace remain open.
+#print axioms TGLV350.Regular.ClosedPositiveForm.ext
+#print axioms TGLV350.Regular.ClosedPositiveForm.zeroForm
+#print axioms TGLV350.Regular.ClosedPositiveForm.addForm
+#print axioms TGLV350.Regular.ClosedPositiveForm.scaleForm
+#print axioms TGLV350.Regular.ClosedPositiveForm.precompose
+#print axioms TGLV350.Regular.AffiliatedPositiveForm.ext
+#print axioms TGLV350.Regular.AffiliatedPositiveForm.le_iff
+#print axioms TGLV350.Regular.AffiliatedPositiveForm.zeroForm
+#print axioms TGLV350.Regular.AffiliatedPositiveForm.addForm
+#print axioms TGLV350.Regular.AffiliatedPositiveForm.scaleForm
+#print axioms TGLV350.Regular.AffiliatedPositiveForm.conjugate
+#print axioms TGLV350.Regular.AffiliatedPositiveForm.add_comm
+#print axioms TGLV350.Regular.AffiliatedPositiveForm.add_assoc
+#print axioms TGLV350.Regular.AffiliatedPositiveForm.zero_add
+#print axioms TGLV350.Regular.AffiliatedPositiveForm.scale_laws
+#print axioms TGLV350.Regular.AffiliatedPositiveForm.zero_le
+#print axioms TGLV350.Regular.AffiliatedPositiveForm.add_mono
+#print axioms TGLV350.Regular.AffiliatedPositiveForm.scale_mono
+#print axioms TGLV350.Regular.PositiveCoreInput.zero
+#print axioms TGLV350.Regular.PositiveCoreInput.add
+#print axioms TGLV350.Regular.PositiveCoreInput.scale
+#print axioms TGLV350.Regular.PositiveCoreInput.conjugate
+#print axioms TGLV350.Regular.dualFixedWeight
+#print axioms TGLV350.Regular.dualFixedWeight_value
+#print axioms TGLV350.Regular.dualFixedWeight_zero
+#print axioms TGLV350.Regular.dualFixedWeight_add
+#print axioms TGLV350.Regular.dualFixedWeight_scale
+#print axioms TGLV350.Regular.dualQuadraticIntegral_fixed_bimodule
+#print axioms TGLV350.Regular.dualFixedWeight_bimodule
+#print axioms TGLV350.Regular.dualFixedWeight_mono
+#print axioms TGLV350.Regular.dualFixedWeight_faithful
+#print axioms TGLV350.Regular.positive_internal_isLUB_nonneg
+#print axioms TGLV350.Regular.dualFixedWeight_preserves_internal_isLUB
+
+-- Finite-square left ideal, exact Fourier weight and strong approximation.
+-- F=base, the scalar trace and full physical gate remain separate obligations.
+#print axioms TGLV350.Regular.regularBundledUnitary
+#print axioms TGLV350.Regular.regular_norm_map
+#print axioms TGLV350.Regular.regularIntegralFamily
+#print axioms TGLV350.Regular.regularAverage
+#print axioms TGLV350.Regular.regularAverage_apply
+#print axioms TGLV350.Regular.regularAverage_mem
+#print axioms TGLV350.Regular.regularAverage_norm_le_one
+#print axioms TGLV350.Regular.regularAverage_tendsto_identity
+#print axioms TGLV350.Regular.regularAverage_mul_tendsto
+#print axioms TGLV350.Regular.dualAmbient_strongIntegral_apply
+#print axioms TGLV350.Regular.regularAverage_dual_apply
+#print axioms TGLV350.Fourier.fourier_integrable_continuous
+#print axioms TGLV350.Fourier.fourier_test_pairing
+#print axioms TGLV350.Fourier.fourier_integral_ae_eq_L2
+#print axioms TGLV350.Fourier.fourier_integral_memLp_two
+#print axioms TGLV350.Fourier.L2_integral_norm_sq
+#print axioms TGLV350.Fourier.integral_norm_sq_eq_L2
+#print axioms TGLV350.Fourier.fourier_integral_norm_sq
+#print axioms TGLV350.Fourier.fourier_integral_lintegral_norm_sq
+#print axioms TGLV350.Regular.regularOrbitCut
+#print axioms TGLV350.Regular.regularOrbitCut_memLp
+#print axioms TGLV350.Regular.regularOrbitCut_integrable
+#print axioms TGLV350.Regular.regularOrbitCut_integral_norm_sq
+#print axioms TGLV350.Regular.regularAverage_dual_fourier
+#print axioms TGLV350.Regular.regularAverage_dual_sq_integrable
+#print axioms TGLV350.Regular.regularAverage_dual_integral_norm_sq
+#print axioms TGLV350.Regular.dualQuadraticIntegrand_star_mul
+#print axioms TGLV350.Regular.regularAverage_dualQuadraticIntegral
+#print axioms TGLV350.Regular.regularAverage_dualQuadraticIntegral_lt_top
+#print axioms TGLV350.Regular.HasFiniteDualSquare
+#print axioms TGLV350.Regular.dualQuadraticIntegral_left_square_le
+#print axioms TGLV350.Regular.HasFiniteDualSquare.zero
+#print axioms TGLV350.Regular.HasFiniteDualSquare.left_mul
+#print axioms TGLV350.Regular.dualSquare_add_le
+#print axioms TGLV350.Regular.HasFiniteDualSquare.add
+#print axioms TGLV350.Regular.HasFiniteDualSquare.smul
+#print axioms TGLV350.Regular.finiteDualLeftIdeal
+#print axioms TGLV350.Regular.finiteDualLeftIdeal_left_mul
+#print axioms TGLV350.Regular.regularAverage_hasFiniteDualSquare
+#print axioms TGLV350.Regular.finiteDualLeftIdeal_strong_approximation
+
+-- Bounded dual values in the same fixed algebra and dense finite-square inputs.
+-- The identification F=base and canonical trace remain separate obligations.
+#print axioms TGLV350.Regular.selfAdjoint_le_of_quadratic_le
+#print axioms TGLV350.Regular.selfAdjoint_eq_of_quadratic_eq
+#print axioms TGLV350.Regular.positive_le_scalar_of_quadratic_bound
+#print axioms TGLV350.Regular.normalizedDualCut_le_of_uniform_bound
+#print axioms TGLV350.Regular.exists_boundedDualCutLimit
+#print axioms TGLV350.Regular.quadratic_le_of_operator_le
+#print axioms TGLV350.Regular.dualQuadraticIntegral_eq_boundedCutLimit
+#print axioms TGLV350.Regular.boundedDualValue_unique
+#print axioms TGLV350.Regular.boundedDualValue_dual_fixed
+#print axioms TGLV350.Regular.exists_boundedDualValue_in_fixedCore
+#print axioms TGLV350.Regular.HasFiniteDualSquare.exists_bounded_value
+#print axioms TGLV350.Regular.regularAverage_bounded_value
+#print axioms TGLV350.Regular.boundedFiniteSquares_strong_approximation
+
+-- Locality of the fixed algebra, not yet constant-fibre identification.
+#print axioms TGLV350.Regular.shift_commutes_regularUnitary
+#print axioms TGLV350.Regular.regularCore_le_shiftCommutant
+#print axioms TGLV350.Regular.shift_mem_regularCommutant
+#print axioms TGLV350.Regular.dualFixedCore_commutes_shift_and_character
+#print axioms TGLV350.Fourier.fourier_integral_ae_injective
+#print axioms TGLV350.Regular.fourier_eq_character_integral
+#print axioms TGLV350.Regular.fourier_inner_eq_character_pairing
+#print axioms TGLV350.Regular.character_commutation_local_pairing
+#print axioms TGLV350.Regular.measurableCutLp
+#print axioms TGLV350.Regular.measurableCutLinear
+#print axioms TGLV350.Regular.measurableCutLp_norm_le
+#print axioms TGLV350.Regular.measurableCut
+#print axioms TGLV350.Regular.measurableCut_ae
+#print axioms TGLV350.Regular.measurableCut_inner
+#print axioms TGLV350.Regular.character_commutation_measurableCut
+#print axioms TGLV350.Regular.dualFixedCore_commutes_measurableCut
+
+-- Constant fibre action on the entire regular Hilbert space.
+-- Membership of that fibre operator in the original base remains open.
+#print axioms TGLV350.Regular.testEmbedding
+#print axioms TGLV350.Regular.testEmbedding_adjoint
+#print axioms TGLV350.Regular.unitIntervalProjection_apply
+#print axioms TGLV350.Regular.unitIntervalProjection_idempotent
+#print axioms TGLV350.Regular.unitIntervalProjection_selfAdjoint
+#print axioms TGLV350.Regular.translationCorrelation_integrable
+#print axioms TGLV350.Regular.integral_translationCorrelation
+#print axioms TGLV350.Regular.inner_unitCut_shift
+#print axioms TGLV350.Regular.unitCut_correlation_support
+#print axioms TGLV350.Regular.unitIntervalProjection_eq_cut_shift_integral
+#print axioms TGLV350.Regular.commutes_unitIntervalProjection
+#print axioms TGLV350.Regular.dualFixedCore_commutes_unitIntervalProjection
+#print axioms TGLV350.Regular.unitIntervalProjection_testVector
+#print axioms TGLV350.Regular.testEmbedding_adjoint_projection
+#print axioms TGLV350.Regular.commutation_testVector_action
+#print axioms TGLV350.Regular.commutation_fibreCandidate_read
+#print axioms TGLV350.Regular.dualFixedCore_testVector_action
+#print axioms TGLV350.Regular.setIntegral_measurableCut
+#print axioms TGLV350.Regular.unitCut_integral_eq_read_cut
+#print axioms TGLV350.Regular.testEmbedding_adjoint_fibre
+#print axioms TGLV350.Regular.fibre_commutes_measurableCut
+#print axioms TGLV350.Regular.unitCut_mul_eq_zero_of_zero_read
+#print axioms TGLV350.Regular.eq_zero_of_shift_commutation_unitCut_zero
+#print axioms TGLV350.Regular.eq_fibre_of_shift_character_commutation
+#print axioms TGLV350.Regular.existsUnique_fibre_of_shift_character_commutation
+#print axioms TGLV350.Regular.dualFixedCore_eq_fibre_candidate
+
+-- Same-representation identification of the dual-fixed algebra with the base.
+#print axioms TGLV350.Regular.operatorField_jointly_continuous
+#print axioms TGLV350.Regular.operatorField_memLp
+#print axioms TGLV350.Regular.operatorFieldLinear
+#print axioms TGLV350.Regular.operatorFieldLift
+#print axioms TGLV350.Regular.operatorFieldLift_ae
+#print axioms TGLV350.Regular.operatorFieldLift_norm_le
+#print axioms TGLV350.Regular.operatorFieldLift_commutes_fibre
+#print axioms TGLV350.Regular.continuous_operator_action_eq_of_L2_tests
+#print axioms TGLV350.Regular.operatorFieldLift_faithful
+#print axioms TGLV350.Regular.operatorFieldLift_commutation_reflects
+#print axioms TGLV350.Regular.modularConjugation_preserves_commutant
+#print axioms TGLV350.Regular.modularFlow_jointly_continuous
+#print axioms TGLV350.Regular.modularConjugation_strongly_continuous
+#print axioms TGLV350.Regular.twistedCommutantField
+#print axioms TGLV350.Regular.twistedCommutantField_zero
+#print axioms TGLV350.Regular.twistedCommutantField_intertwines
+#print axioms TGLV350.Regular.operatorFieldLift_commutes_regular_of_intertwining
+#print axioms TGLV350.Regular.mem_regularCommutant_of_generators
+#print axioms TGLV350.Regular.twistedCommutantLift_mem
+#print axioms TGLV350.Regular.fibre_mem_regularCore_iff
+#print axioms TGLV350.Regular.dualFixedCore_fibreCandidate_mem
+#print axioms TGLV350.Regular.dualFixedCore_eq_amplified_base
+#print axioms TGLV350.Regular.dualFixedCore_existsUnique_base
+
+-- Faithful normal scalar dual weight and square-finite strong density; no trace yet.
+#print axioms TGLV350.Regular.fixedBaseEmbedding_bijective
+#print axioms TGLV350.Regular.fixedBaseEquiv
+#print axioms TGLV350.Regular.fixedBaseEquiv_apply
+#print axioms TGLV350.Regular.fixedBaseEquiv_symm_apply
+#print axioms TGLV350.Regular.fixedBaseOrderIso
+#print axioms TGLV350.Regular.exists_boundedDualValue_in_base
+#print axioms TGLV350.Regular.HasFiniteDualSquare.exists_base_value
+#print axioms TGLV350.Regular.boundedBaseDualValue_unique
+#print axioms TGLV350.Regular.finiteBaseValues_strong_approximation
+#print axioms TGLV350.Regular.regularVacuum_norm
+#print axioms TGLV350.Regular.fixedCore_regularVacuum_separating
+#print axioms TGLV350.Regular.dualResolvent_fixes_zero_form_vector
+#print axioms TGLV350.Regular.dualQuadraticIntegral_vacuum_faithful
+#print axioms TGLV350.Regular.scalarDualWeight
+#print axioms TGLV350.Regular.scalarDualWeight_zero
+#print axioms TGLV350.Regular.scalarDualWeight_add
+#print axioms TGLV350.Regular.scalarDualWeight_scale
+#print axioms TGLV350.Regular.scalarDualWeight_mono
+#print axioms TGLV350.Regular.scalarDualWeight_faithful
+#print axioms TGLV350.Regular.scalarDualWeight_normal
+#print axioms TGLV350.Regular.HasFiniteDualSquare.scalar_finite
+#print axioms TGLV350.Regular.scalarDualWeight_square_finite_strong_density
+#print axioms TGLV350.Regular.scalarDualWeight_bounded_base_value
+
+-- Candidate flow invariance and a bounded strongly dense star domain; KMS remains open.
+#print axioms TGLV350.Regular.regular_conjugation_eq_fibre_modular
+#print axioms TGLV350.Regular.fibre_modular_fixes_regularVacuum
+#print axioms TGLV350.Regular.dualQuadraticIntegral_regular_conjugate_vacuum
+#print axioms TGLV350.Regular.PositiveCoreInput.regularConjugate
+#print axioms TGLV350.Regular.scalarDualWeight_regular_invariant
+#print axioms TGLV350.Regular.regularScalarWeightCertificate
+#print axioms TGLV350.Regular.contraction_adjoint_tendsto_identity
+#print axioms TGLV350.Regular.regularAverage_star_tendsto_identity
+#print axioms TGLV350.Regular.bounded_application_tendsto
+#print axioms TGLV350.Regular.finiteDualStarCore
+#print axioms TGLV350.Regular.regularSandwich
+#print axioms TGLV350.Regular.regularSandwich_star
+#print axioms TGLV350.Regular.regularSandwich_mem_finiteDualStarCore
+#print axioms TGLV350.Regular.regularSandwich_norm_le
+#print axioms TGLV350.Regular.regularSandwich_tendsto
+#print axioms TGLV350.Regular.finiteDualStarCore_strongStar_approximation
+#print axioms TGLV350.Regular.finiteDualStarCore_scalar_squares_finite
+
+-- Faithful star representation on the completed finite-ideal orbit range.
+#print axioms TGLV350.Regular.scalarOrbit_memLp
+#print axioms TGLV350.Regular.scalarGNSOrbit
+#print axioms TGLV350.Regular.scalarGNSOrbit_norm_sq
+#print axioms TGLV350.Regular.dualAmbient_add_apply
+#print axioms TGLV350.Regular.scalarGNSOrbit_ae
+#print axioms TGLV350.Regular.scalarGNSOrbit_add
+#print axioms TGLV350.Regular.scalarGNSOrbit_smul
+#print axioms TGLV350.Regular.scalarGNSLinear
+#print axioms TGLV350.Regular.scalarGNSOrbit_zero_iff
+#print axioms TGLV350.Regular.scalarGNSLinear_injective
+#print axioms TGLV350.Regular.scalarGNSLeftProduct
+#print axioms TGLV350.Regular.scalarGNSAmbientAction
+#print axioms TGLV350.Regular.scalarGNSAmbientAction_norm_le
+#print axioms TGLV350.Regular.scalarGNSAmbientAction_intertwines
+#print axioms TGLV350.Regular.operatorFieldLift_constant
+#print axioms TGLV350.Regular.operatorFieldLift_add
+#print axioms TGLV350.Regular.operatorFieldLift_mul
+#print axioms TGLV350.Regular.operatorFieldLift_smul
+#print axioms TGLV350.Regular.operatorFieldLift_star
+#print axioms TGLV350.Regular.scalarGNSSubspace
+#print axioms TGLV350.Regular.scalarGNSCompleteSpace
+#print axioms TGLV350.Regular.scalarGNSEmbedding
+#print axioms TGLV350.Regular.scalarGNSEmbedding_injective
+#print axioms TGLV350.Regular.scalarGNSAmbientAction_preserves
+#print axioms TGLV350.Regular.scalarGNSAction
+#print axioms TGLV350.Regular.scalarGNSAction_apply
+#print axioms TGLV350.Regular.scalarGNSAction_norm_le
+#print axioms TGLV350.Regular.scalarGNSAction_intertwines
+#print axioms TGLV350.Regular.dualOrbitRepresentation
+#print axioms TGLV350.Regular.dualOrbitRepresentation_scalar_apply
+#print axioms TGLV350.Regular.reducingStarRepresentation
+#print axioms TGLV350.Regular.scalarGNSRepresentation
+#print axioms TGLV350.Regular.scalarGNSEmbedding_denseRange
+#print axioms TGLV350.Regular.scalarGNSRepresentation_zero_iff
+#print axioms TGLV350.Regular.scalarGNSRepresentation_injective
+
+-- Norm-dense initial involutive graph on the finite-ideal GNS space.
+#print axioms TGLV350.Regular.dualCharacterField
+#print axioms TGLV350.Regular.dualOrbit_factorization
+#print axioms TGLV350.Regular.dualOrbit_tendsto_of_uniformly_bounded
+#print axioms TGLV350.Regular.scalarGNSLeftRegularization
+#print axioms TGLV350.Regular.scalarGNSLeftRegularization_mem_starCore
+#print axioms TGLV350.Regular.scalarGNSOrbit_leftRegularization_tendsto
+#print axioms TGLV350.Regular.scalarGNSStarEmbedding
+#print axioms TGLV350.Regular.scalarGNSEmbedding_leftRegularization_tendsto
+#print axioms TGLV350.Regular.scalarGNSStarEmbedding_denseRange
+#print axioms TGLV350.Regular.scalarGNSStarEmbedding_injective
+#print axioms TGLV350.Regular.scalarTomitaGraph
+#print axioms TGLV350.Regular.scalarTomitaGraph_single_valued
+#print axioms TGLV350.Regular.scalarTomitaGraph_swap
+#print axioms TGLV350.Regular.scalarTomitaGraph_domain_dense
+
+-- Order normality of the actual finite-ideal GNS representation.
+#print axioms TGLV350.Regular.scalarGNSRepresentation_tendsto_of_uniformly_bounded
+#print axioms TGLV350.Regular.operator_le_of_sub_nonneg
+#print axioms TGLV350.Regular.dualOrbitRepresentation_nonneg
+#print axioms TGLV350.Regular.scalarGNSRepresentation_nonneg
+#print axioms TGLV350.Regular.scalarGNSRepresentation_monotone
+#print axioms TGLV350.Regular.scalarGNSRepresentation_preserves_positive_isLUB
+#print axioms TGLV350.Regular.scalarGNSRepresentation_preserves_positive_directed_isLUB
+
+-- Bounded positive functionals dominated by the actual scalar weight.
+#print axioms TGLV350.Regular.dualWeightCut_add
+#print axioms TGLV350.Regular.dualWeightCut_smul
+#print axioms TGLV350.Regular.dualWeightCutCLM
+#print axioms TGLV350.Regular.dualCutFunctional
+#print axioms TGLV350.Regular.dualCutFunctional_apply
+#print axioms TGLV350.Regular.dualCutFunctional_nonneg
+#print axioms TGLV350.Regular.dualCutFunctional_ofReal_re
+#print axioms TGLV350.Regular.scalarDualWeight_dominates_cut
+#print axioms TGLV350.Regular.scalarDualWeight_eq_iSup_boundedCuts
+#print axioms TGLV350.Regular.dualCutFunctional_re_tendsto
+#print axioms TGLV350.Regular.scalarCut_tendsto_internal_isLUB
+
+-- Concrete contractions realizing bounded scalar cuts in ambient GNS space.
+#print axioms TGLV350.Regular.measurableCut_operatorFieldLift
+#print axioms TGLV350.Regular.measurableCut_nat_joint_zero
+#print axioms TGLV350.Regular.scalarGNSCutMap
+#print axioms TGLV350.Regular.scalarGNSCutMap_norm_le
+#print axioms TGLV350.Regular.scalarGNSCutMap_intertwines
+#print axioms TGLV350.Regular.scalarGNSCutMap_joint_zero
+#print axioms TGLV350.Regular.measurableCut_norm_sq
+#print axioms TGLV350.Regular.dualCutFunctional_square_re
+#print axioms TGLV350.Regular.scalarGNSCutMap_embedding_norm_sq
+
+-- Closed original GNS graph; KMS and canonical trace still open.
+#print axioms TGLV350.Regular.scalarCutVacuum
+#print axioms TGLV350.Regular.scalarCutVacuum_ae
+#print axioms TGLV350.Regular.scalarGNSCutMap_embedding_eq_action
+#print axioms TGLV350.Regular.scalarCutVacuum_mem_closure_cut_range
+#print axioms TGLV350.Regular.scalarCutLinear
+#print axioms TGLV350.Regular.scalarCutSubspace
+#print axioms TGLV350.Regular.scalarCutCompleteSpace
+#print axioms TGLV350.Regular.scalarCutEmbedding
+#print axioms TGLV350.Regular.scalarCutAmbientAction_preserves
+#print axioms TGLV350.Regular.scalarCutRepresentation
+#print axioms TGLV350.Regular.scalarCutCyclicVector
+#print axioms TGLV350.Regular.scalarCutCyclicVector_val
+#print axioms TGLV350.Regular.scalarCutRepresentation_intertwines
+#print axioms TGLV350.Regular.scalarCutEmbedding_denseRange
+#print axioms TGLV350.Regular.scalarCutCyclicVector_generates
+#print axioms TGLV350.Regular.scalarGNSCutMap_mem_cyclicSubspace
+#print axioms TGLV350.Regular.scalarGNSCutCyclicMap
+#print axioms TGLV350.Regular.scalarCutVacuum_inner_action
+#print axioms TGLV350.Regular.scalarCutLinear_norm_sq
+#print axioms TGLV350.Regular.scalarCutCyclicVector_functional
+#print axioms TGLV350.Regular.scalarCutEmbedding_norm_sq
+#print axioms TGLV350.Regular.scalarGNSCutCyclicMap_embedding
+#print axioms TGLV350.Regular.scalarGNSCutCyclicMap_intertwines
+#print axioms TGLV350.Regular.scalarGNSCutCyclicMap_norm_le
+#print axioms TGLV350.Regular.scalarGNSCutCyclicMap_joint_zero
+#print axioms TGLV350.Regular.scalarGNSCutCyclicMap_denseRange
+#print axioms TGLV350.Regular.realScalarField
+#print axioms TGLV350.Regular.realScalarMultiplier
+#print axioms TGLV350.Regular.realScalarMultiplier_ae
+#print axioms TGLV350.Regular.realScalarMultiplier_norm_le
+#print axioms TGLV350.Regular.realScalarMultiplier_injective
+#print axioms TGLV350.Regular.realScalarMultiplier_commutes_field
+#print axioms TGLV350.Regular.gaussianProfile
+#print axioms TGLV350.Regular.gaussianProfile_continuous
+#print axioms TGLV350.Regular.gaussianProfile_pos
+#print axioms TGLV350.Regular.gaussianProfile_le_one
+#print axioms TGLV350.Regular.gaussianProfile_memLp_vector
+#print axioms TGLV350.Regular.mem_fibreImage_centralizer
+#print axioms TGLV350.Regular.mem_generated_fibre_iff
+#print axioms TGLV350.Regular.fibreVonNeumann
+#print axioms TGLV350.Regular.fibreVonNeumann_coe
+#print axioms TGLV350.Regular.scalarGaussianVacuum
+#print axioms TGLV350.Regular.scalarGaussianVacuum_ae
+#print axioms TGLV350.Regular.gaussian_zero_action_orbit_ae
+#print axioms TGLV350.Regular.scalarGaussianVacuum_separating
+#print axioms TGLV350.Regular.vectorOrbitLinear
+#print axioms TGLV350.Regular.vectorOrbitSubspace
+#print axioms TGLV350.Regular.vectorOrbitSubspace_complete
+#print axioms TGLV350.Regular.vectorOrbitSubspace_invariant
+#print axioms TGLV350.Regular.separating_commutant_orbit_top
+#print axioms TGLV350.Regular.separating_commutant_orbit_dense
+#print axioms TGLV350.Regular.dualCharacterField_lift_star
+#print axioms TGLV350.Regular.dualCharacterField_lift_mul
+#print axioms TGLV350.Regular.dualCharacterField_lift_zero
+#print axioms TGLV350.Regular.dualOrbitImplementer
+#print axioms TGLV350.Regular.dualOrbitConjugation
+#print axioms TGLV350.Regular.dualOrbitConjugation_fibre
+#print axioms TGLV350.Regular.dualOrbitConjugation_image
+#print axioms TGLV350.Regular.dualOrbitVonNeumann
+#print axioms TGLV350.Regular.mem_dualOrbitVonNeumann_iff
+#print axioms TGLV350.Regular.scalarGaussianGNSMap
+#print axioms TGLV350.Regular.scalarGaussianGNSMap_norm_le
+#print axioms TGLV350.Regular.scalarGaussianGNSMap_injective
+#print axioms TGLV350.Regular.scalarGaussianGNSMap_intertwines
+#print axioms TGLV350.Regular.scalarGaussianGNSMap_embedding
+#print axioms TGLV350.Regular.vectorTomitaGraph
+#print axioms TGLV350.Regular.vectorTomita_pairing
+#print axioms TGLV350.Regular.vectorTomita_closure_pairing
+#print axioms TGLV350.Regular.vectorTomita_closure_vertical
+#print axioms TGLV350.Regular.vectorTomita_closure_single_valued
+#print axioms TGLV350.Regular.scalarGaussianImage_separating
+#print axioms TGLV350.Regular.scalarGaussian_maps_graph
+#print axioms TGLV350.Regular.scalarGaussian_maps_graph_closure
+#print axioms TGLV350.Regular.scalarTomitaGraph_closure_vertical
+#print axioms TGLV350.Regular.scalarTomitaGraph_closure_single_valued
+#print axioms TGLV350.Regular.scalarGNSStarEmbedding_add
+#print axioms TGLV350.Regular.scalarGNSStarEmbedding_smul
+#print axioms TGLV350.Regular.scalarTomitaGraph_zero
+#print axioms TGLV350.Regular.scalarTomitaGraph_add
+#print axioms TGLV350.Regular.scalarTomitaGraph_conj_smul
+#print axioms TGLV350.Regular.scalarClosedGraph_add
+#print axioms TGLV350.Regular.scalarClosedGraph_conj_smul
+#print axioms TGLV350.Regular.scalarClosedGraph_swap
+#print axioms TGLV350.Regular.scalarClosedTomitaDomain
+#print axioms TGLV350.Regular.scalarClosedTomitaValue
+#print axioms TGLV350.Regular.scalarClosedTomitaValue_graph
+#print axioms TGLV350.Regular.scalarClosedTomita
+#print axioms TGLV350.Regular.scalarClosedTomita_graph
+#print axioms TGLV350.Regular.scalarClosedTomita_graph_eq
+#print axioms TGLV350.Regular.scalarClosedTomita_is_closed
+#print axioms TGLV350.Regular.scalarClosedTomita_domain_dense
+#print axioms TGLV350.Regular.scalarClosedTomita_maps_domain
+#print axioms TGLV350.Regular.scalarClosedTomita_involutive
+#print axioms TGLV350.Regular.scalarStarCore_mem_closedTomitaDomain
+#print axioms TGLV350.Regular.scalarClosedTomita_extends_star
+#print axioms TGLV350.Regular.scalarTomitaStandardSubspace
+#print axioms TGLV350.Regular.scalarTomitaStandardSubspace_mem
+#print axioms TGLV350.Regular.scalarClosedTomitaDomain_fixed_sum
+#print axioms TGLV350.Regular.scalarClosedTomita_fixed_decomposition
+#print axioms TGLV350.Regular.antilinearAdjointRelation
+#print axioms TGLV350.Regular.maximalAntilinearAdjointDomain
+#print axioms TGLV350.Regular.maximalAntilinearAdjointValue
+#print axioms TGLV350.Regular.maximalAntilinearAdjointValue_pairing
+#print axioms TGLV350.Regular.antilinearAdjointRelation_unique
+#print axioms TGLV350.Regular.maximalAntilinearAdjoint
+#print axioms TGLV350.Regular.maximalAntilinearAdjoint_pairing
+#print axioms TGLV350.Regular.maximalAntilinearAdjoint_maximal
+#print axioms TGLV350.Regular.maximalAntilinearAdjoint_graph_eq
+#print axioms TGLV350.Regular.antilinearAdjointRelation_isClosed
+#print axioms TGLV350.Regular.maximalAntilinearAdjoint_isClosed
+#print axioms TGLV350.Regular.scalarTomitaAdjointDomain
+#print axioms TGLV350.Regular.scalarTomitaAdjoint
+#print axioms TGLV350.Regular.scalarTomitaAdjoint_pairing
+#print axioms TGLV350.Regular.scalarTomitaAdjoint_maximal
+#print axioms TGLV350.Regular.scalarTomitaAdjoint_domain_iff
+#print axioms TGLV350.Regular.scalarTomitaAdjoint_isClosed
+#print axioms TGLV350.Regular.scalarTomitaAdjoint_gaussian_pairing
+#print axioms TGLV350.Regular.scalarTomitaAdjoint_gaussian_domain
+#print axioms TGLV350.Regular.scalarTomitaAdjoint_domain_dense
+#print axioms TGLV350.Regular.scalarTomitaAdjoint_swap
+#print axioms TGLV350.Regular.scalarTomitaAdjoint_maps_domain
+#print axioms TGLV350.Regular.scalarTomitaAdjoint_involutive
+#print axioms TGLV350.Regular.antilinearPreimageDomain
+#print axioms TGLV350.Regular.antilinearPreimageInput
+#print axioms TGLV350.Regular.antilinearPreimageInput_coe
+#print axioms TGLV350.Regular.antilinearPreimageInput_mem
+#print axioms TGLV350.Regular.antilinearPreimageMap
+#print axioms TGLV350.Regular.antilinearComposite
+#print axioms TGLV350.Regular.scalarTomitaSquareDomain
+#print axioms TGLV350.Regular.scalarTomitaSquareInput
+#print axioms TGLV350.Regular.scalarTomitaSquareInput_coe
+#print axioms TGLV350.Regular.scalarTomitaSquareInput_image_mem
+#print axioms TGLV350.Regular.scalarTomitaSquareAdjointInput
+#print axioms TGLV350.Regular.scalarTomitaSquare
+#print axioms TGLV350.Regular.scalarTomitaSquare_domain_iff
+#print axioms TGLV350.Regular.scalarTomitaSquare_apply
+#print axioms TGLV350.Regular.scalarTomitaSquare_pairing
+#print axioms TGLV350.Regular.scalarTomitaSquare_symmetric
+#print axioms TGLV350.Regular.scalarTomitaSquare_quadratic
+#print axioms TGLV350.Regular.scalarTomitaSquare_positive
+#print axioms TGLV350.Regular.antilinearL2Graph
+#print axioms TGLV350.Regular.antilinearL2Graph_closed
+#print axioms TGLV350.Regular.closedAntilinear_weak_resolvent
+#print axioms TGLV350.Regular.closedAntilinear_complex_resolvent
+#print axioms TGLV350.Regular.positive_surjective_resolvent_domain_dense
+#print axioms TGLV350.Regular.positive_surjective_resolvent_selfadjoint
+#print axioms TGLV350.Regular.scalarTomitaSquare_resolvent_surjective
+#print axioms TGLV350.Regular.scalarTomitaSquare_domain_dense
+#print axioms TGLV350.Regular.scalarTomitaSquare_selfadjoint
+#print axioms TGLV350.Regular.scalarTomitaSquare_isClosed
+#print axioms TGLV350.Regular.scalarClosedTomita_zero_only
+#print axioms TGLV350.Regular.scalarTomitaSquare_zero_only
+#print axioms TGLV350.Regular.partialPositiveResolvent_coercive
+#print axioms TGLV350.Regular.partialOneAdd_injective
+#print axioms TGLV350.Regular.partialResolventEquiv
+#print axioms TGLV350.Regular.partialPositiveResolvent
+#print axioms TGLV350.Regular.partialPositiveResolvent_equation
+#print axioms TGLV350.Regular.partialPositiveResolvent_inverse
+#print axioms TGLV350.Regular.partialPositiveResolvent_norm_le
+#print axioms TGLV350.Regular.partialPositiveResolvent_injective
+#print axioms TGLV350.Regular.partialPositiveResolvent_symmetric
+#print axioms TGLV350.Regular.partialPositiveResolvent_nonneg
+#print axioms TGLV350.Regular.partialPositiveResolvent_le_one
+#print axioms TGLV350.Regular.partialPositiveResolvent_graph
+#print axioms TGLV350.Regular.scalarTomitaResolvent
+#print axioms TGLV350.Regular.scalarTomitaResolvent_equation
+#print axioms TGLV350.Regular.scalarTomitaResolvent_inverse
+#print axioms TGLV350.Regular.scalarTomitaResolvent_norm_le
+#print axioms TGLV350.Regular.scalarTomitaResolvent_injective
+#print axioms TGLV350.Regular.scalarTomitaResolvent_nonneg
+#print axioms TGLV350.Regular.scalarTomitaResolvent_le_one
+#print axioms TGLV350.Regular.scalarTomitaResolvent_selfadjoint
+#print axioms TGLV350.Regular.scalarTomitaResolvent_graph
+#print axioms TGLV350.Regular.scalarTomitaPositiveRoot
+#print axioms TGLV350.Regular.scalarTomitaPositiveRoot_closed
+#print axioms TGLV350.Regular.scalarTomitaPositiveRoot_dense
+#print axioms TGLV350.Regular.scalarTomitaPositiveRoot_selfadjoint
+#print axioms TGLV350.Regular.scalarTomitaPositiveRoot_positive
+#print axioms TGLV350.Regular.scalarTomitaPositiveRoot_square
+#print axioms TGLV350.Regular.partialSquare_energy
+#print axioms TGLV350.Regular.scalarTomitaPositiveRoot_energy_on_square_domain
+#print axioms TGLV350.Regular.scalarTomitaPositiveRoot_zero_only
+#print axioms TGLV350.Regular.antilinearRealMap
+#print axioms TGLV350.Regular.realL2Graph
+#print axioms TGLV350.Regular.realL2Graph_closed
+#print axioms TGLV350.Regular.realGraphInclusion
+#print axioms TGLV350.Regular.realGraphInclusion_dense
+#print axioms TGLV350.Regular.realGraphCore_sequence
+#print axioms TGLV350.Regular.scalarTomitaSquareDomain_le
+#print axioms TGLV350.Regular.scalarTomitaSquare_weak_graph_identity
+#print axioms TGLV350.Regular.scalarTomitaSquare_graph_core
+#print axioms TGLV350.Regular.scalarTomitaSquare_graph_approximation
+#print axioms TGLV350.Regular.partialSquare_domain_le
+#print axioms TGLV350.Regular.partialSquare_pairing_all
+#print axioms TGLV350.Regular.partialSquare_graph_core
+#print axioms TGLV350.Regular.graphCore_norm_extension
+#print axioms TGLV350.Regular.graphCore_norm_domain_transfer
+#print axioms TGLV350.Regular.scalarTomitaSquareDomain_le_root
+#print axioms TGLV350.Regular.scalarTomitaRoot_real_graph_closed
+#print axioms TGLV350.Regular.scalarTomitaSquare_root_graph_core
+#print axioms TGLV350.Regular.scalarTomitaSquare_root_graph_approximation
+#print axioms TGLV350.Regular.scalarTomitaSquare_norm_match
+#print axioms TGLV350.Regular.scalarClosedTomitaDomain_le_root
+#print axioms TGLV350.Regular.scalarTomitaRootDomain_le_closed
+#print axioms TGLV350.Regular.scalarTomitaPositiveRoot_domain_eq
+#print axioms TGLV350.Regular.scalarTomitaPositiveRoot_norm
+#print axioms TGLV350.Regular.scalarTomitaPositiveRoot_energy
+#print axioms TGLV350.Regular.partialSelfadjoint_denseRange
+#print axioms TGLV350.Regular.denseAntilinearExtension_apply
+#print axioms TGLV350.Regular.denseAntilinearExtension_norm
+#print axioms TGLV350.Regular.denseAntilinearIsometry
+#print axioms TGLV350.Regular.denseAntilinearIsometry_surjective
+#print axioms TGLV350.Regular.denseAntilinearEquiv
+#print axioms TGLV350.Regular.denseAntilinearEquiv_apply
+#print axioms TGLV350.Regular.scalarTomitaPositiveRoot_denseRange
+#print axioms TGLV350.Regular.scalarTomitaRootImage
+#print axioms TGLV350.Regular.scalarTomitaRootImage_norm
+#print axioms TGLV350.Regular.scalarTomitaRootImage_denseRange
+#print axioms TGLV350.Regular.scalarTomitaPolarFactor
+#print axioms TGLV350.Regular.scalarTomitaPolarFactor_root
+#print axioms TGLV350.Regular.scalarTomitaPolarFactor_factorization
+#print axioms TGLV350.Regular.scalarTomitaPolarFactor_norm
+#print axioms TGLV350.Regular.scalarTomitaPolarFactor_surjective
+#print axioms TGLV350.Regular.scalarTomitaResolvent_memDomain
+#print axioms TGLV350.Regular.scalarTomitaResolvent_flip
+#print axioms TGLV350.Regular.scalarTomitaPositiveRoot_resolvent_graph
+#print axioms TGLV350.Regular.scalarTomitaPolarFactor_resolvent
+#print axioms TGLV350.Regular.antiunitaryConjugate
+#print axioms TGLV350.Regular.antiunitaryConjugate_apply
+#print axioms TGLV350.Regular.antiunitaryConjugate_mul
+#print axioms TGLV350.Regular.antiunitaryConjugate_nonneg
+#print axioms TGLV350.Regular.antiunitaryConjugate_sqrt
+#print axioms TGLV350.Regular.hilbertPositiveSqrt
+#print axioms TGLV350.Regular.hilbertComplement_nonneg
+#print axioms TGLV350.Regular.scalarTomitaPolar_conjugate_resolvent
+#print axioms TGLV350.Regular.scalarTomitaPolar_conjugate_complement
+#print axioms TGLV350.Regular.scalarTomitaPolar_sqrt_resolvent
+#print axioms TGLV350.Regular.scalarTomitaPolar_sqrt_complement
+#print axioms TGLV350.Regular.scalarTomitaRootLift
+#print axioms TGLV350.Regular.scalarTomitaRootLift_coe
+#print axioms TGLV350.Regular.scalarTomita_sqrt_factor
+#print axioms TGLV350.Regular.scalarTomitaPolarFactor_involutive
+#print axioms TGLV350.Regular.HasFiniteScalarSquare
+#print axioms TGLV350.Regular.HasFiniteScalarSquare.zero
+#print axioms TGLV350.Regular.HasFiniteScalarSquare.left_mul
+#print axioms TGLV350.Regular.HasFiniteScalarSquare.add
+#print axioms TGLV350.Regular.HasFiniteScalarSquare.smul
+#print axioms TGLV350.Regular.scalarWeightLeftIdeal
+#print axioms TGLV350.Regular.finiteDualLeftIdeal_le_scalarWeight
+#print axioms TGLV350.Regular.scalarWeightLeftIdeal_left_mul
+#print axioms TGLV350.Regular.scalarWeightOrbit_memLp
+#print axioms TGLV350.Regular.scalarWeightOrbit
+#print axioms TGLV350.Regular.scalarWeightOrbit_norm_sq
+#print axioms TGLV350.Regular.scalarWeightOrbit_ae
+#print axioms TGLV350.Regular.scalarWeightOrbit_add
+#print axioms TGLV350.Regular.scalarWeightOrbit_smul
+#print axioms TGLV350.Regular.scalarWeightLinear
+#print axioms TGLV350.Regular.scalarWeightOrbit_zero_iff
+#print axioms TGLV350.Regular.scalarWeightLinear_injective
+#print axioms TGLV350.Regular.scalarWeightOrbit_uniform
+#print axioms TGLV350.Regular.scalarWeightOrbit_norm_sq_real
+#print axioms TGLV350.Regular.shiftCharacterFamily
+#print axioms TGLV350.Regular.shiftCharacterAverage
+#print axioms TGLV350.Regular.shiftCharacterAverage_apply
+#print axioms TGLV350.Regular.shiftCharacterAverage_norm_le_one
+#print axioms TGLV350.Regular.shiftCharacterAverage_norm_map_le
+#print axioms TGLV350.Regular.shiftCharacterAverage_tendsto_identity
+#print axioms TGLV350.Regular.regularUnitary_vacuum_is_shift
+#print axioms TGLV350.Regular.scalarOrbit_right_regular
+#print axioms TGLV350.Regular.scalarOrbit_right_average
+#print axioms TGLV350.Regular.scalarOrbit_right_average_norm_le
+#print axioms TGLV350.Regular.scalarOrbit_right_average_tendsto
+#print axioms TGLV350.Regular.scalarWeight_right_average_le
+#print axioms TGLV350.Regular.scalarWeightRightRegularization
+#print axioms TGLV350.Regular.scalarWeightRightRegularization_uniform
+#print axioms TGLV350.Regular.scalarWeightOrbit_rightRegularization_tendsto
+#print axioms TGLV350.Regular.scalarWeightOrbit_mem_original_GNS
+#print axioms TGLV350.Regular.scalarWeight_completion_eq
+#print axioms TGLV350.Regular.scalarWeightGNSEmbedding
+#print axioms TGLV350.Regular.scalarWeightGNSEmbedding_uniform
+#print axioms TGLV350.Regular.scalarWeightLeftProduct
+#print axioms TGLV350.Regular.scalarWeightOrbit_left_intertwines
+#print axioms TGLV350.Regular.scalarWeightGNSAction_intertwines
+#print axioms TGLV350.Regular.scalarWeightGNSEmbedding_norm_sq
+#print axioms TGLV350.Regular.scalarWeightGNSEmbedding_injective
+#print axioms TGLV350.Regular.scalarWeightGNSEmbedding_denseRange
+#print axioms TGLV350.Regular.scalarWeightSandwich
+#print axioms TGLV350.Regular.scalarWeightSandwich_val
+#print axioms TGLV350.Regular.scalarWeightGNSEmbedding_sandwich_tendsto
+#print axioms TGLV350.Regular.scalarWeightStarCore
+#print axioms TGLV350.Regular.scalarWeightStarEmbedding
+#print axioms TGLV350.Regular.scalarUniformToWeightStar
+#print axioms TGLV350.Regular.scalarUniformToWeightStar_star
+#print axioms TGLV350.Regular.scalarWeightStarEmbedding_uniform
+#print axioms TGLV350.Regular.scalarWeightTomitaGraph
+#print axioms TGLV350.Regular.scalarTomitaGraph_subset_weight
+#print axioms TGLV350.Regular.scalarWeightGNSEmbedding_sandwich_uniform
+#print axioms TGLV350.Regular.scalarWeightTomitaGraph_subset_closure_original
+#print axioms TGLV350.Regular.scalarWeightTomitaGraph_closure_eq
+#print axioms TGLV350.Regular.scalarClosedTomita_graph_eq_weight
+#print axioms TGLV350.Regular.scalarWeightStar_mem_closedTomitaDomain
+#print axioms TGLV350.Regular.scalarClosedTomita_extends_weight_star
+#print axioms TGLV350.Regular.baseCommutant_eq_of_vacuum
+#print axioms TGLV350.Regular.rTowerPi_mem_baseCommutant
+#print axioms TGLV350.Regular.rTowerPi_parameter_smul
+#print axioms TGLV350.Regular.modularConjugation_rTowerPi
+#print axioms TGLV350.Regular.rTowerPi_matrixUnit_homogeneous
+#print axioms TGLV350.Regular.characterPhase_neg_modularPhase
+#print axioms TGLV350.Regular.homogeneous_twistedCommutantLift
+#print axioms TGLV350.Regular.homogeneous_commutant_dual_intertwines
+#print axioms TGLV350.Regular.hasFiniteScalarSquare_iff_memLp
+#print axioms TGLV350.Regular.scalarOrbit_right_homogeneous
+#print axioms TGLV350.Regular.scalarWeight_right_homogeneous_finite
+#print axioms TGLV350.Regular.scalarOrbit_right_matrixUnit
+#print axioms TGLV350.Regular.modularPhase_star_frequency
+#print axioms TGLV350.Regular.homogeneous_base_adjoint
+#print axioms TGLV350.Regular.homogeneousRightAmbient
+#print axioms TGLV350.Regular.homogeneousRightAmbient_adjoint
+#print axioms TGLV350.Regular.matrixUnitRightData
+#print axioms TGLV350.Regular.matrixUnitTwistedRightData
+#print axioms TGLV350.Regular.matrixUnitRightAmbient_adjoint
+#print axioms TGLV350.Regular.scalarHomogeneousRightProduct
+#print axioms TGLV350.Regular.scalarHomogeneousRightOrbit_intertwines
+#print axioms TGLV350.Regular.homogeneousRightAmbient_preserves_GNS
+#print axioms TGLV350.Regular.homogeneousRightGNS
+#print axioms TGLV350.Regular.homogeneousRightGNS_intertwines
+#print axioms TGLV350.Regular.homogeneousRightGNS_adjoint
+#print axioms TGLV350.Regular.scalarWeight_right_adjoint_pairing
+#print axioms TGLV350.Regular.matrixUnitRightGNS_adjoint
+#print axioms TGLV350.Regular.matrixUnit_scalarWeight_pairing
+#print axioms TGLV350.Regular.homogeneousRightCoreElement
+#print axioms TGLV350.Regular.scalarWeightStarRightProduct
+#print axioms TGLV350.Regular.scalarWeightStarRight_embedding
+#print axioms TGLV350.Regular.scalarWeightStarRight_star_embedding
+#print axioms TGLV350.Regular.homogeneousRightGraphMap
+#print axioms TGLV350.Regular.homogeneousRightGraphMap_continuous
+#print axioms TGLV350.Regular.homogeneousRightGraphMap_preserves_weight_graph
+#print axioms TGLV350.Regular.homogeneousRightGraphMap_preserves_closed_graph
+#print axioms TGLV350.Regular.scalarRight_mem_closedTomitaDomain
+#print axioms TGLV350.Regular.scalarRightClosedTomitaInput
+#print axioms TGLV350.Regular.scalarClosedTomita_right_intertwines
+#print axioms TGLV350.Regular.matrixUnit_closedTomita_right_intertwines
+#print axioms TGLV350.Regular.scalarRightTomitaAdjoint_pairing
+#print axioms TGLV350.Regular.scalarRightTomitaAdjoint_maximal
+#print axioms TGLV350.Regular.scalarRightTomitaAdjointInput
+#print axioms TGLV350.Regular.scalarTomitaAdjoint_left_intertwines
+#print axioms TGLV350.Regular.matrixUnit_TomitaAdjoint_left_intertwines
+#print axioms TGLV350.Regular.scalarRightSquare_S_image
+#print axioms TGLV350.Regular.scalarRight_mem_squareDomain
+#print axioms TGLV350.Regular.scalarRightSquareInput
+#print axioms TGLV350.Regular.scalarTomitaSquare_right_intertwines
+#print axioms TGLV350.Regular.localEigenvalue_reverse_log
+#print axioms TGLV350.Regular.modTwist_matrixUnit_reverse
+#print axioms TGLV350.Regular.homogeneousRightGNS_smul_data
+#print axioms TGLV350.Regular.matrixUnitTwistedRightGNS_reverse
+#print axioms TGLV350.Regular.matrixUnitRightGNS_star_reverse
+#print axioms TGLV350.Regular.matrixUnit_rightCore_star
+#print axioms TGLV350.Regular.matrixUnitRight_mem_squareDomain
+#print axioms TGLV350.Regular.matrixUnitRightSquareInput
+#print axioms TGLV350.Regular.matrixUnit_TomitaSquare_right_scaling
+#print axioms TGLV350.Regular.regularRightCoreElement
+#print axioms TGLV350.Regular.regularRightCoreElement_star
+#print axioms TGLV350.Regular.scalarWeight_right_regular_eq
+#print axioms TGLV350.Regular.scalarRegularRightProduct
+#print axioms TGLV350.Regular.regularRightAmbient
+#print axioms TGLV350.Regular.characterPhase_comm
+#print axioms TGLV350.Regular.regularRightAmbient_zero
+#print axioms TGLV350.Regular.regularRightAmbient_mul
+#print axioms TGLV350.Regular.regularRightAmbient_star
+#print axioms TGLV350.Regular.scalarRegularRightOrbit_intertwines
+#print axioms TGLV350.Regular.regularRightAmbient_preserves_GNS
+#print axioms TGLV350.Regular.regularRightGNS
+#print axioms TGLV350.Regular.regularRightGNS_intertwines
+#print axioms TGLV350.Regular.regularRightGNS_zero
+#print axioms TGLV350.Regular.regularRightGNS_mul
+#print axioms TGLV350.Regular.regularRightGNS_star
+#print axioms TGLV350.Regular.regularRightGNS_unitary
+#print axioms TGLV350.Regular.scalarWeightStarRegularRightProduct
+#print axioms TGLV350.Regular.scalarWeightStarRegularRight_embedding
+#print axioms TGLV350.Regular.scalarWeightStarRegularRight_star_embedding
+#print axioms TGLV350.Regular.regularRightGraphMap
+#print axioms TGLV350.Regular.regularRightGraphMap_continuous
+#print axioms TGLV350.Regular.regularRightGraphMap_preserves_weight_graph
+#print axioms TGLV350.Regular.regularRightGraphMap_preserves_closed_graph
+#print axioms TGLV350.Regular.scalarRegularRight_mem_closedTomitaDomain
+#print axioms TGLV350.Regular.scalarRegularRightClosedTomitaInput
+#print axioms TGLV350.Regular.scalarClosedTomita_regular_right_intertwines
+#print axioms TGLV350.Regular.scalarRegularRightTomitaAdjoint_pairing
+#print axioms TGLV350.Regular.scalarRegularRightTomitaAdjoint_maximal
+#print axioms TGLV350.Regular.scalarRegularRightTomitaAdjointInput
+#print axioms TGLV350.Regular.scalarTomitaAdjoint_regular_left_intertwines
+#print axioms TGLV350.Regular.scalarRegularRightSquare_S_image
+#print axioms TGLV350.Regular.scalarRegularRight_mem_squareDomain
+#print axioms TGLV350.Regular.scalarRegularRightSquareInput
+#print axioms TGLV350.Regular.scalarTomitaSquare_regular_right_commutes
+#print axioms TGLV350.Regular.scalarRegularRight_squareDomain_iff
+#print axioms TGLV350.Regular.scalarTomitaResolvent_regular_right_commutes
+#print axioms TGLV350.Regular.scalarTomitaPositiveRoot_regular_right_graph
+#print axioms TGLV350.Regular.scalarRegularRight_mem_rootDomain
+#print axioms TGLV350.Regular.scalarRegularRightRootInput
+#print axioms TGLV350.Regular.scalarTomitaPositiveRoot_regular_right_commutes
+#print axioms TGLV350.Regular.scalarRegularRight_rootDomain_iff
+#print axioms TGLV350.Regular.scalarTomitaPolarFactor_regular_right
+#print axioms TGLV350.Regular.scalarTomitaPolar_conjugate_regular_right
+#print axioms TGLV350.Regular.scalarTomitaPolarFactor_regular_left
+#print axioms TGLV350.Regular.regularRightGNS_commutes_left
+#print axioms TGLV350.Regular.scalarTomitaPolar_conjugate_regular_left
+#print axioms TGLV350.Regular.scalarTomitaPolar_regular_generator
+#print axioms TGLV350.Regular.scalarTomitaPolar_regular_generator_commutes
+#print axioms TGLV350.Regular.regularUnitary_norm_le_one
+#print axioms TGLV350.Regular.scalarGNSRegular_strongly_continuous
+#print axioms TGLV350.Regular.regularRightGNS_strongly_continuous
+#print axioms TGLV350.Regular.real_cfc_intertwines
+#print axioms TGLV350.Regular.positive_sqrt_intertwines
+#print axioms TGLV350.Regular.positive_square_intertwines_roots
+#print axioms TGLV350.Regular.scaledResolventDenominator_sub
+#print axioms TGLV350.Regular.scaledResolventDenominator_alt
+#print axioms TGLV350.Regular.scaledResolventDenominator_positive
+#print axioms TGLV350.Regular.scaledResolventDenominator_commutes
+#print axioms TGLV350.Regular.ring_inverse_commutes_of_unit
+#print axioms TGLV350.Regular.scaledPositiveResolvent_nonneg
+#print axioms TGLV350.Regular.scaledPositiveResolvent_complement
+#print axioms TGLV350.Regular.scaledPositiveResolvent_le_one
+#print axioms TGLV350.Regular.positive_roots_commute
+#print axioms TGLV350.Regular.positive_sqrt_product
+#print axioms TGLV350.Regular.positive_sqrt_real_smul
+#print axioms TGLV350.Regular.scaledResolvent_root_pair_first
+#print axioms TGLV350.Regular.scaledResolvent_root_pair_second
+#print axioms TGLV350.Regular.unit_operator_surjective
+#print axioms TGLV350.Regular.complement_intertwines
+#print axioms TGLV350.Regular.resolvent_root_graph_scaled
+#print axioms TGLV350.Regular.matrixUnit_resolvent_denominator_identity
+#print axioms TGLV350.Regular.matrixUnit_resolvent_right_scaling
+#print axioms TGLV350.Regular.matrixUnit_positiveRoot_graph_scaling
+#print axioms TGLV350.Regular.matrixUnit_mem_rootDomain
+#print axioms TGLV350.Regular.matrixUnitRightRootInput
+#print axioms TGLV350.Regular.matrixUnit_positiveRoot_right_scaling
+#print axioms TGLV350.Regular.antiunitary_ofReal_smul
+#print axioms TGLV350.Regular.matrixUnit_polar_right_weighted
+#print axioms TGLV350.Regular.matrixUnit_polar_left_weighted
+#print axioms TGLV350.Regular.matrixUnit_polar_conjugate_left
+#print axioms TGLV350.Regular.homogeneousRightGNS_commutes_left
+#print axioms TGLV350.Regular.matrixUnit_polar_conjugate_generator
+#print axioms TGLV350.Regular.matrixUnit_polar_generator_commutes
+#print axioms TGLV350.Regular.levelPositiveMap
+#print axioms TGLV350.Regular.levelPositiveMap_one
+#print axioms TGLV350.Regular.positive_unital_four_norm_bound
+#print axioms TGLV350.Regular.vonNeumann_norm_closed
+#print axioms TGLV350.Regular.vonNeumann_starOrdered
+#print axioms TGLV350.Regular.levelExpectation_uniform_norm_bound
+#print axioms TGLV350.Regular.levelExpectation_strong_tendsto
+#print axioms TGLV350.Regular.levelCoreApproximation
+#print axioms TGLV350.Regular.levelCoreApproximation_uniform_bound
+#print axioms TGLV350.Regular.levelCoreApproximation_strong_tendsto
+#print axioms TGLV350.Regular.represented_levelExpectation_strong_tendsto
+#print axioms TGLV350.Regular.antiunitaryConjugate_add
+#print axioms TGLV350.Regular.antiunitaryConjugate_smul
+#print axioms TGLV350.Regular.localBaseCore
+#print axioms TGLV350.Regular.matrix_linear_polar_commutes
+#print axioms TGLV350.Regular.localBase_polar_commutes
+#print axioms TGLV350.Regular.commute_of_strong_tendsto
+#print axioms TGLV350.Regular.base_polar_commutes
+#print axioms TGLV350.Regular.finiteSetEmbeddingLinear
+#print axioms TGLV350.Regular.finiteSetEmbedding
+#print axioms TGLV350.Regular.finiteSetEmbedding_adjoint
+#print axioms TGLV350.Regular.finiteSetEmbedding_reads_separate
+#print axioms TGLV350.Regular.finiteSetEmbedding_intertwines
+#print axioms TGLV350.Regular.finiteSetEmbedding_adjoint_intertwines
+#print axioms TGLV350.Regular.finiteSetEmbedding_ranges_total
+#print axioms TGLV350.Regular.fibreSlice
+#print axioms TGLV350.Regular.fibreSlice_zero
+#print axioms TGLV350.Regular.fibreSlice_left
+#print axioms TGLV350.Regular.fibreSlice_right
+#print axioms TGLV350.Regular.fibreSlice_sub
+#print axioms TGLV350.Regular.fibre_commutes_of_generated
+#print axioms TGLV350.Regular.fibre_generated_mem
+#print axioms TGLV350.Regular.reducingOperatorExtension
+#print axioms TGLV350.Regular.reducing_projection_intertwines
+#print axioms TGLV350.Regular.reducingOperatorExtension_commutes_iff
+#print axioms TGLV350.Regular.reducing_commutation_from_generators
+#print axioms TGLV350.Regular.dualOrbit_generated_mem
+#print axioms TGLV350.Regular.regularGenerators_star
+#print axioms TGLV350.Regular.scalarCoreGenerators
+#print axioms TGLV350.Regular.dualOrbit_core_commutation_from_generators
+#print axioms TGLV350.Regular.scalarGNS_commutation_from_generators
+#print axioms TGLV350.Regular.scalarTomitaPolar_commutes_generators
+#print axioms TGLV350.Regular.scalarTomitaPolar_core_commutes
+#print axioms TGLV350.Regular.scalarTomitaPolar_core_commutant_mem
+#print axioms TGLV350.Regular.denseLinearExtension_apply
+#print axioms TGLV350.Regular.denseLinearExtension_norm
+#print axioms TGLV350.Regular.denseLinearIsometry
+#print axioms TGLV350.Regular.denseLinearIsometry_surjective
+#print axioms TGLV350.Regular.denseLinearEquiv
+#print axioms TGLV350.Regular.denseLinearEquiv_apply
+#print axioms TGLV350.Regular.boundedMapModulus
+#print axioms TGLV350.Regular.boundedMapGram_nonneg
+#print axioms TGLV350.Regular.boundedMapModulus_norm
+#print axioms TGLV350.Regular.boundedMapModulus_injective
+#print axioms TGLV350.Regular.boundedMapModulus_denseRange
+#print axioms TGLV350.Regular.boundedInjectivePolar
+#print axioms TGLV350.Regular.boundedInjectivePolar_modulus
+#print axioms TGLV350.Regular.boundedMapGram_commutes_of_intertwines
+#print axioms TGLV350.Regular.boundedInjectivePolar_intertwines
+#print axioms TGLV350.Regular.scalarGaussianImage
+#print axioms TGLV350.Regular.scalarGaussianImage_complete
+#print axioms TGLV350.Regular.scalarGaussianImage_invariant
+#print axioms TGLV350.Regular.scalarGaussianVacuum_mem_image
+#print axioms TGLV350.Regular.scalarGaussianOrbitLinear
+#print axioms TGLV350.Regular.scalarGaussianImage_eq_orbit
+#print axioms TGLV350.Regular.scalarGaussianImageMap
+#print axioms TGLV350.Regular.scalarGaussianImageMap_injective
+#print axioms TGLV350.Regular.scalarGaussianImageMap_denseRange
+#print axioms TGLV350.Regular.scalarGaussianImageRepresentation
+#print axioms TGLV350.Regular.scalarGaussianImageMap_intertwines
+#print axioms TGLV350.Regular.scalarGaussianUnitary
+#print axioms TGLV350.Regular.scalarGaussianUnitary_intertwines
+#print axioms TGLV350.Regular.scalarGNSCyclicVector
+#print axioms TGLV350.Regular.scalarGNSCyclicVector_image
+#print axioms TGLV350.Regular.scalarGNSCyclicVector_separating
+#print axioms TGLV350.Regular.scalarGaussianOrbitEmbedding
+#print axioms TGLV350.Regular.scalarGaussianOrbitEmbedding_denseRange
+#print axioms TGLV350.Regular.scalarGNSCyclicVector_cyclic
+#print axioms TGLV350.Regular.scalarRightRegularizationLinear
+#print axioms TGLV350.Regular.scalarWeightRightRegularization_norm_le
+#print axioms TGLV350.Regular.scalarRightRegularization
+#print axioms TGLV350.Regular.scalarRightRegularization_embedding
+#print axioms TGLV350.Regular.scalarRightRegularization_norm_le
+#print axioms TGLV350.Regular.scalarRightRegularization_commutes
+#print axioms TGLV350.Regular.scalarRightRegularization_tendsto
+#print axioms TGLV350.Regular.scalarRegularizationVector
+#print axioms TGLV350.Regular.scalarRightRegularization_vector
+#print axioms TGLV350.Regular.ScalarRightBounded
+#print axioms TGLV350.Regular.scalarRightBounded_commutes
+#print axioms TGLV350.Regular.scalarRightBounded_commutant_mem
+#print axioms TGLV350.Regular.scalarRightRegularization_rightBounded
+#print axioms TGLV350.Regular.scalarCommutantRegularization_rightBounded
+#print axioms TGLV350.Regular.scalarCommutantRegularization_norm_le
+#print axioms TGLV350.Regular.scalarCommutantRegularization_tendsto
+#print axioms TGLV350.Regular.scalarCommutant_rightBounded_approximation
+#print axioms TGLV350.Regular.scalarCommutant_mem_of_rightBounded
+#print axioms TGLV350.Regular.scalarCommutant_mem_generated_rightBounded
+#print axioms TGLV350.Regular.ScalarRightAdjointPair
+#print axioms TGLV350.Regular.scalarRightAdjointPair_rightBounded
+#print axioms TGLV350.Regular.scalarRightAdjointPair_adjoint_rightBounded
+#print axioms TGLV350.Regular.scalarGNSAverage_tendsto
+#print axioms TGLV350.Regular.scalarRightAdjointPair_regularized_pairing
+#print axioms TGLV350.Regular.scalarRightAdjointPair_starCore_pairing
+#print axioms TGLV350.Regular.scalarRightAdjointPair_closed_pairing
+#print axioms TGLV350.Regular.scalarRightAdjointPair_maximal
+#print axioms TGLV350.Regular.scalarGNSCommutation_adjoint
+#print axioms TGLV350.Regular.scalarRightRegularization_adjoint_tendsto
+#print axioms TGLV350.Regular.scalarCommutantSandwich
+#print axioms TGLV350.Regular.scalarCommutantSandwich_star
+#print axioms TGLV350.Regular.scalarCommutantSandwich_norm_le
+#print axioms TGLV350.Regular.scalarCommutantSandwichVector
+#print axioms TGLV350.Regular.scalarCommutantSandwich_right
+#print axioms TGLV350.Regular.scalarCommutantSandwichPair
+#print axioms TGLV350.Regular.scalarCommutantSandwich_in_original_adjoint
+#print axioms TGLV350.Regular.scalarCommutantSandwich_tendsto
+#print axioms TGLV350.Regular.scalarCommutantSandwich_star_tendsto
+#print axioms TGLV350.Regular.scalarCommutant_paired_right_approximation
+#print axioms TGLV350.Regular.scalarRightAdjointPair_zero
+#print axioms TGLV350.Regular.scalarRightAdjointPair_add
+#print axioms TGLV350.Regular.scalarRightAdjointPair_smul
+#print axioms TGLV350.Regular.scalarRightAdjointPair_mul
+#print axioms TGLV350.Regular.scalarRightAdjointPair_star
+#print axioms TGLV350.Regular.scalarPairedRightAlgebra
+#print axioms TGLV350.Regular.scalarGNSCommutant
+#print axioms TGLV350.Regular.scalarPairedRightAlgebra_mem_commutant
+#print axioms TGLV350.Regular.scalarPairedRightAlgebra_generated_eq_commutant
+#print axioms TGLV350.Regular.scalarGaussianGNSMap_weightEmbedding
+#print axioms TGLV350.Regular.scalarGaussianAdjoint_intertwines
+#print axioms TGLV350.Regular.scalarGaussianRightOperator
+#print axioms TGLV350.Regular.scalarGaussianRightOperator_adjoint
+#print axioms TGLV350.Regular.scalarGaussianRightOperator_right
+#print axioms TGLV350.Regular.scalarGaussianRightAdjointPair
+#print axioms TGLV350.Regular.scalarWeightAction_separates_vectors
+#print axioms TGLV350.Regular.scalarRightAdjointPair_vector_unique
+#print axioms TGLV350.Regular.scalarRightAdjointPair_operator_unique
+#print axioms TGLV350.Regular.scalarPairedRightChoice
+#print axioms TGLV350.Regular.scalarRightPairVector
+#print axioms TGLV350.Regular.scalarRightPairVector_of_pair
+#print axioms TGLV350.Regular.scalarRightPairVector_injective
+#print axioms TGLV350.Regular.scalarRightPairVector_mul
+#print axioms TGLV350.Regular.scalarRightPairVector_star
+#print axioms TGLV350.Regular.scalarRightPairVector_original_adjoint
+#print axioms TGLV350.Regular.scalarRightPairVector_denseRange
+#print axioms TGLV350.Regular.scalarRightPairVector_product_bound
+#print axioms TGLV350.Regular.scalarRightPairVector_inner_product
+#print axioms TGLV350.Regular.scalarRightPairGraph
+#print axioms TGLV350.Regular.scalarRightPairGraph_closure_subset_original
+#print axioms TGLV350.Regular.scalarRightPairGraph_closable
+#print axioms TGLV350.Regular.scalarRightPairApproximateUnit
+#print axioms TGLV350.Regular.scalarRightPairApproximateUnit_tendsto
+#print axioms TGLV350.Regular.scalarRightPairVector_products_dense
+#print axioms TGLV350.Regular.reducingOperatorCompression
+#print axioms TGLV350.Regular.reducingCommutant_column_intertwines
+#print axioms TGLV350.Regular.reducingCommutant_compression_commutes
+#print axioms TGLV350.Regular.reducingCommutant_gram_commutes
+#print axioms TGLV350.Regular.reducingBicommutant_orbit_bound
+#print axioms TGLV350.Regular.reducingBicommutantLift
+#print axioms TGLV350.Regular.reducingBicommutantLift_apply
+#print axioms TGLV350.Regular.reducingBicommutantLift_norm
+#print axioms TGLV350.Regular.reducingBicommutantLift_mem
+#print axioms TGLV350.Regular.reducingCommutant_projectedOrbit_dense
+#print axioms TGLV350.Regular.reducingBicommutantLift_restrict
+#print axioms TGLV350.Regular.reducingBicommutant_has_preimage
+#print axioms TGLV350.Regular.starRepresentation_bicommutant_commutes
+#print axioms TGLV350.Regular.mem_generated_restriction_iff
+#print axioms TGLV350.Regular.starEquiv_centralizer_transport
+#print axioms TGLV350.Regular.starEquiv_centralizer_image
+#print axioms TGLV350.Regular.starEquiv_generated_transport
+#print axioms TGLV350.Regular.scalarGaussianImage_ambient_invariant
+#print axioms TGLV350.Regular.scalarGaussianRestrictedAmbientRepresentation
+#print axioms TGLV350.Regular.scalarGaussianRestrictedAmbient_dual
+#print axioms TGLV350.Regular.scalarGaussianRestrictedAmbient_range
+#print axioms TGLV350.Regular.scalarGaussianImage_generated_iff
+#print axioms TGLV350.Regular.scalarGaussianUnitary_conjugates_representation
+#print axioms TGLV350.Regular.scalarGaussianUnitary_representation_image
+#print axioms TGLV350.Regular.scalarGNSVonNeumann
+#print axioms TGLV350.Regular.mem_scalarGNSVonNeumann_iff
+#print axioms TGLV350.Regular.scalarGNSVonNeumann_coe
+#print axioms TGLV350.Regular.hilbertPairInl
+#print axioms TGLV350.Regular.hilbertPairInr
+#print axioms TGLV350.Regular.hilbertPairDiagonal
+#print axioms TGLV350.Regular.hilbertPairDiagonal_adjoint
+#print axioms TGLV350.Regular.complexGraphEmbedding
+#print axioms TGLV350.Regular.complexGraphClosure
+#print axioms TGLV350.Regular.complexGraphClosure_complete
+#print axioms TGLV350.Regular.complexGraphEmbedding_mem
+#print axioms TGLV350.Regular.complexGraphClosure_invariant
+#print axioms TGLV350.Regular.complexGraphClosure_rotated_orthogonal
+#print axioms TGLV350.Regular.complexGraphClosure_projection_rotated
+#print axioms TGLV350.Regular.complexGraphClosure_projection_commutes
+#print axioms TGLV350.Regular.scalarRightMultiplicationVector
+#print axioms TGLV350.Regular.scalarWeightPairProduct
+#print axioms TGLV350.Regular.scalarWeightPairProduct_star
+#print axioms TGLV350.Regular.scalarWeightPairProduct_embedding
+#print axioms TGLV350.Regular.scalarRightMultiplicationVector_symmetric
+#print axioms TGLV350.Regular.scalarRightMultiplicationGraph
+#print axioms TGLV350.Regular.scalarRightMultiplicationGraph_complete
+#print axioms TGLV350.Regular.scalarRightMultiplicationGraph_invariant
+#print axioms TGLV350.Regular.scalarRightMultiplicationGraph_projection_commutes
+#print axioms TGLV350.Regular.scalarRightMultiplicationGraph_rotated_zero
+#print axioms TGLV350.Regular.hilbertPairInl_adjoint_apply
+#print axioms TGLV350.Regular.hilbertPairInr_adjoint_apply
+#print axioms TGLV350.Regular.hilbertBlockA
+#print axioms TGLV350.Regular.hilbertBlockB
+#print axioms TGLV350.Regular.hilbertBlockD
+#print axioms TGLV350.Regular.hilbertBlockB_adjoint
+#print axioms TGLV350.Regular.hilbertPairDiagonal_inl
+#print axioms TGLV350.Regular.hilbertPairDiagonal_inr
+#print axioms TGLV350.Regular.hilbertBlockA_commutes
+#print axioms TGLV350.Regular.hilbertBlockB_commutes
+#print axioms TGLV350.Regular.hilbertBlockD_commutes
+#print axioms TGLV350.Regular.hilbertBlockB_from_rotated
+#print axioms TGLV350.Regular.hilbertBlockBadjoint_from_fixed
+#print axioms TGLV350.Regular.hilbertProjectionWitness
+#print axioms TGLV350.Regular.hilbertProjectionWitness_energy
+#print axioms TGLV350.Regular.complexGraph_projection_inl_ne_zero
+#print axioms TGLV350.Regular.complexGraph_witness_positive
+#print axioms TGLV350.Regular.scalarRightProjectionPair
+#print axioms TGLV350.Regular.scalarRightProjectionElement
+#print axioms TGLV350.Regular.scalarRightProjectionElement_selfadjoint
+#print axioms TGLV350.Regular.scalarRightProjectionElement_vector
+#print axioms TGLV350.Regular.scalarRightProjectionElement_positive
+#print axioms TGLV350.Regular.scalarRight_selfadjoint_detects_fixed
+#print axioms TGLV350.Regular.realSubmodule_closure_of_positive_detection
+#print axioms TGLV350.Regular.selfadjointVectorSubmodule
+#print axioms TGLV350.Regular.selfadjointVectorSubmodule_mem
+#print axioms TGLV350.Regular.selfadjointVectorSubmodule_le_fixed
+#print axioms TGLV350.Regular.selfadjointVectorSubmodule_closure
+#print axioms TGLV350.Regular.conjugateGraphMix
+#print axioms TGLV350.Regular.conjugateGraphMix_continuous
+#print axioms TGLV350.Regular.conjugateGraphMix_selfadjoint
+#print axioms TGLV350.Regular.conjugateGraph_closure_eq_original
+#print axioms TGLV350.Regular.scalarRightSelfadjointVectors_closure
+#print axioms TGLV350.Regular.scalarRightPairGraph_closure_eq_original
+#print axioms TGLV350.Regular.scalarRightPairGraph_original_subset_closure
+#print axioms TGLV350.Regular.scalarTomitaAdjoint_polar_domain_iff
+#print axioms TGLV350.Regular.scalarTomitaAdjointRootInput
+#print axioms TGLV350.Regular.scalarTomitaAdjoint_polar_value
+#print axioms TGLV350.Regular.scalarTomitaAdjoint_conjugate_domain_iff
+#print axioms TGLV350.Regular.scalarTomitaAdjointConjugateInput
+#print axioms TGLV350.Regular.scalarTomitaAdjoint_conjugate_value
+#print axioms TGLV350.Regular.scalarTomitaPolar_closed_domain_iff
+#print axioms TGLV350.Regular.scalarClosedTomitaConjugateInput
+#print axioms TGLV350.Regular.scalarClosedTomita_conjugate_value
+#print axioms TGLV350.Regular.scalarTomitaPolar_conjugates_closed_graph
+#print axioms TGLV350.Regular.scalarTomitaGraphConjugation
+#print axioms TGLV350.Regular.scalarTomitaGraphConjugation_involutive
+#print axioms TGLV350.Regular.scalarTomitaPolar_conjugates_adjoint_graph
+#print axioms TGLV350.Regular.scalarRightConjugateVector
+#print axioms TGLV350.Regular.scalarRightConjugateVector_mem_original
+#print axioms TGLV350.Regular.scalarRightConjugateVector_star
+#print axioms TGLV350.Regular.scalarRightConjugateGraph_closure_eq_original
+#print axioms TGLV350.Regular.phaseRealMap
+#print axioms TGLV350.Regular.phaseCompression
+#print axioms TGLV350.Regular.phaseVariationalForm
+#print axioms TGLV350.Regular.phaseVariationalForm_apply
+#print axioms TGLV350.Regular.phaseVariationalForm_diagonal
+#print axioms TGLV350.Regular.phaseVariationalForm_coercive
+#print axioms TGLV350.Regular.phaseVariationalSolution
+#print axioms TGLV350.Regular.phaseVariationalSolution_equation
+#print axioms TGLV350.Regular.phaseVariationalSolution_unique
+#print axioms TGLV350.Regular.phaseVariationalSolution_bound
+#print axioms TGLV350.Regular.phaseVariationalSolution_unit_real_bound
+#print axioms TGLV350.Regular.phaseVariationalSolution_one
+#print axioms TGLV350.Regular.scalarPhaseVariational
+#print axioms TGLV350.Regular.scalarPhaseVariational_fixed
+#print axioms TGLV350.Regular.scalarPhaseVariational_equation
+#print axioms TGLV350.Regular.scalarPhaseVariational_unique
+#print axioms TGLV350.Regular.scalarPhaseVariational_bound
+#print axioms TGLV350.Regular.scalarPhaseVariational_unit_real_bound
+#print axioms TGLV350.Regular.scalarPhaseVariational_one
+#print axioms TGLV350.Regular.scalarPhaseVariational_fixed_complex_equation
+#print axioms TGLV350.Regular.scalarPhaseVariational_graph_equation
+#print axioms TGLV350.Regular.scalarClosedTomita_bidual_maximal
+#print axioms TGLV350.Regular.scalarClosedTomita_bidual_graph_iff
+#print axioms TGLV350.Regular.scalarGNSCommutant_commutes
+#print axioms TGLV350.Regular.scalarSelfadjointRightPairMultiplier
+#print axioms TGLV350.Regular.scalarSelfadjointRightMultiplier
+#print axioms TGLV350.Regular.scalarSelfadjointRightMultiplier_star
+#print axioms TGLV350.Regular.scalarSelfadjointRightMultiplier_vector
+#print axioms TGLV350.Regular.scalarRightAdjointPair_vector_mem_range_closure
+#print axioms TGLV350.Regular.scalarRightPairVector_mem_range_closure
+#print axioms TGLV350.Regular.squareResolvent_nonneg
+#print axioms TGLV350.Regular.squareResolvent_le_one
+#print axioms TGLV350.Regular.squareResolvent_antitone
+#print axioms TGLV350.Regular.squareResolvent_commutes
+#print axioms TGLV350.Regular.squareResolvent_energy_bound
+#print axioms TGLV350.Regular.squareResolvent_tendsto_zero_on_rangeClosure
+#print axioms TGLV350.Regular.squareResolvent_mem
+#print axioms TGLV350.Regular.squareResolvent_complement_eq
+#print axioms TGLV350.Regular.scalarRightSquareCutoff_value
+#print axioms TGLV350.Regular.scalarRightSquareCutoff_star
+#print axioms TGLV350.Regular.scalarRightSquareCutoff_commutes
+#print axioms TGLV350.Regular.scalarRightSquareApproximation_star
+#print axioms TGLV350.Regular.scalarRightSquareApproximation_difference_of_squares
+#print axioms TGLV350.Regular.scalarRightSquareApproximation_vector
+#print axioms TGLV350.Regular.scalarRightSquareApproximation_vector_tendsto
+#print axioms TGLV350.Regular.scalarSelfadjointPairing_of_squarePairing
+#print axioms TGLV350.Regular.scalarFixedPairing_of_squarePairing
+#print axioms TGLV350.Regular.scalarClosedTomita_of_squarePairing
+#print axioms TGLV350.Regular.scalarClosedTomita_squarePairing_iff
+#print axioms TGLV350.Regular.scalarClosedTomita_of_boundedPairAction
+#print axioms TGLV350.Regular.scalarPairedMultiplicationVector_symmetric
+#print axioms TGLV350.Regular.scalarPairedMultiplicationGraph_invariant
+#print axioms TGLV350.Regular.scalarPairedMultiplicationGraph_projection_commutes
+#print axioms TGLV350.Regular.scalarPairedMultiplicationGraph_projection_fixed
+#print axioms TGLV350.Regular.scalarPairedMultiplicationGraph_rotated_zero
+#print axioms TGLV350.Regular.hilbertBlockA_adjoint
+#print axioms TGLV350.Regular.hilbertBlockD_adjoint
+#print axioms TGLV350.Regular.hilbertBlockA_energy
+#print axioms TGLV350.Regular.hilbertBlockA_nonneg
+#print axioms TGLV350.Regular.hilbertBlockA_le_one
+#print axioms TGLV350.Regular.hilbertBlockB_mul_adjoint
+#print axioms TGLV350.Regular.hilbertBlockB_mul_D
+#print axioms TGLV350.Regular.complexGraph_blockA_injective
+#print axioms TGLV350.Regular.scalarPairedRightAlgebra_centralizer
+#print axioms TGLV350.Regular.scalarPairedCommutant_mem_GNS
+#print axioms TGLV350.Regular.scalarPairedProjection_A_mem
+#print axioms TGLV350.Regular.scalarPairedProjection_B_mem
+#print axioms TGLV350.Regular.scalarPairedProjection_D_mem
+#print axioms TGLV350.Regular.scalarPairedProjection_A_positive_contraction
+#print axioms TGLV350.Regular.scalarPairedProjection_A_injective
+#print axioms TGLV350.Regular.scalarPairedProjection_BBstar
+#print axioms TGLV350.Regular.scalarPairedProjection_BD
+#print axioms TGLV350.Regular.scalarPairedProjection_B_left
+#print axioms TGLV350.Regular.scalarPairedProjection_B_right
+#print axioms TGLV350.Regular.scalarPairedProjection_Badjoint_right
+#print axioms TGLV350.Regular.scalarPairedProjection_weighted_graph
+#print axioms TGLV350.Regular.scalarPhaseVariational_weighted_block_equation
+#print axioms TGLV350.Regular.resolventDamping
+#print axioms TGLV350.Regular.resolventPhaseFunction
+#print axioms TGLV350.Regular.resolventPhaseFunction_norm
+#print axioms TGLV350.Regular.resolventPhaseFunction_zero_time
+#print axioms TGLV350.Regular.resolventPhaseFunction_add
+#print axioms TGLV350.Regular.resolventPhaseFunction_star
+#print axioms TGLV350.Regular.resolventPhaseFunction_gram
+#print axioms TGLV350.Regular.resolventPhaseFunction_joint_continuous
+#print axioms TGLV350.Regular.resolventPhaseFunction_continuous
+#print axioms TGLV350.Regular.resolventDampingOperator
+#print axioms TGLV350.Regular.resolventPhaseOperator
+#print axioms TGLV350.Regular.resolventDampingOperator_cfc
+#print axioms TGLV350.Regular.resolventDampingOperator_nonneg
+#print axioms TGLV350.Regular.resolventPhaseOperator_zero
+#print axioms TGLV350.Regular.resolventPhaseOperator_star
+#print axioms TGLV350.Regular.resolventPhaseOperator_mul
+#print axioms TGLV350.Regular.resolventPhaseOperator_gram
+#print axioms TGLV350.Regular.resolventPhaseOperator_modulus
+#print axioms TGLV350.Regular.resolventPhaseOperator_norm
+#print axioms TGLV350.Regular.resolventDampingOperator_injective
+#print axioms TGLV350.Regular.resolventDampingOperator_denseRange
+#print axioms TGLV350.Regular.resolventPhaseOperator_denseRange
+#print axioms TGLV350.Regular.resolventImaginaryPower
+#print axioms TGLV350.Regular.resolventImaginaryPower_damping
+#print axioms TGLV350.Regular.resolventImaginaryPower_zero
+#print axioms TGLV350.Regular.resolventPhaseOperator_commutes_damping
+#print axioms TGLV350.Regular.resolventImaginaryPower_commutes_damping
+#print axioms TGLV350.Regular.resolventImaginaryPower_add
+#print axioms TGLV350.Regular.resolventPhaseOperator_continuous
+#print axioms TGLV350.Regular.resolventImaginaryPower_joint_continuous
+#print axioms TGLV350.Regular.resolventImaginaryPower_strongly_continuous
+#print axioms TGLV350.Regular.resolventPhaseFunction_reflection
+#print axioms TGLV350.Regular.antiunitaryConjugate_star
+#print axioms TGLV350.Regular.antiunitaryConjugate_add
+#print axioms TGLV350.Regular.antiunitaryConjugate_smul
+#print axioms TGLV350.Regular.antiunitaryConjugateRealHom
+#print axioms TGLV350.Regular.antiunitaryConjugate_continuous
+#print axioms TGLV350.Regular.antiunitaryConjugate_selfadjoint
+#print axioms TGLV350.Regular.antiunitaryConjugate_real_cfc
+#print axioms TGLV350.Regular.complex_cfc_real_imaginary
+#print axioms TGLV350.Regular.antiunitaryConjugate_complex_cfc
+#print axioms TGLV350.Regular.antiunitaryConjugate_resolventPhase
+#print axioms TGLV350.Regular.antiunitaryConjugate_resolventDamping
+#print axioms TGLV350.Regular.resolventImaginaryPower_antiunitary
+#print axioms TGLV351.positiveDual
+#print axioms TGLV351.positiveSquare
+#print axioms TGLV351.positiveUnit
+#print axioms TGLV351.positiveUnit_ne_zero
+#print axioms TGLV351.RegularCoreTraceData
+#print axioms TGLV351.RegularCoreTraceData.not_zero
+#print axioms TGLV351.legacy_zero_trace_cannot_supply
+#print axioms TGLV351.scalarDualWeight_dual_invariant
+#print axioms TGLV351.positiveAverageSquare
+#print axioms TGLV351.scalarDualWeight_averageSquare
+#print axioms TGLV351.scalarDualWeight_not_trace_provider
+#print axioms TGLV351.fixedFormOnBase
+#print axioms TGLV351.baseDualWeight
+#print axioms TGLV351.baseDualWeight_value
+#print axioms TGLV351.scalarDualWeight_eq_base_evaluation
+#print axioms TGLV351.baseDualWeight_zero
+#print axioms TGLV351.baseDualWeight_add
+#print axioms TGLV351.baseDualWeight_scale
+#print axioms TGLV351.baseDualWeight_bimodule
+#print axioms TGLV351.baseDualWeight_mono
+#print axioms TGLV351.baseDualWeight_faithful
+#print axioms TGLV351.baseDualWeight_preserves_internal_isLUB
+#print axioms TGLV351.baseDualWeight_bounded_value
+#print axioms TGLV351.baseDualWeight_unit_infinite
+#print axioms TGLV351.baseDualWeight_averageSquare
+#print axioms TGLV351.dualResolvent_minimum_energy_value
+#print axioms TGLV351.exists_base_moreau_approximant
+#print axioms TGLV351.exists_monotone_base_dual_approximation
+#print axioms TGLV351.baseDualApproximant
+#print axioms TGLV351.baseDualApproximant_properties
+#print axioms TGLV351.baseDualEvaluation
+#print axioms TGLV351.baseVectorFunctional
+#print axioms TGLV351.baseVectorFunctional_apply
+#print axioms TGLV351.baseVectorFunctional_positive
+#print axioms TGLV351.baseDualEvaluation_vector
+#print axioms TGLV351.baseDualEvaluation_vacuum
+#print axioms TGLV351.baseDualEvaluation_zero
+#print axioms TGLV351.baseDualEvaluation_sequence_monotone
+#print axioms TGLV351.baseDualEvaluation_add
+#print axioms TGLV351.baseDualEvaluation_scale
+#print axioms TGLV351.baseDualEvaluation_lowerSemicontinuous
+#print axioms TGLV351.ennreal_tsum_iSup_monotone
+#print axioms TGLV351.baseDualEvaluation_eq_vector_series
+#print axioms TGLV351.baseDualEvaluation_series_independent
+#print axioms TGLV351.baseFunctional_hasSum_positive_evaluation
+#print axioms TGLV351.baseDualEvaluation_eq_hasSum_series
+#print axioms TGLV351.baseFunctional_hasSum_square_norm
+#print axioms TGLV351.baseVectorFunctional_norm_le
+#print axioms TGLV351.exists_base_series_functional
+#print axioms TGLV351.ennreal_tsum_iSup_directed
+#print axioms TGLV351.baseDualEvaluation_input_zero
+#print axioms TGLV351.baseDualEvaluation_input_add
+#print axioms TGLV351.baseDualEvaluation_input_scale
+#print axioms TGLV351.baseDualEvaluation_input_mono
+#print axioms TGLV351.baseDualEvaluation_input_normal
+#print axioms TGLV351.baseDualEvaluation_eq_dual_integral
+#print axioms TGLV351.baseDualEvaluation_bounded_output
+#print axioms TGLV351.baseDualEvaluation_bimodule
+#print axioms TGLV351.baseDualEvaluation_family_faithful
+#print axioms TGLV351.baseDualEvaluation_averageSquare
+#print axioms TGLV351.baseDualEvaluation_unit_infinite
+#print axioms TGLV351.positive_base_functional_real_mono
+#print axioms TGLV351.baseSeriesFunctional_positive
+#print axioms TGLV351.baseVectorFunctional_normal
+#print axioms TGLV351.baseSeriesFunctional_normal
+#print axioms TGLV350.Regular.scaledResolventCoordinate
+#print axioms TGLV350.Regular.scaledResolventDampingFactor
+#print axioms TGLV350.Regular.scaledResolventDenominator_scalar_pos
+#print axioms TGLV350.Regular.scaledResolventCoordinate_complement
+#print axioms TGLV350.Regular.scaledResolventCoordinate_ratio
+#print axioms TGLV350.Regular.scaledResolventCoordinate_damping
+#print axioms TGLV350.Regular.scaledResolventCoordinate_phase
+#print axioms TGLV350.Regular.complex_cfc_selfadjoint_intertwines
+#print axioms TGLV350.Regular.resolventDampingOperator_intertwines
+#print axioms TGLV350.Regular.resolventPhaseOperator_intertwines
+#print axioms TGLV350.Regular.resolventImaginaryPower_intertwines
+#print axioms TGLV350.Regular.positive_contraction_spectrum_bounds
+#print axioms TGLV350.Regular.scaledResolventDenominator_real_cfc
+#print axioms TGLV350.Regular.scaledResolventCoordinate_cfc
+#print axioms TGLV350.Regular.scaledResolventCoordinate_continuousOn_spectrum
+#print axioms TGLV350.Regular.scaledResolventDampingFactor_continuousOn_spectrum
+#print axioms TGLV350.Regular.scaledResolventDampingOperator
+#print axioms TGLV350.Regular.scaledResolventDampingOperator_isUnit
+#print axioms TGLV350.Regular.scaledPositiveResolvent_damping
+#print axioms TGLV350.Regular.scaledPositiveResolvent_phase
+#print axioms TGLV350.Regular.scaledResolventDamping_denseRange
+#print axioms TGLV350.Regular.resolventImaginaryPower_scaled_intertwining
+#print axioms TGLV350.Regular.scalarTomitaResolvent_complement_injective
+#print axioms TGLV350.Regular.scalarTomitaImaginaryPower
+#print axioms TGLV350.Regular.scalarTomitaImaginaryPower_damping
+#print axioms TGLV350.Regular.scalarTomitaImaginaryPower_unique
+#print axioms TGLV350.Regular.scalarTomitaImaginaryPower_zero
+#print axioms TGLV350.Regular.scalarTomitaImaginaryPower_add
+#print axioms TGLV350.Regular.scalarTomitaImaginaryPower_strongly_continuous
+#print axioms TGLV350.Regular.scalarTomitaImaginaryPower_inverse
+#print axioms TGLV350.Regular.matrixUnit_imaginaryPower_right_scaling
+#print axioms TGLV350.Regular.scalarTomitaImaginaryPower_regular_right_commutes
+#print axioms TGLV350.Regular.scalarTomitaImaginaryPower_polar_commutes
+#print axioms TGLV350.Regular.scalarTomitaImaginaryPower_polar_conjugate
+#print axioms TGLV350.Regular.scalarTomitaImaginaryPower_polar_operator
+#print axioms TGLV351.scalarWeight_square_finite_wot_closure
+#print axioms TGLV351.scalarWeight_unit_not_square_finite
+#print axioms TGLV350.Regular.regularFlowField
+#print axioms TGLV350.Regular.regularFlowField_lift_star
+#print axioms TGLV350.Regular.regularFlowField_lift_mul
+#print axioms TGLV350.Regular.regularFlowField_lift_zero
+#print axioms TGLV350.Regular.regularFlowAbsorptionUnitary
+#print axioms TGLV350.Regular.regularUnitary_shift_conjugate
+#print axioms TGLV350.Regular.scalarGNSCutMap_weight_embedding
+#print axioms TGLV350.Regular.scalarWeightGNSEmbedding_of_cut_actions
+#print axioms TGLV350.Regular.scalarWeightGNSEmbedding_closed_of_bounded_strong
+#print axioms TGLV350.Regular.shift_schwartz_toLp
+#print axioms TGLV350.Regular.fourier_shift_schwartz
+#print axioms TGLV350.Regular.fourier_shift
+#print axioms TGLV350.Regular.matrixUnit_imaginaryPower_left_scaling
+#print axioms TGLV350.Regular.scalarTomitaImaginaryPower_regular_left_commutes
+#print axioms TGLV350.Regular.scalarRightAction_regular
+#print axioms TGLV350.Regular.scalarRightAction_closed_of_bounded_strongStar
+#print axioms TGLV350.Regular.realScalarMultiplier_nonneg
+#print axioms TGLV350.Regular.realScalarMultiplier_complement
+#print axioms TGLV350.Regular.realScalarMultiplier_le_one
+#print axioms TGLV350.Regular.regularSpectralCoordinates
+#print axioms TGLV350.Regular.regularSpectralResolvent
+#print axioms TGLV350.Regular.regularSpectralResolvent_nonneg
+#print axioms TGLV350.Regular.regularSpectralResolvent_le_one
+#print axioms TGLV350.Regular.regularSpectralResolvent_injective
+#print axioms TGLV350.Regular.regularSpectralResolvent_complement_injective
+#print axioms TGLV350.Regular.regularPositiveGenerator
+#print axioms TGLV350.Regular.regularPositiveGenerator_closed
+#print axioms TGLV350.Regular.regularPositiveGenerator_domain_dense
+#print axioms TGLV350.Regular.regularPositiveGenerator_selfadjoint
+#print axioms TGLV350.Regular.regularPositiveGenerator_positive
+#print axioms TGLV350.Regular.regularPositiveGenerator_zero_kernel
+#print axioms TGLV350.Regular.matrixUnit_regular_core_conjugation
+#print axioms TGLV350.Regular.matrixUnit_imaginaryPower_base_scaling
+#print axioms TGLV350.Regular.scalarTomitaImaginaryPower_core_conjugation
+#print axioms TGLV350.Regular.scalarWeight_square_eq_iSup_averages
+#print axioms TGLExt.TGLCoupling
+#print axioms TGLExt.TGLCoupling.alpha
+#print axioms TGLExt.TGLCoupling.alpha_pos
+#print axioms TGLExt.TGLCoupling.alpha_lt_one
+#print axioms TGLExt.TGLCoupling.beta_eq_alpha_exp
+#print axioms TGLExt.TGLCoupling.beta_eq_alpha_radical
+#print axioms TGLExt.TGLCoupling.reflection_weight
+#print axioms TGLExt.TGLCoupling.reflection_cost
+#print axioms TGLExt.TGLCoupling.reflection_rejects_bare_alpha
+#print axioms TGLExt.the_same_beta_reads_three_faces
+#print axioms TGLV350.Regular.ScalarPolarRight
+#print axioms TGLV350.Regular.scalarPolarRight_iff_cuts
+#print axioms TGLV350.Regular.scalarPolarRight_zero
+#print axioms TGLV350.Regular.scalarPolarRight_one
+#print axioms TGLV350.Regular.scalarPolarRight_add
+#print axioms TGLV350.Regular.scalarPolarRight_smul
+#print axioms TGLV350.Regular.scalarPolarRight_mul
+#print axioms TGLV350.Regular.scalarPolarRightAlgebra
+#print axioms TGLV350.Regular.scalarPolarRight_isClosed
+#print axioms TGLV350.Regular.scalarPolarRightAlgebra_isClosed
+#print axioms TGLV350.Regular.scalarPolarRightAlgebra_regular_mem
+#print axioms TGLV350.Regular.scalarRightAction_cfc
+#print axioms TGLV350.Regular.compactScalarField
+#print axioms TGLV350.Regular.compactScalarRepresentation
+#print axioms TGLV350.Regular.compactScalarRepresentation_ae
+#print axioms TGLV350.Regular.compactScalarRepresentation_coordinate
+#print axioms TGLV350.Regular.realScalarMultiplier_cfc_ae
+#print axioms TGLV350.Regular.sigmoid_resolvent_equation_iff
+#print axioms TGLV350.Regular.regularSpectralResolvent_coordinate
+#print axioms TGLV350.Regular.regularPositiveGenerator_graph_iff
+#print axioms ChatgptAudit.FLRW.flrwMetric
+#print axioms ChatgptAudit.FLRW.flrwInverse
+#print axioms ChatgptAudit.FLRW.flrwHubble
+#print axioms ChatgptAudit.FLRW.flrw_metric_lorentz
+#print axioms ChatgptAudit.FLRW.flrw_inverse_left
+#print axioms ChatgptAudit.FLRW.flrw_inverse_right
+#print axioms ChatgptAudit.FLRW.flrw_metric_inverse
+#print axioms ChatgptAudit.FLRW.coordinatePartial_time_function
+#print axioms ChatgptAudit.FLRW.flrw_metric_smooth
+#print axioms ChatgptAudit.FLRW.flrw_inverse_smooth
+#print axioms ChatgptAudit.FLRW.flrw_metric_jet
+#print axioms ChatgptAudit.FLRW.flrwConnectionForm
+#print axioms ChatgptAudit.FLRW.flrwConnection
+#print axioms ChatgptAudit.FLRW.flrw_connection
+#print axioms ChatgptAudit.FLRW.flrw_connection_form_jet
+#print axioms ChatgptAudit.FLRW.flrw_connection_form_ricci
+#print axioms ChatgptAudit.FLRW.flrw_ricci
+#print axioms ChatgptAudit.FLRW.flrw_einstein_tensor
+#print axioms ChatgptAudit.FLRW.flrw_einstein_00
+#print axioms ChatgptAudit.FLRW.flrw_einstein_spatial
+#print axioms ChatgptAudit.FLRW.flrw_null_ricci
+#print axioms ChatgptAudit.FLRW.flrwStress
+#print axioms ChatgptAudit.FLRW.flrw_stress_symmetric
+#print axioms ChatgptAudit.FLRW.flrw_stress_differentiable
+#print axioms ChatgptAudit.FLRW.flrw_stress_jet
+#print axioms ChatgptAudit.FLRW.flrw_stress_divergence
+#print axioms ChatgptAudit.FLRW.flrw_continuity
+#print axioms ChatgptAudit.FLRW.flrw_friedmann_first
+#print axioms ChatgptAudit.FLRW.flrw_acceleration
+#print axioms ChatgptAudit.FLRW.flrw_friedmann_second
+#print axioms ChatgptAudit.FLRW.flrw_friedmann_from_general_metric
+#print axioms ChatgptAudit.FLRW.flrw_newton_coefficient
+#print axioms TGLV350.Regular.resolventPhaseFunction_sigmoid
+#print axioms TGLV350.Regular.sigmoidMultiplier_imaginaryPower
+#print axioms TGLV350.Regular.regularSpectralCoordinates_character
+#print axioms TGLV350.Regular.regularPositiveGenerator_imaginaryPower
+#print axioms TGLV350.Regular.character_commutation_realScalarMultiplier
+#print axioms TGLV350.Regular.regularSpectralResolvent_mem
+#print axioms TGLV350.Regular.regularPositiveGenerator_commutant_graph
+#print axioms TGLV350.Regular.regularAverage_polar_approximants
+#print axioms TGLV350.Regular.regularAverage_mem_scalarPolarRightAlgebra
+#print axioms ChatgptAudit.FLRW.SectorFluid
+#print axioms ChatgptAudit.FLRW.SectorFluid.totalRho
+#print axioms ChatgptAudit.FLRW.SectorFluid.totalPressure
+#print axioms ChatgptAudit.FLRW.SectorFluid.enthalpy
+#print axioms ChatgptAudit.FLRW.SectorFluid.wEff
+#print axioms ChatgptAudit.FLRW.SectorFluid.correctedRho
+#print axioms ChatgptAudit.FLRW.SectorFluid.correctedTotalRho
+#print axioms ChatgptAudit.FLRW.SectorFluid.correctedTotalPressure
+#print axioms ChatgptAudit.FLRW.SectorFluid.enthalpy_eq
+#print axioms ChatgptAudit.FLRW.SectorFluid.sector_rescaling_preserves_continuity
+#print axioms ChatgptAudit.FLRW.SectorFluid.corrected_closure
+#print axioms ChatgptAudit.FLRW.SectorFluid.weighted_continuity
+#print axioms ChatgptAudit.FLRW.SectorFluid.total_continuity
+#print axioms ChatgptAudit.FLRW.SectorFluid.corrected_rho_deriv
+#print axioms ChatgptAudit.FLRW.SectorFluid.corrected_pressure_differentiable
+#print axioms ChatgptAudit.FLRW.SectorFluid.corrected_continuity
+#print axioms ChatgptAudit.FLRW.SectorFluid.effective_enthalpy
+#print axioms ChatgptAudit.FLRW.SectorFluid.multiplicative_closure
+#print axioms ChatgptAudit.FLRW.SectorFluid.three_sector_closure
+#print axioms ChatgptAudit.FLRW.sector_covariant_conservation
+#print axioms ChatgptAudit.FLRW.tgl_friedmann_from_sector_closure
+#print axioms ChatgptAudit.FLRW.tgl_friedmann_zero_cosmological
+#print axioms TGLV350.Regular.regularSineWindowCore
+#print axioms TGLV350.Regular.regularSineWindowCore_right
+#print axioms TGLV350.Regular.regularSineWindowCore_spectral
+#print axioms TGLV350.Regular.regularSineResolvent
+#print axioms TGLV350.Regular.regularSineResolvent_cfc
+#print axioms TGLV350.Regular.regularSineResolvent_right
+#print axioms TGLV350.Regular.sine_rescaled_tendsto
+#print axioms TGLV350.Regular.regularSineResolvent_nonneg
+#print axioms TGLV350.Regular.regularSineResolvent_norm_le
+#print axioms TGLV350.Regular.regularSineResolvent_tendsto
+#print axioms TGLV350.Regular.regularSpectralResolvent_right
+#print axioms TGLV350.Regular.fourierInv_shift_schwartz
+#print axioms TGLV350.Regular.fourierInv_shift
+#print axioms TGLV350.Regular.fourier_characterMultiplier
+#print axioms TGLV350.Regular.operatorFieldLift_commutes_character
+#print axioms TGLV350.Regular.regularSpectralCoordinates_dual
+#print axioms TGLV350.Regular.regularPositiveGenerator_dual_graph
+#print axioms TGLV350.Regular.regularPositiveGenerator_dual_scaling
+#print axioms TGLV350.Regular.scalarWeightStar_fixed_pair_of_polarRight
+#print axioms TGLV350.Regular.regularAverage_square_fixed_pair
+#print axioms TGLV350.Regular.regularInverseGeneratorCutoff
+#print axioms TGLV350.Regular.regularInverseGeneratorCutoff_mem
+#print axioms TGLV350.Regular.regularInverseGeneratorCutoff_nonneg
+#print axioms TGLV350.Regular.regularInverseGeneratorCutoff_le
+#print axioms TGLV350.Regular.regularInverseGeneratorCutoff_one
+#print axioms TGLV350.Regular.regularInverseGeneratorCutoff_graph
+#print axioms TGLV350.Regular.regularInverseGeneratorCutoff_dual
+#print axioms TGLV350.Regular.regularInverseGeneratorCutoff_graph_iff
+#print axioms TGLV350.Regular.scalarTomitaImaginaryPower_fixed_of_fixed_pair
+#print axioms TGLV350.Regular.regularAverage_square_modular_fixed
+#print axioms ChatgptAudit.FLRW.hubbleArea
+#print axioms ChatgptAudit.FLRW.entropyFactor
+#print axioms ChatgptAudit.FLRW.entropy_factor_pos
+#print axioms ChatgptAudit.FLRW.hubble_area_derivative
+#print axioms ChatgptAudit.FLRW.HubbleHorizonInput
+#print axioms ChatgptAudit.FLRW.modified_clausius_coefficient
+#print axioms ChatgptAudit.FLRW.tgl_second_friedmann_from_clausius
+#print axioms ChatgptAudit.FLRW.radius_free_flux_consequence
+#print axioms ChatgptAudit.FLRW.variable_entropy_derivative
+#print axioms ChatgptAudit.FLRW.tgl_first_friedmann_from_primitive
+#print axioms ChatgptAudit.FLRW.tgl_first_friedmann_constant_w
+#print axioms ChatgptAudit.FLRW.variable_factor_first_equation_defect
+#print axioms ChatgptAudit.FLRW.SectorFluid.secondMoment
+#print axioms ChatgptAudit.FLRW.SectorFluid.sectorVariance
+#print axioms ChatgptAudit.FLRW.SectorFluid.fluxFactor
+#print axioms ChatgptAudit.FLRW.SectorFluid.corrected_enthalpy
+#print axioms ChatgptAudit.FLRW.SectorFluid.centered_variance
+#print axioms ChatgptAudit.FLRW.SectorFluid.sector_variance_nonneg
+#print axioms ChatgptAudit.FLRW.SectorFluid.sector_variance_zero_iff
+#print axioms ChatgptAudit.FLRW.the_two_routes_differ
+#print axioms ChatgptAudit.FLRW.the_two_routes_equal_iff
+#print axioms ChatgptAudit.FLRW.the_two_hubble_rates_differ
+#print axioms ChatgptAudit.FLRW.the_entropy_factor_that_reproduces_the_sector_closure
+#print axioms ChatgptAudit.FLRW.sector_clausius_matches_closed_rate
+#print axioms ChatgptAudit.FLRW.common_w_flux_factor
+#print axioms ChatgptAudit.FLRW.zero_flux_has_no_unique_factor
+#print axioms ChatgptAudit.FLRW.matter_vacuum_variance
+#print axioms ChatgptAudit.FLRW.nonzero_flux_support_does_not_characterize_equality
+#print axioms TGLV350.Regular.inverseCutoffFunction
+#print axioms TGLV350.Regular.inverseCutoffFunction_continuous
+#print axioms TGLV350.Regular.inverseCutoffFunction_sigmoid
+#print axioms TGLV350.Regular.regularInverseGeneratorCutoff_cfc
+#print axioms TGLV350.Regular.regularInverseGeneratorCutoff_right
+#print axioms TGLV350.Regular.scalarRightAction_sqrt
+#print axioms TGLV350.Regular.regularInverseGeneratorCutoff_sqrt_right
+#print axioms TGLV350.Regular.scalarTomitaImaginaryPower_eq_regular_implementation
+#print axioms ChatgptAudit.FLRW.coupling_eq_sin_sq
+#print axioms ChatgptAudit.FLRW.the_angle_reaches_the_metric
+#print axioms ChatgptAudit.FLRW.the_passage
+#print axioms ChatgptAudit.FLRW.the_angle_reads_sector_first
+#print axioms TGL.AreaScale.halfNat_over_two_faces_eq_quarter
+#print axioms TGLExt.the_pair_still_needs_its_hypotheses
+#print axioms TGLV350.Regular.regularSpectralResolvent_commutes_regular
+#print axioms TGLV350.Regular.regularInverseCutoffSqrt_commutes_regular
+#print axioms TGLV350.Regular.regularInverseCutoffSqrt_commutes_average
+#print axioms TGLV350.Regular.scalarWeight_right_perturbed_norm
+#print axioms TGLV350.Regular.scalarWeight_inverseCutoff_perturbed_norm
+#print axioms TGLV350.Regular.scalarWeight_right_perturbed_mono
+#print axioms TGLV350.Regular.scalarWeight_right_perturbed_mono_all_squares
+#print axioms TGLV350.Regular.scalarWeight_right_perturbed_mono_all_positive
+#print axioms TGLV350.Regular.regularInverseGeneratorCutoff_commutes
+#print axioms TGLV350.Regular.regularInverseGeneratorCutoff_resolvent_identity
+#print axioms TGLV350.Regular.regularInverseGeneratorCutoff_antitone
+#print axioms TGLV350.Regular.scalarWeight_inverseCutoff_antitone
+#print axioms TGLV350.Regular.scalarInverseCutoffWeight
+#print axioms TGLV350.Regular.scalarInverseCutoffWeight_zero
+#print axioms TGLV350.Regular.scalarInverseCutoffWeight_add
+#print axioms TGLV350.Regular.scalarInverseCutoffWeight_scale
+#print axioms TGLV350.Regular.scalarInverseCutoffWeight_mono
+#print axioms TGLV350.Regular.scalarInverseCutoffWeight_normal
+#print axioms TGLV350.Regular.scalarInverseCutoffWeight_antitone
+#print axioms TGLV350.Regular.scalarInverseCutoffWeight_sequence_mono
+#print axioms TGLV350.Regular.scalarInverseLimitWeight
+#print axioms TGLV350.Regular.scalarInverseLimitWeight_zero
+#print axioms TGLV350.Regular.scalarInverseCutoffWeight_le_limit
+#print axioms TGLV350.Regular.scalarInverseLimitWeight_add
+#print axioms TGLV350.Regular.scalarInverseLimitWeight_scale
+#print axioms TGLV350.Regular.scalarInverseLimitWeight_mono
+#print axioms TGLV350.Regular.scalarInverseLimitWeight_normal
+#print axioms TGLV350.Regular.scalarInverseCutoffWeight_one_faithful
+#print axioms TGLV350.Regular.scalarInverseLimitWeight_faithful
+#print axioms TGLV350.Regular.scalarInverseLimitWeight_square_le_of_strong
+#print axioms TGLV350.Regular.scalarInverseLimitWeight_right_average_le
+#print axioms TGLV350.Regular.scalarInverseLimitWeight_sandwich_le
+#print axioms TGLV350.Regular.scalarInverseLimitWeight_tracial_iff_core
+#print axioms TGLV350.Regular.regularInverseCutoffSqrt_dual
+#print axioms TGLV350.Regular.scalarInverseCutoffWeight_dual
+#print axioms TGLV350.Regular.scalarInverseLimitWeight_scaled_sequence
+#print axioms TGLV350.Regular.scalarInverseLimitWeight_dual
+#print axioms TGLV350.Regular.scalarTomitaResolvent_double_cut_balance
+#print axioms TGLV350.Regular.regularDomainCut
+#print axioms TGLV350.Regular.regularDomainCut_right
+#print axioms TGLV350.Regular.regularDomainCut_bounds
+#print axioms TGLV350.Regular.regularDomainCut_commutes
+#print axioms TGLV350.Regular.regularDomainCut_inverse_product
+#print axioms TGLV350.Regular.regularDomainCut_product_bound
+#print axioms TGLV350.Regular.regularDomainCut_tendsto_identity
+#print axioms TGLV350.Regular.scalarInverseLimitWeight_domainCut_bound
+#print axioms TGLV350.Regular.scalarInverseLimitWeight_domainCut_finite
+#print axioms TGLV350.Regular.scalarInverseLimitWeight_square_finite_wot_closure
+#print axioms TGLV350.Regular.scalarInverseLimitWeight_tracial
+#print axioms TGLV350.Regular.scalarInverseLimitWeight_finite_contractions
+#print axioms TGLV350.Regular.scalarInverseLimitWeight_finite_minorants
+#print axioms TGLV350.Regular.scalarInverseLimitTraceData
+#print axioms TGLV354.boundedAbsolute_norm
+#print axioms TGLV354.boundedAbsolute_range
+#print axioms TGLV354.boundedPolar
+#print axioms TGLV354.boundedPolar_mul_absolute
+#print axioms TGLV354.boundedPolar_norm
+#print axioms TGLV354.boundedPolar_apply_eq_zero_iff
+#print axioms TGLV354.boundedPolar_star_mul
+#print axioms TGLV354.boundedPolar_initial_support
+#print axioms TGLV354.boundedPolar_mul_star
+#print axioms TGLV354.boundedPolar_commutes
+#print axioms TGLV354.boundedPolar_mem
+#print axioms TGLV354.TraceCompletion.selfAdjoint_pow_ker
+#print axioms TGLV354.TraceCompletion.selfAdjoint_pow_closedRange
+#print axioms TGLV354.TraceCompletion.selfAdjoint_factor_supports
+#print axioms TGLV354.TraceCompletion.boundedPolar_intertwines
+#print axioms TGLV354.TraceCompletion.boundedPolar_transports_shift_factors
+#print axioms TGLExt.ActionCouplingData
+#print axioms TGLExt.the_same_beta_reads_four_faces
+#print axioms TGLExt.ActionCouplingData.curvatureTerm
+#print axioms TGLExt.ActionCouplingData.fieldOperator
+#print axioms TGLExt.ActionCouplingData.modularSource
+#print axioms TGLExt.ActionCouplingData.EOM
+#print axioms TGLExt.ActionCouplingData.eom_at
+#print axioms TGLExt.ActionCouplingData.modular_source_ignores_xi
+#print axioms TGLExt.ActionCouplingData.modular_coefficient_unique
+#print axioms TGLExt.ActionCouplingData.eom_rejects_changed_coefficient
+#print axioms TGLExt.ActionCouplingData.eom_rejects_changed_generator
+#print axioms TGLExt.ActionCouplingData.eom_rejects_missing_curvature
+#print axioms TGLExt.ActionCouplingData.zero_source_hides_coefficient
+#print axioms TGLExt.ActionCouplingControls.scalarModel
+#print axioms TGLExt.ActionCouplingControls.unitSection
+#print axioms TGLExt.ActionCouplingControls.unitSection_ne_zero
+#print axioms TGLExt.ActionCouplingControls.scalar_model_field
+#print axioms TGLExt.ActionCouplingControls.scalar_model_eom
+#print axioms TGLExt.ActionCouplingControls.nonzero_model_for_every_xi
+#print axioms TGLExt.ActionCouplingControls.scalar_model_rejects_wrong_gain
+#print axioms TGLExt.ActionCouplingControls.data_alone_does_not_supply_eom
+#print axioms TGLExt.ActionCouplingControls.reject_sign_flip
+#print axioms TGLExt.ActionCouplingControls.reject_xi_as_beta
+#print axioms TGLExt.ActionCouplingControls.reject_bare_alpha
+#print axioms TGLExt.ActionCouplingControls.xi_is_not_selected
+#print axioms TGLExt.ActionCouplingControls.zero_source_not_unique
+#print axioms ChatgptAudit.FLRW.tgl_friedmann_from_sector_closure_additive
+#print axioms TGLV350.Regular.regularTrace_finite_positive_below
+#print axioms TGLV350.Regular.kernel_projection_mem_vonNeumann
+#print axioms TGLV354.TraceCompletion.scalarTrace_transport_of_support
+#print axioms TGLV354.TraceCompletion.ShiftRelated.refl
+#print axioms TGLV354.TraceCompletion.ShiftRelated.trans
+#print axioms TGLV354.TraceCompletion.ShiftRelated.cyclic
+#print axioms TGLV354.TraceCompletion.ShiftRelated.star_transport
+#print axioms TGLV354.TraceCompletion.cyclicTraceCandidate
+#print axioms TGLV354.TraceCompletion.positiveTrace_le_cyclicTraceCandidate
+#print axioms TGLV354.TraceCompletion.cyclicTraceCandidate_related
+#print axioms TGLV354.TraceCompletion.cyclicTraceCandidate_cyclic
+#print axioms TGLV354.TraceCompletion.cyclicTraceCandidate_star
+#print axioms TGLV354.TraceCompletion.cyclicTraceCandidate_dual
+#print axioms TGLV354.TraceCompletion.cyclicTraceCandidate_zero
+#print axioms TGLV354.TraceCompletion.cyclicTraceCandidate_positive_faithful
+#print axioms TGLV354.TraceCompletion.cyclicTraceCandidate_positive_of_compatibility
+#print axioms TGLV354.TraceCompletion.ShiftRelated
+#print axioms TGLV354.TraceCompletion.ShiftRelated.symm
+#print axioms TGLV354.TraceCompletion.ShiftRelated.map
+#print axioms TGLV354.TraceCompletion.positiveShift_trace_compatible
+#print axioms TGLV354.TraceCompletion.cyclicTraceCandidate_positive
+#print axioms TGLV350.Regular.positive_operator_has_threshold_projection
+#print axioms TGLV350.Regular.scalarTrace_finite_subprojection_exists
+#print axioms TGLV350.Regular.regularCore_matrix_corner
+#print axioms TGLV350.Regular.scalarTrace_finite_equal_split
+#print axioms TGLV350.Regular.scalarTrace_finite_split_support
+#print axioms TGLV350.Regular.scalarTrace_dual_calibration
+#print axioms TGLV350.Regular.scalarTrace_normalized_split_exists
+#print axioms TGLV350.Regular.regularNormalizedFaces
+#print axioms TGLV350.Regular.regularFiniteSupport_trace
+#print axioms TGLV350.Regular.regularMinimalLock_spectral_zero
+#print axioms TGLV350.Regular.regularMinimalLock_relative_gap
+#print axioms TGLV350.Regular.regularMinimalLockGraph_selfadjoint
+#print axioms TGLV350.Regular.regularMinimalLockGraph_closed
+#print axioms TGLV350.Regular.regularMinimalLockGraph_affiliated
+#print axioms TGLV354.coreProjectionSpaces
+#print axioms TGLV354.CoreProjection.operator_mem
+#print axioms TGLV354.CoreProjection.operator_le_iff
+#print axioms TGLV354.CoreProjection.operator_ofOperator
+#print axioms TGLV354.coreProjectionTrace
+#print axioms TGLV350.Regular.positiveTraceReader
+#print axioms TGLV350.Regular.positiveTraceReader_positive
+#print axioms TGLV350.Regular.regularContinuousCorner
+#print axioms TGLV350.Regular.regularContinuousCorner_readings
+#print axioms TGLV350.Regular.regularMinimalLock_breuer_kernel
+#print axioms TGLV354.projection_join_comparison
+#print axioms TGLV354.coreProjectionTrace_subadd
+#print axioms TGLV354.coreProjectionTraceSubadditive
+#print axioms TGLV354.TraceCompletion.regularLegacyCore
+#print axioms TGLV354.TraceCompletion.regularLegacyThreeLocks
+#print axioms TGLV354.TraceCompletion.regularLegacyThreeLocks_concrete
+#print axioms TGLV354.TraceCompletion.regularModularRealization
+#print axioms TGLV354.TraceCompletion.regularFullWitness
+#print axioms TGLV350.Regular.positiveTraceReader_not_cyclic
+#print axioms TGLV350.Regular.regularFiniteSupport
+#print axioms TGLV350.Regular.regularFiniteSupport_projection
+#print axioms TGLV350.Regular.regularFiniteSupport_ne_zero
+#print axioms TGLV350.Regular.regularMinimalLock
+#print axioms TGLV350.Regular.regularMinimalLock_mem
+#print axioms TGLV350.Regular.regularMinimalLock_selfadjoint
+#print axioms TGLV350.Regular.regularMinimalLock_annihilation
+#print axioms TGLV350.Regular.regularMinimalLock_maximal
+#print axioms TGLV350.Regular.regularMinimalLock_ker
+#print axioms TGLV350.Regular.regularMinimalLockGraph
+#print axioms TGLV350.Regular.regularMinimalLockGraph_domain
+#print axioms TGLV354.regularSupportProjection
+#print axioms TGLV354.regularSusyData
+#print axioms TGLV354.regularSusy_gives_breuer
+#print axioms TGLV354.regularSusy_operator_identifications
+#print axioms TGLV354.CoreProjection
+#print axioms TGLV354.CoreProjection.operator
+#print axioms TGLV354.CoreProjection.ofOperator
+#print axioms TGLV354.CoreProjection.operator_bot
+#print axioms TGLV354.CoreProjection.sup_apply_eq_zero
+#print axioms TGLV354.CoreProjection.positive
+-- v356: os 3 prints retirados na v355 por sonda errada, restaurados (os nomes existem e ja sao impressos por fonte proprio)
+#print axioms TGLV350.Regular.antiunitaryConjugate_commutation_flip
+#print axioms TGLV350.Regular.antiunitaryConjugate_involutive
+#print axioms TGLV350.Regular.antiunitaryConjugate_tendsto
+-- v356: verificacoes de TIPO EXATO dos termos de A2 (AuditReaderContracts012 da bancada)
+open TGLExt TGLV350.Regular TGLExt.V350Continuous
+open TGL.ModularRealization TGLV354 TGLV354.TraceCompletion
+#check (regularLegacyCore : ContinuousCoreData theSpecificAQFTWitness towerWedgeData)
+#check (regularLegacyThreeLocks :
+  ThreeLocksCoreData theSpecificAQFTWitness towerWedgeData regularLegacyCore)
+#check (regularModularRealization : TGLModularRealization theSpecificAQFTWitness)
+#check (regularFullWitness : FullTGLWitness)
+#check (regularSusyData : (P : SiteProfile) →
+  SusyRelativeData (CoreProjection (regularCoreAlgebra P)) (coreProjectionTraceSubadditive P))
+
