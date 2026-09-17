@@ -147,6 +147,32 @@ def main() -> int:
         L.append("| %s | `%s` | %s | %s | %s |" % row)
     L.append("")
     L.append("*The intermediate `um.py` copies and their stdouts live outside the repository (`the_boundary_BACKUPS/um_v35N_<sha16>`); the stdouts v351\u2013v357 are in `rodadas/`. PROVED \u2260 CONFIRMED.*")
+    # custódia v364 (17/09/2026, sessão do site): o arco v358->v364, ao lado; sha16 e rito LIDOS do diário da linhagem
+    diario = (d / "MEMORIA_DA_LINHAGEM.md").read_text(encoding="utf-8") if (d / "MEMORIA_DA_LINHAGEM.md").is_file() else ""
+    arco364 = {}
+    for mm in re.finditer(r"^## [^\n]*\*\*(v3(?:5[89]|6[0-4])) SELADA[^*\n]*\*\*[^\n]*\n", diario, re.M):
+        fim = diario.find("\n## ", mm.end())
+        bl = diario[mm.end(): fim if fim > 0 else len(diario)]
+        sh = re.findall(r"`um\.py` sha16 `([0-9a-f]{16})`", bl)
+        ri = re.findall(r"\*\*(\d+)/(\d+)\*\*", bl)
+        arco364[mm.group(1)] = (sh[-1] if sh else "?", ("%s/%s" % ri[-1]) if ri else "?")
+    if arco364:
+        L.append("")
+        L.append("### The arc v358\u2192v364 \u00b7 o arco `[REAL \u2014 sha16 and rite read from MEMORIA_DA_LINHAGEM.md; byte copies of the intermediates outside the repository]`")
+        L.append("")
+        L.append("| version | `um.py` sha16 | rite | round | what entered |")
+        L.append("|---|---|---|---|---|")
+        for v, rnd, txt in (("v358", "intermediate", "the modular diamond and the non-geometric remainder (DIAMANTE_MODULAR V2, typed by the bench): R = \u2212h_ab; two walls; the full modular reading \u2260 the last-site reading; physical geometricity [OPEN]"),
+                            ("v359", "intermediate", "the centralizer and the localization of the diamond (kernel, recompiled 2/2); the recognition engine ported byte by byte into `prove_decision_commutation`; GR as the classical limit (erratum beside the \u201cringdown against GR\u201d framing)"),
+                            ("v360", "NOT CUSTODIED", "its exclusion record named private material of the operator; v361 replaces it \u2014 no file of v360 enters the repository or the backups"),
+                            ("v361", "intermediate", "everything enters (2): the bench archive measured and accounted inside `um.py` (materialized by the rite in `bancada_corpus/`); the numerical scripts of the diamond reproduced leaf by leaf; the consumers of the two reading modes"),
+                            ("v362", "intermediate", "everything enters (3): the Lean of the bench \u2014 `GeometricSectorObstruction` and `Order005Algebra` in the kernel; the negative and positive controls of the bench executed against this kernel"),
+                            ("v363", "intermediate", "everything enters (4): the joint probability V2 (a grid, not one number; boolean False) and the D1 V3 protocol pre-registered (`AWAITING_EXTERNAL_PIPELINE`)"),
+                            ("v364", "COMPLETE", "what could already be solved: the torsion supplier in closed form (`TGLExt.TracialTorsion`); the small diamond on the Dirac lattice (Cadamuro\u2013Fr\u00f6b\u2013Minz reproduced; the first non-geometric coefficient is antilocal) [REAL in the model]; the D1 V3 pipeline built blind, injection\u2013recovery passed, LOCKED awaiting the operator\u2019s line; the posited One (`TGLExt.UmPosto`): the interface missing in H2 is a covariant inscription; erratum beside: H3 reduces to H2")):
+            sh, ri = arco364.get(v, ("?", "?"))
+            L.append("| %s | `%s` | %s | %s | %s |" % (v, sh, ri, rnd, txt))
+        L.append("")
+        L.append("*The intermediate `um.py` copies v358, v359, v361\u2013v363 and their stdouts live outside the repository (`the_boundary_BACKUPS/um_v3NN_<sha16>`); the stdouts v358, v359, v361\u2013v364 are in `rodadas/`; `bancada_corpus/` is derived (the rite materializes it from `um.py`) and is not in the repository. PROVED \u2260 CONFIRMED.*")
     L.append("")
     L.append("## What is PROVED · o que está PROVADO `[REAL — theorem in kernel]`")
     L.append("")

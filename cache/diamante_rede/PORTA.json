@@ -1,0 +1,70 @@
+{
+  "porta": "cache/diamante_rede",
+  "porta_id": "cache/diamante_rede",
+  "titulo": "cache/diamante_rede",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-09-17T13:04:09Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "cache",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [
+    {
+      "nome": "dados",
+      "caminho": "cache/diamante_rede/dados",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/PORTA.json",
+      "total_arquivos": 83
+    },
+    {
+      "nome": "logs",
+      "caminho": "cache/diamante_rede/logs",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/logs/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/logs/PORTA.json",
+      "total_arquivos": 3
+    },
+    {
+      "nome": "scripts",
+      "caminho": "cache/diamante_rede/scripts",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/scripts/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/scripts/PORTA.json",
+      "total_arquivos": 4
+    }
+  ],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "DIAMANTE_REDE_RESULTADO.json",
+      "caminho": "cache/diamante_rede/DIAMANTE_REDE_RESULTADO.json",
+      "papel": "resultado selado",
+      "descricao": "O diamante pequeno na rede (v364): o hamiltoniano modular do intervalo no vacuo do fermion de Dirac massivo 1+1 -- resultado lido por hash pelo um.py [REAL no modelo]",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/DIAMANTE_REDE_RESULTADO.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/DIAMANTE_REDE_RESULTADO.json",
+      "sha256_16": "4397713b6d513a82",
+      "bytes": 152229
+    },
+    {
+      "nome": "MANIFESTO_DIAMANTE_REDE.json",
+      "caminho": "cache/diamante_rede/MANIFESTO_DIAMANTE_REDE.json",
+      "papel": "resultado selado",
+      "descricao": "O diamante pequeno na rede (v364): manifesto com o sha256 de scripts e dados",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/MANIFESTO_DIAMANTE_REDE.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/MANIFESTO_DIAMANTE_REDE.json",
+      "sha256_16": "ceff8ab85b547d71",
+      "bytes": 9761
+    }
+  ],
+  "total_arquivos_nesta_pasta": 2,
+  "total_arquivos_com_subpastas": 92,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/diamante_rede",
+  "rodape": "gerado por script de git ls-files em 2026-09-17 -- nao editar a mao"
+}

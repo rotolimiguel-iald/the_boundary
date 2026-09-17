@@ -1,0 +1,68 @@
+{
+  "porta": "cache/diamante_rede/scripts",
+  "porta_id": "cache/diamante_rede/scripts",
+  "titulo": "cache/diamante_rede/scripts",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-09-17T13:04:09Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "cache/diamante_rede",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "analisa_rede.py",
+      "caminho": "cache/diamante_rede/scripts/analisa_rede.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/scripts/analisa_rede.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/scripts/analisa_rede.py",
+      "sha256_16": "02018a2248bfd0c4",
+      "bytes": 10934
+    },
+    {
+      "nome": "diamante_rede.py",
+      "caminho": "cache/diamante_rede/scripts/diamante_rede.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/scripts/diamante_rede.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/scripts/diamante_rede.py",
+      "sha256_16": "b8a81f5a6fe63174",
+      "bytes": 4279
+    },
+    {
+      "nome": "proto_tempo.py",
+      "caminho": "cache/diamante_rede/scripts/proto_tempo.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/scripts/proto_tempo.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/scripts/proto_tempo.py",
+      "sha256_16": "1081ff1a687839db",
+      "bytes": 1941
+    },
+    {
+      "nome": "rodada_massas_pequenas.py",
+      "caminho": "cache/diamante_rede/scripts/rodada_massas_pequenas.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/scripts/rodada_massas_pequenas.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/scripts/rodada_massas_pequenas.py",
+      "sha256_16": "64ad9c206ad7adb2",
+      "bytes": 751
+    }
+  ],
+  "total_arquivos_nesta_pasta": 4,
+  "total_arquivos_com_subpastas": 4,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/diamante_rede/scripts",
+  "rodape": "gerado por script de git ls-files em 2026-09-17 -- nao editar a mao"
+}

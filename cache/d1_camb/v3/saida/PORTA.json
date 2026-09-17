@@ -1,0 +1,68 @@
+{
+  "porta": "cache/d1_camb/v3/saida",
+  "porta_id": "cache/d1_camb/v3/saida",
+  "titulo": "cache/d1_camb/v3/saida",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-09-17T13:04:09Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "cache/d1_camb/v3",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "D1_CAMB_V3_AUTOVERIFICACAO.json",
+      "caminho": "cache/d1_camb/v3/saida/D1_CAMB_V3_AUTOVERIFICACAO.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/saida/D1_CAMB_V3_AUTOVERIFICACAO.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/d1_camb/v3/saida/D1_CAMB_V3_AUTOVERIFICACAO.json",
+      "sha256_16": "551e73b7ad4c946f",
+      "bytes": 2780
+    },
+    {
+      "nome": "D1_CAMB_V3_INJECAO.json",
+      "caminho": "cache/d1_camb/v3/saida/D1_CAMB_V3_INJECAO.json",
+      "papel": "resultado selado",
+      "descricao": "A V3 do D1 (v364): injecao e recuperacao (primario e com SH0ES) -- lido por hash pelo um.py",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/saida/D1_CAMB_V3_INJECAO.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/d1_camb/v3/saida/D1_CAMB_V3_INJECAO.json",
+      "sha256_16": "63efeaed5ecc291c",
+      "bytes": 67677
+    },
+    {
+      "nome": "D1_CAMB_V3_INJECAO_EMENDA.json",
+      "caminho": "cache/d1_camb/v3/saida/D1_CAMB_V3_INJECAO_EMENDA.json",
+      "papel": "resultado selado",
+      "descricao": "A V3 do D1 (v364): a emenda escrita depois da reprovacao da C livre (o fecho absorve C em rho_Lambda), sem rerodar e sem mexer no pipeline",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/saida/D1_CAMB_V3_INJECAO_EMENDA.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/d1_camb/v3/saida/D1_CAMB_V3_INJECAO_EMENDA.json",
+      "sha256_16": "faec13742bfab745",
+      "bytes": 3307
+    },
+    {
+      "nome": "D1_CAMB_V3_REAL_RECUSADO.json",
+      "caminho": "cache/d1_camb/v3/saida/D1_CAMB_V3_REAL_RECUSADO.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/saida/D1_CAMB_V3_REAL_RECUSADO.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/d1_camb/v3/saida/D1_CAMB_V3_REAL_RECUSADO.json",
+      "sha256_16": "f7f6bebe1aa9c7b4",
+      "bytes": 188
+    }
+  ],
+  "total_arquivos_nesta_pasta": 4,
+  "total_arquivos_com_subpastas": 4,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/d1_camb/v3/saida",
+  "rodape": "gerado por script de git ls-files em 2026-09-17 -- nao editar a mao"
+}

@@ -1011,3 +1011,15 @@ import TGLExt.V354ProjectionTraceSubadditivity
 import TGLExt.V354RegularLegacyWitness
 import TGLExt.V354TraceReaderWall
 import TGLExt.V354RegularSusy
+import TGLExt.ModularRemainderAction
+import TGLExt.ModularRemainderDensity
+import TGLExt.ModularCornerCounterexample
+import TGLExt.DiamondConformalCurrent
+import TGLExt.ModularDephasingBridge
+import TGLExt.TowerDephasingStationary
+import TGLExt.CentralizerRemainderPerturbation
+import TGLExt.WedgeNetFiniteDiamond
+import TGLExt.GeometricSectorObstruction
+import TGLExt.Order005Algebra
+import TGLExt.TracialDissipativeTorsion
+import TGLExt.UmPostoInscription

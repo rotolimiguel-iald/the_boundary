@@ -6,8 +6,8 @@ authors:
   - family-names: "Miguel"
     given-names: "Luiz Antonio Rotoli"
     orcid: "https://orcid.org/0009-0005-1114-6106"
-version: "v357"
-date-released: "2026-09-15"
+version: "v364"
+date-released: "2026-09-17"
 doi: "10.5281/zenodo.22659173"
 identifiers:
   - type: doi
@@ -18,10 +18,10 @@ identifiers:
     description: "Zenodo concept DOI (all versions of Um: Absoluto)"
   - type: url
     value: "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md"
-    description: "the current seal of the repository, one page, regenerated at every custody (v357 on 2026-09-15 — newer than the deposited v331)"
+    description: "the current seal of the repository, one page, regenerated at every custody (v364 on 2026-09-17 — newer than the deposited v331)"
   - type: other
-    value: "sha256:88b080192445449363159c2cad7803b337670d571caf334f682be5b4f7602513"
-    description: "the pin of um.py at v357 (13,383,911 bytes; sealed 2026-09-15 16:51:02); the deposited v331 pin is e1b74a907c403538…"
+    value: "sha256:25bca8bd264a2188f54166454218522c181d6436bbbf890555b3be1d668c02da"
+    description: "the pin of um.py at v364 (30,814,994 bytes; sealed 2026-09-17 09:42:34); the deposited v331 pin is e1b74a907c403538…"
   - type: url
     value: "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"
     description: "um.py, direct raw URL (GitHub refuses to render files above 5 MB; the raw route serves it whole, byte-exact)"
@@ -42,8 +42,8 @@ keywords:
   - "beta = alpha sqrt e"
 abstract: >
   One self-contained Python file, um.py, whose only runtime input is the digit 1. It derives the
-  chain beta = alpha*sqrt(e), materializes and builds an embedded Lean 4 + mathlib kernel (at v357: 1008
-  formal files, 8514 audited terms, axioms in {propext, Classical.choice, Quot.sound}, zero sorry; the
+  chain beta = alpha*sqrt(e), materializes and builds an embedded Lean 4 + mathlib kernel (at v364: 1020
+  formal files, 8650 audited terms, axioms in {propext, Classical.choice, Quot.sound}, zero sorry; the
   deposited v331 had 593 files and 4699 theorems), runs the
   pre-registered rites of nature, and emits its own bilingual article (PT/EN, PDF and TXT). Quantum
   gravity is PROVED as a formal model (the root of the proof tree, the_root_of_the_proof_tree) and NOT

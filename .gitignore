@@ -40,3 +40,6 @@ cache/d1_camb/*
 !cache/PORTA.json
 !cache/gw/PORTA.md
 !cache/d1_camb/PORTA.md
+# 17/09/2026 (custodia v364, direcao do site): a V3 do D1 e o diamante pequeno na rede sao lidos por hash pelo um.py da v364 -- parte da reproducao
+!cache/d1_camb/v3/
+!cache/diamante_rede/

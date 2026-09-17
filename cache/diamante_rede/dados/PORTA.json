@@ -1,0 +1,858 @@
+{
+  "porta": "cache/diamante_rede/dados",
+  "porta_id": "cache/diamante_rede/dados",
+  "titulo": "cache/diamante_rede/dados",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-09-17T13:04:09Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "cache/diamante_rede",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "H_l128_m0.0001_s+1_d262.npz",
+      "caminho": "cache/diamante_rede/dados/H_l128_m0.0001_s+1_d262.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l128_m0.0001_s%2B1_d262.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l128_m0.0001_s%2B1_d262.npz",
+      "sha256_16": "9b492548b3121989",
+      "bytes": 503367
+    },
+    {
+      "nome": "H_l128_m0.0001_s-1_d262.npz",
+      "caminho": "cache/diamante_rede/dados/H_l128_m0.0001_s-1_d262.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l128_m0.0001_s-1_d262.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l128_m0.0001_s-1_d262.npz",
+      "sha256_16": "7a48b73063d0cfbe",
+      "bytes": 503385
+    },
+    {
+      "nome": "H_l128_m0.0003_s+1_d262.npz",
+      "caminho": "cache/diamante_rede/dados/H_l128_m0.0003_s+1_d262.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l128_m0.0003_s%2B1_d262.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l128_m0.0003_s%2B1_d262.npz",
+      "sha256_16": "6fffaced1ea9acc2",
+      "bytes": 502149
+    },
+    {
+      "nome": "H_l128_m0.0003_s-1_d262.npz",
+      "caminho": "cache/diamante_rede/dados/H_l128_m0.0003_s-1_d262.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l128_m0.0003_s-1_d262.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l128_m0.0003_s-1_d262.npz",
+      "sha256_16": "e3748591a787bb5b",
+      "bytes": 502149
+    },
+    {
+      "nome": "H_l128_m0.01_s+1_d262.npz",
+      "caminho": "cache/diamante_rede/dados/H_l128_m0.01_s+1_d262.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l128_m0.01_s%2B1_d262.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l128_m0.01_s%2B1_d262.npz",
+      "sha256_16": "d354b82d67de9a1e",
+      "bytes": 497566
+    },
+    {
+      "nome": "H_l128_m0.01_s-1_d262.npz",
+      "caminho": "cache/diamante_rede/dados/H_l128_m0.01_s-1_d262.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l128_m0.01_s-1_d262.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l128_m0.01_s-1_d262.npz",
+      "sha256_16": "af7499c27d8f05ee",
+      "bytes": 497555
+    },
+    {
+      "nome": "H_l128_m0.03_s+1_d262.npz",
+      "caminho": "cache/diamante_rede/dados/H_l128_m0.03_s+1_d262.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l128_m0.03_s%2B1_d262.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l128_m0.03_s%2B1_d262.npz",
+      "sha256_16": "20c47a96160ebe22",
+      "bytes": 492504
+    },
+    {
+      "nome": "H_l128_m0.03_s-1_d262.npz",
+      "caminho": "cache/diamante_rede/dados/H_l128_m0.03_s-1_d262.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l128_m0.03_s-1_d262.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l128_m0.03_s-1_d262.npz",
+      "sha256_16": "dcdb0ae5c279e06c",
+      "bytes": 492505
+    },
+    {
+      "nome": "H_l128_m0.1_s+1_d262.npz",
+      "caminho": "cache/diamante_rede/dados/H_l128_m0.1_s+1_d262.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l128_m0.1_s%2B1_d262.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l128_m0.1_s%2B1_d262.npz",
+      "sha256_16": "d60f75b9a92f9e7d",
+      "bytes": 489030
+    },
+    {
+      "nome": "H_l128_m0.1_s-1_d262.npz",
+      "caminho": "cache/diamante_rede/dados/H_l128_m0.1_s-1_d262.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l128_m0.1_s-1_d262.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l128_m0.1_s-1_d262.npz",
+      "sha256_16": "aa77e4b1825d2112",
+      "bytes": 489065
+    },
+    {
+      "nome": "H_l128_m0_s+1_d262.npz",
+      "caminho": "cache/diamante_rede/dados/H_l128_m0_s+1_d262.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l128_m0_s%2B1_d262.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l128_m0_s%2B1_d262.npz",
+      "sha256_16": "5962ae7f78d2956c",
+      "bytes": 499001
+    },
+    {
+      "nome": "H_l16_m0.001_s+1_d72.npz",
+      "caminho": "cache/diamante_rede/dados/H_l16_m0.001_s+1_d72.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l16_m0.001_s%2B1_d72.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l16_m0.001_s%2B1_d72.npz",
+      "sha256_16": "27a320477ec8d643",
+      "bytes": 6385
+    },
+    {
+      "nome": "H_l16_m0.001_s-1_d72.npz",
+      "caminho": "cache/diamante_rede/dados/H_l16_m0.001_s-1_d72.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l16_m0.001_s-1_d72.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l16_m0.001_s-1_d72.npz",
+      "sha256_16": "e099386ecb0308c2",
+      "bytes": 6387
+    },
+    {
+      "nome": "H_l16_m0.003_s+1_d72.npz",
+      "caminho": "cache/diamante_rede/dados/H_l16_m0.003_s+1_d72.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l16_m0.003_s%2B1_d72.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l16_m0.003_s%2B1_d72.npz",
+      "sha256_16": "0856572599eb09d2",
+      "bytes": 6395
+    },
+    {
+      "nome": "H_l16_m0.003_s-1_d72.npz",
+      "caminho": "cache/diamante_rede/dados/H_l16_m0.003_s-1_d72.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l16_m0.003_s-1_d72.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l16_m0.003_s-1_d72.npz",
+      "sha256_16": "cacf0c9dfca35186",
+      "bytes": 6407
+    },
+    {
+      "nome": "H_l16_m0.01_s+1_d72.npz",
+      "caminho": "cache/diamante_rede/dados/H_l16_m0.01_s+1_d72.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l16_m0.01_s%2B1_d72.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l16_m0.01_s%2B1_d72.npz",
+      "sha256_16": "042ef906fa55e95b",
+      "bytes": 6423
+    },
+    {
+      "nome": "H_l16_m0.01_s-1_d72.npz",
+      "caminho": "cache/diamante_rede/dados/H_l16_m0.01_s-1_d72.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l16_m0.01_s-1_d72.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l16_m0.01_s-1_d72.npz",
+      "sha256_16": "3aeda63f73c0d289",
+      "bytes": 6418
+    },
+    {
+      "nome": "H_l16_m0.03_s+1_d72.npz",
+      "caminho": "cache/diamante_rede/dados/H_l16_m0.03_s+1_d72.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l16_m0.03_s%2B1_d72.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l16_m0.03_s%2B1_d72.npz",
+      "sha256_16": "8de752d77033fe16",
+      "bytes": 6396
+    },
+    {
+      "nome": "H_l16_m0.03_s-1_d72.npz",
+      "caminho": "cache/diamante_rede/dados/H_l16_m0.03_s-1_d72.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l16_m0.03_s-1_d72.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l16_m0.03_s-1_d72.npz",
+      "sha256_16": "3d6189ef1ca45323",
+      "bytes": 6398
+    },
+    {
+      "nome": "H_l16_m0.1_s+1_d72.npz",
+      "caminho": "cache/diamante_rede/dados/H_l16_m0.1_s+1_d72.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l16_m0.1_s%2B1_d72.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l16_m0.1_s%2B1_d72.npz",
+      "sha256_16": "cfdfb4f6ebf20d66",
+      "bytes": 6413
+    },
+    {
+      "nome": "H_l16_m0.1_s-1_d72.npz",
+      "caminho": "cache/diamante_rede/dados/H_l16_m0.1_s-1_d72.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l16_m0.1_s-1_d72.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l16_m0.1_s-1_d72.npz",
+      "sha256_16": "ef203d13b8f8d0a9",
+      "bytes": 6416
+    },
+    {
+      "nome": "H_l16_m0_s+1_d72.npz",
+      "caminho": "cache/diamante_rede/dados/H_l16_m0_s+1_d72.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l16_m0_s%2B1_d72.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l16_m0_s%2B1_d72.npz",
+      "sha256_16": "8318994cfa57055a",
+      "bytes": 4334
+    },
+    {
+      "nome": "H_l24_m0.01_s+1_d85.npz",
+      "caminho": "cache/diamante_rede/dados/H_l24_m0.01_s+1_d85.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l24_m0.01_s%2B1_d85.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l24_m0.01_s%2B1_d85.npz",
+      "sha256_16": "9134869dca2b4930",
+      "bytes": 14585
+    },
+    {
+      "nome": "H_l24_m0.01_s-1_d85.npz",
+      "caminho": "cache/diamante_rede/dados/H_l24_m0.01_s-1_d85.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l24_m0.01_s-1_d85.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l24_m0.01_s-1_d85.npz",
+      "sha256_16": "fcdebf0227f28bee",
+      "bytes": 14587
+    },
+    {
+      "nome": "H_l24_m0.03_s+1_d85.npz",
+      "caminho": "cache/diamante_rede/dados/H_l24_m0.03_s+1_d85.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l24_m0.03_s%2B1_d85.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l24_m0.03_s%2B1_d85.npz",
+      "sha256_16": "fa3134ab9ef37f87",
+      "bytes": 14266
+    },
+    {
+      "nome": "H_l24_m0.03_s-1_d85.npz",
+      "caminho": "cache/diamante_rede/dados/H_l24_m0.03_s-1_d85.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l24_m0.03_s-1_d85.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l24_m0.03_s-1_d85.npz",
+      "sha256_16": "7e29e1dd466857bc",
+      "bytes": 14271
+    },
+    {
+      "nome": "H_l24_m0.1_s+1_d85.npz",
+      "caminho": "cache/diamante_rede/dados/H_l24_m0.1_s+1_d85.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l24_m0.1_s%2B1_d85.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l24_m0.1_s%2B1_d85.npz",
+      "sha256_16": "cb1cd8593cf4a90f",
+      "bytes": 13856
+    },
+    {
+      "nome": "H_l24_m0.1_s-1_d85.npz",
+      "caminho": "cache/diamante_rede/dados/H_l24_m0.1_s-1_d85.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l24_m0.1_s-1_d85.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l24_m0.1_s-1_d85.npz",
+      "sha256_16": "76732e2416e66f44",
+      "bytes": 13854
+    },
+    {
+      "nome": "H_l24_m0_s+1_d85.npz",
+      "caminho": "cache/diamante_rede/dados/H_l24_m0_s+1_d85.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l24_m0_s%2B1_d85.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l24_m0_s%2B1_d85.npz",
+      "sha256_16": "dc7e2694201eea5d",
+      "bytes": 13291
+    },
+    {
+      "nome": "H_l32_m0.001_s+1_d99.npz",
+      "caminho": "cache/diamante_rede/dados/H_l32_m0.001_s+1_d99.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l32_m0.001_s%2B1_d99.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l32_m0.001_s%2B1_d99.npz",
+      "sha256_16": "600d710dc7bf84ea",
+      "bytes": 26428
+    },
+    {
+      "nome": "H_l32_m0.001_s-1_d99.npz",
+      "caminho": "cache/diamante_rede/dados/H_l32_m0.001_s-1_d99.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l32_m0.001_s-1_d99.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l32_m0.001_s-1_d99.npz",
+      "sha256_16": "4fdcbfb331bb1b0b",
+      "bytes": 26423
+    },
+    {
+      "nome": "H_l32_m0.003_s+1_d99.npz",
+      "caminho": "cache/diamante_rede/dados/H_l32_m0.003_s+1_d99.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l32_m0.003_s%2B1_d99.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l32_m0.003_s%2B1_d99.npz",
+      "sha256_16": "49566418ce8f1b30",
+      "bytes": 25743
+    },
+    {
+      "nome": "H_l32_m0.003_s-1_d99.npz",
+      "caminho": "cache/diamante_rede/dados/H_l32_m0.003_s-1_d99.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l32_m0.003_s-1_d99.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l32_m0.003_s-1_d99.npz",
+      "sha256_16": "d835994f9fea43ad",
+      "bytes": 25739
+    },
+    {
+      "nome": "H_l32_m0.01_s+1_d99.npz",
+      "caminho": "cache/diamante_rede/dados/H_l32_m0.01_s+1_d99.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l32_m0.01_s%2B1_d99.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l32_m0.01_s%2B1_d99.npz",
+      "sha256_16": "f9812b466c4f5af2",
+      "bytes": 24926
+    },
+    {
+      "nome": "H_l32_m0.01_s-1_d99.npz",
+      "caminho": "cache/diamante_rede/dados/H_l32_m0.01_s-1_d99.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l32_m0.01_s-1_d99.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l32_m0.01_s-1_d99.npz",
+      "sha256_16": "16c05dcf70f7a9c1",
+      "bytes": 24887
+    },
+    {
+      "nome": "H_l32_m0.03_s+1_d139.npz",
+      "caminho": "cache/diamante_rede/dados/H_l32_m0.03_s+1_d139.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l32_m0.03_s%2B1_d139.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l32_m0.03_s%2B1_d139.npz",
+      "sha256_16": "767713f10a92e878",
+      "bytes": 24307
+    },
+    {
+      "nome": "H_l32_m0.03_s+1_d99.npz",
+      "caminho": "cache/diamante_rede/dados/H_l32_m0.03_s+1_d99.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l32_m0.03_s%2B1_d99.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l32_m0.03_s%2B1_d99.npz",
+      "sha256_16": "f115f86f00f070e7",
+      "bytes": 24307
+    },
+    {
+      "nome": "H_l32_m0.03_s-1_d139.npz",
+      "caminho": "cache/diamante_rede/dados/H_l32_m0.03_s-1_d139.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l32_m0.03_s-1_d139.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l32_m0.03_s-1_d139.npz",
+      "sha256_16": "cf2dccc216f5d442",
+      "bytes": 24306
+    },
+    {
+      "nome": "H_l32_m0.03_s-1_d99.npz",
+      "caminho": "cache/diamante_rede/dados/H_l32_m0.03_s-1_d99.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l32_m0.03_s-1_d99.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l32_m0.03_s-1_d99.npz",
+      "sha256_16": "0fc44385294cf6e2",
+      "bytes": 24306
+    },
+    {
+      "nome": "H_l32_m0.1_s+1_d99.npz",
+      "caminho": "cache/diamante_rede/dados/H_l32_m0.1_s+1_d99.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l32_m0.1_s%2B1_d99.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l32_m0.1_s%2B1_d99.npz",
+      "sha256_16": "443614f82aa97250",
+      "bytes": 23732
+    },
+    {
+      "nome": "H_l32_m0.1_s-1_d99.npz",
+      "caminho": "cache/diamante_rede/dados/H_l32_m0.1_s-1_d99.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l32_m0.1_s-1_d99.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l32_m0.1_s-1_d99.npz",
+      "sha256_16": "14321ec41c1aa9ca",
+      "bytes": 23738
+    },
+    {
+      "nome": "H_l32_m0_s+1_d99.npz",
+      "caminho": "cache/diamante_rede/dados/H_l32_m0_s+1_d99.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l32_m0_s%2B1_d99.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l32_m0_s%2B1_d99.npz",
+      "sha256_16": "1d953479c3034b89",
+      "bytes": 22376
+    },
+    {
+      "nome": "H_l48_m0.01_s+1_d126.npz",
+      "caminho": "cache/diamante_rede/dados/H_l48_m0.01_s+1_d126.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l48_m0.01_s%2B1_d126.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l48_m0.01_s%2B1_d126.npz",
+      "sha256_16": "736ff7859f94671f",
+      "bytes": 57646
+    },
+    {
+      "nome": "H_l48_m0.01_s-1_d126.npz",
+      "caminho": "cache/diamante_rede/dados/H_l48_m0.01_s-1_d126.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l48_m0.01_s-1_d126.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l48_m0.01_s-1_d126.npz",
+      "sha256_16": "69b57e083cf576fd",
+      "bytes": 57649
+    },
+    {
+      "nome": "H_l48_m0.03_s+1_d126.npz",
+      "caminho": "cache/diamante_rede/dados/H_l48_m0.03_s+1_d126.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l48_m0.03_s%2B1_d126.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l48_m0.03_s%2B1_d126.npz",
+      "sha256_16": "0e6ddb8499fea067",
+      "bytes": 56071
+    },
+    {
+      "nome": "H_l48_m0.03_s-1_d126.npz",
+      "caminho": "cache/diamante_rede/dados/H_l48_m0.03_s-1_d126.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l48_m0.03_s-1_d126.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l48_m0.03_s-1_d126.npz",
+      "sha256_16": "39a362ce8f9fe952",
+      "bytes": 56078
+    },
+    {
+      "nome": "H_l48_m0.1_s+1_d126.npz",
+      "caminho": "cache/diamante_rede/dados/H_l48_m0.1_s+1_d126.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l48_m0.1_s%2B1_d126.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l48_m0.1_s%2B1_d126.npz",
+      "sha256_16": "f3d63be33e21491b",
+      "bytes": 55081
+    },
+    {
+      "nome": "H_l48_m0.1_s-1_d126.npz",
+      "caminho": "cache/diamante_rede/dados/H_l48_m0.1_s-1_d126.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l48_m0.1_s-1_d126.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l48_m0.1_s-1_d126.npz",
+      "sha256_16": "290cf9245a8a2c43",
+      "bytes": 55115
+    },
+    {
+      "nome": "H_l48_m0_s+1_d126.npz",
+      "caminho": "cache/diamante_rede/dados/H_l48_m0_s+1_d126.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l48_m0_s%2B1_d126.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l48_m0_s%2B1_d126.npz",
+      "sha256_16": "d36788c868f4e5a6",
+      "bytes": 61862
+    },
+    {
+      "nome": "H_l64_m0.0001_s+1_d153.npz",
+      "caminho": "cache/diamante_rede/dados/H_l64_m0.0001_s+1_d153.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l64_m0.0001_s%2B1_d153.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l64_m0.0001_s%2B1_d153.npz",
+      "sha256_16": "258ecfa7afad29c4",
+      "bytes": 118589
+    },
+    {
+      "nome": "H_l64_m0.0001_s-1_d153.npz",
+      "caminho": "cache/diamante_rede/dados/H_l64_m0.0001_s-1_d153.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l64_m0.0001_s-1_d153.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l64_m0.0001_s-1_d153.npz",
+      "sha256_16": "2656305e9f3c36d3",
+      "bytes": 118600
+    },
+    {
+      "nome": "H_l64_m0.0003_s+1_d153.npz",
+      "caminho": "cache/diamante_rede/dados/H_l64_m0.0003_s+1_d153.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l64_m0.0003_s%2B1_d153.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l64_m0.0003_s%2B1_d153.npz",
+      "sha256_16": "e83af8433aee7b34",
+      "bytes": 117604
+    },
+    {
+      "nome": "H_l64_m0.0003_s-1_d153.npz",
+      "caminho": "cache/diamante_rede/dados/H_l64_m0.0003_s-1_d153.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l64_m0.0003_s-1_d153.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l64_m0.0003_s-1_d153.npz",
+      "sha256_16": "ef3a5022f7a84a37",
+      "bytes": 117627
+    },
+    {
+      "nome": "H_l64_m0.001_s+1_d153.npz",
+      "caminho": "cache/diamante_rede/dados/H_l64_m0.001_s+1_d153.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l64_m0.001_s%2B1_d153.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l64_m0.001_s%2B1_d153.npz",
+      "sha256_16": "57d041c8de1ce25e",
+      "bytes": 115356
+    },
+    {
+      "nome": "H_l64_m0.001_s-1_d153.npz",
+      "caminho": "cache/diamante_rede/dados/H_l64_m0.001_s-1_d153.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l64_m0.001_s-1_d153.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l64_m0.001_s-1_d153.npz",
+      "sha256_16": "1145425b5b94a5ab",
+      "bytes": 115386
+    },
+    {
+      "nome": "H_l64_m0.003_s+1_d153.npz",
+      "caminho": "cache/diamante_rede/dados/H_l64_m0.003_s+1_d153.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l64_m0.003_s%2B1_d153.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l64_m0.003_s%2B1_d153.npz",
+      "sha256_16": "37898b821a0cb3fa",
+      "bytes": 113468
+    },
+    {
+      "nome": "H_l64_m0.003_s-1_d153.npz",
+      "caminho": "cache/diamante_rede/dados/H_l64_m0.003_s-1_d153.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l64_m0.003_s-1_d153.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l64_m0.003_s-1_d153.npz",
+      "sha256_16": "e57cb6df51e82671",
+      "bytes": 113508
+    },
+    {
+      "nome": "H_l64_m0.01_s+1_d153.npz",
+      "caminho": "cache/diamante_rede/dados/H_l64_m0.01_s+1_d153.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l64_m0.01_s%2B1_d153.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l64_m0.01_s%2B1_d153.npz",
+      "sha256_16": "3263c655bcf180c9",
+      "bytes": 111178
+    },
+    {
+      "nome": "H_l64_m0.01_s-1_d153.npz",
+      "caminho": "cache/diamante_rede/dados/H_l64_m0.01_s-1_d153.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l64_m0.01_s-1_d153.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l64_m0.01_s-1_d153.npz",
+      "sha256_16": "dc75366ffdeb2743",
+      "bytes": 111201
+    },
+    {
+      "nome": "H_l64_m0.03_s+1_d153.npz",
+      "caminho": "cache/diamante_rede/dados/H_l64_m0.03_s+1_d153.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l64_m0.03_s%2B1_d153.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l64_m0.03_s%2B1_d153.npz",
+      "sha256_16": "7b42b0059edad465",
+      "bytes": 108864
+    },
+    {
+      "nome": "H_l64_m0.03_s+1_d193.npz",
+      "caminho": "cache/diamante_rede/dados/H_l64_m0.03_s+1_d193.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l64_m0.03_s%2B1_d193.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l64_m0.03_s%2B1_d193.npz",
+      "sha256_16": "4d5c0ffe5c7485ca",
+      "bytes": 108864
+    },
+    {
+      "nome": "H_l64_m0.03_s-1_d153.npz",
+      "caminho": "cache/diamante_rede/dados/H_l64_m0.03_s-1_d153.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l64_m0.03_s-1_d153.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l64_m0.03_s-1_d153.npz",
+      "sha256_16": "733e5647313d3e72",
+      "bytes": 108887
+    },
+    {
+      "nome": "H_l64_m0.03_s-1_d193.npz",
+      "caminho": "cache/diamante_rede/dados/H_l64_m0.03_s-1_d193.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l64_m0.03_s-1_d193.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l64_m0.03_s-1_d193.npz",
+      "sha256_16": "38348adf2d07e7ea",
+      "bytes": 108887
+    },
+    {
+      "nome": "H_l64_m0.1_s+1_d153.npz",
+      "caminho": "cache/diamante_rede/dados/H_l64_m0.1_s+1_d153.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l64_m0.1_s%2B1_d153.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l64_m0.1_s%2B1_d153.npz",
+      "sha256_16": "0b23aa0e47b9f0e8",
+      "bytes": 107396
+    },
+    {
+      "nome": "H_l64_m0.1_s-1_d153.npz",
+      "caminho": "cache/diamante_rede/dados/H_l64_m0.1_s-1_d153.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l64_m0.1_s-1_d153.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l64_m0.1_s-1_d153.npz",
+      "sha256_16": "b122eca8957ff507",
+      "bytes": 107412
+    },
+    {
+      "nome": "H_l64_m0_s+1_d153.npz",
+      "caminho": "cache/diamante_rede/dados/H_l64_m0_s+1_d153.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l64_m0_s%2B1_d153.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l64_m0_s%2B1_d153.npz",
+      "sha256_16": "9e0195e76e012ce8",
+      "bytes": 116953
+    },
+    {
+      "nome": "H_l96_m0.0001_s+1_d208.npz",
+      "caminho": "cache/diamante_rede/dados/H_l96_m0.0001_s+1_d208.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l96_m0.0001_s%2B1_d208.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l96_m0.0001_s%2B1_d208.npz",
+      "sha256_16": "2f2a4f9b97896c9d",
+      "bytes": 278288
+    },
+    {
+      "nome": "H_l96_m0.0001_s-1_d208.npz",
+      "caminho": "cache/diamante_rede/dados/H_l96_m0.0001_s-1_d208.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l96_m0.0001_s-1_d208.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l96_m0.0001_s-1_d208.npz",
+      "sha256_16": "df443e41b1547d17",
+      "bytes": 278268
+    },
+    {
+      "nome": "H_l96_m0.0003_s+1_d208.npz",
+      "caminho": "cache/diamante_rede/dados/H_l96_m0.0003_s+1_d208.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l96_m0.0003_s%2B1_d208.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l96_m0.0003_s%2B1_d208.npz",
+      "sha256_16": "4711496032fca4eb",
+      "bytes": 277206
+    },
+    {
+      "nome": "H_l96_m0.0003_s-1_d208.npz",
+      "caminho": "cache/diamante_rede/dados/H_l96_m0.0003_s-1_d208.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l96_m0.0003_s-1_d208.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l96_m0.0003_s-1_d208.npz",
+      "sha256_16": "6b9dca80183bf552",
+      "bytes": 277212
+    },
+    {
+      "nome": "H_l96_m0.001_s+1_d208.npz",
+      "caminho": "cache/diamante_rede/dados/H_l96_m0.001_s+1_d208.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l96_m0.001_s%2B1_d208.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l96_m0.001_s%2B1_d208.npz",
+      "sha256_16": "08c87fbd833d43cc",
+      "bytes": 275685
+    },
+    {
+      "nome": "H_l96_m0.001_s-1_d208.npz",
+      "caminho": "cache/diamante_rede/dados/H_l96_m0.001_s-1_d208.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l96_m0.001_s-1_d208.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l96_m0.001_s-1_d208.npz",
+      "sha256_16": "a38a1a9a51af0a24",
+      "bytes": 275686
+    },
+    {
+      "nome": "H_l96_m0.003_s+1_d208.npz",
+      "caminho": "cache/diamante_rede/dados/H_l96_m0.003_s+1_d208.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l96_m0.003_s%2B1_d208.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l96_m0.003_s%2B1_d208.npz",
+      "sha256_16": "f94c63bffbd02710",
+      "bytes": 273351
+    },
+    {
+      "nome": "H_l96_m0.003_s-1_d208.npz",
+      "caminho": "cache/diamante_rede/dados/H_l96_m0.003_s-1_d208.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l96_m0.003_s-1_d208.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l96_m0.003_s-1_d208.npz",
+      "sha256_16": "e13c753f76160e58",
+      "bytes": 273382
+    },
+    {
+      "nome": "H_l96_m0.01_s+1_d208.npz",
+      "caminho": "cache/diamante_rede/dados/H_l96_m0.01_s+1_d208.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l96_m0.01_s%2B1_d208.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l96_m0.01_s%2B1_d208.npz",
+      "sha256_16": "c4516605e0fb1580",
+      "bytes": 271171
+    },
+    {
+      "nome": "H_l96_m0.01_s-1_d208.npz",
+      "caminho": "cache/diamante_rede/dados/H_l96_m0.01_s-1_d208.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l96_m0.01_s-1_d208.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l96_m0.01_s-1_d208.npz",
+      "sha256_16": "c1e82f59300e069a",
+      "bytes": 271231
+    },
+    {
+      "nome": "H_l96_m0.03_s+1_d208.npz",
+      "caminho": "cache/diamante_rede/dados/H_l96_m0.03_s+1_d208.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l96_m0.03_s%2B1_d208.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l96_m0.03_s%2B1_d208.npz",
+      "sha256_16": "7d30a7f147cd5ae3",
+      "bytes": 267383
+    },
+    {
+      "nome": "H_l96_m0.03_s-1_d208.npz",
+      "caminho": "cache/diamante_rede/dados/H_l96_m0.03_s-1_d208.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l96_m0.03_s-1_d208.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l96_m0.03_s-1_d208.npz",
+      "sha256_16": "d94592f1d21a3409",
+      "bytes": 267445
+    },
+    {
+      "nome": "H_l96_m0.1_s+1_d208.npz",
+      "caminho": "cache/diamante_rede/dados/H_l96_m0.1_s+1_d208.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l96_m0.1_s%2B1_d208.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l96_m0.1_s%2B1_d208.npz",
+      "sha256_16": "9fa1f28b1fc42e18",
+      "bytes": 265126
+    },
+    {
+      "nome": "H_l96_m0.1_s-1_d208.npz",
+      "caminho": "cache/diamante_rede/dados/H_l96_m0.1_s-1_d208.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l96_m0.1_s-1_d208.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l96_m0.1_s-1_d208.npz",
+      "sha256_16": "b4a148b7115231ea",
+      "bytes": 265177
+    },
+    {
+      "nome": "H_l96_m0_s+1_d208.npz",
+      "caminho": "cache/diamante_rede/dados/H_l96_m0_s+1_d208.npz",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/H_l96_m0_s%2B1_d208.npz",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/H_l96_m0_s%2B1_d208.npz",
+      "sha256_16": "ce265b87e1a4f349",
+      "bytes": 275917
+    },
+    {
+      "nome": "log_1789642234.json",
+      "caminho": "cache/diamante_rede/dados/log_1789642234.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/log_1789642234.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/log_1789642234.json",
+      "sha256_16": "673c90a4cf90dd52",
+      "bytes": 5369
+    },
+    {
+      "nome": "log_1789642469.json",
+      "caminho": "cache/diamante_rede/dados/log_1789642469.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/dados/log_1789642469.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/dados/log_1789642469.json",
+      "sha256_16": "a0f5ca990ce3f8fd",
+      "bytes": 7121
+    }
+  ],
+  "total_arquivos_nesta_pasta": 83,
+  "total_arquivos_com_subpastas": 83,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/diamante_rede/dados",
+  "rodape": "gerado por script de git ls-files em 2026-09-17 -- nao editar a mao"
+}

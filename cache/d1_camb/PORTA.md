@@ -32,6 +32,12 @@ Pasta do repositorio the_boundary com 3 arquivo(s) rastreado(s).
 | `D1_CAMB_RESULT.json` | RESULTADO lido por hash: D1 via CAMB V1 (script de maio intocado) -- expos o bug de distancia do worker; autopsia por hash (v349) | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/D1_CAMB_RESULT.json) |
 | `D1_CAMB_V2_RESULT.json` | RESULTADO lido por hash: D1 via CAMB V2 (worker corrigido) -- Delta chi2 9,70 (D1_TENSION_2_TO_5_SIGMA); beta livre -0,0171 +- 0,0075 (v349) | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/D1_CAMB_V2_RESULT.json) |
 
+## AS PORTAS ABAIXO
+
+| subpasta | arquivos | PORTA.md | PORTA.json |
+|---|---|---|---|
+| `v3/` | 11 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/PORTA.json) |
+
 ---
 
 gerado por script de git ls-files em 2026-09-17 -- nao editar a mao

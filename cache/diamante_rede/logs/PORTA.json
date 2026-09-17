@@ -1,0 +1,58 @@
+{
+  "porta": "cache/diamante_rede/logs",
+  "porta_id": "cache/diamante_rede/logs",
+  "titulo": "cache/diamante_rede/logs",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-09-17T13:04:09Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "cache/diamante_rede",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "analise_final.log",
+      "caminho": "cache/diamante_rede/logs/analise_final.log",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/logs/analise_final.log",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/logs/analise_final.log",
+      "sha256_16": "7d6ca50c04b76ddc",
+      "bytes": 2801
+    },
+    {
+      "nome": "rodada_grande.log",
+      "caminho": "cache/diamante_rede/logs/rodada_grande.log",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/logs/rodada_grande.log",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/logs/rodada_grande.log",
+      "sha256_16": "08277a2d7f806869",
+      "bytes": 6153
+    },
+    {
+      "nome": "rodada_micro.log",
+      "caminho": "cache/diamante_rede/logs/rodada_micro.log",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/logs/rodada_micro.log",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/diamante_rede/logs/rodada_micro.log",
+      "sha256_16": "c5b4671eef97ebdf",
+      "bytes": 2534
+    }
+  ],
+  "total_arquivos_nesta_pasta": 3,
+  "total_arquivos_com_subpastas": 3,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/diamante_rede/logs",
+  "rodape": "gerado por script de git ls-files em 2026-09-17 -- nao editar a mao"
+}

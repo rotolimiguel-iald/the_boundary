@@ -1,4 +1,16 @@
 
+import TGLExt.TracialDissipativeTorsion
+import TGLExt.UmPostoInscription
+import TGLExt.GeometricSectorObstruction
+import TGLExt.Order005Algebra
+import TGLExt.CentralizerRemainderPerturbation
+import TGLExt.WedgeNetFiniteDiamond
+import TGLExt.ModularRemainderAction
+import TGLExt.ModularRemainderDensity
+import TGLExt.ModularCornerCounterexample
+import TGLExt.DiamondConformalCurrent
+import TGLExt.ModularDephasingBridge
+import TGLExt.TowerDephasingStationary
 import TGLExt.TheSameBetaReadsFourFaces
 import TGLExt.V354BoundedPolar
 import TGLExt.V354SelfAdjointPowerKernel
@@ -9165,3 +9177,129 @@ open TGL.ModularRealization TGLV354 TGLV354.TraceCompletion
 #check (regularSusyData : (P : SiteProfile) →
   SusyRelativeData (CoreProjection (regularCoreAlgebra P)) (coreProjectionTraceSubadditive P))
 
+#print axioms ModularRemainder.conjugation_eq_iff_commute
+#print axioms ModularRemainder.full_action_invisible_iff_central
+#print axioms ModularRemainder.corner_image
+#print axioms ModularRemainder.corner_inverse_image
+#print axioms ModularRemainder.corner_flow_equality_iff
+#print axioms ModularRemainder.invariant_scalar_corner_commutes
+#print axioms ModularRemainder.invariant_scalar_corner_invisible
+#print axioms ModularRemainderDensity.remainder_isSelfAdjoint
+#print axioms ModularRemainderDensity.modular_generator_decomposition
+#print axioms ModularRemainderDensity.remainder_zero_iff
+#print axioms ModularRemainderDensity.remainder_change_reference
+#print axioms ModularRemainderDensity.remainder_antisymmetric
+#print axioms ModularRemainderDensity.cocycle_intertwines
+#print axioms ModularRemainderDensity.modular_power_derivative
+#print axioms ModularRemainderDensity.cocycle_derivative_remainder
+#print axioms ModularRemainderDensity.gibbs_reference_log
+#print axioms ModularRemainderDensity.relative_entropy_balance
+#print axioms ModularRemainderDensity.scalar_normalization_cancels
+#print axioms ModularRemainderDensity.residual_entropy_balance
+#print axioms ModularRemainderDensity.all_quadratic_forms_constant_iff
+#print axioms ModularRemainderDensity.all_unit_expectations_constant_iff
+#print axioms ModularCornerCounterexample.p_projection
+#print axioms ModularCornerCounterexample.residual_selfadjoint
+#print axioms ModularCornerCounterexample.compressed_generator_zero
+#print axioms ModularCornerCounterexample.residual_nonzero
+#print axioms ModularCornerCounterexample.flow_eq
+#print axioms ModularCornerCounterexample.compressed_flow
+#print axioms ModularCornerCounterexample.compressed_flow_half_turn
+#print axioms ModularCornerCounterexample.p_nonzero
+#print axioms ModularCornerCounterexample.compression_does_not_control_flow
+#print axioms ModularCornerCounterexample.half_turn_leaves_corner
+#print axioms ModularCornerCounterexample.corner_not_invariant
+#print axioms DiamondConformalCurrent.time_derivative
+#print axioms DiamondConformalCurrent.spatial_derivative
+#print axioms DiamondConformalCurrent.diamond_divergence
+#print axioms DiamondConformalCurrent.symmetric_contraction
+#print axioms DiamondConformalCurrent.conformal_current_divergence
+#print axioms ModularDephasingBridge.spectral_preserves_every_diagonal
+#print axioms ModularDephasingBridge.spectral_preserves_density
+#print axioms ModularDephasingBridge.spectral_preserves_modular_generator
+#print axioms ModularDephasingBridge.spectral_reading_is_stationary
+#print axioms ModularDephasingBridge.spectral_preserves_remainder_balance
+#print axioms ModularDephasingBridge.stationary_generator_balance
+#print axioms ModularDephasingBridge.generator_bridge_iff
+#print axioms ModularDephasingBridge.coarse_dephasing_flow_bridge
+#print axioms ModularDephasingBridge.coarse_preserves_vacuum
+#print axioms ModularDephasingBridge.coarse_remainder_survives
+#print axioms ModularDephasingBridge.coarse_remainder_is_invisible
+#print axioms ModularDephasingBridge.tower_prefix_reading_stationary
+#print axioms ModularDephasingBridge.product_dephasing_flow_bridge
+#print axioms ModularDephasingBridge.tower_last_site_flow_bridge
+#print axioms ModularDephasingBridge.tower_last_site_reference_normalized
+#print axioms ModularDephasingBridge.erased_remainder_counterexample
+#print axioms TowerDephasingStationary.existing_tower_dephasing_is_stationary
+#print axioms TowerDephasingStationary.existing_tower_flow_bridge_iff_stationary
+#print axioms CentralizerRemainderPerturbation.commutes_with_preserved_algebra_iff
+#print axioms CentralizerRemainderPerturbation.invisible_generator_is_preserved
+#print axioms CentralizerRemainderPerturbation.degenerate_block_counterexample
+#print axioms CentralizerRemainderPerturbation.transported_first_order_balance
+#print axioms CentralizerRemainderPerturbation.transported_commutator
+#print axioms CentralizerRemainderPerturbation.arbitrary_order_obstruction
+#print axioms ChatgptAudit.WedgeNetFiniteDiamond.no_right_wedge_of_upper_bound
+#print axioms ChatgptAudit.WedgeNetFiniteDiamond.no_left_wedge_of_lower_bound
+#print axioms ChatgptAudit.WedgeNetFiniteDiamond.bounded_region_has_scalar_algebra
+#print axioms ChatgptAudit.WedgeNetFiniteDiamond.diamond_coordinate_bound
+#print axioms ChatgptAudit.WedgeNetFiniteDiamond.finite_diamond_has_scalar_algebra
+#print axioms ChatgptAudit.WedgeNetFiniteDiamond.any_bounded_remainder_is_invisible
+#print axioms ChatgptAudit.WedgeNetFiniteDiamond.finite_diamond_is_not_the_wedge
+#print axioms ChatgptAudit.GeometricSector.block_rotation_left_unitary
+#print axioms ChatgptAudit.GeometricSector.block_rotation_right_unitary
+#print axioms ChatgptAudit.GeometricSector.block_rotation_preserves_product_density
+#print axioms ChatgptAudit.GeometricSector.local_seed_is_hermitian
+#print axioms ChatgptAudit.GeometricSector.local_seed_commutes_density
+#print axioms ChatgptAudit.GeometricSector.rotated_seed_off_diagonal
+#print axioms ChatgptAudit.GeometricSector.local_seed_does_not_commute_with_rotated_seed
+#print axioms ChatgptAudit.GeometricSector.no_state_covariant_commutative_sector_containing_local_seed
+#print axioms ChatgptAudit.GeometricSector.no_state_covariant_commutative_extension
+#print axioms ChatgptAudit.GeometricSector.spectral_center_unital
+#print axioms ChatgptAudit.GeometricSector.spectral_center_add
+#print axioms ChatgptAudit.GeometricSector.spectral_center_smul
+#print axioms ChatgptAudit.GeometricSector.spectral_center_idempotent
+#print axioms ChatgptAudit.GeometricSector.spectral_center_outputs_commute
+#print axioms ChatgptAudit.GeometricSector.spectral_center_preserves_state
+#print axioms ChatgptAudit.GeometricSector.spectral_center_covariant_under_block_rotation
+#print axioms ChatgptAudit.GeometricSector.spectral_center_changes_local_seed
+#print axioms ChatgptAudit.GeometricSector.spectral_center_does_not_fix_local_seed
+#print axioms ChatgptAudit.GeometricSector.spectral_center_retains_local_diagonal_iff
+#print axioms ChatgptAudit.equal_faces_half
+#print axioms ChatgptAudit.ga_mass_conditional
+#print axioms ChatgptAudit.universal_compactness
+#print axioms ChatgptAudit.two_domain_quadratic
+#print axioms ChatgptAudit.aic_fixed_advantage_at_most_two
+#print axioms ChatgptAudit.aic_free_wins
+#print axioms ChatgptAudit.opposite_residuals_not_seen_by_mean
+#print axioms TGLExt.TracialTorsion.sum_kd_left
+#print axioms TGLExt.TracialTorsion.sum_kd_right
+#print axioms TGLExt.TracialTorsion.sum_kd_self
+#print axioms TGLExt.TracialTorsion.torsion_antisymm
+#print axioms TGLExt.TracialTorsion.torsion_trace
+#print axioms TGLExt.TracialTorsion.torsion_quadratic_bianchi_zero
+#print axioms TGLExt.TracialTorsion.contortion_gives_torsion
+#print axioms TGLExt.TracialTorsion.contortion_metric_compatible
+#print axioms TGLExt.TracialTorsion.torsion_axial_zero
+#print axioms TGLExt.TracialTorsion.riemann_cartan_decomposition
+#print axioms TGLExt.TracialTorsion.lower_raise
+#print axioms TGLExt.TracialTorsion.Kmix_trace
+#print axioms TGLExt.TracialTorsion.ricci_KK
+#print axioms TGLExt.TracialTorsion.ricci_DK
+#print axioms TGLExt.TracialTorsion.covK_Kmix
+#print axioms TGLExt.TracialTorsion.ricci_closed_form
+#print axioms TGLExt.TracialTorsion.ricci_of_tracial_connection
+#print axioms TGLExt.TracialTorsion.scalar_closed_form
+#print axioms TGLExt.TracialTorsion.einstein_closed_form
+#print axioms TGLExt.TracialTorsion.einstein_antisymmetric_part
+#print axioms TGLExt.TracialTorsion.torsion_supplier_closed_form
+#print axioms TGLExt.TracialTorsion.flrw_torsion_shift
+#print axioms TGLExt.TracialTorsion.flrw_torsion_empty_limit
+#print axioms TGLExt.TracialTorsion.flrw_torsion_shift_dim
+#print axioms TGLExt.UmPosto.reading_recovers_implies_injective
+#print axioms TGLExt.UmPosto.injective_admits_reading
+#print axioms TGLExt.UmPosto.constant_registry_recognizes_nothing
+#print axioms TGLExt.UmPosto.unique_recognition_iff_injective
+#print axioms TGLExt.UmPosto.covariant_reading_returns_transported
+#print axioms TGLExt.UmPosto.intertwiner_reads_dynamics
+#print axioms TGLExt.UmPosto.intertwines_iff_range_invariant
+#print axioms TGLExt.UmPosto.reading_back_does_not_make_covariant

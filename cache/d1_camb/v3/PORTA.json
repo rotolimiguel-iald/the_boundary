@@ -1,0 +1,83 @@
+{
+  "porta": "cache/d1_camb/v3",
+  "porta_id": "cache/d1_camb/v3",
+  "titulo": "cache/d1_camb/v3",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-09-17T13:04:09Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "cache/d1_camb",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [
+    {
+      "nome": "logs",
+      "caminho": "cache/d1_camb/v3/logs",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/logs/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/logs/PORTA.json",
+      "total_arquivos": 3
+    },
+    {
+      "nome": "saida",
+      "caminho": "cache/d1_camb/v3/saida",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/saida/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/saida/PORTA.json",
+      "total_arquivos": 4
+    }
+  ],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "MANIFESTO_D1_V3.json",
+      "caminho": "cache/d1_camb/v3/MANIFESTO_D1_V3.json",
+      "papel": "resultado selado",
+      "descricao": "A V3 do D1 (v364): manifesto do pipeline construido CEGO -- autoverificacao, injecao e recuperacao, emenda; a rodada real TRANCADA a espera da linha do operador",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/MANIFESTO_D1_V3.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/d1_camb/v3/MANIFESTO_D1_V3.json",
+      "sha256_16": "6e31e7f07db757e3",
+      "bytes": 1294
+    },
+    {
+      "nome": "d1_v3_pipeline.py",
+      "caminho": "cache/d1_camb/v3/d1_v3_pipeline.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/d1_v3_pipeline.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/d1_camb/v3/d1_v3_pipeline.py",
+      "sha256_16": "4e8f9dc33e28db79",
+      "bytes": 24068
+    },
+    {
+      "nome": "emenda_injecao_d1v3.py",
+      "caminho": "cache/d1_camb/v3/emenda_injecao_d1v3.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/emenda_injecao_d1v3.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/d1_camb/v3/emenda_injecao_d1v3.py",
+      "sha256_16": "09840c5e443bd3b4",
+      "bytes": 6114
+    },
+    {
+      "nome": "tgl_camb_worker_v3.py",
+      "caminho": "cache/d1_camb/v3/tgl_camb_worker_v3.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/tgl_camb_worker_v3.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/d1_camb/v3/tgl_camb_worker_v3.py",
+      "sha256_16": "72032b3abe1c5377",
+      "bytes": 7930
+    }
+  ],
+  "total_arquivos_nesta_pasta": 4,
+  "total_arquivos_com_subpastas": 11,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/d1_camb/v3",
+  "rodape": "gerado por script de git ls-files em 2026-09-17 -- nao editar a mao"
+}

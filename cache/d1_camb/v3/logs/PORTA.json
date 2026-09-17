@@ -1,0 +1,58 @@
+{
+  "porta": "cache/d1_camb/v3/logs",
+  "porta_id": "cache/d1_camb/v3/logs",
+  "titulo": "cache/d1_camb/v3/logs",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-09-17T13:04:09Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "cache/d1_camb/v3",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "autoverificacao.log",
+      "caminho": "cache/d1_camb/v3/logs/autoverificacao.log",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/logs/autoverificacao.log",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/d1_camb/v3/logs/autoverificacao.log",
+      "sha256_16": "6f9b592417fda64c",
+      "bytes": 319
+    },
+    {
+      "nome": "injecao.log",
+      "caminho": "cache/d1_camb/v3/logs/injecao.log",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/logs/injecao.log",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/d1_camb/v3/logs/injecao.log",
+      "sha256_16": "34d507eb49c70a4f",
+      "bytes": 1481
+    },
+    {
+      "nome": "real_tranca.log",
+      "caminho": "cache/d1_camb/v3/logs/real_tranca.log",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/logs/real_tranca.log",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/d1_camb/v3/logs/real_tranca.log",
+      "sha256_16": "0b1d3c0924887600",
+      "bytes": 52
+    }
+  ],
+  "total_arquivos_nesta_pasta": 3,
+  "total_arquivos_com_subpastas": 3,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/d1_camb/v3/logs",
+  "rodape": "gerado por script de git ls-files em 2026-09-17 -- nao editar a mao"
+}

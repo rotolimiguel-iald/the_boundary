@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 149 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 164 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -22,7 +22,7 @@ Pasta do repositorio the_boundary com 149 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-149 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT
+164 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT
 
 **RESULTADO SELADO**
 
@@ -38,7 +38,9 @@ Pasta do repositorio the_boundary com 149 arquivo(s) rastreado(s).
 | arquivo | papel | link raw direto |
 |---|---|---|
 | `ADENDO_FINAL_RICCI_E_REEXAME_20260909_141818_536216.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ADENDO_FINAL_RICCI_E_REEXAME_20260909_141818_536216.md) |
+| `ADENDO_OPERADOR_PSI_AGENTE_20260917.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ADENDO_OPERADOR_PSI_AGENTE_20260917.md) |
 | `ADENDO_SELECAO_ANGULO_20260909_084118_419676.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ADENDO_SELECAO_ANGULO_20260909_084118_419676.md) |
+| `AUDITORIA_ALVO_COMPLETO_20260916.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/AUDITORIA_ALVO_COMPLETO_20260916.md) |
 | `AVANCO_TRES_FRENTES_20260909_115321_883473.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/AVANCO_TRES_FRENTES_20260909_115321_883473.md) |
 | `ENTREGA_001_ERRATA_reproducao.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_001_ERRATA_reproducao.md) |
 | `ENTREGA_001_esperanca_condicional_e_escala.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_001_esperanca_condicional_e_escala.md) |
@@ -177,6 +179,19 @@ Pasta do repositorio the_boundary com 149 arquivo(s) rastreado(s).
 | `ENTREGA_085_ESPONTANEA_invariantes_nulos_e_corrente_natural.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_085_ESPONTANEA_invariantes_nulos_e_corrente_natural.md) |
 | `ENTREGA_086_ESPONTANEA_divergencia_injetiva_e_lider_cubico.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_086_ESPONTANEA_divergencia_injetiva_e_lider_cubico.md) |
 | `ENTREGA_087_ESPONTANEA_ce_linear_quadratico_e_classe_par_brst.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_087_ESPONTANEA_ce_linear_quadratico_e_classe_par_brst.md) |
+| `ENTREGA_CENTRALIZADOR_COEFICIENTE_20260916.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_CENTRALIZADOR_COEFICIENTE_20260916.md) |
+| `ENTREGA_CILINDRO_COEFICIENTE_20260916.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_CILINDRO_COEFICIENTE_20260916.md) |
+| `ENTREGA_CONTORCAO_FONTE_REGIONAL_20260917.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_CONTORCAO_FONTE_REGIONAL_20260917.md) |
+| `ENTREGA_DEFINICAO_CONJUNTA_20260916.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_DEFINICAO_CONJUNTA_20260916.md) |
+| `ENTREGA_DIAMANTE_LOCALIZACAO_20260916.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_DIAMANTE_LOCALIZACAO_20260916.md) |
+| `ENTREGA_DIAMANTE_MODULAR_20260916.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_DIAMANTE_MODULAR_20260916.md) |
+| `ENTREGA_DIAMANTE_MODULAR_V2_20260916.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_DIAMANTE_MODULAR_V2_20260916.md) |
+| `ENTREGA_ESTADO_MODULAR_REGIONAL_20260916.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_ESTADO_MODULAR_REGIONAL_20260916.md) |
+| `ENTREGA_ORDEM_DA_CARGA_20260916.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_ORDEM_DA_CARGA_20260916.md) |
+| `ENTREGA_PESO_CONFORME_WEYL_20260916.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_PESO_CONFORME_WEYL_20260916.md) |
+| `ENTREGA_RECONHECIMENTO_DEPHASING_20260915.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_RECONHECIMENTO_DEPHASING_20260915.md) |
+| `ENTREGA_TESTE_WEYL_20260916.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_TESTE_WEYL_20260916.md) |
+| `ENTREGA_VACUO_TORRE_PRIMITIVA_RELATIVA_20260916.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_VACUO_TORRE_PRIMITIVA_RELATIVA_20260916.md) |
 | `LEIA-ME.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/LEIA-ME.md) |
 | `REEXAME_E_LOTE14_20260909_124503_150192.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/REEXAME_E_LOTE14_20260909_124503_150192.md) |
 | `REEXAME_V336_20260909_105743_144430.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/REEXAME_V336_20260909_105743_144430.md) |
