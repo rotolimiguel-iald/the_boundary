@@ -5,7 +5,7 @@
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
   "doi_um_absoluto": "https://doi.org/10.5281/zenodo.22659173",
-  "gerado_utc": "2026-09-15T22:01:57Z",
+  "gerado_utc": "2026-09-17T11:56:01Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
     "versao": "v355",
@@ -170,8 +170,8 @@
       "papel": "outros",
       "descricao": "Como citar: DOI 10.5281/zenodo.22659173 (v331), autor, versao, e as URLs diretas do um.py e do selo",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff",
-      "sha256_16": "71f74fafe91f9d6a",
-      "bytes": 3020
+      "sha256_16": "d99dbe71405e68b1",
+      "bytes": 3042
     },
     {
       "nome": "ESTADO_ATUAL.md",
@@ -194,7 +194,7 @@
       "papel": "documento",
       "descricao": "A PAGINA DE FRENTE, gerada por script (tools/gerar_readme_frente.py, 11/09/2026): o selo, reproduzir em tres comandos, as portas, os tres artigos, a ordem de leitura, abstract, citar, licenca, autor -- <= 40 KB; o atlas completo esta em LEDGER.md",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-      "sha256_16": "11eae015d2177c43",
+      "sha256_16": "8ef444cbd986a4f1",
       "bytes": 29367
     },
     {
@@ -503,5 +503,5 @@
     }
   ],
   "total_arquivos": 1733,
-  "rodape": "gerado por script de git ls-files em 2026-09-15 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-17 -- nao editar a mao"
 }

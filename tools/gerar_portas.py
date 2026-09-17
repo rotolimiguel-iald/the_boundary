@@ -34,7 +34,7 @@ from datetime import datetime, timezone
 # --------------------------------------------------------------------------
 # 0. CONSTANTES DO REPOSITORIO
 # --------------------------------------------------------------------------
-REPO = r"c:\IALD\Artigo\the_boundary"
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # 17/09: a raiz do proprio clone (portavel)
 GH = "https://github.com/rotolimiguel-iald/the_boundary"
 RAW = "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/"
 TREE = GH + "/tree/main/"

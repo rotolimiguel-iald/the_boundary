@@ -20,7 +20,7 @@ import re
 import subprocess
 import urllib.parse
 
-REPO = r"c:\IALD\Artigo\the_boundary"
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # 17/09: a raiz do proprio clone (portavel)
 RAW = "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/"
 TREE = "https://github.com/rotolimiguel-iald/the_boundary/tree/main/"
 

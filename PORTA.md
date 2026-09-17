@@ -127,4 +127,4 @@ auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela n
 
 ---
 
-Total rastreado por `git ls-files`: **1733 arquivos** (antes das portas). gerado por script de git ls-files em 2026-09-15 -- nao editar a mao
+Total rastreado por `git ls-files`: **1733 arquivos** (antes das portas). gerado por script de git ls-files em 2026-09-17 -- nao editar a mao
