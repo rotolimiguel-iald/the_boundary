@@ -4,7 +4,7 @@
   "titulo": "tools",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-19T12:24:55Z",
+  "gerado_utc": "2026-09-19T14:26:25Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -37,8 +37,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_portas.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/gerar_portas.py",
-      "sha256_16": "1815842f994ff7e9",
-      "bytes": 93814
+      "sha256_16": "826d5db4b1125c9b",
+      "bytes": 96894
     },
     {
       "nome": "gerar_readme_frente.py",
@@ -47,8 +47,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_readme_frente.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/gerar_readme_frente.py",
-      "sha256_16": "794606e464d692a9",
-      "bytes": 14912
+      "sha256_16": "95153af2ca9e7d8a",
+      "bytes": 17430
     },
     {
       "nome": "guarda_do_selo.py",

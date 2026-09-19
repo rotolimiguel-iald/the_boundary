@@ -4,7 +4,7 @@
   "titulo": "Artigo 1 -- O Custo Geometrico do Zero Absoluto: haja luz",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-19T12:24:55Z",
+  "gerado_utc": "2026-09-19T14:26:25Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -26,6 +26,16 @@
   ],
   "dependencias": "pip install numpy scipy matplotlib (opcionais: emcee, camb, gguf, gdown); pdflatex para o PDF",
   "arquivos": [
+    {
+      "nome": "ERRATA_20260919_sinal_do_acoplamento_nao_minimo.md",
+      "caminho": "O Custo Geométrico do Zero Absoluto — Haja Luz/ERRATA_20260919_sinal_do_acoplamento_nao_minimo.md",
+      "papel": "documento",
+      "descricao": "Errata ao lado do Artigo A (19/09/2026, assinada pelo autor): o sinal do acoplamento nao minimo, -xi R |Psi|^2 com xi = 1/6",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/ERRATA_20260919_sinal_do_acoplamento_nao_minimo.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/ERRATA_20260919_sinal_do_acoplamento_nao_minimo.md",
+      "sha256_16": "060c82abee57a5d0",
+      "bytes": 2871
+    },
     {
       "nome": "T6_protocol_prompts.txt",
       "caminho": "O Custo Geométrico do Zero Absoluto — Haja Luz/T6_protocol_prompts.txt",
@@ -77,8 +87,8 @@
       "bytes": 1216423
     }
   ],
-  "total_arquivos_nesta_pasta": 5,
-  "total_arquivos_com_subpastas": 5,
+  "total_arquivos_nesta_pasta": 6,
+  "total_arquivos_com_subpastas": 6,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz",
   "rodape": "gerado por script de git ls-files em 2026-09-19 -- nao editar a mao"
 }

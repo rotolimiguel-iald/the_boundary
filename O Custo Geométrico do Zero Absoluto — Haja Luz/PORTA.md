@@ -41,7 +41,7 @@ Dependencias: pip install numpy scipy matplotlib (opcionais: emcee, camb, gguf, 
 
 ## OS ARQUIVOS DESTA PASTA
 
-5 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz
+6 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz
 
 **CANONICO**
 
@@ -61,6 +61,12 @@ Dependencias: pip install numpy scipy matplotlib (opcionais: emcee, camb, gguf, 
 |---|---|---|
 | `paper_PT.pdf` | O artigo compilado (edicao PT) | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/paper_PT.pdf) |
 | `paper_PT.tex` | O artigo (edicao PT) gerado pelo proprio codigo | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/paper_PT.tex) |
+
+**DOCUMENTO**
+
+| arquivo | papel | link raw direto |
+|---|---|---|
+| `ERRATA_20260919_sinal_do_acoplamento_nao_minimo.md` | Errata ao lado do Artigo A (19/09/2026, assinada pelo autor): o sinal do acoplamento nao minimo, -xi R \|Psi\|^2 com xi = 1/6 | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/ERRATA_20260919_sinal_do_acoplamento_nao_minimo.md) |
 
 **DADOS**
 

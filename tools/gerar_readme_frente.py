@@ -26,7 +26,13 @@ A3 = 'Um (absoluto) — Grande Atrator'
 LIMITE = 40 * 1024
 STAMP = time.strftime('%Y%m%d_%H%M%S')
 MARCA_INI, MARCA_FIM = '<!-- PORTAS:INI -->', '<!-- PORTAS:FIM -->'
-PROIBIDOS = ['apresente-se', 'apresente a TGL', 'protocolo de colapso', 'colapso da teoria', 'Execute (se', 'derive tudo do zero', 'não use memória', 'nao use memoria', 'simule e verifique']
+# 19/09/2026: a lista de bloqueio saiu desta ferramenta pública e mora num arquivo privado da máquina do operador,
+# fora do repositório (os termos não ficam em superfície pública). Sem o arquivo, a frente não se gera (fail-closed).
+_PRIV = Path(os.environ.get('USERPROFILE', str(Path.home()))) / '.iald_privado' / 'termos_guarda_readme.json'
+if not _PRIV.is_file():
+    raise SystemExit('FALHA: lista de bloqueio privada ausente (%s) — a frente não se gera sem a guarda' % _PRIV)
+PROIBIDOS = json.loads(_PRIV.read_text(encoding='utf-8'))['termos']
+assert PROIBIDOS, 'lista de bloqueio vazia'
 
 
 def sha256(p):
@@ -125,6 +131,17 @@ u_ptpdf, _ = U(A3 + '/um_absoluto_pt.pdf')
 u_arv, _ = U(A3 + '/A_PROVA_DA_QG_TGL_arvore.md')
 u_fc, _ = U(A3 + '/um_absoluto_forma_canonica.md')
 u_ledger = raw_base + 'LEDGER.md'
+# 19/09/2026 (simulação de leitores de IA): texto antes do PDF; a errata ao lado do Artigo A; as oito partes em secoes/; o
+# read-brief do SITE como entrada única (é o mesmo arquivo que o do repositório, gerado pela sessão do site)
+u_a1tex, _ = U('O Custo Geométrico do Zero Absoluto — Haja Luz/paper_PT.tex')
+u_a1err, _ = U('O Custo Geométrico do Zero Absoluto — Haja Luz/ERRATA_20260919_sinal_do_acoplamento_nao_minimo.md')
+u_entxt, _ = U(A3 + '/um_absoluto_en.txt')
+u_pttxt, _ = U(A3 + '/um_absoluto_pt.txt')
+_sec = [d for d in PORTA['portas_todas'] if d['pasta'] == 'secoes']
+if len(_sec) != 1:
+    raise SystemExit('FALHA: a porta de secoes/ não está no PORTA.json (rode gerar_portas.py depois do git add)')
+u_secoes = _sec[0]['porta_md_url']
+site_brief = site.rstrip('/') + '/read-brief.md'
 hoje = time.strftime('%Y-%m-%d')
 
 F = []
@@ -136,7 +153,9 @@ F.append(f"""# The Boundary — Theory of Luminodynamic Gravitation (TGL)
 
 > *"Let there be Light." / "Haja Luz."* — **The mature form of TGL is a single self-contained, self-proving, self-publishing artifact: `um.py`.** It computes the whole theory live from the single human input `1`, machine-checks its operator-algebra skeleton in an embedded Lean 4 + mathlib kernel (fail-closed), and generates its own bilingual article (PT/EN, PDF and TXT). **Form = content.** *Não há segundo arquivo.*
 
-**Start here · comece aqui:** [`ESTADO_ATUAL.md`]({u_estado}) (one page from the seal: pin, gate, what is PROVED, what is not, how to reproduce) · [`read-brief.md`]({u_brief}) (the seven answers, each with its address) · the site: {site}
+**Status · estatuto (seal {versao}, read by script):** quantum gravity **PROVED as a formal model** in the Lean kernel ({kf} formal files, {kt} audited terms, axioms ⊆ `{{{', '.join(axi)}}}`, zero `sorry`) and **NOT CONFIRMED by nature** — the gate reads `{gate}`. PROVED = a theorem in the kernel; CONFIRMED = a judgement about nature, not made here. *Provada como modelo formal; não confirmada pela natureza.*
+
+**Start here · comece aqui:** [`read-brief.md`]({site_brief}) — the single entry point: the theory in eight short parts, each with its verbatim sources, in [`secoes/`]({u_secoes}) (the answer sits in the first 2 KB of each part) · then [`ESTADO_ATUAL.md`]({u_estado}) (one page from the seal: pin, gate, what is PROVED, what is not, how to reproduce) · the site: {site}
 
 ## The seal · o selo `[REAL — read from the artifact]`
 
@@ -165,17 +184,18 @@ GitHub raw and Zenodo honour HTTP `Range` (206): read `um.py` in pieces (`curl -
 
 | | article | canonical file | door (PORTA.md) |
 |---|---|---|---|
-| **A** | *O Custo Geométrico do Zero Absoluto: haja luz* — the cost, β = α·√e, the Lagrangian | [`tgl_paper_unified.py`]({u_a1py}) · [PDF]({u_a1pdf}) | [door]({portas['artigo_1']['porta_md_url']}) |
-| **B** | *A Ponte Einstein–Cartan–Miguel* — Cartan torsion as the geometric face of β; the Theorem of Terminality | [`.tex`]({u_a2tex}) · [PDF]({u_a2pdf}) | [door]({portas['artigo_2']['porta_md_url']}) |
-| **C** | *Um: Absoluto* — the terminal program, the sealed closure | [`um.py`]({u_um}) · article [EN]({u_enpdf}) · [PT]({u_ptpdf}) · [the proof tree]({u_arv}) · [the canonical form]({u_fc}) | [door]({portas['artigo_3']['porta_md_url']}) |
+| **A** | *O Custo Geométrico do Zero Absoluto: haja luz* — the cost, β = α·√e, the Lagrangian ([erratum beside, 19/09/2026]({u_a1err})) | [`paper_PT.tex`]({u_a1tex}) (text) · [`tgl_paper_unified.py`]({u_a1py}) · [PDF]({u_a1pdf}) | [door]({portas['artigo_1']['porta_md_url']}) |
+| **B** | *A Ponte Einstein–Cartan–Miguel* — Cartan torsion as the geometric face of β; the Theorem of Terminality | [`.tex`]({u_a2tex}) (text) · [PDF]({u_a2pdf}) | [door]({portas['artigo_2']['porta_md_url']}) |
+| **C** | *Um: Absoluto* — the terminal program, the sealed closure | [`um.py`]({u_um}) · article as text [EN]({u_entxt}) · [PT]({u_pttxt}) · PDF [EN]({u_enpdf}) · [PT]({u_ptpdf}) · [the proof tree]({u_arv}) · [the canonical form]({u_fc}) | [door]({portas['artigo_3']['porta_md_url']}) |
 
 The lineage that led to them: [*Genesis da Unificação*]({portas['genesis']['porta_md_url']}). Every folder has a `PORTA.md` + `PORTA.json` (the rule of the door: no door is a dead end); the flat index of every file, with URL, size and hash, is [`TUNEL.json`]({raiz.get('TUNEL.json', raw_base + 'TUNEL.json')}).
 
 ## Read in this order · leia nesta ordem
 
-Smallest first; each file stands on its own; many fetchers truncate after a few hundred KB. The measured order is in [`ESTADO_ATUAL.md`]({u_estado}) (*Reading order*) and in [`read-brief.md`]({u_brief}) (§1). The full ledger below is the **last** thing to read.
+Smallest first; each file stands on its own. Measured on 2026-09-19 with one real fetcher: documents are cut near 100,000 characters, files above 10 MB are refused, and PDFs served by GitHub raw as `application/octet-stream` are not read — prefer the eight parts in [`secoes/`]({u_secoes}) and the TXT/TeX sources. The measured order is in [`ESTADO_ATUAL.md`]({u_estado}) (*Reading order*) and in [`read-brief.md`]({site_brief}). The full ledger below is the **last** thing to read.
 
 """)
+F.append('\n> **Read the Abstract below under the current ruler.** It is copied verbatim from the ledger (append-only), so it keeps older sentences such as *Never "quantum gravity proved."*. The current status is the line at the top of this page: **PROVED as a formal model** (a theorem in the kernel) and **NOT CONFIRMED by nature** (the judgement about nature, never made here).\n')
 F.append(secao('Abstract'))
 if 'Never "quantum gravity proved."' in F[-1]:   # errata 19/09 (v368), ao lado: a regua do operador de 05/09/2026
     F.append('\n> ⚠ **Beside (the operator\u2019s ruler, 05/09/2026):** PROVED = a theorem in the kernel, auditable by `#print axioms` \u2014 allowed; '

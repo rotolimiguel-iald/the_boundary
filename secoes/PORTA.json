@@ -1,0 +1,118 @@
+{
+  "porta": "secoes",
+  "porta_id": "secoes",
+  "titulo": "secoes",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-09-19T14:26:25Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "raiz",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "01-o-um-absoluto.md",
+      "caminho": "secoes/01-o-um-absoluto.md",
+      "papel": "documento",
+      "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The absolute One: ω(I) = 1 and the derived Half-Nat · O Um absoluto: ω(I) = 1 e a Meia-Nat derivada",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/01-o-um-absoluto.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/01-o-um-absoluto.md",
+      "sha256_16": "c696fa3df085ebd4",
+      "bytes": 10695
+    },
+    {
+      "nome": "02-beta-custo-geometrico.md",
+      "caminho": "secoes/02-beta-custo-geometrico.md",
+      "papel": "documento",
+      "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): β_TGL = α·√e: the geometric cost of absolute zero · β_TGL = α·√e: o custo geométrico do zero absoluto",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/02-beta-custo-geometrico.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/02-beta-custo-geometrico.md",
+      "sha256_16": "0aae49930912ba3a",
+      "bytes": 11931
+    },
+    {
+      "nome": "03-a-acao-e-a-lagrangiana.md",
+      "caminho": "secoes/03-a-acao-e-a-lagrangiana.md",
+      "papel": "documento",
+      "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The action: the TGL Lagrangian and its equation of motion · A ação: a lagrangiana da TGL e sua equação de movimento",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/03-a-acao-e-a-lagrangiana.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/03-a-acao-e-a-lagrangiana.md",
+      "sha256_16": "230cbcf819aa7a22",
+      "bytes": 15729
+    },
+    {
+      "nome": "04-o-gerador-e-o-piso-do-espectro.md",
+      "caminho": "secoes/04-o-gerador-e-o-piso-do-espectro.md",
+      "papel": "documento",
+      "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The modular generator and the floor of the spectrum · O gerador modular e o piso do espectro",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/04-o-gerador-e-o-piso-do-espectro.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/04-o-gerador-e-o-piso-do-espectro.md",
+      "sha256_16": "e8e4556d78228cc9",
+      "bytes": 13192
+    },
+    {
+      "nome": "05-dinamica-aberta-gksl-e-dephasing.md",
+      "caminho": "secoes/05-dinamica-aberta-gksl-e-dephasing.md",
+      "papel": "documento",
+      "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): Open dynamics: the GKSL generator and dephasing · A dinâmica aberta: o gerador GKSL e o dephasing",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/05-dinamica-aberta-gksl-e-dephasing.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/05-dinamica-aberta-gksl-e-dephasing.md",
+      "sha256_16": "45a75cde35ab11d0",
+      "bytes": 13864
+    },
+    {
+      "nome": "06-o-estatuto-da-gravidade-quantica.md",
+      "caminho": "secoes/06-o-estatuto-da-gravidade-quantica.md",
+      "papel": "documento",
+      "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The status of quantum gravity: proved as a formal model, not confirmed by nature · O estatuto da gravidade quântica: provada como modelo formal, não confirmada pela natureza",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/06-o-estatuto-da-gravidade-quantica.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/06-o-estatuto-da-gravidade-quantica.md",
+      "sha256_16": "36ff3ca8541c6eeb",
+      "bytes": 12202
+    },
+    {
+      "nome": "07-o-programa-um-py.md",
+      "caminho": "secoes/07-o-programa-um-py.md",
+      "papel": "documento",
+      "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The program um.py: what it is, how to run it, how to read it without running · O programa um.py: o que é, como se roda, como se lê sem rodar",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/07-o-programa-um-py.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/07-o-programa-um-py.md",
+      "sha256_16": "18a5d4f36368921e",
+      "bytes": 11246
+    },
+    {
+      "nome": "08-os-artigos-e-os-instrumentos.md",
+      "caminho": "secoes/08-os-artigos-e-os-instrumentos.md",
+      "papel": "documento",
+      "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The three articles and the instruments · Os três artigos e os instrumentos",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/08-os-artigos-e-os-instrumentos.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/08-os-artigos-e-os-instrumentos.md",
+      "sha256_16": "b6e63ee1423faf79",
+      "bytes": 12523
+    },
+    {
+      "nome": "um-py-funcoes.tsv",
+      "caminho": "secoes/um-py-funcoes.tsv",
+      "papel": "outros",
+      "descricao": "Indice das funcoes prove_* do um.py selado: linha e faixa de bytes (para ler por HTTP Range)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/um-py-funcoes.tsv",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/um-py-funcoes.tsv",
+      "sha256_16": "d23eb0edd9b90ec8",
+      "bytes": 14854
+    }
+  ],
+  "total_arquivos_nesta_pasta": 9,
+  "total_arquivos_com_subpastas": 9,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/secoes",
+  "rodape": "gerado por script de git ls-files em 2026-09-19 -- nao editar a mao"
+}

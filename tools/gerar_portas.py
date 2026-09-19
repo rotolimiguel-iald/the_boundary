@@ -248,8 +248,8 @@ DESC = {
     "README.md": "A PAGINA DE FRENTE, gerada por script (tools/gerar_readme_frente.py, 11/09/2026): o selo, reproduzir em tres comandos, as portas, os tres artigos, a ordem de leitura, abstract, citar, licenca, autor -- <= 40 KB; o atlas completo esta em LEDGER.md",
     "LEDGER.md": "O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove) -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (" + str(round(os.path.getsize(os.path.join(REPO, "LEDGER.md")) / 1024)) + " KB; leia por ultimo)",
     "llms.txt": "A porta de entrada para IA (convencao llmstxt.org): as URLs raw diretas de tudo que importa",
-    "ESTADO_ATUAL.md": "UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- comece aqui",
-    "read-brief.md": "O READ BRIEF (11/09/2026, gerado por script pela sessao do site): as sete respostas com ENDERECO -- o Um absoluto, o custo geometrico do zero absoluto, os artigos, a lagrangiana, a gravidade quantica, o hamiltoniano limitado inferiormente, o dephasing -- cada uma com o documento, a secao, a chave do selo e a funcao do um.py; a ordem de leitura por tamanho; o que NAO esta provado",
+    "ESTADO_ATUAL.md": "UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- a segunda leitura, depois do read-brief",
+    "read-brief.md": "O READ BRIEF (gerado por script pela sessao do site): a ENTRADA UNICA -- a teoria em oito partes curtas (secoes/), cada uma com a resposta nos primeiros 2 KB e as fontes citadas verbatim; a ordem de leitura por tamanho; o que NAO esta provado",
     "CITATION.cff": "Como citar: DOI 10.5281/zenodo.22659173 (v331), autor, versao, e as URLs diretas do um.py e do selo",
     # ----- Artigo 1
     A1 + "/tgl_paper_unified.py": "O CANONICO do Artigo 1: implementa, valida e renderiza a TGL num arquivo so (forma = conteudo)",
@@ -360,6 +360,18 @@ def descreve(f, pap):
 def _descreve(f, pap):
     if f in DESC:
         return DESC[f]
+    # 19/09/2026 (sessao do site): as oito partes da teoria para leitores que truncam, e a errata ao lado do Artigo A
+    if f.startswith("secoes/") and f.endswith(".md"):
+        try:
+            with open(os.path.join(REPO, f), encoding="utf-8") as _fh:
+                _t = _fh.readline().strip().lstrip("# ").strip()
+        except OSError:
+            _t = ""
+        return "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): " + _t
+    if f == "secoes/um-py-funcoes.tsv":
+        return "Indice das funcoes prove_* do um.py selado: linha e faixa de bytes (para ler por HTTP Range)"
+    if f.endswith("/ERRATA_20260919_sinal_do_acoplamento_nao_minimo.md"):
+        return "Errata ao lado do Artigo A (19/09/2026, assinada pelo autor): o sinal do acoplamento nao minimo, -xi R |Psi|^2 com xi = 1/6"
     nome = f.rsplit("/", 1)[-1]
     ext = os.path.splitext(nome)[1].lower()
     base = os.path.splitext(nome)[0]
@@ -1030,9 +1042,10 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("")
     T.append("## A porta de entrada")
     T.append("")
-    T.append("- [ESTADO_ATUAL.md](%s): UMA PAGINA gerada do selo -- pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir em tres comandos. COMECE AQUI." % registra(url_raw("ESTADO_ATUAL.md")))
+    # 19/09/2026 (sessao do site, simulacao de leitores de IA): o read-brief e' a entrada UNICA; as oito partes logo depois
     if os.path.isfile(os.path.join(REPO, "read-brief.md")):
-        T.append("- [read-brief.md](%s): O READ BRIEF -- as sete respostas com ENDERECO (o Um absoluto, o custo geometrico do zero absoluto, os artigos, a lagrangiana, a gravidade quantica, o hamiltoniano limitado inferiormente, o dephasing), cada uma com documento, secao, chave do selo e funcao do um.py; a ordem de leitura por tamanho; o que NAO esta provado. <= 30 KB." % registra(url_raw("read-brief.md")))
+        T.append("- [read-brief.md](%s): O READ BRIEF -- a ENTRADA UNICA: a teoria em oito partes curtas, cada uma com a resposta nos primeiros 2 KB e as fontes citadas verbatim (URL, faixa de bytes, sha256); a ordem de leitura por tamanho; o que NAO esta provado. <= 30 KB. COMECE AQUI." % registra(url_raw("read-brief.md")))
+    T.append("- [ESTADO_ATUAL.md](%s): UMA PAGINA gerada do selo -- pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir em tres comandos. A segunda leitura." % registra(url_raw("ESTADO_ATUAL.md")))
     T.append("- [PORTA.json (raiz)](%s): o manifesto de maquina -- selo corrente, as portas abaixo e o mapa completo de todas as portas do repositorio." % registra(porta_json_url("")))
     T.append("- [PORTA.md (raiz)](%s): a mesma porta em leitura humana, com o selo e o mapa." % registra(porta_md_url("")))
     T.append("- [README.md](%s): a PAGINA DE FRENTE (<= 40 KB, gerada por script): o selo, reproduzir, as portas, os tres artigos, a ordem de leitura, abstract, citar." % registra(url_raw("README.md")))
@@ -1043,12 +1056,28 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("- [Zenodo DOI 10.5281/zenodo.22659173](%s): o deposito CITAVEL do Um: Absoluto -- guarda a v331 (08/09/2026; um.py e1b74a907c403538, md5 eadfe51b52d73fe4... conferido pela API).%s" % (DOI_UM, "" if sc["versao"] == "v331" else " ATENCAO: o selo corrente deste repositorio e' %s, MAIS NOVO que o deposito; versao nova no Zenodo e' ato do operador." % sc["versao"]))
     T.append("- cache/ e pipelines/ (v340-v350, A NATUREZA RESPONDEU): os RESULTADOS dos cinco testes pre-registrados (JSON lidos POR HASH pelo um.py em ../cache; sem eles o rito emite AWAITING_RESULT_FILE e o selo muda) e os pipelines que os produziram (WSL + lalsuite/bilby/camb/pycbc). Nenhum falsificou, nenhum confirmou, todos ganharam numero; nenhum move o gate. Exemplo: [ECHO_ANCHORED_V2_RESULT.json](%s) e [rite_h2_v350.py](%s)." % (url_raw("cache/gw/ECHO_ANCHORED_V2_RESULT.json"), url_raw("pipelines/eco_ancorado_v1/rite_h2_v350.py")))
     T.append("")
+    _sec_dir = os.path.join(REPO, "secoes")
+    if os.path.isdir(_sec_dir):
+        T.append("## A teoria em oito partes (secoes/) -- texto puro, a resposta no topo de cada parte")
+        T.append("")
+        for _n in sorted(os.listdir(_sec_dir)):
+            if _n[:2].isdigit() and _n.endswith(".md"):
+                with open(os.path.join(_sec_dir, _n), encoding="utf-8") as _fh:
+                    _t = _fh.readline().strip().lstrip("# ").strip()
+                T.append("- [%s](%s)" % (_t, registra(url_raw("secoes/" + _n))))
+        if os.path.isfile(os.path.join(_sec_dir, "um-py-funcoes.tsv")):
+            T.append("- [indice das funcoes prove_* do um.py](%s): linha e faixa de bytes de cada funcao (para ler por HTTP Range)." % registra(url_raw("secoes/um-py-funcoes.tsv")))
+        T.append("- Limites medidos em 19/09/2026 com um leitor real: corte perto de 100.000 caracteres por documento; recusa acima de 10 MB; PDF servido pelo raw como application/octet-stream nao e lido -- leia as partes e as fontes TXT/TeX.")
+        T.append("")
     T.append("## Artigo 1 -- O Custo Geometrico do Zero Absoluto: haja luz")
     T.append("")
     T.append("- [PORTA.md do Artigo 1](%s): a porta da pasta -- todos os arquivos com link raw direto." % registra(porta_md_url(A1)))
     T.append("- [PORTA.json do Artigo 1](%s): a mesma porta em estrutura de maquina, com sha256 de cada arquivo." % registra(porta_json_url(A1)))
     T.append("- [tgl_paper_unified.py](%s): O CANONICO -- implementa, valida e renderiza a TGL num arquivo so; roda com `python tgl_paper_unified.py --live --paper`." % registra(url_raw(A1 + "/tgl_paper_unified.py")))
-    T.append("- [paper_PT.pdf](%s): o artigo gerado pelo proprio codigo (edicao PT)." % registra(url_raw(A1 + "/paper_PT.pdf")))
+    T.append("- [paper_PT.tex](%s): o artigo em TEXTO (LaTeX, edicao PT): a acao (sec:lagrangian), o gerador GKSL (sec:gksl), a lei de dephasing, o POA -- Protocolo Observacional Autonomo, instrumento do Artigo 1 (sec:poa)." % registra(url_raw(A1 + "/paper_PT.tex")))
+    if os.path.isfile(os.path.join(REPO, A1, "ERRATA_20260919_sinal_do_acoplamento_nao_minimo.md")):
+        T.append("- [ERRATA_20260919_sinal_do_acoplamento_nao_minimo.md](%s): errata ao lado (19/09/2026, assinada pelo autor): o termo nao minimo e' -xi R |Psi|^2, xi = 1/6 (conforme, nao beta)." % registra(url_raw(A1 + "/ERRATA_20260919_sinal_do_acoplamento_nao_minimo.md")))
+    T.append("- [paper_PT.pdf](%s): o artigo gerado pelo proprio codigo (edicao PT; o raw do GitHub serve PDF como octet-stream -- para leitura por IA, use o .tex)." % registra(url_raw(A1 + "/paper_PT.pdf")))
     T.append("- [results.json](%s): todos os numeros computados pela rodada." % registra(url_raw(A1 + "/results.json")))
     T.append("")
     T.append("## Artigo 2 -- A Ponte Einstein-Cartan-Miguel")
@@ -1065,6 +1094,7 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("- [PORTA.json do Artigo 3](%s): a mesma porta em estrutura de maquina, com o selo corrente completo." % registra(porta_json_url(A3)))
     T.append("- [um.py](%s): O CANONICO TERMINAL -- kernel Lean 4 embutido, ritos pre-registrados, artigo bilingue; roda com `echo 1 | python um.py`. Nao ha segundo arquivo." % registra(url_raw(A3 + "/um.py")))
     T.append("- [um_absoluto_selo.json](%s): O SELO -- versao %s, pin %s, result %s, %s." % (registra(url_raw(A3 + "/um_absoluto_selo.json")), sc["versao"], sc["pin_um_py_16"], sc["result_hash_16"], sc["data"]))
+    T.append("- o artigo emitido pelo um.py, em TEXTO: [um_absoluto_en.txt](%s) · [um_absoluto_pt.txt](%s) (os PDF ao lado sao servidos como octet-stream)." % (registra(url_raw(A3 + "/um_absoluto_en.txt")), registra(url_raw(A3 + "/um_absoluto_pt.txt"))))
     T.append("")
     T.append("## Ordem de leitura -- para leitores que truncam documentos grandes")
     T.append("")
@@ -1083,7 +1113,7 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("Download em pedacos: o raw do GitHub e o Zenodo honram HTTP Range (206 Partial Content, byte-exato):")
     T.append("  curl -L -r 0-999999 -o um.py.part1 \"%s\"   (depois -r 1000000-1999999, e assim por diante)" % url_raw(A3 + "/um.py"))
     T.append("")
-    T.append("## O TUNEL -- se voce e um bot, comece por aqui")
+    T.append("## O TUNEL -- o mapa plano inteiro (%.0f KB: para baixar inteiro, nao para janela de chat)" % (os.path.getsize(os.path.join(REPO, "TUNEL.json")) / 1024.0))
     T.append("")
     T.append("As PORTAS sao hierarquicas (raiz -> pasta -> arquivo) e voce pode errar o nome no")
     T.append("caminho. O TUNEL e plano: um GET e voce tem TODOS os arquivos com URL raw direta,")
@@ -1262,10 +1292,10 @@ def bloco_readme(dirs, sc):
     B.append("| door | what it is | open |")
     B.append("|---|---|---|")
     B.append("| **`llms.txt`** | the entry door (llmstxt.org): the three articles, the seal, the site | [raw](%s) |" % url_raw("llms.txt"))
-    B.append("| **`ESTADO_ATUAL.md`** | **one page, generated from the seal**: pin, gate, what is PROVED, what is not, how to reproduce \u2014 start here | [raw](%s) |" % url_raw("ESTADO_ATUAL.md"))
+    B.append("| **`ESTADO_ATUAL.md`** | **one page, generated from the seal**: pin, gate, what is PROVED, what is not, how to reproduce \u2014 the second reading, after the Read Brief | [raw](%s) |" % url_raw("ESTADO_ATUAL.md"))
     if os.path.isfile(os.path.join(REPO, "read-brief.md")):
-        B.append("| **`read-brief.md`** | **the Read Brief**: the seven answers, each with its address (document \u00b7 section \u00b7 seal key \u00b7 `um.py` function), the reading order by size, what is NOT proved \u2014 \u2264 30 KB | [raw](%s) |" % url_raw("read-brief.md"))
-    B.append("| **`TUNEL.json`** | **the tunnel** \u2014 the FLAT index: every file with its direct raw URL, size and hash. One request, no navigation | [raw](%s) |" % url_raw("TUNEL.json"))
+        B.append("| **`read-brief.md`** | **the Read Brief \u2014 start here**: the single entry point \u2014 the theory in eight short parts (`secoes/`), each with its answer in the first 2 KB and its sources quoted verbatim; the reading order by size; what is NOT proved \u2014 \u2264 30 KB | [raw](%s) |" % url_raw("read-brief.md"))
+    B.append("| **`TUNEL.json`** | **the tunnel** \u2014 the FLAT index: every file with its direct raw URL, size and hash \u2014 large: download it whole, it does not fit a chat window | [raw](%s) |" % url_raw("TUNEL.json"))
     B.append("| **`TUNEL.md`** | the same tunnel, human-readable, with ASCII shortcuts | [raw](%s) |" % url_raw("TUNEL.md"))
     B.append("| **`PORTA.json`** (root) | the machine manifest: current seal + every door in the repository | [raw](%s) |" % porta_json_url(""))
     B.append("| **`PORTA.md`** (root) | the same door, human-readable | [raw](%s) |" % porta_md_url(""))

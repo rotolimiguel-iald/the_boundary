@@ -54,10 +54,10 @@ auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela n
 | `.gitattributes` | Arquivo de infraestrutura | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitattributes) |
 | `.gitignore` | Arquivo de infraestrutura | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitignore) |
 | `CITATION.cff` | Como citar: DOI 10.5281/zenodo.22659173 (v331), autor, versao, e as URLs diretas do um.py e do selo | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff) |
-| `ESTADO_ATUAL.md` | UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- comece aqui | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) |
+| `ESTADO_ATUAL.md` | UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- a segunda leitura, depois do read-brief | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) |
 | `LEDGER.md` | O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove) -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (563 KB; leia por ultimo) | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md) |
 | `README.md` | A PAGINA DE FRENTE, gerada por script (tools/gerar_readme_frente.py, 11/09/2026): o selo, reproduzir em tres comandos, as portas, os tres artigos, a ordem de leitura, abstract, citar, licenca, autor -- <= 40 KB; o atlas completo esta em LEDGER.md | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md) |
-| `read-brief.md` | O READ BRIEF (11/09/2026, gerado por script pela sessao do site): as sete respostas com ENDERECO -- o Um absoluto, o custo geometrico do zero absoluto, os artigos, a lagrangiana, a gravidade quantica, o hamiltoniano limitado inferiormente, o dephasing -- cada uma com o documento, a secao, a chave do selo e a funcao do um.py; a ordem de leitura por tamanho; o que NAO esta provado | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md) |
+| `read-brief.md` | O READ BRIEF (gerado por script pela sessao do site): a ENTRADA UNICA -- a teoria em oito partes curtas (secoes/), cada uma com a resposta nos primeiros 2 KB e as fontes citadas verbatim; a ordem de leitura por tamanho; o que NAO esta provado | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md) |
 
 ## OUTRAS PORTAS ABAIXO
 
@@ -66,6 +66,7 @@ auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela n
 | `.github/` | 1 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/PORTA.json) |
 | `cache/` | 122 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/PORTA.json) |
 | `pipelines/` | 39 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/PORTA.json) |
+| `secoes/` | 9 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.json) |
 | `tools/` | 7 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.json) |
 
 *Nota: `tgl_kernel/` na raiz e' uma copia solta de um unico modulo.*
@@ -95,7 +96,7 @@ auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela n
 | `Genesis da Unificação/Torus/` | 4 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Torus/PORTA.md) |
 | `Genesis da Unificação/Um - ensaio/` | 19 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/PORTA.md) |
 | `Genesis da Unificação/Validacao_cosmologica/` | 11 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/PORTA.md) |
-| `O Custo Geométrico do Zero Absoluto — Haja Luz/` | 5 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/PORTA.md) |
+| `O Custo Geométrico do Zero Absoluto — Haja Luz/` | 6 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/PORTA.md) |
 | `Um (absoluto) — Grande Atrator/` | 1553 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md) |
 | `Um (absoluto) — Grande Atrator/Lean/` | 1090 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/PORTA.md) |
 | `Um (absoluto) — Grande Atrator/Lean/kernel_bancada/` | 63 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/PORTA.md) |
@@ -130,8 +131,9 @@ auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela n
 | `cache/gw/` | 10 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/PORTA.md) |
 | `pipelines/` | 39 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/PORTA.md) |
 | `pipelines/eco_ancorado_v1/` | 39 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/PORTA.md) |
+| `secoes/` | 9 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md) |
 | `tools/` | 7 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md) |
 
 ---
 
-Total rastreado por `git ls-files`: **1892 arquivos** (antes das portas). gerado por script de git ls-files em 2026-09-19 -- nao editar a mao
+Total rastreado por `git ls-files`: **1902 arquivos** (antes das portas). gerado por script de git ls-files em 2026-09-19 -- nao editar a mao
