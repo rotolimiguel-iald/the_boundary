@@ -5,7 +5,7 @@
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
   "doi_um_absoluto": "https://doi.org/10.5281/zenodo.22659173",
-  "gerado_utc": "2026-09-19T14:28:35Z",
+  "gerado_utc": "2026-09-19T14:43:13Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
     "versao": "v368",
@@ -133,7 +133,7 @@
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.json",
       "canonico_url": null,
       "comando": null,
-      "total_arquivos": 9
+      "total_arquivos": 10
     },
     {
       "nome": "tools",
@@ -212,8 +212,8 @@
       "papel": "documento",
       "descricao": "O READ BRIEF (gerado por script pela sessao do site): a ENTRADA UNICA -- a teoria em oito partes curtas (secoes/), cada uma com a resposta nos primeiros 2 KB e as fontes citadas verbatim; a ordem de leitura por tamanho; o que NAO esta provado",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md",
-      "sha256_16": "108001c324c6e2dc",
-      "bytes": 17182
+      "sha256_16": "82fb23144c7f1dbb",
+      "bytes": 17362
     }
   ],
   "portas_todas": [
@@ -551,7 +551,7 @@
       "pasta": "secoes",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.json",
-      "total_arquivos": 9
+      "total_arquivos": 10
     },
     {
       "pasta": "tools",
@@ -560,6 +560,6 @@
       "total_arquivos": 7
     }
   ],
-  "total_arquivos": 1902,
+  "total_arquivos": 1903,
   "rodape": "gerado por script de git ls-files em 2026-09-19 -- nao editar a mao"
 }

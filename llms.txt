@@ -73,7 +73,7 @@ Do menor para o maior; cada arquivo se sustenta sozinho (tamanhos lidos agora):
 Download em pedacos: o raw do GitHub e o Zenodo honram HTTP Range (206 Partial Content, byte-exato):
   curl -L -r 0-999999 -o um.py.part1 "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"   (depois -r 1000000-1999999, e assim por diante)
 
-## O TUNEL -- o mapa plano inteiro (675 KB: para baixar inteiro, nao para janela de chat)
+## O TUNEL -- o mapa plano inteiro (676 KB: para baixar inteiro, nao para janela de chat)
 
 As PORTAS sao hierarquicas (raiz -> pasta -> arquivo) e voce pode errar o nome no
 caminho. O TUNEL e plano: um GET e voce tem TODOS os arquivos com URL raw direta,

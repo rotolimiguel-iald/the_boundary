@@ -21,7 +21,7 @@
   "versao_da_pedra": "v368"
  },
  "regra": "NOT_FALSIFIED nunca e CONFIRMED. Fechar a arquitetura matematica interna nao e gravidade quantica confirmada. beta_TGL = alpha*sqrt(e) e CONSTANTE, nunca literal no codigo: e computada em runtime.",
- "n_arquivos": 1902,
+ "n_arquivos": 1903,
  "aliases_ausentes": [],
  "aliases": {
   "um.py": {
@@ -13344,15 +13344,15 @@
   {
    "path": "read-brief.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md",
-   "bytes": 17182,
-   "sha256_16": "108001c324c6e2dc",
+   "bytes": 17362,
+   "sha256_16": "82fb23144c7f1dbb",
    "papel": "documento"
   },
   {
    "path": "secoes/01-o-um-absoluto.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/01-o-um-absoluto.md",
    "bytes": 10695,
-   "sha256_16": "c696fa3df085ebd4",
+   "sha256_16": "9bcc16e55c906e11",
    "papel": "documento"
   },
   {
@@ -13372,8 +13372,8 @@
   {
    "path": "secoes/04-o-gerador-e-o-piso-do-espectro.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/04-o-gerador-e-o-piso-do-espectro.md",
-   "bytes": 13192,
-   "sha256_16": "e8e4556d78228cc9",
+   "bytes": 13240,
+   "sha256_16": "74165ea6c56ed1d5",
    "papel": "documento"
   },
   {
@@ -13387,21 +13387,28 @@
    "path": "secoes/06-o-estatuto-da-gravidade-quantica.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/06-o-estatuto-da-gravidade-quantica.md",
    "bytes": 12202,
-   "sha256_16": "36ff3ca8541c6eeb",
+   "sha256_16": "f383b700d7d576ee",
    "papel": "documento"
   },
   {
    "path": "secoes/07-o-programa-um-py.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/07-o-programa-um-py.md",
    "bytes": 11246,
-   "sha256_16": "18a5d4f36368921e",
+   "sha256_16": "dd8da5f54fa535f7",
    "papel": "documento"
   },
   {
    "path": "secoes/08-os-artigos-e-os-instrumentos.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/08-os-artigos-e-os-instrumentos.md",
    "bytes": 12523,
-   "sha256_16": "b6e63ee1423faf79",
+   "sha256_16": "7f27231602e2b067",
+   "papel": "documento"
+  },
+  {
+   "path": "secoes/selo-cartao.md",
+   "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/selo-cartao.md",
+   "bytes": 6179,
+   "sha256_16": "200c303d8c981afd",
    "papel": "documento"
   },
   {

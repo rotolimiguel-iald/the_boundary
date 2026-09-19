@@ -14,10 +14,10 @@ O Artigo A, O Custo Geométrico do Zero Absoluto: haja luz, toma α CODATA [KNOW
 
 ## Sources, verbatim · fontes, verbatim
 
-### 1. `README.md` — bytes 12.010–15.474
+### 1. `README.md` — bytes 12.135–15.599
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `7e0ab7fad1ad51e952b2b2346b10dd68f0c316a5e72dfc7196fd47bd07924b9c` (computed now; this file is not in the seal map) · of this excerpt: `2aba89a281865b7086e7cb76e85ee6043994f18a1f5d29143f1c7e68843e161c`
+- sha256 of the file: `0fbf429f4405e8ce0a3f0851a8ab591016209e734a81be8de51159d078c18ed4` (computed now; this file is not in the seal map) · of this excerpt: `2aba89a281865b7086e7cb76e85ee6043994f18a1f5d29143f1c7e68843e161c`
 - status · estatuto: [REAL — index of the v368 mirror]
 - why · por quê: The canonical table of the three articles (A, B, C): for each, the canonical file, the PDF/TeX route and the door; current in v368.
 
@@ -68,7 +68,7 @@ POA com honestidade (inclusive nulos) e reconhece a abertura angular como
 ### 3. `README.md` — bytes 3.728–4.525
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `7e0ab7fad1ad51e952b2b2346b10dd68f0c316a5e72dfc7196fd47bd07924b9c` (computed now; this file is not in the seal map) · of this excerpt: `76ef05c5c366f985a8380a1a4884c978a2a608b4b06197430b3e4e6367785bd9`
+- sha256 of the file: `0fbf429f4405e8ce0a3f0851a8ab591016209e734a81be8de51159d078c18ed4` (computed now; this file is not in the seal map) · of this excerpt: `76ef05c5c366f985a8380a1a4884c978a2a608b4b06197430b3e4e6367785bd9`
 - status · estatuto: [REAL — three commands, v368]
 - why · por quê: How Article C (um.py) is fetched, checked by hash and run; also covers HTTP Range and GitHub not rendering files above 5 MB (the raw URL serves the whole file).
 
