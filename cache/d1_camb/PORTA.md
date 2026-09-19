@@ -36,8 +36,8 @@ Pasta do repositorio the_boundary com 3 arquivo(s) rastreado(s).
 
 | subpasta | arquivos | PORTA.md | PORTA.json |
 |---|---|---|---|
-| `v3/` | 11 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/PORTA.json) |
+| `v3/` | 17 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/PORTA.json) |
 
 ---
 
-gerado por script de git ls-files em 2026-09-17 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-19 -- nao editar a mao

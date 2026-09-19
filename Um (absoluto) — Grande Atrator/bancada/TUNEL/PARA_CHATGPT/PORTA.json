@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-17T13:04:09Z",
+  "gerado_utc": "2026-09-19T12:24:55Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
@@ -216,6 +216,36 @@
       "bytes": 4868
     },
     {
+      "nome": "RECIBO_v365_O_UM_POSTO_E_RELACAO.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_v365_O_UM_POSTO_E_RELACAO.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_v365_O_UM_POSTO_E_RELACAO.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_v365_O_UM_POSTO_E_RELACAO.md",
+      "sha256_16": "0cccf187514fe95a",
+      "bytes": 6542
+    },
+    {
+      "nome": "RECIBO_v366_D1_V3_DADO_REAL.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_v366_D1_V3_DADO_REAL.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_v366_D1_V3_DADO_REAL.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_v366_D1_V3_DADO_REAL.md",
+      "sha256_16": "ae7574c0cded38cb",
+      "bytes": 2464
+    },
+    {
+      "nome": "RECIBO_v368_INVERSAO_DO_NOME_E_OBSTRUCAO_ESPINORIAL.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_v368_INVERSAO_DO_NOME_E_OBSTRUCAO_ESPINORIAL.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_v368_INVERSAO_DO_NOME_E_OBSTRUCAO_ESPINORIAL.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_v368_INVERSAO_DO_NOME_E_OBSTRUCAO_ESPINORIAL.md",
+      "sha256_16": "a5d65ecbaa86c8e8",
+      "bytes": 6159
+    },
+    {
       "nome": "RESPOSTA_OPERADOR_16SET_DEFINICAO_CONJUNTA_NO_ESTUDO_INTEIRO.md",
       "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/RESPOSTA_OPERADOR_16SET_DEFINICAO_CONJUNTA_NO_ESTUDO_INTEIRO.md",
       "papel": "documento",
@@ -226,8 +256,8 @@
       "bytes": 3872
     }
   ],
-  "total_arquivos_nesta_pasta": 19,
-  "total_arquivos_com_subpastas": 40,
+  "total_arquivos_nesta_pasta": 22,
+  "total_arquivos_com_subpastas": 43,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT",
-  "rodape": "gerado por script de git ls-files em 2026-09-17 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-19 -- nao editar a mao"
 }

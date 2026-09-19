@@ -246,7 +246,7 @@ def papel(f):
 DESC = {
     # ----- raiz
     "README.md": "A PAGINA DE FRENTE, gerada por script (tools/gerar_readme_frente.py, 11/09/2026): o selo, reproduzir em tres comandos, as portas, os tres artigos, a ordem de leitura, abstract, citar, licenca, autor -- <= 40 KB; o atlas completo esta em LEDGER.md",
-    "LEDGER.md": "O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, append-only -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (562 KB; leia por ultimo)",
+    "LEDGER.md": "O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove) -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (" + str(round(os.path.getsize(os.path.join(REPO, "LEDGER.md")) / 1024)) + " KB; leia por ultimo)",
     "llms.txt": "A porta de entrada para IA (convencao llmstxt.org): as URLs raw diretas de tudo que importa",
     "ESTADO_ATUAL.md": "UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- comece aqui",
     "read-brief.md": "O READ BRIEF (11/09/2026, gerado por script pela sessao do site): as sete respostas com ENDERECO -- o Um absoluto, o custo geometrico do zero absoluto, os artigos, a lagrangiana, a gravidade quantica, o hamiltoniano limitado inferiormente, o dephasing -- cada uma com o documento, a secao, a chave do selo e a funcao do um.py; a ordem de leitura por tamanho; o que NAO esta provado",
@@ -286,11 +286,17 @@ DESC = {
     A3 + "/HANDOFF_v357_CUSTODIA_README_PORTAS_SITE_CENTRAL.md": "HANDOFF v357: a custodia do espelho, portas, raws, site e Central (v351->v357), gerado por script com todo hash lido do disco",
     A3 + "/rodadas/rodada_v354_FALHA1_stdout.txt": "Saida REPROVADA preservada (v354): 15 #print axioms _private.* no Audit -> TGL_KERNEL_FORMALIZATION_FAILED; emenda e rerodada",
     A3 + "/rodadas/rodada_v357_ABORTADA1_stdout.txt": "Rodada ABORTADA preservada (v357): interrompida aos 3 min pela gerencia -- o ensaio a seco pegou um & nao escapado; emenda e rerodada",
-    "cache/d1_camb/v3/MANIFESTO_D1_V3.json": "A V3 do D1 (v364): manifesto do pipeline construido CEGO -- autoverificacao, injecao e recuperacao, emenda; a rodada real TRANCADA a espera da linha do operador",
+    "cache/d1_camb/v3/MANIFESTO_D1_V3.json": "A V3 do D1 (v364): manifesto do pipeline construido CEGO -- autoverificacao, injecao e recuperacao, emenda; a rodada real TRANCADA a espera da linha do operador -- ERRATA AO LADO (v368): a linha do operador veio em 17/09 e a V3 rodou com dado real (v366; saida/D1_CAMB_V3_REAL_RESULT.json)",
     "cache/d1_camb/v3/saida/D1_CAMB_V3_INJECAO.json": "A V3 do D1 (v364): injecao e recuperacao (primario e com SH0ES) -- lido por hash pelo um.py",
     "cache/d1_camb/v3/saida/D1_CAMB_V3_INJECAO_EMENDA.json": "A V3 do D1 (v364): a emenda escrita depois da reprovacao da C livre (o fecho absorve C em rho_Lambda), sem rerodar e sem mexer no pipeline",
     "cache/diamante_rede/DIAMANTE_REDE_RESULTADO.json": "O diamante pequeno na rede (v364): o hamiltoniano modular do intervalo no vacuo do fermion de Dirac massivo 1+1 -- resultado lido por hash pelo um.py [REAL no modelo]",
     "cache/diamante_rede/MANIFESTO_DIAMANTE_REDE.json": "O diamante pequeno na rede (v364): manifesto com o sha256 de scripts e dados",
+    "cache/d1_camb/v3/saida/D1_CAMB_V3_REAL_RESULT.json": "A V3 do D1 com dado real (v366): D1_TENSION_2_TO_5_SIGMA e D1_BETA_TENSION -- alpha*sqrt(e) a 3.01 sigma, no limiar; tensao, nao falsificacao -- lido por hash pelo um.py",
+    "cache/d1_camb/v3/EXECUCAO_REAL.json": "A V3 do D1 (v366): o registro da execucao real (instrumento, versoes, tempos) -- lido por hash pelo um.py",
+    "cache/d1_camb/v3/CONFIRMACAO_OPERADOR_ROTA_V3.json": "A V3 do D1 (v366): a linha do operador que ratificou a rota do fundo e abriu a tranca -- lido por hash pelo um.py",
+    "cache/d1_camb/v3/TENTATIVA_1_SEM_CAMB.json": "A V3 do D1 (v366): a primeira tentativa, que morreu antes de qualquer numero (interpretador sem camb) -- preservada por hash",
+    "cache/d1_camb/v3/logs/real.log": "A V3 do D1 (v366): o log da execucao real",
+    "cache/d1_camb/v3/logs/real_tentativa1_python314_sem_camb.log": "A V3 do D1 (v366): o log da primeira tentativa, sem camb",
     A3 + "/O_FECHAMENTO_ESTRUTURA.md": "O FECHO (v339): a estrutura em seis pecas; a DECLARACAO de fecho e' ato do operador; o que fica de obrigacao (reconstrucao fisica geral, teoria interagente, UV, as seis folhas da natureza)",
     A3 + "/rodadas/tgl_kernel_build_capture.txt": "Captura por etapa (principal) do lake build do kernel embutido -- rastreabilidade da compilacao (v339+)",
     A3 + "/rodadas/tgl_kernel_audit_capture.txt": "Captura por etapa (principal) do #print axioms de cada teorema -- rastreabilidade da auditoria (v339+)",
@@ -1027,11 +1033,11 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("- [ESTADO_ATUAL.md](%s): UMA PAGINA gerada do selo -- pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir em tres comandos. COMECE AQUI." % registra(url_raw("ESTADO_ATUAL.md")))
     if os.path.isfile(os.path.join(REPO, "read-brief.md")):
         T.append("- [read-brief.md](%s): O READ BRIEF -- as sete respostas com ENDERECO (o Um absoluto, o custo geometrico do zero absoluto, os artigos, a lagrangiana, a gravidade quantica, o hamiltoniano limitado inferiormente, o dephasing), cada uma com documento, secao, chave do selo e funcao do um.py; a ordem de leitura por tamanho; o que NAO esta provado. <= 30 KB." % registra(url_raw("read-brief.md")))
-    T.append("- [PORTA.json (raiz)](%s): o manifesto de maquina -- selo corrente, as quatro portas abaixo e o mapa completo de todas as portas do repositorio." % registra(porta_json_url("")))
+    T.append("- [PORTA.json (raiz)](%s): o manifesto de maquina -- selo corrente, as portas abaixo e o mapa completo de todas as portas do repositorio." % registra(porta_json_url("")))
     T.append("- [PORTA.md (raiz)](%s): a mesma porta em leitura humana, com o selo e o mapa." % registra(porta_md_url("")))
     T.append("- [README.md](%s): a PAGINA DE FRENTE (<= 40 KB, gerada por script): o selo, reproduzir, as portas, os tres artigos, a ordem de leitura, abstract, citar." % registra(url_raw("README.md")))
     if os.path.isfile(os.path.join(REPO, "LEDGER.md")):
-        T.append("- [LEDGER.md](%s): o LIVRO-RAZAO -- o atlas da fronteira como estava ate 11/09/2026, byte a byte, append-only: toda afirmacao com seu status e o link direto do arquivo onde se le (562 KB; leia por ultimo)." % registra(url_raw("LEDGER.md")))
+        T.append(("- [LEDGER.md](%s): o LIVRO-RAZAO -- o atlas da fronteira como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove): toda afirmacao com seu status e o link direto do arquivo onde se le (" + str(round(os.path.getsize(os.path.join(REPO, "LEDGER.md")) / 1024)) + " KB; leia por ultimo).") % registra(url_raw("LEDGER.md")))
     T.append("- [site oficial](%s): a face publica da teoria; a porta acima da raiz." % SITE)
     T.append("- [repositorio](%s): a arvore no GitHub." % GH)
     T.append("- [Zenodo DOI 10.5281/zenodo.22659173](%s): o deposito CITAVEL do Um: Absoluto -- guarda a v331 (08/09/2026; um.py e1b74a907c403538, md5 eadfe51b52d73fe4... conferido pela API).%s" % (DOI_UM, "" if sc["versao"] == "v331" else " ATENCAO: o selo corrente deste repositorio e' %s, MAIS NOVO que o deposito; versao nova no Zenodo e' ato do operador." % sc["versao"]))
@@ -1098,12 +1104,13 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("")
     T.append("Depois de baixar, confira o sha256 contra o um_absoluto_selo.json -- o selo e a")
     T.append("verdade do repositorio. Rodar: echo 1 | python um.py")
-    T.append("- [tgl_kernel_proof_manifest.json](%s): o manifesto do kernel formal -- %d arquivos .lean, %d teoremas auditados por #print axioms." % (registra(url_raw(A3 + "/Lean/tgl_kernel_proof_manifest.json")), sc["kernel_arquivos_formais"], sc["kernel_teoremas_auditados"]))
+    T.append("- [tgl_kernel_proof_manifest.json](%s): o manifesto do kernel formal -- %d arquivos formais, %d termos auditados por #print axioms." % (registra(url_raw(A3 + "/Lean/tgl_kernel_proof_manifest.json")), sc["kernel_arquivos_formais"], sc["kernel_teoremas_auditados"]))
     T.append("  (nota de escopo, v306: os DOIS numeros do kernel sao da MESMA rodada e")
     T.append("  medem coisas diferentes -- o manifesto audita ~1000 NOMES por #print axioms")
     T.append("  (~953 theorem + ~47 def), enquanto o artigo cita as bandeiras da escada")
     T.append("  externa verificadas (n_theorems_clean, p.ex. 798/798): o subconjunto que o")
     T.append("  gate consome. Nenhum dos dois esta errado; sem esta frase, pareciam.")
+    T.append("  (errata ao lado, 19/09: a nota acima e' da v306; o manifesto de hoje audita %d nomes -- lido do manifesto.)" % len(json.load(open(os.path.join(REPO, A3, "Lean", "tgl_kernel_proof_manifest.json"), encoding="utf-8"))["axiom_report"]))
     T.append("- [PORTA.md do kernel Lean](%s): a porta do kernel materializado por um.py -- %d arquivos na arvore, dos quais %d hasheados no manifesto formal (%d .lean), %d teoremas auditados." % (registra(porta_md_url(A3 + "/Lean/tgl_kernel")), contagem_recursiva(A3 + "/Lean/tgl_kernel", dirs), sc["kernel_arquivos_formais"], sc["kernel_arquivos_lean"], sc["kernel_teoremas_auditados"]))
     T.append("- [PORTA.md da bancada](%s): a porta do que foi tentado, rebaixado e reprovado -- pre-registros hasheados antes do dado." % registra(porta_md_url(A3 + "/bancada")))
     T.append("- [um_absoluto_pt.txt](%s): o artigo (PT) em texto puro, leitura direta por maquina." % registra(url_raw(A3 + "/um_absoluto_pt.txt")))
@@ -1284,8 +1291,8 @@ def bloco_readme(dirs, sc):
     B.append("> ### \u2b07 Fetching the artifact \u2014 GitHub will **not** render it")
     B.append("> `um.py` is **%.2f MB**, and GitHub\u2019s blob viewer refuses files above ~5 MB: the" % mb_um)
     B.append("> page loads (HTTP 200) but shows only the size and a *View raw* link \u2014 **it looks")
-    B.append("> empty**. That is a viewer limit, not a broken link. Four routes serve the whole")
-    B.append("> file; all four were verified against the sealed pin (Zenodo: the record\u2019s md5 of um.py read from its API):")
+    B.append("> empty**. That is a viewer limit, not a broken link. Four routes serve a whole")
+    B.append("> `um.py`: the raw route is checked byte by byte against the seal after every push (`tools/pos_push.py`, which also confirms the git blob through the API); clone and archive serve that same git blob; the Zenodo route serves the deposited v331 (the record\u2019s md5 of um.py read from its API):")
     B.append(">")
     B.append("> | route | command |")
     B.append("> |---|---|")

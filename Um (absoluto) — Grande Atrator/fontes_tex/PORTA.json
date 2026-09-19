@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/fontes_tex",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-17T13:04:09Z",
+  "gerado_utc": "2026-09-19T12:24:55Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator",
@@ -27,8 +27,8 @@
       "descricao": "Artigo / fonte LaTeX",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/um_absoluto_en.tex",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/um_absoluto_en.tex",
-      "sha256_16": "c5f904dce5c82af9",
-      "bytes": 737500
+      "sha256_16": "b75cbd49208c526f",
+      "bytes": 766311
     },
     {
       "nome": "um_absoluto_pt.tex",
@@ -37,12 +37,12 @@
       "descricao": "Artigo / fonte LaTeX",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/um_absoluto_pt.tex",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/um_absoluto_pt.tex",
-      "sha256_16": "bac34dca30692a6d",
-      "bytes": 742968
+      "sha256_16": "24a85f6b5c6e204b",
+      "bytes": 770998
     }
   ],
   "total_arquivos_nesta_pasta": 2,
   "total_arquivos_com_subpastas": 2,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex",
-  "rodape": "gerado por script de git ls-files em 2026-09-17 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-19 -- nao editar a mao"
 }

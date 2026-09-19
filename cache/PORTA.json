@@ -4,7 +4,7 @@
   "titulo": "cache",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-17T13:04:09Z",
+  "gerado_utc": "2026-09-19T12:24:55Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -21,7 +21,7 @@
       "caminho": "cache/d1_camb",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/PORTA.json",
-      "total_arquivos": 14
+      "total_arquivos": 20
     },
     {
       "nome": "diamante_rede",
@@ -43,7 +43,7 @@
   "dependencias": null,
   "arquivos": [],
   "total_arquivos_nesta_pasta": 0,
-  "total_arquivos_com_subpastas": 116,
+  "total_arquivos_com_subpastas": 122,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache",
-  "rodape": "gerado por script de git ls-files em 2026-09-17 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-19 -- nao editar a mao"
 }

@@ -1,4 +1,9 @@
 
+import TGLExt.NameIsTheContent
+import TGLExt.SpinorObstruction
+import TGLExt.OrientedBoundaryFace
+import TGLExt.UmPostoRelacao
+import TGLExt.TorsionShearDecay
 import TGLExt.TracialDissipativeTorsion
 import TGLExt.UmPostoInscription
 import TGLExt.GeometricSectorObstruction
@@ -9303,3 +9308,45 @@ open TGL.ModularRealization TGLV354 TGLV354.TraceCompletion
 #print axioms TGLExt.UmPosto.intertwiner_reads_dynamics
 #print axioms TGLExt.UmPosto.intertwines_iff_range_invariant
 #print axioms TGLExt.UmPosto.reading_back_does_not_make_covariant
+#print axioms TGLExt.UmPostoRelacao.posto_anchors_the_reading
+#print axioms TGLExt.UmPostoRelacao.posto_paid_loss
+#print axioms TGLExt.UmPostoRelacao.posto_is_not_the_lossless_mirror
+#print axioms TGLExt.UmPostoRelacao.posto_is_not_a_reflection
+#print axioms TGLExt.UmPostoRelacao.posto_was_measured_before_being_posited
+#print axioms TGLExt.UmPostoRelacao.no_posto_reading_is_pressupposed
+#print axioms TGLExt.UmPostoRelacao.pressupposed_stays_pressupposed_under_any_crossing
+#print axioms TGLExt.UmPostoRelacao.pressupposed_is_never_posto
+#print axioms TGLExt.UmPostoRelacao.pressupposed_stays_pressupposed_under_any_renaming
+#print axioms TGLExt.UmPostoRelacao.pressupposed_is_never_posto_under_crossing_and_renaming
+#print axioms TGLExt.UmPostoRelacao.posto_is_inhabited
+#print axioms TGLExt.TorsionShearDecay.shear_damping_rate_positive
+#print axioms TGLExt.TorsionShearDecay.shear_damping_rate_at_least_alpha
+#print axioms TGLExt.TorsionShearDecay.shear_damping_rate_at_asymptote
+#print axioms TGLExt.TorsionShearDecay.expanding_branch_H_ge_alpha
+#print axioms TGLExt.TorsionShearDecay.shear_never_zero_at_finite_time
+#print axioms TGLExt.OrientedFace.increment_coupling
+#print axioms TGLExt.OrientedFace.increment_mirror
+#print axioms TGLExt.OrientedFace.phi_coupling
+#print axioms TGLExt.OrientedFace.phi_mirror
+#print axioms TGLExt.OrientedFace.phi_coupling_lt_one
+#print axioms TGLExt.OrientedFace.one_lt_phi_mirror
+#print axioms TGLExt.OrientedFace.phi_gap
+#print axioms TGLExt.OrientedFace.mirror_is_one_plus_delta_to_first_order
+#print axioms TGLExt.OrientedFace.coupling_is_minus_delta_to_first_order
+#print axioms TGLExt.OrientedFace.orientation_is_the_sign
+#print axioms TGLExt.OrientedFace.balance_on_the_state_face
+#print axioms TGLExt.OrientedFace.balance_on_the_conjugate_face
+#print axioms TGLExt.OrientedFace.friedmann_of_face
+#print axioms TGLExt.OrientedFace.entropyFactor_is_one_plus_response
+#print axioms TGLExt.NameIsTheContent.name_determines_the_inscription
+#print axioms TGLExt.NameIsTheContent.form_alone_does_not_determine_the_content
+#print axioms TGLExt.NameIsTheContent.no_name_without_referent
+#print axioms TGLExt.NameIsTheContent.the_form_survives_the_crossing
+#print axioms TGLExt.NameIsTheContent.the_name_may_change_in_the_crossing
+#print axioms TGLExt.NameIsTheContent.one_eq_one_is_free
+#print axioms TGLExt.NameIsTheContent.if_one_equals_zero_everything_collapses
+#print axioms TGLExt.NameIsTheContent.one_ne_zero_in_nontrivial
+#print axioms TGLExt.SpinorObstruction.zero_of_scalar_mismatch
+#print axioms TGLExt.SpinorObstruction.no_linear_map_integer_to_half_spin
+#print axioms TGLExt.SpinorObstruction.no_linear_map_neutral_to_charged
+#print axioms TGLExt.SpinorObstruction.hypothesis_does_work

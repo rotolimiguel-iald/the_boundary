@@ -1,7 +1,7 @@
 # stage: _selftest_tampered
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=963102 len(stderr)=0
+# len(stdout)=967364 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -11075,6 +11075,48 @@ regularSusyData : (P : SiteProfile) →
 'TGLExt.UmPosto.intertwiner_reads_dynamics' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.UmPosto.intertwines_iff_range_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.UmPosto.reading_back_does_not_make_covariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.UmPostoRelacao.posto_anchors_the_reading' does not depend on any axioms
+'TGLExt.UmPostoRelacao.posto_paid_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.UmPostoRelacao.posto_is_not_the_lossless_mirror' does not depend on any axioms
+'TGLExt.UmPostoRelacao.posto_is_not_a_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.UmPostoRelacao.posto_was_measured_before_being_posited' does not depend on any axioms
+'TGLExt.UmPostoRelacao.no_posto_reading_is_pressupposed' does not depend on any axioms
+'TGLExt.UmPostoRelacao.pressupposed_stays_pressupposed_under_any_crossing' does not depend on any axioms
+'TGLExt.UmPostoRelacao.pressupposed_is_never_posto' does not depend on any axioms
+'TGLExt.UmPostoRelacao.pressupposed_stays_pressupposed_under_any_renaming' does not depend on any axioms
+'TGLExt.UmPostoRelacao.pressupposed_is_never_posto_under_crossing_and_renaming' does not depend on any axioms
+'TGLExt.UmPostoRelacao.posto_is_inhabited' depends on axioms: [propext, Quot.sound]
+'TGLExt.TorsionShearDecay.shear_damping_rate_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TorsionShearDecay.shear_damping_rate_at_least_alpha' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TorsionShearDecay.shear_damping_rate_at_asymptote' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TorsionShearDecay.expanding_branch_H_ge_alpha' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TorsionShearDecay.shear_never_zero_at_finite_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.OrientedFace.increment_coupling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.OrientedFace.increment_mirror' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.OrientedFace.phi_coupling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.OrientedFace.phi_mirror' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.OrientedFace.phi_coupling_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.OrientedFace.one_lt_phi_mirror' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.OrientedFace.phi_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.OrientedFace.mirror_is_one_plus_delta_to_first_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.OrientedFace.coupling_is_minus_delta_to_first_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.OrientedFace.orientation_is_the_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.OrientedFace.balance_on_the_state_face' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.OrientedFace.balance_on_the_conjugate_face' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.OrientedFace.friedmann_of_face' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.OrientedFace.entropyFactor_is_one_plus_response' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.NameIsTheContent.name_determines_the_inscription' does not depend on any axioms
+'TGLExt.NameIsTheContent.form_alone_does_not_determine_the_content' does not depend on any axioms
+'TGLExt.NameIsTheContent.no_name_without_referent' does not depend on any axioms
+'TGLExt.NameIsTheContent.the_form_survives_the_crossing' does not depend on any axioms
+'TGLExt.NameIsTheContent.the_name_may_change_in_the_crossing' depends on axioms: [propext]
+'TGLExt.NameIsTheContent.one_eq_one_is_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.NameIsTheContent.if_one_equals_zero_everything_collapses' does not depend on any axioms
+'TGLExt.NameIsTheContent.one_ne_zero_in_nontrivial' does not depend on any axioms
+'TGLExt.SpinorObstruction.zero_of_scalar_mismatch' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.SpinorObstruction.no_linear_map_integer_to_half_spin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.SpinorObstruction.no_linear_map_neutral_to_charged' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.SpinorObstruction.hypothesis_does_work' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 --- STDERR ---
 

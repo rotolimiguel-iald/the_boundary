@@ -565,6 +565,460 @@
   "continuous_corner_implication": "KERNEL PROVED CONDITIONALLY [testemunha = parametro]",
   "specific_AQFT_witness": "OPEN [nenhuma instancia construida]",
   "axiom_report": {
+    "ChatgptAudit.lower_christoffel_metric_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.levi_civita_jet_metric_compatible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.levi_civita_jet_torsion_free": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.covariant_pure_trace_jet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.divergence_pure_trace_jet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinatePartial_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorFieldJet_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorFieldJet_congr_on": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorFieldDivergence_congr_on": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorFieldJet_symmetric_on": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.partials_zero_implies_fderiv_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.pure_trace_field_divergence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.conserved_pure_trace_is_constant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorFieldJet_sub": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorFieldJet_const_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorFieldDivergence_sub": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorFieldDivergence_const_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmoothMatrixOn.add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmoothMatrixOn.sub": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmoothMatrixOn.mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmoothMatrixOn.transpose": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinatePartial_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinatePartial_sub": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinatePartial_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinatePartial_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinatePartial_second_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinate_partials_commute": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.smooth_matrix_differentiableAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorFieldJet_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorFieldJet_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorFieldJet_transpose": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorFieldJet_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorFieldJet_commute": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.curvature_jet_antisymmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.exterior_bianchi_jet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.first_bianchi_jet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.curvature_jet_metric_skew": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.curvature_pair_symmetry_from_identities": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinate_curvature_antisymmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.connection_first_jet_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinate_curvature_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinate_curvature_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinate_exterior_bianchi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.torsion_free_first_jet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinate_first_bianchi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.inverse_symmetric_of_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.levi_civita_field_metric_compatible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.levi_civita_field_torsion_free": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.levi_civita_conserved_scalar_is_constant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.metric_compatibility_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.metric_compatibility_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinate_curvature_metric_skew": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.lower_curvature_first_skew": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.lower_curvature_last_skew": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.lower_curvature_first_bianchi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.lower_curvature_pair_symmetry": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.ricci_lower_expression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinate_ricci_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.geometric_einstein_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorFieldJet_neg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.covariant_tensor_skew": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinate_second_bianchi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.lower_second_bianchi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.lower_exterior_derivative_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.lower_covariant_derivative_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.lower_covariant_first_skew": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.exterior_derivative_last_skew": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.covariant_derivative_last_skew": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.lower_covariant_last_skew": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.sum_four_exchange_pairs": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.contracted_bianchi_algebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinate_ricci_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.ricci_derivative_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.covariant_ricci_contraction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.lower_covariant_ricci_contraction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.general_null_cone_rigidity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorQuad_single": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorQuad_single_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.symmetric_tensor_ext": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorQuad_congruence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorQuad_eta": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorQuad_components": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.minkowski_tensor_null_rigidity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.congruence_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.congruence_undo": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.lorentz_tensor_null_rigidity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.collapse_is_not_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.collapse_has_no_left_inverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.collapse_iteration_is_stable": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.involution_cannot_be_collapse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.reflection_of_output_cannot_restore_input": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.GeometricSector.Mat4": [
       "propext",
       "Classical.choice",
@@ -944,6 +1398,826 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "ChatgptAudit.frame_metric_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.inverse_frame_metric_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.inverse_frame_metric_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.frame_metric_differentiableOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.frame_scalar_differentiableOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.null_tensor_eq_frame_scalar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.conserved_null_tensor_is_constant_metric_multiple": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.conserved_null_balance_has_constant_term": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.frameLeviCivita": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.frameEinsteinTensor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.frame_metric_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.inverse_frame_metric_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.levi_civita_field_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensorQuad_sub_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.geometric_einstein_equation_from_ricci_null_balance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.inverse_metric_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinatePartial_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.matrix_contraction_eq_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.scalar_curvature_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.scalar_curvature_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.geometric_contracted_bianchi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.geometric_einstein_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.geometric_einstein_conserved": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralMetric.metricInverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralMetric.lorentz_metric_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralMetric.lorentz_metric_det_negative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralMetric.smooth_metric_determinant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralMetric.smooth_metric_adjugate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralMetric.constructed_metric_inverse_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralMetric.constructed_metric_inverse_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralMetric.constructed_metric_inverse_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralMetric.metric_only_einstein_equation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralMetric.metricTraceScalar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralMetric.metric_inverse_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralMetric.trace_recovers_metric_multiple": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralMetric.null_tensor_eq_metric_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralMetric.metric_trace_scalar_differentiable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralMetric.metric_conserved_null_tensor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralMetric.metric_conserved_null_balance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralMetric.metric_einstein_equation_from_ricci_null_balance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.WedgeNetFiniteDiamond.no_right_wedge_of_upper_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.WedgeNetFiniteDiamond.no_left_wedge_of_lower_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.WedgeNetFiniteDiamond.bounded_region_has_scalar_algebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.WedgeNetFiniteDiamond.diamond_coordinate_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.WedgeNetFiniteDiamond.finite_diamond_has_scalar_algebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.WedgeNetFiniteDiamond.any_bounded_remainder_is_invisible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.WedgeNetFiniteDiamond.finite_diamond_is_not_the_wedge": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tomita_pairing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tomita_sequential_closability": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tomita_well_defined": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.local_tomita_graph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.closure_graph_pairing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tomita_graph_closure_vertical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tomita_graph_closure_single_valued": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tomita_graph_domain_dense": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.closedTomita": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.closedTomita_is_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.closedTomita_domain_dense": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.closedTomita_involutive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.closedTomita_extends_adjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.closedModulatorCandidate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modulatorCandidate_is_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modulatorCandidate_domain_dense": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.candidate_factorization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modulatorCandidate_local": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modular_twist_of_J": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.towerJ_inner_flip": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modulator_pairing_local": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.levelProject_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modulator_preserves_level": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modulator_pairing_level": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.weak_pair_mem_graph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modulator_is_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modulatorCandidate_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.half_level_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modulatorCandidate_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JS_positive_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modulatorCandidate_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modulatorCandidate_denseRange": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tower_polar_decomposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.squareDomain_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.delta_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.squareDomain_dense": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.square_local": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.weak_delta_energy_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.weak_delta_first_domain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.delta_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.delta_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tomita_adjoint_pairing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tomita_adjoint_maximal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tomita_composition_domain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tomita_adjoint_comp_is_delta": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.delta_reciprocal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.delta_graph_J_swap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.delta_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.delta_positive_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.flowLevel_group": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.flowLevel_inner_self": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.flowLevel_push": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.flowPre": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.flowPre_isometry": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.flowPre_group": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modularFlow_group": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modularFlowUnitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modularFlow_strongly_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modularFlow_intertwines": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modularConjugation_local": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modularConjugation_preserves_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.delta_eigenvector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modularFlow_eigenvector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.localEigenvectors_total": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modularFlow_spectral_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.deltaImaginaryPower_spectral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modularConjugation_preserves_state": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modular_power_group_and_continuity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.expectation_fixes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.expectation_idempotent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.expectation_preserves_state": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.expectation_tower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.expectation_flow_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.expectation_omega_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.expectation_compression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.expectation_bimodular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.expectation_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.expectation_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.state_local_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.state_local_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.density_commuting_local_is_global_centralizer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.pinching_into_global_centralizer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.state_mul_single": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.state_single_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.centralizer_local_blocks": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.pinching_fixes_global_local": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.expectation_of_centralizer_is_centralizer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.pinching_state_ortho": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modularFlow_continuous_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modular_orbit_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modular_orbit_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.periodAverageVector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.average_vector_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.average_vector_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.average_vector_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.periodAverage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.period_average_operator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.period_average_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.period_average_mem_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tower_log_lattice": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modularPhase_lattice_period": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.lattice_flowLevel_period": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.lattice_modular_period": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.stationary_site_log_lattice": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.stationary_log_gap_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.stationary_modular_period": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.expectation_bounded": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.expectation_step_slice": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.expectation_not_imported_contract": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.constructedLevelExpectations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.level_expectation_family_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Aperiodic046.omega_limit_on_local": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Aperiodic046.bounded_local_cauchy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Aperiodic046.strong_limit_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Aperiodic046.factor_mem_of_strong_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Aperiodic046.bounded_omega_limit_lift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Aperiodic046.omega_lift_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Expectation047.operatorQuadratic": [
       "propext",
       "Classical.choice",
@@ -1044,6 +2318,26 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLV350.Regular.fibre_nonneg_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fibre_le_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.isLUB_fibre_of_monotone_strong_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fibre_preserves_positive_isLUB": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.shift_mul": [
       "propext",
       "Classical.choice",
@@ -1064,22 +2358,42 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.fibre_nonneg_iff": [
+    "TGLV350.right_commutant_compression": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.fibre_le_iff": [
+    "TGLV350.left_commutant_compression": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.isLUB_fibre_of_monotone_strong_limit": [
+    "TGLV350.project_variable_tendsto": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.fibre_preserves_positive_isLUB": [
+    "TGLV350.compression_variable_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.finite_compressions_commute": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.tower_commutants_commute": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.right_commutant_subset_left_bicommutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.tower_commutation_equality": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -1555,636 +2869,6 @@
       "Quot.sound"
     ],
     "TGLV354.TraceCompletion.selfAdjoint_factor_supports": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.lower_christoffel_metric_identity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.levi_civita_jet_metric_compatible": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.levi_civita_jet_torsion_free": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.covariant_pure_trace_jet": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.divergence_pure_trace_jet": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinatePartial_mul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorFieldJet_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorFieldJet_congr_on": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorFieldDivergence_congr_on": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorFieldJet_symmetric_on": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.partials_zero_implies_fderiv_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.pure_trace_field_divergence": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.conserved_pure_trace_is_constant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorFieldJet_sub": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorFieldJet_const_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorFieldDivergence_sub": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorFieldDivergence_const_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmoothMatrixOn.add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmoothMatrixOn.sub": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmoothMatrixOn.mul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmoothMatrixOn.transpose": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinatePartial_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinatePartial_sub": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinatePartial_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinatePartial_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinatePartial_second_eq": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinate_partials_commute": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.smooth_matrix_differentiableAt": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorFieldJet_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorFieldJet_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorFieldJet_transpose": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorFieldJet_mul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorFieldJet_commute": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.curvature_jet_antisymmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.exterior_bianchi_jet": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.first_bianchi_jet": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.curvature_jet_metric_skew": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.curvature_pair_symmetry_from_identities": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinate_curvature_antisymmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.connection_first_jet_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinate_curvature_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinate_curvature_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinate_exterior_bianchi": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.torsion_free_first_jet": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinate_first_bianchi": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.inverse_symmetric_of_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.levi_civita_field_metric_compatible": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.levi_civita_field_torsion_free": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.levi_civita_conserved_scalar_is_constant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.metric_compatibility_formula": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.metric_compatibility_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinate_curvature_metric_skew": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.lower_curvature_first_skew": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.lower_curvature_last_skew": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.lower_curvature_first_bianchi": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.lower_curvature_pair_symmetry": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.ricci_lower_expression": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinate_ricci_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.geometric_einstein_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorFieldJet_neg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.covariant_tensor_skew": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinate_second_bianchi": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.lower_second_bianchi": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.lower_exterior_derivative_formula": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.lower_covariant_derivative_formula": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.lower_covariant_first_skew": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.exterior_derivative_last_skew": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.covariant_derivative_last_skew": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.lower_covariant_last_skew": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.sum_four_exchange_pairs": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.contracted_bianchi_algebra": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinate_ricci_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.ricci_derivative_trace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.covariant_ricci_contraction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.lower_covariant_ricci_contraction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.general_null_cone_rigidity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorQuad_single": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorQuad_single_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.symmetric_tensor_ext": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorQuad_congruence": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorQuad_eta": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorQuad_components": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.minkowski_tensor_null_rigidity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.congruence_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.congruence_undo": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.lorentz_tensor_null_rigidity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.frame_metric_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.inverse_frame_metric_left": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.inverse_frame_metric_right": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.frame_metric_differentiableOn": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.frame_scalar_differentiableOn": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.null_tensor_eq_frame_scalar": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.conserved_null_tensor_is_constant_metric_multiple": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.conserved_null_balance_has_constant_term": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.frameLeviCivita": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.frameEinsteinTensor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.frame_metric_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.inverse_frame_metric_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.levi_civita_field_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensorQuad_sub_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.geometric_einstein_equation_from_ricci_null_balance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.inverse_metric_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinatePartial_trace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.matrix_contraction_eq_trace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.scalar_curvature_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.scalar_curvature_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.geometric_contracted_bianchi": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.geometric_einstein_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.geometric_einstein_conserved": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralMetric.metricInverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralMetric.lorentz_metric_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralMetric.lorentz_metric_det_negative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralMetric.smooth_metric_determinant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralMetric.smooth_metric_adjugate": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralMetric.constructed_metric_inverse_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralMetric.constructed_metric_inverse_left": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralMetric.constructed_metric_inverse_right": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralMetric.metric_only_einstein_equation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralMetric.metricTraceScalar": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralMetric.metric_inverse_unique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralMetric.trace_recovers_metric_multiple": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralMetric.null_tensor_eq_metric_trace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralMetric.metric_trace_scalar_differentiable": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralMetric.metric_conserved_null_tensor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralMetric.metric_conserved_null_balance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralMetric.metric_einstein_equation_from_ricci_null_balance": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -2729,6 +3413,51 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLV350.Regular.resolventDamping": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.resolventPhaseFunction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.resolventPhaseFunction_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.resolventPhaseFunction_zero_time": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.resolventPhaseFunction_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.resolventPhaseFunction_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.resolventPhaseFunction_gram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.resolventPhaseFunction_joint_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.resolventPhaseFunction_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.denseLinearExtension_apply": [
       "propext",
       "Classical.choice",
@@ -2755,531 +3484,6 @@
       "Quot.sound"
     ],
     "TGLV350.Regular.denseLinearEquiv_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.smooth_vector_differentiableAt": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.vectorPartial_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.vectorPartial_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.vectorPartial_mulVec": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.matrix_mulVec_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.covariantVectorDerivative_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.covariantVectorGradient_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.vectorPartial_commute": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.scalarAlong_eq_fderiv": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.vectorPartial_congr_on": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.WedgeNetFiniteDiamond.no_right_wedge_of_upper_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.WedgeNetFiniteDiamond.no_left_wedge_of_lower_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.WedgeNetFiniteDiamond.bounded_region_has_scalar_algebra": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.WedgeNetFiniteDiamond.diamond_coordinate_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.WedgeNetFiniteDiamond.finite_diamond_has_scalar_algebra": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.WedgeNetFiniteDiamond.any_bounded_remainder_is_invisible": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.WedgeNetFiniteDiamond.finite_diamond_is_not_the_wedge": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tomita_pairing": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tomita_sequential_closability": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tomita_well_defined": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.local_tomita_graph": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.closure_graph_pairing": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tomita_graph_closure_vertical": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tomita_graph_closure_single_valued": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tomita_graph_domain_dense": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.closedTomita": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.closedTomita_is_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.closedTomita_domain_dense": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.closedTomita_involutive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.closedTomita_extends_adjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.closedModulatorCandidate": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modulatorCandidate_is_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modulatorCandidate_domain_dense": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.candidate_factorization": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modulatorCandidate_local": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modular_twist_of_J": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.towerJ_inner_flip": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modulator_pairing_local": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.levelProject_tendsto": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modulator_preserves_level": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modulator_pairing_level": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.weak_pair_mem_graph": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modulator_is_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modulatorCandidate_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.half_level_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modulatorCandidate_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JS_positive_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modulatorCandidate_injective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modulatorCandidate_denseRange": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tower_polar_decomposition": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.squareDomain_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.delta_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.squareDomain_dense": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.square_local": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.weak_delta_energy_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.weak_delta_first_domain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.delta_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.delta_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tomita_adjoint_pairing": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tomita_adjoint_maximal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tomita_composition_domain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tomita_adjoint_comp_is_delta": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.delta_reciprocal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.delta_graph_J_swap": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.delta_injective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.delta_positive_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.flowLevel_group": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.flowLevel_inner_self": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.flowLevel_push": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.flowPre": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.flowPre_isometry": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.flowPre_group": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modularFlow_group": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modularFlowUnitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modularFlow_strongly_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modularFlow_intertwines": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modularConjugation_local": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modularConjugation_preserves_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.delta_eigenvector": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modularFlow_eigenvector": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.localEigenvectors_total": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modularFlow_spectral_unique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.deltaImaginaryPower_spectral": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modularConjugation_preserves_state": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modular_power_group_and_continuity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.expectation_fixes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.expectation_idempotent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.expectation_preserves_state": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.expectation_tower": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.expectation_flow_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.expectation_omega_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.expectation_compression": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.expectation_bimodular": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.expectation_star": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.expectation_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.state_local_left": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.state_local_right": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.density_commuting_local_is_global_centralizer": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.pinching_into_global_centralizer": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.state_mul_single": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.state_single_mul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.centralizer_local_blocks": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.pinching_fixes_global_local": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.expectation_of_centralizer_is_centralizer": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.pinching_state_ortho": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -3360,121 +3564,6 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "ChatgptAudit.modularFlow_continuous_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modular_orbit_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modular_orbit_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.periodAverageVector": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.average_vector_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.average_vector_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.average_vector_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.periodAverage": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.period_average_operator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.period_average_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.period_average_mem_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tower_log_lattice": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modularPhase_lattice_period": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.lattice_flowLevel_period": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.lattice_modular_period": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.stationary_site_log_lattice": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.stationary_log_gap_ne_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.stationary_modular_period": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.expectation_bounded": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.expectation_step_slice": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.expectation_not_imported_contract": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.constructedLevelExpectations": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.level_expectation_family_exists": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
     "ChatgptAudit.commutes_all_levels_scalar": [
       "propext",
       "Classical.choice",
@@ -3491,2086 +3580,6 @@
       "Quot.sound"
     ],
     "ChatgptAudit.chain_isotony": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Aperiodic046.omega_limit_on_local": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Aperiodic046.bounded_local_cauchy": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Aperiodic046.strong_limit_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Aperiodic046.factor_mem_of_strong_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Aperiodic046.bounded_omega_limit_lift": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Aperiodic046.omega_lift_unique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.right_commutant_compression": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.left_commutant_compression": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.project_variable_tendsto": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.compression_variable_tendsto": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.finite_compressions_commute": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.tower_commutants_commute": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.right_commutant_subset_left_bicommutant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.tower_commutation_equality": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLExt.qgConverse_JMJ_contains_commutant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLExt.qgFrontier_modularRealization": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLExt.qgPrice_towerActIII_inhabitantConstructed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLExt.checkedV350ModularRealization": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLExt.V350Gate.checkedConverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLExt.V350Gate.checkedModular": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLExt.V350Gate.checkedActIII": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.resolventDamping": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.resolventPhaseFunction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.resolventPhaseFunction_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.resolventPhaseFunction_zero_time": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.resolventPhaseFunction_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.resolventPhaseFunction_star": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.resolventPhaseFunction_gram": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.resolventPhaseFunction_joint_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.resolventPhaseFunction_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scaledResolventCoordinate": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scaledResolventDampingFactor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scaledResolventDenominator_scalar_pos": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scaledResolventCoordinate_complement": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scaledResolventCoordinate_ratio": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scaledResolventCoordinate_damping": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scaledResolventCoordinate_phase": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.levelPositiveMap": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.levelPositiveMap_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.positive_unital_four_norm_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.vonNeumann_norm_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.vonNeumann_starOrdered": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.levelExpectation_uniform_norm_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.matrix_curve_deriv_transpose": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.matrix_curve_deriv_mul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.screen_gram_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.determinant_curve_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.determinant_congruence_tangent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.screen_area_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.screen_area_squared": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.screen_area_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.null_gram_screen_block": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.screen_gram_in_frame": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.null_screen_variation_block": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.null_frame_trace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.null_frame_first_diagonal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.null_frame_metric_product": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.null_frame_second_diagonal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.ambient_expansion_is_screen_trace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.frame_metric_variation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.screen_metric_variation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.connection_metric_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.metric_along_curve_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.lie_screen_gram_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.geometric_screen_area_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinate_screen_area_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.covariant_vector_commutator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.mixed_gradient_component": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.mixed_gradient_commutator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.covariant_vector_matrix_product": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.mixed_covariant_trace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.sum_three_reverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.curvature_vector_contraction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.expansion_of_acceleration": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.along_expansion_eq_mixed_trace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.coordinate_raychaudhuri": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.vector_expansion_zero_on": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.equilibrium_ricci_focusing": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.horizon_primitive_flux": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.horizon_primitive_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.heat_area_clausius_implies_local": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.curve_expansion_focusing": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.horizon_flux_residual_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.local_clausius_forces_ricci": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.primitive_quadratic_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.integrated_clausius_implies_local": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensor_quad_field_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.pencil_ricci_balance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.horizon_einstein_reconstruction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.entropy_density_einstein_coefficient": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.null_screen_geodesic_column": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.induced_area_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.geometric_pencil_area_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.geometric_pencil_area_rate": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.geometricHorizonToLocal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.geometric_area_einstein_reconstruction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tensor_pair_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.frame_pair_entry": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.mixed_frame_pair_entry": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.quad_coordinate_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.metric_compatible_quad_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.null_field_covariant_pairing": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.null_field_direction_pairing": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.null_field_preserves_frame_pairing": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.transport_generator_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.coupled_frame_field_c1": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.eventually_symmetric_interval": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.matrix_derivative_components": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.localFrameFlow": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.local_frame_flow_continuous_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.ordinary_velocity_generator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.velocity_along_flow_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.vector_column_pair": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.pair_curve_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.generator_pair_cancellation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.frame_column_transport": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.transported_null_pair_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.frame_flow_pair_preserved": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.reflectedSpatialScreen": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.spatial_inner_components": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.minkowski_quad_coordinates": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.nonzero_null_time": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.unit_null_spatial_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.minkowski_pair_lift": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.null_frame_matrix_gram": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.normalized_null_gram_squared": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.flatNullFrame": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.invertible_solder_nonzero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.solderedNullFrame": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.normalized_frame_screen_gram": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.negative_identity_screen_area": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.assembleNormalizedScreen": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.solderedScreenAtPoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.leviCivitaScreenAtPoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.normalized_screen_at_point_area": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.levi_civita_null_screen_exists": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.raw_gram_shape": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.completion_coefficients_solve": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.completed_gram_coefficients": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.completed_gram": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.completion_first_column": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.completion_keeps_screen": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.null_screen_gram_determinant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.frame_det_nonzero_from_null_gram": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.completedNullScreen": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.velocity_frame_first": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.velocity_frame_screen": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.screen_gram_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.screen_gram_continuous_components": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.normalized_initial_pair": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.flow_raw_gram_row": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.flowScreenCertificate": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.flow_screen_positive_near_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.geometricScreenFromFlow": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.flow_screen_area_derivative_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.geometric_screen_area_rate": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen014.local_levi_civita_transported_screen": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.phase_domain_open": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.geodesic_spray_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.geodesic_spray_c1": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.spray_position_component": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.spray_zero_velocity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.geodesic_energy_algebra": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.eventually_phase_rectangle": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.localPhaseFlow": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.regular_phase_domain_open": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.localGeodesicFlow": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.geodesic_flow_position_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.geodesic_flow_velocity_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.geodesic_flow_regular": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.geodesic_energy_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.geodesic_flow_energy_conserved": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.geodesic_flow_null_preserved": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.leviCivitaGeodesicFlow": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.local_levi_civita_null_geodesics": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.geodesic_flow_smooth_Icc": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.geodesic_flow_smooth_time": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.geodesic_flow_position_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.geodesic_flow_velocity_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.phase_flow_jointly_continuous_at": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen015.phase_initial_data_obstruction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.entropyAtom_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.entropyAtom_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.entropyAtom_mul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.finiteEntropy_neg_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.product_weights_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.finiteEntropy_product": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.product_left_marginal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.product_right_marginal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.product_mutual_information_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.site_entropy_binary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.entropy_diagonal_modular_expectation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.finite_entropy_first_law": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.sqrt_weight_product": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.schmidt_amplitude_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.schmidt_amplitude_normalized": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.pure_cut_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.pure_cut_trace_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.pure_cut_idempotent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.pure_cut_right_reduction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.pure_cut_left_reduction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.trace_partial_right": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.pure_cut_left_expectation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.pure_cut_off_diagonal_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.pure_cut_annihilated_projection": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.control_factor_partial": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.control_conformal_metric_jet": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.control_conformal_levi_civita": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.control_conformal_curvature_nonzero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.control_conformal_ricci": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.control_conformal_einstein": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.control_conformal_not_pure_trace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.flat_constant_gradient": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.flat_constant_expansion": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.flatHorizonPencil": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.flat_nonzero_pencil_exists": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.balanced_flux_control": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.balanced_local_control": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.curved_control_direction_null": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.curved_control_no_vacuum_pencil": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.kms_with_incompatible_geometric_data": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.zero_direction_has_no_null_screen": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.off_axis_vector_nonzero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.off_axis_vector_null": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.offAxisNullFrame": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.off_axis_frame_verified": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.normalized_family_area_constant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Screen013.normalized_family_expansion_obstruction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.finiteSetEmbeddingLinear": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.finiteSetEmbedding": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.finiteSetEmbedding_adjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.finiteSetEmbedding_reads_separate": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.finiteSetEmbedding_intertwines": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.finiteSetEmbedding_adjoint_intertwines": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.reducingOperatorExtension": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.reducing_projection_intertwines": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.reducingOperatorExtension_commutes_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.reducing_commutation_from_generators": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.shift_schwartz_toLp": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.fourier_shift_schwartz": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.fourier_shift": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.ContractAudit.zeroTraceLegacyCore": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.ContractAudit.legacy_contract_accepts_zero_trace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.ContractAudit.zeroTraceLegacyCore_has_no_threeLocks": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.phase_frequency_separation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.modular_phase_exponential": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.modular_phase_frequency_separation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.phase_frequency_zero_or_equal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.modular_phase_frequency_zero_or_equal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.modular_phase_frequency_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.fixedRealSubmodule": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.mem_fixedRealSubmodule_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.fixedRealSubmodule_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.fixedClosedSubmodule": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.domainConjugation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.domainConjugation_involutive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.domain_fixed_decomposition": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.mem_domain_iff_fixed_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.fixed_sum_tomita": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.fixed_subspace_separating": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.fixed_subspace_cyclic": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.closedAntilinearStandardSubspace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.realSubmodule_closure_of_positive_detection": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.selfadjointVectorSubmodule": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.selfadjointVectorSubmodule_mem": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.selfadjointVectorSubmodule_le_fixed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.selfadjointVectorSubmodule_closure": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.conjugateGraphMix": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.conjugateGraphMix_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.conjugateGraphMix_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.conjugateGraph_closure_eq_original": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.phaseRealMap": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.phaseCompression": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.phaseVariationalForm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.phaseVariationalForm_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.phaseVariationalForm_diagonal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.phaseVariationalForm_coercive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.phaseVariationalSolution": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.phaseVariationalSolution_equation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.phaseVariationalSolution_unique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.phaseVariationalSolution_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.phaseVariationalSolution_unit_real_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.phaseVariationalSolution_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.diagonalAdjoint_coordinates": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.diagonalOp_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.diagonalOp_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.diagonal_square_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.diagonal_square_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.boost4_preserves_eta": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.boost4_preserves_split": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.boost4_not_euclidean": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.lorentz_solder_boost_invariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.euclidean_solder_not_boost_invariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.real_gram_cannot_equal_eta": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.single_boost_has_two_signatures": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.positive_norm_isometry_no_exp_eigenvector": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.boost4_null_expand": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.no_injective_isometric_boost_intertwiner": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.concrete_frame_euclidean_not_invariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.contraction_invariant_continuous_constant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.periodic_borchers_trivial": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.eigenvector_diagonal_modular_invariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.isometry_fixed_of_diagonal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.product_borchers_fixes_eigenvector": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.product_borchers_trivial": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.linear_trace_annihilates_null_cone": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.linear_trace_has_no_constant_coefficient": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.linear_trace_divergence": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.matrix_inner_test_ext": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.localDeltaInput": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.local_delta_input_coe": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.local_delta_input_single": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.weak_delta_of_eigen_tests": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.delta_graph_of_eigen_tests": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.modular_phase_star_neg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.flow_eigen_inner_frequencies": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.flow_eigen_coefficient": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.flow_eigen_implies_delta_graph": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.bounded_selfadjoint_inner": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.modular_fixed_commutes_with_flow": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.flow_commuting_modular_fixed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.commuting_operator_delta_eigen_graph": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.commuting_operator_delta_graph": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.commuting_operator_preserves_delta_domain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.commuting_operator_delta_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.modular_fixed_delta_graph": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.ConstantJacobiField": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobiFieldOfContDiff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobiArea": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobiAreaFirst": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobiAreaSecond": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobiAreaThird": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobiAreaFourth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_area_hasDerivAt": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_area_first_hasDerivAt": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_area_second_hasDerivAt": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_area_third_hasDerivAt": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_area_deriv": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_area_iterated_two": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_area_iterated_three": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_area_iterated_four": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_area_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_area_iterated_one_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_area_iterated_two_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_area_iterated_three_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_area_iterated_four_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_area_quartic_coefficient": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_area_positive_near_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_area_abs_agrees_near_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_area_contDiff_four": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobiOscillator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobiOscillatorVelocity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_oscillator_hasDerivAt": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.jacobi_oscillator_velocity_hasDerivAt": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.oscillatorJacobiField": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.opticalJacobiArea": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.optical_jacobi_area_is_jacobi": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.optical_jacobi_area_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.optical_jacobi_area_contDiff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.optical_jacobi_area_iterated_one_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.optical_jacobi_area_iterated_two_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.optical_jacobi_area_iterated_three_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.optical_jacobi_area_iterated_four_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.optical_jacobi_area_quartic_coefficient": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.optical_jacobi_area_positive_near_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.optical_jacobi_area_abs_agrees_near_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.optical_rs_positive_coefficients": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.optical_jacobi_area_rs_second": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.optical_jacobi_area_rs_fourth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.optical_jacobi_area_rs_quartic_coefficient": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.optical_jacobi_area_same_second_distinct_fourth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical036.optical_jacobi_area_nonunique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.cubicClock": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.cubic_clock_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.cubic_clock_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.cubic_clock_hasDerivAt_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.cubic_clock_factor_tendsto": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.cubic_clock_factor_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.punctured_time_nonzero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.cubic_clock_nonzero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.cubic_clock_preserves_negative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.cubic_clock_tendsto_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.cubic_clock_tendsto_punctured": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.cubic_clock_fourth_ratio": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.cubic_clock_quadratic_correction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.cubic_clock_fourth_ratio_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.cubic_clock_quadratic_correction_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.quartic_remainder_clock_transport": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.quartic_coefficient_clock_invariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.common_clock_preserves_quartic_defect": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.hermitianMatrix": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.matrixCoordinates": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.rankOneMatrix": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.hermitian_isHermitian": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.hermitian_det": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.hermitian_trace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.hermitian_identity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.coords_of_hermitian": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.hermitian_of_coords": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.hermitian_coordinates_unique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.rank_one_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.rank_one_hermitian": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.rank_one_det": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.rank_one_coordinates_null": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.hermitianQuadratic": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.hermitian_quadratic_coordinates": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.hermitian_quadratic_identity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.rank_one_vanishing_coefficients": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.rank_one_quadratic_rigidity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.positive_singular_quadratic_rigidity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.positive_singular_rigidity_positive_scale": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.traceSquareReading": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.trace_square_hermitian_coordinates": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.trace_square_identity_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.trace_square_rank_one_control": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cone039.trace_square_not_positive_singular_vanishing": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -5946,6 +3955,41 @@
       "Quot.sound"
     ],
     "TGLExt.every_expectation_commutes_with_modular_flow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgConverse_JMJ_contains_commutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgFrontier_modularRealization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgPrice_towerActIII_inhabitantConstructed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.checkedV350ModularRealization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.V350Gate.checkedConverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.V350Gate.checkedModular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.V350Gate.checkedActIII": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -9535,12 +7579,282 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLV350.Regular.scalarTomitaPositiveRoot_energy_on_square_domain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPositiveRoot_zero_only": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaSquareDomain_le_root": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaRoot_real_graph_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaSquare_root_graph_core": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaSquare_root_graph_approximation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaSquare_norm_match": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarClosedTomitaDomain_le_root": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaRootDomain_le_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPositiveRoot_domain_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPositiveRoot_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPositiveRoot_energy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPositiveRoot_denseRange": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaRootImage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaRootImage_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaRootImage_denseRange": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolarFactor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolarFactor_root": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolarFactor_factorization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolarFactor_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolarFactor_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.scalarTomitaResolvent_memDomain": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
     "TGLV350.Regular.scalarTomitaResolvent_flip": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPositiveRoot_resolvent_graph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolarFactor_resolvent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolar_conjugate_resolvent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolar_conjugate_complement": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolar_sqrt_resolvent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolar_sqrt_complement": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaRootLift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaRootLift_coe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomita_sqrt_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolarFactor_involutive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaResolvent_regular_right_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPositiveRoot_regular_right_graph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRegularRight_mem_rootDomain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRegularRightRootInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPositiveRoot_regular_right_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRegularRight_rootDomain_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolarFactor_regular_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolar_conjugate_regular_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolarFactor_regular_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightAction_regular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightAction_closed_of_bounded_strongStar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.ScalarPolarRight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPolarRight_iff_cuts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPolarRight_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPolarRight_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPolarRight_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPolarRight_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPolarRight_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPolarRightAlgebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPolarRight_isClosed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPolarRightAlgebra_isClosed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPolarRightAlgebra_regular_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightAction_cfc": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -9845,6 +8159,71 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLV350.Regular.scalarRightSquare_S_image": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRight_mem_squareDomain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightSquareInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaSquare_right_intertwines": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.localEigenvalue_reverse_log": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.modTwist_matrixUnit_reverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.homogeneousRightGNS_smul_data": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrixUnitTwistedRightGNS_reverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrixUnitRightGNS_star_reverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrixUnit_rightCore_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrixUnitRight_mem_squareDomain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrixUnitRightSquareInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrixUnit_TomitaSquare_right_scaling": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.scaledResolventDenominator_sub": [
       "propext",
       "Classical.choice",
@@ -9885,6 +8264,16 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLV350.Regular.matrixUnit_resolvent_denominator_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrixUnit_resolvent_right_scaling": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.positive_roots_commute": [
       "propext",
       "Classical.choice",
@@ -9921,6 +8310,86 @@
       "Quot.sound"
     ],
     "TGLV350.Regular.resolvent_root_graph_scaled": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrixUnit_positiveRoot_graph_scaling": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrixUnit_mem_rootDomain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrixUnitRightRootInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrixUnit_positiveRoot_right_scaling": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.antiunitary_ofReal_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrixUnit_polar_right_weighted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrixUnit_polar_left_weighted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrixUnit_polar_conjugate_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.homogeneousRightGNS_commutes_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrixUnit_polar_conjugate_generator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrixUnit_polar_generator_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.antiunitaryConjugate_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.antiunitaryConjugate_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.localBaseCore": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrix_linear_polar_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.localBase_polar_commutes": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -10080,6 +8549,61 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLV350.Regular.resolventPhaseFunction_reflection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.antiunitaryConjugate_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.antiunitaryConjugateRealHom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.antiunitaryConjugate_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.antiunitaryConjugate_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.antiunitaryConjugate_real_cfc": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.complex_cfc_real_imaginary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.antiunitaryConjugate_complex_cfc": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.antiunitaryConjugate_resolventPhase": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.antiunitaryConjugate_resolventDamping": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.resolventImaginaryPower_antiunitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.complex_cfc_selfadjoint_intertwines": [
       "propext",
       "Classical.choice",
@@ -10096,6 +8620,81 @@
       "Quot.sound"
     ],
     "TGLV350.Regular.resolventImaginaryPower_intertwines": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaResolvent_complement_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaImaginaryPower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaImaginaryPower_damping": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaImaginaryPower_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaImaginaryPower_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaImaginaryPower_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaImaginaryPower_strongly_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaImaginaryPower_inverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scaledResolventCoordinate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scaledResolventDampingFactor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scaledResolventDenominator_scalar_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scaledResolventCoordinate_complement": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scaledResolventCoordinate_ratio": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scaledResolventCoordinate_damping": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scaledResolventCoordinate_phase": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -10151,6 +8750,846 @@
       "Quot.sound"
     ],
     "TGLV350.Regular.resolventImaginaryPower_scaled_intertwining": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrixUnit_imaginaryPower_right_scaling": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaImaginaryPower_regular_right_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.levelPositiveMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.levelPositiveMap_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.positive_unital_four_norm_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.vonNeumann_norm_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.vonNeumann_starOrdered": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.levelExpectation_uniform_norm_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.smooth_vector_differentiableAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.vectorPartial_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.vectorPartial_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.vectorPartial_mulVec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.matrix_mulVec_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.covariantVectorDerivative_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.covariantVectorGradient_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.vectorPartial_commute": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.scalarAlong_eq_fderiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.vectorPartial_congr_on": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.matrix_curve_deriv_transpose": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.matrix_curve_deriv_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.screen_gram_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.determinant_curve_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.determinant_congruence_tangent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.screen_area_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.screen_area_squared": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.screen_area_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.null_gram_screen_block": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.screen_gram_in_frame": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.null_screen_variation_block": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.null_frame_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.null_frame_first_diagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.null_frame_metric_product": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.null_frame_second_diagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.ambient_expansion_is_screen_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.frame_metric_variation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.screen_metric_variation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.connection_metric_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.metric_along_curve_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.lie_screen_gram_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.geometric_screen_area_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinate_screen_area_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.covariant_vector_commutator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.mixed_gradient_component": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.mixed_gradient_commutator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.covariant_vector_matrix_product": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.mixed_covariant_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.sum_three_reverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.curvature_vector_contraction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.expansion_of_acceleration": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.along_expansion_eq_mixed_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.coordinate_raychaudhuri": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.vector_expansion_zero_on": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.equilibrium_ricci_focusing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.horizon_primitive_flux": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.horizon_primitive_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.heat_area_clausius_implies_local": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.curve_expansion_focusing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.horizon_flux_residual_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.local_clausius_forces_ricci": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.primitive_quadratic_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.integrated_clausius_implies_local": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensor_quad_field_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.pencil_ricci_balance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.horizon_einstein_reconstruction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.entropy_density_einstein_coefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.null_screen_geodesic_column": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.induced_area_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.geometric_pencil_area_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.geometric_pencil_area_rate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.geometricHorizonToLocal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.geometric_area_einstein_reconstruction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tensor_pair_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.frame_pair_entry": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.mixed_frame_pair_entry": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.quad_coordinate_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.metric_compatible_quad_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.null_field_covariant_pairing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.null_field_direction_pairing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.null_field_preserves_frame_pairing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.transport_generator_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.coupled_frame_field_c1": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.eventually_symmetric_interval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.matrix_derivative_components": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.localFrameFlow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.local_frame_flow_continuous_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.ordinary_velocity_generator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.velocity_along_flow_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.vector_column_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.pair_curve_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.generator_pair_cancellation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.frame_column_transport": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.transported_null_pair_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.frame_flow_pair_preserved": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.reflectedSpatialScreen": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.spatial_inner_components": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.minkowski_quad_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.nonzero_null_time": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.unit_null_spatial_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.minkowski_pair_lift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.null_frame_matrix_gram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.normalized_null_gram_squared": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.flatNullFrame": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.invertible_solder_nonzero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.solderedNullFrame": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.normalized_frame_screen_gram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.negative_identity_screen_area": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.assembleNormalizedScreen": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.solderedScreenAtPoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.leviCivitaScreenAtPoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.normalized_screen_at_point_area": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.levi_civita_null_screen_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.raw_gram_shape": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.completion_coefficients_solve": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.completed_gram_coefficients": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.completed_gram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.completion_first_column": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.completion_keeps_screen": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.null_screen_gram_determinant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.frame_det_nonzero_from_null_gram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.completedNullScreen": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.velocity_frame_first": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.velocity_frame_screen": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.screen_gram_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.screen_gram_continuous_components": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.normalized_initial_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.flow_raw_gram_row": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.flowScreenCertificate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.flow_screen_positive_near_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.geometricScreenFromFlow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.flow_screen_area_derivative_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.geometric_screen_area_rate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen014.local_levi_civita_transported_screen": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.phase_domain_open": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.geodesic_spray_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.geodesic_spray_c1": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.spray_position_component": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.spray_zero_velocity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.geodesic_energy_algebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.eventually_phase_rectangle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.localPhaseFlow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.regular_phase_domain_open": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.localGeodesicFlow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.geodesic_flow_position_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.geodesic_flow_velocity_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.geodesic_flow_regular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.geodesic_energy_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.geodesic_flow_energy_conserved": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.geodesic_flow_null_preserved": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.leviCivitaGeodesicFlow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.local_levi_civita_null_geodesics": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.geodesic_flow_smooth_Icc": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.geodesic_flow_smooth_time": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.geodesic_flow_position_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.geodesic_flow_velocity_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.phase_flow_jointly_continuous_at": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen015.phase_initial_data_obstruction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.entropyAtom_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.entropyAtom_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.entropyAtom_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.finiteEntropy_neg_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.product_weights_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.finiteEntropy_product": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.product_left_marginal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.product_right_marginal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.product_mutual_information_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.site_entropy_binary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.entropy_diagonal_modular_expectation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.finite_entropy_first_law": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -10245,6 +9684,66 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "ChatgptAudit.sqrt_weight_product": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.schmidt_amplitude_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.schmidt_amplitude_normalized": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.pure_cut_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.pure_cut_trace_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.pure_cut_idempotent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.pure_cut_right_reduction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.pure_cut_left_reduction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.trace_partial_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.pure_cut_left_expectation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.pure_cut_off_diagonal_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.pure_cut_annihilated_projection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.tower_cut_density_properties": [
       "propext",
       "Classical.choice",
@@ -10329,6 +9828,86 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "ChatgptAudit.control_factor_partial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.control_conformal_metric_jet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.control_conformal_levi_civita": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.control_conformal_curvature_nonzero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.control_conformal_ricci": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.control_conformal_einstein": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.control_conformal_not_pure_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.flat_constant_gradient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.flat_constant_expansion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.flatHorizonPencil": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.flat_nonzero_pencil_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.balanced_flux_control": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.balanced_local_control": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.curved_control_direction_null": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.curved_control_no_vacuum_pencil": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.kms_with_incompatible_geometric_data": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.flat_null_inverse": [
       "propext",
       "Classical.choice",
@@ -10395,6 +9974,41 @@
       "Quot.sound"
     ],
     "ChatgptAudit.stretched_cut_refuses_fixed_entropy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.zero_direction_has_no_null_screen": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.off_axis_vector_nonzero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.off_axis_vector_null": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.offAxisNullFrame": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.off_axis_frame_verified": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.normalized_family_area_constant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Screen013.normalized_family_expansion_obstruction": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -11035,6 +10649,2276 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Flow018.geodesic_nullity_does_not_force_zero_expansion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.finiteSetEmbeddingLinear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.finiteSetEmbedding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.finiteSetEmbedding_adjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.finiteSetEmbedding_reads_separate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.finiteSetEmbedding_intertwines": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.finiteSetEmbedding_adjoint_intertwines": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.finiteSetEmbedding_ranges_total": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fibreSlice": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fibreSlice_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fibreSlice_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fibreSlice_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fibreSlice_sub": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fibre_commutes_of_generated": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fibre_generated_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.reducingOperatorExtension": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.reducing_projection_intertwines": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.reducingOperatorExtension_commutes_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.reducing_commutation_from_generators": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.dualOrbit_generated_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularGenerators_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCoreGenerators": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.dualOrbit_core_commutation_from_generators": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNS_commutation_from_generators": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularRightGNS_commutes_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolar_conjugate_regular_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolar_regular_generator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolar_regular_generator_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularFlowField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularFlowField_lift_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularFlowField_lift_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularFlowField_lift_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularFlowAbsorptionUnitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularUnitary_shift_conjugate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.realScalarMultiplier_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.realScalarMultiplier_complement": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.realScalarMultiplier_le_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSpectralCoordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSpectralResolvent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSpectralResolvent_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSpectralResolvent_le_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSpectralResolvent_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSpectralResolvent_complement_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularPositiveGenerator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularPositiveGenerator_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularPositiveGenerator_domain_dense": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularPositiveGenerator_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularPositiveGenerator_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularPositiveGenerator_zero_kernel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.compactScalarField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.compactScalarRepresentation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.compactScalarRepresentation_ae": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.compactScalarRepresentation_coordinate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.realScalarMultiplier_cfc_ae": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.sigmoid_resolvent_equation_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSpectralResolvent_coordinate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularPositiveGenerator_graph_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.shift_schwartz_toLp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fourier_shift_schwartz": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fourier_shift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.resolventPhaseFunction_sigmoid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.sigmoidMultiplier_imaginaryPower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSpectralCoordinates_character": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularPositiveGenerator_imaginaryPower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.character_commutation_realScalarMultiplier": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSpectralResolvent_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularPositiveGenerator_commutant_graph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSineWindowCore": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSineWindowCore_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSineWindowCore_spectral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSineResolvent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSineResolvent_cfc": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSineResolvent_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.sine_rescaled_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSineResolvent_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSineResolvent_norm_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSineResolvent_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSpectralResolvent_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.operator_le_of_sub_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.dualOrbitRepresentation_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSRepresentation_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSRepresentation_monotone": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSRepresentation_preserves_positive_isLUB": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSRepresentation_preserves_positive_directed_isLUB": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fourierInv_shift_schwartz": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fourierInv_shift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fourier_characterMultiplier": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.operatorFieldLift_commutes_character": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularSpectralCoordinates_dual": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularPositiveGenerator_dual_graph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularPositiveGenerator_dual_scaling": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularInverseGeneratorCutoff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularInverseGeneratorCutoff_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularInverseGeneratorCutoff_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularInverseGeneratorCutoff_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularInverseGeneratorCutoff_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularInverseGeneratorCutoff_graph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularInverseGeneratorCutoff_dual": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularInverseGeneratorCutoff_graph_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.inverseCutoffFunction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.inverseCutoffFunction_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.inverseCutoffFunction_sigmoid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularInverseGeneratorCutoff_cfc": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularInverseGeneratorCutoff_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightAction_sqrt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularInverseGeneratorCutoff_sqrt_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.ContractAudit.zeroTraceLegacyCore": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.ContractAudit.legacy_contract_accepts_zero_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.ContractAudit.zeroTraceLegacyCore_has_no_threeLocks": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.positiveDual": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.positiveSquare": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.positiveUnit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.positiveUnit_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.RegularCoreTraceData": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.RegularCoreTraceData.not_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.legacy_zero_trace_cannot_supply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.scalarDualWeight_dual_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.positiveAverageSquare": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.scalarDualWeight_averageSquare": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.scalarDualWeight_not_trace_provider": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.phase_frequency_separation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.modular_phase_exponential": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.modular_phase_frequency_separation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.phase_frequency_zero_or_equal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.modular_phase_frequency_zero_or_equal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.modular_phase_frequency_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fixedBaseEmbedding_bijective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fixedBaseEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fixedBaseEquiv_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fixedBaseEquiv_symm_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.fixedBaseOrderIso": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.fixedFormOnBase": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualWeight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualWeight_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.scalarDualWeight_eq_base_evaluation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualWeight_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualWeight_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualWeight_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualWeight_bimodule": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualWeight_mono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualWeight_faithful": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualWeight_preserves_internal_isLUB": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualWeight_bounded_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualWeight_unit_infinite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualWeight_averageSquare": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.scalarWeight_square_finite_wot_closure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.scalarWeight_unit_not_square_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.dualResolvent_minimum_energy_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.exists_base_moreau_approximant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.exists_monotone_base_dual_approximation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualApproximant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualApproximant_properties": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseVectorFunctional": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseVectorFunctional_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseVectorFunctional_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_vector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_vacuum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_sequence_monotone": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_lowerSemicontinuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.ennreal_tsum_iSup_monotone": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_eq_vector_series": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_series_independent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseFunctional_hasSum_positive_evaluation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_eq_hasSum_series": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseFunctional_hasSum_square_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseVectorFunctional_norm_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.exists_base_series_functional": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.ennreal_tsum_iSup_directed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_input_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_input_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_input_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_input_mono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_input_normal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_eq_dual_integral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_bounded_output": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_bimodule": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_family_faithful": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_averageSquare": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseDualEvaluation_unit_infinite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.positive_base_functional_real_mono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseSeriesFunctional_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseVectorFunctional_normal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV351.baseSeriesFunctional_normal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularScalarWeightCertificate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.dualCutFunctional_re_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCut_tendsto_internal_isLUB": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCutLinear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCutSubspace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCutCompleteSpace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCutEmbedding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCutAmbientAction_preserves": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCutRepresentation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCutCyclicVector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCutCyclicVector_val": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCutRepresentation_intertwines": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCutEmbedding_denseRange": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCutCyclicVector_generates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSCutMap_mem_cyclicSubspace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSCutCyclicMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCutVacuum_inner_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCutLinear_norm_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCutCyclicVector_functional": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCutEmbedding_norm_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSCutCyclicMap_embedding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSCutCyclicMap_intertwines": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSCutCyclicMap_norm_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSCutCyclicMap_joint_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSCutCyclicMap_denseRange": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.fixedRealSubmodule": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.mem_fixedRealSubmodule_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.fixedRealSubmodule_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.fixedClosedSubmodule": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.domainConjugation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.domainConjugation_involutive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.domain_fixed_decomposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.mem_domain_iff_fixed_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.fixed_sum_tomita": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.fixed_subspace_separating": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.fixed_subspace_cyclic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.closedAntilinearStandardSubspace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaStandardSubspace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaStandardSubspace_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarClosedTomitaDomain_fixed_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarClosedTomita_fixed_decomposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularUnitary_norm_le_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSRegular_strongly_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.regularRightGNS_strongly_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianImage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianImage_complete": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianImage_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianVacuum_mem_image": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianOrbitLinear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianImage_eq_orbit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianImageMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianImageMap_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianImageMap_denseRange": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianImageRepresentation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianImageMap_intertwines": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianUnitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianUnitary_intertwines": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSCyclicVector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSCyclicVector_image": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSCyclicVector_separating": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianOrbitEmbedding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianOrbitEmbedding_denseRange": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSCyclicVector_cyclic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSCommutation_adjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightRegularization_adjoint_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCommutantSandwich": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCommutantSandwich_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCommutantSandwich_norm_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCommutantSandwichVector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCommutantSandwich_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCommutantSandwichPair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCommutantSandwich_in_original_adjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCommutantSandwich_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCommutantSandwich_star_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarCommutant_paired_right_approximation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightAdjointPair_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightAdjointPair_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightAdjointPair_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightAdjointPair_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightAdjointPair_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedRightAlgebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSCommutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedRightAlgebra_mem_commutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedRightAlgebra_generated_eq_commutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianGNSMap_weightEmbedding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianAdjoint_intertwines": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianRightOperator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianRightOperator_adjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianRightOperator_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianRightAdjointPair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarWeightAction_separates_vectors": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightAdjointPair_vector_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightAdjointPair_operator_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedRightChoice": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightPairVector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightPairVector_of_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightPairVector_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightPairVector_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightPairVector_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightPairVector_original_adjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightPairVector_denseRange": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightPairVector_product_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightPairVector_inner_product": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightPairGraph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightPairGraph_closure_subset_original": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightPairGraph_closable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightPairApproximateUnit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightPairApproximateUnit_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightPairVector_products_dense": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.reducingOperatorCompression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.reducingCommutant_column_intertwines": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.reducingCommutant_compression_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.reducingCommutant_gram_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.reducingBicommutant_orbit_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.reducingBicommutantLift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.reducingBicommutantLift_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.reducingBicommutantLift_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.reducingBicommutantLift_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.reducingCommutant_projectedOrbit_dense": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.reducingBicommutantLift_restrict": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.reducingBicommutant_has_preimage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.starRepresentation_bicommutant_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.mem_generated_restriction_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.starEquiv_centralizer_transport": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.starEquiv_centralizer_image": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.starEquiv_generated_transport": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianImage_ambient_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianRestrictedAmbientRepresentation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianRestrictedAmbient_dual": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianRestrictedAmbient_range": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianImage_generated_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianUnitary_conjugates_representation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGaussianUnitary_representation_image": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSVonNeumann": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.mem_scalarGNSVonNeumann_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSVonNeumann_coe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertPairInl": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertPairInr": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertPairDiagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertPairDiagonal_adjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.complexGraphEmbedding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.complexGraphClosure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.complexGraphClosure_complete": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.complexGraphEmbedding_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.complexGraphClosure_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.complexGraphClosure_rotated_orthogonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.complexGraphClosure_projection_rotated": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.complexGraphClosure_projection_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightMultiplicationVector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarWeightPairProduct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarWeightPairProduct_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarWeightPairProduct_embedding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightMultiplicationVector_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightMultiplicationGraph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightMultiplicationGraph_complete": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightMultiplicationGraph_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightMultiplicationGraph_projection_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightMultiplicationGraph_rotated_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertPairInl_adjoint_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertPairInr_adjoint_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertBlockA": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertBlockB": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertBlockD": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertBlockB_adjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertPairDiagonal_inl": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertPairDiagonal_inr": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertBlockA_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertBlockB_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertBlockD_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertBlockB_from_rotated": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertBlockBadjoint_from_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertProjectionWitness": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertProjectionWitness_energy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.complexGraph_projection_inl_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.complexGraph_witness_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightProjectionPair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightProjectionElement": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightProjectionElement_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightProjectionElement_vector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightProjectionElement_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRight_selfadjoint_detects_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.realSubmodule_closure_of_positive_detection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.selfadjointVectorSubmodule": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.selfadjointVectorSubmodule_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.selfadjointVectorSubmodule_le_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.selfadjointVectorSubmodule_closure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.conjugateGraphMix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.conjugateGraphMix_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.conjugateGraphMix_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.conjugateGraph_closure_eq_original": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightSelfadjointVectors_closure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightPairGraph_closure_eq_original": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightPairGraph_original_subset_closure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaAdjoint_polar_domain_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaAdjointRootInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaAdjoint_polar_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaAdjoint_conjugate_domain_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaAdjointConjugateInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaAdjoint_conjugate_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolar_closed_domain_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarClosedTomitaConjugateInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarClosedTomita_conjugate_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolar_conjugates_closed_graph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaGraphConjugation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaGraphConjugation_involutive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaPolar_conjugates_adjoint_graph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightConjugateVector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightConjugateVector_mem_original": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightConjugateVector_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightConjugateGraph_closure_eq_original": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.phaseRealMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.phaseCompression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.phaseVariationalForm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.phaseVariationalForm_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.phaseVariationalForm_diagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.phaseVariationalForm_coercive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.phaseVariationalSolution": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.phaseVariationalSolution_equation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.phaseVariationalSolution_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.phaseVariationalSolution_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.phaseVariationalSolution_unit_real_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.phaseVariationalSolution_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPhaseVariational": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPhaseVariational_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPhaseVariational_equation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPhaseVariational_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPhaseVariational_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPhaseVariational_unit_real_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPhaseVariational_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPhaseVariational_fixed_complex_equation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPhaseVariational_graph_equation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarClosedTomita_bidual_maximal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarClosedTomita_bidual_graph_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarGNSCommutant_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarSelfadjointRightPairMultiplier": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarSelfadjointRightMultiplier": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarSelfadjointRightMultiplier_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarSelfadjointRightMultiplier_vector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightAdjointPair_vector_mem_range_closure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightPairVector_mem_range_closure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.squareResolvent_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.squareResolvent_le_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.squareResolvent_antitone": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.squareResolvent_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.squareResolvent_energy_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.squareResolvent_tendsto_zero_on_rangeClosure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.squareResolvent_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.squareResolvent_complement_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightSquareCutoff_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightSquareCutoff_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightSquareCutoff_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightSquareApproximation_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightSquareApproximation_difference_of_squares": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightSquareApproximation_vector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarRightSquareApproximation_vector_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertBlockA_adjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertBlockD_adjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertBlockA_energy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertBlockA_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertBlockA_le_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertBlockB_mul_adjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.hilbertBlockB_mul_D": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.complexGraph_blockA_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaImaginaryPower_polar_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaImaginaryPower_polar_conjugate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaImaginaryPower_polar_operator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.matrixUnit_imaginaryPower_left_scaling": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarTomitaImaginaryPower_regular_left_commutes": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -11995,4651 +13879,6 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Unitary022.unitary_first_weight_response": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.finiteSetEmbedding_ranges_total": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.fibreSlice": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.fibreSlice_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.fibreSlice_left": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.fibreSlice_right": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.fibreSlice_sub": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.fibre_commutes_of_generated": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.fibre_generated_mem": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.dualOrbit_generated_mem": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularGenerators_star": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCoreGenerators": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.dualOrbit_core_commutation_from_generators": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNS_commutation_from_generators": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularFlowField": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularFlowField_lift_star": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularFlowField_lift_mul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularFlowField_lift_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularFlowAbsorptionUnitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularUnitary_shift_conjugate": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.realScalarMultiplier_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.realScalarMultiplier_complement": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.realScalarMultiplier_le_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSpectralCoordinates": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSpectralResolvent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSpectralResolvent_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSpectralResolvent_le_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSpectralResolvent_injective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSpectralResolvent_complement_injective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularPositiveGenerator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularPositiveGenerator_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularPositiveGenerator_domain_dense": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularPositiveGenerator_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularPositiveGenerator_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularPositiveGenerator_zero_kernel": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.compactScalarField": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.compactScalarRepresentation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.compactScalarRepresentation_ae": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.compactScalarRepresentation_coordinate": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.realScalarMultiplier_cfc_ae": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.sigmoid_resolvent_equation_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSpectralResolvent_coordinate": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularPositiveGenerator_graph_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.resolventPhaseFunction_sigmoid": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.sigmoidMultiplier_imaginaryPower": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSpectralCoordinates_character": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularPositiveGenerator_imaginaryPower": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.character_commutation_realScalarMultiplier": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSpectralResolvent_mem": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularPositiveGenerator_commutant_graph": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.operator_le_of_sub_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.dualOrbitRepresentation_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSRepresentation_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSRepresentation_monotone": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSRepresentation_preserves_positive_isLUB": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSRepresentation_preserves_positive_directed_isLUB": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.fourierInv_shift_schwartz": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.fourierInv_shift": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.fourier_characterMultiplier": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.operatorFieldLift_commutes_character": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSpectralCoordinates_dual": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularPositiveGenerator_dual_graph": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularPositiveGenerator_dual_scaling": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularInverseGeneratorCutoff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularInverseGeneratorCutoff_mem": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularInverseGeneratorCutoff_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularInverseGeneratorCutoff_le": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularInverseGeneratorCutoff_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularInverseGeneratorCutoff_graph": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularInverseGeneratorCutoff_dual": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularInverseGeneratorCutoff_graph_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.positiveDual": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.positiveSquare": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.positiveUnit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.positiveUnit_ne_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.RegularCoreTraceData": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.RegularCoreTraceData.not_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.legacy_zero_trace_cannot_supply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.scalarDualWeight_dual_invariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.positiveAverageSquare": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.scalarDualWeight_averageSquare": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.scalarDualWeight_not_trace_provider": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.fixedBaseEmbedding_bijective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.fixedBaseEquiv": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.fixedBaseEquiv_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.fixedBaseEquiv_symm_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.fixedBaseOrderIso": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.fixedFormOnBase": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualWeight": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualWeight_value": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.scalarDualWeight_eq_base_evaluation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualWeight_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualWeight_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualWeight_scale": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualWeight_bimodule": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualWeight_mono": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualWeight_faithful": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualWeight_preserves_internal_isLUB": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualWeight_bounded_value": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualWeight_unit_infinite": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualWeight_averageSquare": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.scalarWeight_square_finite_wot_closure": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.scalarWeight_unit_not_square_finite": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.dualResolvent_minimum_energy_value": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.exists_base_moreau_approximant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.exists_monotone_base_dual_approximation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualApproximant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualApproximant_properties": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseVectorFunctional": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseVectorFunctional_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseVectorFunctional_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_vector": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_vacuum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_sequence_monotone": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_scale": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_lowerSemicontinuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.ennreal_tsum_iSup_monotone": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_eq_vector_series": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_series_independent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseFunctional_hasSum_positive_evaluation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_eq_hasSum_series": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseFunctional_hasSum_square_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseVectorFunctional_norm_le": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.exists_base_series_functional": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.ennreal_tsum_iSup_directed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_input_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_input_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_input_scale": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_input_mono": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_input_normal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_eq_dual_integral": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_bounded_output": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_bimodule": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_family_faithful": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_averageSquare": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseDualEvaluation_unit_infinite": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.positive_base_functional_real_mono": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseSeriesFunctional_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseVectorFunctional_normal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV351.baseSeriesFunctional_normal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularScalarWeightCertificate": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.dualCutFunctional_re_tendsto": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCut_tendsto_internal_isLUB": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCutLinear": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCutSubspace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCutCompleteSpace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCutEmbedding": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCutAmbientAction_preserves": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCutRepresentation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCutCyclicVector": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCutCyclicVector_val": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCutRepresentation_intertwines": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCutEmbedding_denseRange": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCutCyclicVector_generates": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSCutMap_mem_cyclicSubspace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSCutCyclicMap": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCutVacuum_inner_action": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCutLinear_norm_sq": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCutCyclicVector_functional": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCutEmbedding_norm_sq": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSCutCyclicMap_embedding": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSCutCyclicMap_intertwines": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSCutCyclicMap_norm_le": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSCutCyclicMap_joint_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSCutCyclicMap_denseRange": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaStandardSubspace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaStandardSubspace_mem": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarClosedTomitaDomain_fixed_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarClosedTomita_fixed_decomposition": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianImage": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianImage_complete": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianImage_invariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianVacuum_mem_image": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianOrbitLinear": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianImage_eq_orbit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianImageMap": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianImageMap_injective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianImageMap_denseRange": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianImageRepresentation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianImageMap_intertwines": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianUnitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianUnitary_intertwines": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSCyclicVector": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSCyclicVector_image": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSCyclicVector_separating": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianOrbitEmbedding": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianOrbitEmbedding_denseRange": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSCyclicVector_cyclic": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSCommutation_adjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightRegularization_adjoint_tendsto": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCommutantSandwich": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCommutantSandwich_star": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCommutantSandwich_norm_le": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCommutantSandwichVector": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCommutantSandwich_right": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCommutantSandwichPair": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCommutantSandwich_in_original_adjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCommutantSandwich_tendsto": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCommutantSandwich_star_tendsto": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarCommutant_paired_right_approximation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightAdjointPair_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightAdjointPair_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightAdjointPair_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightAdjointPair_mul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightAdjointPair_star": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPairedRightAlgebra": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSCommutant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPairedRightAlgebra_mem_commutant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPairedRightAlgebra_generated_eq_commutant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianGNSMap_weightEmbedding": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianAdjoint_intertwines": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianRightOperator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianRightOperator_adjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianRightOperator_right": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianRightAdjointPair": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.reducingOperatorCompression": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.reducingCommutant_column_intertwines": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.reducingCommutant_compression_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.reducingCommutant_gram_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.reducingBicommutant_orbit_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.reducingBicommutantLift": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.reducingBicommutantLift_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.reducingBicommutantLift_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.reducingBicommutantLift_mem": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.reducingCommutant_projectedOrbit_dense": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.reducingBicommutantLift_restrict": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.reducingBicommutant_has_preimage": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.starRepresentation_bicommutant_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.mem_generated_restriction_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.starEquiv_centralizer_transport": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.starEquiv_centralizer_image": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.starEquiv_generated_transport": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianImage_ambient_invariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianRestrictedAmbientRepresentation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianRestrictedAmbient_dual": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianRestrictedAmbient_range": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianImage_generated_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianUnitary_conjugates_representation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGaussianUnitary_representation_image": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSVonNeumann": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.mem_scalarGNSVonNeumann_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSVonNeumann_coe": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertPairInl": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertPairInr": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertPairDiagonal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertPairDiagonal_adjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.complexGraphEmbedding": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.complexGraphClosure": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.complexGraphClosure_complete": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.complexGraphEmbedding_mem": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.complexGraphClosure_invariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.complexGraphClosure_rotated_orthogonal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.complexGraphClosure_projection_rotated": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.complexGraphClosure_projection_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightMultiplicationVector": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarWeightPairProduct": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarWeightPairProduct_star": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarWeightPairProduct_embedding": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightMultiplicationVector_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightMultiplicationGraph": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightMultiplicationGraph_complete": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightMultiplicationGraph_invariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightMultiplicationGraph_projection_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightMultiplicationGraph_rotated_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertPairInl_adjoint_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertPairInr_adjoint_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertBlockA": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertBlockB": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertBlockD": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertBlockB_adjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertPairDiagonal_inl": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertPairDiagonal_inr": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertBlockA_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertBlockB_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertBlockD_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertBlockB_from_rotated": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertBlockBadjoint_from_fixed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertProjectionWitness": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertProjectionWitness_energy": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.complexGraph_projection_inl_ne_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.complexGraph_witness_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPhaseVariational": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPhaseVariational_fixed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPhaseVariational_equation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPhaseVariational_unique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPhaseVariational_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPhaseVariational_unit_real_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPhaseVariational_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPhaseVariational_fixed_complex_equation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPhaseVariational_graph_equation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.squareResolvent_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.squareResolvent_le_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.squareResolvent_antitone": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.squareResolvent_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.squareResolvent_energy_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.squareResolvent_tendsto_zero_on_rangeClosure": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertBlockA_adjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertBlockD_adjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertBlockA_energy": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertBlockA_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertBlockA_le_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertBlockB_mul_adjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.hilbertBlockB_mul_D": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.complexGraph_blockA_injective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.shifted_generator_intertwining": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.uniform_generator_intertwining": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.chain_tail_intersection_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.chain_tail_mem_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.chain_tail_antitone": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.chain_tail_exact": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.site_noncommutation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.chain_order_faithful": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.chain_localization_injective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.modularConjugation_inverse_time": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.chain_flow_into": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.chain_flow_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.chain_flow_image": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tail_flow_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tail_flow_image": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.invariant_is_not_strict": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tail_never_strict": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.global_expectation_restricts_to_pinching": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.global_expectation_differs_from_floor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.shifted_range_invariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.cyclic_expectation_forces_identity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.cyclic_expectation_forces_full_algebra": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.proper_expected_subalgebra_not_cyclic": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.periodic_expectation_unique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.periodic_expectation_local": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.boost4_is_canonical_generator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.boost4_is_canonical_block": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tower_modular_cannot_intertwine_nonzero_boost": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tail_prefix_expectation_scalar": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tail_mark_factorization": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tail_witness_orthogonal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tail_witness_inner": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tail_witness_norm_sq": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tail_witness_ne_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.tail_not_cyclic": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.pure_cut_coherence_entry": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.pure_cut_not_product": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.half_cut_positive_normalized_pure": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.half_cut_entropy": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.half_cut_not_product": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.product_control_information": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.complement_entropy_invariance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.two_area_calibrations": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.chosen_area_rescales_einstein_coefficient": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLExt.response_covariant_on_the_periodic_tower": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLExt.the_lift_fires_on_the_periodic_tower": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLExt.the_lift_fires_on_the_stationary_tower": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLExt.the_lift_fires_on_the_tracial_tower": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLExt.every_expectation_on_the_periodic_tower_is_covariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLExt.the_lift_on_the_aperiodic_tower_is_still_conditional": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.chainUnword": [
-      "propext",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.chain_unword_word": [
-      "propext",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.chain_word_unword": [
-      "propext",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.chainWordEquiv": [
-      "propext",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.chain_word_injective": [
-      "propext",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.siteIndexPermutation": [
-      "propext",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.site_index_permutation_word": [
-      "propext",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.site_index_permutation_one": [
-      "propext",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.site_index_permutation_mul": [
-      "propext",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.finiteSiteMatrix": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.finite_site_matrix_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.finite_site_matrix_mul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.finite_site_matrix_unitary_left": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.finite_site_matrix_unitary_right": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.finite_site_matrix_inverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.finite_site_matrix_conjugation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.siteTensorMatrix": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.site_tensor_matrix_succ": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.site_tensor_matrix_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.singleSiteTensor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.single_site_tensor_last": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.single_site_tensor_castSucc": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.single_site_tensor_pi": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.finite_site_matrix_tensor_action": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.finite_site_matrix_site_action": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.tower_weight_word_product": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.stationary_weight_permutation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.finite_site_matrix_entry": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Horizons045.stationary_density_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Aperiodic046.the_lift_fires_on_the_aperiodic_tower": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Aperiodic046.every_expectation_on_the_general_tower_is_covariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Aperiodic046.aperiodic_expectation_agrees_periodic": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Aperiodic046.aperiodic_expectation_agrees_tracial": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Aperiodic046.aperiodic_expectation_commutes_with_modular_flow": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Aperiodic046.response_covariant_on_the_general_tower": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.operatorBlockCLM": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.operator_block_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.operatorBlockEntry": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.operator_block_entry_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.operator_block_entry_recover": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.operator_block_injective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.operator_block_sum_single": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.operator_block_surjective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.operator_block_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.operator_block_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.operator_block_mul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.operator_block_star": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.operatorBlockRepresentation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.operator_block_representation_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.operator_block_nonneg_representation_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.operator_block_inner": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.operator_block_nonneg_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.boundedGraphTomita": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.bounded_graph_tomita_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.bounded_graph_tomita_lift": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.bounded_graph_tomita_maps_domain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.bounded_graph_tomita_involutive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.bounded_graph_tomita_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.bounded_graph_J_tomita": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.boundedGraphStandardSubspace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.continuousModularTomita": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.continuousStandardSubspace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.continuous_tomita_domain_dense": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.continuous_tomita_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.continuous_tomita_maps_domain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.continuous_tomita_involutive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.continuous_J_tomita_eq_modular": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.continuous_standard_fixed_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.continuous_domain_iff_standard_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.continuous_tomita_decomposition": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.continuous_tomita_apply_ae": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous049.continuous_tomita_zero_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_tomita_eq_generic": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuousTomitaAdjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_tomita_adjoint_pairing": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_tomita_adjoint_maximal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_tomita_adjoint_domain_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_tomita_composition_domain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_tomita_adjoint_comp": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuousModularDelta": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_delta_graph_iff_tomita_comp": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_delta_eq_double": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_delta_domain_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_delta_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_delta_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_delta_energy": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_delta_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_modular_positive_square_root": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.instSpectralOperatorRealModule": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.spectral_operator_real_smul_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.bounded_spectral_multiplier_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.spectralA_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.spectralB_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuousResolvent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_resolvent_complement": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_resolvent_sqrt": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_resolvent_complement_sqrt": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_modular_graph_from_cfc": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_modular_domain_from_cfc": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_resolvent_ae": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_resolvent_square_graph": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_resolvent_mem_square_domain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_resolvent_square_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_resolvent_right_inverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_resolvent_left_inverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Continuous050.continuous_resolvent_unique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.opticalPrimitive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.opticalVolterraCorrection": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.opticalCurvatureDrift": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_primitive_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_primitive_const": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_primitive_intervalIntegrable": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_primitive_hasDerivAt": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_primitive_continuousOn": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_expansion_integral": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_volterra_balance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_volterra_balance_matched": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_volterra_balance_constant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_volterra_correction_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_volterra_correction_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_scaled_correction_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.opticalScreenMatrix": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.opticalScreenNormSq": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.opticalShearNormSq": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.opticalRiccatiSystem": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_screen_matrix_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_screen_matrix_trace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_screen_matrix_square_trace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_screen_raychaudhuri_decomposition": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_screen_norm_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_screen_shear_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_screen_norm_eq_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_rotated_trace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_rotated_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_rotated_shear": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_riccati_trace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_riccati_raychaudhuri": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_diagonal_distortion": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_affine_curvature_primitive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_affine_curvature_drift": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_affine_drift_negative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_affine_drift_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_matrix_constant_balance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_matrix_correction_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_past_entropy_orientation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_zero_temperature_control": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical051.optical_entropy_correction_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.symplecticPolarizer": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizer_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizer_mem": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizer_pairing": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizer_duality": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizer_norm_le": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizer_opNorm_le": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizer_antisymmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizer_eq_of_pairing": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizer_kernel_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizerForm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizer_form_re": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizerFormBilin": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizer_form_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizer_form_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizer_form_diagonal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizer_form_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizer_form_zero_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.real_projection_covariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizer_covariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizer_square_covariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.polarizer_form_covariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizerCostWeight": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_cost_weight_pos": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizerCostTerm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizerModularCost": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_modular_cost_eq_tsum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_cost_term_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_modular_cost_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_cost_term_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_modular_cost_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_cost_term_add_le": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_modular_cost_add_le": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_modular_cost_first_le": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_modular_cost_zero_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizerCostDomain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.mem_polarizerCostDomain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_cost_kernel_mem_domain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_power_covariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_cost_term_covariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_modular_cost_covariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_cost_domain_covariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_modular_cost_eq_of_hasSum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_cost_mem_domain_of_hasSum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_modular_cost_lowerSemicontinuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_cost_series_term_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_cost_hasSum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_cost_log_ratio_hasSum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_weight_ratio_abs_lt_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_weight_ratio_identity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_cost_weights_hasSum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_cost_scalar_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_cost_scalar_ennreal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_cost_weights_ennreal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_cost_of_norm_powers": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_cost_of_weight_norm_powers": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Cost054.polarizer_cost_norm_powers_lt_top": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.collapse_is_not_injective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.collapse_has_no_left_inverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.collapse_iteration_is_stable": [
-      "propext",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.involution_cannot_be_collapse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.reflection_of_output_cannot_restore_input": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.CollapseCostLaw": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.proposedCollapseCost": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.proposed_cost_components": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.local_cost_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.octave_cost_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.octave_cost_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.octave_cost_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.local_is_not_one_octave": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.fairBitEntropy": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.fair_bit_entropy_is_log_two": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.fair_bit_entropy_is_not_half_nat": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.logical_core_allows_distinct_nonnegative_cost_readings": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.TGLCollapseSpecification": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.AttestedTGLCollapse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.typed_collapse_content": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.typed_collapse_has_no_self_attestation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.QubitMatrix": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.readoutZero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.readoutOne": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.plusDensity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.minusDensity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.mixedDensity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.qubitReduction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.readout_zero_idempotent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.qubit_reduction_formula": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.qubit_reduction_unital": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.qubit_reduction_idempotent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.qubit_reduction_preserves_trace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.opposite_phases_same_reduction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.opposite_phase_states_distinct": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.pure_densities_square": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.pure_densities_hermitian": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.pure_densities_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.pure_densities_normalized": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.mixed_density_normalized": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.mixed_density_fixed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.mixed_density_not_pure": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.distinct_readout_fixed_points": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.qubit_reduction_no_inverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.selectedReadout": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.branchWeight": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.unnormalizedBranch": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.selective_branch_formula": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.normalized_branch_requires_nonzero_weight": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.forgetting_outcome_is_nonselective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.fair_branch_weights": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.qubit_reduction_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.QubitDensity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.densityReduction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.density_reduction_idempotent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.density_reduction_effective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.actualDensityCollapse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.density_reduction_no_inverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Collapse057.zero_weight_is_no_normalized_branch": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SelectionAngle.phaseReading": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SelectionAngle.angularDecoder": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SelectionAngle.phase_reading_is_the_angular_phase": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SelectionAngle.angular_family_reconstructed_from_one_selected_face": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SelectionAngle.one_selected_face_separates_angular_forms": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SelectionAngle.angular_form_is_the_boundary_s_matrix": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SelectionAngle.miguel_boundary_reconstructed_from_its_selected_face": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SelectionAngle.ambient_selection_has_distinct_inputs": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.ConeVolume.metricVolumeDensity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.ConeVolume.tensor_quad_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.ConeVolume.positive_fourth_power_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.ConeVolume.common_positive_null_cone_proportional": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.ConeVolume.same_null_cone_determinant_and_sign": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.ConeVolume.equal_volume_density_absolute_determinant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.ConeVolume.same_null_cone_volume_and_sign": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.ConeVolume.ConeVolumeRecord": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.ConeVolume.RealizesConeVolume": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.ConeVolume.cone_volume_record_unique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.ConeVolume.cone_volume_field_unique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.ConeVolume.nonzero_rescaling_preserves_null_cone": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.ConeVolume.volume_omission_control": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.ConeVolume.sign_reversal_volume": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.ConeVolume.sign_omission_control": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.Spacetime": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.TensorField": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.CovectorField": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.pd_is_coordinate_partial": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.smooth_pd": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.pd_add_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.pd_mul_const_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.pd_sum_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.pd_commute_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.pd_pd_add_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.pd_pd_mul_const_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.pd_pd_sum_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.gaugeField": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.gauge_field_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.gauge_field_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.linRicci_as_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.pd_triple_cycle_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.gauge_second_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.linRicci_pure_gauge_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.linRicci_add_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.gaugeShift": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.general_smooth_gauge_invariance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.linScalar": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.linEinstein": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.general_smooth_scalar_gauge_invariance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.general_smooth_einstein_gauge_invariance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralLinearized.general_smooth_gauge_preserves_vacuum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.affineConnection": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.curvatureVariation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.curvatureQuadratic": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.ricciVariation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.ricciQuadratic": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.connectionGaugeDirection": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.affine_connection_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.affine_connection_first_jet": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.curvature_exact_expansion": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.curvature_exact_remainder": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.curvature_parameter_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.curvature_first_variation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.ricci_exact_expansion": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.ricci_first_variation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.gauge_direction_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.gauge_direction_first_jet": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.curvature_gauge_variation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.curvature_gauge_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.curvature_gauge_trace_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.flat_curvature_gauge_variation_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.constant_connection_curvature": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.nonzero_quadratic_control": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.nonzero_curved_gauge_control": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.curvature_variation_covariant_exterior": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CurvedConnection.ricci_gauge_variation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricVariation.metricPerturbation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricVariation.perturbedMetricInverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricVariation.perturbedLeviCivita": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricVariation.metricConnectionVariation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricVariation.matrix_affine_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricVariation.matrix_inverse_first_variation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricVariation.lower_christoffel_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricVariation.lower_christoffel_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricVariation.metric_perturbation_jet": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricVariation.perturbed_levi_civita_jet_formula": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricVariation.levi_civita_metric_first_variation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricVariation.metric_connection_variation_formula": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricVariation.metric_perturbation_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricVariation.matrix_perturbation_eventually_invertible": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricVariation.perturbed_levi_civita_torsion_free": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricVariation.perturbed_levi_civita_metric_compatible": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricVariation.constant_metric_jet": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricVariation.constant_background_metric_variation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteResponseRecord.ResponseSamples": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteResponseRecord.probeDirections": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteResponseRecord.sampleResponse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteResponseRecord.decodeResponse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteResponseRecord.ten_probe_directions": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteResponseRecord.decoded_response_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteResponseRecord.quadratic_response_samples": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteResponseRecord.decode_quadratic_response": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteResponseRecord.sample_decoded_response": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteResponseRecord.response_samples_determine_symmetric_tensor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteResponseRecord.decoded_response_injective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteResponseRecord.response_samples_equality_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteResponseRecord.finite_response_reconstructs_given_tensor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteResponseRecord.reconstructed_quadratic_matches_all_directions": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CutoffDerivative.slope_norm_error_le": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CutoffDerivative.hasDerivAt_of_linear_cutoff_error": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CutoffDerivative.cutoff_base_value_eq": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CutoffDerivative.hasDerivAt_of_linear_cutoff_error_auto_base": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCurvature.ParameterSpace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCurvature.jointPartial": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCurvature.JointSmoothConnectionOn": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCurvature.connectionTimeDerivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCurvature.joint_partial_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCurvature.joint_partial_second": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCurvature.joint_partials_commute": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCurvature.time_slice_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCurvature.space_slice_partial": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCurvature.time_derivative_of_space_partial": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCurvature.connection_parameter_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCurvature.connection_first_jet_parameter_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCurvature.curvature_of_joint_family_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCurvature.ricci_of_joint_family_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricRicci.JointSmoothMatrixOn": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricRicci.metricJointField": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricRicci.metricNonsingularDomain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricRicci.joint_matrix_determinant_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricRicci.joint_matrix_adjugate_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricRicci.joint_matrix_inverse_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricRicci.metric_joint_field_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricRicci.metric_nonsingular_domain_open": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricRicci.metric_zero_in_domain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricRicci.lower_metric_jet_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricRicci.perturbed_levi_civita_joint_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricRicci.perturbed_levi_civita_at_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricRicci.metric_time_derivative_eq_on": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricRicci.ricci_variation_congr_on": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricRicci.metric_ricci_first_variation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricEinsteinVariation.scalarMetricVariation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricEinsteinVariation.einsteinMetricVariation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricEinsteinVariation.metric_scalar_first_variation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricEinsteinVariation.metric_einstein_first_variation_component": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.MetricEinsteinVariation.metric_einstein_first_variation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.halfRoot": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.secondInscription": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.angularEmbedding": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.angularCoordinates": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.selectorComplement": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.angularPhase": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.selectorAngularFlow": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.half_root_square": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.half_root_square_complex": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.selector_first": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.selector_second": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.first_inscription_coordinate": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.second_inscription_coordinate": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.angular_embedding_coordinates": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.angular_embedding_injective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.selector_intertwines_plus": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.selector_intertwines_minus": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.selector_square": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.selector_complement_square": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.selector_complement_orthogonal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.angular_phase_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.angular_phase_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.angular_phase_star": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.selector_flow_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.selector_flow_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.selector_flow_star": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.selector_flow_unitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.selector_flow_intertwines": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.selector_flow_first": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.selector_flow_second": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AngularSelector.selected_flow_reads_phase": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.BondOperator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.BondInteractionData": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.operatorBracket": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.operator_bracket_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.operator_bracket_mem_union": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.operator_bracket_eq_zero_of_disjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.distant_bond_bracket_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.bond_bracket_mem_expanded_prefix": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.cutoffBracket": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.cutoffHamiltonian": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.cutoff_hamiltonian_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.cutoff_hamiltonian_mem_prefix": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.cutoff_hamiltonian_bracket": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.cutoff_bracket_mem_expanded_prefix": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.cutoff_bracket_stabilizes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.cutoff_bracket_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.stabilized_bracket_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.local_bracket_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.iteratedCutoffBracket": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.iterated_bracket_mem_prefix": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.iterated_bracket_cutoff_independent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.commutatorGrowth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.commutator_growth_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.commutator_growth_succ": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BondLocality.iterated_bracket_uniform_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPositiveRoot_energy_on_square_domain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPositiveRoot_zero_only": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaSquareDomain_le_root": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaRoot_real_graph_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaSquare_root_graph_core": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaSquare_root_graph_approximation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaSquare_norm_match": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarClosedTomitaDomain_le_root": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaRootDomain_le_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPositiveRoot_domain_eq": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPositiveRoot_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPositiveRoot_energy": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPositiveRoot_denseRange": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaRootImage": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaRootImage_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaRootImage_denseRange": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPolarFactor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPolarFactor_root": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPolarFactor_factorization": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPolarFactor_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPolarFactor_surjective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPositiveRoot_resolvent_graph": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPolarFactor_resolvent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPolar_conjugate_resolvent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPolar_conjugate_complement": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPolar_sqrt_resolvent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPolar_sqrt_complement": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaRootLift": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaRootLift_coe": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomita_sqrt_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPolarFactor_involutive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaResolvent_regular_right_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPositiveRoot_regular_right_graph": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRegularRight_mem_rootDomain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRegularRightRootInput": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPositiveRoot_regular_right_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRegularRight_rootDomain_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPolarFactor_regular_right": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPolar_conjugate_regular_right": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPolarFactor_regular_left": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightAction_regular": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightAction_closed_of_bounded_strongStar": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.ScalarPolarRight": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPolarRight_iff_cuts": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPolarRight_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPolarRight_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPolarRight_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPolarRight_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPolarRight_mul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPolarRightAlgebra": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPolarRight_isClosed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPolarRightAlgebra_isClosed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPolarRightAlgebra_regular_mem": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightAction_cfc": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightSquare_S_image": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRight_mem_squareDomain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightSquareInput": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaSquare_right_intertwines": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.localEigenvalue_reverse_log": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.modTwist_matrixUnit_reverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.homogeneousRightGNS_smul_data": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnitTwistedRightGNS_reverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnitRightGNS_star_reverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnit_rightCore_star": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnitRight_mem_squareDomain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnitRightSquareInput": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnit_TomitaSquare_right_scaling": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnit_resolvent_denominator_identity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnit_resolvent_right_scaling": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnit_positiveRoot_graph_scaling": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnit_mem_rootDomain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnitRightRootInput": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnit_positiveRoot_right_scaling": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.antiunitary_ofReal_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnit_polar_right_weighted": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnit_polar_left_weighted": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnit_polar_conjugate_left": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.homogeneousRightGNS_commutes_left": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnit_polar_conjugate_generator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnit_polar_generator_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.antiunitaryConjugate_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.antiunitaryConjugate_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.localBaseCore": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrix_linear_polar_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.localBase_polar_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.resolventPhaseFunction_reflection": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.antiunitaryConjugate_star": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.antiunitaryConjugateRealHom": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.antiunitaryConjugate_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.antiunitaryConjugate_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.antiunitaryConjugate_real_cfc": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.complex_cfc_real_imaginary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.antiunitaryConjugate_complex_cfc": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.antiunitaryConjugate_resolventPhase": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.antiunitaryConjugate_resolventDamping": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.resolventImaginaryPower_antiunitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaResolvent_complement_injective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaImaginaryPower": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaImaginaryPower_damping": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaImaginaryPower_unique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaImaginaryPower_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaImaginaryPower_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaImaginaryPower_strongly_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaImaginaryPower_inverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnit_imaginaryPower_right_scaling": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaImaginaryPower_regular_right_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaImaginaryPower_polar_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaImaginaryPower_polar_conjugate": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaImaginaryPower_polar_operator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.matrixUnit_imaginaryPower_left_scaling": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaImaginaryPower_regular_left_commutes": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -18964,6 +16203,5021 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLV350.Regular.scalarSelfadjointPairing_of_squarePairing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarFixedPairing_of_squarePairing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarClosedTomita_of_squarePairing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarClosedTomita_squarePairing_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarClosedTomita_of_boundedPairAction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedMultiplicationVector_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedMultiplicationGraph_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedMultiplicationGraph_projection_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedMultiplicationGraph_projection_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedMultiplicationGraph_rotated_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedRightAlgebra_centralizer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedCommutant_mem_GNS": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedProjection_A_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedProjection_B_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedProjection_D_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedProjection_A_positive_contraction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedProjection_A_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedProjection_BBstar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedProjection_BD": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedProjection_B_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedProjection_B_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedProjection_Badjoint_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPairedProjection_weighted_graph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLV350.Regular.scalarPhaseVariational_weighted_block_equation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.diagonalAdjoint_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.diagonalOp_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.diagonalOp_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.diagonal_square_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.diagonal_square_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.shifted_generator_intertwining": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.uniform_generator_intertwining": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.chain_tail_intersection_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.chain_tail_mem_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.chain_tail_antitone": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.chain_tail_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.site_noncommutation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.chain_order_faithful": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.chain_localization_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.modularConjugation_inverse_time": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.chain_flow_into": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.chain_flow_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.chain_flow_image": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tail_flow_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tail_flow_image": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.invariant_is_not_strict": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tail_never_strict": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.global_expectation_restricts_to_pinching": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.global_expectation_differs_from_floor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.shifted_range_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.cyclic_expectation_forces_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.cyclic_expectation_forces_full_algebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.proper_expected_subalgebra_not_cyclic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.boost4_preserves_eta": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.boost4_preserves_split": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.boost4_not_euclidean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.lorentz_solder_boost_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.euclidean_solder_not_boost_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.real_gram_cannot_equal_eta": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.single_boost_has_two_signatures": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.positive_norm_isometry_no_exp_eigenvector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.boost4_null_expand": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.no_injective_isometric_boost_intertwiner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.concrete_frame_euclidean_not_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.periodic_expectation_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.periodic_expectation_local": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.boost4_is_canonical_generator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.boost4_is_canonical_block": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tower_modular_cannot_intertwine_nonzero_boost": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.contraction_invariant_continuous_constant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.periodic_borchers_trivial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.eigenvector_diagonal_modular_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.isometry_fixed_of_diagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.product_borchers_fixes_eigenvector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.product_borchers_trivial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tail_prefix_expectation_scalar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tail_mark_factorization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tail_witness_orthogonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tail_witness_inner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tail_witness_norm_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tail_witness_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.tail_not_cyclic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.linear_trace_annihilates_null_cone": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.linear_trace_has_no_constant_coefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.linear_trace_divergence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.pure_cut_coherence_entry": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.pure_cut_not_product": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.half_cut_positive_normalized_pure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.half_cut_entropy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.half_cut_not_product": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.product_control_information": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.complement_entropy_invariance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.two_area_calibrations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.chosen_area_rescales_einstein_coefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Relative031.boundedCongruenceDomain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Relative031.boundedCongruenceInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Relative031.boundedCongruence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Relative031.bounded_congruence_domain_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Relative031.bounded_congruence_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Relative031.bounded_congruence_input_coe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Relative031.boundedCongruenceLift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Relative031.bounded_congruence_lift_coe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Relative031.bounded_congruence_input_lift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Relative031.bounded_congruence_lift_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Relative031.bounded_congruence_graph_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Relative031.bounded_congruence_domain_dense": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Relative031.bounded_congruence_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Relative031.bounded_equiv_inner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Relative031.bounded_congruence_formal_adjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Relative031.bounded_congruence_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Relative031.bounded_congruence_quadratic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Relative031.bounded_congruence_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.matrix_inner_test_ext": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.localDeltaInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.local_delta_input_coe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.local_delta_input_single": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.weak_delta_of_eigen_tests": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.delta_graph_of_eigen_tests": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.modular_phase_star_neg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.flow_eigen_inner_frequencies": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.flow_eigen_coefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.flow_eigen_implies_delta_graph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.bounded_selfadjoint_inner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.modular_fixed_commutes_with_flow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.flow_commuting_modular_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.commuting_operator_delta_eigen_graph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.commuting_operator_delta_graph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.commuting_operator_preserves_delta_domain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.commuting_operator_delta_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.modular_fixed_delta_graph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.ConstantJacobiField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobiFieldOfContDiff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobiArea": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobiAreaFirst": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobiAreaSecond": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobiAreaThird": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobiAreaFourth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_area_hasDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_area_first_hasDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_area_second_hasDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_area_third_hasDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_area_deriv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_area_iterated_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_area_iterated_three": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_area_iterated_four": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_area_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_area_iterated_one_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_area_iterated_two_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_area_iterated_three_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_area_iterated_four_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_area_quartic_coefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_area_positive_near_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_area_abs_agrees_near_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_area_contDiff_four": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobiOscillator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobiOscillatorVelocity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_oscillator_hasDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.jacobi_oscillator_velocity_hasDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.oscillatorJacobiField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.opticalJacobiArea": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.optical_jacobi_area_is_jacobi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.optical_jacobi_area_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.optical_jacobi_area_contDiff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.optical_jacobi_area_iterated_one_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.optical_jacobi_area_iterated_two_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.optical_jacobi_area_iterated_three_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.optical_jacobi_area_iterated_four_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.optical_jacobi_area_quartic_coefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.optical_jacobi_area_positive_near_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.optical_jacobi_area_abs_agrees_near_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.optical_rs_positive_coefficients": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.optical_jacobi_area_rs_second": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.optical_jacobi_area_rs_fourth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.optical_jacobi_area_rs_quartic_coefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.optical_jacobi_area_same_second_distinct_fourth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical036.optical_jacobi_area_nonunique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.cubicClock": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.cubic_clock_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.cubic_clock_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.cubic_clock_hasDerivAt_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.cubic_clock_factor_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.cubic_clock_factor_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.punctured_time_nonzero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.cubic_clock_nonzero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.cubic_clock_preserves_negative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.cubic_clock_tendsto_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.cubic_clock_tendsto_punctured": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.cubic_clock_fourth_ratio": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.cubic_clock_quadratic_correction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.cubic_clock_fourth_ratio_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.cubic_clock_quadratic_correction_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.quartic_remainder_clock_transport": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.quartic_coefficient_clock_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.common_clock_preserves_quartic_defect": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.hermitianMatrix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.matrixCoordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.rankOneMatrix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.hermitian_isHermitian": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.hermitian_det": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.hermitian_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.hermitian_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.coords_of_hermitian": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.hermitian_of_coords": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.hermitian_coordinates_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.rank_one_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.rank_one_hermitian": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.rank_one_det": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.rank_one_coordinates_null": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.hermitianQuadratic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.hermitian_quadratic_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.hermitian_quadratic_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.rank_one_vanishing_coefficients": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.rank_one_quadratic_rigidity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.positive_singular_quadratic_rigidity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.positive_singular_rigidity_positive_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.traceSquareReading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.trace_square_hermitian_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.trace_square_identity_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.trace_square_rank_one_control": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cone039.trace_square_not_positive_singular_vanishing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.flatMetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.flatConnection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.flatCovectorStress": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.traceCompletedStress": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.traceCompletion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.flat_metric_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.flat_metric_inverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.flat_metric_compatible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.flat_covector_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.flat_stress_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.flat_stress_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.flat_stress_null": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.trace_completed_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.trace_completed_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.trace_completed_null": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.null_stress_classification": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.trace_completion_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.flat_stress_divergence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.trace_completed_divergence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.flatForce": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.coordinate_partial_congr_open": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.coordinate_partial_neg_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.negative_gradient_force_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.completed_conserved_iff_gradient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.conserved_null_response_trace_gradient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.conserved_null_response_closed_force": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.HasConservedNullRealization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.conserved_null_realization_iff_potential": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.nonclosed_force_excludes_realization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.mixedPotential": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.mixedCovector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.mixedPoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.mixed_potential_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.mixed_covector_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.mixed_potential_covector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.mixed_covector_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.mixed_covector_partial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.mixed_covector_divergence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.mixed_force_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.mixed_force_partial_one_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.mixed_force_partial_zero_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.mixed_force_curl": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.mixed_force_not_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.mixed_no_conserved_null_response": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.growingTraceCorrection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.growing_trace_correction_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.growing_flat_divergence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.growing_flat_force": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.growing_trace_gradient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.growing_trace_completed_conserved": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.growing_trace_completed_null_response": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.growing_uncompleted_not_conserved": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.response_covariant_on_the_periodic_tower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_lift_fires_on_the_periodic_tower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_lift_fires_on_the_stationary_tower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_lift_fires_on_the_tracial_tower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.every_expectation_on_the_periodic_tower_is_covariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_lift_on_the_aperiodic_tower_is_still_conditional": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.chainUnword": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.chain_unword_word": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.chain_word_unword": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.chainWordEquiv": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.chain_word_injective": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.siteIndexPermutation": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.site_index_permutation_word": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.site_index_permutation_one": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.site_index_permutation_mul": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.finiteSiteMatrix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.finite_site_matrix_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.finite_site_matrix_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.finite_site_matrix_unitary_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.finite_site_matrix_unitary_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.finite_site_matrix_inverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.finite_site_matrix_conjugation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.siteTensorMatrix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.site_tensor_matrix_succ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.site_tensor_matrix_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.singleSiteTensor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.single_site_tensor_last": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.single_site_tensor_castSucc": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.single_site_tensor_pi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.finite_site_matrix_tensor_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.finite_site_matrix_site_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.tower_weight_word_product": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.stationary_weight_permutation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.finite_site_matrix_entry": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Horizons045.stationary_density_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Aperiodic046.the_lift_fires_on_the_aperiodic_tower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Aperiodic046.every_expectation_on_the_general_tower_is_covariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Aperiodic046.aperiodic_expectation_agrees_periodic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Aperiodic046.aperiodic_expectation_agrees_tracial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Aperiodic046.aperiodic_expectation_commutes_with_modular_flow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Aperiodic046.response_covariant_on_the_general_tower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.operatorBlockCLM": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.operator_block_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.operatorBlockEntry": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.operator_block_entry_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.operator_block_entry_recover": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.operator_block_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.operator_block_sum_single": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.operator_block_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.operator_block_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.operator_block_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.operator_block_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.operator_block_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.operatorBlockRepresentation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.operator_block_representation_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.operator_block_nonneg_representation_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.operator_block_inner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.operator_block_nonneg_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Geometry048.profile_borchers_trivial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.boundedGraphTomita": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.bounded_graph_tomita_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.bounded_graph_tomita_lift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.bounded_graph_tomita_maps_domain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.bounded_graph_tomita_involutive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.bounded_graph_tomita_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.bounded_graph_J_tomita": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.boundedGraphStandardSubspace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.continuousModularTomita": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.continuousStandardSubspace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.continuous_tomita_domain_dense": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.continuous_tomita_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.continuous_tomita_maps_domain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.continuous_tomita_involutive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.continuous_J_tomita_eq_modular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.continuous_standard_fixed_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.continuous_domain_iff_standard_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.continuous_tomita_decomposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.continuous_tomita_apply_ae": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous049.continuous_tomita_zero_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_tomita_eq_generic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuousTomitaAdjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_tomita_adjoint_pairing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_tomita_adjoint_maximal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_tomita_adjoint_domain_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_tomita_composition_domain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_tomita_adjoint_comp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuousModularDelta": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_delta_graph_iff_tomita_comp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_delta_eq_double": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_delta_domain_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_delta_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_delta_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_delta_energy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_delta_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_modular_positive_square_root": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.instSpectralOperatorRealModule": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.spectral_operator_real_smul_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.bounded_spectral_multiplier_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.spectralA_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.spectralB_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuousResolvent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_resolvent_complement": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_resolvent_sqrt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_resolvent_complement_sqrt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_modular_graph_from_cfc": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_modular_domain_from_cfc": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_resolvent_ae": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_resolvent_square_graph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_resolvent_mem_square_domain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_resolvent_square_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_resolvent_right_inverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_resolvent_left_inverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Continuous050.continuous_resolvent_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.opticalPrimitive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.opticalVolterraCorrection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.opticalCurvatureDrift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_primitive_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_primitive_const": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_primitive_intervalIntegrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_primitive_hasDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_primitive_continuousOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_expansion_integral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_volterra_balance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_volterra_balance_matched": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_volterra_balance_constant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_volterra_correction_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_volterra_correction_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_scaled_correction_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.opticalScreenMatrix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.opticalScreenNormSq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.opticalShearNormSq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.opticalRiccatiSystem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_screen_matrix_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_screen_matrix_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_screen_matrix_square_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_screen_raychaudhuri_decomposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_screen_norm_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_screen_shear_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_screen_norm_eq_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_rotated_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_rotated_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_rotated_shear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_riccati_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_riccati_raychaudhuri": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_diagonal_distortion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_affine_curvature_primitive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_affine_curvature_drift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_affine_drift_negative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_affine_drift_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_matrix_constant_balance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_matrix_correction_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_past_entropy_orientation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_zero_temperature_control": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical051.optical_entropy_correction_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.symplecticPolarizer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizer_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizer_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizer_pairing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizer_duality": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizer_norm_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizer_opNorm_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizer_antisymmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizer_eq_of_pairing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizer_kernel_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizerForm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizer_form_re": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizerFormBilin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizer_form_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizer_form_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizer_form_diagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizer_form_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizer_form_zero_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.real_projection_covariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizer_covariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizer_square_covariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.polarizer_form_covariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizerCostWeight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_cost_weight_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizerCostTerm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizerModularCost": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_modular_cost_eq_tsum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_cost_term_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_modular_cost_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_cost_term_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_modular_cost_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_cost_term_add_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_modular_cost_add_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_modular_cost_first_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_modular_cost_zero_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizerCostDomain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.mem_polarizerCostDomain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_cost_kernel_mem_domain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_power_covariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_cost_term_covariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_modular_cost_covariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_cost_domain_covariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_modular_cost_eq_of_hasSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_cost_mem_domain_of_hasSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_modular_cost_lowerSemicontinuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_cost_series_term_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_cost_hasSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_cost_log_ratio_hasSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_weight_ratio_abs_lt_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_weight_ratio_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_cost_weights_hasSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_cost_scalar_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_cost_scalar_ennreal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_cost_weights_ennreal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_cost_of_norm_powers": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_cost_of_weight_norm_powers": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Cost054.polarizer_cost_norm_powers_lt_top": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.CollapseCostLaw": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.proposedCollapseCost": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.proposed_cost_components": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.local_cost_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.octave_cost_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.octave_cost_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.octave_cost_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.local_is_not_one_octave": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.fairBitEntropy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.fair_bit_entropy_is_log_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.fair_bit_entropy_is_not_half_nat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.logical_core_allows_distinct_nonnegative_cost_readings": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.TGLCollapseSpecification": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.AttestedTGLCollapse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.typed_collapse_content": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.typed_collapse_has_no_self_attestation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.QubitMatrix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.readoutZero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.readoutOne": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.plusDensity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.minusDensity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.mixedDensity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.qubitReduction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.readout_zero_idempotent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.qubit_reduction_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.qubit_reduction_unital": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.qubit_reduction_idempotent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.qubit_reduction_preserves_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.opposite_phases_same_reduction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.opposite_phase_states_distinct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.pure_densities_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.pure_densities_hermitian": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.pure_densities_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.pure_densities_normalized": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.mixed_density_normalized": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.mixed_density_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.mixed_density_not_pure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.distinct_readout_fixed_points": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.qubit_reduction_no_inverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.selectedReadout": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.branchWeight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.unnormalizedBranch": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.selective_branch_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.normalized_branch_requires_nonzero_weight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.forgetting_outcome_is_nonselective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.fair_branch_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.qubit_reduction_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.QubitDensity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.densityReduction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.density_reduction_idempotent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.density_reduction_effective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.actualDensityCollapse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.density_reduction_no_inverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.zero_weight_is_no_normalized_branch": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SelectionAngle.phaseReading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SelectionAngle.angularDecoder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SelectionAngle.phase_reading_is_the_angular_phase": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SelectionAngle.angular_family_reconstructed_from_one_selected_face": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SelectionAngle.one_selected_face_separates_angular_forms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SelectionAngle.angular_form_is_the_boundary_s_matrix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SelectionAngle.miguel_boundary_reconstructed_from_its_selected_face": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SelectionAngle.ambient_selection_has_distinct_inputs": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.ConeVolume.metricVolumeDensity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.ConeVolume.tensor_quad_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.ConeVolume.positive_fourth_power_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.ConeVolume.common_positive_null_cone_proportional": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.ConeVolume.same_null_cone_determinant_and_sign": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.ConeVolume.equal_volume_density_absolute_determinant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.ConeVolume.same_null_cone_volume_and_sign": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.ConeVolume.ConeVolumeRecord": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.ConeVolume.RealizesConeVolume": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.ConeVolume.cone_volume_record_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.ConeVolume.cone_volume_field_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.ConeVolume.nonzero_rescaling_preserves_null_cone": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.ConeVolume.volume_omission_control": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.ConeVolume.sign_reversal_volume": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.ConeVolume.sign_omission_control": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.Spacetime": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.TensorField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.CovectorField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.pd_is_coordinate_partial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.smooth_pd": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.pd_add_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.pd_mul_const_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.pd_sum_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.pd_commute_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.pd_pd_add_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.pd_pd_mul_const_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.pd_pd_sum_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.gaugeField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.gauge_field_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.gauge_field_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.linRicci_as_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.pd_triple_cycle_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.gauge_second_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.linRicci_pure_gauge_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.linRicci_add_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.gaugeShift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.general_smooth_gauge_invariance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.linScalar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.linEinstein": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.general_smooth_scalar_gauge_invariance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.general_smooth_einstein_gauge_invariance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralLinearized.general_smooth_gauge_preserves_vacuum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.fisherTensorAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.probabilityDifferential": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.directionalVariation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.fisherTensorField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.fisher_tensor_entries": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.fisher_tensor_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.fisher_tensor_directional": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.fisher_tensor_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.fisher_tensor_null_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.fisher_tensor_positive_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.fisher_field_entries": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.fisher_field_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.fisher_field_directional": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.fisher_field_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.directional_variation_fderiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.fisher_field_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.probability_line_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.probability_line_eventually": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.probability_weights_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.directional_variation_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.probabilityFieldCurve": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.probability_field_curve_tangent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.probability_field_curve_fisher": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.bernoulli_tensor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.angular_bernoulli_tensor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.angular_bernoulli_directional": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherField.probability_field_geometric_compatibility": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.tensor_field_jet_finite_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.covariant_tensor_jet_finite_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.tensor_field_divergence_finite_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.finiteCovectorStressField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.finiteCoherentStressField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.finite_covector_stress_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.finite_covector_stress_quad": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.finite_covector_stress_null": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.finite_covector_stress_null_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.finite_covector_stress_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.finite_covector_stress_divergence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.finite_covector_stress_conserved": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.finite_coherent_stress_null": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.finite_response_matches_null_source": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.finite_coherent_stress_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.finite_coherent_stress_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.finite_coherent_stress_conserved": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.finiteDirectionalFrequencies": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.finite_directional_frequencies_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.finite_directional_frequencies_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.two_covector_squares_not_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCoherentSource.finite_constant_covectors_flat_conserved": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.UnitaryLabelData": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.labelledWeights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.jointBase": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.jointWeights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.joint_weights_normalized": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.joint_weights_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.joint_base_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.jointUnitaryCurve": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.joint_curve_tangent_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.joint_weights_positive_near": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.entropy_atom_scaled": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.entropy_labelled_decomposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.modular_labelled_decomposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.joint_entropy_decomposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.joint_base_entropy_decomposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.joint_entropy_increment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.joint_modular_increment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.jointResponse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.joint_modular_quadratic_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.joint_entropy_quadratic_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.joint_relative_entropy_quadratic_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.jointCovectorCurve": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.joint_covector_response": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.jointBlockFlow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.joint_block_flow_unitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.jointInitialAmplitude": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.jointBlockAmplitude": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.joint_block_amplitude_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.joint_block_flow_prepares_amplitude": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.twoLabelData": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.two_label_positive_response": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointUnitary.two_label_zero_tangent_positive_response": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.affineConnection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.curvatureVariation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.curvatureQuadratic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.ricciVariation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.ricciQuadratic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.connectionGaugeDirection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.affine_connection_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.affine_connection_first_jet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.curvature_exact_expansion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.curvature_exact_remainder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.curvature_parameter_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.curvature_first_variation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.ricci_exact_expansion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.ricci_first_variation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.gauge_direction_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.gauge_direction_first_jet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.curvature_gauge_variation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.curvature_gauge_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.curvature_gauge_trace_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.flat_curvature_gauge_variation_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.constant_connection_curvature": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.nonzero_quadratic_control": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.nonzero_curved_gauge_control": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.curvature_variation_covariant_exterior": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CurvedConnection.ricci_gauge_variation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricVariation.metricPerturbation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricVariation.perturbedMetricInverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricVariation.perturbedLeviCivita": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricVariation.metricConnectionVariation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricVariation.matrix_affine_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricVariation.matrix_inverse_first_variation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricVariation.lower_christoffel_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricVariation.lower_christoffel_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricVariation.metric_perturbation_jet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricVariation.perturbed_levi_civita_jet_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricVariation.levi_civita_metric_first_variation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricVariation.metric_connection_variation_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricVariation.metric_perturbation_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricVariation.matrix_perturbation_eventually_invertible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricVariation.perturbed_levi_civita_torsion_free": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricVariation.perturbed_levi_civita_metric_compatible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricVariation.constant_metric_jet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricVariation.constant_background_metric_variation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteResponseRecord.ResponseSamples": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteResponseRecord.probeDirections": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteResponseRecord.sampleResponse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteResponseRecord.decodeResponse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteResponseRecord.ten_probe_directions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteResponseRecord.decoded_response_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteResponseRecord.quadratic_response_samples": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteResponseRecord.decode_quadratic_response": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteResponseRecord.sample_decoded_response": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteResponseRecord.response_samples_determine_symmetric_tensor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteResponseRecord.decoded_response_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteResponseRecord.response_samples_equality_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteResponseRecord.finite_response_reconstructs_given_tensor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteResponseRecord.reconstructed_quadratic_matches_all_directions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CutoffDerivative.slope_norm_error_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CutoffDerivative.hasDerivAt_of_linear_cutoff_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CutoffDerivative.cutoff_base_value_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CutoffDerivative.hasDerivAt_of_linear_cutoff_error_auto_base": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralClausius.MetricScreenFamily": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralClausius.MetricScreenClausius": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralClausius.metric_screen_clausius_iff_null_balance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralClausius.metric_screen_clausius_independent_of_screen": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralClausius.metric_einstein_from_screen_clausius": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralClausius.metric_unitary_matching_produces_clausius": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralClausius.metric_einstein_from_unitary_matching": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralClausius.pureTimeTensor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralClausius.nonzero_pure_time_source_has_no_scalar_metric_balance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AffineObstruction.linear_map_zero_of_eta_null": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AffineObstruction.linear_map_zero_of_lorentz_null": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AffineObstruction.quadratic_limit_forces_zero_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AffineObstruction.probabilityEntropyField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AffineObstruction.probability_entropy_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AffineObstruction.affine_area_matching_entropy_quadratic_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AffineObstruction.affine_area_matching_entropy_derivative_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AffineObstruction.UniversalAffineAreaMatching": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AffineObstruction.universal_affine_area_matching_entropy_fderiv_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AffineObstruction.universal_affine_area_matching_entropy_constant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AffineObstruction.constant_entropy_affine_area_matching_ricci_null_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AffineObstruction.universal_affine_area_matching_ricci_null_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AffineObstruction.zero_ricci_nonnegative_matter_forces_zero_variation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.traceReverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.plusCovector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.minusCovector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.polarization_pair_entry": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.signed_polarization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.trace_reverse_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.trace_reverse_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.trace_reverse_sub": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.trace_reverse_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.trace_reverse_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.trace_reverse_involutive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.trace_outer_is_quad": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.trace_reverse_outer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.signed_pair_stress": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.signedStress": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.signed_stress_is_trace_reverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.every_symmetric_source_has_eight_covectors": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.plus_covector_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.minus_covector_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.trace_reverse_field_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.smooth_metric_source_has_smooth_eight_covectors": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SignedCoverage.every_smooth_lorentz_source_is_represented": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCovariance.frameMetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCovariance.frameInverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCovariance.frameCovectors": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCovariance.frame_covectors_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCovariance.frame_covectors_composition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCovariance.frame_covectors_recovered": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCovariance.transported_frequency": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCovariance.transported_null_direction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCovariance.transported_inverse_is_inverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCovariance.transported_inverse_quad": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCovariance.transported_covector_stress": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCovariance.transported_finite_source": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCovariance.joint_curve_frame_covariance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCovariance.joint_weights_frame_covariance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCovariance.joint_response_frame_covariance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCovariance.joint_flow_frame_covariance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCovariance.joint_amplitude_frame_covariance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.mixedWeights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.mixed_weights_normalized": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.mixed_weights_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.mixed_static_readout": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.mixed_dynamic_readout": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.dilation_tendsto_past": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.dilated_weight_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.mixedCurve": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.mixed_curve_positive_near": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.mixed_tangent_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.finite_entropy_scaled": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.mixed_entropy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.mixed_entropy_increment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.modular_scaled": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.mixed_modular_increment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.dilated_quadratic_preserved": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.mixed_entropy_quadratic_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.mixed_modular_quadratic_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.mixed_joint_entropy_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.mixed_joint_modular_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamic.mixed_joint_weights_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCurvature.ParameterSpace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCurvature.jointPartial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCurvature.JointSmoothConnectionOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCurvature.connectionTimeDerivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCurvature.joint_partial_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCurvature.joint_partial_second": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCurvature.joint_partials_commute": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCurvature.time_slice_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCurvature.space_slice_partial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCurvature.time_derivative_of_space_partial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCurvature.connection_parameter_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCurvature.connection_first_jet_parameter_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCurvature.curvature_of_joint_family_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointCurvature.ricci_of_joint_family_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherEinstein.informationStress": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherEinstein.correctedStress": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherEinstein.tensor_quad_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherEinstein.tensor_quad_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherEinstein.information_stress_null_contraction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherEinstein.corrected_stress_null_contraction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherEinstein.information_stress_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherEinstein.corrected_stress_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherEinstein.information_stress_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherEinstein.corrected_stress_differentiable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherEinstein.metric_einstein_from_information_balance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherEinstein.metric_einstein_from_microscopic_information": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FisherEinstein.zero_information_recovers_original_source": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.positiveCoupling": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.negativeCoupling": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.positive_coupling_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.negative_coupling_negative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.positiveScale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.negativeScale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.positive_scale_squared": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.negative_scale_squared": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.positive_scale_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.negative_scale_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.covector_stress_vector_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.weighted_scaled_stress": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.positive_calibration": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.negative_calibration": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.calibrationAxisA": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.calibrationAxisB": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.calibrationCovector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.calibratedStress": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.calibration_axes_normalized": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.calibration_weights_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.calibration_weights_normalized": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.calibrated_stress_is_signed_stress": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.every_symmetric_source_has_unitary_calibration": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.calibration_covector_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryCalibration.general_source_unitary_covectors_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointGravitation.jointMatter": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointGravitation.jointPreparation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointGravitation.joint_matter_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointGravitation.joint_matter_differentiable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointGravitation.joint_matter_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointGravitation.joint_response_matches_matter": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointGravitation.joint_heat_matching": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointGravitation.joint_area_error_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointGravitation.joint_area_matching_iff_ricci": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointGravitation.joint_area_implies_clausius": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointGravitation.joint_matter_conserved_of_sectors": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointGravitation.joint_matter_conserved_of_closed_wave": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointGravitation.joint_einstein_from_area": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.JointGravitation.joint_einstein_from_area_and_closed_wave": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamicUnitary.mixedLabelEquiv": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamicUnitary.mixedBlockFlow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamicUnitary.mixed_block_flow_unitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamicUnitary.mixed_block_flow_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamicUnitary.mixedInitialAmplitude": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamicUnitary.mixedBlockAmplitude": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamicUnitary.mixed_block_flow_prepares_amplitude": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamicUnitary.mixed_block_amplitude_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamicUnitary.sqrt_half_amplitude_weight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamicUnitary.mixed_block_amplitude_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamicUnitary.mixed_block_amplitude_normalized": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamicUnitary.mixed_initial_amplitude_normalized": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.StaticDynamicUnitary.mixed_flow_diagonal_readout": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricRicci.JointSmoothMatrixOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricRicci.metricJointField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricRicci.metricNonsingularDomain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricRicci.joint_matrix_determinant_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricRicci.joint_matrix_adjugate_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricRicci.joint_matrix_inverse_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricRicci.metric_joint_field_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricRicci.metric_nonsingular_domain_open": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricRicci.metric_zero_in_domain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricRicci.lower_metric_jet_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricRicci.perturbed_levi_civita_joint_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricRicci.perturbed_levi_civita_at_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricRicci.metric_time_derivative_eq_on": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricRicci.ricci_variation_congr_on": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricRicci.metric_ricci_first_variation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.calibrationLabelData": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.calibrationSourceCovectors": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.realizedSourceField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.calibrationSourceCurve": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.calibrationSourceResponse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.calibration_base_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.calibration_base_normalized": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.calibration_source_covectors_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.realized_source_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.realized_source_eq_on": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.realized_source_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.realized_source_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.realized_source_divergence_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.realized_source_conserved": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.calibration_source_weights_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.calibration_source_weights_normalized": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.calibration_source_curve_tangent_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.calibration_source_entropy_quadratic_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.calibration_source_modular_quadratic_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.calibration_source_response_null": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.calibration_source_entropy_null_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.calibration_source_modular_null_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.calibration_source_block_unitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceUnitary.calibration_source_amplitude_weights": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricEinsteinVariation.scalarMetricVariation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricEinsteinVariation.einsteinMetricVariation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricEinsteinVariation.metric_scalar_first_variation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricEinsteinVariation.metric_einstein_first_variation_component": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.MetricEinsteinVariation.metric_einstein_first_variation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceEinstein.general_source_heat_matching": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceEinstein.general_source_area_matching_iff_ricci": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.GeneralSourceEinstein.general_source_einstein_from_area": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FullSourceResponse.calibratedPointResponse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FullSourceResponse.normalizedSamples": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FullSourceResponse.decodeSource": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FullSourceResponse.calibrated_point_response_all_directions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FullSourceResponse.normalized_point_response": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FullSourceResponse.source_field_response_all_directions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FullSourceResponse.normalized_sample_response": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FullSourceResponse.ten_responses_reconstruct_source": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FullSourceResponse.ten_responses_determine_source": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FullSourceResponse.ten_responses_reconstruct_source_field": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FullSourceResponse.ten_responses_determine_source_field": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FullSourceResponse.decode_source_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FullSourceResponse.source_response_samples_roundtrip": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.halfRoot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.secondInscription": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.angularEmbedding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.angularCoordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.selectorComplement": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.angularPhase": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.selectorAngularFlow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.half_root_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.half_root_square_complex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.selector_first": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.selector_second": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.first_inscription_coordinate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.second_inscription_coordinate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.angular_embedding_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.angular_embedding_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.selector_intertwines_plus": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.selector_intertwines_minus": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.selector_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.selector_complement_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.selector_complement_orthogonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.angular_phase_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.angular_phase_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.angular_phase_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.selector_flow_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.selector_flow_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.selector_flow_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.selector_flow_unitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.selector_flow_intertwines": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.selector_flow_first": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.selector_flow_second": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AngularSelector.selected_flow_reads_phase": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.BondOperator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.BondInteractionData": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.operatorBracket": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.operator_bracket_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.operator_bracket_mem_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.operator_bracket_eq_zero_of_disjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.distant_bond_bracket_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.bond_bracket_mem_expanded_prefix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.cutoffBracket": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.cutoffHamiltonian": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.cutoff_hamiltonian_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.cutoff_hamiltonian_mem_prefix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.cutoff_hamiltonian_bracket": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.cutoff_bracket_mem_expanded_prefix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.cutoff_bracket_stabilizes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.cutoff_bracket_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.stabilized_bracket_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.local_bracket_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.iteratedCutoffBracket": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.iterated_bracket_mem_prefix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.iterated_bracket_cutoff_independent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.commutatorGrowth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.commutator_growth_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.commutator_growth_succ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BondLocality.iterated_bracket_uniform_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Response028.site_relative_nonnegative": [
       "propext",
       "Classical.choice",
@@ -19834,81 +22088,6 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.regularRightGNS_commutes_left": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPolar_conjugate_regular_left": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPolar_regular_generator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaPolar_regular_generator_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSineWindowCore": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSineWindowCore_right": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSineWindowCore_spectral": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSineResolvent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSineResolvent_cfc": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSineResolvent_right": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.sine_rescaled_tendsto": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSineResolvent_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSineResolvent_norm_le": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSineResolvent_tendsto": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularSpectralResolvent_right": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
     "TGLV350.Regular.antiunitaryConjugate_involutive": [
       "propext",
       "Classical.choice",
@@ -19934,487 +22113,300 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.inverseCutoffFunction": [
+    "TGLV350.Regular.scalarTomitaResolvent_double_cut_balance": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.inverseCutoffFunction_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.inverseCutoffFunction_sigmoid": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularInverseGeneratorCutoff_cfc": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularInverseGeneratorCutoff_right": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightAction_sqrt": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularInverseGeneratorCutoff_sqrt_right": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularUnitary_norm_le_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarGNSRegular_strongly_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularRightGNS_strongly_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarWeightAction_separates_vectors": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightAdjointPair_vector_unique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightAdjointPair_operator_unique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarPairedRightChoice": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightPairVector": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightPairVector_of_pair": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightPairVector_injective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightPairVector_mul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightPairVector_star": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightPairVector_original_adjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightPairVector_denseRange": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightPairVector_product_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightPairVector_inner_product": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightPairGraph": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightPairGraph_closure_subset_original": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightPairGraph_closable": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightPairApproximateUnit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightPairApproximateUnit_tendsto": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightPairVector_products_dense": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightProjectionPair": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightProjectionElement": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightProjectionElement_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightProjectionElement_vector": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightProjectionElement_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRight_selfadjoint_detects_fixed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightSelfadjointVectors_closure": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightPairGraph_closure_eq_original": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarRightPairGraph_original_subset_closure": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaAdjoint_polar_domain_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
+    "_private.TGLExt.V351ModularCutBalance.0.TGLV350.Regular.cut_balance_after_multiplication": [
+      "propext"
     ],
-    "TGLV350.Regular.scalarTomitaAdjointRootInput": [
+    "_private.TGLExt.V351ModularCutBalance.0.TGLV350.Regular.scalar_original_resolvent_balance": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarTomitaAdjoint_polar_value": [
+    "_private.TGLExt.V351ModularCutBalance.0.TGLV350.Regular.scalar_represented_regular_damped_phase": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarTomitaAdjoint_conjugate_domain_iff": [
+    "_private.TGLExt.V351ModularCutBalance.0.TGLV350.Regular.damped_phase_scalar_balance": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarTomitaAdjointConjugateInput": [
+    "_private.TGLExt.V351ModularCutBalance.0.TGLV350.Regular.damped_phase_commutative_balance": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarTomitaAdjoint_conjugate_value": [
+    "_private.TGLExt.V351ModularCutBalance.0.TGLV350.Regular.damped_phase_operator_balance": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarTomitaPolar_closed_domain_iff": [
+    "_private.TGLExt.V351ModularCutBalance.0.TGLV350.Regular.scalar_representation_vector_injective": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarClosedTomitaConjugateInput": [
+    "_private.TGLExt.V351ModularCutBalance.0.TGLV350.Regular.closed_representation_cfc": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarClosedTomita_conjugate_value": [
+    "_private.TGLExt.V351ModularCutBalance.0.TGLV350.Regular.scalar_resolvent_commutes_represented_regular": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarTomitaPolar_conjugates_closed_graph": [
+    "_private.TGLExt.V351QuadraticTrace.0.TGLV350.Regular.represented_positive_root_norm": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarTomitaGraphConjugation": [
+    "_private.TGLExt.V351QuadraticTrace.0.TGLV350.Regular.scalar_inverse_cutoff_weight_form": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarTomitaGraphConjugation_involutive": [
+    "TGLV350.Regular.scalarInverseLimitWeight_tracial": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarTomitaPolar_conjugates_adjoint_graph": [
+    "_private.TGLExt.V351QuadraticTrace.0.TGLV350.Regular.scalar_root_cut_supremum": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarRightConjugateVector": [
+    "_private.TGLExt.V351QuadraticTrace.0.TGLV350.Regular.root_quadratic_commutation": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarRightConjugateVector_mem_original": [
+    "_private.TGLExt.V351QuadraticTrace.0.TGLV350.Regular.bounded_root_form_balance": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarRightConjugateVector_star": [
+    "_private.TGLExt.V351QuadraticTrace.0.TGLV350.Regular.double_cut_form_supremum": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarRightConjugateGraph_closure_eq_original": [
+    "TGLV350.Regular.scalarInverseLimitTraceData": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarClosedTomita_bidual_maximal": [
+    "TGLV350.Regular.regularTrace_finite_positive_below": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarClosedTomita_bidual_graph_iff": [
+    "TGLV350.Regular.kernel_projection_mem_vonNeumann": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarGNSCommutant_commutes": [
+    "TGLV354.TraceCompletion.scalarTrace_transport_of_support": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarSelfadjointRightPairMultiplier": [
+    "TGLV354.TraceCompletion.positiveShift_trace_compatible": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarSelfadjointRightMultiplier": [
+    "TGLV354.TraceCompletion.cyclicTraceCandidate_positive": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarSelfadjointRightMultiplier_star": [
+    "TGLV350.Regular.positive_operator_has_threshold_projection": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarSelfadjointRightMultiplier_vector": [
+    "TGLV350.Regular.scalarTrace_finite_subprojection_exists": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarRightAdjointPair_vector_mem_range_closure": [
+    "TGLV350.Regular.regularCore_matrix_corner": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarRightPairVector_mem_range_closure": [
+    "TGLV350.Regular.scalarTrace_finite_equal_split": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.squareResolvent_mem": [
+    "TGLV350.Regular.scalarTrace_finite_split_support": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.squareResolvent_complement_eq": [
+    "TGLV350.Regular.scalarTrace_dual_calibration": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarRightSquareCutoff_value": [
+    "TGLV350.Regular.scalarTrace_normalized_split_exists": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarRightSquareCutoff_star": [
+    "TGLV350.Regular.regularNormalizedFaces": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarRightSquareCutoff_commutes": [
+    "TGLV350.Regular.regularFiniteSupport_trace": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarRightSquareApproximation_star": [
+    "TGLV350.Regular.regularMinimalLock_spectral_zero": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarRightSquareApproximation_difference_of_squares": [
+    "TGLV350.Regular.regularMinimalLock_relative_gap": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarRightSquareApproximation_vector": [
+    "TGLV350.Regular.regularMinimalLockGraph_selfadjoint": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarRightSquareApproximation_vector_tendsto": [
+    "TGLV350.Regular.regularMinimalLockGraph_closed": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarSelfadjointPairing_of_squarePairing": [
+    "TGLV350.Regular.regularMinimalLockGraph_affiliated": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarFixedPairing_of_squarePairing": [
+    "TGLV354.coreProjectionSpaces": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarClosedTomita_of_squarePairing": [
+    "TGLV354.CoreProjection.operator_mem": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarClosedTomita_squarePairing_iff": [
+    "TGLV354.CoreProjection.operator_le_iff": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarClosedTomita_of_boundedPairAction": [
+    "TGLV354.CoreProjection.operator_ofOperator": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPairedMultiplicationVector_symmetric": [
+    "TGLV354.coreProjectionTrace": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPairedMultiplicationGraph_invariant": [
+    "TGLV350.Regular.positiveTraceReader": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPairedMultiplicationGraph_projection_commutes": [
+    "TGLV350.Regular.positiveTraceReader_positive": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPairedMultiplicationGraph_projection_fixed": [
+    "TGLV350.Regular.regularContinuousCorner": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPairedMultiplicationGraph_rotated_zero": [
+    "TGLV350.Regular.regularContinuousCorner_readings": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPairedRightAlgebra_centralizer": [
+    "TGLV350.Regular.regularMinimalLock_breuer_kernel": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPairedCommutant_mem_GNS": [
+    "TGLV354.projection_join_comparison": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPairedProjection_A_mem": [
+    "TGLV354.coreProjectionTrace_subadd": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPairedProjection_B_mem": [
+    "TGLV354.coreProjectionTraceSubadditive": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPairedProjection_D_mem": [
+    "TGLV354.TraceCompletion.regularLegacyCore": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPairedProjection_A_positive_contraction": [
+    "TGLV354.TraceCompletion.regularLegacyThreeLocks": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPairedProjection_A_injective": [
+    "TGLV354.TraceCompletion.regularLegacyThreeLocks_concrete": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPairedProjection_BBstar": [
+    "TGLV354.TraceCompletion.regularModularRealization": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPairedProjection_BD": [
+    "TGLV354.TraceCompletion.regularFullWitness": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPairedProjection_B_left": [
+    "TGLV350.Regular.positiveTraceReader_not_cyclic": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPairedProjection_B_right": [
+    "TGLV354.regularSupportProjection": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPairedProjection_Badjoint_right": [
+    "TGLV354.regularSusyData": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPairedProjection_weighted_graph": [
+    "TGLV354.regularSusy_gives_breuer": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLV350.Regular.scalarPhaseVariational_weighted_block_equation": [
+    "TGLV354.regularSusy_operator_identifications": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -20929,6 +22921,91 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "ChatgptAudit.Wave029.zero_eta_nonzero_source_refused": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Wave029.waveOriginScreen": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Wave029.wave_test_nonzero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Wave029.wave_test_null": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Wave029.wave_test_frequency": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Wave029.wave_origin_area_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Wave029.wave_wrong_trace_refused": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Wave029.matched_ricci_independent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Wave029.matched_curvature_difference": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Wave029.matched_curvature_distinguishes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Wave029.matched_metrics_agree_at_origin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Wave029.zero_wave_ricci_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Wave029.zero_wave_vacuum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Wave029.zero_wave_nonflat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Wave029.geometric_wave_matter_nonzero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Wave029.geometric_wave_curved": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Wave029.state_alone_not_curvature_coordinate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Cocycle030.likelihood_filter_vector": [
       "propext",
       "Classical.choice",
@@ -21169,96 +23246,6 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "ChatgptAudit.Relative031.boundedCongruenceDomain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Relative031.boundedCongruenceInput": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Relative031.boundedCongruence": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Relative031.bounded_congruence_domain_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Relative031.bounded_congruence_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Relative031.bounded_congruence_input_coe": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Relative031.boundedCongruenceLift": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Relative031.bounded_congruence_lift_coe": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Relative031.bounded_congruence_input_lift": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Relative031.bounded_congruence_lift_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Relative031.bounded_congruence_graph_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Relative031.bounded_congruence_domain_dense": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Relative031.bounded_congruence_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Relative031.bounded_equiv_inner": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Relative031.bounded_congruence_formal_adjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Relative031.bounded_congruence_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Relative031.bounded_congruence_quadratic": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Relative031.bounded_congruence_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
     "ChatgptAudit.Relative031.inverseLikelihoodFilter": [
       "propext",
       "Classical.choice",
@@ -21488,6 +23475,311 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "ChatgptAudit.Commutation032.inverse_filter_modular_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.filter_flow_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.inverse_filter_flow_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.filter_preserves_delta_domain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.inverse_filter_preserves_delta_domain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.filter_delta_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.inverse_filter_delta_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.filter_delta_domain_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.relative_delta_original_domain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.relative_delta_product_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.likelihoodModularProduct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.relative_delta_eq_likelihood_product": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.likelihood_modular_product_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.likelihood_modular_product_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.likelihood_modular_product_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.generator_preserves_delta_domain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.generator_delta_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Commutation032.relative_delta_reference_control": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.likelihoodDensity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.boundedDensityPower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.likelihood_density_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.likelihood_density_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.likelihood_density_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.likelihood_density_invertible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.likelihood_density_mem_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.likelihood_density_normalized": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.likelihood_density_log": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.likelihood_filter_log": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.likelihood_density_log_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.bounded_density_power_eq_cocycle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.bounded_density_power_unitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.likelihood_density_reference": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.phase_quadratic_time_even": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.reference_state_cocycle_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.factor_density_state_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.likelihood_density_state_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.likelihood_density_state_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Density033.likelihood_density_state_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.boundedPhase": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.bounded_phase_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.bounded_phase_unitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.bounded_phase_centralizer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.centralizer_unitary_preserves_state": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.bounded_phase_derivative_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.bounded_phase_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.bounded_phase_differentiable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.bounded_phase_vector_derivative_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.horizontalComponent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.horizontal_component_orthogonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.horizontal_phase_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.twoPhaseOrbit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.twoPhaseVector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.two_phase_unitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.two_phase_centralizer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.two_phase_state_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.two_phase_vector_origin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.two_phase_vector_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.two_phase_distance_preserved": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.two_phase_first_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.two_phase_second_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.two_phase_vector_differentiable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Angular034.site_zero_eq_site_mark": [
       "propext",
       "Classical.choice",
@@ -21624,6 +23916,201 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Angular034.reference_repeated_angular_screen_area": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.first_horizontal_tangent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.second_horizontal_tangent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.phase_vector_state_form": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.phaseRestrictedState": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.phase_restricted_state_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.phaseReading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.phase_reading_constant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.phase_reading_first_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.phase_reading_second_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.observablePhaseJacobian": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.observable_phase_jacobian_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.observablePhaseGram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.observable_phase_gram_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.observable_phase_area_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.observable_phase_area_not_angular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.observable_phase_gram_not_angular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Angular034.reference_phase_area_split": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.omegaContinuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.omega_continuous_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.bounded_phase_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.bounded_phase_mem_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.unitaryConjugation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.unitary_conjugation_derivative_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.unitary_expectation_derivative_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.operatorOrbit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.orbitExpectation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.orbit_unitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.orbit_mem_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.orbit_origin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.orbit_expectation_origin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.orbit_expectation_first_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.orbit_expectation_second_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.orbit_vector_state": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.orbit_vector_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.orbit_expectation_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.orbit_expectation_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.orbit_expectation_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.orbit_expectation_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.orbit_expectation_sum": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -21854,6 +24341,436 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Observable035.site_pauli_yy_commute": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauliOrbit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauliExpectation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauliYReading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauliObservableJacobian": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_orbit_unitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_orbit_mem_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_expectation_vector_state": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_reading_origin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_first_axis_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_second_axis_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_first_cross_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_second_cross_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_observable_jacobian_diagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_observable_jacobian_determinant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_observable_jacobian_nondegenerate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_observable_jacobian_squared_determinant_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_observable_jacobian_first_tracial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_observable_jacobian_second_tracial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.reference_pauli_observable_jacobian": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.reference_pauli_observable_jacobian_determinant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.tracial_pauli_observable_jacobian": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.signOutcome": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.sign_outcome_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.sign_outcome_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.sign_outcome_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.sign_outcome_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauliYProjectionMatrix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauliYProjection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauliJointEffect": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauliProbability": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_matrix_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_matrix_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_matrix_orthogonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_matrix_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_matrix_commutator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_projection_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_projection_isStarProjection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_projection_mem_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_projection_orthogonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_projection_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_projection_state": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_projection_commute": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_projection_x_commute": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_projection_commutator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_y_projection_response": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_joint_effect_isStarProjection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_joint_effect_mem_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_joint_effect_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_joint_effect_swap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_joint_effect_product": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_joint_effect_orthogonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_joint_effect_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_joint_effect_state": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.star_projection_inner_norm_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_expectation_norm_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_probability_norm_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_probability_real": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_probability_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_probability_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_probability_origin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_probability_origin_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_joint_first_commutator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_joint_first_response": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_joint_second_response": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_probability_first_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_probability_second_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauliProbabilityGradient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauliMeasurementFisher": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauliFisherArea": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_probability_gradient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_measurement_fisher_diagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_measurement_fisher_determinant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_measurement_fisher_determinant_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_measurement_fisher_determinant_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_measurement_fisher_determinant_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_fisher_area_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_fisher_area_eq_abs_jacobian": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_fisher_area_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_measurement_fisher_quadratic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_measurement_fisher_quadratic_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_fisher_area_first_tracial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.pauli_fisher_area_second_tracial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.reference_pauli_measurement_fisher": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.reference_pauli_fisher_area": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.tracial_pauli_measurement_fisher": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Observable035.tracial_pauli_fisher_area": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -22314,6 +25231,166 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Quartic037.geometric_jacobi_area_rs_quartic_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.quarticMatchedRicci": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.entropyQuarticCoefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.quarticMatchingCoefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.quarticStateAreaDefect": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.quartic_matched_ricci_cancellation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.quartic_state_area_defect_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.quartic_state_area_defect_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.quartic_state_area_matching_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.quartic_log_two_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.quartic_coefficient_lower_bound_algebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.quartic_matching_coefficient_lower_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.quartic_matching_coefficient_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.quartic_state_area_small_amplitude_no_go": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.quartic_matching_square_criterion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.quartic_optical_coefficient_admissible_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.likelihood_reading_quartic_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.retimedQuarticStateAreaDefect": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.cancellingStateClock": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.retimed_entropy_quartic_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.retimed_quartic_defect_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.retimed_quartic_state_area_defect_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.cancelling_state_clock_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.retimed_quartic_matching": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.cancelling_clock_same_initial_calibration": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.common_state_area_clock_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.common_clock_small_amplitude_no_go": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.smallSingleAmplitude": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.small_single_amplitude_mass": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.small_single_amplitude_square_mass": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.small_single_amplitude_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.quartic_matched_ricci_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Quartic037.nonvacuous_quartic_clock_control": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -22893,5018 +25970,6 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "ChatgptAudit.Completion042.flatMetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.flatConnection": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.flatCovectorStress": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.traceCompletedStress": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.traceCompletion": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.flat_metric_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.flat_metric_inverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.flat_metric_compatible": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.flat_covector_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.flat_stress_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.flat_stress_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.flat_stress_null": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.trace_completed_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.trace_completed_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.trace_completed_null": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.null_stress_classification": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.trace_completion_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.flat_stress_divergence": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.trace_completed_divergence": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.flatForce": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.coordinate_partial_congr_open": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.coordinate_partial_neg_value": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.negative_gradient_force_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.completed_conserved_iff_gradient": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.conserved_null_response_trace_gradient": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.conserved_null_response_closed_force": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.HasConservedNullRealization": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.conserved_null_realization_iff_potential": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.nonclosed_force_excludes_realization": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.mixedPotential": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.mixedCovector": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.mixedPoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.mixed_potential_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.mixed_covector_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.mixed_potential_covector": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.mixed_covector_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.mixed_covector_partial": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.mixed_covector_divergence": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.mixed_force_formula": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.mixed_force_partial_one_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.mixed_force_partial_zero_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.mixed_force_curl": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.mixed_force_not_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.mixed_no_conserved_null_response": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.growingTraceCorrection": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.growing_trace_correction_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.growing_flat_divergence": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.growing_flat_force": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.growing_trace_gradient": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.growing_trace_completed_conserved": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.growing_trace_completed_null_response": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.growing_uncompleted_not_conserved": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.HasSummableNullRealization": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.amplitude_response_null_value_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.summable_coupling_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.summable_null_realization_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.summable_null_realization_iff_potential": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.mixed_no_summable_null_realization": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.summable_entropy_limit_iff_response": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.mixed_no_summable_entropy_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.mixed_geometric_no_summable_realization": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.growing_summable_null_response": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.growing_summable_null_realization": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Completion042.zero_amplitude_summable_null_realization": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical043.opticalPhaseCoordinate": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical043.jacobiLogDerivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical043.opticalCongruenceDomain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical043.optical_phase_coordinate_contDiff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical043.optical_phase_coordinate_hasFDerivAt": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical043.optical_phase_coordinate_central": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical043.jacobi_oscillator_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical043.jacobi_velocity_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical043.jacobi_log_derivative_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical043.jacobi_log_derivative_mul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical043.jacobi_log_derivative_hasDerivAt": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical043.jacobi_log_derivative_contDiffAt": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical043.jacobi_log_profile_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical043.optical_congruence_domain_open": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical043.optical_congruence_domain_origin": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical043.optical_congruence_domain_central_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Optical043.optical_congruence_domain_eventually": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.FormInvariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.FormSymmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.FormPositive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.formGram": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.formArea": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.form_invariant_scale": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.form_symmetric_scale": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.form_positive_scale": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.form_gram_invariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.form_area_invariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.form_gram_scale": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.screen_determinant_scale": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.screen_area_scale": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.form_determinant_scale": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.form_area_scale": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.form_area_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.scaled_form_areas_distinct": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.scaled_forms_distinct": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.invariant_positive_area_nonunique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.invariance_does_not_fix_area": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.scaled_reference_angular_area": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Area045.reference_angular_scales_distinct": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.modular_conjugation_inner": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.modular_conjugation_inner_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.period_average_inner": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.period_average_re_inner": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.period_average_re_inner_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.expectation_re_inner_nonneg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.general_expectation_isPositive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.general_expectation_nonnegative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.blockQuadratic": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.BlockPositive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.block_modular_quadratic": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.block_period_average_quadratic": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.block_period_average_nonnegative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.block_average_quadratic_tendsto": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.general_expectation_block_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.gram_block_quadratic": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.gram_block_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.factor_subalgebra_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.factor_positive_sqrt_mem": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.factor_nonnegative_iff_star_square": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.factor_subalgebra_star_ordered": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.expectation_cstarMatrix_nonnegative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.generalExpectationCompletelyPositiveMap": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.general_expectation_cp_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.general_expectation_cp_toLinearMap": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.strong_net_limit_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.factor_mem_of_net_strong_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.expectation_order_preserving": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.factor_monotone_supremum_and_expectation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.expectation_preserves_order_bounded_nets": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.general_expectation_normal_order": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Expectation047.aperiodic_expectation_normal_order": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Geometry048.profile_borchers_trivial": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.firstSiteModularGap": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.modularQuarterTurnTime": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.modularOrientedQuarterTime": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.first_site_modular_gap_ne_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.first_site_modular_gap_pos_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.first_site_modular_gap_neg_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.first_site_modular_gap_sign": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.modular_phase_trigonometric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.first_site_flow_x": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.first_site_flow_y": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.modular_horizon_pauli_x": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.modular_horizon_pauli_y": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.modular_quarter_turn_angle": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.modular_quarter_horizon_x": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.modular_quarter_horizon_y": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.modular_oriented_quarter_time_neg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.modular_oriented_angle_of_pos": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.modular_oriented_angle_of_neg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.modular_oriented_horizon_x": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.modular_oriented_horizon_y": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.first_site_modular_gap_tracial": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.modular_horizon_pauli_x_tracial": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.modular_horizon_pauli_y_tracial": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.OrbitPlane": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbitBasisX": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbitBasisY": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbitQuarterTurn": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbitDotForm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbitSymplectic": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbitOrientedTurn": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbitCalibratedForm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_basis_decomposition": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_quarter_basis_x": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_quarter_basis_y": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_quarter_square": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_dot_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_bilinear_expansion": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_quarter_invariant_form": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_trace_one_selection": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_scalar_gram": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_scalar_area": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_trace_one_area": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_selected_trace_in_orthonormal_pair": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_sign_times_self": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_calibration_identity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_oriented_square": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_calibration_compatibility": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_calibrated_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_calibrated_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_calibrated_area": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Orbit052.orbit_zero_calibration": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_ad_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_ad_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_ad_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_inner_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_norm_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_dist_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizonGNSPre": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_pre_tof": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_pre_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_pre_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizonGNSPreLinear": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_pre_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_pre_isometry": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizonGNSMap": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_map_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_map_coe": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_map_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_map_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_map_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizonGNSIsometry": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_map_apply_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_map_inverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_map_right_inverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizonGNSUnitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_apply_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_symm_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_omega": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_inner": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.realStateGenerators": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.realStateSubspace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.real_state_generator_mem": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.real_state_subspace_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.instCompleteSpaceRealStateSubspace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_real_mem": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_real_image": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizonGNSRealUnitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Covariant053.horizon_gns_real_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.fisherTensorAt": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.probabilityDifferential": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.directionalVariation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.fisherTensorField": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.fisher_tensor_entries": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.fisher_tensor_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.fisher_tensor_directional": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.fisher_tensor_nonnegative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.fisher_tensor_null_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.fisher_tensor_positive_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.fisher_field_entries": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.fisher_field_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.fisher_field_directional": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.fisher_field_nonnegative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.directional_variation_fderiv": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.fisher_field_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.probability_line_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.probability_line_eventually": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.probability_weights_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.directional_variation_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.probabilityFieldCurve": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.probability_field_curve_tangent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.probability_field_curve_fisher": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.bernoulli_tensor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.angular_bernoulli_tensor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.angular_bernoulli_directional": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherField.probability_field_geometric_compatibility": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.tensor_field_jet_finite_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.covariant_tensor_jet_finite_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.tensor_field_divergence_finite_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.finiteCovectorStressField": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.finiteCoherentStressField": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.finite_covector_stress_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.finite_covector_stress_quad": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.finite_covector_stress_null": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.finite_covector_stress_null_nonnegative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.finite_covector_stress_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.finite_covector_stress_divergence": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.finite_covector_stress_conserved": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.finite_coherent_stress_null": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.finite_response_matches_null_source": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.finite_coherent_stress_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.finite_coherent_stress_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.finite_coherent_stress_conserved": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.finiteDirectionalFrequencies": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.finite_directional_frequencies_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.finite_directional_frequencies_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.two_covector_squares_not_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCoherentSource.finite_constant_covectors_flat_conserved": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.UnitaryLabelData": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.labelledWeights": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.jointBase": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.jointWeights": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.joint_weights_normalized": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.joint_weights_nonnegative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.joint_base_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.jointUnitaryCurve": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.joint_curve_tangent_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.joint_weights_positive_near": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.entropy_atom_scaled": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.entropy_labelled_decomposition": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.modular_labelled_decomposition": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.joint_entropy_decomposition": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.joint_base_entropy_decomposition": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.joint_entropy_increment": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.joint_modular_increment": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.jointResponse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.joint_modular_quadratic_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.joint_entropy_quadratic_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.joint_relative_entropy_quadratic_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.jointCovectorCurve": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.joint_covector_response": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.jointBlockFlow": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.joint_block_flow_unitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.jointInitialAmplitude": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.jointBlockAmplitude": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.joint_block_amplitude_weights": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.joint_block_flow_prepares_amplitude": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.twoLabelData": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.two_label_positive_response": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointUnitary.two_label_zero_tangent_positive_response": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.InteractionOperator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.pauliBond": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interactionTerm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interactionPrefix": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interactionLimit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.couplingTail": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.pauli_bond_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.pauli_bond_square": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.pauli_bond_unitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.selfadjoint_involution_norm_le_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.pauli_bond_norm_le_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.pauli_bond_mem_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interaction_term_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interaction_term_norm_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interaction_term_mem_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interaction_prefix_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interaction_prefix_mem_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interaction_prefix_norm_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interaction_norm_summable": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interaction_summable": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interaction_prefix_tendsto": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interaction_limit_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interaction_limit_mem_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interaction_limit_norm_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.coupling_tail_nonnegative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interaction_prefix_add_tail": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interaction_limit_sub_prefix": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interaction_tail_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.coupling_tail_tendsto_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SummableInteraction.interaction_prefix_uniform_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryDuhamel.operatorRationalAlgebra": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryDuhamel.operatorRationalTower": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryDuhamel.Operator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryDuhamel.evolution": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryDuhamel.evolution_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryDuhamel.evolution_unitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryDuhamel.evolution_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryDuhamel.evolution_neg_mul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryDuhamel.evolution_mul_neg": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryDuhamel.evolution_star": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryDuhamel.evolution_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryDuhamel.evolution_derivative_right": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryDuhamel.evolution_derivative_left": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryDuhamel.interpolation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryDuhamel.interpolation_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryDuhamel.interpolation_derivative_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryDuhamel.unitary_duhamel_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.finiteModularNormedAlgebraRat": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.finiteModularScalarTowerRatComplex": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.levelLogHamiltonian": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.levelModularUnitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.finiteModularHamiltonian": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.finiteModularUnitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.levelHamiltonianCommutator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.level_hamiltonian_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.finite_hamiltonian_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.finite_hamiltonian_mem_level": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.finite_hamiltonian_mem_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.level_hamiltonian_exp": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.finite_modular_unitary_eq_towerPi": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.finite_modular_unitary_unitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.modular_phase_difference": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.level_modular_action": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.finite_modular_action_towerPi": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.finite_modular_action_eq_canonical": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.level_commutator_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.level_commutator_step": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.level_commutator_push": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.tower_pi_sub": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.finite_commutator_local": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.finite_commutator_extension": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.finite_spectator_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.finite_spectator_commutes_base": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteModular.finite_spectator_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteLevel.finiteLevelNormedAlgebraRat": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteLevel.finite_level_norm_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteLevel.finite_level_exp_mem": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteLevel.finite_level_exp_smul_mem": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteLevel.finite_level_cocycle_mem": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteLevel.finite_level_mono": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CocycleDerivative.canonicalConjugationRealLinear": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CocycleDerivative.canonical_conjugation_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CocycleDerivative.canonical_cocycle_hasDerivAt": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CocycleDerivative.canonical_cocycle_generator_equation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CocycleDerivative.canonical_cocycle_differentiable": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralClausius.MetricScreenFamily": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralClausius.MetricScreenClausius": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralClausius.metric_screen_clausius_iff_null_balance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralClausius.metric_screen_clausius_independent_of_screen": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralClausius.metric_einstein_from_screen_clausius": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralClausius.metric_unitary_matching_produces_clausius": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralClausius.metric_einstein_from_unitary_matching": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralClausius.pureTimeTensor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralClausius.nonzero_pure_time_source_has_no_scalar_metric_balance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AffineObstruction.linear_map_zero_of_eta_null": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AffineObstruction.linear_map_zero_of_lorentz_null": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AffineObstruction.quadratic_limit_forces_zero_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AffineObstruction.probabilityEntropyField": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AffineObstruction.probability_entropy_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AffineObstruction.affine_area_matching_entropy_quadratic_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AffineObstruction.affine_area_matching_entropy_derivative_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AffineObstruction.UniversalAffineAreaMatching": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AffineObstruction.universal_affine_area_matching_entropy_fderiv_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AffineObstruction.universal_affine_area_matching_entropy_constant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AffineObstruction.constant_entropy_affine_area_matching_ricci_null_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AffineObstruction.universal_affine_area_matching_ricci_null_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AffineObstruction.zero_ricci_nonnegative_matter_forces_zero_variation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.traceReverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.plusCovector": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.minusCovector": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.polarization_pair_entry": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.signed_polarization": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.trace_reverse_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.trace_reverse_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.trace_reverse_sub": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.trace_reverse_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.trace_reverse_trace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.trace_reverse_involutive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.trace_outer_is_quad": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.trace_reverse_outer": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.signed_pair_stress": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.signedStress": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.signed_stress_is_trace_reverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.every_symmetric_source_has_eight_covectors": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.plus_covector_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.minus_covector_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.trace_reverse_field_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.smooth_metric_source_has_smooth_eight_covectors": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SignedCoverage.every_smooth_lorentz_source_is_represented": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCovariance.frameMetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCovariance.frameInverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCovariance.frameCovectors": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCovariance.frame_covectors_identity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCovariance.frame_covectors_composition": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCovariance.frame_covectors_recovered": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCovariance.transported_frequency": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCovariance.transported_null_direction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCovariance.transported_inverse_is_inverse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCovariance.transported_inverse_quad": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCovariance.transported_covector_stress": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCovariance.transported_finite_source": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCovariance.joint_curve_frame_covariance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCovariance.joint_weights_frame_covariance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCovariance.joint_response_frame_covariance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCovariance.joint_flow_frame_covariance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointCovariance.joint_amplitude_frame_covariance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.mixedWeights": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.mixed_weights_normalized": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.mixed_weights_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.mixed_static_readout": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.mixed_dynamic_readout": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.dilation_tendsto_past": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.dilated_weight_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.mixedCurve": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.mixed_curve_positive_near": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.mixed_tangent_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.finite_entropy_scaled": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.mixed_entropy": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.mixed_entropy_increment": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.modular_scaled": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.mixed_modular_increment": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.dilated_quadratic_preserved": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.mixed_entropy_quadratic_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.mixed_modular_quadratic_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.mixed_joint_entropy_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.mixed_joint_modular_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamic.mixed_joint_weights_nonnegative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.interactionProbe": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.interaction_probe_mem_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.bond_times_probe": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.probe_times_bond": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.bond_not_in_centralizer": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.first_prefix_is_one_bond": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.first_prefix_not_in_centralizer": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.interaction_pauli_xz": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.interaction_pauli_zx": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.interaction_site_xz": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.interaction_site_zx": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.bond_times_left_z": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.left_z_times_bond": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.bond_left_commutator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.probe_times_right_z": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.right_z_times_probe": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.probe_right_commutator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.bond_double_commutator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.tower_operator_one_ne_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.two_site_yy_square": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.bond_double_commutator_ne_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.singleBondCoupling": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.single_bond_coupling_summable": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.single_bond_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.single_bond_limit_not_in_centralizer": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.InteractionWitness.single_bond_limit_interacts": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BoundedPerturbation.innerAction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BoundedPerturbation.boundedCocycle": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BoundedPerturbation.inner_action_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BoundedPerturbation.inner_action_group": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BoundedPerturbation.inner_action_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_no_perturbation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_unitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_twisted": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_derivative_explicit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_derivative_right": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_generator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_perturbation_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_distance_from_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherEinstein.informationStress": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherEinstein.correctedStress": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherEinstein.tensor_quad_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherEinstein.tensor_quad_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherEinstein.information_stress_null_contraction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherEinstein.corrected_stress_null_contraction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherEinstein.information_stress_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherEinstein.corrected_stress_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherEinstein.information_stress_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherEinstein.corrected_stress_differentiable": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherEinstein.metric_einstein_from_information_balance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherEinstein.metric_einstein_from_microscopic_information": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FisherEinstein.zero_information_recovers_original_source": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.positiveCoupling": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.negativeCoupling": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.positive_coupling_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.negative_coupling_negative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.positiveScale": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.negativeScale": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.positive_scale_squared": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.negative_scale_squared": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.positive_scale_identity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.negative_scale_identity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.covector_stress_vector_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.weighted_scaled_stress": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.positive_calibration": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.negative_calibration": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.calibrationAxisA": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.calibrationAxisB": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.calibrationCovector": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.calibratedStress": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.calibration_axes_normalized": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.calibration_weights_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.calibration_weights_normalized": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.calibrated_stress_is_signed_stress": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.every_symmetric_source_has_unitary_calibration": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.calibration_covector_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.UnitaryCalibration.general_source_unitary_covectors_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointGravitation.jointMatter": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointGravitation.jointPreparation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointGravitation.joint_matter_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointGravitation.joint_matter_differentiable": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointGravitation.joint_matter_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointGravitation.joint_response_matches_matter": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointGravitation.joint_heat_matching": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointGravitation.joint_area_error_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointGravitation.joint_area_matching_iff_ricci": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointGravitation.joint_area_implies_clausius": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointGravitation.joint_matter_conserved_of_sectors": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointGravitation.joint_matter_conserved_of_closed_wave": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointGravitation.joint_einstein_from_area": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.JointGravitation.joint_einstein_from_area_and_closed_wave": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamicUnitary.mixedLabelEquiv": [
-      "propext",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamicUnitary.mixedBlockFlow": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamicUnitary.mixed_block_flow_unitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamicUnitary.mixed_block_flow_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamicUnitary.mixedInitialAmplitude": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamicUnitary.mixedBlockAmplitude": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamicUnitary.mixed_block_flow_prepares_amplitude": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamicUnitary.mixed_block_amplitude_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamicUnitary.sqrt_half_amplitude_weight": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamicUnitary.mixed_block_amplitude_weights": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamicUnitary.mixed_block_amplitude_normalized": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamicUnitary.mixed_initial_amplitude_normalized": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.StaticDynamicUnitary.mixed_flow_diagonal_readout": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AdmissibleInteraction.SummableCouplingData": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AdmissibleInteraction.certifiedInteraction": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AdmissibleInteraction.certifiedPrefix": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AdmissibleInteraction.singleBondData": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AdmissibleInteraction.certified_interaction_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AdmissibleInteraction.certified_interaction_mem_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AdmissibleInteraction.certified_prefix_converges": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AdmissibleInteraction.certified_interaction_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AdmissibleInteraction.certified_cutoff_uniform_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AdmissibleInteraction.certified_cutoff_error": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AdmissibleInteraction.certified_tail_vanishes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AdmissibleInteraction.certified_single_bond": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AdmissibleInteraction.certified_single_bond_not_centralizer": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.AdmissibleInteraction.certified_single_bond_interacts": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SpectatorCancellation.operatorRationalAlgebra": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SpectatorCancellation.operatorRationalTower": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SpectatorCancellation.evolution_commuting_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SpectatorCancellation.bounded_cocycle_spectator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SpectatorCancellation.bounded_cocycle_background_extension": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SpectatorCancellation.varying_background_duhamel": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SpectatorCancellation.varying_background_bound_on_interval": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.calibrationLabelData": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.calibrationSourceCovectors": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.realizedSourceField": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.calibrationSourceCurve": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.calibrationSourceResponse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.calibration_base_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.calibration_base_normalized": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.calibration_source_covectors_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.realized_source_eq": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.realized_source_eq_on": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.realized_source_symmetric": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.realized_source_smooth": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.realized_source_divergence_eq": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.realized_source_conserved": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.calibration_source_weights_nonnegative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.calibration_source_weights_normalized": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.calibration_source_curve_tangent_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.calibration_source_entropy_quadratic_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.calibration_source_modular_quadratic_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.calibration_source_response_null": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.calibration_source_entropy_null_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.calibration_source_modular_null_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.calibration_source_block_unitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceUnitary.calibration_source_amplitude_weights": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceEinstein.general_source_heat_matching": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceEinstein.general_source_area_matching_iff_ricci": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.GeneralSourceEinstein.general_source_einstein_from_area": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FullSourceResponse.calibratedPointResponse": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FullSourceResponse.normalizedSamples": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FullSourceResponse.decodeSource": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FullSourceResponse.calibrated_point_response_all_directions": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FullSourceResponse.normalized_point_response": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FullSourceResponse.source_field_response_all_directions": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FullSourceResponse.normalized_sample_response": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FullSourceResponse.ten_responses_reconstruct_source": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FullSourceResponse.ten_responses_determine_source": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FullSourceResponse.ten_responses_reconstruct_source_field": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FullSourceResponse.ten_responses_determine_source_field": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FullSourceResponse.decode_source_injective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FullSourceResponse.source_response_samples_roundtrip": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.scalarPhase": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.shifted": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.normalizedShift": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.scalar_phase_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.scalar_phase_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.scalar_phase_star": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.scalar_phase_unitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.scalar_phase_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.scalar_phase_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.shifted_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.shifted_unitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.shifted_continuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.shifted_twisted": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.shifted_adjoint_action": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.shifted_modular_action": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.shifted_generator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.shifted_generator_equation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.scalar_phase_log_cpow": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.normalized_shift_formula": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.normalized_shift_generator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CentralPhase.normalized_shift_modular_action": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CocycleUniqueness.same_generator_product_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CocycleUniqueness.same_generator_product_constant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CocycleUniqueness.unitary_right_generator_unique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CocycleUniqueness.canonical_generator_skew": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CocycleUniqueness.canonical_right_generator_unique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.CocycleUniqueness.canonical_cocycle_unique_from_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.operatorRationalAlgebra": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.operatorRationalTower": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.SuperOperator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.superRationalAlgebra": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.superRationalTower": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.superTopologicalRing": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.leftMultiplier": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.rightMultiplier": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.left_multiplier_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.right_multiplier_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.left_multiplier_power_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.right_multiplier_power_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.multipliers_commute": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.exp_left_multiplier_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.exp_right_multiplier_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.bracketOperator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.bracket_operator_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.scaled_bracket_split": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.exp_scaled_bracket_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.cutoff_scaled_bracket_power": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.cutoff_conjugation_hasSum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.finiteEvolution": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.finite_evolution_hasSum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.finite_evolution_eq_tsum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.finite_evolution_series_summable": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.FiniteCommutatorSeries.finite_evolution_isometry": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmallTimeLocalLimit.commutatorSeriesTerm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmallTimeLocalLimit.localSeriesMajorant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmallTimeLocalLimit.growth_product_factorial_choose": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmallTimeLocalLimit.growth_factorial_quotient": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmallTimeLocalLimit.commutator_series_term_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmallTimeLocalLimit.commutator_series_uniform_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmallTimeLocalLimit.local_series_majorant_summable": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmallTimeLocalLimit.stabilizedSeriesTerm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmallTimeLocalLimit.commutator_series_term_stabilizes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmallTimeLocalLimit.commutator_series_term_tendsto": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmallTimeLocalLimit.stabilized_series_summable": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmallTimeLocalLimit.localSeriesEvolution": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmallTimeLocalLimit.finite_evolution_tendsto_local_series": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmallTimeLocalLimit.finite_evolution_cauchy_local": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmallTimeLocalLimit.local_series_evolution_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.SmallTimeLocalLimit.local_series_evolution_independent_prefix": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTomitaResolvent_double_cut_balance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "_private.TGLExt.V351ModularCutBalance.0.TGLV350.Regular.cut_balance_after_multiplication": [
-      "propext"
-    ],
-    "_private.TGLExt.V351ModularCutBalance.0.TGLV350.Regular.scalar_original_resolvent_balance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "_private.TGLExt.V351ModularCutBalance.0.TGLV350.Regular.scalar_represented_regular_damped_phase": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "_private.TGLExt.V351ModularCutBalance.0.TGLV350.Regular.damped_phase_scalar_balance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "_private.TGLExt.V351ModularCutBalance.0.TGLV350.Regular.damped_phase_commutative_balance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "_private.TGLExt.V351ModularCutBalance.0.TGLV350.Regular.damped_phase_operator_balance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "_private.TGLExt.V351ModularCutBalance.0.TGLV350.Regular.scalar_representation_vector_injective": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "_private.TGLExt.V351ModularCutBalance.0.TGLV350.Regular.closed_representation_cfc": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "_private.TGLExt.V351ModularCutBalance.0.TGLV350.Regular.scalar_resolvent_commutes_represented_regular": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "_private.TGLExt.V351QuadraticTrace.0.TGLV350.Regular.represented_positive_root_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "_private.TGLExt.V351QuadraticTrace.0.TGLV350.Regular.scalar_inverse_cutoff_weight_form": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarInverseLimitWeight_tracial": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "_private.TGLExt.V351QuadraticTrace.0.TGLV350.Regular.scalar_root_cut_supremum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "_private.TGLExt.V351QuadraticTrace.0.TGLV350.Regular.root_quadratic_commutation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "_private.TGLExt.V351QuadraticTrace.0.TGLV350.Regular.bounded_root_form_balance": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "_private.TGLExt.V351QuadraticTrace.0.TGLV350.Regular.double_cut_form_supremum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarInverseLimitTraceData": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularTrace_finite_positive_below": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.kernel_projection_mem_vonNeumann": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.TraceCompletion.scalarTrace_transport_of_support": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.TraceCompletion.positiveShift_trace_compatible": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.TraceCompletion.cyclicTraceCandidate_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.positive_operator_has_threshold_projection": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTrace_finite_subprojection_exists": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularCore_matrix_corner": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTrace_finite_equal_split": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTrace_finite_split_support": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTrace_dual_calibration": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.scalarTrace_normalized_split_exists": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularNormalizedFaces": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularFiniteSupport_trace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularMinimalLock_spectral_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularMinimalLock_relative_gap": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularMinimalLockGraph_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularMinimalLockGraph_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularMinimalLockGraph_affiliated": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.coreProjectionSpaces": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.CoreProjection.operator_mem": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.CoreProjection.operator_le_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.CoreProjection.operator_ofOperator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.coreProjectionTrace": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.positiveTraceReader": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.positiveTraceReader_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularContinuousCorner": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularContinuousCorner_readings": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.regularMinimalLock_breuer_kernel": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.projection_join_comparison": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.coreProjectionTrace_subadd": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.coreProjectionTraceSubadditive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.TraceCompletion.regularLegacyCore": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.TraceCompletion.regularLegacyThreeLocks": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.TraceCompletion.regularLegacyThreeLocks_concrete": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.TraceCompletion.regularModularRealization": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.TraceCompletion.regularFullWitness": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV350.Regular.positiveTraceReader_not_cyclic": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.regularSupportProjection": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.regularSusyData": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.regularSusy_gives_breuer": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "TGLV354.regularSusy_operator_identifications": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Wave029.zero_eta_nonzero_source_refused": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Wave029.waveOriginScreen": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Wave029.wave_test_nonzero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Wave029.wave_test_null": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Wave029.wave_test_frequency": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Wave029.wave_origin_area_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Wave029.wave_wrong_trace_refused": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Wave029.matched_ricci_independent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Wave029.matched_curvature_difference": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Wave029.matched_curvature_distinguishes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Wave029.matched_metrics_agree_at_origin": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Wave029.zero_wave_ricci_scale": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Wave029.zero_wave_vacuum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Wave029.zero_wave_nonflat": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Wave029.geometric_wave_matter_nonzero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Wave029.geometric_wave_curved": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Wave029.state_alone_not_curvature_coordinate": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.inverse_filter_modular_fixed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.filter_flow_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.inverse_filter_flow_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.filter_preserves_delta_domain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.inverse_filter_preserves_delta_domain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.filter_delta_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.inverse_filter_delta_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.filter_delta_domain_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.relative_delta_original_domain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.relative_delta_product_value": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.likelihoodModularProduct": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.relative_delta_eq_likelihood_product": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.likelihood_modular_product_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.likelihood_modular_product_closed": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.likelihood_modular_product_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.generator_preserves_delta_domain": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.generator_delta_commutes": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Commutation032.relative_delta_reference_control": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.likelihoodDensity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.boundedDensityPower": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.likelihood_density_square": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.likelihood_density_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.likelihood_density_selfadjoint": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.likelihood_density_invertible": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.likelihood_density_mem_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.likelihood_density_normalized": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.likelihood_density_log": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.likelihood_filter_log": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.likelihood_density_log_unique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.bounded_density_power_eq_cocycle": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.bounded_density_power_unitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.likelihood_density_reference": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.phase_quadratic_time_even": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.reference_state_cocycle_invariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.factor_density_state_unique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.likelihood_density_state_left": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.likelihood_density_state_right": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Density033.likelihood_density_state_unique": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.boundedPhase": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.bounded_phase_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.bounded_phase_unitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.bounded_phase_centralizer": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.centralizer_unitary_preserves_state": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.bounded_phase_derivative_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.bounded_phase_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.bounded_phase_differentiable": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.bounded_phase_vector_derivative_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.horizontalComponent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.horizontal_component_orthogonal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.horizontal_phase_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.twoPhaseOrbit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.twoPhaseVector": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.two_phase_unitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.two_phase_centralizer": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.two_phase_state_invariant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.two_phase_vector_origin": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.two_phase_vector_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.two_phase_distance_preserved": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.two_phase_first_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.two_phase_second_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.two_phase_vector_differentiable": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.first_horizontal_tangent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.second_horizontal_tangent": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.phase_vector_state_form": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.phaseRestrictedState": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.phase_restricted_state_eq": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.phaseReading": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.phase_reading_constant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.phase_reading_first_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.phase_reading_second_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.observablePhaseJacobian": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.observable_phase_jacobian_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.observablePhaseGram": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.observable_phase_gram_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.observable_phase_area_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.observable_phase_area_not_angular": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.observable_phase_gram_not_angular": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Angular034.reference_phase_area_split": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.omegaContinuous": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.omega_continuous_apply": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.bounded_phase_star": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.bounded_phase_mem_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.unitaryConjugation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.unitary_conjugation_derivative_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.unitary_expectation_derivative_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.operatorOrbit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.orbitExpectation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.orbit_unitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.orbit_mem_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.orbit_origin": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.orbit_expectation_origin": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.orbit_expectation_first_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.orbit_expectation_second_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.orbit_vector_state": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.orbit_vector_norm": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.orbit_expectation_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.orbit_expectation_nonnegative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.orbit_expectation_add": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.orbit_expectation_smul": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.orbit_expectation_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauliOrbit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauliExpectation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauliYReading": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauliObservableJacobian": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_orbit_unitary": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_orbit_mem_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_expectation_vector_state": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_reading_origin": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_first_axis_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_second_axis_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_first_cross_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_second_cross_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_observable_jacobian_diagonal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_observable_jacobian_determinant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_observable_jacobian_nondegenerate": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_observable_jacobian_squared_determinant_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_observable_jacobian_first_tracial": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_observable_jacobian_second_tracial": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.reference_pauli_observable_jacobian": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.reference_pauli_observable_jacobian_determinant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.tracial_pauli_observable_jacobian": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.signOutcome": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.sign_outcome_zero": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.sign_outcome_one": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.sign_outcome_square": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.sign_outcome_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauliYProjectionMatrix": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauliYProjection": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauliJointEffect": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauliProbability": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_matrix_square": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_matrix_star": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_matrix_orthogonal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_matrix_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_matrix_commutator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_projection_formula": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_projection_isStarProjection": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_projection_mem_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_projection_orthogonal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_projection_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_projection_state": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_projection_commute": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_projection_x_commute": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_projection_commutator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_y_projection_response": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_joint_effect_isStarProjection": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_joint_effect_mem_factor": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_joint_effect_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_joint_effect_swap": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_joint_effect_product": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_joint_effect_orthogonal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_joint_effect_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_joint_effect_state": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.star_projection_inner_norm_sq": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_expectation_norm_sq": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_probability_norm_sq": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_probability_real": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_probability_nonnegative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_probability_sum": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_probability_origin": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_probability_origin_pos": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_joint_first_commutator": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_joint_first_response": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_joint_second_response": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_probability_first_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_probability_second_derivative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauliProbabilityGradient": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauliMeasurementFisher": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauliFisherArea": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_probability_gradient": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_measurement_fisher_diagonal": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_measurement_fisher_determinant": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_measurement_fisher_determinant_square": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_measurement_fisher_determinant_nonnegative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_measurement_fisher_determinant_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_fisher_area_formula": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_fisher_area_eq_abs_jacobian": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_fisher_area_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_measurement_fisher_quadratic": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_measurement_fisher_quadratic_nonnegative": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_fisher_area_first_tracial": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.pauli_fisher_area_second_tracial": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.reference_pauli_measurement_fisher": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.reference_pauli_fisher_area": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.tracial_pauli_measurement_fisher": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Observable035.tracial_pauli_fisher_area": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.quarticMatchedRicci": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.entropyQuarticCoefficient": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.quarticMatchingCoefficient": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.quarticStateAreaDefect": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.quartic_matched_ricci_cancellation": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.quartic_state_area_defect_identity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.quartic_state_area_defect_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.quartic_state_area_matching_iff": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.quartic_log_two_bounds": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.quartic_coefficient_lower_bound_algebra": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.quartic_matching_coefficient_lower_bound": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.quartic_matching_coefficient_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.quartic_state_area_small_amplitude_no_go": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.quartic_matching_square_criterion": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.quartic_optical_coefficient_admissible_bounds": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.likelihood_reading_quartic_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.retimedQuarticStateAreaDefect": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.cancellingStateClock": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.retimed_entropy_quartic_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.retimed_quartic_defect_identity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.retimed_quartic_state_area_defect_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.cancelling_state_clock_identity": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.retimed_quartic_matching": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.cancelling_clock_same_initial_calibration": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.common_state_area_clock_limit": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.common_clock_small_amplitude_no_go": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.smallSingleAmplitude": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.small_single_amplitude_mass": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.small_single_amplitude_square_mass": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.small_single_amplitude_bounds": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.quartic_matched_ricci_positive": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
-    "ChatgptAudit.Quartic037.nonvacuous_quartic_clock_control": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
-    ],
     "ChatgptAudit.Clock040.central_spray_scaled_zero": [
       "propext",
       "Classical.choice",
@@ -28346,6 +26411,151 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Heat041.flat_matching_forces_zero_mass": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.HasSummableNullRealization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.amplitude_response_null_value_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.summable_coupling_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.summable_null_realization_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.summable_null_realization_iff_potential": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.mixed_no_summable_null_realization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.summable_entropy_limit_iff_response": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.mixed_no_summable_entropy_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.mixed_geometric_no_summable_realization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.growing_summable_null_response": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.growing_summable_null_realization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Completion042.zero_amplitude_summable_null_realization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical043.opticalPhaseCoordinate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical043.jacobiLogDerivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical043.opticalCongruenceDomain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical043.optical_phase_coordinate_contDiff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical043.optical_phase_coordinate_hasFDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical043.optical_phase_coordinate_central": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical043.jacobi_oscillator_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical043.jacobi_velocity_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical043.jacobi_log_derivative_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical043.jacobi_log_derivative_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical043.jacobi_log_derivative_hasDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical043.jacobi_log_derivative_contDiffAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical043.jacobi_log_profile_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical043.optical_congruence_domain_open": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical043.optical_congruence_domain_origin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical043.optical_congruence_domain_central_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Optical043.optical_congruence_domain_eventually": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -29335,6 +27545,276 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "ChatgptAudit.Area045.FormInvariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.FormSymmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.FormPositive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.formGram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.formArea": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.form_invariant_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.form_symmetric_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.form_positive_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.form_gram_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.form_area_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.form_gram_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.screen_determinant_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.screen_area_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.form_determinant_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.form_area_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.form_area_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.scaled_form_areas_distinct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.scaled_forms_distinct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.invariant_positive_area_nonunique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.invariance_does_not_fix_area": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.scaled_reference_angular_area": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Area045.reference_angular_scales_distinct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.modular_conjugation_inner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.modular_conjugation_inner_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.period_average_inner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.period_average_re_inner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.period_average_re_inner_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.expectation_re_inner_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.general_expectation_isPositive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.general_expectation_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.blockQuadratic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.BlockPositive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.block_modular_quadratic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.block_period_average_quadratic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.block_period_average_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.block_average_quadratic_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.general_expectation_block_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.gram_block_quadratic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.gram_block_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.factor_subalgebra_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.factor_positive_sqrt_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.factor_nonnegative_iff_star_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.factor_subalgebra_star_ordered": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.expectation_cstarMatrix_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.generalExpectationCompletelyPositiveMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.general_expectation_cp_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.general_expectation_cp_toLinearMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.strong_net_limit_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.factor_mem_of_net_strong_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.expectation_order_preserving": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.factor_monotone_supremum_and_expectation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.expectation_preserves_order_bounded_nets": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.general_expectation_normal_order": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Expectation047.aperiodic_expectation_normal_order": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Geometry048.faithful_covariance_period_return": [
       "propext",
       "Classical.choice",
@@ -29670,6 +28150,261 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "ChatgptAudit.Orbit052.firstSiteModularGap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.modularQuarterTurnTime": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.modularOrientedQuarterTime": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.first_site_modular_gap_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.first_site_modular_gap_pos_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.first_site_modular_gap_neg_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.first_site_modular_gap_sign": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.modular_phase_trigonometric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.first_site_flow_x": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.first_site_flow_y": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.modular_horizon_pauli_x": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.modular_horizon_pauli_y": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.modular_quarter_turn_angle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.modular_quarter_horizon_x": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.modular_quarter_horizon_y": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.modular_oriented_quarter_time_neg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.modular_oriented_angle_of_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.modular_oriented_angle_of_neg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.modular_oriented_horizon_x": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.modular_oriented_horizon_y": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.first_site_modular_gap_tracial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.modular_horizon_pauli_x_tracial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.modular_horizon_pauli_y_tracial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.OrbitPlane": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbitBasisX": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbitBasisY": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbitQuarterTurn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbitDotForm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbitSymplectic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbitOrientedTurn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbitCalibratedForm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_basis_decomposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_quarter_basis_x": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_quarter_basis_y": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_quarter_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_dot_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_bilinear_expansion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_quarter_invariant_form": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_trace_one_selection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_scalar_gram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_scalar_area": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_trace_one_area": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_selected_trace_in_orthonormal_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_sign_times_self": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_calibration_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_oriented_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_calibration_compatibility": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_calibrated_symmetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_calibrated_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_calibrated_area": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Orbit052.orbit_zero_calibration": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Orbit052.quantum_horizontal_re_pairing": [
       "propext",
       "Classical.choice",
@@ -29796,6 +28531,191 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Orbit052.quantum_candidate_trace_one_area": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_ad_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_ad_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_ad_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_inner_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_norm_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_dist_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizonGNSPre": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_pre_tof": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_pre_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_pre_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizonGNSPreLinear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_pre_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_pre_isometry": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizonGNSMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_map_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_map_coe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_map_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_map_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_map_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizonGNSIsometry": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_map_apply_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_map_inverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_map_right_inverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizonGNSUnitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_apply_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_symm_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_omega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_inner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.realStateGenerators": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.realStateSubspace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.real_state_generator_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.real_state_subspace_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.instCompleteSpaceRealStateSubspace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_real_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_real_image": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizonGNSRealUnitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.Covariant053.horizon_gns_real_apply": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -31580,6 +30500,431 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "ChatgptAudit.SummableInteraction.InteractionOperator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.pauliBond": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interactionTerm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interactionPrefix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interactionLimit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.couplingTail": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.pauli_bond_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.pauli_bond_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.pauli_bond_unitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.selfadjoint_involution_norm_le_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.pauli_bond_norm_le_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.pauli_bond_mem_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interaction_term_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interaction_term_norm_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interaction_term_mem_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interaction_prefix_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interaction_prefix_mem_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interaction_prefix_norm_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interaction_norm_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interaction_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interaction_prefix_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interaction_limit_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interaction_limit_mem_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interaction_limit_norm_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.coupling_tail_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interaction_prefix_add_tail": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interaction_limit_sub_prefix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interaction_tail_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.coupling_tail_tendsto_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SummableInteraction.interaction_prefix_uniform_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryDuhamel.operatorRationalAlgebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryDuhamel.operatorRationalTower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryDuhamel.Operator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryDuhamel.evolution": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryDuhamel.evolution_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryDuhamel.evolution_unitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryDuhamel.evolution_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryDuhamel.evolution_neg_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryDuhamel.evolution_mul_neg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryDuhamel.evolution_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryDuhamel.evolution_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryDuhamel.evolution_derivative_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryDuhamel.evolution_derivative_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryDuhamel.interpolation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryDuhamel.interpolation_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryDuhamel.interpolation_derivative_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.UnitaryDuhamel.unitary_duhamel_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.finiteModularNormedAlgebraRat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.finiteModularScalarTowerRatComplex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.levelLogHamiltonian": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.levelModularUnitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.finiteModularHamiltonian": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.finiteModularUnitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.levelHamiltonianCommutator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.level_hamiltonian_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.finite_hamiltonian_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.finite_hamiltonian_mem_level": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.finite_hamiltonian_mem_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.level_hamiltonian_exp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.finite_modular_unitary_eq_towerPi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.finite_modular_unitary_unitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.modular_phase_difference": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.level_modular_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.finite_modular_action_towerPi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.finite_modular_action_eq_canonical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.level_commutator_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.level_commutator_step": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.level_commutator_push": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.tower_pi_sub": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.finite_commutator_local": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.finite_commutator_extension": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.finite_spectator_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.finite_spectator_commutes_base": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteModular.finite_spectator_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteLevel.finiteLevelNormedAlgebraRat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteLevel.finite_level_norm_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteLevel.finite_level_exp_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteLevel.finite_level_exp_smul_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteLevel.finite_level_cocycle_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteLevel.finite_level_mono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CocycleDerivative.canonicalConjugationRealLinear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CocycleDerivative.canonical_conjugation_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CocycleDerivative.canonical_cocycle_hasDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CocycleDerivative.canonical_cocycle_generator_equation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CocycleDerivative.canonical_cocycle_differentiable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.SelectionRecord.AngularForm": [
       "propext",
       "Classical.choice",
@@ -31875,6 +31220,211 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "ChatgptAudit.InteractionWitness.interactionProbe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.interaction_probe_mem_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.bond_times_probe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.probe_times_bond": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.bond_not_in_centralizer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.first_prefix_is_one_bond": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.first_prefix_not_in_centralizer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.interaction_pauli_xz": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.interaction_pauli_zx": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.interaction_site_xz": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.interaction_site_zx": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.bond_times_left_z": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.left_z_times_bond": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.bond_left_commutator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.probe_times_right_z": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.right_z_times_probe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.probe_right_commutator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.bond_double_commutator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.tower_operator_one_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.two_site_yy_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.bond_double_commutator_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.singleBondCoupling": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.single_bond_coupling_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.single_bond_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.single_bond_limit_not_in_centralizer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.InteractionWitness.single_bond_limit_interacts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BoundedPerturbation.innerAction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BoundedPerturbation.boundedCocycle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BoundedPerturbation.inner_action_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BoundedPerturbation.inner_action_group": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BoundedPerturbation.inner_action_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_no_perturbation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_unitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_twisted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_derivative_explicit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_derivative_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_generator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_perturbation_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.BoundedPerturbation.bounded_cocycle_distance_from_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.ScatteringRecord.outgoingColumn": [
       "propext",
       "Classical.choice",
@@ -32026,6 +31576,111 @@
       "Quot.sound"
     ],
     "ChatgptAudit.ScatteringRecord.phase_and_weight_decoders_agree_on_principal_record": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AdmissibleInteraction.SummableCouplingData": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AdmissibleInteraction.certifiedInteraction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AdmissibleInteraction.certifiedPrefix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AdmissibleInteraction.singleBondData": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AdmissibleInteraction.certified_interaction_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AdmissibleInteraction.certified_interaction_mem_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AdmissibleInteraction.certified_prefix_converges": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AdmissibleInteraction.certified_interaction_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AdmissibleInteraction.certified_cutoff_uniform_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AdmissibleInteraction.certified_cutoff_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AdmissibleInteraction.certified_tail_vanishes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AdmissibleInteraction.certified_single_bond": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AdmissibleInteraction.certified_single_bond_not_centralizer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.AdmissibleInteraction.certified_single_bond_interacts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SpectatorCancellation.operatorRationalAlgebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SpectatorCancellation.operatorRationalTower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SpectatorCancellation.evolution_commuting_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SpectatorCancellation.bounded_cocycle_spectator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SpectatorCancellation.bounded_cocycle_background_extension": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SpectatorCancellation.varying_background_duhamel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SpectatorCancellation.varying_background_bound_on_interval": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -33860,6 +33515,141 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "ChatgptAudit.CentralPhase.scalarPhase": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.shifted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.normalizedShift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.scalar_phase_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.scalar_phase_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.scalar_phase_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.scalar_phase_unitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.scalar_phase_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.scalar_phase_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.shifted_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.shifted_unitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.shifted_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.shifted_twisted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.shifted_adjoint_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.shifted_modular_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.shifted_generator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.shifted_generator_equation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.scalar_phase_log_cpow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.normalized_shift_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.normalized_shift_generator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CentralPhase.normalized_shift_modular_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CocycleUniqueness.same_generator_product_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CocycleUniqueness.same_generator_product_constant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CocycleUniqueness.unitary_right_generator_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CocycleUniqueness.canonical_generator_skew": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CocycleUniqueness.canonical_right_generator_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.CocycleUniqueness.canonical_cocycle_unique_from_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.LocalCocycle.localCutoffCocycle": [
       "propext",
       "Classical.choice",
@@ -34845,6 +34635,136 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "ChatgptAudit.FiniteCommutatorSeries.operatorRationalAlgebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.operatorRationalTower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.SuperOperator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.superRationalAlgebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.superRationalTower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.superTopologicalRing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.leftMultiplier": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.rightMultiplier": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.left_multiplier_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.right_multiplier_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.left_multiplier_power_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.right_multiplier_power_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.multipliers_commute": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.exp_left_multiplier_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.exp_right_multiplier_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.bracketOperator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.bracket_operator_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.scaled_bracket_split": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.exp_scaled_bracket_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.cutoff_scaled_bracket_power": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.cutoff_conjugation_hasSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.finiteEvolution": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.finite_evolution_hasSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.finite_evolution_eq_tsum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.finite_evolution_series_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.FiniteCommutatorSeries.finite_evolution_isometry": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.MixedQuadraticGibbs.mixedRadius": [
       "propext",
       "Classical.choice",
@@ -35006,6 +34926,86 @@
       "Quot.sound"
     ],
     "ChatgptAudit.MixedQuadraticGibbs.mixed_response_coefficient_negative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmallTimeLocalLimit.commutatorSeriesTerm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmallTimeLocalLimit.localSeriesMajorant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmallTimeLocalLimit.growth_product_factorial_choose": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmallTimeLocalLimit.growth_factorial_quotient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmallTimeLocalLimit.commutator_series_term_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmallTimeLocalLimit.commutator_series_uniform_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmallTimeLocalLimit.local_series_majorant_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmallTimeLocalLimit.stabilizedSeriesTerm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmallTimeLocalLimit.commutator_series_term_stabilizes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmallTimeLocalLimit.commutator_series_term_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmallTimeLocalLimit.stabilized_series_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmallTimeLocalLimit.localSeriesEvolution": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmallTimeLocalLimit.finite_evolution_tendsto_local_series": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmallTimeLocalLimit.finite_evolution_cauchy_local": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmallTimeLocalLimit.local_series_evolution_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChatgptAudit.SmallTimeLocalLimit.local_series_evolution_independent_prefix": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -43359,9 +43359,143 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "ModularRemainder.conjugation_eq_iff_commute": [],
-    "ModularRemainder.full_action_invisible_iff_central": [],
-    "ChatgptAudit.Horizons045.chainWord": [],
+    "TGLExt.UmPostoRelacao.posto_paid_loss": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.UmPostoRelacao.posto_is_not_a_reflection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.UmPostoRelacao.posto_is_inhabited": [
+      "propext",
+      "Quot.sound"
+    ],
+    "TGLExt.TorsionShearDecay.shear_damping_rate_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.TorsionShearDecay.shear_damping_rate_at_least_alpha": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.TorsionShearDecay.shear_damping_rate_at_asymptote": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.TorsionShearDecay.expanding_branch_H_ge_alpha": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.TorsionShearDecay.shear_never_zero_at_finite_time": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OrientedFace.increment_coupling": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OrientedFace.increment_mirror": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OrientedFace.phi_coupling": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OrientedFace.phi_mirror": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OrientedFace.phi_coupling_lt_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OrientedFace.one_lt_phi_mirror": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OrientedFace.phi_gap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OrientedFace.mirror_is_one_plus_delta_to_first_order": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OrientedFace.coupling_is_minus_delta_to_first_order": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OrientedFace.orientation_is_the_sign": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OrientedFace.balance_on_the_state_face": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OrientedFace.balance_on_the_conjugate_face": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OrientedFace.friedmann_of_face": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OrientedFace.entropyFactor_is_one_plus_response": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.NameIsTheContent.the_name_may_change_in_the_crossing": [
+      "propext"
+    ],
+    "TGLExt.NameIsTheContent.one_eq_one_is_free": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.SpinorObstruction.zero_of_scalar_mismatch": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.SpinorObstruction.no_linear_map_integer_to_half_spin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.SpinorObstruction.no_linear_map_neutral_to_charged": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.SpinorObstruction.hypothesis_does_work": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Collapse057.IdentityCollapse": [],
     "ChatgptAudit.Collapse057.collapse_reuses_canonical_preservation": [],
     "ChatgptAudit.Collapse057.collapse_is_not_identity": [],
@@ -43371,6 +43505,9 @@
     "ChatgptAudit.Collapse057.CollapseTransition": [],
     "ChatgptAudit.Collapse057.transition_preserves_identity_and_is_fixed": [],
     "ChatgptAudit.Collapse057.no_changed_transition_at_fixed_point": [],
+    "ModularRemainder.conjugation_eq_iff_commute": [],
+    "ModularRemainder.full_action_invisible_iff_central": [],
+    "ChatgptAudit.Horizons045.chainWord": [],
     "ChatgptAudit.Collapse057.ReflectionProtocol": [],
     "ChatgptAudit.Collapse057.AttestedCollapse": [],
     "ChatgptAudit.Collapse057.attestation_requires_external_evidence": [],
@@ -43434,9 +43571,23 @@
     "TGLExt.UmPosto.reading_recovers_implies_injective": [],
     "TGLExt.UmPosto.constant_registry_recognizes_nothing": [],
     "TGLExt.UmPosto.unique_recognition_iff_injective": [],
-    "TGLExt.UmPosto.covariant_reading_returns_transported": []
+    "TGLExt.UmPosto.covariant_reading_returns_transported": [],
+    "TGLExt.UmPostoRelacao.posto_anchors_the_reading": [],
+    "TGLExt.UmPostoRelacao.posto_is_not_the_lossless_mirror": [],
+    "TGLExt.UmPostoRelacao.posto_was_measured_before_being_posited": [],
+    "TGLExt.UmPostoRelacao.no_posto_reading_is_pressupposed": [],
+    "TGLExt.UmPostoRelacao.pressupposed_stays_pressupposed_under_any_crossing": [],
+    "TGLExt.UmPostoRelacao.pressupposed_is_never_posto": [],
+    "TGLExt.UmPostoRelacao.pressupposed_stays_pressupposed_under_any_renaming": [],
+    "TGLExt.UmPostoRelacao.pressupposed_is_never_posto_under_crossing_and_renaming": [],
+    "TGLExt.NameIsTheContent.name_determines_the_inscription": [],
+    "TGLExt.NameIsTheContent.form_alone_does_not_determine_the_content": [],
+    "TGLExt.NameIsTheContent.no_name_without_referent": [],
+    "TGLExt.NameIsTheContent.the_form_survives_the_crossing": [],
+    "TGLExt.NameIsTheContent.if_one_equals_zero_everything_collapses": [],
+    "TGLExt.NameIsTheContent.one_ne_zero_in_nontrivial": []
   },
-  "formal_source_hash": "ac9167228f32f40f94eb27802ca3da24ad007722f6d2172933fc8add77222585",
+  "formal_source_hash": "e9359c18905783e00d3452ea50bde112b521ba049bebf244dbd797e3ad8a4902",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -43477,7 +43628,9 @@
   "layers": "WedgeModularData (fluxo modular + conjugacao antiunitaria involutiva) / ContinuousCoreData (core + inclusao + acao dual + traco com escala e^{-s} de Takesaki) / ThreeLocksCoreData (H3Lt transformada limitada, P_F com lock de nucleo e maximalidade, traco positivo finito, split de faces iguais) / TGLModularRealization (+ dim infinita)",
   "witness_layers": {
     "base_rigid_witness_type_defined": true,
-    "base_rigid_witness_constructed": false,
+    "base_rigid_witness_constructed": true,
+    "canonical_full_witness_term_constructed": false,
+    "regular_full_witness_term_constructed": true,
     "modular_data_types_defined": true,
     "modular_realization_constructed": true,
     "full_TGL_witness_constructed": true,
@@ -43759,7 +43912,7 @@
   "TGL_CANONICAL_HALF_NAT=0.5",
   "TGL_CANONICAL_BETA=0.012031300400796606",
   "TGL_CANONICAL_ETA_TIMES_G=0.25",
-  "TGL_CANONICAL_BASE_WITNESS_CONSTRUCTED=0",
+  "TGL_CANONICAL_BASE_WITNESS_CONSTRUCTED=1",
   "TGL_CANONICAL_MODULAR_REALIZATION_CONSTRUCTED=1",
   "TGL_CANONICAL_FULL_WITNESS_CONSTRUCTED=1",
   "TGL_CANONICAL_BARE_PROP_LABELS=0"
@@ -43782,7 +43935,7 @@
 
 ```json
 {
-  "code_sha256": "25bca8bd264a2188f54166454218522c181d6436bbbf890555b3be1d668c02da",
+  "code_sha256": "4a34fbf36f3ae0d8bf56249d30bb1185cdee01767ec6e4f0a20433a4ac2d261e",
   "cf4_catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
   "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
   "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f"
@@ -43793,7 +43946,7 @@
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 5672/5672 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 5698/5698 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`

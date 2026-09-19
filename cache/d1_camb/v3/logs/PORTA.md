@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 3 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 5 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -22,7 +22,7 @@ Pasta do repositorio the_boundary com 3 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-3 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/d1_camb/v3/logs
+5 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/d1_camb/v3/logs
 
 **OUTROS**
 
@@ -30,8 +30,10 @@ Pasta do repositorio the_boundary com 3 arquivo(s) rastreado(s).
 |---|---|---|
 | `autoverificacao.log` | Arquivo de infraestrutura | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/logs/autoverificacao.log) |
 | `injecao.log` | Arquivo de infraestrutura | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/logs/injecao.log) |
+| `real.log` | A V3 do D1 (v366): o log da execucao real | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/logs/real.log) |
+| `real_tentativa1_python314_sem_camb.log` | A V3 do D1 (v366): o log da primeira tentativa, sem camb | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/logs/real_tentativa1_python314_sem_camb.log) |
 | `real_tranca.log` | Arquivo de infraestrutura | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/logs/real_tranca.log) |
 
 ---
 
-gerado por script de git ls-files em 2026-09-17 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-19 -- nao editar a mao

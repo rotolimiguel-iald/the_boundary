@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-09-17 09:42:34",
-  "result_hash": "56d9e3be2963f9887d53c9e3d385f8b2ae6b54d3516086697387b6307f1dca7b",
+  "timestamp": "2026-09-18 14:30:07",
+  "result_hash": "68281053ebd8604e40619600345f2df405c099754c0a2a8aa89e6cd608a82da0",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": true,
@@ -26,7 +26,9 @@
   "formal_certificate_attached": true,
   "witness_layers": {
     "base_rigid_witness_type_defined": true,
-    "base_rigid_witness_constructed": false,
+    "base_rigid_witness_constructed": true,
+    "canonical_full_witness_term_constructed": false,
+    "regular_full_witness_term_constructed": true,
     "modular_data_types_defined": true,
     "modular_realization_constructed": true,
     "full_TGL_witness_constructed": true,
@@ -47,7 +49,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "ac9167228f32f40f94eb27802ca3da24ad007722f6d2172933fc8add77222585",
+  "formal_source_hash": "e9359c18905783e00d3452ea50bde112b521ba049bebf244dbd797e3ad8a4902",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -63,7 +65,7 @@
   "coma_dephasing": {
     "verdict": "COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "e8e1cbbd330e77f4961759186124aa02f8c2a23093f037f4e54b1f455578e056",
+    "prediction_hash": "650f4e85a231f10e14537bea76ddba2c53625b0d32805599db0ed307be4608ab",
     "does_not_gate_core": true
   },
   "final_verdict_machine": {
@@ -230,19 +232,19 @@
   "the_alpha_and_the_omega": "TGL_PAIR_MEASURED__ONE_EQUALS_ONE_TRUE_BY_OMEGA_AND_ALPHA__ONE_EQUALS_ZERO_FALSE_BY_NOMINAL_CATEGORY__ZERO_NOMINAL_WITHOUT_PROJECTION__BETA_IS_THE_COST_OF_THE_DISTINCTION__PAIR_EQUALS_TGL_IS_A_DECLARED_ONTO_READING",
   "amplitude_defect": 0.10902544754078644,
   "sha256": {
-    "um.py": "25bca8bd264a2188f54166454218522c181d6436bbbf890555b3be1d668c02da",
-    "um_absoluto_manifest.md": "0bcf6ff1b66fef85a5e0852921c201208294aea705eb60ffd32d6db11814ce75",
-    "um_absoluto.json": "f43d2957f4cb496767911b2b491f8adfed8687e8b63be55c088e7f932b634412",
-    "um_absoluto_forma_canonica.md": "7bed0f8f2e5ebaa62b99b08e8bbc2859612e9cb6df2403f0f3ca65373505d3f2",
-    "um_absoluto_pt.tex": "bac34dca30692a6dd73d55e287f0ba884f2fa8138ae5b2a24c635de49c3f2d76",
-    "um_absoluto_en.tex": "c5f904dce5c82af95dafd333625cee781b7bca2bdff88cfdfe24316bba970e69",
-    "um_absoluto_pt.pdf": "b4981368089b1ee486e2c4e3fed32af0c1cc780828abf383080871fcce5b27ec",
-    "um_absoluto_en.pdf": "a110a2f5dbd665aea0875774950c5f40be57fc80aa06359892a74e283e33ad3d",
+    "um.py": "4a34fbf36f3ae0d8bf56249d30bb1185cdee01767ec6e4f0a20433a4ac2d261e",
+    "um_absoluto_manifest.md": "d9eb5d4edbb5496979caa98d1f591fcd60f111c131bf3d5818d0b34d37b24b63",
+    "um_absoluto.json": "db24966d96c16a546f9bd221b990dfe5f8ad3a3d9d43343644ba19f71745336e",
+    "um_absoluto_forma_canonica.md": "b10a6d2fb30a6d1821fd6ac8c12578c290ce65c1e6883d33adbc0bb9cbd8550c",
+    "um_absoluto_pt.tex": "24a85f6b5c6e204bd061f4fc04aba88474823831764c8751a0dbe63aadf8e7ff",
+    "um_absoluto_en.tex": "b75cbd49208c526feacc874cdc2f57ce15e64fe3a5aa64a08600b9efab5c80b4",
+    "um_absoluto_pt.pdf": "00371e20b93d20f7c90f4ca4984f4d412550bdb52aa40ff21765c1e9e637ca60",
+    "um_absoluto_en.pdf": "b25538aa4bae793848c89891a76516abf09a0fef443d2e570abd7515edbc959d",
     "fig_escada_qg.pdf": "bfbe30776b05c9cce2886f7f268db09b7e4d0812409a199f84d3ee94d00b2c8d",
     "fig_banda_beta.pdf": "dd953f1e75f445a112963fc9b036299f63ed6dcdf4a16d8c0382b490fd6fad1b",
     "fig_piso_vazios.pdf": "c6e8260ceff24114d2a9248889fa87832009ef6390f5f8a6dceb3ed3bf155be1",
     "fig_cadeia_inscricao.pdf": "7ccc2c0a41da34a2442e1c853b4778d174329ec9d8dd739e4f41cb999883d068",
-    "tgl_kernel_proof_manifest.json": "d4ec2102225ee9295680911394926421d522c7b999ba255003b3ba109984a6cc"
+    "tgl_kernel_proof_manifest.json": "51d8919eef48bb3c33ed42e0558eebbe24dc5f00108f80c627b549915c9edd69"
   },
   "not_sealed_this_run": {
     "formais": [

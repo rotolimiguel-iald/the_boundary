@@ -78,6 +78,18 @@ if not ledger.exists():
 led_txt = ledger.read_text(encoding='utf-8')
 led_sha = sha256(ledger)
 led_linhas = led_txt.count('\n') + 1
+# errata 19/09/2026 (custodia v368), ao lado: o livro-razao e' o README como estava ATE o dia em que a frente foi gerada pela
+# primeira vez (o commit que criou LEDGER.md), nao 'ate hoje'; e o tamanho citado e' o DO LIVRO-RAZAO (antes saia len(raw_readme)).
+import subprocess as _sp
+_d = _sp.run(['git', '-C', str(RAIZ), 'log', '--diff-filter=A', '--format=%h %ad', '--date=short', '--', 'LEDGER.md'], capture_output=True, text=True).stdout.split()
+if len(_d) < 2:   # fail-closed (errata 19/09): sem o commit que criou o livro-razao nao ha data a afirmar
+    raise SystemExit('FALHA: git log nao achou o commit que criou LEDGER.md -- a frente nao afirma data de memoria')
+led_commit0, led_desde = _d[-2], _d[-1]
+_l0 = _sp.run(['git', '-C', str(RAIZ), 'show', led_commit0 + ':LEDGER.md'], capture_output=True).stdout
+assert _l0, 'FALHA: LEDGER.md ilegivel no commit que o criou'
+led_bytes0, led_linhas0 = len(_l0), _l0.count(b'\n')
+led_linhas_reais = led_txt.count('\n') + (0 if led_txt.endswith('\n') else 1)
+led_bytes = ledger.stat().st_size
 heads = [(m.start(), m.group(1).strip()) for m in re.finditer(r'(?m)^## (.+)$', led_txt)]
 
 
@@ -165,15 +177,24 @@ Smallest first; each file stands on its own; many fetchers truncate after a few 
 
 """)
 F.append(secao('Abstract'))
+if 'Never "quantum gravity proved."' in F[-1]:   # errata 19/09 (v368), ao lado: a regua do operador de 05/09/2026
+    F.append('\n> ⚠ **Beside (the operator\u2019s ruler, 05/09/2026):** PROVED = a theorem in the kernel, auditable by `#print axioms` \u2014 allowed; '
+             'CONFIRMED = the observer\u2019s judgement about nature \u2014 forbidden. The sentence *Never "quantum gravity proved."* above, and its siblings further down (*does not mean quantum gravity is proved*, *n\u00e3o significa gravita\u00e7\u00e3o qu\u00e2ntica provada*), are kept as written '
+             '(the ledger is append-only); under the ruler they read: never "quantum gravity **confirmed**". What is proved is the implication from the '
+             'axiom and the named hypotheses; what nature decides is not proved.\n')
 F.append('\n')
 F.append(secao('✦ The core on one page'))
 F.append(f"""
 ## The ledger · o livro-razão
 
-[`LEDGER.md`]({u_ledger}) is this README **as it was until {hoje}** — the atlas of the boundary: every claim with its status, every status with the file where it is read, the seals, the refutations and the false positives that did not pass, the reading protocol, the thematic atlas and the raw file index ({fmt(led_linhas)} lines, {fmt(len(raw_readme))} bytes, sha256 `{led_sha}`). It is kept **byte-exact** and append-only: nothing was removed when this front page was generated. The raw file index it carries is superseded by [`TUNEL.json`]({raw_base}TUNEL.json) / [`TUNEL.md`]({raw_base}TUNEL.md), which are regenerated at every custody.
+[`LEDGER.md`]({u_ledger}) began as this README **as it was until {led_desde}** ({fmt(led_linhas0)} lines, {fmt(led_bytes0)} bytes then; later custodies insert their blocks beside it, nothing is removed) — the atlas of the boundary: every claim with its status, every status with the file where it is read, the seals, the refutations and the false positives that did not pass, the reading protocol, the thematic atlas and the raw file index (now {fmt(led_linhas_reais)} lines, {fmt(led_bytes)} bytes, sha256 `{led_sha}`). It is kept **byte-exact** and append-only: nothing was removed when this front page was generated. The raw file index it carries is superseded by [`TUNEL.json`]({raw_base}TUNEL.json) / [`TUNEL.md`]({raw_base}TUNEL.md), which are regenerated at every custody.
 
 """)
 F.append(secao('Citing This Work'))
+if 'v350' in F[-1]:   # errata 19/09 (v368), ao lado: a nota do BibTeX descreve o selo v350
+    F.append('\n> **Beside (%s):** the BibTeX note above describes the v350 seal. The current seal is **%s** \u2014 `um.py` sha256 `%s`, '
+             'kernel %d formal files / %d audited terms (read from `PORTA.json`, the seal and the manifest). The DOI still resolves to the '
+             'deposited v331; a new Zenodo version is the operator\u2019s act.\n' % (versao, versao, pin, int(kf), int(kt)))
 F.append('\n')
 F.append(secao('License'))
 F.append('\n')

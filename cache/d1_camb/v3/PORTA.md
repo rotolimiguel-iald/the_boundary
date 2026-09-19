@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 4 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 7 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -22,7 +22,7 @@ Pasta do repositorio the_boundary com 4 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-4 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/d1_camb/v3
+7 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/d1_camb/v3
 
 **CODIGO**
 
@@ -36,15 +36,18 @@ Pasta do repositorio the_boundary com 4 arquivo(s) rastreado(s).
 
 | arquivo | papel | link raw direto |
 |---|---|---|
-| `MANIFESTO_D1_V3.json` | A V3 do D1 (v364): manifesto do pipeline construido CEGO -- autoverificacao, injecao e recuperacao, emenda; a rodada real TRANCADA a espera da linha do operador | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/MANIFESTO_D1_V3.json) |
+| `CONFIRMACAO_OPERADOR_ROTA_V3.json` | A V3 do D1 (v366): a linha do operador que ratificou a rota do fundo e abriu a tranca -- lido por hash pelo um.py | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/CONFIRMACAO_OPERADOR_ROTA_V3.json) |
+| `EXECUCAO_REAL.json` | A V3 do D1 (v366): o registro da execucao real (instrumento, versoes, tempos) -- lido por hash pelo um.py | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/EXECUCAO_REAL.json) |
+| `MANIFESTO_D1_V3.json` | A V3 do D1 (v364): manifesto do pipeline construido CEGO -- autoverificacao, injecao e recuperacao, emenda; a rodada real TRANCADA a espera da linha do operador -- ERRATA AO LADO (v368): a linha do operador veio em 17/09 e a V3 rodou com dado real (v366; saida/D1_CAMB_V3_REAL_RESULT.json) | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/MANIFESTO_D1_V3.json) |
+| `TENTATIVA_1_SEM_CAMB.json` | A V3 do D1 (v366): a primeira tentativa, que morreu antes de qualquer numero (interpretador sem camb) -- preservada por hash | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/TENTATIVA_1_SEM_CAMB.json) |
 
 ## AS PORTAS ABAIXO
 
 | subpasta | arquivos | PORTA.md | PORTA.json |
 |---|---|---|---|
-| `logs/` | 3 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/logs/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/logs/PORTA.json) |
-| `saida/` | 4 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/saida/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/saida/PORTA.json) |
+| `logs/` | 5 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/logs/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/logs/PORTA.json) |
+| `saida/` | 5 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/saida/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/saida/PORTA.json) |
 
 ---
 
-gerado por script de git ls-files em 2026-09-17 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-19 -- nao editar a mao

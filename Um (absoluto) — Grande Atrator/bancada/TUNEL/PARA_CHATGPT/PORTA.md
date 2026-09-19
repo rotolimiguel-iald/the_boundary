@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 19 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 22 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -22,7 +22,7 @@ Pasta do repositorio the_boundary com 19 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-19 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT
+22 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT
 
 **DOCUMENTO**
 
@@ -46,6 +46,9 @@ Pasta do repositorio the_boundary com 19 arquivo(s) rastreado(s).
 | `RECIBO_v359_CENTRALIZADOR_LOCALIZACAO_MOTOR.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_v359_CENTRALIZADOR_LOCALIZACAO_MOTOR.md) |
 | `RECIBO_v360_v363_TUDO_ENTRA_NO_UM_PY.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_v360_v363_TUDO_ENTRA_NO_UM_PY.md) |
 | `RECIBO_v364_O_QUE_JA_DAVA_PARA_RESOLVER.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_v364_O_QUE_JA_DAVA_PARA_RESOLVER.md) |
+| `RECIBO_v365_O_UM_POSTO_E_RELACAO.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_v365_O_UM_POSTO_E_RELACAO.md) |
+| `RECIBO_v366_D1_V3_DADO_REAL.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_v366_D1_V3_DADO_REAL.md) |
+| `RECIBO_v368_INVERSAO_DO_NOME_E_OBSTRUCAO_ESPINORIAL.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_v368_INVERSAO_DO_NOME_E_OBSTRUCAO_ESPINORIAL.md) |
 | `RESPOSTA_OPERADOR_16SET_DEFINICAO_CONJUNTA_NO_ESTUDO_INTEIRO.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RESPOSTA_OPERADOR_16SET_DEFINICAO_CONJUNTA_NO_ESTUDO_INTEIRO.md) |
 
 ## AS PORTAS ABAIXO
@@ -57,4 +60,4 @@ Pasta do repositorio the_boundary com 19 arquivo(s) rastreado(s).
 
 ---
 
-gerado por script de git ls-files em 2026-09-17 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-19 -- nao editar a mao

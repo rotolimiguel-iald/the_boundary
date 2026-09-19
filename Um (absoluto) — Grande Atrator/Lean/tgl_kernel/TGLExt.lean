@@ -1023,3 +1023,8 @@ import TGLExt.GeometricSectorObstruction
 import TGLExt.Order005Algebra
 import TGLExt.TracialDissipativeTorsion
 import TGLExt.UmPostoInscription
+import TGLExt.UmPostoRelacao
+import TGLExt.TorsionShearDecay
+import TGLExt.OrientedBoundaryFace
+import TGLExt.NameIsTheContent
+import TGLExt.SpinorObstruction

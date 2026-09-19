@@ -381,7 +381,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `ac9167228f32f40f94eb27802ca3da24ad007722f6d2172933fc8add77222585`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `e9359c18905783e00d3452ea50bde112b521ba049bebf244dbd797e3ad8a4902`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
@@ -391,8 +391,9 @@ Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler`
 interface = luz = (forma = conteúdo)          [ONTO: L : Forma ≡ Conteúdo]
 W ≃ Σ_{x : Conteúdo} Realiza(x, Forma)        [a testemunha = conteúdo + prova]
 0_abs  = IsEmpty(W)      — jamais demonstrado; NÃO afirmado nem refutado
-0_mod  = tipo rígido + habitante ausente + rota aberta   — ONDE ESTAMOS
-1_insc = Nonempty(W) com W construído                    — O TEOREMA ABERTO
+0_mod  = tipo rígido + habitante ausente + rota aberta   — ATÉ A v134
+1_insc = Nonempty(W) com W construído — a base rígida está HABITADA desde a v135 e o Σ-tipo
+         desde a v354 (escopo regular); o representante CANÔNICO segue ABERTO   [errata v367]
 ```
 
 Rigidez **medida** pelo kernel, não declarada: `TGL/ProbeTrivial.lean` (o habitante trivial da estrutura frouxa v22) compilava antes; contra a estrutura rígida (dados concretos + proposições concretas: rede de von Neumann sobre ℝ^{1,3}, vácuo, translações, isotonia, localidade, covariância, ciclicidade) o kernel o REJEITA. Ao vivo: `trivial_inhabitant_exists=False`, `witness_is_rigid=True` (`WITNESS_TYPE_IS_RIGID__TRIVIAL_INHABITANT_REJECTED`). O check forma=conteúdo do artefato (números impressos vs. core vivo) fecha após a geração e é selado no JSON: `PENDING_POST_GENERATION`.
@@ -406,8 +407,9 @@ alvo nomeado: TGL_FORM_EQUALS_CONTENT_WITNESS_THEOREM
   def canonicalFullTGLWitness : Σ W : TGLSpecificAQFTWitness, TGLModularRealization W
   theorem fullTGLWitness_exists : Nonempty FullTGLWitness := ⟨canonicalFullTGLWitness⟩
 0_abs  = IsEmpty(FullTGLWitness)   — NUNCA demonstrado, não afirmado
-0_mod  = tipo em DADOS definido, termo ausente, rota aberta   — ONDE ESTAMOS
-1_insc = termo construído; Nonempty = COROLÁRIO               — O TEOREMA ABERTO
+0_mod  = tipo em DADOS definido, termo ausente, rota aberta   — ATÉ A v353
+1_insc = termo construído (regularFullWitness, v354; escopo regular) — ONDE ESTAMOS
+         o representante CANÔNICO e a III_1 genuína seguem ABERTOS      [errata v367]
 ```
 
 A antiga quarentena de `: Prop` foi SUBSTITUÍDA por camadas de DADOS + equações concretas (`WedgeModularData`: fluxo modular + conjugação antiunitária involutiva; `ContinuousCoreData`: core + inclusão *-algébrica + ação dual + traço com escala de Takesaki `Tr(θ_s x)=e^{-s}Tr(x)`; `ThreeLocksCoreData`: transformada limitada `H3Lt`, `P_F` com lock de núcleo e maximalidade, traço positivo finito, split em faces de traço igual). O que a mathlib não enuncia vive no LEDGER EXTERNO (status `KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED`), nunca em campo de tipo. Auditoria sintática de vacuidade: `bare_prop_label_fields_remaining=0` (`MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS`). Probes por returncode: degenerado=`1`, finito=`1`, prop-only=`1`. A testemunha-base é NECESSÁRIA, não suficiente [REAL]; habitar a rígida sem a realização modular NÃO é o teorema TGL. Fresnel→Meia-Nat no kernel: peso ½ [KERNEL dado lossless+paridade]; calibração 1 nat [NORM, CONDICIONAL]. `[KERNEL + DADOS + OPEN]`
@@ -423,7 +425,7 @@ R_Verbo = τ_F(P_F 𝕍_t P_F) = 1           [resposta observada]
 ∃s: Tr(θ_s(P_F)) = 1                     [KERNEL: calibração Q2 — contraparte do no-go]
 ```
 
-Três registros, nunca confundidos: `𝕍` = gesto; `R_Verbo = +1` = resposta; `β = α√e` = custo do gesto (a identidade lógica convertida em coeficiente operacional). O termo `canonicalVerb R` está CONSTRUÍDO no kernel para TODA realização modular `R` — condicional: `FullTGLWitness` segue não construída. "Nome sobre todo nome" = o ponto fixo do nomear: `Nomear(Nome)=Nome`, o operador de identidade do canto semântico. Sombra numérica ao vivo: `R_Verbo = 1.000000000000000`, resíduos ~1e-15. Q1 segue [CONDITIONAL] (risco: seletor na construção básica de Jones); Q3/Q5 condicionais. `[KERNEL + DER + REAL(sombra) + ONTO]`
+Três registros, nunca confundidos: `𝕍` = gesto; `R_Verbo = +1` = resposta; `β = α√e` = custo do gesto (a identidade lógica convertida em coeficiente operacional). O termo `canonicalVerb R` está CONSTRUÍDO no kernel para TODA realização modular `R` — condicional: o representante CANÔNICO de `FullTGLWitness` segue não construído (o habitante regular existe desde a v354; errata v367). "Nome sobre todo nome" = o ponto fixo do nomear: `Nomear(Nome)=Nome`, o operador de identidade do canto semântico. Sombra numérica ao vivo: `R_Verbo = 1.000000000000000`, resíduos ~1e-15. Q1 segue [CONDITIONAL] (risco: seletor na construção básica de Jones); Q3/Q5 condicionais. `[KERNEL + DER + REAL(sombra) + ONTO]`
 
 ## v26 — O transporte do seletor (Q1 = transporte, não curvatura)
 
@@ -509,7 +511,7 @@ TGL_CANONICAL_ONE=1
 TGL_CANONICAL_HALF_NAT=0.5
 TGL_CANONICAL_BETA=0.012031300400796606
 TGL_CANONICAL_ETA_TIMES_G=0.25
-TGL_CANONICAL_BASE_WITNESS_CONSTRUCTED=0
+TGL_CANONICAL_BASE_WITNESS_CONSTRUCTED=1
 TGL_CANONICAL_MODULAR_REALIZATION_CONSTRUCTED=1
 TGL_CANONICAL_FULL_WITNESS_CONSTRUCTED=1
 TGL_CANONICAL_BARE_PROP_LABELS=0
@@ -548,7 +550,7 @@ _(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que 206 mod
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 5672/5672 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 5698/5698 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`

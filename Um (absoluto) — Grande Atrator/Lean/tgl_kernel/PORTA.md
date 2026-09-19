@@ -9,8 +9,8 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 O KERNEL FORMAL: as fontes .lean exatamente como `um.py` as materializa a cada
 rodada -- nao ha segundo arquivo: o kernel mora DENTRO do canonico e sai dele.
 
-**1020 arquivos** nesta arvore; **1020** hasheados no manifesto formal (1016 `.lean`
-+ `README.md` + `lakefile.toml` + `lean-toolchain`); **8650 teoremas** auditados
+**1025 arquivos** nesta arvore; **1025** hasheados no manifesto formal (1021 `.lean`
++ `README.md` + `lakefile.toml` + `lean-toolchain`); **8692 teoremas** auditados
 por `#print axioms`, bases de axiomas subset de {`propext`, `Classical.choice`,
 `Quot.sound`}, zero `sorry`. Toolchain `leanprover/lean4:v4.31.0`, modo `strict`.
 
@@ -63,8 +63,8 @@ o gate nao se move por declaracao.
 | subpasta | arquivos | PORTA.md | PORTA.json |
 |---|---|---|---|
 | `TGL/` | 27 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/PORTA.json) |
-| `TGLExt/` | 986 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.json) |
+| `TGLExt/` | 991 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.json) |
 
 ---
 
-gerado por script de git ls-files em 2026-09-17 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-19 -- nao editar a mao

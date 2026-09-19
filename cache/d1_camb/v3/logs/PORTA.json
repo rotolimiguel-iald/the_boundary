@@ -4,7 +4,7 @@
   "titulo": "cache/d1_camb/v3/logs",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-17T13:04:09Z",
+  "gerado_utc": "2026-09-19T12:24:55Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "cache/d1_camb/v3",
@@ -41,6 +41,26 @@
       "bytes": 1481
     },
     {
+      "nome": "real.log",
+      "caminho": "cache/d1_camb/v3/logs/real.log",
+      "papel": "outros",
+      "descricao": "A V3 do D1 (v366): o log da execucao real",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/logs/real.log",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/d1_camb/v3/logs/real.log",
+      "sha256_16": "a13902fa73702a76",
+      "bytes": 683
+    },
+    {
+      "nome": "real_tentativa1_python314_sem_camb.log",
+      "caminho": "cache/d1_camb/v3/logs/real_tentativa1_python314_sem_camb.log",
+      "papel": "outros",
+      "descricao": "A V3 do D1 (v366): o log da primeira tentativa, sem camb",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/logs/real_tentativa1_python314_sem_camb.log",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/d1_camb/v3/logs/real_tentativa1_python314_sem_camb.log",
+      "sha256_16": "b12e63e99ad958f0",
+      "bytes": 3245
+    },
+    {
       "nome": "real_tranca.log",
       "caminho": "cache/d1_camb/v3/logs/real_tranca.log",
       "papel": "outros",
@@ -51,8 +71,8 @@
       "bytes": 52
     }
   ],
-  "total_arquivos_nesta_pasta": 3,
-  "total_arquivos_com_subpastas": 3,
+  "total_arquivos_nesta_pasta": 5,
+  "total_arquivos_com_subpastas": 5,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/d1_camb/v3/logs",
-  "rodape": "gerado por script de git ls-files em 2026-09-17 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-19 -- nao editar a mao"
 }

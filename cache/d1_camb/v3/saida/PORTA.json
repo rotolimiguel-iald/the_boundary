@@ -4,7 +4,7 @@
   "titulo": "cache/d1_camb/v3/saida",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-17T13:04:09Z",
+  "gerado_utc": "2026-09-19T12:24:55Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "cache/d1_camb/v3",
@@ -59,10 +59,20 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/d1_camb/v3/saida/D1_CAMB_V3_REAL_RECUSADO.json",
       "sha256_16": "f7f6bebe1aa9c7b4",
       "bytes": 188
+    },
+    {
+      "nome": "D1_CAMB_V3_REAL_RESULT.json",
+      "caminho": "cache/d1_camb/v3/saida/D1_CAMB_V3_REAL_RESULT.json",
+      "papel": "resultado selado",
+      "descricao": "A V3 do D1 com dado real (v366): D1_TENSION_2_TO_5_SIGMA e D1_BETA_TENSION -- alpha*sqrt(e) a 3.01 sigma, no limiar; tensao, nao falsificacao -- lido por hash pelo um.py",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/v3/saida/D1_CAMB_V3_REAL_RESULT.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/d1_camb/v3/saida/D1_CAMB_V3_REAL_RESULT.json",
+      "sha256_16": "f048b17f12674f33",
+      "bytes": 6655
     }
   ],
-  "total_arquivos_nesta_pasta": 4,
-  "total_arquivos_com_subpastas": 4,
+  "total_arquivos_nesta_pasta": 5,
+  "total_arquivos_com_subpastas": 5,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/d1_camb/v3/saida",
-  "rodape": "gerado por script de git ls-files em 2026-09-17 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-19 -- nao editar a mao"
 }
