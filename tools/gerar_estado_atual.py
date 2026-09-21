@@ -16,6 +16,16 @@ import urllib.parse
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
+import os
+# 21/09/2026: o deposito citavel no Zenodo e' LIDO do CITATION.cff (fonte unica), nunca escrito a mao nos geradores
+import re as _re_dep
+_CFF_DEP = open(os.path.join(str(RAIZ), 'CITATION.cff'), encoding='utf-8').read()
+_md_dep = _re_dep.search(r'Zenodo deposit of (v\d{3}), deposited ([\d-]{10}) \(byte-identical to the seal: um\.py sha256 ([0-9a-f]{16})', _CFF_DEP)
+_doi_dep = _re_dep.search(r'^doi: "(10\.5281/zenodo\.[0-9]+)"', _CFF_DEP, _re_dep.M)
+if not (_md_dep and _doi_dep):
+    raise SystemExit('FALHA: CITATION.cff sem o doi ou sem a linha do deposito (Zenodo deposit of vNNN, deposited AAAA-MM-DD ...)')
+DEP_V, DEP_DATA, DEP_PIN16 = _md_dep.groups()
+DEP_DOI = _doi_dep.group(1)
 A3 = "Um (absoluto) — Grande Atrator"
 RAW = "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/"
 TRIO = ("propext", "Classical.choice", "Quot.sound")
@@ -75,10 +85,10 @@ def main() -> int:
     L.append("| the rite | **%s clean** (`rodadas/%s`) · complete round: %s |" % (rito, ultima.name if ultima else "?", "yes" if rc.get("switch_on") is False and rc.get("reused") == 0 else str(rc)))
     L.append("| gate | `%s` |" % gate)
     L.append("| selftest | `%s` |" % selo.get("fail_closed_selftest"))
-    if versao == "331":
-        L.append("| citable deposit | Zenodo **[10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173)** (v331, 2026-09-08) \u2014 byte-identical: the record\u2019s md5 of `um.py` equals the sealed file\u2019s. Cite: *MIGUEL, L. (2026). Um: Absoluto [Dataset]. Zenodo.* |")
+    if versao == DEP_V[1:]:
+        L.append("| citable deposit | Zenodo **[%s](https://doi.org/%s)** (%s, deposited %s) \u2014 byte-identical: the record\u2019s md5 of `um.py` equals the sealed file\u2019s. Cite: *MIGUEL, L. (2026). Um: Absoluto [Dataset]. Zenodo. https://doi.org/%s* |" % (DEP_DOI, DEP_DOI, DEP_V, DEP_DATA, DEP_DOI))
     else:
-        L.append("| citable deposit | Zenodo **[10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173)** holds **v331** (2026-09-08; `um.py` `e1b74a907c403538`), byte-identical to THAT seal. **This seal is v%s, newer than the deposit** \u2014 a new Zenodo version is the operator\u2019s act. Cite: *MIGUEL, L. (2026). Um: Absoluto [Dataset]. Zenodo.* |" % versao)
+        L.append("| citable deposit | Zenodo **[%s](https://doi.org/%s)** holds **%s** (%s; `um.py` `%s`), byte-identical to THAT seal. **This seal is v%s, newer than the deposit** \u2014 a new Zenodo version is the operator\u2019s act. Cite: *MIGUEL, L. (2026). Um: Absoluto [Dataset]. Zenodo. https://doi.org/%s* |" % (DEP_DOI, DEP_DOI, DEP_V, DEP_DATA, DEP_PIN16, versao, DEP_DOI))
     L.append("| the root of the proof tree | `the_root_of_the_proof_tree` — axioms read from the seal: `%s` · `TheRootOfTheProofTree.lean` `%s` |" % (raiz_ax, raiz_sha))
     tela_ax = ar.get("TGLExt.the_answer_of_the_operator_08_09")
     tela_f = d / "Lean" / "tgl_kernel" / "TGLExt" / "TheScreenIsFounded.lean"
@@ -280,7 +290,7 @@ def main() -> int:
     L.append("| the kernel proof manifest (every audited term with its axioms) | [`tgl_kernel_proof_manifest.json`](%s) |" % raw(A3 + "/Lean/tgl_kernel_proof_manifest.json"))
     L.append("| the canonical form (the theory in its mature statement) | [`um_absoluto_forma_canonica.md`](%s) |" % raw(A3 + "/um_absoluto_forma_canonica.md"))
     L.append("| the artifact\u2019s own manifest | [`um_absoluto_manifest.md`](%s) |" % raw(A3 + "/um_absoluto_manifest.md"))
-    L.append("| how to cite | [`CITATION.cff`](%s) \u00b7 DOI [10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173) |" % raw("CITATION.cff"))
+    L.append("| how to cite | [`CITATION.cff`](%s) \u00b7 DOI [%s](https://doi.org/%s) |" % (raw("CITATION.cff"), DEP_DOI, DEP_DOI))
     if (RAIZ / "cache" / "gw" / "ECHO_ANCHORED_V2_RESULT.json").is_file():
         L.append("| the results of the nature rites (read by hash by `um.py`) | [`cache/gw/`](%s) \u00b7 [`cache/d1_camb/`](%s) |" % (raw("cache/gw/ECHO_ANCHORED_V2_RESULT.json"), raw("cache/d1_camb/D1_CAMB_V2_RESULT.json")))
     if (RAIZ / "pipelines" / "eco_ancorado_v1" / "rite_h2_v350.py").is_file():

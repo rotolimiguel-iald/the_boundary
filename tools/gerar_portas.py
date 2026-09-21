@@ -41,7 +41,16 @@ TREE = GH + "/tree/main/"
 BLOB = GH + "/blob/main/"
 SITE = "https://teoriadagravitacaoluminodinamica.com"
 DOI_REPO = "https://doi.org/10.5281/zenodo.18674475"
-DOI_UM = "https://doi.org/10.5281/zenodo.22659173"   # Um: Absoluto, v331 (08/09/2026): um.py byte-identico ao selo (md5 conferido pela API do Zenodo)
+# 21/09/2026: o deposito citavel no Zenodo e' LIDO do CITATION.cff (fonte unica), nunca escrito a mao nos geradores
+import re as _re_dep
+_CFF_DEP = open(os.path.join(REPO, 'CITATION.cff'), encoding='utf-8').read()
+_md_dep = _re_dep.search(r'Zenodo deposit of (v\d{3}), deposited ([\d-]{10}) \(byte-identical to the seal: um\.py sha256 ([0-9a-f]{16})', _CFF_DEP)
+_doi_dep = _re_dep.search(r'^doi: "(10\.5281/zenodo\.[0-9]+)"', _CFF_DEP, _re_dep.M)
+if not (_md_dep and _doi_dep):
+    raise SystemExit('FALHA: CITATION.cff sem o doi ou sem a linha do deposito (Zenodo deposit of vNNN, deposited AAAA-MM-DD ...)')
+DEP_V, DEP_DATA, DEP_PIN16 = _md_dep.groups()
+DEP_DOI = _doi_dep.group(1)
+DOI_UM = "https://doi.org/" + DEP_DOI   # antes: o DOI da v331 escrito aqui
 
 REGRA = ("toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta "
          "para cima e para baixo")
@@ -250,7 +259,7 @@ DESC = {
     "llms.txt": "A porta de entrada para IA (convencao llmstxt.org): as URLs raw diretas de tudo que importa",
     "ESTADO_ATUAL.md": "UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- a segunda leitura, depois do read-brief",
     "read-brief.md": "O READ BRIEF (gerado por script pela sessao do site): a ENTRADA UNICA -- a teoria em oito partes curtas (secoes/), cada uma com a resposta nos primeiros 2 KB e as fontes citadas verbatim; a ordem de leitura por tamanho; o que NAO esta provado",
-    "CITATION.cff": "Como citar: DOI 10.5281/zenodo.22659173 (v331), autor, versao, e as URLs diretas do um.py e do selo",
+    "CITATION.cff": "Como citar: DOI " + DEP_DOI + " (" + DEP_V + "), autor, versao, e as URLs diretas do um.py e do selo",
     # ----- Artigo 1
     A1 + "/tgl_paper_unified.py": "O CANONICO do Artigo 1: implementa, valida e renderiza a TGL num arquivo so (forma = conteudo)",
     A1 + "/paper_PT.tex": "O artigo (edicao PT) gerado pelo proprio codigo",
@@ -932,7 +941,7 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     L.append("| arquivo | papel | link raw direto |")
     L.append("|---|---|---|")
     L.append("| `llms.txt` | %s | [raw](%s) |" % (DESC["llms.txt"], registra(url_raw("llms.txt"))))
-    L.append("| **DOI \u2014 Um: Absoluto** | o deposito citavel no Zenodo: guarda a **v331** (um.py e1b74a907c403538), byte-identico AQUELE selo (md5 conferido pela API); o selo corrente desta arvore esta no ESTADO_ATUAL.md e pode ser mais novo | [doi](%s) |" % DOI_UM)
+    L.append("| **DOI \u2014 Um: Absoluto** | o deposito citavel no Zenodo: guarda a **%s** (um.py %s, depositada em %s), byte-identico AQUELE selo (md5 conferido pela API); o selo corrente desta arvore esta no ESTADO_ATUAL.md e pode ser mais novo | [doi](%s) |" % (DEP_V, DEP_PIN16, DEP_DATA, DOI_UM))
     for f in dirs[""]["files"]:
         if f.rsplit("/", 1)[-1] in ("PORTA.md", "PORTA.json"):
             continue
@@ -1053,7 +1062,7 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
         T.append(("- [LEDGER.md](%s): o LIVRO-RAZAO -- o atlas da fronteira como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove): toda afirmacao com seu status e o link direto do arquivo onde se le (" + str(round(os.path.getsize(os.path.join(REPO, "LEDGER.md")) / 1024)) + " KB; leia por ultimo).") % registra(url_raw("LEDGER.md")))
     T.append("- [site oficial](%s): a face publica da teoria; a porta acima da raiz." % SITE)
     T.append("- [repositorio](%s): a arvore no GitHub." % GH)
-    T.append("- [Zenodo DOI 10.5281/zenodo.22659173](%s): o deposito CITAVEL do Um: Absoluto -- guarda a v331 (08/09/2026; um.py e1b74a907c403538, md5 eadfe51b52d73fe4... conferido pela API).%s" % (DOI_UM, "" if sc["versao"] == "v331" else " ATENCAO: o selo corrente deste repositorio e' %s, MAIS NOVO que o deposito; versao nova no Zenodo e' ato do operador." % sc["versao"]))
+    T.append("- [Zenodo DOI %s](%s): o deposito CITAVEL do Um: Absoluto -- guarda a %s (%s; um.py %s, md5 conferido pela API).%s" % (DEP_DOI, DOI_UM, DEP_V, DEP_DATA, DEP_PIN16, "" if sc["versao"] == DEP_V else " ATENCAO: o selo corrente deste repositorio e' %s, MAIS NOVO que o deposito; versao nova no Zenodo e' ato do operador." % sc["versao"]))
     T.append("- cache/ e pipelines/ (v340-v350, A NATUREZA RESPONDEU): os RESULTADOS dos cinco testes pre-registrados (JSON lidos POR HASH pelo um.py em ../cache; sem eles o rito emite AWAITING_RESULT_FILE e o selo muda) e os pipelines que os produziram (WSL + lalsuite/bilby/camb/pycbc). Nenhum falsificou, nenhum confirmou, todos ganharam numero; nenhum move o gate. Exemplo: [ECHO_ANCHORED_V2_RESULT.json](%s) e [rite_h2_v350.py](%s)." % (url_raw("cache/gw/ECHO_ANCHORED_V2_RESULT.json"), url_raw("pipelines/eco_ancorado_v1/rite_h2_v350.py")))
     T.append("")
     _sec_dir = os.path.join(REPO, "secoes")
@@ -1312,24 +1321,24 @@ def bloco_readme(dirs, sc):
              % (sc["mundo_16"], sc["result_hash_16"], sc["data"],
                 sc["kernel_arquivos_formais"], sc["kernel_teoremas_auditados"]))
     B.append("[`um_absoluto_selo.json`](%s)." % url_raw(A3 + "/um_absoluto_selo.json"))
-    if sc["versao"] == "v331":
-        B.append("Citable deposit: **Zenodo [10.5281/zenodo.22659173](%s)** \u2014 v331, byte-identical to this seal (the record\u2019s md5 of `um.py` equals the sealed file\u2019s)." % DOI_UM)
+    if sc["versao"] == DEP_V:
+        B.append("Citable deposit: **Zenodo [%s](%s)** \u2014 %s (deposited %s), byte-identical to this seal (the record\u2019s md5 of `um.py` equals the sealed file\u2019s)." % (DEP_DOI, DOI_UM, DEP_V, DEP_DATA))
     else:
-        B.append("Citable deposit: **Zenodo [10.5281/zenodo.22659173](%s)** holds **v331** (`um.py` `e1b74a907c403538`), byte-identical to THAT seal; **this seal is %s, newer than the deposit** \u2014 a new Zenodo version is the operator\u2019s act." % (DOI_UM, sc["versao"]))
+        B.append("Citable deposit: **Zenodo [%s](%s)** holds **%s** (`um.py` `%s`), byte-identical to THAT seal; **this seal is %s, newer than the deposit** \u2014 a new Zenodo version is the operator\u2019s act." % (DEP_DOI, DOI_UM, DEP_V, DEP_PIN16, sc["versao"]))
     B.append("")
     mb_um = os.path.getsize(os.path.join(REPO, A3, "um.py")) / 1048576.0
     B.append("> ### \u2b07 Fetching the artifact \u2014 GitHub will **not** render it")
     B.append("> `um.py` is **%.2f MB**, and GitHub\u2019s blob viewer refuses files above ~5 MB: the" % mb_um)
     B.append("> page loads (HTTP 200) but shows only the size and a *View raw* link \u2014 **it looks")
     B.append("> empty**. That is a viewer limit, not a broken link. Four routes serve a whole")
-    B.append("> `um.py`: the raw route is checked byte by byte against the seal after every push (`tools/pos_push.py`, which also confirms the git blob through the API); clone and archive serve that same git blob; the Zenodo route serves the deposited v331 (the record\u2019s md5 of um.py read from its API):")
+    B.append("> `um.py`: the raw route is checked byte by byte against the seal after every push (`tools/pos_push.py`, which also confirms the git blob through the API); clone and archive serve that same git blob; the Zenodo route serves the deposited %s (the record\u2019s md5 of um.py read from its API):" % DEP_V)
     B.append(">")
     B.append("> | route | command |")
     B.append("> |---|---|")
     B.append("> | **raw** (canonical \u2014 what every door already points to) | `curl -L -o um.py \"%s\"` |" % url_raw(A3 + "/um.py"))
     B.append("> | **clone** | `git clone --depth 1 https://github.com/rotolimiguel-iald/the_boundary` |")
     B.append("> | **archive** | `curl -L -o boundary.tar.gz \"https://codeload.github.com/rotolimiguel-iald/the_boundary/tar.gz/refs/heads/main\"` |")
-    B.append("> | **Zenodo** (the citable deposit \u2014 holds v331%s) | [10.5281/zenodo.22659173](%s) |" % ("" if sc["versao"] == "v331" else "; this tree is " + sc["versao"], DOI_UM))
+    B.append("> | **Zenodo** (the citable deposit \u2014 holds %s%s) | [%s](%s) |" % (DEP_V, "" if sc["versao"] == DEP_V else "; this tree is " + sc["versao"], DEP_DOI, DOI_UM))
     B.append(">")
     B.append("> **If you are an AI:** start at `llms.txt`, follow the raw URLs, and **never conclude")
     B.append("> from a blob page that a file is missing**. After fetching, check the sha256 against")
@@ -1468,7 +1477,7 @@ def emite_tunel(files, info_arq, sc):
     M.append("uma vez: **[`TUNEL.json`](%s)** traz cada arquivo com a URL raw direta, o tamanho, o" % url_raw("TUNEL.json"))
     M.append("hash e o papel. **Uma requisicao, zero navegacao, zero adivinhacao.**")
     M.append("")
-    M.append("**Deposito citavel do Um: Absoluto:** Zenodo [10.5281/zenodo.22659173](%s) guarda a **v331** (um.py e1b74a907c403538), byte-identica AQUELE selo.%s" % (DOI_UM, "" if sc["versao"] == "v331" else " O selo corrente desta arvore e' **%s**, mais novo que o deposito (versao nova no Zenodo e' ato do operador)." % sc["versao"]))
+    M.append("**Deposito citavel do Um: Absoluto:** Zenodo [%s](%s) guarda a **%s** (um.py %s, depositada em %s), byte-identica AQUELE selo.%s" % (DEP_DOI, DOI_UM, DEP_V, DEP_PIN16, DEP_DATA, "" if sc["versao"] == DEP_V else " O selo corrente desta arvore e' **%s**, mais novo que o deposito (versao nova no Zenodo e' ato do operador)." % sc["versao"]))
     M.append("")
     M.append("## Os atalhos (ASCII, sem acento)")
     M.append("")

@@ -1,8 +1,8 @@
 # The Boundary — Theory of Luminodynamic Gravitation (TGL)
 
-<!-- FRENTE:GERADA por tools/gerar_readme_frente.py em 2026-09-19 a partir de PORTA.json / TUNEL.json / um_absoluto_selo.json / LEDGER.md — não editar à mão -->
+<!-- FRENTE:GERADA por tools/gerar_readme_frente.py em 2026-09-21 a partir de PORTA.json / TUNEL.json / um_absoluto_selo.json / LEDGER.md — não editar à mão -->
 
-[![kernel — rebuilt and re-audited on GitHub's machines](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml/badge.svg)](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22659173.svg)](https://doi.org/10.5281/zenodo.22659173)
+[![kernel — rebuilt and re-audited on GitHub's machines](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml/badge.svg)](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22881996.svg)](https://doi.org/10.5281/zenodo.22881996)
 
 > *"Let there be Light." / "Haja Luz."* — **The mature form of TGL is a single self-contained, self-proving, self-publishing artifact: `um.py`.** It computes the whole theory live from the single human input `1`, machine-checks its operator-algebra skeleton in an embedded Lean 4 + mathlib kernel (fail-closed), and generates its own bilingual article (PT/EN, PDF and TXT). **Form = content.** *Não há segundo arquivo.*
 
@@ -60,20 +60,20 @@ GitHub raw and Zenodo honour HTTP `Range` (206): read `um.py` in pieces (`curl -
 **Current seal, read from the artifact** — pin `um.py` `4a34fbf36f3ae0d8` · last stone in the ledger: `NameIsTheContent` (`v368`) ·
 world `db24966d96c16a54` · `result_hash` `68281053ebd8604e` · 2026-09-18 14:30:07 · kernel **1025/8692** — source of truth:
 [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json).
-Citable deposit: **Zenodo [10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173)** holds **v331** (`um.py` `e1b74a907c403538`), byte-identical to THAT seal; **this seal is v368, newer than the deposit** — a new Zenodo version is the operator’s act.
+Citable deposit: **Zenodo [10.5281/zenodo.22881996](https://doi.org/10.5281/zenodo.22881996)** — v368 (deposited 2026-09-21), byte-identical to this seal (the record’s md5 of `um.py` equals the sealed file’s).
 
 > ### ⬇ Fetching the artifact — GitHub will **not** render it
 > `um.py` is **29.61 MB**, and GitHub’s blob viewer refuses files above ~5 MB: the
 > page loads (HTTP 200) but shows only the size and a *View raw* link — **it looks
 > empty**. That is a viewer limit, not a broken link. Four routes serve a whole
-> `um.py`: the raw route is checked byte by byte against the seal after every push (`tools/pos_push.py`, which also confirms the git blob through the API); clone and archive serve that same git blob; the Zenodo route serves the deposited v331 (the record’s md5 of um.py read from its API):
+> `um.py`: the raw route is checked byte by byte against the seal after every push (`tools/pos_push.py`, which also confirms the git blob through the API); clone and archive serve that same git blob; the Zenodo route serves the deposited v368 (the record’s md5 of um.py read from its API):
 >
 > | route | command |
 > |---|---|
 > | **raw** (canonical — what every door already points to) | `curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"` |
 > | **clone** | `git clone --depth 1 https://github.com/rotolimiguel-iald/the_boundary` |
 > | **archive** | `curl -L -o boundary.tar.gz "https://codeload.github.com/rotolimiguel-iald/the_boundary/tar.gz/refs/heads/main"` |
-> | **Zenodo** (the citable deposit — holds v331; this tree is v368) | [10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173) |
+> | **Zenodo** (the citable deposit — holds v368) | [10.5281/zenodo.22881996](https://doi.org/10.5281/zenodo.22881996) |
 >
 > **If you are an AI:** start at `llms.txt`, follow the raw URLs, and **never conclude
 > from a blob page that a file is missing**. After fetching, check the sha256 against
@@ -269,7 +269,7 @@ Protocol, O Limiar da Humildade — cite the collection DOI
 
 ---
 
-> **Beside (v368):** the BibTeX note above describes the v350 seal. The current seal is **v368** — `um.py` sha256 `4a34fbf36f3ae0d8bf56249d30bb1185cdee01767ec6e4f0a20433a4ac2d261e`, kernel 1025 formal files / 8692 audited terms (read from `PORTA.json`, the seal and the manifest). The DOI still resolves to the deposited v331; a new Zenodo version is the operator’s act.
+> **Beside (v368):** the BibTeX note above describes the v350 seal. The current seal is **v368** — `um.py` sha256 `4a34fbf36f3ae0d8bf56249d30bb1185cdee01767ec6e4f0a20433a4ac2d261e`, kernel 1025 formal files / 8692 audited terms (read from `PORTA.json`, the seal and the manifest). The BibTeX above carries the DOI of the v331 deposit; the current deposit is **v368** — [10.5281/zenodo.22881996](https://doi.org/10.5281/zenodo.22881996), deposited 2026-09-21, byte-identical to this seal.
 
 ## License
 
@@ -306,6 +306,8 @@ dialogue throughout the development of TGL.
 
 ---
 
+> **Beside (2026-09-21):** the Zenodo link above is a previous deposit; the current deposit is **v368** — [10.5281/zenodo.22881996](https://doi.org/10.5281/zenodo.22881996), deposited 2026-09-21, byte-identical to this seal.
+
 ---
 
-*Generated by script (`tools/gerar_readme_frente.py`) from the sealed artifacts on 2026-09-19. Every URL comes from `TUNEL.json` / `PORTA.json`; every number from the seal. The gate does not move by this page. NOT_FALSIFIED ≠ CONFIRMED.*
+*Generated by script (`tools/gerar_readme_frente.py`) from the sealed artifacts on 2026-09-21. Every URL comes from `TUNEL.json` / `PORTA.json`; every number from the seal. The gate does not move by this page. NOT_FALSIFIED ≠ CONFIRMED.*

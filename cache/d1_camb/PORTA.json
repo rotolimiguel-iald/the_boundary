@@ -4,7 +4,7 @@
   "titulo": "cache/d1_camb",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-19T14:43:13Z",
+  "gerado_utc": "2026-09-21T19:36:54Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "cache",
@@ -62,5 +62,5 @@
   "total_arquivos_nesta_pasta": 3,
   "total_arquivos_com_subpastas": 20,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/d1_camb",
-  "rodape": "gerado por script de git ls-files em 2026-09-19 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-21 -- nao editar a mao"
 }

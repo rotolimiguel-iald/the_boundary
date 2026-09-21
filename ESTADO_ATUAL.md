@@ -16,7 +16,7 @@
 | the rite | **5698/5698 clean** (`rodadas/rodada_v368_stdout.txt`) · complete round: yes |
 | gate | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | selftest | `FAIL_CLOSED_SELFTEST_PASSED` |
-| citable deposit | Zenodo **[10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173)** holds **v331** (2026-09-08; `um.py` `e1b74a907c403538`), byte-identical to THAT seal. **This seal is v368, newer than the deposit** — a new Zenodo version is the operator’s act. Cite: *MIGUEL, L. (2026). Um: Absoluto [Dataset]. Zenodo.* |
+| citable deposit | Zenodo **[10.5281/zenodo.22881996](https://doi.org/10.5281/zenodo.22881996)** (v368, deposited 2026-09-21) — byte-identical: the record’s md5 of `um.py` equals the sealed file’s. Cite: *MIGUEL, L. (2026). Um: Absoluto [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.22881996* |
 | the root of the proof tree | `the_root_of_the_proof_tree` — axioms read from the seal: `['propext', 'Classical.choice', 'Quot.sound']` · `TheRootOfTheProofTree.lean` `9b36ab3b6e47a315` |
 | the founded screen (v334) | `the_answer_of_the_operator_08_09` — axioms read from the seal: `['propext', 'Classical.choice', 'Quot.sound']` · `TheScreenIsFounded.lean` `2a3f26fca48c615a` |
 | the collapse, typed (v333) | seal `collapse_definition.reading` = `COLAPSO_TIPADO__TODAS_AS_CLAUSULAS_NO_KERNEL_COM_O_TRIO` · `physical_collapse_proven` = `False` · `cost_payment_status` = `NOT_MEASURED` · `CollapseCostAndAttestation.lean` `c3dccdc92b6d3b39` |
@@ -155,7 +155,7 @@ To reproduce the nature rites v340–v350 as sealed, clone the repository (not o
 | the kernel proof manifest (every audited term with its axioms) | [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) |
 | the canonical form (the theory in its mature statement) | [`um_absoluto_forma_canonica.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md) |
 | the artifact’s own manifest | [`um_absoluto_manifest.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_manifest.md) |
-| how to cite | [`CITATION.cff`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff) · DOI [10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173) |
+| how to cite | [`CITATION.cff`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff) · DOI [10.5281/zenodo.22881996](https://doi.org/10.5281/zenodo.22881996) |
 | the results of the nature rites (read by hash by `um.py`) | [`cache/gw/`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/ECHO_ANCHORED_V2_RESULT.json) · [`cache/d1_camb/`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/D1_CAMB_V2_RESULT.json) |
 | the pre-registered pipelines of the nature rites | [`pipelines/eco_ancorado_v1/`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/rite_h2_v350.py) |
 | the structure of the close (six pieces; the declaration is the operator’s) | [`O_FECHAMENTO_ESTRUTURA.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/O_FECHAMENTO_ESTRUTURA.md) |

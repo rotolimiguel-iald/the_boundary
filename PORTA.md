@@ -50,10 +50,10 @@ auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela n
 | arquivo | papel | link raw direto |
 |---|---|---|
 | `llms.txt` | A porta de entrada para IA (convencao llmstxt.org): as URLs raw diretas de tudo que importa | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt) |
-| **DOI — Um: Absoluto** | o deposito citavel no Zenodo: guarda a **v331** (um.py e1b74a907c403538), byte-identico AQUELE selo (md5 conferido pela API); o selo corrente desta arvore esta no ESTADO_ATUAL.md e pode ser mais novo | [doi](https://doi.org/10.5281/zenodo.22659173) |
+| **DOI — Um: Absoluto** | o deposito citavel no Zenodo: guarda a **v368** (um.py 4a34fbf36f3ae0d8, depositada em 2026-09-21), byte-identico AQUELE selo (md5 conferido pela API); o selo corrente desta arvore esta no ESTADO_ATUAL.md e pode ser mais novo | [doi](https://doi.org/10.5281/zenodo.22881996) |
 | `.gitattributes` | Arquivo de infraestrutura | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitattributes) |
 | `.gitignore` | Arquivo de infraestrutura | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitignore) |
-| `CITATION.cff` | Como citar: DOI 10.5281/zenodo.22659173 (v331), autor, versao, e as URLs diretas do um.py e do selo | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff) |
+| `CITATION.cff` | Como citar: DOI 10.5281/zenodo.22881996 (v368), autor, versao, e as URLs diretas do um.py e do selo | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff) |
 | `ESTADO_ATUAL.md` | UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- a segunda leitura, depois do read-brief | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) |
 | `LEDGER.md` | O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove) -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (563 KB; leia por ultimo) | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md) |
 | `README.md` | A PAGINA DE FRENTE, gerada por script (tools/gerar_readme_frente.py, 11/09/2026): o selo, reproduzir em tres comandos, as portas, os tres artigos, a ordem de leitura, abstract, citar, licenca, autor -- <= 40 KB; o atlas completo esta em LEDGER.md | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md) |
@@ -136,4 +136,4 @@ auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela n
 
 ---
 
-Total rastreado por `git ls-files`: **1903 arquivos** (antes das portas). gerado por script de git ls-files em 2026-09-19 -- nao editar a mao
+Total rastreado por `git ls-files`: **1903 arquivos** (antes das portas). gerado por script de git ls-files em 2026-09-21 -- nao editar a mao

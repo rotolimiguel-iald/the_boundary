@@ -1,6 +1,6 @@
 # The absolute One: ω(I) = 1 and the derived Half-Nat · O Um absoluto: ω(I) = 1 e a Meia-Nat derivada
 
-> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 1 of 8 · seal **v368** · `um.py` sha256 `4a34fbf36f3ae0d8…` · generated 2026-09-19 by script from the published files.
+> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 1 of 8 · seal **v368** · `um.py` sha256 `4a34fbf36f3ae0d8…` · generated 2026-09-21 by script from the published files.
 > Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = theorem in the Lean kernel; CONFIRMED = a judgement about nature, not made here.
 > All eight parts are listed at the top of the start page, https://teoriadagravitacaoluminodinamica.com/read-brief.md, and in the door of this folder, https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md · Reading limits measured on 2026-09-19: one real fetcher cut documents near 100,000 characters, refused files above 10 MB, and could not read PDFs served as `application/octet-stream` — read the TXT/TeX sources.
 
@@ -59,10 +59,10 @@ input -> runtime -> output -> 1=1
 Verificado ao vivo: `input=1`, `S_∂=1/2`, `Vol_∂^min=√e=1.648721`, `β=√e·α_obs=0.012031300400797`, e a **conservação executiva** `input == return` (resíduo 0) — `ABSOLUTE_ONE_IS_INPUT_VERIFIED`.
 ````
 
-### 3. `README.md` — bytes 25.793–26.349
+### 3. `README.md` — bytes 25.725–26.281
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `0fbf429f4405e8ce0a3f0851a8ab591016209e734a81be8de51159d078c18ed4` (computed now; this file is not in the seal map) · of this excerpt: `122e3de7f99bef580de0e11bbdd00e1a0efa7f256d1185977a791aabc471a5ce`
+- sha256 of the file: `86a374fc23e5fce686d0ca15149bf1478aaca273aa73afae76f5d96924e82917` (computed now; this file is not in the seal map) · of this excerpt: `122e3de7f99bef580de0e11bbdd00e1a0efa7f256d1185977a791aabc471a5ce`
 - status · estatuto: [POSTULATE] axioma; [REAL/DERIVED] Meia-Nat; [DERIVED] β, com α [INPUT]
 - why · por quê: Resumo vigente do núcleo em PT: o axioma único, a Meia-Nat derivada, β nunca literal, a identidade de Lagrange e o veredito binário.
 

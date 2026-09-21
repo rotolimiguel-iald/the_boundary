@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this artifact, cite the sealed version by its DOI and its sha256 pin. The DOI below resolves to the deposited v331; the repository head may carry a newer seal (see ESTADO_ATUAL.md) — a new Zenodo version is the operator's act."
+message: "If you use this artifact, cite the sealed version by its DOI and its sha256 pin. The DOI below resolves to the deposited v368, byte-identical to this repository's seal; the concept DOI resolves to every version. A later seal in the repository head is marked in ESTADO_ATUAL.md; a new Zenodo version is the operator's act."
 title: "Um: Absoluto — the sealed closure of the Theory of Luminodynamic Gravitation (TGL); um.py, one self-contained file"
 type: dataset
 authors:
@@ -8,20 +8,23 @@ authors:
     orcid: "https://orcid.org/0009-0005-1114-6106"
 version: "v368"
 date-released: "2026-09-18"
-doi: "10.5281/zenodo.22659173"
+doi: "10.5281/zenodo.22881996"
 identifiers:
   - type: doi
-    value: "10.5281/zenodo.22659173"
-    description: "Zenodo deposit of v331, deposited 2026-09-08 (byte-identical to the seal: um.py sha256 e1b74a907c403538…)"
+    value: "10.5281/zenodo.22881996"
+    description: "Zenodo deposit of v368, deposited 2026-09-21 (byte-identical to the seal: um.py sha256 4a34fbf36f3ae0d8…; the 14 deposited files match this repository by md5)"
   - type: doi
     value: "10.5281/zenodo.20999494"
     description: "Zenodo concept DOI (all versions of Um: Absoluto)"
+  - type: doi
+    value: "10.5281/zenodo.22659173"
+    description: "the previous Zenodo version: v331, deposited 2026-09-08 (um.py sha256 e1b74a907c403538…)"
   - type: url
     value: "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md"
-    description: "the current seal of the repository, one page, regenerated at every custody (v368 on 2026-09-18 — newer than the deposited v331)"
+    description: "the current seal of the repository, one page, regenerated at every custody (v368 on 2026-09-18 — the same seal as the Zenodo deposit)"
   - type: other
     value: "sha256:4a34fbf36f3ae0d8bf56249d30bb1185cdee01767ec6e4f0a20433a4ac2d261e"
-    description: "the pin of um.py at v368 (31,050,660 bytes; sealed 2026-09-18 14:30:07); the deposited v331 pin is e1b74a907c403538…"
+    description: "the pin of um.py at v368 (31,050,660 bytes; sealed 2026-09-18 14:30:07); the Zenodo deposit holds this same pin"
   - type: url
     value: "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"
     description: "um.py, direct raw URL (GitHub refuses to render files above 5 MB; the raw route serves it whole, byte-exact)"
@@ -44,7 +47,7 @@ abstract: >
   One self-contained Python file, um.py, whose only runtime input is the digit 1. It derives the
   chain beta = alpha*sqrt(e), materializes and builds an embedded Lean 4 + mathlib kernel (at v368: 1025
   formal files, 8692 audited terms, axioms in {propext, Classical.choice, Quot.sound}, zero sorry; the
-  deposited v331 had 593 files and 4699 theorems), runs the
+  previous deposit, v331, had 593 files and 4699 theorems), runs the
   pre-registered rites of nature, and emits its own bilingual article (PT/EN, PDF and TXT). Quantum
   gravity is PROVED as a formal model (the root of the proof tree, the_root_of_the_proof_tree) and NOT
   confirmed by nature (NOT_FALSIFIED within the local bulk at available sensitivity). The seal

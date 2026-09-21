@@ -4,7 +4,7 @@
   "titulo": "Artigo 3 -- Um: Absoluto (o programa terminal)",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-19T14:43:13Z",
+  "gerado_utc": "2026-09-21T19:36:54Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -259,7 +259,7 @@
   "total_arquivos_nesta_pasta": 18,
   "total_arquivos_com_subpastas": 1553,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator",
-  "rodape": "gerado por script de git ls-files em 2026-09-19 -- nao editar a mao",
+  "rodape": "gerado por script de git ls-files em 2026-09-21 -- nao editar a mao",
   "selo_corrente": {
     "versao": "v368",
     "versao_fonte": "um.py::_ESQUELETO_STONES[0]",

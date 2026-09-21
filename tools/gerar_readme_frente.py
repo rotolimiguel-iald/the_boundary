@@ -23,6 +23,15 @@ for _s in (sys.stdout, sys.stderr):
 
 RAIZ = Path(__file__).resolve().parent.parent
 A3 = 'Um (absoluto) — Grande Atrator'
+# 21/09/2026: o deposito citavel no Zenodo e' LIDO do CITATION.cff (fonte unica), nunca escrito a mao nos geradores
+import re as _re_dep
+_CFF_DEP = open(os.path.join(str(RAIZ), 'CITATION.cff'), encoding='utf-8').read()
+_md_dep = _re_dep.search(r'Zenodo deposit of (v\d{3}), deposited ([\d-]{10}) \(byte-identical to the seal: um\.py sha256 ([0-9a-f]{16})', _CFF_DEP)
+_doi_dep = _re_dep.search(r'^doi: "(10\.5281/zenodo\.[0-9]+)"', _CFF_DEP, _re_dep.M)
+if not (_md_dep and _doi_dep):
+    raise SystemExit('FALHA: CITATION.cff sem o doi ou sem a linha do deposito (Zenodo deposit of vNNN, deposited AAAA-MM-DD ...)')
+DEP_V, DEP_DATA, DEP_PIN16 = _md_dep.groups()
+DEP_DOI = _doi_dep.group(1)
 LIMITE = 40 * 1024
 STAMP = time.strftime('%Y%m%d_%H%M%S')
 MARCA_INI, MARCA_FIM = '<!-- PORTAS:INI -->', '<!-- PORTAS:FIM -->'
@@ -149,7 +158,7 @@ F.append(f"""# The Boundary — Theory of Luminodynamic Gravitation (TGL)
 
 <!-- FRENTE:GERADA por tools/gerar_readme_frente.py em {hoje} a partir de PORTA.json / TUNEL.json / um_absoluto_selo.json / LEDGER.md — não editar à mão -->
 
-[![kernel — rebuilt and re-audited on GitHub's machines](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml/badge.svg)](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22659173.svg)]({doi_um})
+[![kernel — rebuilt and re-audited on GitHub's machines](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml/badge.svg)](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml) [![DOI](https://zenodo.org/badge/DOI/{DEP_DOI}.svg)]({doi_um})
 
 > *"Let there be Light." / "Haja Luz."* — **The mature form of TGL is a single self-contained, self-proving, self-publishing artifact: `um.py`.** It computes the whole theory live from the single human input `1`, machine-checks its operator-algebra skeleton in an embedded Lean 4 + mathlib kernel (fail-closed), and generates its own bilingual article (PT/EN, PDF and TXT). **Form = content.** *Não há segundo arquivo.*
 
@@ -213,12 +222,13 @@ F.append(f"""
 F.append(secao('Citing This Work'))
 if 'v350' in F[-1]:   # errata 19/09 (v368), ao lado: a nota do BibTeX descreve o selo v350
     F.append('\n> **Beside (%s):** the BibTeX note above describes the v350 seal. The current seal is **%s** \u2014 `um.py` sha256 `%s`, '
-             'kernel %d formal files / %d audited terms (read from `PORTA.json`, the seal and the manifest). The DOI still resolves to the '
-             'deposited v331; a new Zenodo version is the operator\u2019s act.\n' % (versao, versao, pin, int(kf), int(kt)))
+             'kernel %d formal files / %d audited terms (read from `PORTA.json`, the seal and the manifest). The BibTeX above carries the DOI of the v331 deposit; the current deposit is **%s** \u2014 [%s](https://doi.org/%s), deposited %s%s.\n' % (versao, versao, pin, int(kf), int(kt), DEP_V, DEP_DOI, DEP_DOI, DEP_DATA, ', byte-identical to this seal' if DEP_V == versao else ', older than this seal; a new Zenodo version is the operator' + chr(8217) + 's act'))
 F.append('\n')
 F.append(secao('License'))
 F.append('\n')
 F.append(secao('Author'))
+if '10.5281/zenodo.' in F[-1] and DEP_DOI not in F[-1]:   # 21/09/2026, ao lado: a secao copiada do livro-razao cita um deposito anterior
+    F.append('\n> **Beside (%s):** the Zenodo link above is a previous deposit; the current deposit is **%s** \u2014 [%s](https://doi.org/%s), deposited %s%s.\n' % (DEP_DATA, DEP_V, DEP_DOI, DEP_DOI, DEP_DATA, ', byte-identical to this seal' if DEP_V == versao else ', older than this seal'))
 F.append(f"""
 ---
 
