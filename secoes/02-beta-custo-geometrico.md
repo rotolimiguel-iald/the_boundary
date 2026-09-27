@@ -1,6 +1,6 @@
 # β_TGL = α·√e: the geometric cost of absolute zero · β_TGL = α·√e: o custo geométrico do zero absoluto
 
-> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 2 of 8 · seal **v368** · `um.py` sha256 `4a34fbf36f3ae0d8…` · generated 2026-09-21 by script from the published files.
+> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 2 of 8 · seal **v375** · `um.py` sha256 `ba234a6d384cb3f5…` · generated 2026-09-27 by script from the published files.
 > Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = theorem in the Lean kernel; CONFIRMED = a judgement about nature, not made here.
 > All eight parts are listed at the top of the start page, https://teoriadagravitacaoluminodinamica.com/read-brief.md, and in the door of this folder, https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md · Reading limits measured on 2026-09-19: one real fetcher cut documents near 100,000 characters, refused files above 10 MB, and could not read PDFs served as `application/octet-stream` — read the TXT/TeX sources.
 
@@ -73,10 +73,10 @@ $\betatgl \approx 0{,}012$ \emph{antes} da fatoração) é dada na
 Seção~\ref{sec:beta-posicionamento}.
 ````
 
-### 3. `Um (absoluto) — Grande Atrator/um_absoluto_pt.txt` — bytes 595.896–597.701
+### 3. `Um (absoluto) — Grande Atrator/um_absoluto_pt.txt` — bytes 640.745–642.550
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt
-- sha256 of the file: `9dd16cf0bca80afb88ac9c6635eaba1ac338f5a1327f52b0836c3eb1884d412e` (computed now; this file is not in the seal map) · of this excerpt: `584f52c3d1e820ebd6ba83a1f54a5c117238604869cef18d10e6b981b342359c` · line endings shown as LF
+- sha256 of the file: `10accb11e72d89e1176cf29d8c57c33224cd662aae6e8cc7c0dc2dc83849921b` (computed now; this file is not in the seal map) · of this excerpt: `584f52c3d1e820ebd6ba83a1f54a5c117238604869cef18d10e6b981b342359c` · line endings shown as LF
 - status · estatuto: [REAL]; valor α-livre [OPEN]
 - why · por quê: Seção do Artigo C (v368) que separa o piso térmico (esfria) do geométrico (não esfria), com a temperatura de cruzamento calculada e o valor α-livre como muro aberto; corresponde à chave do selo geometric_cost_of_absolute_zero.
 
@@ -85,10 +85,10 @@ Seção~\ref{sec:beta-posicionamento}.
 O operador nomeou esta pedra, e o nome mudou o seu conteúdo, não a sua etiqueta: se uma pedra se chama o custo geométrico do zero absoluto, ela precisa provar o que distingue esse custo do térmico. A onda anterior estabeleceu que o custo EXISTE --- dispositivo muitos-para-um é logicamente irreversível e o piso de Landauer é estritamente positivo enquanto houver temperatura. Mas o piso de Landauer é TÉRMICO: esfriar o encolhe sem limite, e ele só não se anula porque o zero absoluto não se alcança. Esta onda prova a diferença. Para todo epsilon positivo existe temperatura positiva em que o piso térmico já está abaixo dele, logo o piso térmico NÃO é o fundo; ao passo que um custo que NÃO depende da temperatura e é estritamente positivo SOBREVIVE ao limite --- não se esfria o que não é térmico. Sua origem geométrica é a Meia-Nat da entropia de fronteira: o volume mínimo excede a unidade e o fator de redução associado fica estritamente entre zero e um, nem gratuito nem aniquilante, e esta face da cadeia não carrega constante de estrutura fina alguma. Na bancada os dois pisos são trazidos à mesma escala honestamente, como energias: a fração geométrica de um elétron-volt é comparada ao piso de Landauer, e a temperatura de cruzamento é calculada em cerca de duzentos e um kelvin, encaixada entre duas temperaturas reais de laboratório --- acima dela, à temperatura ambiente, o piso térmico ainda excede o custo geométrico; abaixo dela, no nitrogênio líquido, já não excede. O cruzamento, portanto, não é vazio nem infalsificável. O que permanece próprio da teoria é o VALOR e a sua identificação física, e a determinação alfa-livre desse valor segue sendo o muro aberto. O gate não se move.
 ````
 
-### 4. `Um (absoluto) — Grande Atrator/um_absoluto_pt.txt` — bytes 68.425–69.043
+### 4. `Um (absoluto) — Grande Atrator/um_absoluto_pt.txt` — bytes 68.582–69.200
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt
-- sha256 of the file: `9dd16cf0bca80afb88ac9c6635eaba1ac338f5a1327f52b0836c3eb1884d412e` (computed now; this file is not in the seal map) · of this excerpt: `5948f321d7bcc88d860001d1d3dad0827412a0b900000b77b5380be6585d2fbf` · line endings shown as LF
+- sha256 of the file: `10accb11e72d89e1176cf29d8c57c33224cd662aae6e8cc7c0dc2dc83849921b` (computed now; this file is not in the seal map) · of this excerpt: `5948f321d7bcc88d860001d1d3dad0827412a0b900000b77b5380be6585d2fbf` · line endings shown as LF
 - status · estatuto: [REAL]
 - why · por quê: A forma conservada vigente: α_abs² = q² + α_obs² = 1, β_TGL = √e·√(1−q²); o motor é α_abs=1 → q → α e não R_∂=1/α_CODATA; o CODATA entra só na validação final.
 
@@ -100,4 +100,4 @@ $α_obs$ é a componente luminosa residual da unidade absoluta após a polariza�
 
 ---
 
-*Generated by script from the published files of the repository (https://github.com/rotolimiguel-iald/the_boundary); numbers read from the seal v368, the kernel manifest and ESTADO_ATUAL.md. PROVED ≠ CONFIRMED; NOT_FALSIFIED is never CONFIRMED. Nothing here instructs a reader how to respond to anything.*
+*Generated by script from the published files of the repository (https://github.com/rotolimiguel-iald/the_boundary); numbers read from the seal v375, the kernel manifest and ESTADO_ATUAL.md. PROVED ≠ CONFIRMED; NOT_FALSIFIED is never CONFIRMED. Nothing here instructs a reader how to respond to anything.*
