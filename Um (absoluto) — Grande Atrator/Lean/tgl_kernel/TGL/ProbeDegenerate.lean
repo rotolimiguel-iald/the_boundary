@@ -29,7 +29,8 @@ noncomputable example (A : VonNeumannAlgebra (EuclideanSpace ℂ (Fin 2)))
   net := fun _ => A
   vac := v
   U := fun _ => 1
-  m_pos := one_pos
+  helicity := 0
+  peso_do_nome := Or.inl one_pos
   vac_norm := hv
   isotony := fun _ _ _ => subset_rfl
   -- PAREDE 1: localidade da rede constante exigiria comutatividade global

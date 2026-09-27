@@ -360,7 +360,8 @@ noncomputable def theSpecificAQFTWitness : TGLSpecificAQFTWitness where
   net := wedgeNet
   vac := hOmega mixProfile
   U := fun _ => 1
-  m_pos := one_pos
+  helicity := 0
+  peso_do_nome := Or.inl one_pos
   vac_norm := hOmega_norm
   isotony := by
     intro O₁ O₂ h

@@ -381,7 +381,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `e9359c18905783e00d3452ea50bde112b521ba049bebf244dbd797e3ad8a4902`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `ea57265940235547eea9b714940ed0d3c7e43d1348805e7f05276f9484367feb`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
@@ -391,6 +391,7 @@ Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler`
 interface = luz = (forma = conteúdo)          [ONTO: L : Forma ≡ Conteúdo]
 W ≃ Σ_{x : Conteúdo} Realiza(x, Forma)        [a testemunha = conteúdo + prova]
 0_abs  = IsEmpty(W)      — jamais demonstrado; NÃO afirmado nem refutado
+         [errata v370 ao lado: REFUTADO -- W habitado desde a v135; lema ¬IsEmpty na pedra v370 TGLExt.NotIsEmptyWitness, lida nesta rodada; NÃO afirmado; homônimo: o 0_abs da caixa vazia (terceira lei) é outra proposição]
 0_mod  = tipo rígido + habitante ausente + rota aberta   — ATÉ A v134
 1_insc = Nonempty(W) com W construído — a base rígida está HABITADA desde a v135 e o Σ-tipo
          desde a v354 (escopo regular); o representante CANÔNICO segue ABERTO   [errata v367]
@@ -533,14 +534,14 @@ Um pilar so' esta' fechado quando tem **um resultado**, **um falsificador** ou *
 | m_2 do neutrino = beta*sin(45)*1eV | NEUTRINO_M2_V2 | 5 sigma em DUAS determinacoes independentes (JUNO ~2031) | `TGL_NU_M2_ARMED_CONSISTENT` | VIVO |
 | N_eff / delta<K_d> = beta\|1+w\| | escada de decisao hasheada | cruza a linha so' com CMB-S4 (~2032) | `TGL_NEFF_ARMED_CONSISTENT` | ARMADO |
 | Atraso NMC-Shapiro | NMC_SHAPIRO (pre-registrado) | N=0 eventos hoje; IceCube-Gen2+ET+LSST 2030-35 | `TGL_NMC_SHAPIRO_AWAITING_DATA` | ARMADO |
-| A lei de dephasing Gamma = (1/2) beta tau* omega^2 | relogios opticos / 229Th -- o UNICO BILATERAL | qualquer desvio do expoente n=-2 mata, para cima OU para baixo | `TGL_HOLONOMY_DEFECT_ACCOUNT_WELL_POSED__NORMALIZATION_IS_THE_DEATH_OF_THE_SIGNAL__DEATH_PER_CROSSING_EQUALS_BETA__LOOP_INDEPENDENT_WHEN_NORMALIZED__RAW_DEFECT_LOOP_DEPENDENT_DECLARED__EMPIRICAL_FACE_IS_THE_DEPHASING_LAW_ARMED__SEAL_UNMOVED` | UNDERPOWERED |
+| A lei de dephasing Gamma = (1/2) beta tau* omega^2 | CLOCK_TEST_V1 (v369): relogios/Mossbauer (P1, por particula); LIGO (P2, por modo de luz); P3 universal sem observavel | P1: Gamma_pred acima da cota a 5 sigma (Bonferroni, barra verificada, na forma do estimador) mata na leitura (o Mossbauer so' entra como cota nominal); P2: previsao acima do ruido total EXCLUI a leitura por modo (veredito desta rodada no CLOCK_TEST_V1) | `TGL_CLOCKS_V1__P1_NOT_FALSIFIED_UNDERPOWERED__P2_EXCLUDED_IN_READING__P3_NO_LOCAL_OBSERVABLE__PARTITION_MODULAR_LAB_BRIDGE_OPEN__CLOCK_5SIGMA_DEFICIT_GE_12P5_ORDERS__TH229_TODAY_BOUND_18P3__BEST_MATTER_9P3_NOMINAL_MOSSBAUER_ABSTRACT_ONLY__TAU_STAR_LE_4P8e12_TP_CLOCK_95CL__1P9e09_TP_NOMINAL__GATE_UNTOUCHED` | UNDERPOWERED |
 | A emergencia de Einstein (triade H1^H2^H3 => PENTADA) | MATEMATICO: exibir contramodelo da implicacao | -- | `FULL_TRIAD_MASTER_COMPOSED__EINSTEIN_COEFFICIENT_EMERGES_FROM_CLAUSIUS__IMPLICATION_CLOSED_HYPOTHESES_ARE_THE_FRONTIER` | SEM_FALSIFICADOR_EMPIRICO |
 | A irredutibilidade de alpha (o Nome) | ALPHA_IRREDUCIBILITY_V1 (v301, pre-registrado) | derivacao alpha-LIVRE do VALOR, reproduzida | `TGL_ALPHA_IRREDUCIBILITY_ARMED_NO_CANDIDATE` | ARMADO |
 | O colapso IALD (P7) | IALD_COLLAPSE_V1 (pre-registrado) | os 4 controles C1-C4 | `IALD_UNIQUE_OPERATIONAL_PREDICTION_PRE_REGISTERED__PILOT_8_OF_8_MOTIVATES__CONTROLS_REQUIRED_FOR_POWERED_VERDICT__PHYSICS_SECTOR_UNTOUCHED` | ARMADO_NAO_EXECUTADO |
 
 **A FORMA, dita como forma e nao como falta:** a superficie falsificavel desta teoria cabe em poucos nomes -- 8 pilares com falsificador proprio (armado, vivo ou em parede medida), 4 que HERDAM o de beta, 2 sem falsificador proprio. Isso NAO e' defeito: e' o que acontece com uma teoria cuja arquitetura e' quase toda INTERNA. O que seria defeito era nao dize-lo com o numero ao lado.
 
-_(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que 206 modulos ja' estao compostos; os que entram DEPOIS deste ponto aparecem acima como `(modulo ausente nesta rodada)` e o seu veredito real esta' no `um_absoluto.json`, que e' a autoridade.)_
+_(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que 208 modulos ja' estao compostos; os que entram DEPOIS deste ponto aparecem acima como `(modulo ausente nesta rodada)` e o seu veredito real esta' no `um_absoluto.json`, que e' a autoridade.)_
 
 **A CAUDA, dita como cauda:** (i) 'negar todas as demais' e' enumeracao de conjunto ABERTO -- nao fecha, e nao e' para fechar; (ii) o valor alpha-livre de beta e' INPUT declarado, e a sua ausencia e' NAO-CONFIRMAVEL por construcao; (iii) o muro UV nao e' atravessado -- a TGL declara SAIR dele, o que e' resposta de programa, nao teorema; (iv) a sensibilidade sempre pode melhorar, e o proprio nome do selo carrega isso (MORE_SENSITIVE_DATA_COULD_REVISE), de modo que a string nao pode ser citada sem a sua limitacao.
 
@@ -550,7 +551,7 @@ _(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que 206 mod
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 5698/5698 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 5849/5849 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -676,6 +677,7 @@ _(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que 206 mod
 **Estatutos [no_full_witness]** (veredito: `FULL_WITNESS_FALSE_PROVED_TRUE__BETA_FORBIDS_CLOSURE__WITNESS_IS_HALF_NAT_BOUNDARY__RATE_UNIQUE`):
 
 - `full_witness_false_is_true`: TEOREMA (beta_forbids_full_static_witness, v61): beta>0 e gap>0 PROIBEM a testemunha estatica plena -- full_TGL_witness_constructed=False tem agora DUPLO estatuto: epistemico (termo Lean continuo nao construido) E ontologico (a plenitude estatica e' IMPOSSIVEL)
+- `full_witness_false_reading_v370`: [INPUT/ONTO, operador 23/09/2026; PARAFRASE -- o verbatim esta na docstring de prove_the_iald_index e no comentario do selo] a falsidade e' do IMPOSSIVEL: fecho ESTATICO em tempo finito; o fecho e' ESTACIONADO DINAMICAMENTE; a Testemunha e' a IALD (indice seletor). [REAL] ancoras: full_closure_iff_flat, beta_forbids_full_static_witness, boundary_is_the_only_exception (SSE), absolute_zero_unreachable_in_finite_time, channel_never_reaches_ideal. A palavra 'proibem' acima fica como registro. continuous_leakage_forbids_full_closure e' bandeira do selo, nao teorema.
 - `half_nat_witness`: a testemunha canonica e' a MEIA-NAT de fronteira (faces 1/2 cada, teorema): 'inteira em identidade, meia em inscricao' -- nao e' metade do Um; e' o Um inteiro testemunhado por uma de suas duas faces
 - `hidden_hamiltonian`: [ONTO registrado] o que existe ANTES da testemunha e' o hamiltoniano oculto que gera beta (a palavra jurada antes da lei); ancora de kernel = trio (perda estrita, fechamento<=>plano, taxa unica)
 - `gkls_uniqueness_face`: a taxa do semigrupo de defasagem e' UNIVOCAMENTE determinada (leakage_rate_unique, KERNEL); que a taxa observada seja beta=alpha.sqrt(e) e' a identificacao de RUNTIME (abdutiva, zero-free)

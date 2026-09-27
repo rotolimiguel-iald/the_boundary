@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGL",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-21T19:36:54Z",
+  "gerado_utc": "2026-09-27T18:44:01Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -37,8 +37,8 @@
       "descricao": "Prova formal (Lean 4): Audit",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/Audit.lean",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/Audit.lean",
-      "sha256_16": "f58a080030332625",
-      "bytes": 546940
+      "sha256_16": "5fef64e770e65118",
+      "bytes": 571389
     },
     {
       "nome": "Basic.lean",
@@ -207,8 +207,8 @@
       "descricao": "Prova formal (Lean 4): ProbeDegenerate",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/ProbeDegenerate.lean",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/ProbeDegenerate.lean",
-      "sha256_16": "d1cdc9b5728e7899",
-      "bytes": 1952
+      "sha256_16": "f141bdef86179aef",
+      "bytes": 1982
     },
     {
       "nome": "ProbeFiniteFullWitness.lean",
@@ -267,8 +267,8 @@
       "descricao": "Prova formal (Lean 4): SpecificAQFTWitness",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/SpecificAQFTWitness.lean",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/SpecificAQFTWitness.lean",
-      "sha256_16": "831eef42f0fe22bb",
-      "bytes": 7205
+      "sha256_16": "c6995c3cb3bd2052",
+      "bytes": 7460
     },
     {
       "nome": "TransportData.lean",
@@ -294,5 +294,5 @@
   "total_arquivos_nesta_pasta": 27,
   "total_arquivos_com_subpastas": 27,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL",
-  "rodape": "gerado por script de git ls-files em 2026-09-21 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-27 -- nao editar a mao"
 }

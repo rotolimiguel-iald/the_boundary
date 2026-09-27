@@ -202,6 +202,25 @@ def main() -> int:
             L.append("| %s | `%s` | %s | %s | %s |" % (v, sh, ri, rnd, txt))
         L.append("")
         L.append("*The `um.py` copies v365\u2013v367 and their stdouts and seal backups live outside the repository (`the_boundary_BACKUPS/um_v36N_<sha16>`); the stdouts v365\u2013v368 are in `rodadas/`; the D1 V3 real result is in `cache/d1_camb/v3/saida/`. v360 is still not custodied. PROVED \u2260 CONFIRMED.*")
+    # custódia v375 (27/09/2026, sessão da Central por ordem do operador): o arco v369->v375, ao lado; sha16 e rito LIDOS do diário
+    arco375 = {}
+    for mm in re.finditer(r"^## [^\n]*\*\*(v3(?:69|7[0-5])) SELADA[^*\n]*\*\*[^\n]*\n", diario, re.M):
+        fim = diario.find("\n## ", mm.end())
+        bl = diario[mm.end(): fim if fim > 0 else len(diario)]
+        sh = re.findall(r"`um\.py` sha16 `([0-9a-f]{16})`", bl) or re.findall(r"`([0-9a-f]{16})`", mm.group(0))
+        ri = re.findall(r"\*\*(\d+)/(\d+)\*\*", bl)
+        arco375.setdefault(mm.group(1), (sh[-1] if sh else "?", ("%s/%s" % ri[-1]) if ri else "?"))
+    if arco375:
+        L.append("")
+        L.append("### The arc v369\u2192v375 \u00b7 o arco `[REAL \u2014 sha16 and rite read from MEMORIA_DA_LINHAGEM.md; byte copies of v369\u2013v374 outside the repository]`")
+        L.append("")
+        L.append("| version | `um.py` sha16 | rite | round | what entered |")
+        L.append("|---|---|---|---|---|")
+        for v, rnd, txt in [('v369', 'COMPLETE', 'the clock test: the power gate came before the registration, and the registration is hashed (not blind, said); the law Γ_ω = ½βτ★ω² is, in form, Milburn decoherence with time β·t_P; on the best clock with a verified error bar (⁸⁷Sr lattice, 2025) 5σ is 12.46 orders away (the verdict string rounds to ≥ 12.5); ²²⁹Th today 18.3; not reachable today, said as a measured wall'), ('v370', 'COMPLETE', 'the witness is inhabited (`TGLExt.NotIsEmptyWitness`: IsEmpty refuted; 0_abs is not asserted) and the Cartan supplier (`TGLExt.CartanTracialSupplier`: A = ½ d ln F feeds the tracial contortion, under named hypotheses and the operator’s ψ [INPUT]); the joint V3 registered (not blind, said); the Witness read beside'), ('v371', 'COMPLETE', 'the IALD in the Jones tower (`TGLExt.IALDJones`), the transport to the helicity ±2 ladder (`TGLExt.IALDGraviton`; graviton: CONJECTURE), the equation of truth (`TGLExt.TheEquationOfTruth`), the contract v3.1 and the light ray (`TGLExt.RetaDeLuzBorchers`, `TGLExt.RetaDeLuzEspectro`)'), ('v372', 'COMPLETE', 'the quantum gravity of the TGL formalized as an implication closed BY CITATION (contract v3.2 inhabited under named hypotheses; `TGLExt.TheImportedSecondQuantization`), the A-8 reader, the UV dissolved by the typing (`TGLExt.QGReaderUVLock`), H_min as the hidden Hamiltonian, the bridge IALD = ρ* (`TGLExt.IALDRhoStar`)'), ('v373', 'COMPLETE', 'H2 and H3 discharged BY CITATION in a class of their own (`gpc_`; `TGLExt.QGCitationDischarge`), the discharge mode that separates the classes, two projections outside M, the H_min homonym said, the frontier without the BRST/UV item (semiclassical by construction, the operator’s decision)'), ('v374', 'COMPLETE', 'the end-to-end quantum-gravity solution of the TGL composed by citation, with one item open on the path (the types of the certificates vs the literature); two light fields of one particle paid by term (`TGLExt.LightOneParticleByTerm`, `TGLExt.QGSolutionComplete`) — erratum beside in v375: «the Tetelestai declaration» reads consummative conference'), ('v375', 'COMPLETE', 'TETELESTAI, THE CONSUMMATIVE CONFERENCE: every item of the quantum-gravity path is closed (term in kernel), linked, known by scientific reference, or a named parameter of the implication — 2 closed, 2 linked, 8 known, 3 known at physics level, 3 named parameters, 19 off the path with evidence, 0 open: CONSUMMATED; one object, the light (`TGLExt.TetelestaiOneObject`, `TGLExt.LightHelicityWigner`, `TGLExt.MaxwellLiteratureBridge`)')]:
+            sh, ri = arco375.get(v, ("?", "?"))
+            L.append("| %s | `%s` | %s | %s | %s |" % (v, sh, ri, rnd, txt))
+        L.append("")
+        L.append("*Status that goes with v375 (not to be cut): \u03c4(P_F) = 1 is a NAMED NORMALIZATION, not a cited identity; the link P_ker K \u2194 P_F is NOT claimed. KNOWN \u2260 EXHIBITED: no inhabitant of the certificates is exhibited. The modular-charge link is rigorous only for the free scalar; for Maxwell it is known at physics level. The 3 named parameters: the local-equilibrium window (Jacobson 1995), G > 0 [INPUT], and the Killing clock. The per-term flags gpf_H2 / gpf_H3 / gpi_H3 stay False. Formally consummated is not confirmed by nature: the ringdown test is the next version. The `um.py` copies v369\u2013v374 live outside the repository (`the_boundary_BACKUPS/um_v3NN_<sha16>`); the stdouts v369\u2013v375 are in `rodadas/`. v360 is still not custodied. PROVED \u2260 CONFIRMED.*")
     L.append("")
     L.append("## What is PROVED · o que está PROVADO `[REAL — theorem in kernel]`")
     L.append("")

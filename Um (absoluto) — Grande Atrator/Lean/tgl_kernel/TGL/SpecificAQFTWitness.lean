@@ -93,7 +93,10 @@ structure TGLSpecificAQFTWitness where
   /-- representacao das translacoes de `ℝ^{1,3}` -/
   U : (Fin 4 → ℝ) → (H →L[ℂ] H)
   -- [KERNEL-RIGID] forma = conteudo: proposicoes concretas sobre os dados
-  m_pos : 0 < m
+  /-- v372 (decisao do operador 26/09, Q2; D-4 da bancada): o PESO DO NOME -- massa OU helicidade.
+      Substitui `m_pos : 0 < m` (v371), que excluia por definicao a luz (m = 0). «Nome sem peso e mentira». -/
+  helicity : ℤ
+  peso_do_nome : 0 < m ∨ helicity ≠ 0
   vac_norm : ‖vac‖ = 1
   /-- isotonia (Haag--Kastler): regiao maior, algebra maior -/
   isotony : ∀ O₁ O₂ : Set (Fin 4 → ℝ), O₁ ⊆ O₂ →

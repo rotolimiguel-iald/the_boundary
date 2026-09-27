@@ -19,7 +19,7 @@ TGL/ProbeTrivial.lean:41:2: error: `PF_covariant` is not a field of structure `T
 TGL/ProbeTrivial.lean:42:2: error: `PF_localized` is not a field of structure `TGLSpecificAQFTWitness`
 TGL/ProbeTrivial.lean:43:2: error: `PF_basisIndependent` is not a field of structure `TGLSpecificAQFTWitness`
 TGL/ProbeTrivial.lean:44:2: error: `modularConjugationSplitsPF` is not a field of structure `TGLSpecificAQFTWitness`
-TGL/ProbeTrivial.lean:26:44: error: Fields missing: `m`, `H`, `net`, `vac`, `U`, `m_pos`, `vac_norm`, `isotony`, `locality`, `U_zero`, `U_add`, `U_star`, `covariance`, `vac_invariant`, `wedge_nonabelian`, `vac_cyclic_wedge`, `vac_separating_wedge`
+TGL/ProbeTrivial.lean:26:44: error: Fields missing: `m`, `H`, `net`, `vac`, `U`, `helicity`, `peso_do_nome`, `vac_norm`, `isotony`, `locality`, `U_zero`, `U_add`, `U_star`, `covariance`, `vac_invariant`, `wedge_nonabelian`, `vac_cyclic_wedge`, `vac_separating_wedge`
 'TGL.ProbeTrivial.loose_nonempty_is_vacuous' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
 PROBE_TRIVIAL_INHABITANT_COMPILES__TYPE_IS_LOOSE
 

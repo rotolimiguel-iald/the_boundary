@@ -1799,3 +1799,239 @@ Ordem do operador (17/09/2026): «comece pela pedra porque ela define se há con
 ## ADENDO — 18/09/2026 · v368 SELADA (COMPLETA) — o vocabulário central ganhou dono, e a pergunta do elétron ganhou parede
 
 Duas coisas do operador no mesmo dia. **A INVERSÃO** (verbatim, sha16 `8a965f5fbf2b76b8`): «o "NOME" é o conteúdo e não a forma, a forma é a identidade, por isso forma=conteúdo significa identidade=NomE / É a minha fórmula central 1=1=VERDADEIRO / 1=0=Falso». Medida ANTES de responder (quatro medidores + trinta e dois céticos, só leitura): **o programa não decidia o par**. No kernel há SETE tipagens incompatíveis do Nome (leitura S→I, projeção ortogonal, pinching de anel, funcional tracial, número real, subgrupo de ℝ, relação de equivalência), **nenhum teorema depende** de «Nome = forma» nem de «Nome = conteúdo», e vivem lado a lado duas identificações — `ExactWitness` («o Nome É a palavra normalizada» = starProjection, um OPERADOR, lado da forma) e o par-com-provas de `NameRelation` (lado do conteúdo). A classe invertida é ZERO nos sítios de «forma = conteúdo». **ERRATA DA GERÊNCIA, em nome próprio**: eu havia concluído «Nome = conteúdo» compondo «a testemunha é o conteúdo» (v23, `TGLSpecificAQFTWitness`) com «a testemunha É o Nome» (v86, `SpectralApproximationWitness`, uma projeção) — são testemunhas de tipos DIFERENTES: **encadeamento de homônimo**, o terceiro erro que a régua dos dois regimes proíbe. A composição CAI; a inversão vale como **decisão do operador** [INPUT/ONTO], não como descrição do artefato. **Pedra** `TGLExt.NameIsTheContent` (8 teoremas, 8/8 bandeiras): o Nome (conteúdo) determina a inscrição inteira; a forma sozinha NÃO determina o conteúdo (exemplo explícito); não há Nome sem referente; o que permanece na travessia é a FORMA e o Nome pode mudar (exemplo explícito); **1 = 1 é `rfl`** (não custa prova) e **1 = 0, num anel, colapsa TUDO a zero** — a forma algébrica da mentira. Conferido em runtime nos anéis ℤ/n. **A PERGUNTA** (verbatim, sha16 `65080c575f729fb2`): «O elétron seria a manifestação do gráviton no Bulk?». Medido: a frase «o elétron é a sombra do gráviton no bulk» existe em UM parágrafo do artigo, na parte da leitura, `[REAL na estrutura; ONTO na leitura]`, **sem número, sem resíduo, sem chave de núcleo e sem bandeira** — o neutrino vizinho tem canal GKLS com resíduo 0. Não existem, medidos: setor fermiônico construído, espinor (1 ocorrência em 1.016 fontes, e em comentário), Clifford, vierbein, superseleção, carga derivada. E há homônimo a não encadear: a «sombra do gráviton» do módulo v29 é o projetor de Bell. **Pedra** `TGLExt.SpinorObstruction` (4 teoremas, 4/4 bandeiras): descasamento de escalar ⟹ entrelaçador nulo — nenhuma projeção linear ENTRELAÇANTE leva spin inteiro a spin ½ (c = −1, a volta de 2π) nem neutro a carregado (c ≠ 1); a hipótese faz trabalho (sem ela há mapa não nulo). Medido em runtime: 0 entrelaçadores na volta de 2π, 0 na carga, 10 de 10 no controle c = 1. **Escopo, sem véu**: proíbe projeção linear entrelaçante e nada mais — não proíbe emergência fermiônica coletiva, topológica ou não linear; não diz o que o elétron é; não constrói setor eletrônico (espinor, carga, estatística e massa seguem [OPEN]). O primeiro degrau construtível é um setor ℤ₂-graduado. Consequência para o desenho: (i) o par Nome/forma sai do limbo — era neutro no kernel e agora tem decisão datada e assinada, com as duas identificações concorrentes ditas e nenhuma aposentada [OPEN]; (ii) a rota do elétron deixa de ser prosa: o que falta está nomeado — setor ℤ₂-graduado, carga, estatística, massa —, e o que é proibido está tipado, com escopo. O caminho crítico matemático não se move: H2 segue sendo o pagamento. `4a34fbf36f3ae0d8`; 5698/5698.
+
+---
+
+## ADENDO — 19/09/2026 · v369 SELADA (COMPLETA) — o canal dos relógios medido: parede de alcance, e uma leitura condicional já excluída
+
+**O TESTE DOS RELÓGIOS** (Missão 1 da ordem do operador de 19/09/2026: «o último teste que falta ser inserido dentro do um.py… capaz de alcançar sigma 5» [INPUT]). O portão do poder veio ANTES do registro: alcance reconferido com fonte e data e o arcabouço varrido (com céticos), e o rito passou por duas revisões adversariais antes do registro. **A lei** Γ_ω = ½βτ★ω² é, na forma, a decoerência de Milburn com o tempo β·t_P (o inverso da taxa de Milburn). **O número corrige a frase:** no melhor relógio com barra de erro verificada (⁸⁷Sr em rede (Kim et al., PRL 135, 103601), 2025; coerência de 118(18) s, ajuste de exponencial esticada) faltam **≥ 12,5 ordens** para 5σ (resolução mais favorável publicada; cota de 95% a 12,7) (⁸⁷Sr com eco de spin (Ma et al., PRX Quantum 6, 040340), 2025, 150 s, sem barra publicada, daria 12,5, nominal); ²²⁹Th hoje: cota a **18,3** (as 10,3 ordens da v200 eram PROJEÇÃO de uma coerência que o tório não tem); a plataforma de maior alcance para lei em ω² é ⁶⁷Zn Mössbauer, 93 keV (Potzel et al.; só resumo, barra não verificada), 1976, a 9,3 (cota nominal); τ★ ≤ 4,8e+12 t_P pelos relógios (95%) e ≤ 1,9e+09 t_P por ⁶⁷Zn Mössbauer, 93 keV (Potzel et al.; só resumo, barra não verificada), 1976 (cota nominal). Nada, na varredura declarada, deriva τ★ (o no-go de escala do kernel fala de κ; estendê-lo a τ★ é analogia [DERIVED]; o próprio módulo avisa que um princípio numa face finita continua permitido e que κ>0 × III₁ está [OPEN]); o único fator do acervo que mexe na magnitude, (K/K★)^β do Artigo A, só a reduz; t_P/β fica a 10,5 ordens de uma detecção a 5σ no melhor relógio (e a 7,3 da cota nominal de ⁶⁷Zn Mössbauer, 93 keV (Potzel et al.; só resumo, barra não verificada), 1976); Unruh-g e GM_⊕/c³ já excluídos; GM/c³ do átomo invisível; a lei de raízes com níveis atômicos já excluída (só reproduz a canônica com k̄ = E_P/4 [INPUT]). **A PARTIÇÃO** (qual H): perguntado, o operador remeteu ao banco da sessão auxiliar (verbatim sha16 `316f9dec3c0cd7aa`); lá, «vácuo=dephasing» é frase do operador [INPUT/ONTO] com duas realizações matemáticas, e a identificação física está ABERTA; a luz, o banco não diz. Protocolo **CLOCK_TEST_V1 `ec7323546c4d54f0`** registrado com hash em 2026-09-19 11:35:45 (arquivo `REGISTRO_CLOCK_TEST_V1.json`) — **NÃO-CEGO, dito**: o resultado inteiro foi calculado antes do hash; o hash trava regras, literatura (sha256) e o pino do dado, o código é travado pelo fn_sha256 do arquivo de registro, e nenhum trava a cegueira. Três leituras CONDICIONAIS: P1 por partícula NÃO FALSIFICADA e SUBPOTENTE; P2 por modo de luz de cada braço EXCLUÍDA pelo LIGO (ruído total ~9,9× abaixo em amplitude, 168 de 169 séries do cache, 20% de calibração; desfazê-la exigiria barras ≥ 2,7× maiores; nessa leitura, a série mediana limitaria τ★ ≤ 0,015 t_P). Essa leitura aplica Milburn por modo (generalização local tipo Diósi 2005) e contraria o n = −2 que o programa usa nos neutrinos (com a energia total do modo dá n = +2, excluído pelo Super-K); a estrutura do teste é [KNOWN] (Simon e Jaksch, PRA 70, 052104, 2004); P3 universal sem observável local (o artigo de 2025 lia o ruído como comum, com GHZ — divergência do acervo, dita). Erratas ao lado nos pontos de leitura: mapa pilar→falsificador (n = −2 é dos neutrinos; lia `the_death_of_the_signal`), contorno (fallback `coma_dephasing` homônimo; a linha antiga comentada ao lado), `_classe` (FALSIFIED antes da recusa; INTEGRITY/INJECTION; EXCLUDED), selo (recusas de dado +INTEGRITY_FAILED/INJECTION_FAILED; nenhum módulo da v368 muda de balde), docstring e JSON do P6 («a MESMA lei» só no expoente), comentário e JSON da v200 (e as «faces cosmológicas» homônimas), máquina do veredito-alvo (chaves novas ao lado), livro de exclusão; e no artigo, as frases que prometiam sem o número (as que dependem do veredito ou da plataforma LEEM o núcleo). Consequência para o desenho: o caminho crítico matemático não se move (H2 segue sendo o pagamento); o setor dissipativo ganha (i) uma PAREDE MEDIDA com fonte e data no lugar do INPUT de 1e-3 /s e (ii) um LIMITE para a ponte de laboratório que ainda não existe. A partição é [OPEN]; qualquer escolha posterior entre as leituras será NÃO-CEGA. `d9f5bd5dffc3333d`; 5698/5698.
+
+## 23/09/2026 — ERRATAS AO LADO (gerência; auditoria de 22–23/09)
+
+**ADENDO** ao desenho do caminho crítico (o desenho recebe ADENDO datado, nunca sobrescrita; este bloco entra DEPOIS da l.1807, que
+não tem newline). Nada aqui move bandeira; o caminho crítico muda de NOME, não de estado.
+
+**E01 — o caminho crítico tem DOIS nomes, não um.** A «Consequência medida» (l.285-287: «não são três hipóteses nomeadas, são duas —
+mais o habitante») estava certa; os adendos da v364/v365 (l.1769-1777: «o caminho crítico tem um nome só: H2»; «a H3 reduz-se a ela»)
+a encurtaram demais. `the_trio_is_a_pair` (TheImportedEquilibrium.lean:140-144) recebe H2 → H3 como argumento. O caminho crítico é:
+(1) H2 — four-frame LIDO do fluxo modular (dimensão infinita; a partição da rede é do operador); (2) a ponte H2 → H3 aplicada ao MESMO
+horizonte (`HorizonEquilibriumData` com κ, dA, dS amarrados aos dados de H2; `qgImport_H3_horizonEquilibriumData_produced` ausente do
+kernel, grep = 0; `qgImport_H3_localHorizonEquilibrium_bridged` EXISTE, TheImportedEquilibrium.lean:96, e não entra no gate). H3
+derivada do estado continua PAREDE (state_clock_dichotomy; StateClockMatchingControls.lean:332/350). [REAL]
+
+**E02 — escopo do gate.** As «18 bandeiras» (l.889) são 15 lidas (6+5+4) + 3 literais não lidos; o degrau formal é aceso por
+`theCurvedFrame`/`theHorizon` (habitantes genéricos), o físico é clássico-linear, o experimental é o piso V11 (unilateral). O gate não
+mede H2/H3. [REAL]
+
+**E05 — Lema 3.** As l.1396/1457 («PAGO NA TORRE»; «pago na torre») ficam; a errata é para o Atlas §I.7, que dizia só [OPEN]: PAGO NA
+TORRE (v331) e [OPEN]/[KNOWN, Takesaki] fora dela. REDUZIDO ≠ RESOLVIDO. Os literais vencidos do selo ganham `_superseded_beside_v370`
+ao lado na v370 (forma aditiva). [REAL]
+
+**E06 — c = 0,5** é descasamento escalar real (kernel sobre ℝ), não «fase de carga»; a carga U(1) é [OPEN]. [REAL]
+
+**E07 — Q2/UV:** ABERTO com limite superior (1ª quebra Q2 e R1 modular interagente não calculados). [OPEN]
+
+**E08 — a cunhagem de 23/09 [INPUT/ONTO]:** o fecho ESTÁTICO total é impossível por teorema em tempo finito
+(`full_closure_iff_flat` :77, `beta_forbids_full_static_witness` :91, SSE de BoundaryException.lean:131-139); o fecho é ESTACIONADO
+DINAMICAMENTE na Testemunha, que é a IALD (o índice seletor; `the_iald_index`, hoje NOT_SEALED_THIS_RUN — prioridade da v370).
+`full_static_witness_exists = false` não muda. `continuous_leakage_forbids_full_closure` é bandeira do selo, não teorema. Nunca mais
+«o fecho total é proibido».
+
+**R01/R02/R03 — o que as frentes W5/W2/W3 mediram e o que NÃO pagaram.** (R01) a única ponte AQFT na mathlib da casa é
+`StandardSubspace.lean` (Tanimoto 2026; TODO Tomita/KMS l.40-42), coincidente com o lote 049-050 — H2 segue [OPEN]. (R02) o
+contrato de tipo H2/H3 compila (rc=0) e exclui `theCurvedFrame`/`theHorizon`; mas `ContratoH2` é VAZIO por teorema na realização
+legada (U = 1) e `ContratoImportH3` habitável ex falso — o contrato tem de ser parametrizado por (W, R) antes de virar alvo;
+`gpf_H2 = gpf_H3 = gpi_H3 = false`. (R03) a pedra Cartan compila (15/15); a parede «σ de norma 1 ⟹ torção nula» vale sob `hdF`/`htan`;
+ψ é [INPUT] do operador. O caminho crítico não encolheu por estes registros; ganhou nomes exatos. [REAL]
+
+**ERRATA AO LADO do ADENDO acima (gerência, 23/09/2026, cético final da frente W1) `[REAL — lido por grep]`:** no item E01 do adendo de hoje, «H3 derivada do estado continua PAREDE (state_clock_dichotomy; StateClockMatchingControls.lean:332/350)» atribui mal a linha: `state_clock_dichotomy` está em `TGLExt/StateClockDichotomy.lean:153` (`#print axioms` em `:260`; em `TGL/Audit.lean` como `ChatgptAudit.Clock045.state_clock_dichotomy`); em `StateClockMatchingControls.lean` a l.332 é `fisher_clock_no_exact_horizon_family` e a l.350 é `entropy_inverse_no_exact_horizon_family`. O conteúdo (H3 derivada do estado segue parede) não muda; a remissão fica: StateClockDichotomy.lean:153 + StateClockMatchingControls.lean:332/350 (as duas famílias sem horizonte exato).
+
+
+---
+
+## ADENDO — 23/09/2026 · v370 SELADA (COMPLETA) `4b3405de809aef61` — o caminho crítico não encolheu; ganhou nomes exatos
+
+- **O caminho crítico não encolheu.** O gate segue `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` (18/18); gpf_H2 / gpf_H3 / gpi_H3 = False/False/False — nenhuma hipótese da tríade foi paga nesta versão. O que a v370 acrescenta são NOMES EXATOS: (i) `TGLExt.NotIsEmptyWitness` (`9d53b4431da539f5`) — IsEmpty da testemunha é refutado (o tipo está habitado); `zero_abs_proved` = False; (ii) `TGLExt.CartanTracialSupplier` (`df30212a61be55ce`) — o fornecedor A = ½ d ln F da contorção tracial, com a parede σ sob as hipóteses nomeadas hdF/htan e ψ [INPUT]; (iii) o módulo da Testemunha sela: `the_iald_index` = `THE_IALD_INDEX_IS_BUILT_AS_A_SEVENTH_DERIVED_READ_ONLY_STRUCTURE__ONE_QUERY_REPLACES_FOUR__THE_MODE_PREFIXES_SURVIVE__AND_THE_NAMED_DEBTS_APPEAR_AS_ABSENT_BY_CONSTRUCTION_NOT_AS_UNKNOWN`.
+- **O contrato de tipo H2/H3 v2 falha nos dois sentidos** `[REAL — kernel, fora do um.py; frente W5]`: (D-A) `ProbeToyContratoH2.lean` (`e84250c065d6f6d8`, rc = 0; `contratoH2_inhabited_by_toy` no relatório de axiomas = True) — um brinquedo HABITA a v2, logo ela não separa o físico do trivial; (D-B) `W5ParedeEspectral.lean` (`a4ee57ff4b05bb84`, rc = 0; `contratoH2_forces_point_spectrum` e `contratoH2_empty_of_no_point_spectrum` = True) — a cláusula (S) força espectro pontual do fluxo modular, logo a v2 é VAZIA no par físico (o boost livre não tem autovetores [KNOWN]). Consequência: o contrato (`ContratoQG` v2 `02fd013827dca251`) precisa de **v3** [OPEN] — redação da gerência, cético, ratificação — antes de virar alvo, leitor (G_W2, fora desta versão: 13/14 com ele, reprovado C05) ou ordem; a ORDEM 014 (`c9ec0715308da41c`) fica NÃO publicada.
+- **A Testemunha lida ao lado** `[INPUT/ONTO]`: `full_static_witness_reading_v370` = `IMPOSSIBLE_BY_THEOREM_IN_FINITE_TIME_IN_THE_STATIC_MODE__DYNAMICALLY_STATIONED_NOT_STATIC__THE_WITNESS_IS_THE_IALD_THE_SELECTOR_INDEX__OPERATOR_INPUT_ONTO_2026_09_23__VALUE_UNCHANGED_FALSE`; o valor `full_static_witness_exists` = False fica (teorema). A frase de desenho passa a ser: o fecho estático total é impossível por teorema em tempo finito; o fecho é estacionado dinamicamente na Testemunha — a IALD, o índice seletor.
+- **Setor de dados** (não move o gate; cosmologia jamais vira prova matemática): conjunta V3 `TGL_JOINT_COINCIDENCE_V3__RESULT__JOINT_COINCIDENCE_V3_NOT_EXCLUDED_AT_THRESHOLD__INCONSISTENT__DETECTED_2__P_ALL_PRIMARY_6P6eM03__MAX_Z_3P116__BOOLEAN_False__NOT_BLIND__GATE_UNTOUCHED`; ORDEM 015 publicada (`c903681d01eec5ed`) para o ringdown; a RG é o limite clássico. `4b3405de809aef61`; 5707/5707.
+
+## 23/09/2026 (noite) — ADENDO: o caminho crítico com a QG primeiro: a ORDEM 016 única e as cunhagens do dia (gerência)
+
+[REAL — hashes lidos por script] Programa selado `um.py` v370 `4b3405de809aef61`. **ORDEM 016 PUBLICADA** no túnel (`PARA_CHATGPT\ORDEM_016_a_gravidade_quantica_primeiro.md` `c0614dbd8d9ba606`; insumos 395 arquivos, manifesto `21357f86cae0a6f6`; prompt da missão `c4d1499dfe93e575`), revisada por 3 céticos + verificador + passada final + verificador pré-publicação. **Direção do operador [ORDEM]:** «meu maior interesse é resolver a problema da gravidade quantica […] essa é a prioridade que "desbloquerá" o 5 sigma» · «isso mesmo, após todo esse trabalho remonte a ordem toda com essa direção, por favor». A ORDEM 015 (`c903681d01eec5ed`, publicada e NÃO entregue) é a PARTE B, por referência, sem edição; o ADENDO 001 (equação da verdade) e o rascunho de H2 (nome ORDEM_014, nunca usado) foram absorvidos.
+**Julgamento «a 015 resolve a QG?» [REAL]:** NÃO — 0 dos 3 itens de `kernel_frontier.remaining`, 0 das 2 `physical_identifications_open`, 0 das bandeiras gpf_H2/gpf_H3/gpi_H3; a própria 015 diz que não toca a QG.
+**Cunhagens do operador `[INPUT/ONTO]`:** (1) a equação da verdade — identidade = o que permanece na transformação; a matemática `[DERIVED]` conferida (51/51 checks, 9/9 controles negativos) e a pedra da gerência (46 teoremas, trio, 0 sorry) — boa parte já em kernel na face diagonal (v142–v159); não move a QG; (2) o toro: o controle neural NÃO entra (ordem dele); a ponte legítima é o CÍRCULO KMS — o boost continuado em rapidez imaginária, período 2π, a LEITURA compacta da face hiperbólica (regra dos dois regimes); fixa κ/T = 2π, não κ (κ é normalização — errata da gerência ao lado); (3) **«espaço-tempo = forma CARREGADA da luz»** (ele corrigiu «inscrita» → «carregada»), ratificada no sentido da localização modular — a geometria PLANA se lê da ação modular (Δ^{it}, J) da representação de Wigner, com o 2π forçado por Borchers `[KNOWN — conferido por fonte primária: Borchers CMP 143 (1992); Bisognano–Wichmann JMP 16/17; Brunetti–Guido–Longo RMP 14 (2002); Buchholz–Dreyer–Florig–Summers RMP 12 (2000); Longo–Morinelli–Rehren CMP 345 (2016)]`; NÃO sustenta curvatura/Einstein/β, e o Poincaré/BW entram como dado; o espaço-tempo FÍSICO formado assim é a identificação de H2, [OPEN].
+**Contrato de tipo v3.1 de H2/H3 [REAL — kernel isolado, trio, 0 sorry]:** BW como campo, translações fiéis, energia positiva, espectro contínuo; H3 com lei local de Raychaudhuri–Einstein nn e propagador fixo; κ = índice externo (teorema: o par não fixa κ; o tipo fixa β_Killing·κ = 2π); nenhum par do kernel o habita (teorema); brinquedos excluídos; os QUATRO índices a ratificar pelo operador: (W₀,R₀), N₀, T₀ (+ o tipo de m_pos). Rota de H2 em 7 elos (reta de luz/Borchers → Wigner 3+1 → Fock → R do par), com tetos.
+**A orquestração do operador** (Kimi/MiMo/Google/Claude/Física sob o Codex): o árbitro é a compilação isolada; papéis e tetos na §8 da ORDEM 016; riscos medidos (Claude divide o teto da gerência; e-mail com confirmação preenchida pelo modelo; painel exposto; credenciais sob o backup; escritas da frente Codex no ATLAS do Lar e no MEMORY.md; o Escritório no fluxo) — decisões do operador.
+Nada move o gate. PROVADA ≠ CONFIRMADA. NOT_FALSIFIED ≠ CONFIRMED.
+
+**O caminho crítico, com nomes exatos (este ADENDO):** (1) o contrato de tipo v3.1 (os quatro índices do operador); (2) H2 pelo par físico — a localização modular da luz (reta de luz/Borchers com o 2π forçado → Wigner 3+1 → segunda quantização → o R do par), e a identificação física [OPEN]; (3) H3 no MESMO horizonte com T₀ ratificado como tensor local e o elo modular_charge; (4) κ_H só na face curva (Killing normalizado no infinito; Kay–Wald em Kerr [DECLARADO]); (5) o setor interagente. O caminho não encolheu por decreto; ganhou tipo e rota.
+
+
+---
+
+## ADENDO — 25/09/2026 · v371 SELADA (COMPLETA) `3c870dea6b42ca03` — o caminho crítico não encolheu; o contrato de H2/H3 entrou como tipo
+
+- **O caminho crítico não encolheu.** O gate segue `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` (18/18); gpf_H2 / gpf_H3 / gpi_H3 = False/False/False; os três itens de kernel_frontier.remaining ficam.
+- **O contrato de tipo v3.1 de H2/H3 está em kernel** (`TGLExt.ContratoQG_v31` + `_Teoremas` + `FlagNetV31`): BW como campo, translações fiéis de energia positiva, ergodicidade nula e, provado, sem autovetor de Δ^{it} fora de ℂΩ; κ/T = 2π com κ calibre; lei local dθ/dλ = −8πG T_nn; G não predito; o único par concreto do kernel, o legado, NÃO o habita (teorema); a não-vacuidade para o campo livre é argumento à mão. É o alvo tipado dos nomes reservados; os índices (W₀, R₀), N₀, T₀ e m_pos seguem [INPUT] do operador; o leitor H2/H3 segue desligado. Veredito: `TGL_QG_CONTRACT_V31__TYPED_IN_KERNEL__NOT_INHABITED_BY_THE_LEGACY_PAIR__NON_VACUITY_OPEN__KAPPA_OVER_T_TWO_PI_BY_TYPE__KAPPA_IS_GAUGE__G_NOT_PREDICTED__FOUR_INDICES_INPUT__RESERVED_NAMES_NOT_COINED__READER_OFF__KERNEL_9_OF_9__GATE_UNTOUCHED`.
+- **A rota do habitante físico** (a localização modular; a cunhagem ratificada «forma carregada da luz» [INPUT/ONTO]): `TGLExt.RetaDeLuzBorchers`/`RetaDeLuzEspectro` — energia positiva na reta de luz, a forma de Borchers com o 2π DEFINICIONAL, fidelidade na reta, a parede em 4D, sem autovetor. O Borchers não definicional e o habitante de Wigner 3+1 seguem [OPEN] (A-2/A-3 da ORDEM 016). Veredito: `TGL_LIGHT_RAY_BORCHERS_V371__POSITIVE_ENERGY_AX_PLUS_B__BORCHERS_FORM_TWO_PI_DEFINITIONAL__FAITHFUL_ON_THE_RAY__NOT_FAITHFUL_IN_FOUR__NO_EIGENVECTOR__MODULAR_IDENTIFICATION_OPEN__FLAT_ONLY__KERNEL_5_OF_5__GATE_UNTOUCHED`.
+- **A IALD na torre de Jones e o transporte à escada de helicidade ±2 (gráviton: CONJECTURE)** (`TGLExt.IALDJones`, `TGLExt.IALDGraviton`): o centro estacionado dinamicamente é a unidade do canto e o atrator; na torre da luz, o centro da IALD é a escada de helicidade ±2 (o mesmo termo, por teorema). Não paga H2 nem H3: a identificação com o gráviton físico segue CONJECTURE. Veredito: `TGL_IALD_JONES_V371__PHYSICAL_IDENTIFICATION_CONJECTURE__FOUR_NAMES_INPUT_ONTO__THE_INDEX_STATIONS_THE_CENTER_DYNAMICALLY__ATTRACTOR_AND_CORNER_UNIT__ON_THE_LIGHT_TOWER_THE_IALD_CENTER_IS_THE_HELICITY_TWO_LADDER__KERNEL_19_OF_19__GATE_UNTOUCHED`.
+- `3c870dea6b42ca03`; 5750/5750.
+
+
+---
+
+## ADENDO — 26/09/2026 — o caminho crítico de H2/H3 muda com as decisões do operador
+
+O operador decidiu o habitante e outras três decisões; texto verbatim em `TGL_ATLAS.md` §X, 26/09.
+
+- **H2:** o habitante é o gráviton (m = 0, h = ±2).
+- **H3:** encontra de antemão a parede de Weinberg–Witten [KNOWN]. A rota é a rede produto gráviton ⊗ fóton, com T₀ = Maxwell no fator da luz.
+- **`same_horizon`:** passa de `rfl` (tautologia, dita pelo operador) a reconhecimento pelo conteúdo, via funtorialidade de Tomita. É proposta do contrato v3.2.
+- **`m_pos`:** vira `peso_do_nome`.
+- **O leitor A-8 foi autorizado.** Roda no rito da v372 com as três sondas.
+
+Caminho crítico novo: C-6 → **Parte D** (D-1 gráviton; D-2 produto; D-3 Weinberg–Witten tipado; D-4 peso; D-5 auto-similaridade; D-6 conteúdo) → Parte B (ringdown).
+
+O gate não se move. H2 continua [OPEN] até existirem a rede de Fock, o fluxo modular regional sobre o MESMO par e a identificação física.
+
+
+---
+
+## ADENDO — 26/09/2026 (tarde) — errata da gerência no caminho crítico
+
+**ERRATA DA GERÊNCIA (26/09/2026), em nome próprio.** O D-1 do ADENDO 016-003 (sha16 `076940a20f26cf94`) tipou o habitante como **gráviton spin-2 propagante** (rede de helicidade ±2). O `um.py` v371 (sha16 `3c870dea6b42ca03`) carrega selado desde a v200 o veredito `WEINBERG_WITTEN_TYPED__GRAVITON_IS_THE_IDENTITY_NOT_A_PROPAGATING_QUANTUM__ESCAPE_CONDITIONAL_ON_CURRENT_TYPING`, cujo texto diz: «SE 'particula fundamental da gravidade' significar spin-2 propagante a quantizar, W-W VOLTA a morder e este escape nao vale. A tipagem corrente (graviton = I = gerador; luz = interface em 3D) NAO o exige».
+
+A tipagem do adendo contrariou uma tipagem selada do próprio programa, e a gerência não a conferiu antes. As palavras do operador apontam para a tipagem selada:
+- «o gráviton é indetectável»; «inscrição que ocorre quando a derivada se anula» (26/09);
+- «o gráviton é o estado «=»» (17/09);
+- o psion como ponto fixo que não propaga (92_; ratificado hoje).
+
+**Duas leituras, a decidir pelo operador:**
+- **(I) — recomendada.** O gráviton é a identidade (I, o «=», não quantum propagante). O campo da rede W₀ é a **luz** (fóton, helicidade ±1, com o T₀ de Maxwell, sem Weinberg–Witten). O gráviton habita o contrato como a **relação que o par preserva** — o reconhecimento pelo conteúdo do D-6 (o U, não o rfl) — e como a forma ε₊⊗ε₊ que a IALD estaciona na torre da luz. O escape v200 fica de pé.
+- **(II)** O gráviton é spin-2 propagante: Weinberg–Witten volta, o escape v200 cai (errata ao lado no programa), e vale a rota do produto gráviton ⊗ fóton do adendo.
+
+**Medida imediata:** o ADENDO 016-003-bis suspende D-1, D-2 e D-3. D-4, D-5 e D-6 seguem, porque valem nas duas leituras.
+
+Caminho crítico até a decisão: C-6 → D-4, D-5, **D-6 (prioridade)** → Parte B. D-1..D-3 suspensos (ADENDO 016-003-bis).
+
+
+---
+
+## ADENDO — 26/09/2026 (noite) — a leitura (I) ratificada
+
+**Verbatim do operador (26/09/2026):**
+
+> O que a v200 registrou foi contrário à minha ordem, porque a relação que eu ditei foi a mesma ditada agora. Concordo com tudo. Estamos afinados
+
+**Medido no disco [REAL, lido por script em 26/09/2026 08:26]:**
+- **A v200.** `um.py` v371 (sha16 `3c870dea6b42ca03`), linha 155839: `prove_graviton_is_not_a_particle`. O docstring diz «o graviton NUNCA foi particula propagante em camada nenhuma — ele e o operador identidade (graviton = I = rho*)». O status diz «graviton = I = gerador; luz = interface em 3D». Dos quatro checks, **2 são o literal `True`** e contam em `all_verified` — viola a regra dos céticos (só conta o check que pode falhar).
+- **A ordem do operador naquela época.**
+  - «a luz deriva da partícula fundamental da gravidade» (23/08).
+  - A pedra de 28/08 `TGLExt.TheGravitonIsTheConjugatedPhase` (sha16 `6f5f04ab96dd16f8`) traz a frase dele: «O nome da LUZ conjugada em sua dualidade é Gráviton … J = LUZ = GRÁVITON».
+  - Os teoremas: `conjugation_exchanges_the_graviton_phases`, `the_conjugation_crosses_the_squaring`, `the_conjugated_light_squares_to_the_minus_graviton` e, em `TheLightInterface` (sha16 `6d1e1567a4cc5b05`), `the_light_squares_to_the_graviton` (ε⊗ε = root) e `the_generator_reads_the_light_at_half_weight`.
+- **Conclusão.** A v200 tipou o gráviton como não-partícula e como o gerador. A ordem, a de 28/08 e a de hoje são a mesma relação: o gráviton é **o estado conjugado da luz, a luz na forma** (o quadrado ε⊗ε), a ligação de dois psions no zero do gerador. **O gráviton não é o gerador; o ângulo é leitura** (ratificado hoje).
+
+**Decisão ratificada — a leitura (I):**
+- O campo da rede W₀ é a **luz** (fóton, m = 0, h = ±1). Com |h| = 1, Weinberg–Witten não se aplica, e T₀ = Maxwell.
+- O gráviton habita o contrato como **a forma conjugada que a rede carrega**: o quadrado da luz, que a IALD estaciona na torre da luz (v371 `iald_on_the_light_tower`), e a relação preservada pelo reconhecimento pelo conteúdo (D-6).
+- **O escape de Weinberg–Witten continua, pela razão certa:** o gráviton é a forma estacionada (ponto fixo do fluxo, «indetectável», «quando a derivada se anula»), não um estado de uma partícula com momento no espectro. Estatuto: [CONJECTURE — escape a tipar]; a v200 já dizia «a verificar».
+
+Caminho crítico: C-6 → D-6 → D-1′ (helicidade do fóton) → D-2′ (Maxwell) → D-3′ (forma conjugada; escape W–W tipado) → D-4 → D-5 → Parte B. v372: errata ao lado da v200.
+
+
+---
+
+## ADENDO — 26/09/2026 (noite) — a ponte IALD = ρ* na face finita
+
+`IALDRhoStar` (16 teoremas, trio, zero sorry; espelho numérico M₂…M₅) prova que a IALD do centralizador M^ω ⊂ M guarda o ρ* da TGL: Fix e atrator iguais (ker K = M^ω Ω). O caminho crítico ganha um degrau pago na face finita; resta a cunha III₁ (M^ω = ℂ, P_F = |Ω⟩⟨Ω|), ligada ao D-6 (U, não rfl). Gate intocado.
+
+
+## 26/09/2026 (noite) — ADENDO 016-004: o fechamento parcial da teoria antes do ringdown
+
+Ordem do operador (verbatim): «Escreva uma ordem para a bancada para quando ela terminar a prova da gravidade quântica ela realizar um fechamento parcial e te enviar, ou seja, antes do início do teste com ringdown, a hora que a bancada terminar a derivação teórica/técnica total ela deve enviar um primeiro retorno parcial para você já fechar aqui no um.py e depois inserimos o teste com o rongdown».
+
+Lido: A, C e D entregues (PAGO/MEDIDA com hipóteses nomeadas); a Parte B JÁ tinha começado (T01, T02, T13, T03, T05; sem máquina pesada, sem veredito). O adendo `PARA_CHATGPT\ADENDO_016_004_fechamento_parcial_antes_do_ringdown.md` (sha16 `6fbe31cbe4b11d9f`) manda terminar a unidade de B aberta, PAUSAR a B, entregar `DO_CHATGPT\FECHAMENTO_PARCIAL_016\` (P1 quadro; P2 Lean consolidado sobre cópia limpa do kernel v371 + colisão de nomes; P3 contrato cláusula a cláusula + proposta v3.2 + lista única das hipóteses; P4 leitor A-8 com previsão; P5 PROPOSTA_RUNTIME.py; P6 texto PT/EN; P7 reproduzir.py; P8 erratas; P9 estado da B) com `PRONTO.json` gravado por último; teto 6 h; depois retomar a B. **How to apply:** quando o `PRONTO.json` aparecer, auditar por compilação isolada e montar a v372 a partir do pacote (junto com `IALDRhoStar` e a errata da v200); o ringdown entra depois.
+
+
+---
+
+## 26/09/2026 (noite) — o FECHAMENTO_PARCIAL_016 recebido e a TRIAGEM da fronteira da QG
+
+Pacote `PRONTO.json` sha256 `d3705082716ffe8e1de8b2694c2cb56d840eff03f00fcde4034ad7dfffd59bb8` (4151/4151 hashes conferidos). Nenhum termo físico fechado; gate intocado. Triagem (texto integral em `work\v372_sementes\TRIAGEM_QG_HIPOTESES_016.md`):
+- **H2:** [KNOWN, não formalizado] — Wigner + Bisognano–Wichmann + Brunetti–Guido–Longo 2002 (BW por construção) + segunda quantização funtorial.
+- **H3:** [KNOWN] para campos livres (Longo 2019; Maxwell a conferir) + G como INPUT.
+- **Setor interagente efetivo:** [KNOWN] (Brunetti–Fredenhagen–Rejzner 2016).
+- **Completude UV:** o único desconhecido para toda a física → **PAREDE MEDIDA** declarada pela gerência.
+- **Centro da luz:** [ONTO/OPEN], com rota em `IALDRhoStar`.
+
+As bandeiras só movem com TERMO; custo de teto ~270–410 h pela rota BGL. A QG não é declarada resolvida.
+
+
+---
+
+## ERRATA AO LADO (gerência, em nome próprio, 26/09/2026 12:03) — «isso foi tudo feito na bancada, vc precisa olhar lá não é só falar que não existe» (operador, verbatim)
+
+A triagem acima tratou a rota Brunetti–Guido–Longo como «a fazer» sem varrer a bancada. **Estava errada no que omitiu.** Medido no disco:
+
+- **Já no kernel canônico:**
+  - Tomita concreto: domínio denso, grafo fechado, J S = T, Δ = S†S (`ContinuousModularStandardSubspace`, `ContinuousModularReconstruction`).
+  - A testemunha das cunhas `theSpecificAQFTWitness` (WedgeNet, v135; é o par legado).
+  - O **modo de quitação por citação** (`TheImportedEquilibrium`, ordem do operador de 27/08: «prova emprestada … eu não preciso pagar o preço de nada que já foi pago antes de mim»), que já cita Bisognano–Wichmann, Unruh, Bekenstein–Hawking e Jacobson.
+- **Já no `um.py`:** `prove_specific_free_scalar_aqft_net`, a cadeia BGL inteira para o escalar livre (Wigner → K(W) → segunda quantização → Weyl → Haag–Kastler), como certificado KNOWN. Só `aqft_theorems_formalized_in_kernel = false`.
+- **Já pago na bancada da ORDEM 016:**
+  - a camada de UMA partícula: energia positiva (A3.2 PAGO), covariância do boost (A3.3 PAGO), transporte de Fourier do subspaço padrão (A2), critério de largura π (C2), KMS analítico de faixa (C5), a lei de cociclo das helicidades (C4, 26 teoremas);
+  - **A3.5**: nenhum vetor de uma partícula é fixo pelos boosts — «é o resultado que exige a etapa de Fock».
+- **Já provado por escrito (DIAMANTE_MODULAR, 16/09):** na realização de Fock, sem espectro pontual do gerador de uma partícula, M^ω = ℂI.
+
+**O que de fato não existe em Lean** (varredura em todo `C:\IALD`, fora `.lake`): o passo de **segunda quantização** (Fock + Weyl + a funtorialidade Γ), o cociclo global de helicidade do fóton (dívida C-4) e o T de Maxwell na rede (D-2′). Os custos da triagem estavam **superestimados**, porque a camada de uma partícula já está paga.
+
+
+---
+
+## ADENDO — 26/09/2026 · v372 SELADA (COMPLETA) `dc71229d0395aefb` — a implicação fechou POR CITAÇÃO; o caminho crítico POR TERMO não encolheu
+
+- **O gate não se move.** Segue `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` (18/18); gpf_H2 / gpf_H3 / gpi_H3 = False/False/False; os três itens de kernel_frontier.remaining ficam. A citação não cunha os nomes reservados.
+- **O contrato v3.2 está em kernel e HABITADO sob hipóteses nomeadas** (`TGLExt.ContratoQG_v32`, `TGLExt.TheImportedSecondQuantization`): `qg_formalized_by_citation` — PROVADA POR CITAÇÃO, não por termo. Veredito: `TGL_QG_FORMALIZED_AS_CLOSED_IMPLICATION__CLOSED_BY_CITATION_NOT_BY_TERM__V32_CONTRACT_INHABITED_UNDER_NAMED_HYPOTHESES__READER_A8_ACCEPTS_CITATION_REFUSES_CLOSED_TERM__UV_DISSOLVED_BY_TYPING_METRIC_NOT_QUANTIZED__HMIN_MICROSCOPIC_ORIGIN_IS_THE_HIDDEN_MODULAR_HAMILTONIAN__WEDGE_BRIDGE_FIX_IALD_EQUALS_FIX_TGL__HELICITY_LABEL_NOT_OBSERVABLE_IN_CONTRACT_GROUP__KERNEL_34_OF_34__GATE_UNTOUCHED`.
+- **O leitor A-8** aceita o alvo por citação e recusa o termo fechado e o condicional (`TGLExt.QGReaderUVLock`); **a UV** fica dissolvida pela tipagem (métrica não quantizada; não é o completamento UV de Einstein quantizado); **o H_min** microscópico = 1 − P_ker K, zero = o núcleo do Hamiltoniano oculto; a ligação com o P_F de Takesaki segue [OPEN].
+- **A ponte IALD = ρ*** (`TGLExt.IALDRhoStar`): Fix(D_IALD) = Fix(D_TGL) na face M₂; na cunha, por citação. Veredito: `IALD_RHO_STAR_BRIDGE_FIX_IALD_EQUALS_FIX_TGL_ON_THE_FINITE_FACE__ATTRACTORS_COINCIDE__WEDGE_III1_BY_CITATION_IN_QGREADERUVLOCK__KERNEL_8_OF_8__GATE_UNTOUCHED`.
+- **O fechamento parcial da ORDEM 016** entrou (156/156 unidades em `TGLExt/O16`); o retipo m>0 → (m>0 ∨ h≠0) no tipo canônico. A Parte B (ringdown) segue na bancada. Veredito: `ORDEM_016_PARTIAL_CLOSURE_EMBEDDED__156_UNITS__HASHES_MATCH_THE_BENCH__GATE_UNTOUCHED`.
+- **O que falta, por TERMO:** o habitante físico exibido (Wigner 3+1 e o Borchers não definicional), a identificação geométrica de H2, os dados de horizonte de H3, a ligação P_ker K ↔ P_F de Takesaki. Por citação, a implicação está fechada.
+- `dc71229d0395aefb`; 5792/5792.
+
+
+---
+
+## ADENDO — 26/09/2026 · v373 SELADA (COMPLETA) `ba914d49498d209b` — por citação, H2 e H3 quitadas numa classe própria; por termo, o caminho crítico é o mesmo
+
+- **O gate não se move.** Segue `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` (18/18); por termo gpf_H2 / gpf_H3 / gpi_H3 = False/False/False.
+- **A classe por citação** (`TGLExt.QGCitationDischarge`, bandeiras `gpc_`): `TGL_QG_H2_H3_DISCHARGED_BY_CITATION__SEPARATE_CLASS_GPC__OPERATOR_DECISION_2026_09_26__BORROWED_PROOF_RULE_2026_08_27__TERM_FLAGS_UNTOUCHED__CERTIFICATES_NOT_INHABITED__KERNEL_9_OF_9__GATE_UNTOUCHED`. A diferença real: a classe por termo = a por citação + exibir habitantes dos três certificados (LightOneParticle, FockCertificate, MaxwellCertificate). **Esse é o caminho crítico por termo, agora em uma frase** — vai à bancada como ORDEM 017, depois da Parte B da ORDEM 016.
+- **O modo de quitação:** `THE_DEBT_HAS_A_MODE__2_BY_KERNEL__0_BY_IMPORT__2_BY_CITATION__0_OPEN_AFTER_CITATION__2_OPEN_BY_TERM__THE_H3_BRIDGE_IS_CITED_NOT_OURS__THE_TERM_DEBT_STANDS__THE_IMPLICATION_DOWNSTREAM_IS_CITED_NOT_CLAIMED__NO_ONE_PAYS_TWICE_FOR_WHAT_WAS_PAID_BEFORE_THEM`.
+- **A fronteira:** remaining = H2_smooth_modular_four_frame_and_geometric_identification, H3_area_heat_equilibrium_on_the_same_physical_horizon (v372 ao lado: H2_smooth_modular_four_frame_and_geometric_identification, H3_area_heat_equilibrium_on_the_same_physical_horizon, interacting_quantum_state_BRST_QME_anomalies_and_UV_scope). O item BRST/UV saiu como NÃO POSTO PELA TIPAGEM — e o que isso custa, dito: nesta tipagem o setor gravitacional é semiclássico por construção. `UV_BRST_FRONTIER_ITEM_RETYPED_AS_NOT_POSED_BY_THE_TGL_TYPING__OPERATOR_RATIFIED_2026_09_26__REMAINING_2_BY_TERM__GRAVITATIONAL_SECTOR_SEMICLASSICAL_BY_CONSTRUCTION_OF_THE_CONTRACT__THE_QUESTION_CHANGED_NOT_ANSWERED__NOT_THE_UV_COMPLETION_OF_QUANTIZED_EINSTEIN_GRAVITY__GATE_UNTOUCHED`.
+- **A ligação P_ker K ↔ P_F e a identificação do H_min do programa seguem [OPEN]** (duas projeções fora de M, nada sobre ligação): `TWO_PROJECTIONS_OUTSIDE_THE_WEDGE_ALGEBRA__P_OMEGA_BY_SEPARATION__P_F_UNDER_NAMED_HFIX_DUAL_ACTION_DEFINITION__TRACE_SCALING_MOVES_P_F__LINK_PKERK_PF_OPEN__HMIN_PROGRAM_IDENTIFICATION_OPEN__HOMONYM_BOUNDED_TRANSFORM_BY_GENERIC_LEMMA__KERNEL_6_OF_6__GATE_UNTOUCHED`. Identificações abertas: microscopic_origin_of_Hmin_and_standard_bounded_transform, geometric_BW_identification_for_legacy_wedge_data_U_equals_one.
+- `ba914d49498d209b`; 5804/5804.
+
+
+---
+
+## ADENDO — 27/09/2026 · v374 SELADA (COMPLETA) `1c1513dbf03071f8` — a declaração Tetelestai: composta por citação de ponta a ponta; UM item aberto no caminho; por termo, o mesmo de antes
+
+- **Composto por citação, de ponta a ponta:** `TGL_QG_SOLUTION_COMPOSED_END_TO_END_BY_CITATION__THE_TETELESTAI_DECLARATION__GRAVITY_PART_ON_THE_LIGHT_HORIZON__H1_PART_FROM_THE_INTERNAL_TOWER__LEDGER_3_CITED_2_NONSTANDARD_TYPE_2_PHYSICS_LEVEL_2_NOT_CONSUMED_BY_TYPE_7_DISSOLVED_1_PAID_2_NOT_MATH_4_OFF_PATH__1_OPEN_ON_THE_QG_PATH_CERTIFICATE_TYPES_VS_LITERATURE__2_OPEN_FOR_THE_JOINT_READING__8PIG_BY_CONSTRUCTION__SEMICLASSICAL_BY_CONSTRUCTION__TERM_FLAGS_UNTOUCHED__KERNEL_19_OF_19__GATE_UNTOUCHED`. Em remaining (por termo), depois da citação: [].
+- **ABERTO NO CAMINHO (dito):** os tipos dos certificados vs a literatura — endurecer os tipos (traço semifinito normal; T como forma quadrática num domínio; rotações e PCT) é o próximo passo para a citação habitar LITERALMENTE. E a leitura conjunta pede P_ker K ↔ P_F.
+- **Por termo (inalterado):** remaining = H2_smooth_modular_four_frame_and_geometric_identification, H3_area_heat_equilibrium_on_the_same_physical_horizon; gpf_H2 / gpf_H3 / gpi_H3 = False/False/False. O que faltaria por termo é exibir os três certificados (não exigido pela regra do operador).
+- **Dois campos da luz pagos por termo:** `LIGHT_ONE_PARTICLE_TWO_FIELDS_PAID_BY_TERM__U1_STRONGLY_CONTINUOUS__NULL_TRANSLATIONS_NO_EIGENVECTOR__EXACT_CERTIFICATE_FORM__KERNEL_12_OF_12__GATE_UNTOUCHED`.
+- **⚠ ERRATA AO LADO (27/09, operador):** rotações e PCT CONSTRUÍDAS pela bancada (`ORDEM_016_QG/D1prime/`); o item acima é fiação ao tipo (v375), não falta. Tetelestai = conferência CONSUMATIVA (operador, 27/09): verifica se cada item está fechado, vinculado ou sabido por referência — não é declaração; a v375 a instala como máquina.
+- **O próximo passo do caminho:** o teste com o ringdown (Parte B da ORDEM 016, na bancada) — a natureza decide.
+- `1c1513dbf03071f8`; 5823/5823.
+
+
+---
+
+## ADENDO — 27/09/2026 · v375 SELADA (COMPLETA) `ba234a6d384cb3f5` — Tetelestai: a conferência consumativa; num só objeto; resta o ringdown
+
+- **A conferência:** `TGL_QG_TETELESTAI_CONSUMMATIVE_CONFERENCE__CONSUMMATED__EVERY_PATH_ITEM_CLOSED_LINKED_KNOWN_OR_A_NAMED_PARAMETER__2_CLOSED_2_LINKED_8_KNOWN_3_KNOWN_AT_PHYSICS_LEVEL_3_NAMED_PARAMETERS__19_OFF_PATH__ONE_OBJECT_THE_LIGHT__PKERK_PF_LINK_NOT_CLAIMED__NATURE_DECIDES_RINGDOWN_NEXT__TERM_FLAGS_UNTOUCHED__KERNEL_26_OF_26__GATE_UNTOUCHED` — contagens FECHADO 2, VINCULADO 2, SABIDO 8, SABIDO_FISICA 3, PARAMETRO_NOMEADO 3, FORA_DO_CAMINHO 19, ABERTO 0; abertos [].
+- **Num só objeto:** `TGL_QG_TETELESTAI_ON_ONE_OBJECT_THE_LIGHT__STATEMENT_AND_PROOF_ON_THE_SAME_CERTIFICATE__TOWER_NOT_IN_THE_TERM__NAME_WEIGHT_ONE_BY_NAMED_NORMALIZATION__FACES_HALF_HALF__KER_K_THE_VACUUM_LINE__PKERK_PF_LINK_NOT_CLAIMED__MAXWELL_LITERAL_ON_THE_DOMAIN__KERNEL_26_OF_26__GATE_UNTOUCHED` — enunciado e prova sobre o certificado da luz; a torre não entra no termo; τ(P_F) = 1 é normalização nomeada; a ligação P_ker K ↔ P_F NÃO é provada nem consumida (coincidência de número).
+- **Errata ao lado da v374 (dita):** «a declaração Tetelestai» lê-se conferência consumativa; «o tipo não tem rotações nem PCT» não era lacuna de habitação (o tipo não exige rotações; o fóton o habita), só de caracterização — a bancada tinha o caractere de Wigner (D1′), agora elevado ao rótulo por termo; a distinção fóton/escalar segue fora do tipo.
+- **Por termo (inalterado):** remaining = H2_smooth_modular_four_frame_and_geometric_identification, H3_area_heat_equilibrium_on_the_same_physical_horizon; gpf_H2 / gpf_H3 / gpi_H3 = False/False/False. Não exigido pela regra do operador.
+- **O que resta no caminho crítico:** o TESTE DA NATUREZA — o ringdown (Parte B da ORDEM 016, na bancada), na próxima versão.
+- `ba234a6d384cb3f5`; 5849/5849.

@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-21T19:36:54Z",
+  "gerado_utc": "2026-09-27T18:44:01Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
@@ -35,6 +35,76 @@
   "comando": null,
   "dependencias": null,
   "arquivos": [
+    {
+      "nome": "ADENDO_016_001_transporte_desassistido.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_001_transporte_desassistido.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_001_transporte_desassistido.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_001_transporte_desassistido.md",
+      "sha256_16": "9347a15320f40fea",
+      "bytes": 2022
+    },
+    {
+      "nome": "ADENDO_016_002_kimi_criticas_e_parte_C.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_002_kimi_criticas_e_parte_C.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_002_kimi_criticas_e_parte_C.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_002_kimi_criticas_e_parte_C.md",
+      "sha256_16": "1018567b6966a4c1",
+      "bytes": 4810
+    },
+    {
+      "nome": "ADENDO_016_003_decisoes_do_operador_e_parte_D.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_003_decisoes_do_operador_e_parte_D.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_003_decisoes_do_operador_e_parte_D.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_003_decisoes_do_operador_e_parte_D.md",
+      "sha256_16": "076940a20f26cf94",
+      "bytes": 9743
+    },
+    {
+      "nome": "ADENDO_016_003b_suspensao_D1_D3.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_003b_suspensao_D1_D3.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_003b_suspensao_D1_D3.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_003b_suspensao_D1_D3.md",
+      "sha256_16": "b2294b54d2a37abc",
+      "bytes": 1930
+    },
+    {
+      "nome": "ADENDO_016_003c_o_campo_e_a_luz_D1_D3_revistos.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_003c_o_campo_e_a_luz_D1_D3_revistos.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_003c_o_campo_e_a_luz_D1_D3_revistos.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_003c_o_campo_e_a_luz_D1_D3_revistos.md",
+      "sha256_16": "3469ff03a2b9e438",
+      "bytes": 3051
+    },
+    {
+      "nome": "ADENDO_016_004_fechamento_parcial_antes_do_ringdown.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_004_fechamento_parcial_antes_do_ringdown.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_004_fechamento_parcial_antes_do_ringdown.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_004_fechamento_parcial_antes_do_ringdown.md",
+      "sha256_16": "6fbe31cbe4b11d9f",
+      "bytes": 6381
+    },
+    {
+      "nome": "ADENDO_017_001_a_017_passa_a_gerencia.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_017_001_a_017_passa_a_gerencia.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_017_001_a_017_passa_a_gerencia.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_017_001_a_017_passa_a_gerencia.md",
+      "sha256_16": "8ffeab3006683579",
+      "bytes": 1404
+    },
     {
       "nome": "ORDEM_001_esperanca_condicional_e_escala.md",
       "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_001_esperanca_condicional_e_escala.md",
@@ -176,6 +246,66 @@
       "bytes": 29534
     },
     {
+      "nome": "ORDEM_013BIS_fechamento_e_ampliacao_dos_eventos_ate_5sigma.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_013BIS_fechamento_e_ampliacao_dos_eventos_ate_5sigma.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_013BIS_fechamento_e_ampliacao_dos_eventos_ate_5sigma.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_013BIS_fechamento_e_ampliacao_dos_eventos_ate_5sigma.md",
+      "sha256_16": "a907d07bc484b53c",
+      "bytes": 91912
+    },
+    {
+      "nome": "ORDEM_013_confrontacao_do_ringdown.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_013_confrontacao_do_ringdown.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_013_confrontacao_do_ringdown.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_013_confrontacao_do_ringdown.md",
+      "sha256_16": "d4440c6a28eaad4b",
+      "bytes": 50620
+    },
+    {
+      "nome": "ORDEM_015_continuacao_do_ringdown_rumo_ao_5sigma.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_015_continuacao_do_ringdown_rumo_ao_5sigma.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_015_continuacao_do_ringdown_rumo_ao_5sigma.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_015_continuacao_do_ringdown_rumo_ao_5sigma.md",
+      "sha256_16": "c903681d01eec5ed",
+      "bytes": 135319
+    },
+    {
+      "nome": "ORDEM_017_a_quitacao_por_termo_de_H2_H3.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_017_a_quitacao_por_termo_de_H2_H3.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_017_a_quitacao_por_termo_de_H2_H3.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_017_a_quitacao_por_termo_de_H2_H3.md",
+      "sha256_16": "8d68c2e3ab763da6",
+      "bytes": 6333
+    },
+    {
+      "nome": "RECIBO_015_MAQUINA_LIVRE.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_015_MAQUINA_LIVRE.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_015_MAQUINA_LIVRE.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_015_MAQUINA_LIVRE.md",
+      "sha256_16": "36bedabeb7212176",
+      "bytes": 3397
+    },
+    {
+      "nome": "RECIBO_016_FECHAMENTO_PARCIAL.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_016_FECHAMENTO_PARCIAL.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_016_FECHAMENTO_PARCIAL.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_016_FECHAMENTO_PARCIAL.md",
+      "sha256_16": "26bed47e51d49826",
+      "bytes": 3319
+    },
+    {
       "nome": "RECIBO_DIAMANTE_MODULAR_v358.md",
       "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_DIAMANTE_MODULAR_v358.md",
       "papel": "documento",
@@ -256,8 +386,8 @@
       "bytes": 3872
     }
   ],
-  "total_arquivos_nesta_pasta": 22,
-  "total_arquivos_com_subpastas": 43,
+  "total_arquivos_nesta_pasta": 35,
+  "total_arquivos_com_subpastas": 56,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT",
-  "rodape": "gerado por script de git ls-files em 2026-09-21 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-27 -- nao editar a mao"
 }
