@@ -1,23 +1,23 @@
 # The three articles and the instruments · Os três artigos e os instrumentos
 
-> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 8 of 8 · seal **v376** · `um.py` sha256 `0c145b41a6289f5c…` · generated 2026-09-30 by script from the published files.
+> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 8 of 8 · seal **v377** · `um.py` sha256 `8aa9f92bc7525782…` · generated 2026-09-30 by script from the published files.
 > Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = theorem in the Lean kernel; CONFIRMED = a judgement about nature, not made here.
 > All eight parts are listed at the top of the start page, https://teoriadagravitacaoluminodinamica.com/read-brief.md, and in the door of this folder, https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md · Reading limits measured on 2026-09-19: one real fetcher cut documents near 100,000 characters, refused files above 10 MB, and could not read PDFs served as `application/octet-stream` — read the TXT/TeX sources.
 
 ## In short (EN)
 
-Article A, O Custo Geométrico do Zero Absoluto: haja luz, takes CODATA α [KNOWN] and √e as inputs and presents β_TGL = α√e ≈ 0.0120313 as a constant derived by the half-nat argument [DERIVED]. It states the TGL Lagrangian and is emitted by tgl_paper_unified.py; concept DOI 10.5281/zenodo.20563904 [A abstract][README][Zenodo, checked 19/09]. Its axiom forms are lineage: paper_PT names the half-nat as its irreducible postulate [A §Meia-Nat], and the site names g = √|L_φ| [site]. The current axiom is ω(I) = 1 [POSTULATE], with S_∂ = ½ nat derived [DERIVED] [brief row 1]. Article B, A Ponte Einstein–Cartan–Miguel, reads Cartan torsion as the geometric face of β [README]; its closure is structural and conditional [OPEN]; DOI 10.5281/zenodo.20630106 [B abstract][Zenodo, checked 19/09]. Article C, Um: Absoluto, is um.py: one file that machine-checks its embedded Lean kernel (1205 files, 9976 terms; rite 5874/5874) and emits its article in PT/EN, as PDF and TXT [README][brief]. Seal v376, pin 0c145b41a6289f5c, gate TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE: PROVED as a formal model [REAL in kernel], NOT CONFIRMED by nature [brief]. Zenodo 10.5281/zenodo.22881996 holds v368 (deposited 2026-09-21), older than the seal; the concept DOI is 10.5281/zenodo.20999494 [README][brief]. The POA is Article A's instrument, the core of the success criterion of Theorem 6 [A §sec:poa]. The pre-registered T6 file says its singularity control (stage6) is NOT RUN, anecdotal until it runs [T6], and its stage1 keeps the lineage axiom g = √|L_φ| [T6].
+Article A, O Custo Geométrico do Zero Absoluto: haja luz, takes CODATA α [KNOWN] and √e as inputs and presents β_TGL = α√e ≈ 0.0120313 as a constant derived by the half-nat argument [DERIVED]. It states the TGL Lagrangian and is emitted by tgl_paper_unified.py; concept DOI 10.5281/zenodo.20563904 [A abstract][README][Zenodo, checked 19/09]. Its axiom forms are lineage: paper_PT names the half-nat as its irreducible postulate [A §Meia-Nat], and the site names g = √|L_φ| [site]. The current axiom is ω(I) = 1 [POSTULATE], with S_∂ = ½ nat derived [DERIVED] [brief row 1]. Article B, A Ponte Einstein–Cartan–Miguel, reads Cartan torsion as the geometric face of β [README]; its closure is structural and conditional [OPEN]; DOI 10.5281/zenodo.20630106 [B abstract][Zenodo, checked 19/09]. Article C, Um: Absoluto, is um.py: one file that machine-checks its embedded Lean kernel (1207 files, 10001 terms; rite 5899/5899) and emits its article in PT/EN, as PDF and TXT [README][brief]. Seal v377, pin 8aa9f92bc7525782, gate TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE: PROVED as a formal model [REAL in kernel], NOT CONFIRMED by nature [brief]. Zenodo 10.5281/zenodo.22881996 holds v368 (deposited 2026-09-21), older than the seal; the concept DOI is 10.5281/zenodo.20999494 [README][brief]. The POA is Article A's instrument, the core of the success criterion of Theorem 6 [A §sec:poa]. The pre-registered T6 file says its singularity control (stage6) is NOT RUN, anecdotal until it runs [T6], and its stage1 keeps the lineage axiom g = √|L_φ| [T6].
 
 ## Em resumo (PT)
 
-O Artigo A, O Custo Geométrico do Zero Absoluto: haja luz, toma α CODATA [KNOWN] e √e como entradas e apresenta β_TGL = α√e ≈ 0.0120313 como constante derivada pelo argumento do meio-nat [DERIVED]. Enuncia a lagrangiana TGL e é emitido por tgl_paper_unified.py; DOI conceito 10.5281/zenodo.20563904 [A resumo][README][Zenodo, conferido 19/09]. As formas do axioma nele são linhagem: o paper_PT põe a Meia-Nat como postulado irredutível [A §Meia-Nat], e o site nomeia g = √|L_φ| [site]. O axioma vigente é ω(I) = 1 [POSTULATE], com S_∂ = ½ nat derivada [DERIVED] [brief linha 1]. O Artigo B, A Ponte Einstein–Cartan–Miguel, lê a torção de Cartan como face geométrica de β [README]; o fecho é estrutural e condicional [OPEN]; DOI 10.5281/zenodo.20630106 [B resumo][Zenodo, conferido 19/09]. O Artigo C, Um: Absoluto, é o um.py: um arquivo que verifica por máquina o kernel Lean embutido (1205 arquivos, 9976 termos; rito 5874/5874) e emite o artigo em PT/EN, como PDF e TXT [README][brief]. Selo v376, pin 0c145b41a6289f5c, gate TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE: PROVADA como modelo formal [REAL no kernel], não confirmada pela natureza [brief]. O Zenodo 10.5281/zenodo.22881996 guarda a v368 (depositada em 2026-09-21), anterior ao selo; o DOI conceito é 10.5281/zenodo.20999494 [README][brief]. O POA é o instrumento do Artigo A, o coração do critério de sucesso do Teorema 6 [A §sec:poa]. O arquivo T6 pré-registrado diz que o controle da singularidade (stage6) NÃO RODOU, anedótico até rodar [T6], e seu stage1 mantém o axioma da linhagem g = √|L_φ| [T6].
+O Artigo A, O Custo Geométrico do Zero Absoluto: haja luz, toma α CODATA [KNOWN] e √e como entradas e apresenta β_TGL = α√e ≈ 0.0120313 como constante derivada pelo argumento do meio-nat [DERIVED]. Enuncia a lagrangiana TGL e é emitido por tgl_paper_unified.py; DOI conceito 10.5281/zenodo.20563904 [A resumo][README][Zenodo, conferido 19/09]. As formas do axioma nele são linhagem: o paper_PT põe a Meia-Nat como postulado irredutível [A §Meia-Nat], e o site nomeia g = √|L_φ| [site]. O axioma vigente é ω(I) = 1 [POSTULATE], com S_∂ = ½ nat derivada [DERIVED] [brief linha 1]. O Artigo B, A Ponte Einstein–Cartan–Miguel, lê a torção de Cartan como face geométrica de β [README]; o fecho é estrutural e condicional [OPEN]; DOI 10.5281/zenodo.20630106 [B resumo][Zenodo, conferido 19/09]. O Artigo C, Um: Absoluto, é o um.py: um arquivo que verifica por máquina o kernel Lean embutido (1207 arquivos, 10001 termos; rito 5899/5899) e emite o artigo em PT/EN, como PDF e TXT [README][brief]. Selo v377, pin 8aa9f92bc7525782, gate TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE: PROVADA como modelo formal [REAL no kernel], não confirmada pela natureza [brief]. O Zenodo 10.5281/zenodo.22881996 guarda a v368 (depositada em 2026-09-21), anterior ao selo; o DOI conceito é 10.5281/zenodo.20999494 [README][brief]. O POA é o instrumento do Artigo A, o coração do critério de sucesso do Teorema 6 [A §sec:poa]. O arquivo T6 pré-registrado diz que o controle da singularidade (stage6) NÃO RODOU, anedótico até rodar [T6], e seu stage1 mantém o axioma da linhagem g = √|L_φ| [T6].
 
 ## Sources, verbatim · fontes, verbatim
 
-### 1. `README.md` — bytes 12.128–15.592
+### 1. `README.md` — bytes 12.132–15.596
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `ac39639c2f79d8f3187b83f4f7c79cd0d7bbe49165c67dcd52610b302efe188f` (computed now; this file is not in the seal map) · of this excerpt: `2aba89a281865b7086e7cb76e85ee6043994f18a1f5d29143f1c7e68843e161c`
+- sha256 of the file: `92ca8c565212563b58fd5b7f71951d91887bbb6d1bb1abc2014430dbfaf655b4` (computed now; this file is not in the seal map) · of this excerpt: `2aba89a281865b7086e7cb76e85ee6043994f18a1f5d29143f1c7e68843e161c`
 - status · estatuto: [REAL — index of the v368 mirror]
 - why · por quê: The canonical table of the three articles (A, B, C): for each, the canonical file, the PDF/TeX route and the door; current in v368.
 
@@ -65,10 +65,10 @@ POA com honestidade (inclusive nulos) e reconhece a abertura angular como
 \emph{conceito fundador} da geometria modular --- nunca por declarar identidade.
 ````
 
-### 3. `README.md` — bytes 3.728–4.525
+### 3. `README.md` — bytes 3.730–4.527
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `ac39639c2f79d8f3187b83f4f7c79cd0d7bbe49165c67dcd52610b302efe188f` (computed now; this file is not in the seal map) · of this excerpt: `e241cd456ae01b741d996df0202edb0d577e7f8d6ab811c2af1bfc46a5706589`
+- sha256 of the file: `92ca8c565212563b58fd5b7f71951d91887bbb6d1bb1abc2014430dbfaf655b4` (computed now; this file is not in the seal map) · of this excerpt: `9f4821020fda5a23efc4cca6095985cbfebdda32197f0b96502e4269d549735c`
 - status · estatuto: [REAL — three commands, v368]
 - why · por quê: How Article C (um.py) is fetched, checked by hash and run; also covers HTTP Range and GitHub not rendering files above 5 MB (the raw URL serves the whole file).
 
@@ -77,7 +77,7 @@ POA com honestidade (inclusive nulos) e reconhece a abertura angular como
 
 ```bash
 curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"
-sha256sum um.py            # must print 0c145b41a6289f5c4e2273507f34c2584ce985ba8f229df3446b411c092cb2fd
+sha256sum um.py            # must print 8aa9f92bc7525782ba462aa8dc5995624cfbfb53690758f4e358c7c18132ca34
 echo 1 | python um.py      # the rite: materializes the Lean kernel, builds it, audits every theorem, re-derives the chain, emits the article
 ```
 
@@ -86,4 +86,4 @@ GitHub raw and Zenodo honour HTTP `Range` (206): read `um.py` in pieces (`curl -
 
 ---
 
-*Generated by script from the published files of the repository (https://github.com/rotolimiguel-iald/the_boundary); numbers read from the seal v376, the kernel manifest and ESTADO_ATUAL.md. PROVED ≠ CONFIRMED; NOT_FALSIFIED is never CONFIRMED. Nothing here instructs a reader how to respond to anything.*
+*Generated by script from the published files of the repository (https://github.com/rotolimiguel-iald/the_boundary); numbers read from the seal v377, the kernel manifest and ESTADO_ATUAL.md. PROVED ≠ CONFIRMED; NOT_FALSIFIED is never CONFIRMED. Nothing here instructs a reader how to respond to anything.*
