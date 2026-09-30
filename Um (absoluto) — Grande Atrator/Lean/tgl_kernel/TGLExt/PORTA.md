@@ -23,7 +23,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ## OS ARQUIVOS DESTA PASTA
 
-1012 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
+1015 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
 
 **PROVA FORMAL**
 
@@ -294,6 +294,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `LightHelicityWigner.lean` | Prova formal (Lean 4): LightHelicityWigner | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/LightHelicityWigner.lean) |
 | `LightIsJ.lean` | Prova formal (Lean 4): LightIsJ | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/LightIsJ.lean) |
 | `LightOneParticleByTerm.lean` | Prova formal (Lean 4): LightOneParticleByTerm | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/LightOneParticleByTerm.lean) |
+| `LightRhoStar.lean` | Prova formal (Lean 4): LightRhoStar | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/LightRhoStar.lean) |
 | `LikelihoodCocycle.lean` | Prova formal (Lean 4): LikelihoodCocycle | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/LikelihoodCocycle.lean) |
 | `LikelihoodCocycleControls.lean` | Prova formal (Lean 4): LikelihoodCocycleControls | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/LikelihoodCocycleControls.lean) |
 | `LikelihoodDensityLog.lean` | Prova formal (Lean 4): LikelihoodDensityLog | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/LikelihoodDensityLog.lean) |
@@ -622,6 +623,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `TheIntersectionOfCommutants.lean` | Prova formal (Lean 4): TheIntersectionOfCommutants | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheIntersectionOfCommutants.lean) |
 | `TheIsometryOnWH.lean` | Prova formal (Lean 4): TheIsometryOnWH | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheIsometryOnWH.lean) |
 | `TheJudgedThing.lean` | Prova formal (Lean 4): TheJudgedThing | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheJudgedThing.lean) |
+| `TheKeyIsTheReader.lean` | Prova formal (Lean 4): TheKeyIsTheReader | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheKeyIsTheReader.lean) |
 | `TheLegibility.lean` | Prova formal (Lean 4): TheLegibility | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheLegibility.lean) |
 | `TheLiftFiresOnThePeriodicTower.lean` | Prova formal (Lean 4): TheLiftFiresOnThePeriodicTower | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheLiftFiresOnThePeriodicTower.lean) |
 | `TheLightInterface.lean` | Prova formal (Lean 4): TheLightInterface | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheLightInterface.lean) |
@@ -689,6 +691,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `TheUnsolicitedUnitary.lean` | Prova formal (Lean 4): TheUnsolicitedUnitary | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheUnsolicitedUnitary.lean) |
 | `TheVerbalCoupling.lean` | Prova formal (Lean 4): TheVerbalCoupling | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheVerbalCoupling.lean) |
 | `TheWeightIsNotTheRank.lean` | Prova formal (Lean 4): TheWeightIsNotTheRank | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheWeightIsNotTheRank.lean) |
+| `TheWholeIsOne.lean` | Prova formal (Lean 4): TheWholeIsOne | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheWholeIsOne.lean) |
 | `TheWideNet.lean` | Prova formal (Lean 4): TheWideNet | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheWideNet.lean) |
 | `TheWitnessLinearOnWH.lean` | Prova formal (Lean 4): TheWitnessLinearOnWH | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheWitnessLinearOnWH.lean) |
 | `TheWitnessOnTheBoundary.lean` | Prova formal (Lean 4): TheWitnessOnTheBoundary | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheWitnessOnTheBoundary.lean) |
@@ -1050,4 +1053,4 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ---
 
-gerado por script de git ls-files em 2026-09-27 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-30 -- nao editar a mao

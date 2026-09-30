@@ -4,7 +4,7 @@
   "titulo": "cache/gw",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-27T18:58:35Z",
+  "gerado_utc": "2026-09-30T11:22:06Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "cache",
@@ -20,6 +20,16 @@
   "comando": null,
   "dependencias": null,
   "arquivos": [
+    {
+      "nome": "C6_RESULTS_GW250114.json",
+      "caminho": "cache/gw/C6_RESULTS_GW250114.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/C6_RESULTS_GW250114.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/gw/C6_RESULTS_GW250114.json",
+      "sha256_16": "781a3741a68875eb",
+      "bytes": 50604
+    },
     {
       "nome": "ECHO_ANCHORED_V1_RESULT.json",
       "caminho": "cache/gw/ECHO_ANCHORED_V1_RESULT.json",
@@ -121,8 +131,8 @@
       "bytes": 247065
     }
   ],
-  "total_arquivos_nesta_pasta": 10,
-  "total_arquivos_com_subpastas": 10,
+  "total_arquivos_nesta_pasta": 11,
+  "total_arquivos_com_subpastas": 11,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/gw",
-  "rodape": "gerado por script de git ls-files em 2026-09-27 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-30 -- nao editar a mao"
 }

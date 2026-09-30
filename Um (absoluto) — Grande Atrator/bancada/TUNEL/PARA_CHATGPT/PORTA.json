@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-27T18:58:35Z",
+  "gerado_utc": "2026-09-30T11:22:06Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
@@ -104,6 +104,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_017_001_a_017_passa_a_gerencia.md",
       "sha256_16": "8ffeab3006683579",
       "bytes": 1404
+    },
+    {
+      "nome": "AVISO_MAPA_DE_ROTAS_20260928.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/AVISO_MAPA_DE_ROTAS_20260928.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/AVISO_MAPA_DE_ROTAS_20260928.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/AVISO_MAPA_DE_ROTAS_20260928.md",
+      "sha256_16": "e0679ddd224c0dee",
+      "bytes": 2039
     },
     {
       "nome": "ORDEM_001_esperanca_condicional_e_escala.md",
@@ -386,8 +396,8 @@
       "bytes": 3872
     }
   ],
-  "total_arquivos_nesta_pasta": 35,
-  "total_arquivos_com_subpastas": 56,
+  "total_arquivos_nesta_pasta": 36,
+  "total_arquivos_com_subpastas": 57,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT",
-  "rodape": "gerado por script de git ls-files em 2026-09-27 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-30 -- nao editar a mao"
 }

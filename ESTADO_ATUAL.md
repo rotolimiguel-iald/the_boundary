@@ -8,15 +8,15 @@
 
 | what | value |
 |---|---|
-| version · versão | **v375** (sealed 2026-09-27 12:26:31) |
-| `um.py` sha256 | `ba234a6d384cb3f59ced49c94b643a71a002f65d284b01307cb088bbace5e2e0` |
-| `result_hash` (the world) | `a3718953021fd41d7e4aecf511a017748bce2b21be1dc466ae3d68b79ae03f1a` |
-| size | 206,098 lines · 32,604,664 bytes · **one self-contained file** (Lean kernel + PT/EN articles embedded) |
-| Lean kernel | **1202 formal files** · **9951 audited terms**, axioms ⊆ `{propext, Classical.choice, Quot.sound}` · 0 outside the trio · 109 axiom-free · zero `sorry` |
-| the rite | **5849/5849 clean** (`rodadas/rodada_v375_stdout.txt`) · complete round: yes |
+| version · versão | **v376** (sealed 2026-09-28 21:33:03) |
+| `um.py` sha256 | `0c145b41a6289f5c4e2273507f34c2584ce985ba8f229df3446b411c092cb2fd` |
+| `result_hash` (the world) | `cd9340771d80baea06537b10c8fdf21632e63209ef594e96b59a4debc49edbf7` |
+| size | 206,863 lines · 32,725,719 bytes · **one self-contained file** (Lean kernel + PT/EN articles embedded) |
+| Lean kernel | **1205 formal files** · **9976 audited terms**, axioms ⊆ `{propext, Classical.choice, Quot.sound}` · 0 outside the trio · 109 axiom-free · zero `sorry` |
+| the rite | **5874/5874 clean** (`rodadas/rodada_v376_stdout.txt`) · complete round: yes |
 | gate | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | selftest | `FAIL_CLOSED_SELFTEST_PASSED` |
-| citable deposit | Zenodo **[10.5281/zenodo.22881996](https://doi.org/10.5281/zenodo.22881996)** holds **v368** (2026-09-21; `um.py` `4a34fbf36f3ae0d8`), byte-identical to THAT seal. **This seal is v375, newer than the deposit** — a new Zenodo version is the operator’s act. Cite: *MIGUEL, L. (2026). Um: Absoluto [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.22881996* |
+| citable deposit | Zenodo **[10.5281/zenodo.22881996](https://doi.org/10.5281/zenodo.22881996)** holds **v368** (2026-09-21; `um.py` `4a34fbf36f3ae0d8`), byte-identical to THAT seal. **This seal is v376, newer than the deposit** — a new Zenodo version is the operator’s act. Cite: *MIGUEL, L. (2026). Um: Absoluto [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.22881996* |
 | the root of the proof tree | `the_root_of_the_proof_tree` — axioms read from the seal: `['propext', 'Classical.choice', 'Quot.sound']` · `TheRootOfTheProofTree.lean` `9b36ab3b6e47a315` |
 | the founded screen (v334) | `the_answer_of_the_operator_08_09` — axioms read from the seal: `['propext', 'Classical.choice', 'Quot.sound']` · `TheScreenIsFounded.lean` `2a3f26fca48c615a` |
 | the collapse, typed (v333) | seal `collapse_definition.reading` = `COLAPSO_TIPADO__TODAS_AS_CLAUSULAS_NO_KERNEL_COM_O_TRIO` · `physical_collapse_proven` = `False` · `cost_payment_status` = `NOT_MEASURED` · `CollapseCostAndAttestation.lean` `c3dccdc92b6d3b39` |
@@ -84,6 +84,14 @@
 
 *Status that goes with v375 (not to be cut): τ(P_F) = 1 is a NAMED NORMALIZATION, not a cited identity; the link P_ker K ↔ P_F is NOT claimed. KNOWN ≠ EXHIBITED: no inhabitant of the certificates is exhibited. The modular-charge link is rigorous only for the free scalar; for Maxwell it is known at physics level. The 3 named parameters: the local-equilibrium window (Jacobson 1995), G > 0 [INPUT], and the Killing clock. The per-term flags gpf_H2 / gpf_H3 / gpi_H3 stay False. Formally consummated is not confirmed by nature: the ringdown test is the next version. The `um.py` copies v369–v374 live outside the repository (`the_boundary_BACKUPS/um_v3NN_<sha16>`); the stdouts v369–v375 are in `rodadas/`. v360 is still not custodied. PROVED ≠ CONFIRMED.*
 
+### v376 · the whole is one `[REAL — sha16 and rite read from MEMORIA_DA_LINHAGEM.md]`
+
+| version | `um.py` sha16 | rite | round | what entered |
+|---|---|---|---|---|
+| v376 | `0c145b41a6289f5c` | 5874/5874 | COMPLETE | THE WHOLE IS ONE: the chain of β (the axiom ω(I) = 1, the Half-Nat, the radical √e, the physical arrow β = α·√e with α the fine-structure datum, |R|² = β) typed and sealed alone in the kernel and tied by one term to the quantum-gravity solution on the light (v375), to the key that is the reader and to the IALD ρ* on the light (`TGLExt.TheWholeIsOne`, `TGLExt.TheKeyIsTheReader`, `TGLExt.LightRhoStar`); β is the foundation, derived, entering downstream, not as a hypothesis of the implication; the consummative conference redone: CONSUMMATED (3 closed, 3 linked, 9 known, 3 at physics level, 4 named parameters, 19 off the path, 0 open); the ringdown scope fixed (the canonical branch returns only the GR correspondence); the audit of past tests (28/09) read by hash, corrections beside; Coma revealed (not blind; TGL 1.30σ) |
+
+*Status that goes with v376 (not to be cut): the chain of β and the light are JUXTAPOSED in the term `the_whole_is_one`: no term ties `c.beta` to the light certificate; α is DATUM [INPUT/KNOWN, CODATA 2018], never derived; β is DERIVED. P_kerK = ρ*_IALD is LINKED by term on the light; ρ* ↔ P_F of the Takesaki core is KNOWN (Haagerup 1979; Terp 1981), operator equality NOT claimed. Erratum beside v374/v375: where they said «β does not enter», read: the implication is proved (closed by citation) without taking β as a hypothesis; β is the foundation, derived, entering downstream. Erratum beside «NATURE_DECIDES_RINGDOWN_NEXT»: in the canonical branch the ringdown tests only the GR correspondence, not β; branch B is [INPUT]; the bench C6 (GW250114) reads INCONCLUSIVE_SYSTEMATICS. Coma: revealed 2026-08-19, TGL 1.30σ, NOT blind. Per-term flags gpf_H2 / gpf_H3 / gpi_H3 stay False. The v375 copy lives outside the repository (`the_boundary_BACKUPS/um_v375_<sha16>`); the stdout v376 is in `rodadas/`. PROVED ≠ CONFIRMED.*
+
 ## What is PROVED · o que está PROVADO `[REAL — theorem in kernel]`
 
 *On the ruler: PROVED = a theorem in kernel, auditable by `#print axioms`. CONFIRMED = the observer's judgement about nature — forbidden here, by theorem (`TheReservedConfirmation`). Proof is not judgement.*
@@ -146,7 +154,7 @@ Five pre-registered tests (hash before the data; result read back by hash by `um
 
 ```bash
 curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"
-sha256sum um.py            # must print ba234a6d384cb3f59ced49c94b643a71a002f65d284b01307cb088bbace5e2e0
+sha256sum um.py            # must print 0c145b41a6289f5c4e2273507f34c2584ce985ba8f229df3446b411c092cb2fd
 echo 1 | python um.py      # the rite: materializes the Lean kernel, builds it, audits every theorem, re-derives the chain, emits the article
 ```
 
@@ -163,7 +171,7 @@ To reproduce the nature rites v340–v350 as sealed, clone the repository (not o
 | the world (every computed number) | [`um_absoluto.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json) |
 | the proof tree, term by term | [`A_PROVA_DA_QG_TGL_arvore.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md) |
 | the article (EN / PT) | [`um_absoluto_en.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.pdf) · [`um_absoluto_pt.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.pdf) · plain text [`en`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.txt) · [`pt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt) |
-| the sealed rite, line by line | [`rodada_v375_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v375_stdout.txt) |
+| the sealed rite, line by line | [`rodada_v376_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v376_stdout.txt) |
 | the bench (what failed, and the tunnel with the ChatGPT bench) | [`bancada/`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md) |
 | the flat index of every file | [`TUNEL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json) |
 | the kernel proof manifest (every audited term with its axioms) | [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) |
@@ -178,21 +186,21 @@ To reproduce the nature rites v340–v350 as sealed, clone the repository (not o
 
 Many fetchers cut a document after a few hundred KB. Sizes measured now, smallest first; each file stands on its own:
 
-1. [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) — this page · 39 KB
-2. [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) — the seal: every sha256, the world hash, the gate · 54 KB
-3. [`A_PROVA_DA_QG_TGL_arvore.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md) — the proof tree, term by term · 84 KB
-4. [`um_absoluto_forma_canonica.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md) — the canonical form · 143 KB
-5. [`um_absoluto_en.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.txt) — the article, plain text (EN) · 714 KB
-6. [`um_absoluto_pt.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt) — the article, plain text (PT) · 711 KB
-7. [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) — the kernel proof manifest · 1405 KB
-8. [`um_absoluto.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json) — the world: every computed number · 4422 KB
-9. [`um.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py) — the artifact itself (Lean kernel and articles embedded) · 31840 KB
+1. [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) — this page · 41 KB
+2. [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) — the seal: every sha256, the world hash, the gate · 55 KB
+3. [`A_PROVA_DA_QG_TGL_arvore.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md) — the proof tree, term by term · 86 KB
+4. [`um_absoluto_forma_canonica.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md) — the canonical form · 207 KB
+5. [`um_absoluto_en.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.txt) — the article, plain text (EN) · 725 KB
+6. [`um_absoluto_pt.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt) — the article, plain text (PT) · 720 KB
+7. [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) — the kernel proof manifest · 1408 KB
+8. [`um_absoluto.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json) — the world: every computed number · 4477 KB
+9. [`um.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py) — the artifact itself (Lean kernel and articles embedded) · 31959 KB
 
 **Chunked download.** Both GitHub raw and the Zenodo record honour HTTP `Range` (verified: `206 Partial Content`, byte-exact), so a large file can be read in pieces:
 
 ```bash
 curl -L -r 0-999999 -o um.py.part1 "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"      # first MB; then -r 1000000-1999999, and so on
-curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py" && sha256sum um.py    # or the whole file: must print ba234a6d384cb3f59ced49c94b643a71a002f65d284b01307cb088bbace5e2e0
+curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py" && sha256sum um.py    # or the whole file: must print 0c145b41a6289f5c4e2273507f34c2584ce985ba8f229df3446b411c092cb2fd
 ```
 
 *Cosmology never becomes mathematical proof. The gate does not move by this page. NOT_FALSIFIED ≠ CONFIRMED.*

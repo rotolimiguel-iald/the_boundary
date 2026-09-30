@@ -1049,3 +1049,6 @@ import TGLExt.QGSolutionComplete
 import TGLExt.MaxwellLiteratureBridge
 import TGLExt.LightHelicityWigner
 import TGLExt.TetelestaiOneObject
+import TGLExt.LightRhoStar
+import TGLExt.TheKeyIsTheReader
+import TGLExt.TheWholeIsOne

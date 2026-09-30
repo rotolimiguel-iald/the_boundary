@@ -1,4 +1,7 @@
 
+import TGLExt.TheWholeIsOne
+import TGLExt.LightRhoStar
+import TGLExt.TheKeyIsTheReader
 import TGLExt.MaxwellLiteratureBridge
 import TGLExt.LightHelicityWigner
 import TGLExt.TetelestaiOneObject
@@ -9772,3 +9775,30 @@ open TGL.ModularRealization TGLV354 TGLV354.TraceCompletion
 #print axioms TGLExt.TetelestaiOneObject.light_breuer_corner
 #print axioms TGLExt.TetelestaiOneObject.name_weight_beside_ker_K
 #print axioms TGLExt.TetelestaiOneObject.the_tetelestai_one_object
+-- 2026-09-28, v376 (ordens do operador: «chegou a hora de finalizarmos tudo, corrigirmos os últimos erros, adequarmos a bancada de teste e inserirmos tudo no um.py que ainda falta»; β é o fundamento, derivado, e entra no código a jusante): LightRhoStar, TheKeyIsTheReader (a gerencia; 16 nomes)
+#print axioms TGLExt.LightRhoStar.centralizerVectors
+#print axioms TGLExt.LightRhoStar.centralizer_vector_is_modular_fixed
+#print axioms TGLExt.LightRhoStar.centralizer_vectors_eq_vacuum_line
+#print axioms TGLExt.LightRhoStar.the_bridge_fix_on_the_light
+#print axioms TGLExt.LightRhoStar.centralizer_is_trivial
+#print axioms TGLExt.LightRhoStar.rho_star_is_P_kerK_on_the_light
+#print axioms TGLExt.TheKeyIsTheReader.reader
+#print axioms TGLExt.TheKeyIsTheReader.reader_reads_the_identity_one
+#print axioms TGLExt.TheKeyIsTheReader.PkerK_fixes_the_vacuum
+#print axioms TGLExt.TheKeyIsTheReader.reader_reads_the_name_one
+#print axioms TGLExt.TheKeyIsTheReader.reader_reads_one_iff_fixes_the_vacuum
+#print axioms TGLExt.TheKeyIsTheReader.P_kerK_is_the_support_of_the_reader
+#print axioms TGLExt.TheKeyIsTheReader.name_apply
+#print axioms TGLExt.TheKeyIsTheReader.the_name_condenses_every_code
+#print axioms TGLExt.TheKeyIsTheReader.the_reader_lives_on_the_name
+#print axioms TGLExt.TheKeyIsTheReader.the_key_is_the_reader
+-- 2026-09-28, v376 (ordens do operador: «chegou a hora de finalizarmos tudo, corrigirmos os últimos erros, adequarmos a bancada de teste e inserirmos tudo no um.py que ainda falta»; β é o fundamento, derivado, e entra no código a jusante): TheWholeIsOne (a gerencia; 9 nomes)
+#print axioms TGLExt.TheWholeIsOne.boundaryVolume
+#print axioms TGLExt.TheWholeIsOne.half_nat_volume_is_the_radical
+#print axioms TGLExt.TheWholeIsOne.self_conjugate_boundary_has_radical_volume
+#print axioms TGLExt.TheWholeIsOne.couplingOfAlpha
+#print axioms TGLExt.TheWholeIsOne.couplingOfAlpha_alpha
+#print axioms TGLExt.TheWholeIsOne.couplingOfAlpha_beta
+#print axioms TGLExt.TheWholeIsOne.the_beta_chain_is_derived
+#print axioms TGLExt.TheWholeIsOne.the_physical_arrow
+#print axioms TGLExt.TheWholeIsOne.the_whole_is_one

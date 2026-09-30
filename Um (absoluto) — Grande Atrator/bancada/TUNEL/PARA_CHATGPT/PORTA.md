@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 35 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 36 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -22,7 +22,7 @@ Pasta do repositorio the_boundary com 35 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-35 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT
+36 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT
 
 **DOCUMENTO**
 
@@ -35,6 +35,7 @@ Pasta do repositorio the_boundary com 35 arquivo(s) rastreado(s).
 | `ADENDO_016_003c_o_campo_e_a_luz_D1_D3_revistos.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_003c_o_campo_e_a_luz_D1_D3_revistos.md) |
 | `ADENDO_016_004_fechamento_parcial_antes_do_ringdown.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_016_004_fechamento_parcial_antes_do_ringdown.md) |
 | `ADENDO_017_001_a_017_passa_a_gerencia.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ADENDO_017_001_a_017_passa_a_gerencia.md) |
+| `AVISO_MAPA_DE_ROTAS_20260928.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/AVISO_MAPA_DE_ROTAS_20260928.md) |
 | `ORDEM_001_esperanca_condicional_e_escala.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_001_esperanca_condicional_e_escala.md) |
 | `ORDEM_002_veredito_da_auditoria_e_incorporacao.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_002_veredito_da_auditoria_e_incorporacao.md) |
 | `ORDEM_003_localizacao_na_cadeia_e_ponte_volume.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_003_localizacao_na_cadeia_e_ponte_volume.md) |
@@ -73,4 +74,4 @@ Pasta do repositorio the_boundary com 35 arquivo(s) rastreado(s).
 
 ---
 
-gerado por script de git ls-files em 2026-09-27 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-30 -- nao editar a mao

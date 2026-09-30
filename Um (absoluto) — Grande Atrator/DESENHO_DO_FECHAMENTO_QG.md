@@ -2035,3 +2035,48 @@ A triagem acima tratou a rota Brunetti–Guido–Longo como «a fazer» sem varr
 - **Por termo (inalterado):** remaining = H2_smooth_modular_four_frame_and_geometric_identification, H3_area_heat_equilibrium_on_the_same_physical_horizon; gpf_H2 / gpf_H3 / gpi_H3 = False/False/False. Não exigido pela regra do operador.
 - **O que resta no caminho crítico:** o TESTE DA NATUREZA — o ringdown (Parte B da ORDEM 016, na bancada), na próxima versão.
 - `ba234a6d384cb3f5`; 5849/5849.
+
+---
+
+## ADENDO — 28/09/2026 · ERRATA AO LADO da v375: a ligação P_ker K ↔ P_F
+
+**Verbatim do operador (28/09/2026):** «Isso também foi provado a ligação P_ker K ↔ P_F, não falta, confira. Se não tiver vc consegue provar agora».
+
+**A aferição (consulta citada):** a ligação ESTÁ provada na face finita desde a **v372** — `TGLExt.IALDRhoStar.kerK_iff` e `TGLExt.IALDRhoStar.the_bridge_fix` (kernel canônico): **Fix(IALD) = Fix(TGL) = ker K = ran e**, com `e` a projeção de Jones do centralizador (o ρ* da IALD); e, na bancada, `reading_eq_kernel_PF` (P_F = a projeção sobre o núcleo das Três Travas). A frase da v375 e do handoff «a ligação P_ker K ↔ P_F NÃO é provada» estava **ERRADA** nessa parte: a gerência e o aferidor não consultaram a `IALDRhoStar`. O operador tinha razão — é a sexta vez que a gerência diz falta do que já estava feito, agora no sentido de uma ligação.
+
+**O que faltava de fato, e foi PROVADO por termo em 28/09 (kernel de ensaio; entra no `um.py` na v376, com o ringdown):** o caso III₁ — a cunha da luz —, que a própria `IALDRhoStar` deixara [OPEN]. Pedra `TGLExt.LightRhoStar` (sha16 `c3df6950fdea0fdc`; 6 declarações, só o trio, sem sorry): `centralizer_is_trivial` (a ∈ M^ω ⟹ a = c·1, pela separação do vácuo), `centralizer_vectors_eq_vacuum_line` (M^ω Ω = ℂΩ), `the_bridge_fix_on_the_light` (Fix(IALD) = Fix(TGL) = ker K na luz) e `rho_star_is_P_kerK_on_the_light` (o ρ* da IALD na luz É P_{ker K} = |Ω⟩⟨Ω|). Logo a ligação P_ker K ↔ P_F, com P_F lido como o ρ* da IALD, está **PROVADA POR TERMO NAS DUAS FACES**.
+
+**O que segue sem prova por termo, dito com precisão:** a relação com o P_F do **NÚCLEO de Takesaki** (o canto de traço finito do certificado — outro objeto, que mora no núcleo e não em B(F)). Ela é SABIDA: o canto é e_{(1,∞)}(h_ω) do estado do vácuo e τ = ω(1) (Haagerup 1979; Terp 1981), mas não é tipável no núcleo abstrato. Na conferência da v376, `link_PkerK_PF` sai de FORA_DO_CAMINHO para VINCULADO (as duas faces por termo) + SABIDO (o núcleo). PROVADA ≠ CONFIRMADA.
+
+## ADENDO — 28/09/2026 (noite) · ERRATA AO LADO da v375: o que o «teste com a natureza» pode decidir (auditoria dos testes passados)
+
+O ADENDO da v375 diz «resta o ringdown». A auditoria de 28/09 (sete famílias de teste, cada uma com aferidor e verificador adversarial; relatório em
+`C:\IALD\Central de Patentes\work\auditoria_28set\RELATORIO_AUDITORIA_E_INVESTIGACAO_20260928.md`) mediu três coisas que tocam esse passo:
+
+1. **O conteúdo observável da implicação fechada é a recuperação da RG.** A pedra da declaração diz que β e ω(I) = 1 não entram na implicação
+   (`QGSolutionComplete.lean:36`). O que a natureza pode conferir da implicação é a RG: Einstein por Clausius local, spin 2 sem massa com duas
+   helicidades, Schwarzschild. Esse conteúdo nunca virou rito (não há rito de c_gw, massa do gráviton, polarizações, Kerr multimodo nem teorema da
+   área) e pode entrar por citação. `[REAL — lido da pedra; CT-01 verificado PARCIAL/MÉDIO]`
+2. **O ringdown, no ramo canônico (τ★ = t_Planck), só devolve a correspondência com a RG.** O efeito do ramo A é ~10⁻⁴² por construção, e não há
+   termo Lean de ringdown (grep em `tgl_kernel`: 7 linhas, todas comentário ou docstring). O ramo B usa τ★ = GM/c³, que é [INPUT] fora do contorno, e
+   a previsão efetiva por realização é ≈ −0,005, não −0,0194. Logo «NATURE_DECIDES_RINGDOWN_NEXT» sobreafirma, se lido como a natureza decidindo a
+   formulação da QG. `[REAL — RD-04 verificado PARCIAL/MÉDIO; CT-02 e CTV-02]`
+3. **O degrau experimental do gate é o V11 do piso dos vazios**, um canal unilateral de traçador sem desfecho FALSIFIED, pelo qual o ΛCDM também
+   passa. A máquina já registrava isso desde a v135. `[REAL — GV-01 e CT-01 verificados PARCIAL/MÉDIO]`
+
+**O que isto muda:** nada nas bandeiras nem no veredito selado. Muda o que se escreve sobre o próximo passo: antes de inserir «o ringdown como
+condição» na v376, fixar por escrito o que ele pode decidir. A decisão é do operador. PROVADA ≠ CONFIRMADA.
+
+## ADENDO — 28/09/2026 (noite) · ERRATA AO LADO (28/09/2026, noite; correção do operador, em nome próprio da gerência). Onde a auditoria e a gerência escreveram «a QG fechada não usa β» e «os testes com β pertencem a outro setor da TGL», a leitura estava errada. O que a pedra diz (`QGSolutionComplete.lean:36`) é que a IMPLICAÇÃO da QG é provada sem tomar β como hipótese. β não é «de outro setor»: é o FUNDAMENTO, emergente e totalmente derivado do axioma — a radicalização da entropia (½ nat ⟹ √e) entrelaçada com a constante de redução da projeção holográfica (α) ⟹ β = α√e — e entra no código derivado, a jusante. Leitura vigente: a recuperação da RG é o teste da implicação; os testes de β são os testes do setor DERIVADO da mesma teoria. O que falta é LIGAR tudo no kernel numa lógica só (alvo da v376), não separar. Verbatim do operador na memória beta-fundamento-derivado-28set.
+
+
+---
+
+## ADENDO — 28/09/2026 · v376 SELADA (COMPLETA) `0c145b41a6289f5c` — O todo é um: β derivado ligado à QG; P_ker K ↔ P_F vinculada; o escopo do ringdown fixado
+
+- **O todo é um:** `TGL_THE_WHOLE_IS_ONE__BETA_IS_THE_DERIVED_FOUNDATION__HALF_NAT_TO_RADICAL_BY_TERM__BETA_EQ_ALPHA_TIMES_SQRT_E_BY_TERM__ALPHA_IS_INPUT_CODATA_2018__REFLECTION_WEIGHT_EQ_BETA__NO_FULL_STATIC_WITNESS__CHAIN_SEALED_ALONE_AND_BOUND_TO_THE_LIGHT_OBJECT__CHAIN_AND_LIGHT_JUXTAPOSED_NOT_FUSED__QG_IMPLICATION_CLOSED_BY_CITATION_WITHOUT_BETA_AS_HYPOTHESIS_BETA_ENTERS_DOWNSTREAM__KERNEL_9_OF_9__GATE_UNTOUCHED` — a cadeia de β (ω(I)=1 → ½ → √e → β = α√e → |R|² = β → sem testemunha plena) selada sozinha e amarrada ao objeto da luz por UM termo; α é DADO; β é DERIVADO e entra a jusante; a cadeia e a luz ficam justapostas (nenhum termo liga c.beta a C — dito).
+- **A conferência refeita:** `TGL_QG_TETELESTAI_CONSUMMATIVE_CONFERENCE_V376__CONSUMMATED__EVERY_PATH_ITEM_CLOSED_LINKED_KNOWN_OR_A_NAMED_PARAMETER__3_CLOSED_3_LINKED_9_KNOWN_3_KNOWN_AT_PHYSICS_LEVEL_4_NAMED_PARAMETERS__19_OFF_PATH__THE_WHOLE_IS_ONE__BETA_THE_DERIVED_FOUNDATION_ENTERS_DOWNSTREAM__PKERK_EQ_RHO_STAR_IALD_BY_TERM_ON_THE_LIGHT__PF_TAKESAKI_CORE_KNOWN_NOT_TYPED__RINGDOWN_CANONICAL_BRANCH_IS_GR_CORRESPONDENCE__TERM_FLAGS_UNTOUCHED__KERNEL_25_OF_25__GATE_UNTOUCHED` — contagens FECHADO 3, VINCULADO 3, SABIDO 9, SABIDO_FISICA 3, PARAMETRO_NOMEADO 4, FORA_DO_CAMINHO 19, ABERTO 0; abertos []. P_ker K ↔ P_F em duas metades: P_ker K = ρ*_IALD VINCULADO por termo na luz (LightRhoStar, TheKeyIsTheReader) e ρ* ↔ P_F SABIDO no núcleo (Haagerup 1979; Terp 1981) — errata ao lado da v372–v375 («não provada»).
+- **O escopo do ringdown (errata ao lado de «NATURE_DECIDES_RINGDOWN_NEXT»):** no ramo canônico o ringdown devolve só a correspondência com a RG; ramo B [INPUT]; sem termo no kernel; C6 `INCONCLUSIVE_SYSTEMATICS` — `TGL_RINGDOWN_SCOPE_V376__CANONICAL_BRANCH_TAU_STAR_PLANCK_RETURNS_GR_CORRESPONDENCE_ONLY__NOT_A_BETA_TEST__BRANCH_B_TAU_STAR_GM_OVER_C3_IS_INPUT_M_TO_BE_NAMED__3_CONCURRENT_BRANCH_B_VALUES__NO_RINGDOWN_TERM_IN_KERNEL__C6_GW250114_READ_BY_HASH_INCONCLUSIVE_SYSTEMATICS__ERRATUM_BESIDE_NATURE_DECIDES_RINGDOWN_NEXT__NOT_FALSIFIED_IS_NOT_CONFIRMED__GATE_UNTOUCHED`.
+- **Por termo (inalterado):** remaining = H2_smooth_modular_four_frame_and_geometric_identification, H3_area_heat_equilibrium_on_the_same_physical_horizon; gpf_H2 / gpf_H3 / gpi_H3 = False/False/False. Não exigido pela regra do operador.
+- **O que resta no caminho crítico:** o teste de β vive nos setores com previsão quantificada (relógios, piso dos vazios, D1 condicionado ao mapa de R); o ringdown testa a correspondência com a RG. Coma revelada: 1.30σ (TGL, ambos os σ) vs 5.61σ (controle); H0 local D1a vs D1 V3 [OPEN, operador].
+- `0c145b41a6289f5c`; 5874/5874.

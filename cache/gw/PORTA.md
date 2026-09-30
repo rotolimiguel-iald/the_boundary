@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 10 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 11 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -22,12 +22,13 @@ Pasta do repositorio the_boundary com 10 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-10 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/gw
+11 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/gw
 
 **RESULTADO SELADO**
 
 | arquivo | papel | link raw direto |
 |---|---|---|
+| `C6_RESULTS_GW250114.json` | Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/C6_RESULTS_GW250114.json) |
 | `ECHO_ANCHORED_V1_RESULT.json` | RESULTADO lido por hash pelo um.py: eco ancorado V1 (gwfast/IMRPhenomD) -- MAY e KMS INCONCLUSIVE_SYSTEMATICS (v344) | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/ECHO_ANCHORED_V1_RESULT.json) |
 | `ECHO_ANCHORED_V2_RESULT.json` | RESULTADO lido por hash: eco ancorado V2 (lalsuite, duas familias de template, nulo de familia) -- INCONCLUSIVE_SYSTEMATICS (v345) | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/ECHO_ANCHORED_V2_RESULT.json) |
 | `ECHO_PE_V1_RESULT.json` | RESULTADO lido por hash: PE bayesiana com termo de eco V1 (bilby/dynesty) -- inconclusiva; autopsia na V2 (v347) | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/ECHO_PE_V1_RESULT.json) |
@@ -41,4 +42,4 @@ Pasta do repositorio the_boundary com 10 arquivo(s) rastreado(s).
 
 ---
 
-gerado por script de git ls-files em 2026-09-27 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-30 -- nao editar a mao

@@ -1,7 +1,7 @@
 # stage: principal
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=1007989 len(stderr)=0
+# len(stdout)=1010714 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -11547,6 +11547,37 @@ regularSusyData : (P : SiteProfile) →
 'TGLExt.TetelestaiOneObject.light_breuer_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.TetelestaiOneObject.name_weight_beside_ker_K' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.TetelestaiOneObject.the_tetelestai_one_object' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.LightRhoStar.centralizerVectors' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.LightRhoStar.centralizer_vector_is_modular_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.LightRhoStar.centralizer_vectors_eq_vacuum_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.LightRhoStar.the_bridge_fix_on_the_light' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.LightRhoStar.centralizer_is_trivial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.LightRhoStar.rho_star_is_P_kerK_on_the_light' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheKeyIsTheReader.reader' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheKeyIsTheReader.reader_reads_the_identity_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheKeyIsTheReader.PkerK_fixes_the_vacuum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheKeyIsTheReader.reader_reads_the_name_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheKeyIsTheReader.reader_reads_one_iff_fixes_the_vacuum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheKeyIsTheReader.P_kerK_is_the_support_of_the_reader' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheKeyIsTheReader.name_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheKeyIsTheReader.the_name_condenses_every_code' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheKeyIsTheReader.the_reader_lives_on_the_name' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheKeyIsTheReader.the_key_is_the_reader' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheWholeIsOne.boundaryVolume' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheWholeIsOne.half_nat_volume_is_the_radical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheWholeIsOne.self_conjugate_boundary_has_radical_volume' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheWholeIsOne.couplingOfAlpha' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheWholeIsOne.couplingOfAlpha_alpha' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheWholeIsOne.couplingOfAlpha_beta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheWholeIsOne.the_beta_chain_is_derived' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheWholeIsOne.the_physical_arrow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheWholeIsOne.the_whole_is_one' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 --- STDERR ---
 

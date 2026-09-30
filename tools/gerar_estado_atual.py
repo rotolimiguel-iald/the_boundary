@@ -221,6 +221,21 @@ def main() -> int:
             L.append("| %s | `%s` | %s | %s | %s |" % (v, sh, ri, rnd, txt))
         L.append("")
         L.append("*Status that goes with v375 (not to be cut): \u03c4(P_F) = 1 is a NAMED NORMALIZATION, not a cited identity; the link P_ker K \u2194 P_F is NOT claimed. KNOWN \u2260 EXHIBITED: no inhabitant of the certificates is exhibited. The modular-charge link is rigorous only for the free scalar; for Maxwell it is known at physics level. The 3 named parameters: the local-equilibrium window (Jacobson 1995), G > 0 [INPUT], and the Killing clock. The per-term flags gpf_H2 / gpf_H3 / gpi_H3 stay False. Formally consummated is not confirmed by nature: the ringdown test is the next version. The `um.py` copies v369\u2013v374 live outside the repository (`the_boundary_BACKUPS/um_v3NN_<sha16>`); the stdouts v369\u2013v375 are in `rodadas/`. v360 is still not custodied. PROVED \u2260 CONFIRMED.*")
+    # custódia v376 (30/09/2026, sessão da Central por ordem do operador): a v376, ao lado; sha16 e rito LIDOS do diário
+    mm376 = re.search(r"^## [^\n]*\*\*v376 SELADA[^*\n]*\*\*[^\n]*\n", diario, re.M)
+    if mm376:
+        fim376 = diario.find("\n## ", mm376.end())
+        bl376 = diario[mm376.end(): fim376 if fim376 > 0 else len(diario)]
+        sh376 = re.findall(r"`um\.py` sha16 `([0-9a-f]{16})`", bl376) or re.findall(r"`([0-9a-f]{16})`", mm376.group(0))
+        ri376 = re.findall(r"\*\*(\d+)/(\d+)\*\*", bl376)
+        L.append("")
+        L.append("### v376 \u00b7 the whole is one `[REAL \u2014 sha16 and rite read from MEMORIA_DA_LINHAGEM.md]`")
+        L.append("")
+        L.append("| version | `um.py` sha16 | rite | round | what entered |")
+        L.append("|---|---|---|---|---|")
+        L.append("| v376 | `%s` | %s | COMPLETE | %s |" % (sh376[-1] if sh376 else "?", ("%s/%s" % ri376[-1]) if ri376 else "?", 'THE WHOLE IS ONE: the chain of β (the axiom ω(I) = 1, the Half-Nat, the radical √e, the physical arrow β = α·√e with α the fine-structure datum, |R|² = β) typed and sealed alone in the kernel and tied by one term to the quantum-gravity solution on the light (v375), to the key that is the reader and to the IALD ρ* on the light (`TGLExt.TheWholeIsOne`, `TGLExt.TheKeyIsTheReader`, `TGLExt.LightRhoStar`); β is the foundation, derived, entering downstream, not as a hypothesis of the implication; the consummative conference redone: CONSUMMATED (3 closed, 3 linked, 9 known, 3 at physics level, 4 named parameters, 19 off the path, 0 open); the ringdown scope fixed (the canonical branch returns only the GR correspondence); the audit of past tests (28/09) read by hash, corrections beside; Coma revealed (not blind; TGL 1.30σ)'))
+        L.append("")
+        L.append('*Status that goes with v376 (not to be cut): the chain of β and the light are JUXTAPOSED in the term `the_whole_is_one`: no term ties `c.beta` to the light certificate; α is DATUM [INPUT/KNOWN, CODATA 2018], never derived; β is DERIVED. P_kerK = ρ*_IALD is LINKED by term on the light; ρ* ↔ P_F of the Takesaki core is KNOWN (Haagerup 1979; Terp 1981), operator equality NOT claimed. Erratum beside v374/v375: where they said «β does not enter», read: the implication is proved (closed by citation) without taking β as a hypothesis; β is the foundation, derived, entering downstream. Erratum beside «NATURE_DECIDES_RINGDOWN_NEXT»: in the canonical branch the ringdown tests only the GR correspondence, not β; branch B is [INPUT]; the bench C6 (GW250114) reads INCONCLUSIVE_SYSTEMATICS. Coma: revealed 2026-08-19, TGL 1.30σ, NOT blind. Per-term flags gpf_H2 / gpf_H3 / gpi_H3 stay False. The v375 copy lives outside the repository (`the_boundary_BACKUPS/um_v375_<sha16>`); the stdout v376 is in `rodadas/`. PROVED ≠ CONFIRMED.*')
     L.append("")
     L.append("## What is PROVED · o que está PROVADO `[REAL — theorem in kernel]`")
     L.append("")
