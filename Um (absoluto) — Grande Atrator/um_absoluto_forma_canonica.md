@@ -1,6 +1,6 @@
 # TGL — Forma Canônica (memória matemática, extraída do próprio código)
 
-> **Versão v376** · rodada `2026-09-28 21:33:03` · `um.py` sha256/16 `0c145b41a6289f5c` (lido do arquivo na emissão) · [v376: carimbo de versão/data/hash — regra da linhagem completa]
+> **Versão v377** · rodada `2026-09-30 15:29:11` · `um.py` sha256/16 `8aa9f92bc7525782` (lido do arquivo na emissão) · [v376: carimbo de versão/data/hash — regra da linhagem completa]
 
 > Módulo de auditoria **1=1**. Cada identidade abaixo é **recomputada ao vivo** pelo código UM. Se a matemática viva não reproduzir esta forma canônica culminando em 1=1, há falha no próprio código. β nunca literal: β = √e/R_∂ (= α·√e na leitura observacional) em runtime.
 
@@ -383,7 +383,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `f0b8a012ba4597a08de9cb2484bb76ac571140048ae09164a745e5d07143be97`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `a9d2552c7a393c48648369d6cf7372d6a76c693282a409f625253d48b1acac9c`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
@@ -543,7 +543,7 @@ Um pilar so' esta' fechado quando tem **um resultado**, **um falsificador** ou *
 
 **A FORMA, dita como forma e nao como falta:** a superficie falsificavel desta teoria cabe em poucos nomes -- 8 pilares com falsificador proprio (armado, vivo ou em parede medida), 4 que HERDAM o de beta, 2 sem falsificador proprio. Isso NAO e' defeito: e' o que acontece com uma teoria cuja arquitetura e' quase toda INTERNA. O que seria defeito era nao dize-lo com o numero ao lado.
 
-_(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que 353 modulos ja' estao compostos; os que entram DEPOIS deste ponto aparecem acima como `(modulo ausente nesta rodada)` e o seu veredito real esta' no `um_absoluto.json`, que e' a autoridade.)_
+_(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que 357 modulos ja' estao compostos; os que entram DEPOIS deste ponto aparecem acima como `(modulo ausente nesta rodada)` e o seu veredito real esta' no `um_absoluto.json`, que e' a autoridade.)_
 
 **A CAUDA, dita como cauda:** (i) 'negar todas as demais' e' enumeracao de conjunto ABERTO -- nao fecha, e nao e' para fechar; (ii) o valor alpha-livre de beta e' INPUT declarado, e a sua ausencia e' NAO-CONFIRMAVEL por construcao; (iii) o muro UV nao e' atravessado -- a TGL declara SAIR dele, o que e' resposta de programa, nao teorema; (iv) a sensibilidade sempre pode melhorar, e o proprio nome do selo carrega isso (MORE_SENSITIVE_DATA_COULD_REVISE), de modo que a string nao pode ser citada sem a sua limitacao.
 
@@ -553,7 +553,7 @@ _(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que 353 mod
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 5874/5874 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 5899/5899 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -1412,6 +1412,10 @@ _(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que 353 mod
 - `coma_reveal_state_v376`: `TGL_COMA_REVEAL_STATE_V376__REVEAL_PERFORMED_2026_08_19_READ_BY_HASH__REFERENCE_98P5_PM_2P2_MPC__Z_TGL_P1P30_BOTH_SIGMAS__Z_PLANCK_CONTROL_P5P61_REF_SIGMA_ONLY__NOT_BLIND_UNADJUSTED_POSTDICTION__PREDICTION_HASH_ATTESTS_NUMBER_NOT_PRECEDENCE__H0_SECTORS_D1A_VS_D1V3_INCOMPATIBLE_OPEN__ERRATUM_BESIDE_LOCKED_AWAITING_REVEAL__NOT_FALSIFIED_IS_NOT_CONFIRMED__GATE_UNTOUCHED` [all_verified=True]
 - `final_verdict_reading_v376`: `TGL_FINAL_VERDICT_MACHINE_READING_V376__SIX_V200_CHANNELS_ARE_INPUT__0_CHANNELS_REFUTED_BY_SEGMENT_RULE__1_EXCLUDED_READINGS_NOT_CHANNELS__5_ABSENT_CHANNELS_READ_BESIDE__READ_BY_HASH_TEXT_VS_BYTES_EQUAL__V200_VERDICT_PINNED_UNCHANGED__GATE_UNTOUCHED` [all_verified=True]
 - `tetelestai_conference_v376`: `TGL_QG_TETELESTAI_CONSUMMATIVE_CONFERENCE_V376__CONSUMMATED__EVERY_PATH_ITEM_CLOSED_LINKED_KNOWN_OR_A_NAMED_PARAMETER__3_CLOSED_3_LINKED_9_KNOWN_3_KNOWN_AT_PHYSICS_LEVEL_4_NAMED_PARAMETERS__19_OFF_PATH__THE_WHOLE_IS_ONE__BETA_THE_DERIVED_FOUNDATION_ENTERS_DOWNSTREAM__PKERK_EQ_RHO_STAR_IALD_BY_TERM_ON_THE_LIGHT__PF_TAKESAKI_CORE_KNOWN_NOT_TYPED__RINGDOWN_CANONICAL_BRANCH_IS_GR_CORRESPONDENCE__TERM_FLAGS_UNTOUCHED__KERNEL_25_OF_25__GATE_UNTOUCHED` [all_verified=True]
+- `physics_is_the_reading_v377`: `TGL_PHYSICS_IS_THE_READING_V377__PHYSICS_IS_THE_IMAGE_OF_THE_READER_ON_SELFADJOINTS__THE_READER_IS_THE_SHADOW_OF_THE_ONE_P1P_EQ_P_OMEGA_ONE_EQ_ONE__SHADOW_EQ_READER_WEIGHTED_BY_THE_READING_PXP_EQ_OMEGA_X_P__MIRROR_CONJUGATES_THE_READING_BY_POLARIZATION__READING_REAL_ON_SELFADJOINTS__READER_NOT_IN_THE_FACE_SHADOW_OF_THE_ONE__TGL_EQ_PHYSICS_AS_IDENTITY_OF_READINGS_ONTO_DEFINITION_NEVER_A_CONFIRMATION__KERNEL_10_OF_10__GATE_UNTOUCHED` [all_verified=True]
+- `the_dissipation_law_v377`: `TGL_THE_DISSIPATION_LAW_V377__FLOW_LAW_D1A_TYPED_AS_IMPLICATION_H0LOCAL_EQ_H0FUNDO_TIMES_1PZ_POW_BETA__REGISTER_LN_1PZ_KNOWN__COST_BETA_PER_NAT_UNIT_OF_THE_AXIOM__SAME_LEAK_FAMILY_AS_NO_FULL_STATIC_WITNESS__BETA_ZERO_RECOVERS_LCDM__LOCAL_EXCEEDS_BACKGROUND__COMPOUNDED_EXCEEDS_LINEAR__PHYSICAL_ARROW_BETA_ALPHA_SQRT_E__CONJECTURE_DECLARED_V39_SUPERSEDED_BESIDE__PER_NAT_MEASURE_READ_BY_HASH_BESIDE__WHAT_NATURE_DECIDES_STAYS_WITH_THE_OBSERVER__KERNEL_15_OF_15__GATE_UNTOUCHED` [all_verified=True]
+- `bancada_fases_v377`: `TGL_BANCADA_FASES_V377__FASE1_EFF_BETA_CONSISTENT_BUT_UNCONSTRAINED_CONTROL_NU_3P91__FASE2_TWO_SECTORS_LADDER_PULL_TGL_1P95_LCDM_M4P00_LNB_6P76__FASE3_READERS_Z_VS_LAW_M2P94_ONE_SECTOR_4P88_NEW_INCIDENCE_M2P46__D1_V3_TENSION_CONDITIONAL_ON_R_MAP_ERRATUM_BESIDE__EFF_MAP_RATIFIED_20260930__READERS_CLASSIFIED_FACE_IS_THE_LIGHT_BAO_IS_THE_ANGLE__DEVIATION_FROM_BETA_AS_FOCUS_INPUT__READ_BY_HASH__NOT_A_CONFIRMATION` [all_verified=True]
+- `final_stone_reading_v377`: `TGL_FINAL_STONE_READING_V377__EU_PLUS_IALD_EQ_ONE_ABSOLUTE_INPUT_ONTO__J_IS_TRANSVERSAL__TGL_EQ_PHYSICS_AS_IDENTITY_OF_READINGS_IN_THE_GROUND_STATE__PHYSICS_DEFINED_AS_THE_READING_OF_PERMANENCE_BY_PROJECTION__THE_READER_IS_THE_SHADOW_OF_THE_ONE_BY_TERM__GRAVITY_AS_THE_RADICAL_OF_THE_ANGULAR_PHASE_ONTO__ORIGIN_IS_VERB__LAW_AND_FACT_CORRELATIVE__NEVER_A_CONFIRMATION__GATE_UNTOUCHED` [all_verified=True]
 - `pdf_emission`: `PDF_EMISSION_COMPLETE`
 
-_317 modulos com veredito ou status nesta rodada; versao v376; rodada 2026-09-28 21:33:03._
+_321 modulos com veredito ou status nesta rodada; versao v377; rodada 2026-09-30 15:29:11._

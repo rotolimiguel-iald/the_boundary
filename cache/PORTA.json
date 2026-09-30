@@ -4,7 +4,7 @@
   "titulo": "cache",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-30T11:24:47Z",
+  "gerado_utc": "2026-09-30T19:26:11Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -16,6 +16,27 @@
     "site_url": "https://teoriadagravitacaoluminodinamica.com"
   },
   "portas_abaixo": [
+    {
+      "nome": "auditoria",
+      "caminho": "cache/auditoria",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/auditoria/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/auditoria/PORTA.json",
+      "total_arquivos": 1
+    },
+    {
+      "nome": "bancada_30set",
+      "caminho": "cache/bancada_30set",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_30set/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_30set/PORTA.json",
+      "total_arquivos": 11
+    },
+    {
+      "nome": "coma_blind",
+      "caminho": "cache/coma_blind",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/coma_blind/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/coma_blind/PORTA.json",
+      "total_arquivos": 1
+    },
     {
       "nome": "d1_camb",
       "caminho": "cache/d1_camb",
@@ -43,7 +64,7 @@
   "dependencias": null,
   "arquivos": [],
   "total_arquivos_nesta_pasta": 0,
-  "total_arquivos_com_subpastas": 123,
+  "total_arquivos_com_subpastas": 136,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache",
   "rodape": "gerado por script de git ls-files em 2026-09-30 -- nao editar a mao"
 }

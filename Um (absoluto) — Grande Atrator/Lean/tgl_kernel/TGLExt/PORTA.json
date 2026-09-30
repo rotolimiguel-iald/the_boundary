@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-30T11:24:47Z",
+  "gerado_utc": "2026-09-30T19:26:11Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -3799,6 +3799,16 @@
       "bytes": 13701
     },
     {
+      "nome": "PhysicsIsTheReading.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/PhysicsIsTheReading.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): PhysicsIsTheReading",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PhysicsIsTheReading.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PhysicsIsTheReading.lean",
+      "sha256_16": "ca92f8c266106982",
+      "bytes": 7223
+    },
+    {
       "nome": "PlaneWaveConnection.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/PlaneWaveConnection.lean",
       "papel": "prova formal",
@@ -5757,6 +5767,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheFiveHalves.lean",
       "sha256_16": "456c66269b72d30f",
       "bytes": 8035
+    },
+    {
+      "nome": "TheFlowLawD1a.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheFlowLawD1a.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheFlowLawD1a",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheFlowLawD1a.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheFlowLawD1a.lean",
+      "sha256_16": "7c6c54afc418c0cb",
+      "bytes": 7945
     },
     {
       "nome": "TheFold.lean",
@@ -10179,8 +10199,8 @@
       "bytes": 10880
     }
   ],
-  "total_arquivos_nesta_pasta": 1015,
-  "total_arquivos_com_subpastas": 1171,
+  "total_arquivos_nesta_pasta": 1017,
+  "total_arquivos_com_subpastas": 1173,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt",
   "rodape": "gerado por script de git ls-files em 2026-09-30 -- nao editar a mao"
 }

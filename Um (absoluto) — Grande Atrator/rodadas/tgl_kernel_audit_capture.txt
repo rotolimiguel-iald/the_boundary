@@ -1,7 +1,7 @@
 # stage: principal
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=1010714 len(stderr)=0
+# len(stdout)=1013356 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -11578,6 +11578,39 @@ regularSusyData : (P : SiteProfile) →
 'TGLExt.TheWholeIsOne.the_beta_chain_is_derived' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.TheWholeIsOne.the_physical_arrow' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.TheWholeIsOne.the_whole_is_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.PhysicsIsTheReading.J_I_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.PhysicsIsTheReading.J_inner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.PhysicsIsTheReading.the_mirror_conjugates_the_reading' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.PhysicsIsTheReading.reader_real_of_selfAdjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.PhysicsIsTheReading.the_shadow_is_the_reader_weighted_by_the_reading' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.PhysicsIsTheReading.the_reader_is_the_shadow_of_the_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.PhysicsIsTheReading.physics' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.PhysicsIsTheReading.physics_is_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.PhysicsIsTheReading.one_mem_physics' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.PhysicsIsTheReading.the_ground_state_defines_the_physics' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheFlowLawD1a.register' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheFlowLawD1a.leakVerb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheFlowLawD1a.survivingWeight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheFlowLawD1a.leakFraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheFlowLawD1a.H0local' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheFlowLawD1a.survivingWeight_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheFlowLawD1a.survivingWeight_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheFlowLawD1a.the_flow_law_D1a' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheFlowLawD1a.leakFraction_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheFlowLawD1a.beta_zero_recovers_lcdm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheFlowLawD1a.local_exceeds_background' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheFlowLawD1a.compounded_exceeds_linear' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheFlowLawD1a.the_flow_law_is_the_leak' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheFlowLawD1a.the_flow_law_with_the_physical_arrow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheFlowLawD1a.the_dissipation_law' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 --- STDERR ---
 

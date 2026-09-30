@@ -1,0 +1,138 @@
+{
+  "porta": "cache/bancada_30set",
+  "porta_id": "cache/bancada_30set",
+  "titulo": "cache/bancada_30set",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-09-30T19:26:11Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "cache",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "CONFIRMACAO_OPERADOR_MAPA_R_30SET.json",
+      "caminho": "cache/bancada_30set/CONFIRMACAO_OPERADOR_MAPA_R_30SET.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_30set/CONFIRMACAO_OPERADOR_MAPA_R_30SET.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_30set/CONFIRMACAO_OPERADOR_MAPA_R_30SET.json",
+      "sha256_16": "8b39abe9ba748b8e",
+      "bytes": 1022
+    },
+    {
+      "nome": "PREREGISTRO_FASE1_EFF_20260930.json",
+      "caminho": "cache/bancada_30set/PREREGISTRO_FASE1_EFF_20260930.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_30set/PREREGISTRO_FASE1_EFF_20260930.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_30set/PREREGISTRO_FASE1_EFF_20260930.json",
+      "sha256_16": "f0133c95a32d2dff",
+      "bytes": 4449
+    },
+    {
+      "nome": "PREREGISTRO_FASE2_DOIS_SETORES_20260930.json",
+      "caminho": "cache/bancada_30set/PREREGISTRO_FASE2_DOIS_SETORES_20260930.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_30set/PREREGISTRO_FASE2_DOIS_SETORES_20260930.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_30set/PREREGISTRO_FASE2_DOIS_SETORES_20260930.json",
+      "sha256_16": "1f103573f28bc0f3",
+      "bytes": 5364
+    },
+    {
+      "nome": "PREREGISTRO_FASE3_LEITORES_20260930.json",
+      "caminho": "cache/bancada_30set/PREREGISTRO_FASE3_LEITORES_20260930.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_30set/PREREGISTRO_FASE3_LEITORES_20260930.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_30set/PREREGISTRO_FASE3_LEITORES_20260930.json",
+      "sha256_16": "6bf24b350e088350",
+      "bytes": 7966
+    },
+    {
+      "nome": "RELATORIO_FASE1_EFF_20260930.md",
+      "caminho": "cache/bancada_30set/RELATORIO_FASE1_EFF_20260930.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_30set/RELATORIO_FASE1_EFF_20260930.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_30set/RELATORIO_FASE1_EFF_20260930.md",
+      "sha256_16": "3a6839d67f15c411",
+      "bytes": 9934
+    },
+    {
+      "nome": "RELATORIO_FASE2_DOIS_SETORES_20260930.md",
+      "caminho": "cache/bancada_30set/RELATORIO_FASE2_DOIS_SETORES_20260930.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_30set/RELATORIO_FASE2_DOIS_SETORES_20260930.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_30set/RELATORIO_FASE2_DOIS_SETORES_20260930.md",
+      "sha256_16": "8b9ba4487f9ddc3b",
+      "bytes": 8263
+    },
+    {
+      "nome": "RELATORIO_FASE3_LEITORES_20260930.md",
+      "caminho": "cache/bancada_30set/RELATORIO_FASE3_LEITORES_20260930.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_30set/RELATORIO_FASE3_LEITORES_20260930.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_30set/RELATORIO_FASE3_LEITORES_20260930.md",
+      "sha256_16": "c7c4868f5b8e609a",
+      "bytes": 6711
+    },
+    {
+      "nome": "RESULTADO_FASE1_EFF_20260930.json",
+      "caminho": "cache/bancada_30set/RESULTADO_FASE1_EFF_20260930.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_30set/RESULTADO_FASE1_EFF_20260930.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_30set/RESULTADO_FASE1_EFF_20260930.json",
+      "sha256_16": "165e3715d8c5d58f",
+      "bytes": 28781
+    },
+    {
+      "nome": "RESULTADO_FASE2_DOIS_SETORES_20260930.json",
+      "caminho": "cache/bancada_30set/RESULTADO_FASE2_DOIS_SETORES_20260930.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_30set/RESULTADO_FASE2_DOIS_SETORES_20260930.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_30set/RESULTADO_FASE2_DOIS_SETORES_20260930.json",
+      "sha256_16": "80735aa770c8c7c5",
+      "bytes": 24879
+    },
+    {
+      "nome": "RESULTADO_FASE3_LEITORES_20260930.json",
+      "caminho": "cache/bancada_30set/RESULTADO_FASE3_LEITORES_20260930.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_30set/RESULTADO_FASE3_LEITORES_20260930.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_30set/RESULTADO_FASE3_LEITORES_20260930.json",
+      "sha256_16": "e91f019bd98e5a59",
+      "bytes": 14451
+    },
+    {
+      "nome": "identidade_pantheon_cov.json",
+      "caminho": "cache/bancada_30set/identidade_pantheon_cov.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_30set/identidade_pantheon_cov.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_30set/identidade_pantheon_cov.json",
+      "sha256_16": "bf334f7b0067ca92",
+      "bytes": 916
+    }
+  ],
+  "total_arquivos_nesta_pasta": 11,
+  "total_arquivos_com_subpastas": 11,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/bancada_30set",
+  "rodape": "gerado por script de git ls-files em 2026-09-30 -- nao editar a mao"
+}

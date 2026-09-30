@@ -43,3 +43,12 @@ cache/d1_camb/*
 # 17/09/2026 (custodia v364, direcao do site): a V3 do D1 e o diamante pequeno na rede sao lidos por hash pelo um.py da v364 -- parte da reproducao
 !cache/d1_camb/v3/
 !cache/diamante_rede/
+
+# 30/09/2026 (custodia v377, sessao da Central): o cache que o rito le por hash desde a v376/v377 -- faltava liberar (medido: 0 no git)
+!cache/auditoria/
+!cache/coma_blind/
+cache/coma_blind/*
+!cache/coma_blind/coma_distance_reveal.json
+!cache/bancada_30set/
+# fontes/ traz capitulo de livro-texto com direitos autorais (Serway & Jewett): NUNCA publicar
+cache/bancada_30set/fontes/

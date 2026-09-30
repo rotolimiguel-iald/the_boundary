@@ -1,4 +1,6 @@
 
+import TGLExt.PhysicsIsTheReading
+import TGLExt.TheFlowLawD1a
 import TGLExt.TheWholeIsOne
 import TGLExt.LightRhoStar
 import TGLExt.TheKeyIsTheReader
@@ -9802,3 +9804,29 @@ open TGL.ModularRealization TGLV354 TGLV354.TraceCompletion
 #print axioms TGLExt.TheWholeIsOne.the_beta_chain_is_derived
 #print axioms TGLExt.TheWholeIsOne.the_physical_arrow
 #print axioms TGLExt.TheWholeIsOne.the_whole_is_one
+-- 2026-09-30, v377 (ordens do operador: «pode rodar»; «essa lei chama-se dissipação [dephasing = lei do fluxo = vazamento]»; «não precisa nomear como hipótese, vc consegue realizar a prova e cunhar»; «o leitor é a sombra»; «defina física»): PhysicsIsTheReading, TheFlowLawD1a (a gerencia; 25 nomes)
+#print axioms TGLExt.PhysicsIsTheReading.J_I_smul
+#print axioms TGLExt.PhysicsIsTheReading.J_inner
+#print axioms TGLExt.PhysicsIsTheReading.the_mirror_conjugates_the_reading
+#print axioms TGLExt.PhysicsIsTheReading.reader_real_of_selfAdjoint
+#print axioms TGLExt.PhysicsIsTheReading.the_shadow_is_the_reader_weighted_by_the_reading
+#print axioms TGLExt.PhysicsIsTheReading.the_reader_is_the_shadow_of_the_one
+#print axioms TGLExt.PhysicsIsTheReading.physics
+#print axioms TGLExt.PhysicsIsTheReading.physics_is_real
+#print axioms TGLExt.PhysicsIsTheReading.one_mem_physics
+#print axioms TGLExt.PhysicsIsTheReading.the_ground_state_defines_the_physics
+#print axioms TGLExt.TheFlowLawD1a.register
+#print axioms TGLExt.TheFlowLawD1a.leakVerb
+#print axioms TGLExt.TheFlowLawD1a.survivingWeight
+#print axioms TGLExt.TheFlowLawD1a.leakFraction
+#print axioms TGLExt.TheFlowLawD1a.H0local
+#print axioms TGLExt.TheFlowLawD1a.survivingWeight_pos
+#print axioms TGLExt.TheFlowLawD1a.survivingWeight_eq
+#print axioms TGLExt.TheFlowLawD1a.the_flow_law_D1a
+#print axioms TGLExt.TheFlowLawD1a.leakFraction_eq
+#print axioms TGLExt.TheFlowLawD1a.beta_zero_recovers_lcdm
+#print axioms TGLExt.TheFlowLawD1a.local_exceeds_background
+#print axioms TGLExt.TheFlowLawD1a.compounded_exceeds_linear
+#print axioms TGLExt.TheFlowLawD1a.the_flow_law_is_the_leak
+#print axioms TGLExt.TheFlowLawD1a.the_flow_law_with_the_physical_arrow
+#print axioms TGLExt.TheFlowLawD1a.the_dissipation_law

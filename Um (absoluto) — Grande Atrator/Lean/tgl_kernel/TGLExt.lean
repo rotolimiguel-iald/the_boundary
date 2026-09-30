@@ -1052,3 +1052,5 @@ import TGLExt.TetelestaiOneObject
 import TGLExt.LightRhoStar
 import TGLExt.TheKeyIsTheReader
 import TGLExt.TheWholeIsOne
+import TGLExt.PhysicsIsTheReading
+import TGLExt.TheFlowLawD1a

@@ -1,0 +1,38 @@
+{
+  "porta": "cache/auditoria",
+  "porta_id": "cache/auditoria",
+  "titulo": "cache/auditoria",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-09-30T19:26:11Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "cache",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "AUDITORIA_28SET_REGISTRO.json",
+      "caminho": "cache/auditoria/AUDITORIA_28SET_REGISTRO.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/auditoria/AUDITORIA_28SET_REGISTRO.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/auditoria/AUDITORIA_28SET_REGISTRO.json",
+      "sha256_16": "2f9c04ffd3227dc2",
+      "bytes": 111268
+    }
+  ],
+  "total_arquivos_nesta_pasta": 1,
+  "total_arquivos_com_subpastas": 1,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/auditoria",
+  "rodape": "gerado por script de git ls-files em 2026-09-30 -- nao editar a mao"
+}
