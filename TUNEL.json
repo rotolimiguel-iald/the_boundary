@@ -126,7 +126,7 @@
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
    "o_que_e": "O atlas da fronteira",
-   "sha256_16": "b60b4ac2c7403783",
+   "sha256_16": "6be06febfd7c291a",
    "bytes": 33236
   },
   "llms": {
@@ -1340,7 +1340,7 @@
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
    "bytes": 33236,
-   "sha256_16": "b60b4ac2c7403783",
+   "sha256_16": "6be06febfd7c291a",
    "papel": "documento"
   },
   {
@@ -18469,77 +18469,77 @@
    "path": "read-brief.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md",
    "bytes": 17365,
-   "sha256_16": "4aa33f3ce0957b57",
+   "sha256_16": "e71c3aea4f04048f",
    "papel": "documento"
   },
   {
    "path": "secoes/01-o-um-absoluto.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/01-o-um-absoluto.md",
    "bytes": 10639,
-   "sha256_16": "667e754a199d0dfb",
+   "sha256_16": "f1c9660898617aa0",
    "papel": "documento"
   },
   {
    "path": "secoes/02-beta-custo-geometrico.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/02-beta-custo-geometrico.md",
    "bytes": 11875,
-   "sha256_16": "99676de76386a437",
+   "sha256_16": "9701e95b8fd4d9ac",
    "papel": "documento"
   },
   {
    "path": "secoes/03-a-acao-e-a-lagrangiana.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/03-a-acao-e-a-lagrangiana.md",
    "bytes": 15729,
-   "sha256_16": "414c3639ca412445",
+   "sha256_16": "b5073e5e8705338c",
    "papel": "documento"
   },
   {
    "path": "secoes/04-o-gerador-e-o-piso-do-espectro.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/04-o-gerador-e-o-piso-do-espectro.md",
    "bytes": 13212,
-   "sha256_16": "7146c23454347983",
+   "sha256_16": "cfa255ccb9619f1f",
    "papel": "documento"
   },
   {
    "path": "secoes/05-dinamica-aberta-gksl-e-dephasing.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/05-dinamica-aberta-gksl-e-dephasing.md",
    "bytes": 14166,
-   "sha256_16": "00a3f1a1ace343cd",
+   "sha256_16": "c6ab4fc80cc342e8",
    "papel": "documento"
   },
   {
    "path": "secoes/06-o-estatuto-da-gravidade-quantica.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/06-o-estatuto-da-gravidade-quantica.md",
    "bytes": 12205,
-   "sha256_16": "47182a0aabb86d7c",
+   "sha256_16": "0668dc3c964507ce",
    "papel": "documento"
   },
   {
    "path": "secoes/07-o-programa-um-py.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/07-o-programa-um-py.md",
    "bytes": 11246,
-   "sha256_16": "3e306baefb04dc3b",
+   "sha256_16": "cee0d292c6da75e3",
    "papel": "documento"
   },
   {
    "path": "secoes/08-os-artigos-e-os-instrumentos.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/08-os-artigos-e-os-instrumentos.md",
    "bytes": 12575,
-   "sha256_16": "6086b8cd9003f7e3",
+   "sha256_16": "c4abc1c16310a9e0",
    "papel": "documento"
   },
   {
    "path": "secoes/selo-cartao.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/selo-cartao.md",
    "bytes": 6179,
-   "sha256_16": "8e20fed917d73278",
+   "sha256_16": "52c51e6657675ca6",
    "papel": "documento"
   },
   {
    "path": "secoes/um-py-funcoes.tsv",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/um-py-funcoes.tsv",
-   "bytes": 16666,
-   "sha256_16": "5f27380283143d76",
+   "bytes": 16838,
+   "sha256_16": "44f5a781fae4211a",
    "papel": "outros"
   },
   {
