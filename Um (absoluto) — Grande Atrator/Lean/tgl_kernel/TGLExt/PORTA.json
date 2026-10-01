@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-01T08:41:12Z",
+  "gerado_utc": "2026-10-01T15:30:06Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -5689,6 +5689,16 @@
       "bytes": 12433
     },
     {
+      "nome": "TheElementaryReason.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheElementaryReason.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheElementaryReason",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheElementaryReason.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheElementaryReason.lean",
+      "sha256_16": "f9af067e9ab0acec",
+      "bytes": 10931
+    },
+    {
       "nome": "TheEmptying.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheEmptying.lean",
       "papel": "prova formal",
@@ -10209,8 +10219,8 @@
       "bytes": 10880
     }
   ],
-  "total_arquivos_nesta_pasta": 1018,
-  "total_arquivos_com_subpastas": 1174,
+  "total_arquivos_nesta_pasta": 1019,
+  "total_arquivos_com_subpastas": 1175,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt",
   "rodape": "gerado por script de git ls-files em 2026-10-01 -- nao editar a mao"
 }

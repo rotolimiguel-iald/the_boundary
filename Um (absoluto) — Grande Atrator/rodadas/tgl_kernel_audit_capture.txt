@@ -1,7 +1,7 @@
 # stage: principal
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=1015662 len(stderr)=0
+# len(stdout)=1018092 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -11637,6 +11637,33 @@ regularSusyData : (P : SiteProfile) →
 'TGLExt.TheFlowLawContrast.the_dissipation_law_with_contrast_and_the_physical_arrow' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
+'TGLExt.TheElementaryReason.cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.movement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.existence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.elementaryReason' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.familyFunctional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.existence_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.existence_eq_beta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.existence_eq_alpha_sqrt_e' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.existence_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.cost_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.identity_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.movement_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.cost_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.identity_weighs_as_the_name' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.recognition_is_finite' does not depend on any axioms
+'TGLExt.TheElementaryReason.elementaryReason_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.familyFunctional_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.the_name_collision' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.existence_is_the_asymptote' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheElementaryReason.existence_forbids_full_static_witness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheElementaryReason.erasure_not_reached_in_finite_time' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheElementaryReason.the_elementary_reason' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 --- STDERR ---
 

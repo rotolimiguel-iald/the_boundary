@@ -2104,3 +2104,14 @@ condição» na v376, fixar por escrito o que ele pode decidir. A decisão é do
 - **O caminho crítico agora:** a decisão do operador sobre a leitura [OPEN] (a sombra lê o vazamento; os relógios leem a face) — se vale, a lei é lei da leitura por distância e o C.5b do artigo 1 (H(z) acumulada) fica desfavorecido; a covariância sistemática dos cronômetros (Moresco+2020) para refinar T; qual fundo é o fundo; a forma da E1.
 - **Por termo (inalterado):** remaining = H2_smooth_modular_four_frame_and_geometric_identification, H3_area_heat_equilibrium_on_the_same_physical_horizon; gpf_H2 / gpf_H3 / gpi_H3 = False/False/False. Gate intocado.
 - `f56599bdd93390b5`; 5919/5919.
+
+
+---
+
+## ADENDO — 01/10/2026 · v379 SELADA (COMPLETA) `65d0567929798915` — A Razão Elementar tipada: E = C × I × K > 0 = β
+
+- **A pedra:** `TGL_THE_ELEMENTARY_REASON_V379__EXISTENCE_EQ_COST_TIMES_IDENTITY_TIMES_MOVEMENT_EQ_BETA_BY_TERM__EXISTENCE_POSITIVE_FROM_ALPHA_POSITIVE__COST_EQ_EXP_OF_THE_SELFCONJUGATE_FIXED_POINT_HALF_NAT__IDENTITY_WEIGHS_ONE_AS_THE_NAME__ELEMENTARY_REASON_SQUARED_EQ_EXISTENCE__EXISTENCE_IS_THE_ASYMPTOTE_NOT_EXCEEDED_IN_FINITE_REGISTER_WITH_MEAN_CONTRAST_LE_ONE__ERASURE_NOT_REACHED_IN_FINITE_TIME__NO_FULL_STATIC_WITNESS__RECOGNITION_FINITE_BY_DEFINITION_OF_THE_REGIME__NAME_COLLISION_WITH_THE_FAMILY_FUNCTIONAL_STATED__DICTIONARY_IS_ONTO_DEFINITION_OPERATOR_COINAGE__STRUCTURE_OF_EXISTENCE_IS_A_READING_NEVER_A_CONFIRMATION__KERNEL_23_OF_23__GATE_UNTOUCHED` — E = √e·1·α = β por termo (`existence_eq_beta`); E > 0; C = e^x no ponto fixo x = 1 − x; I pesa 1 como o Nome; (e^{1/4}√α)² = E; a colisão de nome E dita; E é a assíntota (β·ḡ ≤ E sob ∫g ≤ N, pela v378); o apagamento não se atinge em tempo finito; sem testemunha estática plena; o reconhecimento finito por definição.
+- **O estatuto:** fatoração e positividade [REAL — kernel]; o dicionário dos fatores [ONTO/DEFINITION, cunhagem]; «estrutura fundamental da existência» [ONTO/CONJ]; «em tempo finito»: a assíntota não é excedida; o apagamento não se atinge; o reconhecimento é finito.
+- **O caminho crítico (inalterado):** as decisões do operador deixadas na v378 (a leitura «a sombra lê, os relógios leem a face»; qual fundo é o fundo; a E1; a covariância dos cronômetros).
+- **Por termo (inalterado):** remaining = H2_smooth_modular_four_frame_and_geometric_identification, H3_area_heat_equilibrium_on_the_same_physical_horizon; gpf_H2 / gpf_H3 / gpi_H3 = False/False/False. Gate intocado.
+- `65d0567929798915`; 5942/5942.

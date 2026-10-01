@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-01T08:41:12Z",
+  "gerado_utc": "2026-10-01T15:30:06Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean",
@@ -28,7 +28,7 @@
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.json",
-      "total_arquivos": 1174
+      "total_arquivos": 1175
     }
   ],
   "canonico_url": null,
@@ -62,8 +62,8 @@
       "descricao": "A raiz da biblioteca TGLExt (importa a extensao: onde vivem as pedras)",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt.lean",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt.lean",
-      "sha256_16": "602b33385da104a9",
-      "bytes": 38804
+      "sha256_16": "bee1beefc4511557",
+      "bytes": 38838
     },
     {
       "nome": "_check_damming.lean",
@@ -107,7 +107,7 @@
     }
   ],
   "total_arquivos_nesta_pasta": 7,
-  "total_arquivos_com_subpastas": 1208,
+  "total_arquivos_com_subpastas": 1209,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel",
   "rodape": "gerado por script de git ls-files em 2026-10-01 -- nao editar a mao"
 }

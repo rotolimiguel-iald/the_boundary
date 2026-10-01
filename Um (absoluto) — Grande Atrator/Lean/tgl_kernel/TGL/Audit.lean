@@ -1,4 +1,5 @@
 
+import TGLExt.TheElementaryReason
 import TGLExt.TheFlowLawContrast
 import TGLExt.PhysicsIsTheReading
 import TGLExt.TheFlowLawD1a
@@ -9852,3 +9853,27 @@ open TGL.ModularRealization TGLV354 TGLV354.TraceCompletion
 #print axioms TGLExt.TheFlowLawContrast.the_derived_kernel_factor_normalized
 #print axioms TGLExt.TheFlowLawContrast.the_dissipation_law_with_contrast
 #print axioms TGLExt.TheFlowLawContrast.the_dissipation_law_with_contrast_and_the_physical_arrow
+-- 2026-10-01, v379 (cunhagem do operador: «a Razão Elementar identifica a estrutura fundamental da existência como {[E = C × I × K > 0] = betatgl}»; «Quero sim»): E = cost × identity × movement = β por termo; E > 0; E é a assíntota; sem testemunha estática plena: TheElementaryReason (a gerencia; 22 nomes)
+#print axioms TGLExt.TheElementaryReason.cost
+#print axioms TGLExt.TheElementaryReason.identity
+#print axioms TGLExt.TheElementaryReason.movement
+#print axioms TGLExt.TheElementaryReason.existence
+#print axioms TGLExt.TheElementaryReason.elementaryReason
+#print axioms TGLExt.TheElementaryReason.familyFunctional
+#print axioms TGLExt.TheElementaryReason.existence_eq
+#print axioms TGLExt.TheElementaryReason.existence_eq_beta
+#print axioms TGLExt.TheElementaryReason.existence_eq_alpha_sqrt_e
+#print axioms TGLExt.TheElementaryReason.existence_pos
+#print axioms TGLExt.TheElementaryReason.cost_pos
+#print axioms TGLExt.TheElementaryReason.identity_eq_one
+#print axioms TGLExt.TheElementaryReason.movement_pos
+#print axioms TGLExt.TheElementaryReason.cost_of_selfConjugate
+#print axioms TGLExt.TheElementaryReason.identity_weighs_as_the_name
+#print axioms TGLExt.TheElementaryReason.recognition_is_finite
+#print axioms TGLExt.TheElementaryReason.elementaryReason_sq
+#print axioms TGLExt.TheElementaryReason.familyFunctional_half
+#print axioms TGLExt.TheElementaryReason.the_name_collision
+#print axioms TGLExt.TheElementaryReason.existence_is_the_asymptote
+#print axioms TGLExt.TheElementaryReason.existence_forbids_full_static_witness
+#print axioms TGLExt.TheElementaryReason.erasure_not_reached_in_finite_time
+#print axioms TGLExt.TheElementaryReason.the_elementary_reason
