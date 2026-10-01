@@ -23,7 +23,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ## OS ARQUIVOS DESTA PASTA
 
-1017 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
+1018 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
 
 **PROVA FORMAL**
 
@@ -603,6 +603,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `TheFactorObject.lean` | Prova formal (Lean 4): TheFactorObject | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheFactorObject.lean) |
 | `TheFalseHasNoGeometry.lean` | Prova formal (Lean 4): TheFalseHasNoGeometry | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheFalseHasNoGeometry.lean) |
 | `TheFiveHalves.lean` | Prova formal (Lean 4): TheFiveHalves | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheFiveHalves.lean) |
+| `TheFlowLawContrast.lean` | Prova formal (Lean 4): TheFlowLawContrast | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheFlowLawContrast.lean) |
 | `TheFlowLawD1a.lean` | Prova formal (Lean 4): TheFlowLawD1a | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheFlowLawD1a.lean) |
 | `TheFold.lean` | Prova formal (Lean 4): TheFold | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheFold.lean) |
 | `TheFoldIsNotADistance.lean` | Prova formal (Lean 4): TheFoldIsNotADistance | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheFoldIsNotADistance.lean) |
@@ -1055,4 +1056,4 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ---
 
-gerado por script de git ls-files em 2026-09-30 -- nao editar a mao
+gerado por script de git ls-files em 2026-10-01 -- nao editar a mao

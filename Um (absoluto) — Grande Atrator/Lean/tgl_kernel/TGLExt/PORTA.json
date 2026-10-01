@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-30T19:27:49Z",
+  "gerado_utc": "2026-10-01T08:40:09Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -5769,6 +5769,16 @@
       "bytes": 8035
     },
     {
+      "nome": "TheFlowLawContrast.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheFlowLawContrast.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheFlowLawContrast",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheFlowLawContrast.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheFlowLawContrast.lean",
+      "sha256_16": "9ca9393ac64f22a2",
+      "bytes": 13825
+    },
+    {
       "nome": "TheFlowLawD1a.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheFlowLawD1a.lean",
       "papel": "prova formal",
@@ -10199,8 +10209,8 @@
       "bytes": 10880
     }
   ],
-  "total_arquivos_nesta_pasta": 1017,
-  "total_arquivos_com_subpastas": 1173,
+  "total_arquivos_nesta_pasta": 1018,
+  "total_arquivos_com_subpastas": 1174,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt",
-  "rodape": "gerado por script de git ls-files em 2026-09-30 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-10-01 -- nao editar a mao"
 }

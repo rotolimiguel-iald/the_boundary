@@ -1054,3 +1054,4 @@ import TGLExt.TheKeyIsTheReader
 import TGLExt.TheWholeIsOne
 import TGLExt.PhysicsIsTheReading
 import TGLExt.TheFlowLawD1a
+import TGLExt.TheFlowLawContrast

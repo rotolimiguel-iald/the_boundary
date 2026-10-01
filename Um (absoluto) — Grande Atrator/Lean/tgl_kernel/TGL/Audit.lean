@@ -1,4 +1,5 @@
 
+import TGLExt.TheFlowLawContrast
 import TGLExt.PhysicsIsTheReading
 import TGLExt.TheFlowLawD1a
 import TGLExt.TheWholeIsOne
@@ -9830,3 +9831,24 @@ open TGL.ModularRealization TGLV354 TGLV354.TraceCompletion
 #print axioms TGLExt.TheFlowLawD1a.the_flow_law_is_the_leak
 #print axioms TGLExt.TheFlowLawD1a.the_flow_law_with_the_physical_arrow
 #print axioms TGLExt.TheFlowLawD1a.the_dissipation_law
+-- 2026-09-30 (noite), v378 (ordem do operador: «concordo prossiga» -- a pedra da dissipação generalizada ao contraste g = |1+w_eff|, na mesma família de vazamento; g ≡ 1 recupera o D1a; o núcleo derivado D1b = E(z*)^{2β/3}): TheFlowLawContrast (a gerencia; 20 nomes)
+#print axioms TGLExt.TheFlowLawContrast.accumulatedContrast
+#print axioms TGLExt.TheFlowLawContrast.meanContrast
+#print axioms TGLExt.TheFlowLawContrast.survivingWeightContrast
+#print axioms TGLExt.TheFlowLawContrast.H0localContrast
+#print axioms TGLExt.TheFlowLawContrast.frwContrast
+#print axioms TGLExt.TheFlowLawContrast.survivingWeightContrast_pos
+#print axioms TGLExt.TheFlowLawContrast.survivingWeightContrast_eq
+#print axioms TGLExt.TheFlowLawContrast.the_flow_law_contrast
+#print axioms TGLExt.TheFlowLawContrast.accumulatedContrast_one
+#print axioms TGLExt.TheFlowLawContrast.contrast_one_recovers_D1a
+#print axioms TGLExt.TheFlowLawContrast.beta_zero_recovers_lcdm_contrast
+#print axioms TGLExt.TheFlowLawContrast.local_exceeds_background_contrast
+#print axioms TGLExt.TheFlowLawContrast.accumulatedContrast_ge_of_le
+#print axioms TGLExt.TheFlowLawContrast.accumulatedContrast_le_of_le_one
+#print axioms TGLExt.TheFlowLawContrast.the_deviation_reads_below_the_asymptote
+#print axioms TGLExt.TheFlowLawContrast.frw_accumulated_contrast
+#print axioms TGLExt.TheFlowLawContrast.the_derived_kernel_factor
+#print axioms TGLExt.TheFlowLawContrast.the_derived_kernel_factor_normalized
+#print axioms TGLExt.TheFlowLawContrast.the_dissipation_law_with_contrast
+#print axioms TGLExt.TheFlowLawContrast.the_dissipation_law_with_contrast_and_the_physical_arrow
