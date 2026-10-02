@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-02T09:09:08Z",
+  "gerado_utc": "2026-10-02T16:56:27Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator",
@@ -28,7 +28,7 @@
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.json",
-      "total_arquivos": 1209
+      "total_arquivos": 1210
     }
   ],
   "canonico_url": null,
@@ -52,12 +52,12 @@
       "descricao": "Manifesto do kernel formal: os arquivos .lean e o axiom_report de cada teorema (#print axioms)",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json",
-      "sha256_16": "c0e7f737bf5ccacc",
-      "bytes": 1451404
+      "sha256_16": "15565d32d25445d3",
+      "bytes": 1454194
     }
   ],
   "total_arquivos_nesta_pasta": 2,
-  "total_arquivos_com_subpastas": 1274,
+  "total_arquivos_com_subpastas": 1275,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean",
   "rodape": "gerado por script de git ls-files em 2026-10-02 -- nao editar a mao"
 }

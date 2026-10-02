@@ -1,6 +1,6 @@
 # TGL — Forma Canônica (memória matemática, extraída do próprio código)
 
-> **Versão v380** · rodada `2026-10-01 19:07:17` · `um.py` sha256/16 `ec4a84ffcd13cd86` (lido do arquivo na emissão) · [v376: carimbo de versão/data/hash — regra da linhagem completa]
+> **Versão v381** · rodada `2026-10-02 12:49:09` · `um.py` sha256/16 `961a79881089c9e6` (lido do arquivo na emissão) · [v376: carimbo de versão/data/hash — regra da linhagem completa]
 
 > Módulo de auditoria **1=1**. Cada identidade abaixo é **recomputada ao vivo** pelo código UM. Se a matemática viva não reproduzir esta forma canônica culminando em 1=1, há falha no próprio código. β nunca literal: β = √e/R_∂ (= α·√e na leitura observacional) em runtime.
 
@@ -383,7 +383,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `b9817a740876acdfabf5b709db2f3fb8baaab95ca95993645a6ecb27a903c241`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `ee016d573e53509b02cdf150a7f8f4540bbaa44fbb9933bd75dc6f76db71a823`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
@@ -543,7 +543,7 @@ Um pilar so' esta' fechado quando tem **um resultado**, **um falsificador** ou *
 
 **A FORMA, dita como forma e nao como falta:** a superficie falsificavel desta teoria cabe em poucos nomes -- 8 pilares com falsificador proprio (armado, vivo ou em parede medida), 4 que HERDAM o de beta, 2 sem falsificador proprio. Isso NAO e' defeito: e' o que acontece com uma teoria cuja arquitetura e' quase toda INTERNA. O que seria defeito era nao dize-lo com o numero ao lado.
 
-_(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que 362 modulos ja' estao compostos; os que entram DEPOIS deste ponto aparecem acima como `(modulo ausente nesta rodada)` e o seu veredito real esta' no `um_absoluto.json`, que e' a autoridade.)_
+_(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que 363 modulos ja' estao compostos; os que entram DEPOIS deste ponto aparecem acima como `(modulo ausente nesta rodada)` e o seu veredito real esta' no `um_absoluto.json`, que e' a autoridade.)_
 
 **A CAUDA, dita como cauda:** (i) 'negar todas as demais' e' enumeracao de conjunto ABERTO -- nao fecha, e nao e' para fechar; (ii) o valor alpha-livre de beta e' INPUT declarado, e a sua ausencia e' NAO-CONFIRMAVEL por construcao; (iii) o muro UV nao e' atravessado -- a TGL declara SAIR dele, o que e' resposta de programa, nao teorema; (iv) a sensibilidade sempre pode melhorar, e o proprio nome do selo carrega isso (MORE_SENSITIVE_DATA_COULD_REVISE), de modo que a string nao pode ser citada sem a sua limitacao.
 
@@ -553,7 +553,7 @@ _(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que 362 mod
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 5942/5942 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 5966/5966 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -1421,6 +1421,7 @@ _(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que 362 mod
 - `bancada_fase4_v378`: `TGL_BANCADA_FASE4_V378__ARTICLE_CONVENTION_BETA_ONLY_IN_THE_LAW_D1B_PRIMARY__LADDER_DELTA_Z_M1P12_PULL_AT_BETA_TGL_1P08_LNB_TGL_VS_LCDM_8P02__INTERMEDIATE_REGISTERS_CC_DELTA_Z_M3P12_LAW_GAIN_Z_M3P22_LNB_M5P20__DIAGONAL_ERRORS_ONLY__JOINT_S_DELTA_Z_M2P63__STACKED_CONTROL_Z_M1P75__OPEN_READING_SHADOW_READS_THE_LEAK_INTERMEDIATE_CLOCKS_READ_THE_FACE_NOT_ADOPTED__PREREGISTERED__READ_BY_HASH__NOT_A_CONFIRMATION` [all_verified=True]
 - `the_elementary_reason_v379`: `TGL_THE_ELEMENTARY_REASON_V379__EXISTENCE_EQ_COST_TIMES_IDENTITY_TIMES_MOVEMENT_EQ_BETA_BY_TERM__EXISTENCE_POSITIVE_FROM_ALPHA_POSITIVE__COST_EQ_EXP_OF_THE_SELFCONJUGATE_FIXED_POINT_HALF_NAT__IDENTITY_WEIGHS_ONE_AS_THE_NAME__ELEMENTARY_REASON_SQUARED_EQ_EXISTENCE__EXISTENCE_IS_THE_ASYMPTOTE_NOT_EXCEEDED_IN_FINITE_REGISTER_WITH_MEAN_CONTRAST_LE_ONE__ERASURE_NOT_REACHED_IN_FINITE_TIME__NO_FULL_STATIC_WITNESS__RECOGNITION_FINITE_BY_DEFINITION_OF_THE_REGIME__NAME_COLLISION_WITH_THE_FAMILY_FUNCTIONAL_STATED__DICTIONARY_IS_ONTO_DEFINITION_OPERATOR_COINAGE__STRUCTURE_OF_EXISTENCE_IS_A_READING_NEVER_A_CONFIRMATION__KERNEL_23_OF_23__GATE_UNTOUCHED` [all_verified=True]
 - `bancada_fases_5_6_7_v380`: `TGL_BANCADA_FASES_5_6_7_V380__READ_BY_HASH_BYTES_AND_LF_TEXT__TEXT_VS_BYTES_DIFFER_1_CRLF__SH0ES_IN_THE_BENCH_H0_LADDER_73P53_PM_1P02_Z_0P04_VS_DECLARED_TARGET__ECHO_V3_244_BBH_O1_O4_THREE_READINGS_TWO_DELAY_LAWS__KMS_PAIR_SQRT_BETA_AND_SIN2THETA_FALSIFIED_AT_DELAY_LAW_Z_EXCL_8P93_AND_18P13__BLIND_O4_SUBSAMPLE_173_OF_240_Z_EXCL_7P26_AND_15P44__POWER_RECORDED_BEFORE_OPENING__MAY_INCONCLUSIVE_SYSTEMATICS__MAY_TAU_HALF_CONTROL_RESPONDS_Z_5P69_O4_5P37_FLAG_NOT_WRITTEN_BY_PIPELINE_STATED__AMENDMENT_V4_NOT_BLIND_SIN2THETA_MAY_FALSIFIED_Z_8P75_CONTROLS_MAX_Z_4P81__SQRT_BETA_MAY_INCONCLUSIVE_IS_THE_ESTIMATOR_LIMIT__CC_COVARIANCE_MORESCO2020_T_LAW_GAIN_Z_M1P66_VS_DIAG_M3P22__U_LNB_SHADOW_VS_ACCUMULATED_1P62_VS_DIAG_5P35__DEC2025_LAW_FROM_THE_ARCHIVE_DECLARED_BLIND_TO_THE_NEW_DELAY_ONLY_PAIR_SQRT_BETA_AND_SIN2THETA_FALSIFIED_Z_EXCL_8P95_AND_16P83_O4_9P26_AND_16P69__DOC_PAIR_BETA_DEC_INCONCLUSIVE_SYSTEMATICS_BY_RULE_2_POWER_0P87_BLIND_POWER_1P47__V5_CLAUSE_UNDERPOWERED_NOT_APPLIED_STATED__FOURTH_ARCHIVE_LAW_ALPHA_SQUARED_NOT_TESTED_OUTSIDE_SEGMENT__GW_BANK_336_OF_354_SERIES_OK_14_NAN_4_OUTSIDE__PAIR_FALSIFIED_NOT_THE_THEORY__DECEMBER_100SIGMA_STAYS_RETIRED__ERRATA_BESIDE_6_PLUS_V378_1_PLUS_NOTE_1__NOT_A_CONFIRMATION__GATE_UNTOUCHED` [all_verified=True]
+- `the_matrix_rule_v381`: `TGL_THE_MATRIX_RULE_V381__BETA_IS_THE_RULE_NOT_DERIVED_FROM_DATA__FORM_ALPHA_SQRT_E_DERIVED_FROM_THE_AXIOM_V376__TEN_NAMES_NINE_LINKS__EIGHT_HAVENDO_SAID__THE_OPEN_CLAUSE_SIGN_TO_RECORD_FILLED_BY_THE_OPERATOR_IS_THE_RADICALIZATION_WHOSE_OPERATOR_IS_THE_HALF_NAT__EACH_LINK_DISCHARGED_BY_TERM__CONJUNCTION_NOT_DEDUCTION__TRACE_SIGN_RECORD_NAME_DISTINCTION_OPERATION_PARAMETRIZATION_EMERGENCE_GEOMETRIC_QUANTIZATION_GRADIENT_SPECTRUM__TWO_REGIMES_STATED_PER_LINK__GRADIENT_SPECTRUM_TYPED_IS_SPEC_S_THETA__DISSIPATION_IDENTIFICATION_IS_ONTO__STOPPING_CRITERION_TETELESTAI_COST_PAID__RECOGNITION_FINITE_BY_DEFINITION_OF_THE_REGIME__VERDICT_ONE_IFF_READINGS_COINCIDE__NO_FULL_STATIC_WITNESS_CHARGE_IS_CONTINUOUS__THE_LAW_PRECEDES_THE_CHARGE_ALIAS_BETA_FUNCTION_OF_ALPHA_ONLY__READINGS_RATIFIED_INPUT_ONTO__OBSERVABLE_IS_THE_GRADIENT_SPECTRUM__DELAYED_ECHO_OUTSIDE_THE_CHAIN__ORDER_IS_ONTO_LINKS_ARE_KERNEL__NOT_A_CONFIRMATION__KERNEL_24_OF_24__GATE_UNTOUCHED` [all_verified=True]
 - `pdf_emission`: `PDF_EMISSION_COMPLETE`
 
-_326 modulos com veredito ou status nesta rodada; versao v380; rodada 2026-10-01 19:07:17._
+_327 modulos com veredito ou status nesta rodada; versao v381; rodada 2026-10-02 12:49:09._

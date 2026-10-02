@@ -1,7 +1,7 @@
 # stage: _selftest_restored
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=1018092 len(stderr)=0
+# len(stdout)=1020420 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -11664,6 +11664,30 @@ regularSusyData : (P : SiteProfile) →
  Classical.choice,
  Quot.sound]
 'TGLExt.TheElementaryReason.the_elementary_reason' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.TracoHaSinal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.traco_ha_sinal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.SinalHaRegistro' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.sinal_ha_registro' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.RegistroHaNome' does not depend on any axioms
+'TGLExt.TheMatrixRule.registro_ha_nome' does not depend on any axioms
+'TGLExt.TheMatrixRule.NomeHaDistincao' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.nome_ha_distincao' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.DistincaoHaOperacao' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.distincao_ha_operacao' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.OperacaoHaParametrizacao' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.operacao_ha_parametrizacao' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.ParametrizacaoHaEmergencia' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.parametrizacao_ha_emergencia' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.EmergenciaHaQuantizacao' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.emergencia_ha_quantizacao' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.QuantizacaoHaEspectro' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.quantizacao_ha_espectro' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.CustoPago' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.the_cost_is_paid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.the_law_precedes_the_charge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheMatrixRule.chainOrder' does not depend on any axioms
+'TGLExt.TheMatrixRule.chain_has_ten_names' does not depend on any axioms
+'TGLExt.TheMatrixRule.the_matrix_rule' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 --- STDERR ---
 

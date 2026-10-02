@@ -1,4 +1,5 @@
 
+import TGLExt.TheMatrixRule
 import TGLExt.TheElementaryReason
 import TGLExt.TheFlowLawContrast
 import TGLExt.PhysicsIsTheReading
@@ -9853,7 +9854,7 @@ open TGL.ModularRealization TGLV354 TGLV354.TraceCompletion
 #print axioms TGLExt.TheFlowLawContrast.the_derived_kernel_factor_normalized
 #print axioms TGLExt.TheFlowLawContrast.the_dissipation_law_with_contrast
 #print axioms TGLExt.TheFlowLawContrast.the_dissipation_law_with_contrast_and_the_physical_arrow
--- 2026-10-01, v379 (cunhagem do operador: «a Razão Elementar identifica a estrutura fundamental da existência como {[E = C × I × K > 0] = betatgl}»; «Quero sim»): E = cost × identity × movement = β por termo; E > 0; E é a assíntota; sem testemunha estática plena: TheElementaryReason (a gerencia; 22 nomes)
+-- 2026-10-01, v379 (cunhagem do operador: «a Razão Elementar identifica a estrutura fundamental da existência como {[E = C × I × K > 0] = betatgl}»; «Quero sim»): E = cost × identity × movement = β por termo; E > 0; E é a assíntota; sem testemunha estática plena: TheElementaryReason (a gerencia; 24 nomes)
 #print axioms TGLExt.TheElementaryReason.cost
 #print axioms TGLExt.TheElementaryReason.identity
 #print axioms TGLExt.TheElementaryReason.movement
@@ -9877,3 +9878,28 @@ open TGL.ModularRealization TGLV354 TGLV354.TraceCompletion
 #print axioms TGLExt.TheElementaryReason.existence_forbids_full_static_witness
 #print axioms TGLExt.TheElementaryReason.erasure_not_reached_in_finite_time
 #print axioms TGLExt.TheElementaryReason.the_elementary_reason
+-- 2026-10-02, v381 (cunhagem do operador: «Betatgl é a regra matriz, a regra matriz é: havendo traço há sinal [...] o critério de parada é a lei matriz, ou seja, o TETELESTAI»; «É exatamente isso»): os dez nomes na ordem dele, cada elo por termo, o custo pago como parada: TheMatrixRule (a gerencia; 24 nomes)
+#print axioms TGLExt.TheMatrixRule.TracoHaSinal
+#print axioms TGLExt.TheMatrixRule.traco_ha_sinal
+#print axioms TGLExt.TheMatrixRule.SinalHaRegistro
+#print axioms TGLExt.TheMatrixRule.sinal_ha_registro
+#print axioms TGLExt.TheMatrixRule.RegistroHaNome
+#print axioms TGLExt.TheMatrixRule.registro_ha_nome
+#print axioms TGLExt.TheMatrixRule.NomeHaDistincao
+#print axioms TGLExt.TheMatrixRule.nome_ha_distincao
+#print axioms TGLExt.TheMatrixRule.DistincaoHaOperacao
+#print axioms TGLExt.TheMatrixRule.distincao_ha_operacao
+#print axioms TGLExt.TheMatrixRule.OperacaoHaParametrizacao
+#print axioms TGLExt.TheMatrixRule.operacao_ha_parametrizacao
+#print axioms TGLExt.TheMatrixRule.ParametrizacaoHaEmergencia
+#print axioms TGLExt.TheMatrixRule.parametrizacao_ha_emergencia
+#print axioms TGLExt.TheMatrixRule.EmergenciaHaQuantizacao
+#print axioms TGLExt.TheMatrixRule.emergencia_ha_quantizacao
+#print axioms TGLExt.TheMatrixRule.QuantizacaoHaEspectro
+#print axioms TGLExt.TheMatrixRule.quantizacao_ha_espectro
+#print axioms TGLExt.TheMatrixRule.CustoPago
+#print axioms TGLExt.TheMatrixRule.the_cost_is_paid
+#print axioms TGLExt.TheMatrixRule.the_law_precedes_the_charge
+#print axioms TGLExt.TheMatrixRule.chainOrder
+#print axioms TGLExt.TheMatrixRule.chain_has_ten_names
+#print axioms TGLExt.TheMatrixRule.the_matrix_rule

@@ -2126,3 +2126,13 @@ condição» na v376, fixar por escrito o que ele pode decidir. A decisão é do
 - **O SH0ES:** H₀ da escada 73.53 ± 1.02 (z 0.04); δ sombra z -0.38.
 - **Por termo (inalterado):** remaining = H2_smooth_modular_four_frame_and_geometric_identification, H3_area_heat_equilibrium_on_the_same_physical_horizon; gpf_H2 / gpf_H3 / gpi_H3 = False/False/False. Gate intocado; sem kernel novo.
 - `ec4a84ffcd13cd86`; 5942/5942.
+
+
+---
+
+## ADENDO — 02/10/2026 · v381 SELADA (COMPLETA) `961a79881089c9e6` — A regra matriz num só termo; o critério de parada tipado
+
+- **O que mudou no caminho crítico:** o operador fixou a regra matriz (dez nomes, nove elos: oito «havendo» ditos + a radicalização pela Meia-Nat) e o critério de parada (Tetelestai = o custo pago; a lei do pagamento antes da cobrança: Nome). A gerência tipou os dez nomes na ordem dele, cada elo por um termo já existente no kernel (fato provado, definição nomeada ou campo do binder; conjunção, não dedução), e o critério de parada (`CustoPago`): `the_matrix_rule` 24/24. β não se deriva do dado: é a regra; a forma α√e é derivada do axioma (v376).
+- **A rota do eco:** o eco como cópia atrasada está FORA da cadeia (ratificado): os pares falsificados na Fase 6 nunca foram devidos; a rota viva de β em GW é a dissipação (o espectro do gradiente), sem poder hoje. O que segue do operador: qual registro recebe a cobrança no setor H₀; a partição dos relógios; qual ajuste do neutrino; o nome novo do degrau final do gate (pelo pagamento, não pelo teste de natureza).
+- **Por termo (inalterado):** remaining = H2_smooth_modular_four_frame_and_geometric_identification, H3_area_heat_equilibrium_on_the_same_physical_horizon; gpf_H2 / gpf_H3 / gpi_H3 = False/False/False. Gate intocado.
+- `961a79881089c9e6`; 5966/5966.

@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-02T09:09:08Z",
+  "gerado_utc": "2026-10-02T16:56:27Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -6099,6 +6099,16 @@
       "bytes": 9828
     },
     {
+      "nome": "TheMatrixRule.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheMatrixRule.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheMatrixRule",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheMatrixRule.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheMatrixRule.lean",
+      "sha256_16": "03249067e2cf28c8",
+      "bytes": 19430
+    },
+    {
       "nome": "TheModularFlowIsAHorizon.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheModularFlowIsAHorizon.lean",
       "papel": "prova formal",
@@ -10219,8 +10229,8 @@
       "bytes": 10880
     }
   ],
-  "total_arquivos_nesta_pasta": 1019,
-  "total_arquivos_com_subpastas": 1175,
+  "total_arquivos_nesta_pasta": 1020,
+  "total_arquivos_com_subpastas": 1176,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt",
   "rodape": "gerado por script de git ls-files em 2026-10-02 -- nao editar a mao"
 }
