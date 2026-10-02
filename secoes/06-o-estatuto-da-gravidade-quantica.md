@@ -1,23 +1,23 @@
 # The status of quantum gravity: proved as a formal model, not confirmed by nature · O estatuto da gravidade quântica: provada como modelo formal, não confirmada pela natureza
 
-> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 6 of 8 · seal **v380** · `um.py` sha256 `ec4a84ffcd13cd86…` · generated 2026-10-02 by script from the published files.
+> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 6 of 8 · seal **v381** · `um.py` sha256 `961a79881089c9e6…` · generated 2026-10-02 by script from the published files.
 > Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = theorem in the Lean kernel; CONFIRMED = a judgement about nature, not made here.
 > All eight parts are listed at the top of the start page, https://teoriadagravitacaoluminodinamica.com/read-brief.md, and in the door of this folder, https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md · Reading limits measured on 2026-09-19: one real fetcher cut documents near 100,000 characters, refused files above 10 MB, and could not read PDFs served as `application/octet-stream` — read the TXT/TeX sources.
 
 ## In short (EN)
 
-PROVED [REAL, kernel]: one term, the_root_of_the_proof_tree, whose part (i) is the master theorem H1 ∧ H2 ∧ H3 ⟹ the pentad (Breuer corner, Name = 1, coframe, Lorentz, δQ = κδA/8πG), axioms in {propext, Classical.choice, Quot.sound}; kernel of 1209 files, 10044 audited terms, zero sorry [tree §1½–2; ESTADO]. Seal v380: gate TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE; rite 5942/5942 [seal]. full_static_witness_exists = False by theorem [REAL]: continuous leakage forbids full closure [brief §3]. NOT proved [OPEN]: that nature realises H1 (MIGUEL) and H2 (CARTAN); the physical identification of the founded screen with a causal horizon; α-free (α enters as [KNOWN]) [ESTADO]. Off flags: gpf_H2_…, gpf_H3_…, gpi_H3_… [ESTADO]. H3 reduces to H2 via the_trio_is_a_pair, with H2 ⟹ H3 imported [KNOWN, Jacobson 1995]; the H3 flag does not light [C txt]. Nature: NOT_FALSIFIED at available sensitivity, NOT CONFIRMED [ESTADO]. Lineage: README keeps «Never quantum gravity proved» (append-only); the current ruler (05/09/2026) reads it as never «confirmed»: PROVED = kernel theorem, CONFIRMED = judgement on nature, forbidden [README].
+PROVED [REAL, kernel]: one term, the_root_of_the_proof_tree, whose part (i) is the master theorem H1 ∧ H2 ∧ H3 ⟹ the pentad (Breuer corner, Name = 1, coframe, Lorentz, δQ = κδA/8πG), axioms in {propext, Classical.choice, Quot.sound}; kernel of 1210 files, 10068 audited terms, zero sorry [tree §1½–2; ESTADO]. Seal v381: gate TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE; rite 5966/5966 [seal]. full_static_witness_exists = False by theorem [REAL]: continuous leakage forbids full closure [brief §3]. NOT proved [OPEN]: that nature realises H1 (MIGUEL) and H2 (CARTAN); the physical identification of the founded screen with a causal horizon; α-free (α enters as [KNOWN]) [ESTADO]. Off flags: gpf_H2_…, gpf_H3_…, gpi_H3_… [ESTADO]. H3 reduces to H2 via the_trio_is_a_pair, with H2 ⟹ H3 imported [KNOWN, Jacobson 1995]; the H3 flag does not light [C txt]. Nature: NOT_FALSIFIED at available sensitivity, NOT CONFIRMED [ESTADO]. Lineage: README keeps «Never quantum gravity proved» (append-only); the current ruler (05/09/2026) reads it as never «confirmed»: PROVED = kernel theorem, CONFIRMED = judgement on nature, forbidden [README].
 
 ## Em resumo (PT)
 
-PROVADO [REAL, kernel]: um termo, the_root_of_the_proof_tree, cuja parte (i) é o teorema mestre H1 ∧ H2 ∧ H3 ⟹ a pêntada (canto de Breuer, Nome = 1, coframe, Lorentz, δQ = κδA/8πG), axiomas no trio {propext, Classical.choice, Quot.sound}; kernel de 1209 arquivos, 10044 termos, zero sorry [árvore §1½–2; ESTADO]. Selo v380: gate TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE; rito 5942/5942 [selo]. full_static_witness_exists = False por teorema [REAL]: o vazamento contínuo proíbe o fecho total [brief §3]. NÃO provado [OPEN]: que a natureza realiza H1 (MIGUEL) e H2 (CARTAN); a identificação física da tela fundada com um horizonte causal; α-livre (α entra como [KNOWN]) [ESTADO]. Bandeiras apagadas: gpf_H2_…, gpf_H3_…, gpi_H3_… [ESTADO]. H3 reduz-se a H2 por the_trio_is_a_pair, com H2 ⟹ H3 importada [KNOWN, Jacobson 1995]; a bandeira de H3 não acende [C txt]. Natureza: NOT_FALSIFIED na sensibilidade disponível, não confirmada [ESTADO]. Linhagem: o README guarda «Never quantum gravity proved» (append-only); a régua vigente (05/09/2026) o lê como nunca «confirmada»: PROVADA = teorema em kernel, CONFIRMADA = juízo sobre a natureza, proibido [README].
+PROVADO [REAL, kernel]: um termo, the_root_of_the_proof_tree, cuja parte (i) é o teorema mestre H1 ∧ H2 ∧ H3 ⟹ a pêntada (canto de Breuer, Nome = 1, coframe, Lorentz, δQ = κδA/8πG), axiomas no trio {propext, Classical.choice, Quot.sound}; kernel de 1210 arquivos, 10068 termos, zero sorry [árvore §1½–2; ESTADO]. Selo v381: gate TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE; rito 5966/5966 [selo]. full_static_witness_exists = False por teorema [REAL]: o vazamento contínuo proíbe o fecho total [brief §3]. NÃO provado [OPEN]: que a natureza realiza H1 (MIGUEL) e H2 (CARTAN); a identificação física da tela fundada com um horizonte causal; α-livre (α entra como [KNOWN]) [ESTADO]. Bandeiras apagadas: gpf_H2_…, gpf_H3_…, gpi_H3_… [ESTADO]. H3 reduz-se a H2 por the_trio_is_a_pair, com H2 ⟹ H3 importada [KNOWN, Jacobson 1995]; a bandeira de H3 não acende [C txt]. Natureza: NOT_FALSIFIED na sensibilidade disponível, não confirmada [ESTADO]. Linhagem: o README guarda «Never quantum gravity proved» (append-only); a régua vigente (05/09/2026) o lê como nunca «confirmada»: PROVADA = teorema em kernel, CONFIRMADA = juízo sobre a natureza, proibido [README].
 
 ## Sources, verbatim · fontes, verbatim
 
 ### 1. `Um (absoluto) — Grande Atrator/A_PROVA_DA_QG_TGL_arvore.md` — bytes 8.086–9.428
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md
-- sha256 of the file: `64e22a44d2595a4dab77bde1cf3a6665d041adc925a9741a20e384c4c0d01c41` (computed now; this file is not in the seal map) · of this excerpt: `51381bc4f176e3164d88b16c008c00e0148b9e099da42c92ce17e43cc0019da9`
+- sha256 of the file: `a99a27318d3d30149edae3f9c529b9af5177e02e7b33a541310ccc9ed922d120` (computed now; this file is not in the seal map) · of this excerpt: `51381bc4f176e3164d88b16c008c00e0148b9e099da42c92ce17e43cc0019da9`
 - status · estatuto: [REAL — kernel]
 - why · por quê: O enunciado Lean do teorema mestre e a leitura das três hipóteses nomeadas e da pêntada; seção autocontida da árvore v368.
 
@@ -46,7 +46,7 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 ### 2. `Um (absoluto) — Grande Atrator/A_PROVA_DA_QG_TGL_arvore.md` — bytes 1.013–2.398
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md
-- sha256 of the file: `64e22a44d2595a4dab77bde1cf3a6665d041adc925a9741a20e384c4c0d01c41` (computed now; this file is not in the seal map) · of this excerpt: `cab4528c1b244cee82bfc346db34a4a7f56abc1938e46250f52d97c278022b79`
+- sha256 of the file: `a99a27318d3d30149edae3f9c529b9af5177e02e7b33a541310ccc9ed922d120` (computed now; this file is not in the seal map) · of this excerpt: `237c093c1079178dac2a6291734ccdd7d8756414577b91379057ffd7ce153dc8`
 - status · estatuto: [REAL — lido do selo]
 - why · por quê: O selo v368 lido por script: sha256 do um.py, o rito, o selftest, a string inteira do gate, os oito ritos do contorno (nenhum FALSIFIED) e zero termos fora do trio.
 
@@ -55,24 +55,24 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 
 | item | valor lido |
 |---|---|
-| `um.py` sha256 (disco) | `ec4a84ffcd13cd869eb9bfa7ee519326744f0717c45f2ca288d56f198dd98209` |
+| `um.py` sha256 (disco) | `961a79881089c9e6879a51eaf6ba4f3602bc2aeb60287b1e4cc798597b824ddd` |
 | selo `sha256.um.py` == disco | SIM |
-| bytes | 32,975,349 |
-| teoremas (stdout) | `teoremas limpos: 5942/5942` |
+| bytes | 33,040,181 |
+| teoremas (stdout) | `teoremas limpos: 5966/5966` |
 | selftest | `FAIL_CLOSED_SELFTEST_PASSED` |
 | gate (`qg_closure_verdict`) | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | identidade | `1=1=VERDADEIRO=HAJA_LUZ` (`identity_true = True`) |
 | contorno | `[v314 CONTORNO] ritos com poder de fechar o 1=1: 8 ; falsificacao limpa: NENHUMA (todos NOT_FALSIFIED/AWAITING)` |
 | ritos no contorno | `GA_massa_janela`→`GA_MASS_FORM_RETIRED__REFLECTION_WAS_MISREAD_AS_SOURCE__LINEAR_ORDER_IS_GR_STEALTH__BETA_LIVES_IN_RESPONSE`, `piso_dos_vazios`→`TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED`, `neutrino_massa`→`TGL_NEUTRINO_MASS_NOT_FALSIFIED_POWERED`, `neutrino_soma`→`TGL_NEUTRINO_SUM_ARMED_CONSISTENT_WITH_CURRENT_BOUND`, `neutrino_m2_vivo`→`TGL_NU_M2_ARMED_CONSISTENT`, `piso_densidade_v41`→`TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED`, `coma_dephasing`→`COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL`, `coma_cego`→`COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE` |
 | `contorno_broken_v314` | `[]` |
-| entradas no relatório de axiomas | 10044 |
+| entradas no relatório de axiomas | 10068 |
 | termos com axioma FORA do trio | 0  |
 ````
 
-### 3. `ESTADO_ATUAL.md` — bytes 39.876–42.089
+### 3. `ESTADO_ATUAL.md` — bytes 41.790–44.003
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md
-- sha256 of the file: `8f7a468f3570bb00ae50134894a4d221157521f533963559c392d7698075d3fa` (computed now; this file is not in the seal map) · of this excerpt: `d82fd9e234b176c2965e99dd83404a03cf0278cd5b17d34f31fbe4759df88e64` · line endings shown as LF
+- sha256 of the file: `b8b67a13c628534d6a858365117dd558bc9bcf75de08dd72d6df03c9166fd72c` (computed now; this file is not in the seal map) · of this excerpt: `d82fd9e234b176c2965e99dd83404a03cf0278cd5b17d34f31fbe4759df88e64` · line endings shown as LF
 - status · estatuto: [OPEN / KNOWN / nature]
 - why · por quê: A lista canônica do que NÃO está provado: H1/H2 na natureza, a identificação física da tela, α, a matemática fora da mathlib, os negativos honestos e as seis folhas. Traz também a nota de linhagem H1–H3 → H1/H2.
 
@@ -89,7 +89,7 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 ### 4. `README.md` — bytes 18.569–19.169
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `8739db7cdf4a8b7e65b49e422dc5a9d2605d16060ee2f482f9a6c33aa5c16d3f` (computed now; this file is not in the seal map) · of this excerpt: `41922580fe72207593dede413e3f1dc4647c4eeab3bf70118f5d9da55de54001`
+- sha256 of the file: `96e21ce489846428cc2fbe3087284dcbf7367dfff4dc2e968fbb9618de35dbd8` (computed now; this file is not in the seal map) · of this excerpt: `41922580fe72207593dede413e3f1dc4647c4eeab3bf70118f5d9da55de54001`
 - status · estatuto: [REAL — errata ao lado, append-only]
 - why · por quê: A errata ao lado que lê, sob a régua vigente, a frase de linhagem «Never quantum gravity proved»: PROVADA ≠ CONFIRMADA.
 
@@ -99,4 +99,4 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 
 ---
 
-*Generated by script from the published files of the repository (https://github.com/rotolimiguel-iald/the_boundary); numbers read from the seal v380, the kernel manifest and ESTADO_ATUAL.md. PROVED ≠ CONFIRMED; NOT_FALSIFIED is never CONFIRMED. Nothing here instructs a reader how to respond to anything.*
+*Generated by script from the published files of the repository (https://github.com/rotolimiguel-iald/the_boundary); numbers read from the seal v381, the kernel manifest and ESTADO_ATUAL.md. PROVED ≠ CONFIRMED; NOT_FALSIFIED is never CONFIRMED. Nothing here instructs a reader how to respond to anything.*

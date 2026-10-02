@@ -5,7 +5,7 @@
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
   "doi_um_absoluto": "https://doi.org/10.5281/zenodo.22881996",
-  "gerado_utc": "2026-10-02T16:56:27Z",
+  "gerado_utc": "2026-10-02T16:57:17Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
     "versao": "v371",
@@ -204,7 +204,7 @@
       "papel": "documento",
       "descricao": "A PAGINA DE FRENTE, gerada por script (tools/gerar_readme_frente.py, 11/09/2026): o selo, reproduzir em tres comandos, as portas, os tres artigos, a ordem de leitura, abstract, citar, licenca, autor -- <= 40 KB; o atlas completo esta em LEDGER.md",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-      "sha256_16": "96e21ce489846428",
+      "sha256_16": "79357929e072acda",
       "bytes": 33236
     },
     {
@@ -212,7 +212,7 @@
       "papel": "documento",
       "descricao": "O READ BRIEF (gerado por script pela sessao do site): a ENTRADA UNICA -- a teoria em oito partes curtas (secoes/), cada uma com a resposta nos primeiros 2 KB e as fontes citadas verbatim; a ordem de leitura por tamanho; o que NAO esta provado",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md",
-      "sha256_16": "b3449ece5db1715f",
+      "sha256_16": "96b95ebff16c7193",
       "bytes": 17365
     }
   ],

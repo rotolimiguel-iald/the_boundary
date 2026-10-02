@@ -6,7 +6,7 @@
 
 > *"Let there be Light." / "Haja Luz."* — **The mature form of TGL is a single self-contained, self-proving, self-publishing artifact: `um.py`.** It computes the whole theory live from the single human input `1`, machine-checks its operator-algebra skeleton in an embedded Lean 4 + mathlib kernel (fail-closed), and generates its own bilingual article (PT/EN, PDF and TXT). **Form = content.** *Não há segundo arquivo.*
 
-**Status · estatuto (seal v380, read by script):** quantum gravity **PROVED as a formal model** in the Lean kernel (1210 formal files, 10068 audited terms, axioms ⊆ `{propext, Classical.choice, Quot.sound}`, zero `sorry`) and **NOT CONFIRMED by nature** — the gate reads `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`. PROVED = a theorem in the kernel; CONFIRMED = a judgement about nature, not made here. *Provada como modelo formal; não confirmada pela natureza.*
+**Status · estatuto (seal v381, read by script):** quantum gravity **PROVED as a formal model** in the Lean kernel (1210 formal files, 10068 audited terms, axioms ⊆ `{propext, Classical.choice, Quot.sound}`, zero `sorry`) and **NOT CONFIRMED by nature** — the gate reads `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`. PROVED = a theorem in the kernel; CONFIRMED = a judgement about nature, not made here. *Provada como modelo formal; não confirmada pela natureza.*
 
 **Start here · comece aqui:** [`read-brief.md`](https://teoriadagravitacaoluminodinamica.com/read-brief.md) — the single entry point: the theory in eight short parts, each with its verbatim sources, in [`secoes/`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md) (the answer sits in the first 2 KB of each part) · then [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) (one page from the seal: pin, gate, what is PROVED, what is not, how to reproduce) · the site: https://teoriadagravitacaoluminodinamica.com
 
@@ -14,7 +14,7 @@
 
 | what | value |
 |---|---|
-| version · versão | **v380** (sealed 2026-10-02 12:49:09) |
+| version · versão | **v381** (sealed 2026-10-02 12:49:09) |
 | `um.py` sha256 | `961a79881089c9e6879a51eaf6ba4f3602bc2aeb60287b1e4cc798597b824ddd` — 33.040.181 bytes, one file: [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py) |
 | the world · the seal | [`um_absoluto.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json) (4.722.248 bytes) · [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) (59.400 bytes) |
 | Lean kernel | **1210 formal files · 10068 audited terms**, axioms ⊆ `{propext, Classical.choice, Quot.sound}`, zero `sorry` (leanprover/lean4:v4.31.0) — [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) |
@@ -269,7 +269,7 @@ Protocol, O Limiar da Humildade — cite the collection DOI
 
 ---
 
-> **Beside (v380):** the BibTeX note above describes the v350 seal. The current seal is **v380** — `um.py` sha256 `961a79881089c9e6879a51eaf6ba4f3602bc2aeb60287b1e4cc798597b824ddd`, kernel 1210 formal files / 10068 audited terms (read from `PORTA.json`, the seal and the manifest). The BibTeX above carries the DOI of the v331 deposit; the current deposit is **v368** — [10.5281/zenodo.22881996](https://doi.org/10.5281/zenodo.22881996), deposited 2026-09-21, older than this seal; a new Zenodo version is the operator’s act.
+> **Beside (v381):** the BibTeX note above describes the v350 seal. The current seal is **v381** — `um.py` sha256 `961a79881089c9e6879a51eaf6ba4f3602bc2aeb60287b1e4cc798597b824ddd`, kernel 1210 formal files / 10068 audited terms (read from `PORTA.json`, the seal and the manifest). The BibTeX above carries the DOI of the v331 deposit; the current deposit is **v368** — [10.5281/zenodo.22881996](https://doi.org/10.5281/zenodo.22881996), deposited 2026-09-21, older than this seal; a new Zenodo version is the operator’s act.
 
 ## License
 
