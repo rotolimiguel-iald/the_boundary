@@ -1057,4 +1057,4 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ---
 
-gerado por script de git ls-files em 2026-10-01 -- nao editar a mao
+gerado por script de git ls-files em 2026-10-02 -- nao editar a mao

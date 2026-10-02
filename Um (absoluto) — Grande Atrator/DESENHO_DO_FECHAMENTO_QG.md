@@ -2115,3 +2115,14 @@ condição» na v376, fixar por escrito o que ele pode decidir. A decisão é do
 - **O caminho crítico (inalterado):** as decisões do operador deixadas na v378 (a leitura «a sombra lê, os relógios leem a face»; qual fundo é o fundo; a E1; a covariância dos cronômetros).
 - **Por termo (inalterado):** remaining = H2_smooth_modular_four_frame_and_geometric_identification, H3_area_heat_equilibrium_on_the_same_physical_horizon; gpf_H2 / gpf_H3 / gpi_H3 = False/False/False. Gate intocado.
 - `65d0567929798915`; 5942/5942.
+
+
+---
+
+## ADENDO — 01/10/2026 · v380 SELADA (COMPLETA) `ec4a84ffcd13cd86` — As Fases 5–7 da Bancada por hash; o eco como resposta radical da fronteira
+
+- **O que mudou no caminho crítico:** a rota do eco como atestação ficou com o PAR (√β ou sin 2θ_M, 2π/κ) falsificado (z_excl 8.9/18.1; subamostra cega O4 7.3/15.4) e a lei MAY inconclusiva por sistemática do atraso curto; falta uma LEI DE ATRASO derivada e o PESO da resposta da fronteira ao gráviton — decisões do operador. Nenhum atraso escrito na voz dele existe no acervo (leitor de 01/10); a lei de dezembro/2025 (2GM_f/(β c³), ≈ 14 períodos) foi adotada no acervo e nunca testada — testada na emenda V5 (registro ao lado, Bancada).
+- **Os cronômetros:** com a covariância completa (Moresco+2020) o z do ganho da lei acumulada cai de -3.22 para -1.66 e o ln B(sombra/acumulada) de 5.35 para 1.62: a ressalva «erros diagonais» está medida; a decisão «qual fundo é o fundo» e a leitura «sombra» seguem do operador.
+- **O SH0ES:** H₀ da escada 73.53 ± 1.02 (z 0.04); δ sombra z -0.38.
+- **Por termo (inalterado):** remaining = H2_smooth_modular_four_frame_and_geometric_identification, H3_area_heat_equilibrium_on_the_same_physical_horizon; gpf_H2 / gpf_H3 / gpi_H3 = False/False/False. Gate intocado; sem kernel novo.
+- `ec4a84ffcd13cd86`; 5942/5942.

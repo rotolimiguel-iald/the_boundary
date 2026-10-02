@@ -28,12 +28,13 @@ Pasta do repositorio the_boundary com 0 arquivo(s) rastreado(s).
 | subpasta | arquivos | PORTA.md | PORTA.json |
 |---|---|---|---|
 | `auditoria/` | 1 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/auditoria/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/auditoria/PORTA.json) |
+| `bancada_01out/` | 23 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/PORTA.json) |
 | `bancada_30set/` | 18 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_30set/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_30set/PORTA.json) |
 | `coma_blind/` | 1 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/coma_blind/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/coma_blind/PORTA.json) |
 | `d1_camb/` | 20 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/d1_camb/PORTA.json) |
 | `diamante_rede/` | 92 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/diamante_rede/PORTA.json) |
-| `gw/` | 11 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/PORTA.json) |
+| `gw/` | 13 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/PORTA.json) |
 
 ---
 
-gerado por script de git ls-files em 2026-10-01 -- nao editar a mao
+gerado por script de git ls-files em 2026-10-02 -- nao editar a mao

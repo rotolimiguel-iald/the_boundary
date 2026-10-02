@@ -52,3 +52,6 @@ cache/coma_blind/*
 !cache/bancada_30set/
 # fontes/ traz capitulo de livro-texto com direitos autorais (Serway & Jewett): NUNCA publicar
 cache/bancada_30set/fontes/
+
+# 02/10/2026 (custodia v380): o cache das fases 5-7 da bancada, lido por hash pelo rito
+!cache/bancada_01out/

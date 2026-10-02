@@ -1,0 +1,258 @@
+{
+  "porta": "cache/bancada_01out",
+  "porta_id": "cache/bancada_01out",
+  "titulo": "cache/bancada_01out",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-02T09:08:17Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "cache",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "AMOSTRA_FASE6.json",
+      "caminho": "cache/bancada_01out/AMOSTRA_FASE6.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/AMOSTRA_FASE6.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/AMOSTRA_FASE6.json",
+      "sha256_16": "2f6424f3adf57e76",
+      "bytes": 33643
+    },
+    {
+      "nome": "DIAG_CONTROLES_POSTHOC.json",
+      "caminho": "cache/bancada_01out/DIAG_CONTROLES_POSTHOC.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/DIAG_CONTROLES_POSTHOC.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/DIAG_CONTROLES_POSTHOC.json",
+      "sha256_16": "4190eb70a7eb1cf2",
+      "bytes": 1975819
+    },
+    {
+      "nome": "EMENDA_V4_FASE6_20261001.json",
+      "caminho": "cache/bancada_01out/EMENDA_V4_FASE6_20261001.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/EMENDA_V4_FASE6_20261001.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/EMENDA_V4_FASE6_20261001.json",
+      "sha256_16": "7c2b709b07a7722b",
+      "bytes": 91134
+    },
+    {
+      "nome": "EMENDA_V5_FASE6_20261001.json",
+      "caminho": "cache/bancada_01out/EMENDA_V5_FASE6_20261001.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/EMENDA_V5_FASE6_20261001.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/EMENDA_V5_FASE6_20261001.json",
+      "sha256_16": "08d5e2d5ea209dc2",
+      "bytes": 92772
+    },
+    {
+      "nome": "GWOSC_O4_32S_V1.manifest.json",
+      "caminho": "cache/bancada_01out/GWOSC_O4_32S_V1.manifest.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/GWOSC_O4_32S_V1.manifest.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/GWOSC_O4_32S_V1.manifest.json",
+      "sha256_16": "a795cf04ca3b2f6a",
+      "bytes": 253528
+    },
+    {
+      "nome": "PODER_FASE6_ANTES_DE_ABRIR.json",
+      "caminho": "cache/bancada_01out/PODER_FASE6_ANTES_DE_ABRIR.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/PODER_FASE6_ANTES_DE_ABRIR.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/PODER_FASE6_ANTES_DE_ABRIR.json",
+      "sha256_16": "6e5b7733eb80495a",
+      "bytes": 296806
+    },
+    {
+      "nome": "PODER_V4_ANTES_DE_ABRIR.json",
+      "caminho": "cache/bancada_01out/PODER_V4_ANTES_DE_ABRIR.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/PODER_V4_ANTES_DE_ABRIR.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/PODER_V4_ANTES_DE_ABRIR.json",
+      "sha256_16": "b5482e9f12afd6e1",
+      "bytes": 296791
+    },
+    {
+      "nome": "PODER_V5_ANTES_DE_ABRIR.json",
+      "caminho": "cache/bancada_01out/PODER_V5_ANTES_DE_ABRIR.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/PODER_V5_ANTES_DE_ABRIR.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/PODER_V5_ANTES_DE_ABRIR.json",
+      "sha256_16": "454553aa9aa571c0",
+      "bytes": 445238
+    },
+    {
+      "nome": "PREREGISTRO_FASE5_SH0ES_20261001.json",
+      "caminho": "cache/bancada_01out/PREREGISTRO_FASE5_SH0ES_20261001.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/PREREGISTRO_FASE5_SH0ES_20261001.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/PREREGISTRO_FASE5_SH0ES_20261001.json",
+      "sha256_16": "f9fbf497c90c0a66",
+      "bytes": 8733
+    },
+    {
+      "nome": "PREREGISTRO_FASE6_ECO_RADICAL_20261001.json",
+      "caminho": "cache/bancada_01out/PREREGISTRO_FASE6_ECO_RADICAL_20261001.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/PREREGISTRO_FASE6_ECO_RADICAL_20261001.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/PREREGISTRO_FASE6_ECO_RADICAL_20261001.json",
+      "sha256_16": "47457358d72dd9dc",
+      "bytes": 89280
+    },
+    {
+      "nome": "PREREGISTRO_FASE7_CC_COVARIANCIA_20261001.json",
+      "caminho": "cache/bancada_01out/PREREGISTRO_FASE7_CC_COVARIANCIA_20261001.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/PREREGISTRO_FASE7_CC_COVARIANCIA_20261001.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/PREREGISTRO_FASE7_CC_COVARIANCIA_20261001.json",
+      "sha256_16": "36e354d547895d1d",
+      "bytes": 7183
+    },
+    {
+      "nome": "RELATORIO_FASE5_SH0ES_20261001.md",
+      "caminho": "cache/bancada_01out/RELATORIO_FASE5_SH0ES_20261001.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/RELATORIO_FASE5_SH0ES_20261001.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/RELATORIO_FASE5_SH0ES_20261001.md",
+      "sha256_16": "5b3274356126ef0f",
+      "bytes": 6628
+    },
+    {
+      "nome": "RELATORIO_FASE6_ECO_RADICAL_20261001.md",
+      "caminho": "cache/bancada_01out/RELATORIO_FASE6_ECO_RADICAL_20261001.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/RELATORIO_FASE6_ECO_RADICAL_20261001.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/RELATORIO_FASE6_ECO_RADICAL_20261001.md",
+      "sha256_16": "39b9f5a38ac1b282",
+      "bytes": 11410
+    },
+    {
+      "nome": "RELATORIO_FASE7_CC_COVARIANCIA_20261001.md",
+      "caminho": "cache/bancada_01out/RELATORIO_FASE7_CC_COVARIANCIA_20261001.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/RELATORIO_FASE7_CC_COVARIANCIA_20261001.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/RELATORIO_FASE7_CC_COVARIANCIA_20261001.md",
+      "sha256_16": "50f89754f73bdac9",
+      "bytes": 4834
+    },
+    {
+      "nome": "RESULTADO_FASE5_SH0ES_20261001.json",
+      "caminho": "cache/bancada_01out/RESULTADO_FASE5_SH0ES_20261001.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/RESULTADO_FASE5_SH0ES_20261001.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/RESULTADO_FASE5_SH0ES_20261001.json",
+      "sha256_16": "851d1076b85f12f6",
+      "bytes": 45862
+    },
+    {
+      "nome": "RESULTADO_FASE6_ECO_RADICAL_20261001.json",
+      "caminho": "cache/bancada_01out/RESULTADO_FASE6_ECO_RADICAL_20261001.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/RESULTADO_FASE6_ECO_RADICAL_20261001.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/RESULTADO_FASE6_ECO_RADICAL_20261001.json",
+      "sha256_16": "9622e66e018a8b00",
+      "bytes": 312428
+    },
+    {
+      "nome": "RESULTADO_FASE7_CC_COVARIANCIA_20261001.json",
+      "caminho": "cache/bancada_01out/RESULTADO_FASE7_CC_COVARIANCIA_20261001.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/RESULTADO_FASE7_CC_COVARIANCIA_20261001.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/RESULTADO_FASE7_CC_COVARIANCIA_20261001.json",
+      "sha256_16": "4f2671cbce7576f6",
+      "bytes": 44122
+    },
+    {
+      "nome": "RESULTADO_V4_FASE6_20261001.json",
+      "caminho": "cache/bancada_01out/RESULTADO_V4_FASE6_20261001.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/RESULTADO_V4_FASE6_20261001.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/RESULTADO_V4_FASE6_20261001.json",
+      "sha256_16": "f46e294a34e2f546",
+      "bytes": 311996
+    },
+    {
+      "nome": "RESULTADO_V5_FASE6_20261001.json",
+      "caminho": "cache/bancada_01out/RESULTADO_V5_FASE6_20261001.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/RESULTADO_V5_FASE6_20261001.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/RESULTADO_V5_FASE6_20261001.json",
+      "sha256_16": "e8c16a3f567a6b96",
+      "bytes": 467075
+    },
+    {
+      "nome": "SMOKE_FASE7.json",
+      "caminho": "cache/bancada_01out/SMOKE_FASE7.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/SMOKE_FASE7.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/SMOKE_FASE7.json",
+      "sha256_16": "378d869081771ec2",
+      "bytes": 430
+    },
+    {
+      "nome": "SMOKE_SH0ES.json",
+      "caminho": "cache/bancada_01out/SMOKE_SH0ES.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/SMOKE_SH0ES.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/SMOKE_SH0ES.json",
+      "sha256_16": "7a09b86bda582f08",
+      "bytes": 813
+    },
+    {
+      "nome": "moresco_2020_cov.json",
+      "caminho": "cache/bancada_01out/moresco_2020_cov.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/moresco_2020_cov.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/moresco_2020_cov.json",
+      "sha256_16": "1c22a3a3f101834f",
+      "bytes": 35984
+    },
+    {
+      "nome": "remanescentes_v3.json",
+      "caminho": "cache/bancada_01out/remanescentes_v3.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/bancada_01out/remanescentes_v3.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/bancada_01out/remanescentes_v3.json",
+      "sha256_16": "68069f8892a80d56",
+      "bytes": 117167
+    }
+  ],
+  "total_arquivos_nesta_pasta": 23,
+  "total_arquivos_com_subpastas": 23,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/bancada_01out",
+  "rodape": "gerado por script de git ls-files em 2026-10-02 -- nao editar a mao"
+}

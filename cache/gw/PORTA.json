@@ -4,7 +4,7 @@
   "titulo": "cache/gw",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-01T15:30:53Z",
+  "gerado_utc": "2026-10-02T09:08:17Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "cache",
@@ -51,6 +51,16 @@
       "bytes": 364990
     },
     {
+      "nome": "ECHO_ANCHORED_V3_RESULT.json",
+      "caminho": "cache/gw/ECHO_ANCHORED_V3_RESULT.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/ECHO_ANCHORED_V3_RESULT.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/gw/ECHO_ANCHORED_V3_RESULT.json",
+      "sha256_16": "9622e66e018a8b00",
+      "bytes": 312428
+    },
+    {
       "nome": "ECHO_PE_V1_RESULT.json",
       "caminho": "cache/gw/ECHO_PE_V1_RESULT.json",
       "papel": "resultado selado",
@@ -89,6 +99,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/gw/GWOSC_ECHO_WINDOWS_V1.manifest.json",
       "sha256_16": "5201e7b05cc4d5cc",
       "bytes": 104397
+    },
+    {
+      "nome": "GWOSC_O4_32S_V1.manifest.json",
+      "caminho": "cache/gw/GWOSC_O4_32S_V1.manifest.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/GWOSC_O4_32S_V1.manifest.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/cache/gw/GWOSC_O4_32S_V1.manifest.json",
+      "sha256_16": "a795cf04ca3b2f6a",
+      "bytes": 253528
     },
     {
       "nome": "GWOSC_WINDOWS_V1.manifest.json",
@@ -131,8 +151,8 @@
       "bytes": 247065
     }
   ],
-  "total_arquivos_nesta_pasta": 11,
-  "total_arquivos_com_subpastas": 11,
+  "total_arquivos_nesta_pasta": 13,
+  "total_arquivos_com_subpastas": 13,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/cache/gw",
-  "rodape": "gerado por script de git ls-files em 2026-10-01 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-10-02 -- nao editar a mao"
 }

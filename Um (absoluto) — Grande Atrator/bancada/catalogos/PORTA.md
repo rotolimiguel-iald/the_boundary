@@ -34,4 +34,4 @@ O registro do que caiu: rebaixados, errata aritmetica, falsos positivos.
 
 ---
 
-gerado por script de git ls-files em 2026-10-01 -- nao editar a mao
+gerado por script de git ls-files em 2026-10-02 -- nao editar a mao
