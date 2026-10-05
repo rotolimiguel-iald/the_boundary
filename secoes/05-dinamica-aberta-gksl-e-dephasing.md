@@ -1,16 +1,16 @@
 # Open dynamics: the GKSL generator and dephasing · A dinâmica aberta: o gerador GKSL e o dephasing
 
-> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 5 of 8 · seal **v381** · `um.py` sha256 `961a79881089c9e6…` · generated 2026-10-02 by script from the published files.
+> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 5 of 8 · seal **v386** · `um.py` sha256 `e30aac4e0e1096b1…` · generated 2026-10-05 by script from the published files.
 > Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = theorem in the Lean kernel; CONFIRMED = a judgement about nature, not made here.
 > All eight parts are listed at the top of the start page, https://teoriadagravitacaoluminodinamica.com/read-brief.md, and in the door of this folder, https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md · Reading limits measured on 2026-09-19: one real fetcher cut documents near 100,000 characters, refused files above 10 MB, and could not read PDFs served as `application/octet-stream` — read the TXT/TeX sources.
 
 ## In short (EN)
 
-The only non-unitary object of the chain is the GKSL generator L = √β·√K_∂: zero effective Hamiltonian on the boundary, one Davies jump set, every jump carrying the same prefix √β [DERIVED] [A §sec:gksl][C canon v3]. The v381 run tests it: entropy monotone, inverse not CP, stationary kernel, a semigroup and not a group [REAL] [C stdout]. It induces energy-preserving dephasing Γ_ω = ½·β·τ★·ω² [REAL in form] [C canon] (A writes it with an extra factor (K/K★)^β), β = 0.0120313, neutrino exponent n = −2, τ★ [INPUT] [A §sec:dephasing]. The site reads the root law Γ_ij = ½·β·(√k_i − √k_j)² as the same law [REAL in form] [brief]; C records the reconciliation as a falsifiable consistency test [OPEN] [C txt]. Seal: dephasing_reach_verdict = ten-order reach deficit computed, not a live channel today, cosmological faces are the live ones [REAL] [selo]. Sector status: not falsified, NOT CONFIRMED [A §sec:dephasing]; gate TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE [selo]. Lineage, not the current generator: T6's Davies form L_k = √(β·γ_k) [A T6] and the home's five operators L_reh, L_anti, L_prune, L_cons, L_grav = α·P̂_G [site index]; C treats the four IALD operators as a formal analogy [C txt].
+The only non-unitary object of the chain is the GKSL generator L = √β·√K_∂: zero effective Hamiltonian on the boundary, one Davies jump set, every jump carrying the same prefix √β [DERIVED] [A §sec:gksl][C canon v3]. The v386 run tests it: entropy monotone, inverse not CP, stationary kernel, a semigroup and not a group [REAL] [C stdout]. It induces energy-preserving dephasing Γ_ω = ½·β·τ★·ω² [REAL in form] [C canon] (A writes it with an extra factor (K/K★)^β), β = 0.0120313, neutrino exponent n = −2, τ★ [INPUT] [A §sec:dephasing]. The site reads the root law Γ_ij = ½·β·(√k_i − √k_j)² as the same law [REAL in form] [brief]; C records the reconciliation as a falsifiable consistency test [OPEN] [C txt]. Seal: dephasing_reach_verdict = ten-order reach deficit computed, not a live channel today, cosmological faces are the live ones [REAL] [selo]. Sector status: not falsified, NOT CONFIRMED [A §sec:dephasing]; gate TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE [selo]. Lineage, not the current generator: T6's Davies form L_k = √(β·γ_k) [A T6] and the home's five operators L_reh, L_anti, L_prune, L_cons, L_grav = α·P̂_G [site index]; C treats the four IALD operators as a formal analogy [C txt].
 
 ## Em resumo (PT)
 
-O único objeto não unitário da cadeia é o gerador GKSL L = √β·√K_∂: hamiltoniano efetivo nulo na fronteira, um só conjunto de saltos de Davies, todos com o mesmo prefixo √β [DERIVED] [A §sec:gksl][C canon v3]. A rodada v381 o testa: entropia monótona, inversa não CP, núcleo estacionário, semigrupo e não grupo [REAL] [C stdout]. Ele induz dephasing energia-preservante Γ_ω = ½·β·τ★·ω² [REAL na forma] [C canon] (A a escreve com o fator extra (K/K★)^β), β = 0.0120313, expoente em neutrinos n = −2, τ★ [INPUT] [A §sec:dephasing]. O site lê a lei das raízes Γ_ij = ½·β·(√k_i − √k_j)² como a mesma lei [REAL na forma] [brief]; C registra a reconciliação como teste de consistência falsificável [OPEN] [C txt]. Selo: dephasing_reach_verdict = déficit de alcance de dez ordens computado, não é canal vivo hoje, as faces cosmológicas são as vivas [REAL] [selo]. Estado do setor: não falsificada, não confirmada [A §sec:dephasing]; gate TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE [selo]. Linhagem, não o gerador vigente: a forma de Davies L_k = √(β·γ_k) do T6 [A T6] e os cinco operadores da home L_reh, L_anti, L_prune, L_cons, L_grav = α·P̂_G [site index]; C trata os quatro operadores IALD como analogia formal [C txt].
+O único objeto não unitário da cadeia é o gerador GKSL L = √β·√K_∂: hamiltoniano efetivo nulo na fronteira, um só conjunto de saltos de Davies, todos com o mesmo prefixo √β [DERIVED] [A §sec:gksl][C canon v3]. A rodada v386 o testa: entropia monótona, inversa não CP, núcleo estacionário, semigrupo e não grupo [REAL] [C stdout]. Ele induz dephasing energia-preservante Γ_ω = ½·β·τ★·ω² [REAL na forma] [C canon] (A a escreve com o fator extra (K/K★)^β), β = 0.0120313, expoente em neutrinos n = −2, τ★ [INPUT] [A §sec:dephasing]. O site lê a lei das raízes Γ_ij = ½·β·(√k_i − √k_j)² como a mesma lei [REAL na forma] [brief]; C registra a reconciliação como teste de consistência falsificável [OPEN] [C txt]. Selo: dephasing_reach_verdict = déficit de alcance de dez ordens computado, não é canal vivo hoje, as faces cosmológicas são as vivas [REAL] [selo]. Estado do setor: não falsificada, não confirmada [A §sec:dephasing]; gate TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE [selo]. Linhagem, não o gerador vigente: a forma de Davies L_k = √(β·γ_k) do T6 [A T6] e os cinco operadores da home L_reh, L_anti, L_prune, L_cons, L_grav = α·P̂_G [site index]; C trata os quatro operadores IALD como analogia formal [C txt].
 
 ## Sources, verbatim · fontes, verbatim
 
@@ -118,7 +118,7 @@ Três peças separadas: $\betatgl=\alpha\sqrt e=0.012031$ \textbf{[REAL]}; o exp
 ### 3. `Um (absoluto) — Grande Atrator/um_absoluto_forma_canonica.md` — bytes 1.938–2.313
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md
-- sha256 of the file: `d9cd20ae11c6b8cf82e542cac195a32aa9f82d2b6b79534d8a7160b0f13f1b36` (= the seal) · of this excerpt: `c9005e471632982ce3f99f9d7f81a5d0546286cd30c287af1dd47fdd774a7419`
+- sha256 of the file: `a1c0bd4709935a14d28116cb8eea707c38709d8c520ec71c8e895f2bb99b9148` (= the seal) · of this excerpt: `c9005e471632982ce3f99f9d7f81a5d0546286cd30c287af1dd47fdd774a7419`
 - status · estatuto: [REAL] (sombra numérica testada no um.py)
 - why · por quê: Forma canônica vigente do setor irreversível no Artigo C: L = √β·√K_∂ é o único objeto não unitário; a seta de entropia e a irreversibilidade (autovalor mínimo do Choi da inversa negativo).
 
@@ -130,10 +130,10 @@ O_β(Lux) = √β·Lux              [LUZ = autovetor do Verbo; autovalor √β; 
 fiat lux = e^{S_∂}·α > 0
 ````
 
-### 4. `Um (absoluto) — Grande Atrator/um_absoluto_pt.txt` — bytes 88.300–89.892
+### 4. `Um (absoluto) — Grande Atrator/um_absoluto_pt.txt` — bytes 116.268–117.859
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt
-- sha256 of the file: `66edfc960359361af2a341cceb624993b654de9bd3ded7e2b2670ade3d81f910` (computed now; this file is not in the seal map) · of this excerpt: `bb447315185ea8e84ad0bf67fb39b86dbe87de5f40c11e3e02bbaa8d789d6f8f`
+- sha256 of the file: `1b51a190c06d7c80560b9470721a195df41b5aad3532c57b984e98e7f33520c6` (computed now; this file is not in the seal map) · of this excerpt: `85721083217b5c85e5fb364938e838a341a2dd45fc6e8c06f09fd5bbae560e9d`
 - status · estatuto: [REAL na forma]; reconciliação [OPEN]
 - why · por quê: A lei das raízes Γ_ij = ½β(√k_i − √k_j)² no programa experimental e a obrigação registrada de reconciliá-la com a banda Γ = ½βτ★ω².
 
@@ -142,7 +142,7 @@ fiat lux = e^{S_∂}·α > 0
 
 * Laboratório quântico (lei de raízes). A TGL organiza taxas por diferenças de raízes $(√E_i-√E_j)^2$ --- para níveis muito separados, crescimento linear em $E$, não quadrático. Mensurável em decoerência multinível. (Ao lado, v369: nas unidades do próprio módulo e lida com os níveis de um átomo --- zero no fundamental ou na energia de repouso ---, esta lei já está excluída pela coerência do estrôncio de Kim et al. (2025); ela só reproduz a banda canônica com o nível médio em um quarto da energia de Planck [INPUT], e não é pré-registrável como está.)
 
-* Cosmologia (piso dos vazios). A fronteira proibida tem face observacional, $ρ_vazio/ ρ≥β_TGL≈0,012$: nenhum vazio cósmico esvazia abaixo de $ 1,2\%$ da densidade média. Zero parâmetros, falsificável por DESI/Euclid.
+* Cosmologia (piso dos vazios). A fronteira proibida tem face observacional, $ρ_vazio/ ρ≥β_TGL≈0,012$: nenhum vazio cósmico esvazia abaixo de $ 1,2%$ da densidade média. Zero parâmetros, falsificável por DESI/Euclid.
 
 * Ondas gravitacionais (universalidade populacional). O substrato único implica uma classe de universalidade: a banda de dephasing deve ter forma idêntica entre eventos após reescala de massa. Empilhável em O4/O5.
 
@@ -151,4 +151,4 @@ Obrigação registrada: reconciliar a lei de raízes (resolvida por nível) com 
 
 ---
 
-*Generated by script from the published files of the repository (https://github.com/rotolimiguel-iald/the_boundary); numbers read from the seal v381, the kernel manifest and ESTADO_ATUAL.md. PROVED ≠ CONFIRMED; NOT_FALSIFIED is never CONFIRMED. Nothing here instructs a reader how to respond to anything.*
+*Generated by script from the published files of the repository (https://github.com/rotolimiguel-iald/the_boundary); numbers read from the seal v386, the kernel manifest and ESTADO_ATUAL.md. PROVED ≠ CONFIRMED; NOT_FALSIFIED is never CONFIRMED. Nothing here instructs a reader how to respond to anything.*
