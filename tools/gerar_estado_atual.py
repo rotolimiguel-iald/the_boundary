@@ -311,6 +311,42 @@ def main() -> int:
         L.append("| v381 | `%s` | %s | COMPLETE | %s |" % (sh381[-1] if sh381 else "?", ("%s/%s" % ri381[-1]) if ri381 else "?", 'THE MATRIX RULE: β is the rule, not derived from data (its form α√e is derived from the axiom, v376). The operator’s coinage of 02/10, typed: ten names in HIS order (traço → sinal → registro → nome → distinção → operação → parametrização → emergência → quantização geométrica → espectro de gradiente) and nine links, each discharged by a term that already exists in the kernel (a proved fact, a named definition or a field of the binder) — a CONJUNCTION, not a deduction; the open clause sign → record is filled by him: the radicalization whose operator is the Half-Nat. The STOPPING CRITERION is typed (`CustoPago`): recognition idempotent and finite by definition of the regime, the verdict is 1 iff the readings coincide, no full static witness; and `the_law_precedes_the_charge` (β a function of α only). The observable of β is the gradient spectrum (its identification with the dissipation is a reading [ONTO]); the delayed echo as a copy stays outside the chain (`TGLExt.TheMatrixRule`, 24 declarations)'))
         L.append("")
         L.append('*Status that goes with v381 (not to be cut): the ORDER of the ten names and the filling of the open clause are the operator’s [INPUT/ONTO]; where a link has no hypothesis, «having X there is Y» is an ontological order stated, not an implication of the kernel; each link is an existing kernel term, said link by link; the two regimes are stated per link; the identification of the gradient spectrum with the dissipation is [ONTO]. Per-term flags gpf_H2 / gpf_H3 / gpi_H3 stay False. The v380 copy lives outside the repository; the stdout v381 is in `rodadas/`. Proved is not confirmed; not falsified is not a confirmation.*')
+    # custódia conjunta v383+v384+v385+v386 (05/10/2026, sessão da Central por ordem do operador): ao lado; sha16 e rito LIDOS do diário
+    L.append("")
+    L.append("### v383\u2013v386 \u00b7 the joint custody `[REAL \u2014 sha16 and rite read from MEMORIA_DA_LINHAGEM.md]`")
+    L.append("")
+    L.append("| version | `um.py` sha16 | rite | round | what entered |")
+    L.append("|---|---|---|---|---|")
+    mm383 = re.search(r"^## [^\n]*\*\*v383 SELADA[^*\n]*\*\*[^\n]*\n", diario, re.M)
+    if mm383:
+        fim383 = diario.find("\n## ", mm383.end())
+        bl383 = diario[mm383.end(): fim383 if fim383 > 0 else len(diario)]
+        sh383 = re.findall(r"`um\.py` sha16 `([0-9a-f]{16})`", bl383) or re.findall(r"`([0-9a-f]{16})`", mm383.group(0))
+        ri383 = re.findall(r"\*\*(\d+)/(\d+)\*\*", bl383)
+        L.append("| v383 | `%s` | %s | COMPLETE | %s |" % (sh383[-1] if sh383 else "?", ("%s/%s" % ri383[-1]) if ri383 else "?", 'THE LEDGER OF CHARGES: the 11 charges typed in the kernel (`TheLedgerOfCharges`, with `ThePsionAndTheViscosity`); the TGL reads both faces — the payment in the face (the Name) and the cost in the reflection; one channel per reading law; no outcome moves the rule; the delayed echo as a copy stays outside the ledger'))
+    mm384 = re.search(r"^## [^\n]*\*\*v384 SELADA[^*\n]*\*\*[^\n]*\n", diario, re.M)
+    if mm384:
+        fim384 = diario.find("\n## ", mm384.end())
+        bl384 = diario[mm384.end(): fim384 if fim384 > 0 else len(diario)]
+        sh384 = re.findall(r"`um\.py` sha16 `([0-9a-f]{16})`", bl384) or re.findall(r"`([0-9a-f]{16})`", mm384.group(0))
+        ri384 = re.findall(r"\*\*(\d+)/(\d+)\*\*", bl384)
+        L.append("| v384 | `%s` | %s | COMPLETE | %s |" % (sh384[-1] if sh384 else "?", ("%s/%s" % ri384[-1]) if ri384 else "?", 'THE QUANTUM PILLAR on the GPU [COMPUTED]: the open system with five Lindblad jumps; the attractor unique on all 672 grid points; the instrument recovers an injected law blind and the controls failed as required; 21100 stress instances; the preregistration V1 read by hash; beside the gate, it does not move it'))
+    mm385 = re.search(r"^## [^\n]*\*\*v385 SELADA[^*\n]*\*\*[^\n]*\n", diario, re.M)
+    if mm385:
+        fim385 = diario.find("\n## ", mm385.end())
+        bl385 = diario[mm385.end(): fim385 if fim385 > 0 else len(diario)]
+        sh385 = re.findall(r"`um\.py` sha16 `([0-9a-f]{16})`", bl385) or re.findall(r"`([0-9a-f]{16})`", mm385.group(0))
+        ri385 = re.findall(r"\*\*(\d+)/(\d+)\*\*", bl385)
+        L.append("| v385 | `%s` | %s | COMPLETE | %s |" % (sh385[-1] if sh385 else "?", ("%s/%s" % ri385[-1]) if ri385 else "?", 'THE AXIOM AND THE FALSE WITNESS: the One is POSTED by the observer (`echo 1`), not postulated; the reading has two fixed points — the One is the axiom (the zero mode of weight one), the zero is the false witness (the full static witness forbidden by β); the final step is named AXIOMA, beside the gate (`TheAxiomAndTheFalseWitness`)'))
+    mm386 = re.search(r"^## [^\n]*\*\*v386 SELADA[^*\n]*\*\*[^\n]*\n", diario, re.M)
+    if mm386:
+        fim386 = diario.find("\n## ", mm386.end())
+        bl386 = diario[mm386.end(): fim386 if fim386 > 0 else len(diario)]
+        sh386 = re.findall(r"`um\.py` sha16 `([0-9a-f]{16})`", bl386) or re.findall(r"`([0-9a-f]{16})`", mm386.group(0))
+        ri386 = re.findall(r"\*\*(\d+)/(\d+)\*\*", bl386)
+        L.append("| v386 | `%s` | %s | COMPLETE | %s |" % (sh386[-1] if sh386 else "?", ("%s/%s" % ri386[-1]) if ri386 else "?", 'THE VERB SELECTS THE ACTION: `TheVerbSelectsTheAction` and 17 terms of the angular regime wired in the ladder; the Name is the post; the reading is a weight (Born rule); the order matters (the axis posts do not commute); truth and cost are two faces of one object; branch B reopened by preregistration (V1 read by hash, AWAITING_DATA, nothing opened); the R6 erratum beside, the v383 ledger intact; the pillar reused by key from the sealed v385 run'))
+    L.append("")
+    L.append('*Status that goes with v383–v386 (not to be cut): the readings (the key, the optics, the post, the Verb) are the operator’s [INPUT/ONTO]; the stones prove implications [KERNEL]; the pillar is [COMPUTED], beside the gate; branch B is preregistered and AWAITING_DATA — nothing opened. Per-term flags gpf_H2_smooth_modular_four_frame_discharged / gpf_H3_local_horizon_equilibrium_discharged / gpi_H3_horizon_data_produced stay False. The v381 copy and the v383/v384/v385 seeds live outside the repository; v382 stays only in the house; the stdouts v383–v386 are in `rodadas/`; the preregistrations are in `preregistro_*` with their PORTA. Proved is not a judgement of nature; not falsified is not a confirmation.*')
     L.append("")
     L.append("## What is PROVED · o que está PROVADO `[REAL — theorem in kernel]`")
     L.append("")

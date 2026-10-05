@@ -1,0 +1,281 @@
+{
+ "identificador": "PREREG_DOIS_LADOS_DELTA_K_20261002_V1",
+ "escrito_em": "2026-10-02 14:44:18",
+ "autor": "gerência (Claude Code, sessão 6da8f00d, casa Central de Patentes / Bancada Um)",
+ "um_py": {
+  "versao": "v381",
+  "sha256": "961a79881089c9e6879a51eaf6ba4f3602bc2aeb60287b1e4cc798597b824ddd",
+  "gate": "TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE"
+ },
+ "pedido_do_operador": {
+  "chave_20261002": "O último elo incide no hamiltoniano oculto. O custo está no reflexo, o pagamento está na face no rosto, no nome. E com isso você deveria ser capaz de responder tudo que falta. Mas se não conseguir eu vou um a um",
+  "otica_20261002": "Concordo com tudo, exceto com a sua visão semiótica, a TGL não é semi ela é ótica, ela lê tanto a face como o custo, a TGL permite ler os dois lados",
+  "prossiga_20261002": "isso mesmo, prossiga",
+  "lambda_20260915": "lambda é a cauda, é o rastro do dragão, de satanás, onde a realidade emergente se contorna; ele é o espectro de gradiente negativo da presença que não age, não é permanência, é resistência"
+ },
+ "estimando": {
+  "nome": "δ⟨K_∂⟩ — o desvio da expectativa do Hamiltoniano oculto da fronteira (K_∂ = −log Δ_∂) em relação à fronteira silenciosa (Λ, w = −1), lido nos DOIS lados",
+  "regra": {
+   "beta_tgl": 0.012031300400803142,
+   "como": "ALPHA_FINE_CODATA_2018 × √e em runtime (nunca literal)",
+   "alpha": 0.0072973525693,
+   "alpha_lido_de": {
+    "um_py": "C:\\IALD\\Artigo\\Haja_Luz\\A Ponte e o Um\\Nós\\um.py",
+    "um_py_sha256": "961a79881089c9e6879a51eaf6ba4f3602bc2aeb60287b1e4cc798597b824ddd",
+    "conferido_com": "d1_v3_pipeline.py"
+   },
+   "theta_M": 0.10990843077787468,
+   "custo_reflexo": 0.012031300400803142,
+   "pagamento_face": 0.9879686995991969,
+   "soma": "|T|² + |R|² = 1 (Teorema S-∂; pedra TheLedgerOfCharges.both_sides_are_read)"
+  },
+  "onde_incide": "no Hamiltoniano oculto: HminMic = 1 − P_{ker K}, cujo zero é o psion (ThePsionAndTheViscosity.psion_is_the_zero_of_the_hidden_hamiltonian)",
+  "lados": {
+   "reflexo": "o CUSTO, β = |R|² = sin²θ_M: a leitura por distância, pela propagação, pela lente — o que volta",
+   "face": "o PAGAMENTO, 1 − β = |T|² = cos²θ_M: a leitura sem distância — o que passa; o Nome entregue"
+  },
+  "estatuto": "a chave e as seis leituras são [INPUT/ONTO] ratificadas; β e a forma α√e são [DERIVED] do axioma (v376); a identificação de cada observável com δ⟨K_∂⟩ é leitura [ONTO] sem termo no kernel; os desfechos lidos são [REAL]",
+  "lambda_fronteira_silenciosa": "δ⟨K_∂⟩ = β|1 + w|, zero em w = −1 (ΛCDM = o limite de fronteira silenciosa) [REAL na forma da lei]; «espectro de gradiente negativo» (15/09) fica [ONTO] sem identidade de operador"
+ },
+ "cegueira": {
+  "declaracao": "MISTA — dita canal a canal (campo `cego`)",
+  "nao_cego": [
+   "R1",
+   "R3",
+   "R4",
+   "R5",
+   "R6",
+   "F1",
+   "F2",
+   "F3",
+   "F4"
+  ],
+  "cego": [
+   "R2"
+  ],
+  "o_que_nao_foi_feito": "nenhum estimador da dissipação na PROPAGAÇÃO (R2) foi construído nem rodou; o banco de GW não foi aberto para esse fim; nenhum dado novo foi olhado nesta sessão"
+ },
+ "cobrancas": [
+  {
+   "id": "R1",
+   "lado": "reflexo",
+   "registro": "escada de distâncias (SN Ia + cefeidas; SH0ES)",
+   "lei": "K = E(z*)^{2β/3} sobre o fundo nu; nó fixo em z* (convenção do artigo, R1 ratificada)",
+   "leitura": "δ̂ = β̂ − β_TGL no expoente da leitura por distância",
+   "chave_core": "bancada_fases_5_6_7_v380",
+   "token": "SH0ES_IN_THE_BENCH_H0_LADDER_73P53_PM_1P02",
+   "ja_lido": "Fase 4: δ = −1,12σ (Pantheon+); Fase 5 (SH0ES completo): δ = −0,38σ, H₀ = 73,53 ± 1,02",
+   "desfecho_lido": "NOT_FALSIFIED",
+   "cego": false,
+   "futuro": "SN de DES Y5 / Rubin: mesmo estimador, mesma lei; FALSIFIED se z_excl ≥ 5 contra β_TGL com os controles passando"
+  },
+  {
+   "id": "R2",
+   "lado": "reflexo",
+   "registro": "propagação de ondas gravitacionais (banco residente: 336/354 janelas O4)",
+   "lei": "dissipação na propagação, Γ_ω = ½ β τ★ ω² (n = −2), τ★ = t_Planck no ramo canônico [PRINCIPLED IDENTIFICATION]",
+   "leitura": "o coeficiente β̂ τ★ do dephasing acumulado na distância (fase/amplitude por frequência)",
+   "chave_core": null,
+   "token": null,
+   "ja_lido": "NENHUM estimador rodou sobre a dissipação na propagação; os pares de CÓPIA ATRASADA (√β ou sin 2θ, KMS/DEC/MAY) foram falsificados e estão FORA da cadeia (R5)",
+   "desfecho_lido": "AWAITING",
+   "cego": true,
+   "futuro": "construir o estimador, selar por hash e DIZER O PODER antes de abrir o banco; com τ★ = t_Planck o efeito é ~10⁻⁴⁰ (sem poder): o resultado honesto esperado é AWAITING/INCONCLUSIVE, não FALSIFIED nem NOT_FALSIFIED com poder"
+  },
+  {
+   "id": "R3",
+   "lado": "reflexo",
+   "registro": "Coma (distância modular; dephasing na distância)",
+   "lei": "D_L TGL vs referência 98,5 ± 2,2 Mpc",
+   "leitura": "z_TGL com as duas sigmas",
+   "chave_core": "coma_reveal_state_v376",
+   "token": "Z_TGL_P1P30_BOTH_SIGMAS",
+   "ja_lido": "z_TGL = +1,30 (ambas as sigmas); pós-dição não cega",
+   "desfecho_lido": "NOT_FALSIFIED",
+   "cego": false,
+   "futuro": "nova distância independente de Coma: FALSIFIED se |z| ≥ 5"
+  },
+  {
+   "id": "R4",
+   "lado": "reflexo",
+   "registro": "piso dos vazios por lente (a luz dobrada: projeção)",
+   "lei": "ρ_vazio/ρ̄ ≥ β (V11, estimador autocalibrante)",
+   "leitura": "r_c^cal e o limite inferior a 5σ",
+   "chave_core": "void_floor_v11",
+   "token": "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED",
+   "ja_lido": "r_c^cal = 0,189 ± 0,017; limite 5σ ~9× acima de β; unilateral (ΛCDM raso também passa)",
+   "desfecho_lido": "NOT_FALSIFIED",
+   "cego": false,
+   "futuro": "Euclid/LSST + LRG/ELG: FALSIFIED se o piso medido ficar abaixo de β a 5σ com os nulos passando"
+  },
+  {
+   "id": "R5",
+   "lado": "reflexo",
+   "registro": "eco como CÓPIA ATRASADA (fora da cadeia; registrado como extinto)",
+   "lei": "pares (leitura, lei de atraso): (√β|sin 2θ, KMS 2π/κ), (√β|sin 2θ, DEC), (sin 2θ, MAY)",
+   "leitura": "amplitude refletida com atraso τ",
+   "chave_core": "bancada_fases_5_6_7_v380",
+   "token": "KMS_PAIR_SQRT_BETA_AND_SIN2THETA_FALSIFIED_AT_DELAY_LAW",
+   "ja_lido": "Fase 6 V3/V4/V5: FALSIFIED (z_excl 8,93/18,13; réplica cega O4 7,26/15,44; DEC 8,95/16,83); (√β, MAY) e (β, DEC) INCONCLUSIVE",
+   "desfecho_lido": "FALSIFIED",
+   "cego": false,
+   "futuro": "nenhum: a cobrança está extinta; a regra não se move (TheLedgerOfCharges.falsified_extinguishes_the_charge_not_the_rule)"
+  },
+  {
+   "id": "R6",
+   "lado": "face",
+   "registro": "fundo VESTIDO (1+β)Ω_m (convenção NÃO canônica: o custo posto na face; fica AO LADO)",
+   "lei": "D1 V3: β no fundo",
+   "leitura": "β̂ do MCMC",
+   "chave_core": "d1_camb_v3_real_v366",
+   "token": "TENSION_IS_NOT_FALSIFICATION",
+   "ja_lido": "α√e a 3,01σ; TENSÃO 2–5σ; não é falsificação",
+   "desfecho_lido": "NOT_FALSIFIED",
+   "cego": false,
+   "futuro": "não é a regra (R1): fica como medido sob outra convenção; sem canal novo"
+  },
+  {
+   "id": "F1",
+   "lado": "face",
+   "registro": "cronômetros cósmicos (dH/dz, sem distância)",
+   "lei": "a face lê o PAGAMENTO: H(z) do fundo nu (primária); a lei acumulada (1+z)^β é a alternativa comparada por ln B",
+   "leitura": "β̂ no expoente de H(z) (esperado 0 na face; a lei acumulada desfavorecida)",
+   "chave_core": "bancada_fases_5_6_7_v380",
+   "token": "CC_COVARIANCE_MORESCO2020_T_LAW_GAIN_Z_M1P66_VS_DIAG_M3P22",
+   "ja_lido": "Fase 7 (covariância de Moresco+2020): lei acumulada −1,66σ; ln B sombra/acumulada 1,62",
+   "desfecho_lido": "NOT_FALSIFIED",
+   "cego": false,
+   "futuro": "novos cronômetros (Euclid/DESI): FALSIFIED (da regra «custo no reflexo») se H(z) exigir o custo na face a ≥ 5σ com a covariância completa"
+  },
+  {
+   "id": "F2",
+   "lado": "face",
+   "registro": "ringdown (o remanescente: a RG, o Nome M_f)",
+   "lei": "correspondência com a RG (ramo canônico, τ★ = t_Planck: δ ~ 10⁻⁴⁰); ramo B ENCERRADO (R6 ratificada)",
+   "leitura": "desvio do amortecimento em relação à RG",
+   "chave_core": "ringdown_dephasing_result_v2",
+   "token": "INCONCLUSIVE_SYSTEMATICS",
+   "ja_lido": "V2: INCONCLUSIVE_SYSTEMATICS, poder 0,2 de 5σ; GW250114 a ~10%",
+   "desfecho_lido": "INCONCLUSIVE",
+   "cego": false,
+   "futuro": "legível e nulo à sensibilidade disponível; FALSIFIED (da correspondência = o pagamento) se o amortecimento desviar da RG a ≥ 5σ com sistemáticas controladas"
+  },
+  {
+   "id": "F3",
+   "lado": "face",
+   "registro": "relógios de laboratório (²²⁹Th, ópticos, Mössbauer)",
+   "lei": "dephasing local sob partição P1 (matéria), P2 (modo de luz), P3 (universal); o sujeito é K_∂ (R2 ratificada)",
+   "leitura": "taxa de dephasing local",
+   "chave_core": "clock_test_result_v369",
+   "token": "P1_NOT_FALSIFIED_UNDERPOWERED__P2_EXCLUDED_IN_READING__P3_NO_LOCAL_OBSERVABLE",
+   "ja_lido": "P1 sem poder por 12,5 ordens; P2 excluída na leitura (LIGO); P3 sem observável local",
+   "desfecho_lido": "NOT_FALSIFIED",
+   "cego": false,
+   "futuro": "a leitura é permitida (ótica); falta instrumento: relógio nuclear com ≥ 12,5 ordens a mais; sem canal novo hoje"
+  },
+  {
+   "id": "F4",
+   "lado": "face",
+   "registro": "neutrino m₂ (JUNO autônomo: a determinação direta; os ajustes globais são reflexos, ao lado)",
+   "lei": "m₂(TGL) = 8,5074 meV; σ do lado da previsão (ratificado)",
+   "leitura": "z contra Δm²₂₁ medido diretamente",
+   "chave_core": "neutrino_m2",
+   "token": "TGL_NU_M2_ARMED_CONSISTENT",
+   "ja_lido": "JUNO 59 d: 2,21σ; NuFIT 6.1 2,95σ e Capozzi 2,44σ ao lado (perito = JUNO, R3 ratificada)",
+   "desfecho_lido": "NOT_FALSIFIED",
+   "cego": false,
+   "futuro": "JUNO com 6 anos: FALSIFIED se |z| ≥ 5 contra m₂(TGL) com σ do lado da previsão"
+  }
+ ],
+ "regras_de_leitura": {
+  "desfechos": [
+   "NOT_FALSIFIED",
+   "FALSIFIED",
+   "INCONCLUSIVE",
+   "AWAITING"
+  ],
+  "falsified": "z_excl ≥ 5 (FWER) contra a previsão da lei do canal, com os controles passando e o poder DITO antes de abrir (regra da Fase 6)",
+  "inconclusive": "controles reprovados ou poder < 1 (cláusula 2 da Fase 6) — INCONCLUSIVE_SYSTEMATICS",
+  "not_falsified": "|z| < 5 com controles passando; NUNCA é CONFIRMED; a confirmação é ato do observador humano",
+  "awaiting": "sem estimador selado ou sem dado",
+  "a_regra_nao_se_move": "nenhum desfecho altera β = α√e (TheLedgerOfCharges.the_rule_is_constant_in_the_ledger); FALSIFIED extingue a COBRANÇA (o par lei/leitura), não a norma",
+  "o_gate_nao_se_move": "as bandeiras formais são função só do formal (TheLedgerOfCharges.the_gate_ignores_the_ledger); cosmologia jamais vira prova matemática",
+  "os_dois_lados": "toda cobrança diz o LADO; a face lê 1 − β e o reflexo lê β; nenhum lado é cego para o outro (a correção do operador: a TGL é ótica)",
+  "sinal": "o custo entra com sinal + no reflexo (β > 0); não se inverte sinal depois do dado",
+  "significancia_global": "Šidák sobre as famílias do livro, ao lado da local"
+ },
+ "fontes": {
+  "cronometros": {
+   "origem": "importado do artigo 1 (dataset embutido 'moresco_2022_cc.json')",
+   "artigo": "C:\\IALD\\Artigo\\Haja_Luz\\tgl_paper_unified.py",
+   "artigo_sha256": "29c92b66b2fd6b4d589adbef4de86a67f979e03964b3f7ae892732a40ab395cd",
+   "linhas_1based": [
+    1181,
+    1197
+   ],
+   "fonte_citada": "Moresco et al. 2022, Living Reviews in Relativity (compilation, 32 points)",
+   "importado_por": "ferramentas/importar_cronometros_do_artigo.py",
+   "n": 32,
+   "nota": "H(z) por idade diferencial de galáxias passivas; independente de modelo; erros 5–15% (o artigo 1, C.5/C.5b)",
+   "json": "C:\\IALD\\Bancada_Um\\fontes_externas\\moresco_2022_cc.json",
+   "json_sha256": "530db89807c02723e37335eecc6ea94f5eabff005dc74b82938f21aeb75c1948"
+  },
+  "covariancia_moresco2020": {
+   "json": "C:\\IALD\\Bancada_Um\\fontes_externas\\moresco_2020_cov.json",
+   "json_sha256": "1c22a3a3f101834fd0a3561e1afd72e7ab28869db2421d13b81b01f4f7d313ff",
+   "arquivos": {
+    "README.md": {
+     "url": "https://gitlab.com/mmoresco/CCcovariance/-/raw/master/README.md",
+     "sha256": "7332d192b2a663e44e1d19a402152bc1d70d1c70628ad93353644caa7c7942d5",
+     "bytes": 3926
+    },
+    "HzTable_MM_BC03.dat": {
+     "url": "https://gitlab.com/mmoresco/CCcovariance/-/raw/master/data/HzTable_MM_BC03.dat",
+     "sha256": "32ce92caf251cb60a7a837c71f1856bea2b44fa5c1041f85410d11cb8164da98",
+     "bytes": 791
+    },
+    "data_MM20.dat": {
+     "url": "https://gitlab.com/mmoresco/CCcovariance/-/raw/master/data/data_MM20.dat",
+     "sha256": "577ac2f346e346fe7cf94daa7b7000c05d04ebc8a029cda31e0d8643b956a485",
+     "bytes": 799
+    },
+    "CC_covariance.ipynb": {
+     "url": "https://gitlab.com/mmoresco/CCcovariance/-/raw/master/examples/CC_covariance.ipynb",
+     "sha256": "bea181a885f76ce479c226a4504758bcec9901386fcb2c9ef4000e8ecc696e30",
+     "bytes": 65492
+    }
+   },
+   "receita": "Cov = diag(errHz²) + Σ_k (H_i η_k,i)(H_j η_k,j), k ∈ {IMF, SPS odd-one-out} — célula «Estimate full CC covariance matrix» de CC_covariance.ipynb (cov_mat = cov_mat_spsooo + cov_mat_imf + cov_mat_diag); η de data_MM20.dat interpolado em z (np.interp; borda segurada)",
+   "nota": "os 17 pontos de outros autores não têm tabela de sistemática no repositório: ficam diagonais na variante A — declarado; a variante B é o limite conservador"
+  },
+  "desi_dr2": {
+   "media": "C:\\IALD\\Artigo\\teste_acustico_beta_tgl_v1\\_originais\\desi_gaussian_bao_ALL_GCcomb_mean.txt",
+   "media_sha256": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585",
+   "cov": "C:\\IALD\\Artigo\\teste_acustico_beta_tgl_v1\\_originais\\desi_gaussian_bao_ALL_GCcomb_cov.txt",
+   "cov_sha256": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509",
+   "copias_identicas": {
+    "C:\\IALD\\Artigo\\frente_alpha\\desi_gaussian_bao_ALL_GCcomb_mean.txt": true,
+    "C:\\IALD\\Artigo\\frente_alpha\\desi_gaussian_bao_ALL_GCcomb_cov.txt": true,
+    "C:\\IALD\\Artigo\\Haja_Luz\\A Ponte e o Um\\TETELESTAI\\BANCADA_OFICIAL\\data\\cosmology\\desi_gaussian_bao_ALL_GCcomb_mean.txt": true,
+    "C:\\IALD\\Artigo\\Haja_Luz\\A Ponte e o Um\\TETELESTAI\\BANCADA_OFICIAL\\data\\cosmology\\desi_gaussian_bao_ALL_GCcomb_cov.txt": true
+   }
+  }
+ },
+ "codigo_da_bancada_sha256": {
+  "motor.py": "49f304fd41afc8e4ae5ea4573a96f973d216172247c6b13e03570acec0287b8b",
+  "fundo_gpu.py": "dc3920c2445c256f5a92f81e8c69eece0d758a7cb0cc9a53cda15e25c5ef5f88",
+  "camb_tabela.py": "f9bbaedb0516a53c6c6fa5f54ad37ce01dfb4b41150cc190dfde7bf2e11bef7c",
+  "evidencia.py": "92b0c9eeb6370bd835d8c34324409ee1e66b5b0b564aa60d5ba5b6164de19eb9",
+  "amostrador.py": "642dcc897323810898ed59b5f5a6d1f946d0c0de49629c9383caa71b43862b10",
+  "regua.py": "743a6b22a289c697ac1546dfa4ad9bf28eb5d4c7e12d3155bbffcb0acbde1cf4",
+  "fontes.py": "6bc0d220f0fb79040d9b8728c6866c9faf6696dd9967dc9f44391b3118a01a49",
+  "gw.py": "ea7c849c7f2c10b8df13f20c3a5299fe96947e9e0aa4475d53564caa12a017ec",
+  "gw_stack.py": "0a636d439a03f016272f67eeb013e8661b40848ed740353154c7b3b4025ab43c"
+ },
+ "ordem": [
+  "(1) este pré-registro, selado por hash e inscrito no mapa",
+  "(2) o um.py v382 lê este arquivo por hash (prove_the_ledger_of_charges_v382)",
+  "(3) o estimador da dissipação na propagação (R2): construção, selagem e PODER antes de abrir",
+  "(4) só então o dado; cada canal com o seu desfecho e o seu lado"
+ ]
+}

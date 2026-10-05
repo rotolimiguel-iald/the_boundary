@@ -1,0 +1,298 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1",
+  "porta_id": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1",
+  "titulo": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-05T22:56:48Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "afericao_10.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_10.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_10.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_10.json",
+      "sha256_16": "83d6405c94356864",
+      "bytes": 47654
+    },
+    {
+      "nome": "afericao_2.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_2.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_2.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_2.json",
+      "sha256_16": "081e97bc1d18d835",
+      "bytes": 456038
+    },
+    {
+      "nome": "afericao_3.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_3.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_3.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_3.json",
+      "sha256_16": "a4dc51810d510ac7",
+      "bytes": 141395
+    },
+    {
+      "nome": "afericao_4.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_4.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_4.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_4.json",
+      "sha256_16": "602c594b9c80ed1b",
+      "bytes": 128226
+    },
+    {
+      "nome": "afericao_5.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_5.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_5.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_5.json",
+      "sha256_16": "fa914a9f39299858",
+      "bytes": 115083
+    },
+    {
+      "nome": "afericao_6.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_6.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_6.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_6.json",
+      "sha256_16": "8ca130de5c616558",
+      "bytes": 135454
+    },
+    {
+      "nome": "afericao_7.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_7.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_7.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_7.json",
+      "sha256_16": "2c7073a1380c29ed",
+      "bytes": 111085
+    },
+    {
+      "nome": "afericao_8.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_8.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_8.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_8.json",
+      "sha256_16": "b33ecee98d0c1613",
+      "bytes": 95261
+    },
+    {
+      "nome": "afericao_9.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_9.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_9.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/afericao_9.json",
+      "sha256_16": "788f79e52c71e01b",
+      "bytes": 77544
+    },
+    {
+      "nome": "aferidor_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/aferidor_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/aferidor_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/aferidor_verbatim.txt",
+      "sha256_16": "6ad22b44d3a28319",
+      "bytes": 1100419
+    },
+    {
+      "nome": "autoteste_do_motor.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/autoteste_do_motor.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/autoteste_do_motor.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/autoteste_do_motor.json",
+      "sha256_16": "c74fcf3b60ae4a9e",
+      "bytes": 2562
+    },
+    {
+      "nome": "disposicoes.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/disposicoes.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/disposicoes.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/disposicoes.json",
+      "sha256_16": "7fcb71013fa79e87",
+      "bytes": 56502
+    },
+    {
+      "nome": "estresse_caracterizacao.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/estresse_caracterizacao.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/estresse_caracterizacao.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/estresse_caracterizacao.json",
+      "sha256_16": "00e4daef8526cab3",
+      "bytes": 2034
+    },
+    {
+      "nome": "estresse_durabilidade.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/estresse_durabilidade.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/estresse_durabilidade.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/estresse_durabilidade.json",
+      "sha256_16": "6387377c07a28747",
+      "bytes": 568
+    },
+    {
+      "nome": "estresse_grande.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/estresse_grande.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/estresse_grande.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/estresse_grande.json",
+      "sha256_16": "11ec67354dd46a53",
+      "bytes": 1301
+    },
+    {
+      "nome": "estresse_pequeno.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/estresse_pequeno.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/estresse_pequeno.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/estresse_pequeno.json",
+      "sha256_16": "9ec8d704a3683aa7",
+      "bytes": 3709
+    },
+    {
+      "nome": "estresse_variantes.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/estresse_variantes.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/estresse_variantes.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/estresse_variantes.json",
+      "sha256_16": "65118c79fa13b297",
+      "bytes": 1073
+    },
+    {
+      "nome": "gerador.py",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/gerador.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/gerador.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/gerador.py",
+      "sha256_16": "9b8c6ad6693559c6",
+      "bytes": 84751
+    },
+    {
+      "nome": "plano_B.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/plano_B.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/plano_B.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/plano_B.json",
+      "sha256_16": "9d1d2c3095d21218",
+      "bytes": 2177
+    },
+    {
+      "nome": "rascunho_apresentado_json.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/rascunho_apresentado_json.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/rascunho_apresentado_json.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/rascunho_apresentado_json.json",
+      "sha256_16": "6ac15156755c9ed5",
+      "bytes": 67002
+    },
+    {
+      "nome": "rascunho_apresentado_md.md",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/rascunho_apresentado_md.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/rascunho_apresentado_md.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/rascunho_apresentado_md.md",
+      "sha256_16": "f74121c822385836",
+      "bytes": 57690
+    },
+    {
+      "nome": "sonda_de_tempo.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/sonda_de_tempo.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/sonda_de_tempo.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/sonda_de_tempo.json",
+      "sha256_16": "525734bc095c3c13",
+      "bytes": 3216
+    },
+    {
+      "nome": "variabilidade_teste_tempo_v4.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/variabilidade_teste_tempo_v4.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/variabilidade_teste_tempo_v4.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/variabilidade_teste_tempo_v4.json",
+      "sha256_16": "ad95bf8d07f3eebd",
+      "bytes": 2856
+    },
+    {
+      "nome": "variabilidade_teste_tempo_v5.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/variabilidade_teste_tempo_v5.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/variabilidade_teste_tempo_v5.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/variabilidade_teste_tempo_v5.json",
+      "sha256_16": "982bbc8984253881",
+      "bytes": 2904
+    },
+    {
+      "nome": "variabilidade_teste_tempo_v6.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/variabilidade_teste_tempo_v6.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/variabilidade_teste_tempo_v6.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/variabilidade_teste_tempo_v6.json",
+      "sha256_16": "0dcd4fd21664bc97",
+      "bytes": 3160
+    },
+    {
+      "nome": "variabilidade_teste_tempo_v7.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/variabilidade_teste_tempo_v7.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/variabilidade_teste_tempo_v7.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/variabilidade_teste_tempo_v7.json",
+      "sha256_16": "ec73eae25337e85c",
+      "bytes": 3219
+    },
+    {
+      "nome": "variabilidade_teste_tempo_v8.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/variabilidade_teste_tempo_v8.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/variabilidade_teste_tempo_v8.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/variabilidade_teste_tempo_v8.json",
+      "sha256_16": "285668632af459e1",
+      "bytes": 3218
+    }
+  ],
+  "total_arquivos_nesta_pasta": 27,
+  "total_arquivos_com_subpastas": 27,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1",
+  "rodape": "gerado por script de git ls-files em 2026-10-05 -- nao editar a mao"
+}

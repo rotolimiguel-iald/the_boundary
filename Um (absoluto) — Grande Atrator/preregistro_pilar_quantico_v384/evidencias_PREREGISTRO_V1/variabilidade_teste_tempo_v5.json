@@ -1,0 +1,114 @@
+{
+ "worker": "TGL_QUANTUM_PILLAR_WORKER_V1",
+ "mode": "timing",
+ "run_id": null,
+ "started": "2026-10-03 13:06:47",
+ "worker_sha256": "569c6eb422fe78d3d7305842d1d29e6940dabae46e5e2c5cf67e95eb97a4b21f",
+ "status_statement": "[COMPUTED] -- calculo do sistema aberto da teoria; NAO e' medicao; o gate nao muda",
+ "beta_hex": null,
+ "beta": null,
+ "env": {
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "numpy": "2.4.3",
+  "scipy": "1.18.0",
+  "python": "3.14.3",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cuda_available": true,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "vram_free_total_MiB": [
+   28728,
+   32607
+  ],
+  "determinism": {
+   "use_deterministic_algorithms": true,
+   "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+   "tf32": false,
+   "threads": 4
+  },
+  "linalg_magma_up_to_n": 1000000000
+ },
+ "engine_selftest": {
+  "checks": [
+   {
+    "name": "E1_amplitude_damping_spectrum_and_ground_state",
+    "ok": true,
+    "value": 1.1102230246251565e-16
+   },
+   {
+    "name": "E2_pure_dephasing_detected_degenerate",
+    "ok": true,
+    "value": 2
+   },
+   {
+    "name": "E3_root_law_rates_exact",
+    "ok": true,
+    "value": 5.551115123125783e-17
+   },
+   {
+    "name": "E4_blind_estimator_recovers_root_law",
+    "ok": true,
+    "value": {
+     "beta_rel_err": 1.2656542480726785e-13,
+     "p_err": 1.6298074001497298e-13,
+     "tau_antiherm_norm": 0.13130967416118428,
+     "ccp_min_rel": -9.143218909273595e-14,
+     "gen_rel_dev": 3.880781952743712e-14
+    }
+   },
+   {
+    "name": "E5_thermal_qubit_gibbs_and_spohn_monotone",
+    "ok": true,
+    "value": 0
+   },
+   {
+    "name": "E6_time_reversal_not_cp_forward_cp_tp",
+    "ok": true,
+    "value": {
+     "choi_min_forward": 0.0003323659343899701,
+     "choi_min_backward": -0.050576430513237486,
+     "tp_res": 2.220446049250313e-16
+    }
+   },
+   {
+    "name": "E7_estimator_floor_below_one_tenth_of_the_criterion",
+    "ok": true,
+    "value": {
+     "n": 6000,
+     "max_beta_rel_err": 3.6970426720017713e-13,
+     "max_abs_p_err": 2.0239365738916604e-13,
+     "limit_beta": 1e-07,
+     "limit_p": 1e-05,
+     "ok": true
+    }
+   }
+  ],
+  "all_ok": true
+ },
+ "timing": {
+  "8": {
+   "pipeline_s": 0.02025020122528076,
+   "t1_injection_sigma0_s": 0.042163848876953125,
+   "t1_extra_noise_level_s": 0.039433836936950684,
+   "reps": 30
+  },
+  "16": {
+   "pipeline_s": 0.08496510982513428,
+   "t1_injection_sigma0_s": 0.24056518077850342,
+   "t1_extra_noise_level_s": 0.23605608940124512,
+   "reps": 10
+  },
+  "32": {
+   "pipeline_s": 0.8699604272842407,
+   "t1_injection_sigma0_s": 2.045057773590088,
+   "t1_extra_noise_level_s": 1.996268630027771,
+   "reps": 4
+  },
+  "64": {
+   "pipeline_s": 21.520477056503296,
+   "t1_injection_sigma0_s": 51.054030656814575,
+   "t1_extra_noise_level_s": 49.00207543373108,
+   "reps": 3
+  }
+ }
+}

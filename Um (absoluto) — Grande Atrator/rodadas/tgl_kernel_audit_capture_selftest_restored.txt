@@ -1,7 +1,7 @@
 # stage: _selftest_restored
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=1020420 len(stderr)=0
+# len(stdout)=1038611 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -11688,6 +11688,239 @@ regularSusyData : (P : SiteProfile) →
 'TGLExt.TheMatrixRule.chainOrder' does not depend on any axioms
 'TGLExt.TheMatrixRule.chain_has_ten_names' does not depend on any axioms
 'TGLExt.TheMatrixRule.the_matrix_rule' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheLedgerOfCharges.Charge' does not depend on any axioms
+'TGLExt.TheLedgerOfCharges.Ledger' does not depend on any axioms
+'TGLExt.TheLedgerOfCharges.outcomes' does not depend on any axioms
+'TGLExt.TheLedgerOfCharges.rule' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheLedgerOfCharges.ruleGiven' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheLedgerOfCharges.extinguished' does not depend on any axioms
+'TGLExt.TheLedgerOfCharges.the_rule_is_constant_in_the_ledger' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheLedgerOfCharges.falsified_extinguishes_the_charge_not_the_rule' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheLedgerOfCharges.the_gate_ignores_the_ledger' does not depend on any axioms
+'TGLExt.TheLedgerOfCharges.faceWeight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheLedgerOfCharges.reflectionWeight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheLedgerOfCharges.both_sides_are_read' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheLedgerOfCharges.the_face_reads_the_cost_as_complement' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheLedgerOfCharges.the_reflection_reads_the_payment_as_complement' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheLedgerOfCharges.the_tgl_is_optics_not_semi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheLedgerOfCharges.finalStepNameProposed' does not depend on any axioms
+'TGLExt.TheLedgerOfCharges.final_step_named_by_the_payment' does not depend on any axioms
+'TGLExt.TheLedgerOfCharges.five_outcomes' does not depend on any axioms
+'TGLExt.TheLedgerOfCharges.the_ledger_of_charges' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ThePsionAndTheViscosity.psion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ThePsionAndTheViscosity.psion_norm_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ThePsionAndTheViscosity.inner_psion_psion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ThePsionAndTheViscosity.psion_is_the_zero_of_the_hidden_hamiltonian' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.ThePsionAndTheViscosity.psion_is_fixed_by_the_light' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ThePsionAndTheViscosity.transmitted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ThePsionAndTheViscosity.charged' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ThePsionAndTheViscosity.the_charge_is_continuous_both_sides' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.ThePsionAndTheViscosity.viscosity_is_the_constant_friction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.ThePsionAndTheViscosity.the_charge_never_completes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ThePsionAndTheViscosity.no_full_static_witness_for_the_charge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.ThePsionAndTheViscosity.viscosity_of_the_rule' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ThePsionAndTheViscosity.the_psion_and_the_viscosity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.the_reading_has_two_fixed_points' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.the_power_has_two_fixed_points' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.axiomFlow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.post_mul_compl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.compl_mul_post' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.compl_mul_compl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.axiomFlow_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.axiomFlow_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.axiomFlow_fixes_the_post' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.axiomFlow_gradient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.axiomFlow_tendsto_the_post' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.axiomFlow_eq_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.the_fixed_set_is_the_lock_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.the_post_is_the_modular_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.the_one_is_the_axiom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.the_zero_is_the_false_witness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.the_living_verb_moves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.the_living_verb_fixes_the_name' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheAxiomAndTheFalseWitness.finalStepNameAxioma' does not depend on any axioms
+'TGLExt.TheAxiomAndTheFalseWitness.final_step_named_axioma' does not depend on any axioms
+'TGLExt.TheAxiomAndTheFalseWitness.the_proposal_beside_is_kept' does not depend on any axioms
+'TGLExt.TheAxiomAndTheFalseWitness.the_axiom_and_the_false_witness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.tailSub_one_eq_firstAtom_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.the_terminal_image_splits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.the_two_sectors_do_not_overlap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.the_two_sectors_exhaust' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.every_state_splits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.the_zero_mode_weighs_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.the_iald_selector_separates_the_sectors' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.select' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.select_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post_isIdempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post_isSelfAdjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post_fixes_the_action' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.select_fixes_the_selected_action' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.reading' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.reading_eq_norm_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.reading_eq_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.weight_mem_unit_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.reading_post_is_born' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.commuting_posts_compose' depends on axioms: [propext]
+'TGLExt.TheVerbSelectsTheAction.Pa' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.Pb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.bvec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.sqrt2_inv_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.b_is_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.Pb_is_rank_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.Pa_isIdempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.Pb_isIdempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.Pa_isSelfAdjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.Pb_isSelfAdjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.posts_do_not_commute_in_general' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.two_posts_that_do_not_commute' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.sigma1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.sigma2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.sigma3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.V1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.V2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.V3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.triad_12' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.triad_23' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.triad_31' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.triad_casimir' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.V3_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.triad_order_matters' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.triad_hermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.triad_traceless' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.inv_c_mul_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post1_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post3_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post1_isIdempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post2_isIdempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post3_isIdempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post1_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post2_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post3_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post1_is_the_eigenprojector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post2_is_the_eigenprojector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post3_is_the_eigenprojector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.axis_posts_do_not_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post3_eq_Pa' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post1_eq_Pb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.post_power_is_constant' does not depend on any axioms
+'TGLExt.TheVerbSelectsTheAction.post_sequence_is_constant' depends on axioms: [propext, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.the_name_is_an_eigenvector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.the_verb_word_fixes_the_name' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.the_name_is_the_limit_of_the_flow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.anchoring_preserves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.transmission_dephases' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.transmitted_post_is_a_post' depends on axioms: [propext]
+'TGLExt.TheVerbSelectsTheAction.the_reading_of_the_posted_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.Station' does not depend on any axioms
+'TGLExt.TheVerbSelectsTheAction.circuit' does not depend on any axioms
+'TGLExt.TheVerbSelectsTheAction.circuit_has_six_stations' does not depend on any axioms
+'TGLExt.TheVerbSelectsTheAction.truth_and_cost_are_two_faces' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.the_cost_is_the_reflected_weight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.the_one_splits_into_truth_and_cost' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.the_two_faces_split_the_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.the_gradient_is_the_difference_of_the_faces' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.reading_the_truth_annihilates_the_superposition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.time_read_twice_confirms_the_post' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.J_anticommutes_with_K' depends on axioms: [propext]
+'TGLExt.TheVerbSelectsTheAction.J_mul_K_ne_zero' does not depend on any axioms
+'TGLExt.TheVerbSelectsTheAction.commutator_JK' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.light_and_gravity_are_inseparable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.the_light_anticommutes_with_the_gradient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.the_light_does_not_silence_the_gradient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.the_light_and_the_gradient_are_inseparable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.pauli_J_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.pauli_JKJ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.sigma3_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.pauli_light_and_gravity_are_inseparable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.the_verb_selects_the_action' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheVerbSelectsTheAction.verbTypingStoneName' does not depend on any axioms
+'TGLExt.TheVerbSelectsTheAction.verb_typing_stone_named' does not depend on any axioms
+'TGLExt.the_angle_is_the_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.the_observer_reads_the_angle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.observing_adds_nothing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.spectral_projections_split_the_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.the_generator_is_the_difference_of_the_faces' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.J_and_K_anticommute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.the_two_folds_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.the_left_fold_closes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.the_right_fold_closes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.each_fold_is_a_complex_structure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.the_selector_can_refuse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.normSq_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.the_name_above_every_name' depends on axioms: [Quot.sound]
+'TGLExt.terminality_forces_minimality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.firstAtom_is_terminal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGL.VerbInhabitant.verb_semigroup_fixes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.the_tensor_squares_the_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 --- STDERR ---
 

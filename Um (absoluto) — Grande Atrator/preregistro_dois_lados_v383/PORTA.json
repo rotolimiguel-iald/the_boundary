@@ -1,0 +1,178 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/preregistro_dois_lados_v383",
+  "porta_id": "Um (absoluto) — Grande Atrator/preregistro_dois_lados_v383",
+  "titulo": "Um (absoluto) — Grande Atrator/preregistro_dois_lados_v383",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-05T22:56:48Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "PREREGISTRO_DOIS_LADOS_DELTA_K_20261002.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002.json",
+      "sha256_16": "f948acd0d5640f81",
+      "bytes": 15707
+    },
+    {
+      "nome": "PREREGISTRO_DOIS_LADOS_DELTA_K_20261002.md",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002.md",
+      "sha256_16": "31f97621d670e74e",
+      "bytes": 8166
+    },
+    {
+      "nome": "PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_1.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_1.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_1.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_1.json",
+      "sha256_16": "df6ad1cab39577b2",
+      "bytes": 30663
+    },
+    {
+      "nome": "PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_1.md",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_1.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_1.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_1.md",
+      "sha256_16": "a8adf5eefd099c69",
+      "bytes": 14526
+    },
+    {
+      "nome": "PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_2.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_2.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_2.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_2.json",
+      "sha256_16": "d463836c88ab1da2",
+      "bytes": 36353
+    },
+    {
+      "nome": "PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_2.md",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_2.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_2.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_2.md",
+      "sha256_16": "f069cf9f87ee833c",
+      "bytes": 17391
+    },
+    {
+      "nome": "PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_3.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_3.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_3.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_3.json",
+      "sha256_16": "32c51000c4a2da92",
+      "bytes": 41922
+    },
+    {
+      "nome": "PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_3.md",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_3.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_3.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_3.md",
+      "sha256_16": "2cd8ec8b1ac437a4",
+      "bytes": 21651
+    },
+    {
+      "nome": "PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_4.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_4.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_4.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_4.json",
+      "sha256_16": "4a0019a3db649e01",
+      "bytes": 60772
+    },
+    {
+      "nome": "PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_4.md",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_4.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_4.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/PREREGISTRO_DOIS_LADOS_DELTA_K_20261002_V1_4.md",
+      "sha256_16": "fc132b8f3e2d531b",
+      "bytes": 24951
+    },
+    {
+      "nome": "gerar_preregistro_dois_lados_02out.py",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_dois_lados_v383/gerar_preregistro_dois_lados_02out.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/gerar_preregistro_dois_lados_02out.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/gerar_preregistro_dois_lados_02out.py",
+      "sha256_16": "ed4d3bfdca96bd88",
+      "bytes": 18911
+    },
+    {
+      "nome": "gerar_preregistro_dois_lados_02out_v1_1.py",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_dois_lados_v383/gerar_preregistro_dois_lados_02out_v1_1.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/gerar_preregistro_dois_lados_02out_v1_1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/gerar_preregistro_dois_lados_02out_v1_1.py",
+      "sha256_16": "9258c2ef7119c731",
+      "bytes": 29449
+    },
+    {
+      "nome": "gerar_preregistro_dois_lados_02out_v1_2.py",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_dois_lados_v383/gerar_preregistro_dois_lados_02out_v1_2.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/gerar_preregistro_dois_lados_02out_v1_2.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/gerar_preregistro_dois_lados_02out_v1_2.py",
+      "sha256_16": "22c17711f525811a",
+      "bytes": 35991
+    },
+    {
+      "nome": "gerar_preregistro_dois_lados_02out_v1_3.py",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_dois_lados_v383/gerar_preregistro_dois_lados_02out_v1_3.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/gerar_preregistro_dois_lados_02out_v1_3.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/gerar_preregistro_dois_lados_02out_v1_3.py",
+      "sha256_16": "50031b7bb0d876cc",
+      "bytes": 43167
+    },
+    {
+      "nome": "gerar_preregistro_dois_lados_02out_v1_4.py",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_dois_lados_v383/gerar_preregistro_dois_lados_02out_v1_4.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/gerar_preregistro_dois_lados_02out_v1_4.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383/gerar_preregistro_dois_lados_02out_v1_4.py",
+      "sha256_16": "11ae4862b9a4205b",
+      "bytes": 51841
+    }
+  ],
+  "total_arquivos_nesta_pasta": 15,
+  "total_arquivos_com_subpastas": 15,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_dois_lados_v383",
+  "rodape": "gerado por script de git ls-files em 2026-10-05 -- nao editar a mao"
+}

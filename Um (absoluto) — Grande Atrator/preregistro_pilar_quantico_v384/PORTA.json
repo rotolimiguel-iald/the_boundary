@@ -1,0 +1,66 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384",
+  "porta_id": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384",
+  "titulo": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-05T22:56:48Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [
+    {
+      "nome": "evidencias_PREREGISTRO_V1",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/evidencias_PREREGISTRO_V1/PORTA.json",
+      "total_arquivos": 27
+    }
+  ],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "PREREGISTRO_PILAR_QUANTICO_20261003_V1.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/PREREGISTRO_PILAR_QUANTICO_20261003_V1.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/PREREGISTRO_PILAR_QUANTICO_20261003_V1.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/PREREGISTRO_PILAR_QUANTICO_20261003_V1.json",
+      "sha256_16": "d24c157478f5ddcb",
+      "bytes": 73006
+    },
+    {
+      "nome": "PREREGISTRO_PILAR_QUANTICO_20261003_V1.md",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/PREREGISTRO_PILAR_QUANTICO_20261003_V1.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/PREREGISTRO_PILAR_QUANTICO_20261003_V1.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/PREREGISTRO_PILAR_QUANTICO_20261003_V1.md",
+      "sha256_16": "e5b345c5d950d052",
+      "bytes": 58004
+    },
+    {
+      "nome": "gerar_preregistro_pilar_quantico_03out.py",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_pilar_quantico_v384/gerar_preregistro_pilar_quantico_03out.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/gerar_preregistro_pilar_quantico_03out.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384/gerar_preregistro_pilar_quantico_03out.py",
+      "sha256_16": "9b8c6ad6693559c6",
+      "bytes": 84751
+    }
+  ],
+  "total_arquivos_nesta_pasta": 3,
+  "total_arquivos_com_subpastas": 30,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_pilar_quantico_v384",
+  "rodape": "gerado por script de git ls-files em 2026-10-05 -- nao editar a mao"
+}

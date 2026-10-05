@@ -1,0 +1,88 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/preregistro_ramo_b_v386",
+  "porta_id": "Um (absoluto) — Grande Atrator/preregistro_ramo_b_v386",
+  "titulo": "Um (absoluto) — Grande Atrator/preregistro_ramo_b_v386",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-05T22:56:48Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "PODER_CEGO_RAMO_B_v2.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_ramo_b_v386/PODER_CEGO_RAMO_B_v2.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_ramo_b_v386/PODER_CEGO_RAMO_B_v2.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_ramo_b_v386/PODER_CEGO_RAMO_B_v2.json",
+      "sha256_16": "126adc100753c2ca",
+      "bytes": 360514
+    },
+    {
+      "nome": "PREREGISTRO_RAMO_B_RINGDOWN_V1.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_ramo_b_v386/PREREGISTRO_RAMO_B_RINGDOWN_V1.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_ramo_b_v386/PREREGISTRO_RAMO_B_RINGDOWN_V1.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_ramo_b_v386/PREREGISTRO_RAMO_B_RINGDOWN_V1.json",
+      "sha256_16": "86f98fcc124dd9ca",
+      "bytes": 138727
+    },
+    {
+      "nome": "PREREGISTRO_RAMO_B_RINGDOWN_V1.md",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_ramo_b_v386/PREREGISTRO_RAMO_B_RINGDOWN_V1.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_ramo_b_v386/PREREGISTRO_RAMO_B_RINGDOWN_V1.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_ramo_b_v386/PREREGISTRO_RAMO_B_RINGDOWN_V1.md",
+      "sha256_16": "294b88a3632c1cea",
+      "bytes": 102303
+    },
+    {
+      "nome": "V1_RAMO_B_HASHES.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_ramo_b_v386/V1_RAMO_B_HASHES.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_ramo_b_v386/V1_RAMO_B_HASHES.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_ramo_b_v386/V1_RAMO_B_HASHES.json",
+      "sha256_16": "16a3df7a77f439b5",
+      "bytes": 1708
+    },
+    {
+      "nome": "gerar_preregistro_ramo_b_05out.py",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_ramo_b_v386/gerar_preregistro_ramo_b_05out.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_ramo_b_v386/gerar_preregistro_ramo_b_05out.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_ramo_b_v386/gerar_preregistro_ramo_b_05out.py",
+      "sha256_16": "48bf6267047acdd5",
+      "bytes": 93848
+    },
+    {
+      "nome": "poder_cego_ramo_b_v2.py",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_ramo_b_v386/poder_cego_ramo_b_v2.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_ramo_b_v386/poder_cego_ramo_b_v2.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_ramo_b_v386/poder_cego_ramo_b_v2.py",
+      "sha256_16": "e4c99ccc1d8a506e",
+      "bytes": 16812
+    }
+  ],
+  "total_arquivos_nesta_pasta": 6,
+  "total_arquivos_com_subpastas": 6,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_ramo_b_v386",
+  "rodape": "gerado por script de git ls-files em 2026-10-05 -- nao editar a mao"
+}

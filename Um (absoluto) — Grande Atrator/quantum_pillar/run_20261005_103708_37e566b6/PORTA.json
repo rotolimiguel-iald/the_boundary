@@ -1,0 +1,118 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/quantum_pillar/run_20261005_103708_37e566b6",
+  "porta_id": "Um (absoluto) — Grande Atrator/quantum_pillar/run_20261005_103708_37e566b6",
+  "titulo": "Um (absoluto) — Grande Atrator/quantum_pillar/run_20261005_103708_37e566b6",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-05T22:56:48Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/quantum_pillar",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "cpuref.json",
+      "caminho": "Um (absoluto) — Grande Atrator/quantum_pillar/run_20261005_103708_37e566b6/cpuref.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/cpuref.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/cpuref.json",
+      "sha256_16": "d23de4e505bfacda",
+      "bytes": 124915
+    },
+    {
+      "nome": "cpuref.json.sha256",
+      "caminho": "Um (absoluto) — Grande Atrator/quantum_pillar/run_20261005_103708_37e566b6/cpuref.json.sha256",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/cpuref.json.sha256",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/cpuref.json.sha256",
+      "sha256_16": "250174517042a1ac",
+      "bytes": 64
+    },
+    {
+      "nome": "cpuref.stderr.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/quantum_pillar/run_20261005_103708_37e566b6/cpuref.stderr.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/cpuref.stderr.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/cpuref.stderr.txt",
+      "sha256_16": "e3b0c44298fc1c14",
+      "bytes": 0
+    },
+    {
+      "nome": "details.jsonl",
+      "caminho": "Um (absoluto) — Grande Atrator/quantum_pillar/run_20261005_103708_37e566b6/details.jsonl",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/details.jsonl",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/details.jsonl",
+      "sha256_16": "72a4caf515b9ce13",
+      "bytes": 6806656
+    },
+    {
+      "nome": "progress.json",
+      "caminho": "Um (absoluto) — Grande Atrator/quantum_pillar/run_20261005_103708_37e566b6/progress.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/progress.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/progress.json",
+      "sha256_16": "ea04b62d1f00aee2",
+      "bytes": 171
+    },
+    {
+      "nome": "result.json",
+      "caminho": "Um (absoluto) — Grande Atrator/quantum_pillar/run_20261005_103708_37e566b6/result.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/result.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/result.json",
+      "sha256_16": "de47d5527e514b49",
+      "bytes": 29885
+    },
+    {
+      "nome": "result.json.sha256",
+      "caminho": "Um (absoluto) — Grande Atrator/quantum_pillar/run_20261005_103708_37e566b6/result.json.sha256",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/result.json.sha256",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/result.json.sha256",
+      "sha256_16": "8af6ea436146aa8a",
+      "bytes": 64
+    },
+    {
+      "nome": "result_partial.json",
+      "caminho": "Um (absoluto) — Grande Atrator/quantum_pillar/run_20261005_103708_37e566b6/result_partial.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/result_partial.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/result_partial.json",
+      "sha256_16": "65ada5f560bb1ea6",
+      "bytes": 28893
+    },
+    {
+      "nome": "worker_stdout.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/quantum_pillar/run_20261005_103708_37e566b6/worker_stdout.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/worker_stdout.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/worker_stdout.txt",
+      "sha256_16": "9f4198a5441c5809",
+      "bytes": 562
+    }
+  ],
+  "total_arquivos_nesta_pasta": 9,
+  "total_arquivos_com_subpastas": 9,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6",
+  "rodape": "gerado por script de git ls-files em 2026-10-05 -- nao editar a mao"
+}

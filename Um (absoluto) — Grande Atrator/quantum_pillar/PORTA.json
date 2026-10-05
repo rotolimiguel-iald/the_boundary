@@ -1,0 +1,63 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/quantum_pillar",
+  "porta_id": "Um (absoluto) — Grande Atrator/quantum_pillar",
+  "titulo": "Um (absoluto) — Grande Atrator/quantum_pillar",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-05T22:56:48Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [
+    {
+      "nome": "run_20261004_153246_0063ce8d",
+      "caminho": "Um (absoluto) — Grande Atrator/quantum_pillar/run_20261004_153246_0063ce8d",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261004_153246_0063ce8d/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261004_153246_0063ce8d/PORTA.json",
+      "total_arquivos": 9
+    },
+    {
+      "nome": "run_20261005_103708_37e566b6",
+      "caminho": "Um (absoluto) — Grande Atrator/quantum_pillar/run_20261005_103708_37e566b6",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/run_20261005_103708_37e566b6/PORTA.json",
+      "total_arquivos": 9
+    }
+  ],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "pilar_quantico_spec.json",
+      "caminho": "Um (absoluto) — Grande Atrator/quantum_pillar/pilar_quantico_spec.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/pilar_quantico_spec.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/pilar_quantico_spec.json",
+      "sha256_16": "ff19731097e01aab",
+      "bytes": 2484
+    },
+    {
+      "nome": "pilar_quantico_worker.py",
+      "caminho": "Um (absoluto) — Grande Atrator/quantum_pillar/pilar_quantico_worker.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/pilar_quantico_worker.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar/pilar_quantico_worker.py",
+      "sha256_16": "0c9ba7fd45e78317",
+      "bytes": 77306
+    }
+  ],
+  "total_arquivos_nesta_pasta": 2,
+  "total_arquivos_com_subpastas": 20,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/quantum_pillar",
+  "rodape": "gerado por script de git ls-files em 2026-10-05 -- nao editar a mao"
+}
