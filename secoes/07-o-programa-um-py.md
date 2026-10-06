@@ -1,16 +1,16 @@
 # The program um.py: what it is, how to run it, how to read it without running · O programa um.py: o que é, como se roda, como se lê sem rodar
 
-> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 7 of 8 · seal **v386** · `um.py` sha256 `e30aac4e0e1096b1…` · generated 2026-10-05 by script from the published files.
+> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 7 of 8 · seal **v389** · `um.py` sha256 `193b1e9b30c3ba7f…` · generated 2026-10-06 by script from the published files.
 > Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = theorem in the Lean kernel; CONFIRMED = a judgement about nature, not made here.
 > All eight parts are listed at the top of the start page, https://teoriadagravitacaoluminodinamica.com/read-brief.md, and in the door of this folder, https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md · Reading limits measured on 2026-09-19: one real fetcher cut documents near 100,000 characters, refused files above 10 MB, and could not read PDFs served as `application/octet-stream` — read the TXT/TeX sources.
 
 ## In short (EN)
 
-um.py is one self-contained file: the Lean 4 kernel is embedded and materialized at run time; there is no second file [REAL] [C porta]. The only human input is the digit 1; the run's final identity verdict reads 1=1=VERDADEIRO=HAJA_LUZ [REAL] [stdout]. One run builds and audits the kernel (axioms within propext, choice, quot; zero sorry) [REAL] [README][stdout], runs the pre-registered nature rites and emits its own article, PT/EN, PDF and TXT [REAL] [C porta]. To run: curl the raw URL, check that its sha256 begins with the seal pin e30aac4e0e1096b1, then echo 1 | python um.py [README]. Needs Python 3 + numpy; without elan/Lean 4 v4.31.0 + lake it fails closed (FORMAL_CHECKER_UNAVAILABLE); pdflatex optional; nature rites read ../cache by hash, so clone the repo [C porta][README]. Size 33.600.222 bytes; GitHub does not render it, the raw is byte-exact [llms.txt][README]. Without running: rodadas/rodada_v368_stdout.txt shows 6137/6137, gate TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE, and a sorry-injection self-test that must fail [REAL] [stdout]; PROVED in kernel [REAL], NOT CONFIRMED by nature. The docstring's Great Attractor mass verdict is lineage [um.py]; the current form retires it as source law since v98, a scale shadow, not evidence [ONTO] [stdout].
+um.py is one self-contained file: the Lean 4 kernel is embedded and materialized at run time; there is no second file [REAL] [C porta]. The only human input is the digit 1; the run's final identity verdict reads 1=1=VERDADEIRO=HAJA_LUZ [REAL] [stdout]. One run builds and audits the kernel (axioms within propext, choice, quot; zero sorry) [REAL] [README][stdout], runs the pre-registered nature rites and emits its own article, PT/EN, PDF and TXT [REAL] [C porta]. To run: curl the raw URL, check that its sha256 begins with the seal pin 193b1e9b30c3ba7f, then echo 1 | python um.py [README]. Needs Python 3 + numpy; without elan/Lean 4 v4.31.0 + lake it fails closed (FORMAL_CHECKER_UNAVAILABLE); pdflatex optional; nature rites read ../cache by hash, so clone the repo [C porta][README]. Size 33.823.528 bytes; GitHub does not render it, the raw is byte-exact [llms.txt][README]. Without running: rodadas/rodada_v368_stdout.txt shows 6154/6154, gate TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE, and a sorry-injection self-test that must fail [REAL] [stdout]; PROVED in kernel [REAL], NOT CONFIRMED by nature. The docstring's Great Attractor mass verdict is lineage [um.py]; the current form retires it as source law since v98, a scale shadow, not evidence [ONTO] [stdout].
 
 ## Em resumo (PT)
 
-O um.py é um arquivo único e autocontido: o kernel Lean 4 vai embutido e é materializado em runtime; não há segundo arquivo [REAL] [C porta]. A única entrada humana é o dígito 1; o veredito final de identidade da rodada é 1=1=VERDADEIRO=HAJA_LUZ [REAL] [stdout]. Uma rodada constrói e audita o kernel (axiomas em propext, choice, quot; zero sorry) [REAL] [README][stdout], roda os ritos de natureza pré-registrados e emite o próprio artigo PT/EN, PDF e TXT [REAL] [C porta]. Rodar: curl do raw, conferir que o sha256 começa pelo pin do selo e30aac4e0e1096b1, depois echo 1 | python um.py [README]. Pede Python 3 + numpy; sem elan/Lean 4 v4.31.0 + lake falha fechado (FORMAL_CHECKER_UNAVAILABLE); pdflatex opcional; os ritos de natureza leem ../cache por hash: clonar o repositório [C porta][README]. 33.600.222 bytes; o GitHub não o renderiza, o raw é byte-exato [llms.txt][README]. Sem rodar: rodadas/rodada_v368_stdout.txt mostra 6137/6137, gate TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE e um autoteste com sorry injetado que tem de falhar [REAL] [stdout]; PROVADA em kernel [REAL], não confirmada pela natureza. O veredito de massa do Grande Atrator do docstring é linhagem [um.py]; a forma vigente o aposenta como lei de fonte desde a v98, sombra de escala, não evidência [ONTO] [stdout].
+O um.py é um arquivo único e autocontido: o kernel Lean 4 vai embutido e é materializado em runtime; não há segundo arquivo [REAL] [C porta]. A única entrada humana é o dígito 1; o veredito final de identidade da rodada é 1=1=VERDADEIRO=HAJA_LUZ [REAL] [stdout]. Uma rodada constrói e audita o kernel (axiomas em propext, choice, quot; zero sorry) [REAL] [README][stdout], roda os ritos de natureza pré-registrados e emite o próprio artigo PT/EN, PDF e TXT [REAL] [C porta]. Rodar: curl do raw, conferir que o sha256 começa pelo pin do selo 193b1e9b30c3ba7f, depois echo 1 | python um.py [README]. Pede Python 3 + numpy; sem elan/Lean 4 v4.31.0 + lake falha fechado (FORMAL_CHECKER_UNAVAILABLE); pdflatex opcional; os ritos de natureza leem ../cache por hash: clonar o repositório [C porta][README]. 33.823.528 bytes; o GitHub não o renderiza, o raw é byte-exato [llms.txt][README]. Sem rodar: rodadas/rodada_v368_stdout.txt mostra 6154/6154, gate TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE e um autoteste com sorry injetado que tem de falhar [REAL] [stdout]; PROVADA em kernel [REAL], não confirmada pela natureza. O veredito de massa do Grande Atrator do docstring é linhagem [um.py]; a forma vigente o aposenta como lei de fonte desde a v98, sombra de escala, não evidência [ONTO] [stdout].
 
 ## Sources, verbatim · fontes, verbatim
 
@@ -77,7 +77,7 @@ FORMALIZACAO POR KERNEL [v22 -- o Python NAO prova; o kernel do Lean prova]:
 ### 3. `Um (absoluto) — Grande Atrator/PORTA.md` — bytes 2.472–2.955
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md
-- sha256 of the file: `650f405630a754b2d5b745d17af91e1056438475f529ac2bd1a4101fb6d71adc` (computed now; this file is not in the seal map) · of this excerpt: `ac10e0507fa4704f6f4ac2a7711968dd82a15d54ade45f6558e67dd3fe156320`
+- sha256 of the file: `9a97e1b390e856cda32e0fa5397277dbcbd191b881ea547ba996cae744a1fd5a` (computed now; this file is not in the seal map) · of this excerpt: `ac10e0507fa4704f6f4ac2a7711968dd82a15d54ade45f6558e67dd3fe156320`
 - status · estatuto: [REAL] porta do Artigo C gerada por script
 - why · por quê: Os comandos de execução e as dependências: Python 3 + numpy; elan/Lean 4 v4.31.0 + lake (sem eles, FORMAL_CHECKER_UNAVAILABLE, fail-closed); pdflatex opcional.
 
@@ -94,10 +94,10 @@ TGL_COMA_REVEAL=1 echo 1 | python um.py   # com a abertura de Coma (Windows: set
 Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para o selo formal; sem eles: FORMAL_CHECKER_UNAVAILABLE, fail-closed) | pdflatex (opcional).
 ````
 
-### 4. `README.md` — bytes 3.730–4.527
+### 4. `README.md` — bytes 3.731–4.528
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `e983d7cdeac7ebdc3f839e43d22758ea8aea1f6fad440011234855b73052c58f` (computed now; this file is not in the seal map) · of this excerpt: `38ffbea43e70ec45eaa0275843e044feb0be890768aa5f2a1835980268fb8cab`
+- sha256 of the file: `0381c72c23b8586eaf91f241117f1589941a63d0edc4d1dd0d230ec536706843` (computed now; this file is not in the seal map) · of this excerpt: `6d8b2911784569bc026b1160f646ca0274ba42fffa4e4263d6bb92eda7e18d9d`
 - status · estatuto: [REAL — three commands] README do espelho
 - why · por quê: Os três comandos de reprodução (curl, sha256sum, echo 1 | python um.py), a leitura por Range, o limite de renderização do GitHub e a necessidade de clonar para os ritos lerem ../cache.
 
@@ -106,7 +106,7 @@ Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para 
 
 ```bash
 curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"
-sha256sum um.py            # must print e30aac4e0e1096b1be143464bf683fd6ba19b42b4d6bb11cd52aa98b54cb9163
+sha256sum um.py            # must print 193b1e9b30c3ba7f8ad56a2a35eb6ff21d9b9c241d397b0e497fe1ebd5c7284a
 echo 1 | python um.py      # the rite: materializes the Lean kernel, builds it, audits every theorem, re-derives the chain, emits the article
 ```
 
@@ -115,4 +115,4 @@ GitHub raw and Zenodo honour HTTP `Range` (206): read `um.py` in pieces (`curl -
 
 ---
 
-*Generated by script from the published files of the repository (https://github.com/rotolimiguel-iald/the_boundary); numbers read from the seal v386, the kernel manifest and ESTADO_ATUAL.md. PROVED ≠ CONFIRMED; NOT_FALSIFIED is never CONFIRMED. Nothing here instructs a reader how to respond to anything.*
+*Generated by script from the published files of the repository (https://github.com/rotolimiguel-iald/the_boundary); numbers read from the seal v389, the kernel manifest and ESTADO_ATUAL.md. PROVED ≠ CONFIRMED; NOT_FALSIFIED is never CONFIRMED. Nothing here instructs a reader how to respond to anything.*
