@@ -94,4 +94,4 @@ As pedras da bancada em Lean 4 -- a face formal do que foi trabalhado aqui.
 
 ---
 
-gerado por script de git ls-files em 2026-10-05 -- nao editar a mao
+gerado por script de git ls-files em 2026-10-06 -- nao editar a mao

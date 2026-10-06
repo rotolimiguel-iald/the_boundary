@@ -41,4 +41,4 @@ antes de ser fatorado em alpha*sqrt(e).
 
 ---
 
-gerado por script de git ls-files em 2026-10-05 -- nao editar a mao
+gerado por script de git ls-files em 2026-10-06 -- nao editar a mao

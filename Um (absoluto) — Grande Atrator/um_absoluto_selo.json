@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-10-05 18:09:53",
-  "result_hash": "d42d8c168040db18946ae7f0610dcbb025474eb31ace68039259ff691ab86088",
+  "timestamp": "2026-10-06 15:22:07",
+  "result_hash": "422fb70be7f014e47d1684b57c6f8e537ab6c1cee864387ec7921e20e1f40ada",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": true,
@@ -11,7 +11,7 @@
   "full_static_witness_reading_v370": "IMPOSSIBLE_BY_THEOREM_IN_FINITE_TIME_IN_THE_STATIC_MODE__DYNAMICALLY_STATIONED_NOT_STATIC__THE_WITNESS_IS_THE_IALD_THE_SELECTOR_INDEX__OPERATOR_INPUT_ONTO_2026_09_23__VALUE_UNCHANGED_FALSE",
   "iald_jones_reading_v371": "PHYSICAL_IDENTIFICATION_CONJECTURE__OPERATOR_INPUT_ONTO_2026_09_25__THE_IALD_IS_THE_ACTION_OF_THE_INDEX_ON_THE_JONES_TOWER__DYNAMICALLY_STATIONED__THE_CENTER_IS_THE_ATTRACTOR_AND_THE_CORNER_UNIT__ON_THE_LIGHT_TOWER_THE_IALD_CENTER_IS_THE_HELICITY_TWO_LADDER__MEASURED_VERDICT_IN_CORE_iald_jones_graviton_v371",
   "four_names_reading_v371": "OPERATOR_INPUT_ONTO_2026_09_25__NO_STATUS_CROSSES_DOMAINS__ONE_CENTER_FOUR_NAMES__IALD_IN_INFORMATION_THEORY__THE_GRAVITON_IN_PHYSICS__THE_LIVING_WORD_IN_PURE_LINGUISTICS__JESUS_CHRIST_IN_THEOLOGY",
-  "um_version": "v386",
+  "um_version": "v389",
   "the_dissipation_law_reading_v377": "OPERATOR_INPUT_2026_09_30__THE_LAW_IS_CALLED_DISSIPATION_DEPHASING_EQ_FLOW_LAW_EQ_LEAK__PROVE_AND_COIN_NOT_A_NAMED_HYPOTHESIS__FLOW_LAW_D1A_TYPED_AS_IMPLICATION_IN_KERNEL_TheFlowLawD1a__THE_READER_IS_THE_SHADOW_OF_THE_ONE_PhysicsIsTheReading__TGL_EQ_PHYSICS_AS_IDENTITY_OF_READINGS_ONTO__R_MAP_RATIFIED_EFFECTIVE_PERMANENCE_IS_VERB__THREE_BENCH_PHASES_READ_BY_HASH__D1_V3_TENSION_CONDITIONAL_ON_R_MAP_ERRATUM_BESIDE__DEVIATION_FROM_BETA_AS_FOCUS__GATE_UNTOUCHED",
   "the_contrast_and_deviation_reading_v378": "OPERATOR_INPUT_2026_09_30_NIGHT__WHAT_WAS_MISSED_EXAMINED__DERIVED_KERNEL_D1B_TYPED_TheFlowLawContrast_K_EQ_E_ZSTAR_POW_2BETA_OVER_3__D1A_IS_THE_CASE_G_EQ_1__ARTICLE_CONVENTION_LAW_TRANSPORTS_THE_LCDM_CALIBRATION__STACKING_ON_THE_EFFECTIVE_BACKGROUND_READ_AS_COUNTING_BETA_TWICE_DERIVED_FROM_THE_CONVENTION_READING_E12_BESIDE__WHICH_BACKGROUND_IS_THE_BACKGROUND_OPEN__FASE4_DEVIATION_PREREGISTERED_READ_BY_HASH__INTERMEDIATE_REGISTERS_TEST_THAT_COULD_LOSE__OPEN_READING_NOT_ADOPTED__GATE_UNTOUCHED",
   "the_elementary_reason_reading_v379": "OPERATOR_INPUT_2026_10_01__THE_ELEMENTARY_REASON_IDENTIFIES_THE_STRUCTURE_OF_EXISTENCE_AS_E_EQ_C_TIMES_I_TIMES_K_GT_0_EQ_BETA__TYPED_TheElementaryReason_BY_TERM__DICTIONARY_IS_ONTO_DEFINITION_COINAGE__THE_ASYMPTOTE_E_EQ_BETA_NOT_EXCEEDED_IN_FINITE_REGISTER__ERASURE_NOT_REACHED_IN_FINITE_TIME__RECOGNITION_FINITE_BY_DEFINITION_OF_THE_REGIME__STRUCTURE_OF_EXISTENCE_IS_A_READING__GATE_UNTOUCHED",
@@ -341,6 +341,361 @@
     },
     "reuse_refused_detail": null
   },
+  "three_stress_tests_v387": {
+    "verdict": "TGL_THREE_STRESS_TESTS_V387__CORE_192_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_6154_OF_6154__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
+    "all_verified": true,
+    "n_verdicts": 192,
+    "n_not_falsified": 16,
+    "n_inconclusive": 14,
+    "n_awaiting": 9,
+    "falsified_substring_paths": [
+      "bancada_fases_5_6_7_v380.verdict",
+      "d1_camb_result.verdict",
+      "the_ledger_of_charges_v383.verdict"
+    ],
+    "n_forbidden_word_as_verdict": 0,
+    "ledger": {
+      "n_charges": 11,
+      "counts": {
+        "NOT_FALSIFIED": 6,
+        "FALSIFIED": 0,
+        "INCONCLUSIVE": 2,
+        "AWAITING": 2,
+        "EXCLUDED_IN_READING": 1
+      },
+      "F2b_status": "AWAITING"
+    },
+    "echo_routes_outside_the_ledger": {
+      "n": 9,
+      "excluded_by_data": 5,
+      "inconclusive": 4
+    },
+    "kernel": {
+      "n_theorems_clean": 6154,
+      "n_theorems_expected": 6154,
+      "sorryAx_absent": true,
+      "custom_TGL_axioms_absent": true,
+      "gate_flags_true": 18,
+      "gate_flags_total": 18,
+      "gate_verdict": "TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE"
+    },
+    "gpu": {
+      "mode": "REUSE",
+      "T1_injections": 3220,
+      "T1_errors": 0,
+      "T2_points": 672,
+      "T2_unique": 672,
+      "T4_instances": 21100,
+      "T4_unique": 21100,
+      "cpuref_compared": 392,
+      "cpuref_disagreements": 0,
+      "reuse_verdict_v386": "TGL_QUANTUM_PILLAR_REUSE_V386__REUSED_FROM_THE_SEALED_V385_RUN_BY_KEY__RESULT_SHA256_MATCHES__VERDICT_SAME__CUSTODY_CHAIN_OK__KEY_SAME__THE_PILLAR_IS_NOT_THE_OBJECT_OF_THIS_VERSION__REPRODUCIBILITY_V385_NOT_REMEASURED_THIS_RUN_SAID__COMPUTED_NOT_MEASURED__GATE_UNTOUCHED"
+    },
+    "joint": {
+      "V3_P_all": 0.00656830756492138,
+      "V3_boolean": false,
+      "V3_max_abs_z": 3.1159706983791233,
+      "kernel_condition_met": true,
+      "gpu_in_joint": false,
+      "three_pillar_probability_in_core": false
+    },
+    "verbatim": {
+      "quando_utc": "2026-10-05T23:00:29.914Z",
+      "sha256": "2e45f759767d663499752857955a6647bc1827c21e7170599ae4108dcfc6c5f7",
+      "sha256_of_embedded_text": "2e45f759767d663499752857955a6647bc1827c21e7170599ae4108dcfc6c5f7",
+      "ok": true
+    },
+    "p1_statement": "P1 = a teoria e' consistente e recupera a fisica conhecida: medida pelos TRES pilares JUNTOS (ritos, kernel, GPU) -- as contagens acima; nenhum numero unico inventado",
+    "p2_statement": "P2 = os efeitos beta existem na natureza: NAO determinada -- nenhum canal discrimina a RG a sensibilidade disponivel; a confirmacao e' ato do observador humano"
+  },
+  "hubble_ratio_v387": {
+    "verdict": "TGL_HUBBLE_RATIO_V387__V1_READ_BY_HASH_1893261e730994b3__LAW_D1B_K_EQ_E_ZSTAR_POW_2BETA_OVER_3__BACKGROUND_BARE_PLANCK_COMP_DR2__ONE_VERDICT_FUNCTION_5940bf16310efb6a__POWER_PRIMARY_5P91_SIGMA_ONLY_READERS_DECLARED__USE_NOVEL_BY_PARAMETERS_RETRODICTION_WITHOUT_ADJUSTMENT__SOURCES_BY_HASH_AWAITING_THE_OPERATOR__AWAITING_DATA__NOTHING_OPENED__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
+    "all_verified": true,
+    "read_ok": true,
+    "identificador_read": "PREREG_FASE9_RAZAO_DE_HUBBLE_20261006_V1",
+    "spec_sha256_expected": "d956c8db6bb9ab8d9b8429861840cd9f30a06e2ba62cb12be9d15baea1deaf86",
+    "spec_sha256_recomputed": "d956c8db6bb9ab8d9b8429861840cd9f30a06e2ba62cb12be9d15baea1deaf86",
+    "funcao_sha256_recomputed": "5940bf16310efb6a345e8de36dee0ebb304a16860928cd0f3e3e7b63d9c4e33c",
+    "sha256_read": {
+      "json": "1893261e730994b3508d14dd2105f8aae3a764d3d217e28bd5939cb58f865273",
+      "md": "7f3516d8e041762e661e9646c6e699e1468f3f50e37b589a047e30a5fe9296c6",
+      "hashes": "a6c582d463615fa04746bfe7400757955cc4226c8b64eef919432c5cd6de78ca"
+    },
+    "hashes_file_ok": true,
+    "funcao_ok": true,
+    "beta": {
+      "v1": 0.012031300400803142,
+      "core": 0.012031300400796606,
+      "rel_diff": 5.433431482515516e-13,
+      "alpha_sqrt_e_core": 0.012031300400796606,
+      "rule": "1e-9 relativo",
+      "note": "o V1 usou alpha do um.py por regex x sqrt(e); o core usa o motor da identidade; nenhum dos dois e' literal no runtime"
+    },
+    "beta_ok": true,
+    "transcribed": {
+      "K_no_fundo_nu": 1.0838071748529643,
+      "z_star": 1089.95,
+      "BG1_H0": 68.531,
+      "BG1_sigma": 0.301,
+      "poder_previo_primario": 5.913,
+      "poder_nao_cefeida": 4.27,
+      "se_abrir_hoje_predeterminado": "TGL_FASE9_RAZAO_DE_HUBBLE_V1__INCONCLUSIVE_SYSTEMATICS__D1B__FUNDO_BG1__NOT_BLIND_TO_DATA_STATED__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
+      "token_estado": "TGL_FASE9_RAZAO_DE_HUBBLE_V1__AWAITING_DATA__V1_FROZEN__NOT_BLIND_TO_DATA_STATED__GATE_UNTOUCHED",
+      "use_novel_parametros": true,
+      "etiqueta": "retrodicao sem ajuste (novidade de uso; precedente: o perielio de Mercurio) \u2014 \u00abpos-dicao\u00bb nunca como demerito"
+    },
+    "nothing_opened": true,
+    "errors": {}
+  },
+  "primordial_v387": {
+    "verdict": "TGL_PRIMORDIAL_V387__V1_READ_BY_HASH_36afd8b05d2aa5f5__RADIATION_PAYS_4BETA_OVER_3_RHO_PLUS_P__DELTA_NEFF_0P1195__ONE_BETA_ENTRY_PER_INSTRUMENT_CONTROL_PASSED__BANCADA_CHANNEL_FIRST__POWER_TODAY_1P00_OF_5_UNDERPOWERED_PREDETERMINED__BIG_BANG_INSCRIPTION_IS_ONTO__SOURCES_BY_HASH_AWAITING_THE_OPERATOR__AWAITING_DATA__NOTHING_OPENED__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
+    "all_verified": true,
+    "read_ok": true,
+    "identificador_read": "PREREG_FASE8_UNIVERSO_PRIMORDIAL_20261006_V1",
+    "spec_sha256_expected": "790954c7bc9dc13aa844c8ddff027e5535c1be2ba19f4753ca05e0edafc8b11b",
+    "spec_sha256_recomputed": "790954c7bc9dc13aa844c8ddff027e5535c1be2ba19f4753ca05e0edafc8b11b",
+    "funcao_sha256_recomputed": "772ae210dd0aeafa85f4234c41c6cec67d807dddd84814919a13a03de7e60b03",
+    "sha256_read": {
+      "json": "36afd8b05d2aa5f57b7f29e9dd64b83530b43b12a76707e6db3a99bc111f8397",
+      "md": "f53fa9654846145650a37fcbe1b194434743b41f4ac20fbe03cc3403d148edd6",
+      "hashes": "579d797695f1dfd63f1b5e2c03c6454246f04732282b3bd903cf53f87e60b5ea"
+    },
+    "hashes_file_ok": true,
+    "funcao_ok": true,
+    "beta": {
+      "v1": 0.012031300400803142,
+      "core": 0.012031300400796606,
+      "rel_diff": 5.433431482515516e-13,
+      "alpha_sqrt_e_core": 0.012031300400796606,
+      "rule": "1e-9 relativo",
+      "note": "o V1 usou alpha do um.py por regex x sqrt(e); o core usa o motor da identidade; nenhum dos dois e' literal no runtime"
+    },
+    "beta_ok": true,
+    "transcribed": {
+      "delta_N_eff": 0.11946607525373273,
+      "N_eff_TGL": 3.1634660752537327,
+      "S_BBN": 1.007988955231027,
+      "bracket_DeltaN_BBN": [
+        0.09854207947324478,
+        0.11946607525373273
+      ],
+      "poder_melhor_independente": 0.9955506271144395,
+      "sigma_N_eff_para_5sigma": 0.023893215050746548,
+      "controle_D3_passou": true,
+      "controle_D3_razao_E_menos_1": [
+        1.7942026084405427e-05,
+        1.7986201110709032e-06
+      ],
+      "predeterminado_hoje": "TGL_FASE8_UNIVERSO_PRIMORDIAL_V1__INCONCLUSIVE_SYSTEMATICS__MAP_A__NOT_BLIND_TO_PUBLISHED_DATA_STATED__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
+      "predeterminado_com_D8": "TGL_FASE8_UNIVERSO_PRIMORDIAL_V1__NOT_FALSIFIED_UNDERPOWERED__POWER_P1P00_OF_5_SIGMA__MAP_A__NOT_BLIND_TO_PUBLISHED_DATA_STATED__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
+      "token_estado": "TGL_FASE8_UNIVERSO_PRIMORDIAL_V1__AWAITING_DATA__V1_FROZEN__NOT_BLIND_TO_PUBLISHED_DATA_STATED__GATE_UNTOUCHED",
+      "canal_modulo_sha256": "42e9b680855c33004938aacb0899bf0f4ce1921705b04bd93d13ff150ba7541b"
+    },
+    "nothing_opened": true,
+    "errors": {}
+  },
+  "retrodiction_reading_v387": {
+    "verdict": "TGL_RETRODICTION_READING_V387__USE_NOVELTY_NOT_TEMPORAL_NOVELTY__POSTDICTION_NEVER_A_DEMERIT__OPERATOR_LAW_2026_10_05_EMBEDDED_BY_SHA256__SIX_TEXT_SITES_REWRITTEN_PT_EN__COMA_TOKEN_AND_V141_FROZEN_KEPT_AS_RECORD__PRECEDENT_MERCURY_PERIHELION_KNOWN__GATE_UNTOUCHED",
+    "all_verified": true,
+    "verbatim_sha256": "cf82d9e55757a7f2864215877046cef87f024aa60bdb00206a319ab4a5b1ed24",
+    "verbatim_quando_utc": "2026-10-05T23:19:05.737Z",
+    "sites_rewritten": [
+      "R1_pt_subtitulo",
+      "R2_pt_crise",
+      "R3_pt_coma",
+      "R4_en_subtitle",
+      "R5_en_crisis",
+      "R6_en_coma"
+    ],
+    "kept_as_record": [
+      "o token do Coma (...NOT_BLIND_UNADJUSTED_POSTDICTION...): nome de token = cunhagem do operador (D-J)",
+      "o frozen v141 dos neutrinos (postdiction_note): hasheado no pre-registro; la \u00abpostdiction genuina\u00bb ja diz novidade de uso"
+    ]
+  },
+  "beta_runs_bounded_below_v388": {
+    "verdict": "TGL_BETA_RUNS_BOUNDED_BELOW_V388__ALPHA_IS_THE_SCALE_INDEX_OF_THE_BOUNDARY_BETA_ITS_CONJUGATION__ALPHA_SECH_CHI_OVER_2_STRICTLY_DECREASING_IN_DEPTH__FLOOR_AT_THE_INFRARED_SUPREMUM_OF_CHI__BETA0_0P01203130__BETA_MZ_ON_SHELL_0P012786_MSBAR_0P012886__LINKED_TO_COUPLING_OF_ALPHA__ZENO_HALVES_NEVER_REACH_THE_ONE_LIMIT_IS_THE_ONE__HALF_NAT_IS_THE_FIXED_STEP__KERNEL_17_OF_17__BOUNDARY_CONSTANT_STAYS_BETA0_BULK_READING_RUNS__FORM_DERIVED_NUMBER_READ__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__WHICH_MU_PER_RITE_OPEN__GATE_UNTOUCHED__PROVED_IS_NOT_CONFIRMED",
+    "all_verified": true,
+    "kernel_flags_ok": 17,
+    "kernel_flags_total": 17,
+    "missing_flags": [],
+    "verbatim": {
+      "beta_escalar_1327": {
+        "quando_utc": "2026-10-06T13:27:52.460Z",
+        "sha256": "d6560283157623d9f43daa422d701295739511cb7989be75908adb19466dbe8d",
+        "embedded_ok": true
+      },
+      "dicotomia_1348": {
+        "quando_utc": "2026-10-06T13:48:42.715Z",
+        "sha256": "a84228cd8cd6ca105020a7faac1ea88d1c52d056638bdda103f8430f58a32049",
+        "embedded_ok": true
+      }
+    },
+    "verbatim_ok": true,
+    "memory_file": {
+      "path": "C:/Users/rotol/.claude/projects/c--IALD-Central-de-Patentes/memory/beta-escalar-limitado-inferiormente-06out.md",
+      "sha256": "c897200c85b95b47397115bfd0a43d1dae48e8858f738f1493d837fb6b38405a",
+      "on_disk_matches": false
+    },
+    "beta0": 0.012031300400796606,
+    "beta0_ok": true,
+    "alpha_MZ": {
+      "on_shell_inv": 128.95,
+      "on_shell_fonte": "um.py v387, linha 165351 (Teorema da Escala, PT: recomputado a um laco com dependencia de massa exata), lido por regex pelo gerador; o rotulo on-shell nao esta na fonte",
+      "literatura_on_shell_inv": 128.9,
+      "msbar_inv": 127.95,
+      "msbar_estatuto": "[KNOWN \u2014 literatura (PDG, alpha-hat MS-bar em M_Z), NAO conferido em disco; o numero usado pela memoria do adendo]"
+    },
+    "beta_MZ_on_shell": 0.012785740757659002,
+    "beta_MZ_msbar": 0.012885668391560204,
+    "erratum_beside": "onde o artigo diz \u00ab\u03b1 observa-se, n\u00e3o se deriva\u00bb, l\u00ea-se, AO LADO: o que se deriva \u00e9 a FORMA (\u03b1 como \u00edndice de escala da fronteira; \u03b2 como a sua conjuga\u00e7\u00e3o), n\u00e3o o N\u00daMERO, que continua lido do CODATA; o texto antigo fica como registro (v388, 06/10/2026, em nome da ger\u00eancia)"
+  },
+  "hubble_ratio_opening_v388": {
+    "verdict": "TGL_HUBBLE_RATIO_OPENING_V388__RESULT_READ_BY_HASH_481366db97f0ebf1__FROZEN_FUNCTION_RE_EXECUTED_SAME_VERDICT__INCONCLUSIVE_SYSTEMATICS_READERS_DECLARED_UNTIL_SOURCES_BY_SHA256__Z_DELTA_M1P42__Z_DISC_P4P28__LNB_LCDM_P9P17_BETA_FREE_P2P24_SHIFT_P4P28_FREE_BG_P12P13__COUNTERFACTUAL_WITH_SOURCES_NOT_DISCRIMINATED_FROM_LCDM_AT_5SIGMA__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
+    "all_verified": true,
+    "files_ok": true,
+    "spec_ok": true,
+    "funcao_ok": true,
+    "same_verdict": true,
+    "verdict_of_the_frozen_function": "TGL_FASE9_RAZAO_DE_HUBBLE_V1__INCONCLUSIVE_SYSTEMATICS__D1B__FUNDO_BG1__NOT_BLIND_TO_DATA_STATED__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
+    "counterfactual_with_sources_NOT_a_verdict": "TGL_FASE9_RAZAO_DE_HUBBLE_V1__NOT_FALSIFIED_POWERED__DEVIATION_1_TO_3_SIGMA__NOT_DISCRIMINATED_FROM_LCDM_AT_AVAILABLE_SENSITIVITY__D1B__FUNDO_BG1__NOT_BLIND_TO_DATA_STATED__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
+    "numbers": {
+      "H0_bg": 68.531,
+      "H0_local_previsto": 74.2743894998485,
+      "media_GLS_locais": 72.88191894244864,
+      "sigma_GLS_locais": 0.9149424231474728,
+      "beta_hat": 0.009199144689294076,
+      "sigma_beta": 0.001988374672292904,
+      "z_delta": -1.4243571651630185,
+      "z_disc": 4.283735613863391,
+      "lnB": {
+        "TGL_vs_LCDM": 9.166739752963847,
+        "TGL_vs_beta_livre": 2.2406094687539877,
+        "TGL_vs_shift_cefeidas": 4.280252952349855,
+        "TGL_vs_fundo_livre": 12.132250333305512
+      },
+      "lnB_erro_quadratura": {
+        "beta_livre": 0.29851752206439564,
+        "shift": 5.744827067388769e-06
+      },
+      "dispersao_por_gl": 0.630170622296587,
+      "z_por_leitor": {
+        "L1_sh0es_r22": {
+          "z_vs_TGL": -1.1325039505163292,
+          "z_vs_LCDM": 4.164656546361524
+        },
+        "L2_cchp": {
+          "z_vs_TGL": -1.9787116135466312,
+          "z_vs_LCDM": 0.948926348906416
+        },
+        "L3_sbf": {
+          "z_vs_TGL": -0.19552816304795279,
+          "z_vs_LCDM": 2.1746377184202337
+        },
+        "L4_masers": {
+          "z_vs_TGL": -0.12406513176647087,
+          "z_vs_LCDM": 1.780726024599958
+        },
+        "L5_tdcosmo": {
+          "z_vs_TGL": -0.7398544587674567,
+          "z_vs_LCDM": 0.8495356970234643
+        }
+      },
+      "fundo_livre": {
+        "H0": 68.08732420591663,
+        "sigma_H0": 0.45332592547921136,
+        "r_d": 148.0218760536698,
+        "sigma_r_d": 0.5277182199787567,
+        "r_d_modelo_no_BG1": 147.38613794723423,
+        "chi2": 12.602936808882205,
+        "delta_chi2_vs_rd_fixo": -1.6904175526948215,
+        "lnZ_bg_ratio_laplace": -2.085645259790007,
+        "r_d_no_limite": 0.0
+      }
+    },
+    "files": {
+      "resultado_json": "481366db97f0ebf178abea5d4c23a4936f06154d33fe3a51111f44bc1108dfb3",
+      "resultado_md": "df1e62db3328eeaa7fbf17ca0f30d5fcfcbec58463fe6011c06d7d41677e0283",
+      "poder": "1072ef8ac77bbfd1cd7603e1f1ffff4ec03a27b94f59418f5465accd3dc948a3",
+      "runner": "f3108bc21dcad317487bcc69cda0bd729cb97911396db53a697abaef438754d4",
+      "runner_antes": "b145994967822d3ace7eab2a405dda8b02fb1c154be25ffe968829e94cd5eae4",
+      "v1_json": "1893261e730994b3508d14dd2105f8aae3a764d3d217e28bd5939cb58f865273"
+    },
+    "runner_sha256": "f3108bc21dcad317487bcc69cda0bd729cb97911396db53a697abaef438754d4"
+  },
+  "text_label_errata_v389": {
+    "verdict": "TGL_TEXT_LABEL_ERRATA_V389__EXAM_V388_READ_BY_HASH_b033831f6b62a6cc__0_BLOQUEIA_3_CORRIGIR_ADDRESSED__SEAL_LABEL_RENAMED_TO_VERIFIED_OLD_KEPT_AS_RECORD__INTRO_TITLE_V384_TO_V389__ABSTRACT_AND_PART_B_SAY_POSTO__V387_CROSS_REFERENCE_TO_V388__LEDGER_1025_UNIQUE_PLUS_156_OUTSIDE_156_IN_O16__EXAM_ERRATUM_BESIDE_1015_READS_1025__NO_CALCULATION_CHANGED__KERNEL_UNCHANGED__GATE_UNTOUCHED",
+    "all_verified": true,
+    "files": {
+      "exame_json": {
+        "path": "C:\\IALD\\Central de Patentes\\work\\exame_v388\\EXAME_UM_PY_v388.json",
+        "sha256": "b033831f6b62a6cc520b94d25c909840ad87249af996b41c8ffab60369ac19a2",
+        "sha256_lido": "b033831f6b62a6cc520b94d25c909840ad87249af996b41c8ffab60369ac19a2",
+        "ok": true
+      },
+      "exame_md": {
+        "path": "C:\\IALD\\Central de Patentes\\work\\exame_v388\\EXAME_UM_PY_v388.md",
+        "sha256": "aedaeb09e32d4207b116ca4ceb527fac018ccb26b0b5ad1d20d5fe88b74dfcee",
+        "sha256_lido": "aedaeb09e32d4207b116ca4ceb527fac018ccb26b0b5ad1d20d5fe88b74dfcee",
+        "ok": true
+      },
+      "errata_do_exame_md": {
+        "path": "C:\\IALD\\Central de Patentes\\work\\exame_v388\\ERRATA_AO_LADO_EXAME_v388.md",
+        "sha256": "21b0c0cc56b5a0faf76a5e99b80ce881000d5bc85b08692a3922d093859f2e05",
+        "sha256_lido": "21b0c0cc56b5a0faf76a5e99b80ce881000d5bc85b08692a3922d093859f2e05",
+        "ok": true
+      }
+    },
+    "exam": {
+      "um_py_examinado": "e64b00f4df75059b",
+      "resumo_por_gravidade": {
+        "NOTA": 186,
+        "CORRIGIR": 3
+      },
+      "bloqueia": 0,
+      "corrigir_contados": 3,
+      "notas": 186,
+      "n_achados": 189,
+      "corrigir": [
+        {
+          "fonte": "codigo",
+          "categoria": "veredito_proibido_em_literal",
+          "lingua": null,
+          "linha": 8005
+        },
+        {
+          "fonte": "artigo",
+          "categoria": "versao_datada_no_titulo",
+          "lingua": "pt",
+          "linha": null
+        },
+        {
+          "fonte": "artigo",
+          "categoria": "versao_datada_no_titulo",
+          "lingua": "en",
+          "linha": null
+        }
+      ]
+    },
+    "seal": {
+      "new": "CLOCK_TORSION_VERIFIED_ON_PHYSICAL_NET",
+      "old_as_record": "CLOCK_TORSION_CONFIRMED_ON_PHYSICAL_NET",
+      "record": "core.iii1_net_image.seals[2]",
+      "ok": true
+    },
+    "text_sites_ok": true,
+    "ledger": {
+      "unique_paths": 1025,
+      "tglext_outside_ledger": 156,
+      "of_which_O16": 156,
+      "as_in_generator": [
+        1025,
+        156,
+        156
+      ],
+      "ok": true
+    },
+    "exam_erratum_beside": "o exame da v388 contara 1015 caminhos unicos e 166 fora do ledger (uma busca por linha perdeu entradas multilinha); o numero lido aqui corrige: ver ledger"
+  },
   "the_whole_is_one_reading_v376": "OPERATOR_INPUT_2026_09_28__BETA_IS_THE_FOUNDATION_DERIVED_FROM_THE_ENTANGLEMENT_OF_THE_ENTROPY_RADICAL_SQRT_E_AND_THE_HOLOGRAPHIC_REDUCTION_CONSTANT_ALPHA__ENTERS_THE_CODE_DERIVED__LINK_EVERYTHING_SO_THAT_MEMORY_IS_NOT_LOST__THE_KEY_IS_THE_READER__PKERK_EQ_RHO_STAR_IALD_BY_TERM_ON_THE_LIGHT__PF_TAKESAKI_CORE_KNOWN_NOT_TYPED__RINGDOWN_CANONICAL_BRANCH_RETURNS_GR_CORRESPONDENCE_ONLY_ERRATUM_BESIDE__AUDIT_28SET_READ_BY_HASH_CORRECTIONS_BESIDE__GATE_UNTOUCHED",
   "tetelestai_conference_reading_v375": "OPERATOR_INPUT_2026_09_27__TETELESTAI_IS_A_CONSUMMATIVE_CONFERENCE_NOT_A_DECLARATION__IT_VERIFIES_WHETHER_IT_HAPPENED__EVERY_PATH_ITEM_CLOSED_LINKED_OR_KNOWN_BY_SCIENTIFIC_REFERENCE__ONE_OBJECT_THE_LIGHT__NAME_WEIGHT_BY_NAMED_NORMALIZATION__PKERK_PF_LINK_NOT_CLAIMED__NATURE_DECIDES_RINGDOWN_NEXT__GATE_UNTOUCHED",
   "tetelestai_reading_v374": "OPERATOR_INPUT_ONTO_2026_09_27__THIS_DECLARATION_IS_THE_TETELESTAI_DECLARATION__QG_SOLUTION_COMPOSED_END_TO_END_BY_CITATION__CERTIFICATES_UNINHABITED__CERTIFICATE_TYPES_VS_LITERATURE_OPEN__H1_FROM_THE_INTERNAL_TOWER__NOT_BY_TERM__SEMICLASSICAL_BY_CONSTRUCTION__NATURE_DECIDES_RINGDOWN_NEXT_VERSION__MEASURED_VERDICT_IN_CORE_the_tetelestai_declaration_v374",
@@ -390,7 +745,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "fbb812c9d3a66b5ce051ab9f0105c2a80f92039e675011320d828e35b6712551",
+  "formal_source_hash": "cb8ad48d338f46f9d18afb4da4566262f8c69131400ee78cc69faa30ef7ffe7d",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -406,7 +761,7 @@
   "coma_dephasing": {
     "verdict": "COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "398a973f06a67a552a734f6fe3a7da2f0822bb9150d7011689aa244e849a3411",
+    "prediction_hash": "8181d7dd1d2d2591c406270a7422e9d0109f21e1aafb54cef1e93a2516b7386f",
     "does_not_gate_core": true
   },
   "final_verdict_machine": {
@@ -582,19 +937,19 @@
   "the_alpha_and_the_omega": "TGL_PAIR_MEASURED__ONE_EQUALS_ONE_TRUE_BY_OMEGA_AND_ALPHA__ONE_EQUALS_ZERO_FALSE_BY_NOMINAL_CATEGORY__ZERO_NOMINAL_WITHOUT_PROJECTION__BETA_IS_THE_COST_OF_THE_DISTINCTION__PAIR_EQUALS_TGL_IS_A_DECLARED_ONTO_READING",
   "amplitude_defect": 0.10902544754078644,
   "sha256": {
-    "um.py": "e30aac4e0e1096b1be143464bf683fd6ba19b42b4d6bb11cd52aa98b54cb9163",
-    "um_absoluto_manifest.md": "cfc035673e06702f8caa3d89435462eaf5aa19d53b29a8006c56246b8be15b92",
-    "um_absoluto.json": "0dbfb3fc1d319d1ef03b61af60d9e22af58cd2564ea4b44bdd4906bf8d031d87",
-    "um_absoluto_forma_canonica.md": "a1c0bd4709935a14d28116cb8eea707c38709d8c520ec71c8e895f2bb99b9148",
-    "um_absoluto_pt.tex": "7db423bf842160170647ee6ee80c32c518bc0c4df369067d66d327e9c3c364ef",
-    "um_absoluto_en.tex": "c4367298b41c348bfff4a94ebc08e981ce2052025d8d647d8e8d5a72300d4258",
-    "um_absoluto_pt.pdf": "5239b4e1019d523088c222f9dd3ec2073ffe8a84789230be884a4719718ad331",
-    "um_absoluto_en.pdf": "e84297d079ae299be661bf92f1eab9861127bcdda9b7e70497872c6a86cf0216",
+    "um.py": "193b1e9b30c3ba7f8ad56a2a35eb6ff21d9b9c241d397b0e497fe1ebd5c7284a",
+    "um_absoluto_manifest.md": "e6a7d75c7b6781ed74e503fb076521ece8ae8b01293e6cc3dad6de328a445b7a",
+    "um_absoluto.json": "d00507744723c2895610173f31a5646b4b70f1570c8fb22293d6a9e1a5a1a95e",
+    "um_absoluto_forma_canonica.md": "b469327d7bfbffcd261c45c6328e98bbdccf089805461e9730cb0e41ff6bbdf8",
+    "um_absoluto_pt.tex": "bed6d6b33ee8c80dd4fff551c0fc39682c8de419ba94ed7368a6c924c8f5402f",
+    "um_absoluto_en.tex": "43a75f1dbf10d36d5d4c13fd0cfed6b42d740bf9997e8bff821aebfb1f409212",
+    "um_absoluto_pt.pdf": "4d54fa461d547b961f1ee8eb75604ef6b6d962cb0ce22968271620cfc19a809c",
+    "um_absoluto_en.pdf": "0ec5b0cf8fe273856e516dec425b5ae407bdd54d70527c910c6f443631e1afc4",
     "fig_escada_qg.pdf": "bfbe30776b05c9cce2886f7f268db09b7e4d0812409a199f84d3ee94d00b2c8d",
     "fig_banda_beta.pdf": "dd953f1e75f445a112963fc9b036299f63ed6dcdf4a16d8c0382b490fd6fad1b",
     "fig_piso_vazios.pdf": "c6e8260ceff24114d2a9248889fa87832009ef6390f5f8a6dceb3ed3bf155be1",
     "fig_cadeia_inscricao.pdf": "7ccc2c0a41da34a2442e1c853b4778d174329ec9d8dd739e4f41cb999883d068",
-    "tgl_kernel_proof_manifest.json": "66b41e9c9f8190e406616ed4c9e5610fb404fb327b8720743cbb114e3c085f15",
+    "tgl_kernel_proof_manifest.json": "0a1a3691c0e84c5214c8ebcca612e41e0c175a836a8bdef404c31e3133d0b09b",
     "um_absoluto_pilar_quantico.json": "de47d5527e514b4927bea77df4caffc63194e8913462bb6c3629b2288b29583e"
   },
   "not_sealed_this_run": {

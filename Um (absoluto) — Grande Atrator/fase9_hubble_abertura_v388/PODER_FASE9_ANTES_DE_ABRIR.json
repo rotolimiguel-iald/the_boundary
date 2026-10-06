@@ -1,0 +1,21 @@
+{
+ "quando": "20261006_110507",
+ "poder": {
+  "P_primaria x BG1": 5.913,
+  "P_primaria x BG2": 5.198,
+  "P_primaria x BG3": 5.114,
+  "R_r25 x BG1": 6.31,
+  "R_r25 x BG2": 5.471,
+  "R_r25 x BG3": 5.365,
+  "N_sem_cefeidas x BG1": 4.27,
+  "N_sem_cefeidas x BG2": 3.947,
+  "N_sem_cefeidas x BG3": 3.938,
+  "S_com_sirenes x BG1": 5.93,
+  "S_com_sirenes x BG2": 5.21,
+  "S_com_sirenes x BG3": 5.126,
+  "T_so_cchp x BG1": 2.926,
+  "T_so_cchp x BG2": 2.791,
+  "T_so_cchp x BG3": 2.811
+ },
+ "nota": "so sigmas publicas, K e o fundo; nenhum centro local entrou em calculo ate aqui"
+}

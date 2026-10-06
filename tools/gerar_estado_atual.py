@@ -347,6 +347,35 @@ def main() -> int:
         L.append("| v386 | `%s` | %s | COMPLETE | %s |" % (sh386[-1] if sh386 else "?", ("%s/%s" % ri386[-1]) if ri386 else "?", 'THE VERB SELECTS THE ACTION: `TheVerbSelectsTheAction` and 17 terms of the angular regime wired in the ladder; the Name is the post; the reading is a weight (Born rule); the order matters (the axis posts do not commute); truth and cost are two faces of one object; branch B reopened by preregistration (V1 read by hash, AWAITING_DATA, nothing opened); the R6 erratum beside, the v383 ledger intact; the pillar reused by key from the sealed v385 run'))
     L.append("")
     L.append('*Status that goes with v383–v386 (not to be cut): the readings (the key, the optics, the post, the Verb) are the operator’s [INPUT/ONTO]; the stones prove implications [KERNEL]; the pillar is [COMPUTED], beside the gate; branch B is preregistered and AWAITING_DATA — nothing opened. Per-term flags gpf_H2_smooth_modular_four_frame_discharged / gpf_H3_local_horizon_equilibrium_discharged / gpi_H3_horizon_data_produced stay False. The v381 copy and the v383/v384/v385 seeds live outside the repository; v382 stays only in the house; the stdouts v383–v386 are in `rodadas/`; the preregistrations are in `preregistro_*` with their PORTA. Proved is not a judgement of nature; not falsified is not a confirmation.*')
+    # custódia conjunta v383→v389 (06/10/2026, sessão da Central por ordem do operador): ao lado; sha16 e rito LIDOS do diário
+    L.append("")
+    L.append("### v387\u2013v389 \u00b7 the joint custody `[REAL \u2014 sha16 and rite read from MEMORIA_DA_LINHAGEM.md]`")
+    L.append("")
+    L.append("| version | `um.py` sha16 | rite | round | what entered |")
+    L.append("|---|---|---|---|---|")
+    mm387 = re.search(r"^## [^\n]*\*\*v387 SELADA[^*\n]*\*\*[^\n]*\n", diario, re.M)
+    if mm387:
+        fim387 = diario.find("\n## ", mm387.end())
+        bl387 = diario[mm387.end(): fim387 if fim387 > 0 else len(diario)]
+        sh387 = re.findall(r"`um\.py` sha16 `([0-9a-f]{16})`", bl387) or re.findall(r"`([0-9a-f]{16})`", mm387.group(0))
+        ri387 = re.findall(r"\*\*(\d+)/(\d+)\*\*", bl387)
+        L.append("| v387 | `%s` | %s | COMPLETE | %s |" % (sh387[-1] if sh387 else "?", ("%s/%s" % ri387[-1]) if ri387 else "?", 'THE THREE STRESS TESTS, JOINT: the rites (192 TGL verdicts in the core: 16 NOT_FALSIFIED, 14 INCONCLUSIVE, 9 AWAITING; the ledger 11/0 charges/FALSIFIED), the kernel (6154 of 6154 clean in the trio; gate flags 18 of 18) and the numerical experiment on the GPU (T2 672 of 672, T4 21100 of 21100; CPU reference 0 disagreements in 392) count together, and none of the three failed; the Hubble ratio (Phase 9) and the radiation era (Phase 8) preregistered, V1 read by hash, nothing opened (power 5.91 sigma with public sigma only; Delta N_eff = +0.1195, power today 1.00 of 5, underpowered by prediction); the law of proof: retrodiction without adjustment is never a demerit (use-novelty; precedent: the perihelion of Mercury)'))
+    mm388 = re.search(r"^## [^\n]*\*\*v388 SELADA[^*\n]*\*\*[^\n]*\n", diario, re.M)
+    if mm388:
+        fim388 = diario.find("\n## ", mm388.end())
+        bl388 = diario[mm388.end(): fim388 if fim388 > 0 else len(diario)]
+        sh388 = re.findall(r"`um\.py` sha16 `([0-9a-f]{16})`", bl388) or re.findall(r"`([0-9a-f]{16})`", mm388.group(0))
+        ri388 = re.findall(r"\*\*(\d+)/(\d+)\*\*", bl388)
+        L.append("| v388 | `%s` | %s | COMPLETE | %s |" % (sh388[-1] if sh388 else "?", ("%s/%s" % ri388[-1]) if ri388 else "?", 'BETA RUNS WITH THE SCALE, BOUNDED BELOW: `TheCouplingRunsBoundedBelow` (kernel 17/17): alpha(chi) = sech(chi/2) and beta(chi) = alpha(chi) sqrt(e), strictly decreasing in depth, the floor at the infrared supremum of chi; the boundary constant stays beta_0 = alpha sqrt(e) = 0.0120313004, the bulk reading runs (beta(M_Z) = 0.012786 on-shell, 0.012886 MS-bar [KNOWN]); which mu each rite uses is [OPEN]; and the Hubble ratio opened by the frozen function: INCONCLUSIVE_SYSTEMATICS, readers [DECLARED] until the sources by sha256 (z_delta = -1.42, z_disc = 4.28, ln B(TGL/LCDM) = 9.17); with the sources it still does not discriminate from LCDM at 5 sigma under this V1'))
+    mm389 = re.search(r"^## [^\n]*\*\*v389 SELADA[^*\n]*\*\*[^\n]*\n", diario, re.M)
+    if mm389:
+        fim389 = diario.find("\n## ", mm389.end())
+        bl389 = diario[mm389.end(): fim389 if fim389 > 0 else len(diario)]
+        sh389 = re.findall(r"`um\.py` sha16 `([0-9a-f]{16})`", bl389) or re.findall(r"`([0-9a-f]{16})`", mm389.group(0))
+        ri389 = re.findall(r"\*\*(\d+)/(\d+)\*\*", bl389)
+        L.append("| v389 | `%s` | %s | COMPLETE | %s |" % (sh389[-1] if sh389 else "?", ("%s/%s" % ri389[-1]) if ri389 else "?", 'TEXT AND LABEL ERRATA from the full exam of v388 (read by hash `b033831f6b62a6cc`: 0 blocking, 3 to correct, the notes kept): the seal label renamed to VERIFIED (the old one kept as record); the Introduction title v384 to v389; the abstract and Part B say the axiom is POSTED; the v387 section points to the v388 opening; the ledger cut 1025 unique paths + 156 outside (the exam said 1015/166, corrected beside); no calculation changed, kernel unchanged'))
+    L.append("")
+    L.append('*Status that goes with v387–v389 (not to be cut): the three pillars count together as P1 (none failed); a joint probability (P2) is not determined; Phase 9 opened gives INCONCLUSIVE_SYSTEMATICS and, even with the sources, it does not discriminate at 5 sigma under this V1; Phase 8 is underpowered by prediction; beta(chi) is a bulk reading with the scale mu per rite [OPEN], the boundary constant stays beta_0. Per-term flags gpf_H2_smooth_modular_four_frame_discharged / gpf_H3_local_horizon_equilibrium_discharged / gpi_H3_horizon_data_produced stay False. The v386 copy and the v387/v388 seeds live outside the repository; v382 stays only in the house; the stdouts v387–v389 are in `rodadas/`; the new preregistrations are in `preregistro_fase9_hubble_v387`, `fase9_hubble_abertura_v388` and `preregistro_fase8_primordial_v387` with their PORTA. Proved is not a judgement of nature; not falsified is not a confirmation.*')
     L.append("")
     L.append("## What is PROVED · o que está PROVADO `[REAL — theorem in kernel]`")
     L.append("")

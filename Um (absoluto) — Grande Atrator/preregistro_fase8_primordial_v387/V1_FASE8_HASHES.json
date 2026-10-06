@@ -1,0 +1,53 @@
+{
+ "id": "PREREG_FASE8_UNIVERSO_PRIMORDIAL_20261006_V1",
+ "spec_sha256": "790954c7bc9dc13aa844c8ddff027e5535c1be2ba19f4753ca05e0edafc8b11b",
+ "funcao_sha256": "772ae210dd0aeafa85f4234c41c6cec67d807dddd84814919a13a03de7e60b03",
+ "gerado_utc_do_V1": "2026-10-06T11:22:20Z",
+ "pasta": "C:\\IALD\\Bancada_Um\\investigacao\\preregistro_fase8_primordial",
+ "arquivos": {
+  "PREREGISTRO_FASE8_UNIVERSO_PRIMORDIAL_V1.json": {
+   "sha256": "36afd8b05d2aa5f57b7f29e9dd64b83530b43b12a76707e6db3a99bc111f8397",
+   "bytes": 17864
+  },
+  "PREREGISTRO_FASE8_UNIVERSO_PRIMORDIAL_V1.md": {
+   "sha256": "f53fa9654846145650a37fcbe1b194434743b41f4ac20fbe03cc3403d148edd6",
+   "bytes": 11048
+  },
+  "gerar_preregistro_fase8_primordial_06out.py": {
+   "sha256": "4adb120623c9135df799b11a237a39bea72a6f32e92868f0238b8b9016d38d92",
+   "bytes": 19792
+  },
+  "evidencias/CRITICA_FASE8.md": {
+   "sha256": "c00fee03a5b6408e6b6e7b377db1e6a94588e4584a8652db3711965f9017c406",
+   "bytes": 26566
+  },
+  "evidencias/PODER_FASE8_UNIVERSO_PRIMORDIAL.json": {
+   "sha256": "8cd7078f00e5fb959c595e42d60de18a61829b1399e4fa580eff87f12d34458a",
+   "bytes": 12226
+  },
+  "evidencias/PREREGISTRO_FASE8_UNIVERSO_PRIMORDIAL_V1_RASCUNHO.json": {
+   "sha256": "ed74bc46295a8fed03be9208d8608010650452aa597bb7ce4bed34c963bab28c",
+   "bytes": 19321
+  },
+  "evidencias/PREREGISTRO_FASE8_UNIVERSO_PRIMORDIAL_V1_RASCUNHO.md": {
+   "sha256": "aee4997b22f843ecad8d0b9452680d3a56919ec0c84c9548623ee30305103b74",
+   "bytes": 46600
+  },
+  "evidencias/REGISTRO_DA_CASA_BIG_BANG.md": {
+   "sha256": "4aca1bd54d2f3b0334a12e322c737f9e1f289540a13fb8ebdbd75241cbe97918",
+   "bytes": 18303
+  },
+  "evidencias/VERBATIM_OPERADOR_05out_big_bang.txt": {
+   "sha256": "c314835ecf95e85e1dbccee7fca1bf3b26fb49fddffda7fdfaa722ac29e35377",
+   "bytes": 847
+  },
+  "evidencias/fase8_fisica_resultado.json": {
+   "sha256": "df9109728f81ce283d2de643318f73f100183336bf45a28aef7d740028a92a76",
+   "bytes": 12373
+  },
+  "evidencias/neff_canal.py": {
+   "sha256": "42e9b680855c33004938aacb0899bf0f4ce1921705b04bd93d13ff150ba7541b",
+   "bytes": 6059
+  }
+ }
+}

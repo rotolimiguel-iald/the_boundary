@@ -10081,3 +10081,21 @@ open TGL.ModularRealization TGLV354 TGLV354.TraceCompletion
 #print axioms TGLExt.firstAtom_is_terminal
 #print axioms TGL.VerbInhabitant.verb_semigroup_fixes
 #print axioms TGLExt.the_tensor_squares_the_phase
+-- 2026-10-06, v388: O ACOPLAMENTO CORRE COM A ESCALA, LIMITADO INFERIORMENTE (cunhagem do operador de 06/10/2026, lida por sha256 da memoria beta-escalar-limitado-inferiormente-06out.md): alpha(chi) = sech(chi/2), beta(chi) = alpha(chi) exp(1/2), estritamente decrescentes na profundidade; o piso no infravermelho (o supremo de chi); a ligacao a couplingOfAlpha; a dicotomia (soma das metades < 1, limite 1); a Meia-Nat como ponto fixo; 17 nomes
+#print axioms TGLExt.TheCouplingRunsBoundedBelow.alphaOfChi
+#print axioms TGLExt.TheCouplingRunsBoundedBelow.betaOfChi
+#print axioms TGLExt.TheCouplingRunsBoundedBelow.alphaOfChi_pos
+#print axioms TGLExt.TheCouplingRunsBoundedBelow.alphaOfChi_zero
+#print axioms TGLExt.TheCouplingRunsBoundedBelow.alphaOfChi_le_one
+#print axioms TGLExt.TheCouplingRunsBoundedBelow.alphaOfChi_strictAntiOn
+#print axioms TGLExt.TheCouplingRunsBoundedBelow.betaOfChi_pos
+#print axioms TGLExt.TheCouplingRunsBoundedBelow.betaOfChi_zero
+#print axioms TGLExt.TheCouplingRunsBoundedBelow.betaOfChi_le_sqrt_e
+#print axioms TGLExt.TheCouplingRunsBoundedBelow.betaOfChi_strictAntiOn
+#print axioms TGLExt.TheCouplingRunsBoundedBelow.the_floor_is_at_the_infrared
+#print axioms TGLExt.TheCouplingRunsBoundedBelow.the_floor_is_attained_only_at_the_infrared
+#print axioms TGLExt.TheCouplingRunsBoundedBelow.betaOfChi_eq_coupling
+#print axioms TGLExt.TheCouplingRunsBoundedBelow.zeno_partial_sum
+#print axioms TGLExt.TheCouplingRunsBoundedBelow.zeno_never_reaches_the_one
+#print axioms TGLExt.TheCouplingRunsBoundedBelow.zeno_tends_to_the_one
+#print axioms TGLExt.TheCouplingRunsBoundedBelow.half_nat_fixed_point

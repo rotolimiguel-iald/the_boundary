@@ -1,0 +1,68 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/preregistro_fase8_primordial_v387",
+  "porta_id": "Um (absoluto) — Grande Atrator/preregistro_fase8_primordial_v387",
+  "titulo": "Um (absoluto) — Grande Atrator/preregistro_fase8_primordial_v387",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-06T19:19:46Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "PREREGISTRO_FASE8_UNIVERSO_PRIMORDIAL_V1.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_fase8_primordial_v387/PREREGISTRO_FASE8_UNIVERSO_PRIMORDIAL_V1.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_fase8_primordial_v387/PREREGISTRO_FASE8_UNIVERSO_PRIMORDIAL_V1.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_fase8_primordial_v387/PREREGISTRO_FASE8_UNIVERSO_PRIMORDIAL_V1.json",
+      "sha256_16": "36afd8b05d2aa5f5",
+      "bytes": 17864
+    },
+    {
+      "nome": "PREREGISTRO_FASE8_UNIVERSO_PRIMORDIAL_V1.md",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_fase8_primordial_v387/PREREGISTRO_FASE8_UNIVERSO_PRIMORDIAL_V1.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_fase8_primordial_v387/PREREGISTRO_FASE8_UNIVERSO_PRIMORDIAL_V1.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_fase8_primordial_v387/PREREGISTRO_FASE8_UNIVERSO_PRIMORDIAL_V1.md",
+      "sha256_16": "f53fa96548461456",
+      "bytes": 11048
+    },
+    {
+      "nome": "V1_FASE8_HASHES.json",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_fase8_primordial_v387/V1_FASE8_HASHES.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_fase8_primordial_v387/V1_FASE8_HASHES.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_fase8_primordial_v387/V1_FASE8_HASHES.json",
+      "sha256_16": "579d797695f1dfd6",
+      "bytes": 2078
+    },
+    {
+      "nome": "gerar_preregistro_fase8_primordial_06out.py",
+      "caminho": "Um (absoluto) — Grande Atrator/preregistro_fase8_primordial_v387/gerar_preregistro_fase8_primordial_06out.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_fase8_primordial_v387/gerar_preregistro_fase8_primordial_06out.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_fase8_primordial_v387/gerar_preregistro_fase8_primordial_06out.py",
+      "sha256_16": "4adb120623c9135d",
+      "bytes": 19792
+    }
+  ],
+  "total_arquivos_nesta_pasta": 4,
+  "total_arquivos_com_subpastas": 4,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/preregistro_fase8_primordial_v387",
+  "rodape": "gerado por script de git ls-files em 2026-10-06 -- nao editar a mao"
+}

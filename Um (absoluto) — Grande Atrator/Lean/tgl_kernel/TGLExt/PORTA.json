@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-05T22:58:37Z",
+  "gerado_utc": "2026-10-06T19:19:46Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -5599,6 +5599,16 @@
       "bytes": 4523
     },
     {
+      "nome": "TheCouplingRunsBoundedBelow.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheCouplingRunsBoundedBelow.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheCouplingRunsBoundedBelow",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheCouplingRunsBoundedBelow.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheCouplingRunsBoundedBelow.lean",
+      "sha256_16": "702d7352c053060a",
+      "bytes": 6375
+    },
+    {
       "nome": "TheCrownedCascade.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheCrownedCascade.lean",
       "papel": "prova formal",
@@ -10269,8 +10279,8 @@
       "bytes": 10880
     }
   ],
-  "total_arquivos_nesta_pasta": 1024,
-  "total_arquivos_com_subpastas": 1180,
+  "total_arquivos_nesta_pasta": 1025,
+  "total_arquivos_com_subpastas": 1181,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt",
-  "rodape": "gerado por script de git ls-files em 2026-10-05 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-10-06 -- nao editar a mao"
 }

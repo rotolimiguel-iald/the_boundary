@@ -1,0 +1,58 @@
+{
+ "id": "PREREG_FASE9_RAZAO_DE_HUBBLE_20261006_V1",
+ "spec_sha256": "d956c8db6bb9ab8d9b8429861840cd9f30a06e2ba62cb12be9d15baea1deaf86",
+ "funcao_sha256": "5940bf16310efb6a345e8de36dee0ebb304a16860928cd0f3e3e7b63d9c4e33c",
+ "gerado_utc_do_V1": "2026-10-06T11:15:34Z",
+ "pasta": "C:\\IALD\\Bancada_Um\\investigacao\\preregistro_fase9_hubble",
+ "nota": "sha256 e bytes de cada arquivo da pasta (e de evidencias/), lidos do disco por script; este arquivo nao lista a si proprio",
+ "arquivos": {
+  "PREREGISTRO_FASE9_RAZAO_DE_HUBBLE_V1.json": {
+   "sha256": "1893261e730994b3508d14dd2105f8aae3a764d3d217e28bd5939cb58f865273",
+   "bytes": 26910
+  },
+  "PREREGISTRO_FASE9_RAZAO_DE_HUBBLE_V1.md": {
+   "sha256": "7f3516d8e041762e661e9646c6e699e1468f3f50e37b589a047e30a5fe9296c6",
+   "bytes": 16360
+  },
+  "gerar_preregistro_fase9_hubble_06out.py": {
+   "sha256": "9d932cf83fb4a4c0c727782e912d2c4ce82713fb8ef6f03cc04db1c0d58e4ff3",
+   "bytes": 32497
+  },
+  "evidencias/CRITICA_FASE9.md": {
+   "sha256": "c531c7e88ac3938f0ee50e243e71c9d4d57d8ce50b2a2414b91a8d23930c3c53",
+   "bytes": 33053
+  },
+  "evidencias/CRONOLOGIA_NOVIDADE_DE_USO.json": {
+   "sha256": "8c13eb249b104564d8e97134126846cde96a7b35a68276f22b989973316a8023",
+   "bytes": 38136
+  },
+  "evidencias/CRONOLOGIA_NOVIDADE_DE_USO.md": {
+   "sha256": "0e6bb2413151cb2042db429f26c0712d8aba15a696e14ca99e1840e308b6500d",
+   "bytes": 31636
+  },
+  "evidencias/FASE9_DESENHO_RESULTADO.json": {
+   "sha256": "d9cde56af2465fa8958dcaa2b70301658b281f1e2ab09988a302beb68dbc3f08",
+   "bytes": 163975
+  },
+  "evidencias/FASE9_DESENHO_TABELA.md": {
+   "sha256": "5b4963ce15988d1046c4a6a62723169002d03b54b08001d51fff5a3688c27d97",
+   "bytes": 22845
+  },
+  "evidencias/INVENTARIO_DADOS_NA_CASA_FASE9_20261005.md": {
+   "sha256": "eeda7daacbd9abb0979788622569ae9ef2934df0b1e8621a6fd905742964dac8",
+   "bytes": 22702
+  },
+  "evidencias/POS_DICAO_operador_05out.txt": {
+   "sha256": "cf82d9e55757a7f2864215877046cef87f024aa60bdb00206a319ab4a5b1ed24",
+   "bytes": 775
+  },
+  "evidencias/PREREGISTRO_FASE9_RAZAO_DE_HUBBLE_V1_RASCUNHO.json": {
+   "sha256": "0d1c98d67896ed8d8ac35af035c37c6e856a8a70ab889adee555ea4d85869585",
+   "bytes": 21924
+  },
+  "evidencias/fase9_desenho_estatistico.py": {
+   "sha256": "8b74bc7830004e69dc1a99baae594739b5ea94e5b0e25ce7908d89a976f0c7c0",
+   "bytes": 49926
+  }
+ }
+}

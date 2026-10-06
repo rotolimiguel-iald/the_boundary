@@ -1,7 +1,7 @@
 # stage: principal
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=1038611 len(stderr)=0
+# len(stdout)=1040596 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -11921,6 +11921,29 @@ regularSusyData : (P : SiteProfile) →
 'TGLExt.firstAtom_is_terminal' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.VerbInhabitant.verb_semigroup_fixes' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.the_tensor_squares_the_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheCouplingRunsBoundedBelow.alphaOfChi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheCouplingRunsBoundedBelow.betaOfChi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheCouplingRunsBoundedBelow.alphaOfChi_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheCouplingRunsBoundedBelow.alphaOfChi_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheCouplingRunsBoundedBelow.alphaOfChi_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheCouplingRunsBoundedBelow.alphaOfChi_strictAntiOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheCouplingRunsBoundedBelow.betaOfChi_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheCouplingRunsBoundedBelow.betaOfChi_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheCouplingRunsBoundedBelow.betaOfChi_le_sqrt_e' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheCouplingRunsBoundedBelow.betaOfChi_strictAntiOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheCouplingRunsBoundedBelow.the_floor_is_at_the_infrared' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheCouplingRunsBoundedBelow.the_floor_is_attained_only_at_the_infrared' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheCouplingRunsBoundedBelow.betaOfChi_eq_coupling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheCouplingRunsBoundedBelow.zeno_partial_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheCouplingRunsBoundedBelow.zeno_never_reaches_the_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TGLExt.TheCouplingRunsBoundedBelow.zeno_tends_to_the_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.TheCouplingRunsBoundedBelow.half_nat_fixed_point' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 --- STDERR ---
 

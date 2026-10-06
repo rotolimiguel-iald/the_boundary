@@ -1061,3 +1061,4 @@ import TGLExt.TheLedgerOfCharges
 import TGLExt.ThePsionAndTheViscosity
 import TGLExt.TheAxiomAndTheFalseWitness
 import TGLExt.TheVerbSelectsTheAction
+import TGLExt.TheCouplingRunsBoundedBelow

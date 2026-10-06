@@ -2187,3 +2187,27 @@ Onde se lê «os V1–V1.4 do pré-registro dos dois lados ao espelho (decisões
 - **W10:** a ordem do operador sobre o artigo cumprida — PT: apresentação sim, «O método» sim, palavras-chave sim, sumário com as três entradas sim (2 «GPU» no sumário; 3 no cabeçalho; «tempo real» em 4 linha(s)); EN: apresentação sim, «The method» sim, palavras-chave sim, sumário com as três entradas sim (2 «GPU» no sumário; 3 no cabeçalho; «real time» em 4 linha(s)).
 - **O que segue do operador:** a custódia CONJUNTA v383 (ainda não custodiada (nenhum commit «custodia(v383)» no git da Central)), v384 (ainda não custodiada (nenhum commit «custodia(v384)» no git da Central)), v385 (ainda não custodiada (nenhum commit «custodia(v385)» no git da Central)) e v386, num só ato pela sessão do site, com o espelho (a pedra nova, `TGLExt.lean`, `TGL/Audit.lean`, os stdout, `preregistro_pilar_quantico_v384`, `preregistro_dois_lados_v383` com V1–V1.4 e os 5 geradores, e a nova `preregistro_ramo_b_v386` — nome proposto —, com PORTA por script); PENDÊNCIAS: a PE só-220 do conjunto D (v387, com o poder dito antes); o modo 221 do GW250114 (posteriores dentro do tar.gz, não extraídos; diagnóstico, não teste); a errata da ESPEC (1e-9 relativo no lugar de 1e-15; a ratificar ao lado) — ver o HANDOFF v386.
 - `e30aac4e0e1096b1`; 6137/6137.
+
+
+## ADENDO — 06/10/2026 · v387 SELADA (COMPLETA) `64c899f86d8d32e1` — os três testes conjuntos; a razão de Hubble e a era da radiação pré-registradas; retrodição sem ajuste
+
+<!-- adendo_v387_selada -->
+- **O caminho crítico não muda:** nenhuma pedra nova (a escada fica em 6137/6137); o gate intocado; nenhum composto aberto.
+- **O que se moveu:** os três pilares — ritos, kernel, GPU — passam a ser contados JUNTOS no core (`three_stress_tests_v387`): P1 contada, P2 não determinada. Dois testes DISCRIMINANTES ganharam pré-registro congelado por hash na Bancada — a razão de Hubble (poder prévio 5,91σ só com σ públicas) e a era da radiação (poder hoje 1,00σ: sem poder, dito antes) —, lidos pelo `um.py` sem abrir nada.
+- **O que segue do operador:** as fontes públicas com sha256 e a palavra para abrir a Fase 9; as fontes da Fase 8 e o código de BBN; os nomes dos tokens; a custódia; commit/push.
+
+
+## ADENDO — 06/10/2026 · v388 SELADA (COMPLETA) `e64b00f4df75059b` — β corre com a escala, limitado inferiormente; a Fase 9 aberta
+
+<!-- adendo_v388_selada -->
+- **O caminho crítico:** a escada sobe a 6154/6154 (a pedra `TheCouplingRunsBoundedBelow`, 17 nomes, só matemática da forma fechada sech(χ/2)); o gate intocado.
+- **O que se moveu:** a Fase 9 foi ABERTA pela função congelada do V1 e devolveu `TGL_FASE9_RAZAO_DE_HUBBLE_V1__INCONCLUSIVE_SYSTEMATICS__D1B__FUNDO_BG1__NOT_BLIND_TO_DATA_STATED__NOT_A_CONFIRMATION__GATE_UNTOUCHED` (leitores [DECLARADO]); o contrafactual com as fontes (NÃO veredito) não discrimina a 5σ: sob este V1 a razão de Hubble não é o discriminante a 5σ hoje. β(μ) ≥ β₀ entra como LEITURA de bulk; a constante da fronteira segue β₀ (Teorema da Escala).
+- **O que segue do operador:** as fontes por sha256; qual especificação da Fase 9 governa; qual μ cada rito usa; custódia; commit/push.
+
+
+## ADENDO — 06/10/2026 · v389 SELADA (COMPLETA) `193b1e9b30c3ba7f` — as erratas de texto e rótulo do exame da v388
+
+<!-- adendo_v389_selada -->
+- **O caminho crítico:** NÃO muda — a escada segue 6154/6154, o kernel é o mesmo, nenhum cálculo muda; o gate intocado.
+- **O que se moveu:** só o lado que se lê — o rótulo de selo da rede física (VERIFIED; o antigo no registro), o título da Introdução (v384→v389), o resumo e a Parte B ([POSTO]), a remissão da v387 à abertura v388, o recorte da contagem de pedras (contado em runtime). Registro `TGL_TEXT_LABEL_ERRATA_V389__EXAM_V388_READ_BY_HASH_b033831f6b62a6cc__0_BLOQUEIA_3_CORRIGIR_ADDRESSED__SEAL_LABEL_RENAMED_TO_VERIFIED_OLD_KEPT_AS_RECORD__INTRO_TITLE_V384_TO_V389__ABSTRACT_AND_PART_B_SAY_POSTO__V387_CROSS_REFERENCE_TO_V388__LEDGER_1025_UNIQUE_PLUS_156_OUTSIDE_156_IN_O16__EXAM_ERRATUM_BESIDE_1015_READS_1025__NO_CALCULATION_CHANGED__KERNEL_UNCHANGED__GATE_UNTOUCHED`.
+- **O que segue do operador:** vetar/ratificar; fontes da Fase 9; custódia conjunta v383→v389; commit/push.

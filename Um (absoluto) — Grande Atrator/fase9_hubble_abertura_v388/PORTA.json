@@ -1,0 +1,98 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/fase9_hubble_abertura_v388",
+  "porta_id": "Um (absoluto) — Grande Atrator/fase9_hubble_abertura_v388",
+  "titulo": "Um (absoluto) — Grande Atrator/fase9_hubble_abertura_v388",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-06T19:19:46Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "PODER_FASE9_ANTES_DE_ABRIR.json",
+      "caminho": "Um (absoluto) — Grande Atrator/fase9_hubble_abertura_v388/PODER_FASE9_ANTES_DE_ABRIR.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fase9_hubble_abertura_v388/PODER_FASE9_ANTES_DE_ABRIR.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fase9_hubble_abertura_v388/PODER_FASE9_ANTES_DE_ABRIR.json",
+      "sha256_16": "1072ef8ac77bbfd1",
+      "bytes": 573
+    },
+    {
+      "nome": "RECALCULO_AO_LADO_v388.json",
+      "caminho": "Um (absoluto) — Grande Atrator/fase9_hubble_abertura_v388/RECALCULO_AO_LADO_v388.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fase9_hubble_abertura_v388/RECALCULO_AO_LADO_v388.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fase9_hubble_abertura_v388/RECALCULO_AO_LADO_v388.json",
+      "sha256_16": "d23d09e79f55f170",
+      "bytes": 835
+    },
+    {
+      "nome": "RESULTADO_FASE9_V1_20261006_110507.json",
+      "caminho": "Um (absoluto) — Grande Atrator/fase9_hubble_abertura_v388/RESULTADO_FASE9_V1_20261006_110507.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fase9_hubble_abertura_v388/RESULTADO_FASE9_V1_20261006_110507.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fase9_hubble_abertura_v388/RESULTADO_FASE9_V1_20261006_110507.json",
+      "sha256_16": "481366db97f0ebf1",
+      "bytes": 23697
+    },
+    {
+      "nome": "RESULTADO_FASE9_V1_20261006_110507.md",
+      "caminho": "Um (absoluto) — Grande Atrator/fase9_hubble_abertura_v388/RESULTADO_FASE9_V1_20261006_110507.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fase9_hubble_abertura_v388/RESULTADO_FASE9_V1_20261006_110507.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fase9_hubble_abertura_v388/RESULTADO_FASE9_V1_20261006_110507.md",
+      "sha256_16": "df1e62db3328eeaa",
+      "bytes": 3441
+    },
+    {
+      "nome": "RUNNER_ANTES_DE_ABRIR.json",
+      "caminho": "Um (absoluto) — Grande Atrator/fase9_hubble_abertura_v388/RUNNER_ANTES_DE_ABRIR.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fase9_hubble_abertura_v388/RUNNER_ANTES_DE_ABRIR.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fase9_hubble_abertura_v388/RUNNER_ANTES_DE_ABRIR.json",
+      "sha256_16": "b145994967822d3a",
+      "bytes": 353
+    },
+    {
+      "nome": "recalculo_ao_lado_v388.py",
+      "caminho": "Um (absoluto) — Grande Atrator/fase9_hubble_abertura_v388/recalculo_ao_lado_v388.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fase9_hubble_abertura_v388/recalculo_ao_lado_v388.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fase9_hubble_abertura_v388/recalculo_ao_lado_v388.py",
+      "sha256_16": "3d2012b98ffcb158",
+      "bytes": 3709
+    },
+    {
+      "nome": "rodar_fase9_v1.py",
+      "caminho": "Um (absoluto) — Grande Atrator/fase9_hubble_abertura_v388/rodar_fase9_v1.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fase9_hubble_abertura_v388/rodar_fase9_v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fase9_hubble_abertura_v388/rodar_fase9_v1.py",
+      "sha256_16": "f3108bc21dcad317",
+      "bytes": 18050
+    }
+  ],
+  "total_arquivos_nesta_pasta": 7,
+  "total_arquivos_com_subpastas": 7,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fase9_hubble_abertura_v388",
+  "rodape": "gerado por script de git ls-files em 2026-10-06 -- nao editar a mao"
+}

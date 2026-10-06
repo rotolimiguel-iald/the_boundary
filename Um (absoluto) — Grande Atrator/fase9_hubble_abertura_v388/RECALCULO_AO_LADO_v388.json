@@ -1,0 +1,17 @@
+{
+ "nota": "recalculo_ao_lado_v388.py -- AO LADO do RESULTADO congelado da Fase 9 (que NAO se reescreve; R7 do V1): a afericao adversarial da v388 (06/10) mediu que a",
+ "runner_original_sha256": "f3108bc21dcad317487bcc69cda0bd729cb97911396db53a697abaef438754d4",
+ "v1_spec_sha256": "d956c8db6bb9ab8d9b8429861840cd9f30a06e2ba62cb12be9d15baea1deaf86",
+ "lnB_TGL_vs_beta_livre_por_n": {
+  "25": 2.2406094687539877,
+  "35": 1.942091946689592,
+  "60": 1.9692038858947818,
+  "100": 1.9692166174194625,
+  "200": 1.9692166174194288
+ },
+ "convergido_n200": 1.9692166174194288,
+ "erro_n25_n35": 0.29851752206439564,
+ "z_disc_forma_quadratica_runner": 4.283735613863391,
+ "z_disc_com_logdet": 4.281761262135909,
+ "estatuto": "[REAL — recalculo ao lado, mesma entrada e mesmas formulas; NAO e' veredito; o RESULTADO congelado fica como esta]"
+}
