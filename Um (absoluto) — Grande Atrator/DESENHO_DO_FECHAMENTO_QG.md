@@ -2220,3 +2220,11 @@ Onde se lê «os V1–V1.4 do pré-registro dos dois lados ao espelho (decisões
 - **O que NÃO muda:** não é prova de existência global; a lei de campo no espaço-tempo curvo NÃO é termo de kernel; a lei de escala de Takesaki entra como dado [KNOWN]; o gate não se move; o programa segue ABERTO. As rotas mortas do Lema 3 (mapa `kernel.lema3.rotas_mortas`) seguem mortas: a Fundação não as reabre — muda a leitura, não a prova.
 - **Errata ao lado (o desenho antigo fica):** onde este desenho diz o Lema 3 «aberto» como o único teorema faltando, lê-se: FECHO LÓGICO na v390 (registro `fundacao_v390`).
 - **O que segue do operador:** vetar/ratificar; custódia; commit/push.
+
+
+## ADENDO — 07/10/2026 · v391 SELADA (COMPLETA) `8e7b9927ceae64b8` — o caminho crítico NÃO mudou; o ESTATUTO DA PROVA foi dito
+
+<!-- adendo_v391_selada -->
+- **O que a v391 diz:** a gravidade quântica da TGL está PROVADA como fecho lógico (validade): o kernel, os ritos com falsificadores pré-registrados e o sistema da teoria na GPU contam juntos (registro `estatuto_da_prova_v391`). A recusa da régua é da CONFIRMAÇÃO — creditação, ato de terceiros —, nunca da validade (ordem do operador, 07/10/2026).
+- **Errata ao lado (o desenho antigo fica):** onde este desenho ou o artigo leem a recusa da confirmação como ausência de prova, lê-se: provada (validade) ≠ confirmada (creditação). O único elo pendente segue sendo β_TGL e os seus efeitos na natureza a 5σ.
+- **O que segue do operador:** vetar/ratificar; custódia; README e site; commit/push.

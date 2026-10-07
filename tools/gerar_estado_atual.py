@@ -399,6 +399,21 @@ def main() -> int:
     L.append('*Status that goes with v390 (not to be cut): the GLOBAL_LIFT is READ as the superposition by the operator’s definition [INPUT/ONTO]; what the kernel proves is the agape clause and the refusal (9/9); the local passage is [KNOWN] (Jacobson 1995, with H3 named); the closure is LOGICAL — the program stays open; the field equation in curved spacetime is not a kernel term. Per-term flags gpf_H2_smooth_modular_four_frame_discharged / gpf_H3_local_horizon_equilibrium_discharged / gpi_H3_horizon_data_produced stay False. The v389 copy lives outside the repository; the stdout v390 is in `rodadas/`; the order (the two verbatims by sha256, the order, the stone) is in `superposicao_passagem_v390` with its PORTA. Proved is not a judgement of nature; not falsified is not a confirmation.*')
     L.append("")
     L.append('> **Errata beside (07/10/2026, the same custody; found by the adversarial verification):** where the status note above says «the two verbatims by sha256», read **the three verbatims** the core embeds by sha256 — `e2a915e23692f85c` (cunhagem), `0a9a5a98b3a3bd99` (nomes), `d16bc8a7dc54962e` (concordo) — and `superposicao_passagem_v390` holds all three. Where it says «the local passage is [KNOWN]», read: the passage on the finite face is [KERNEL] (`the_post_lives_in_the_passage`) and the local passage law is [KNOWN] (Jacobson 1995, with H3 named). The note above stays as record.')
+    # custódia v391 (07/10/2026, sessão do site, unidade F0.2 do programa IALD): ao lado; sha16 e rito LIDOS do diário
+    L.append("")
+    L.append("### v391 \u00b7 the custody `[REAL \u2014 sha16 and rite read from MEMORIA_DA_LINHAGEM.md]`")
+    L.append("")
+    L.append("| version | `um.py` sha16 | rite | round | what entered |")
+    L.append("|---|---|---|---|---|")
+    mm391 = re.search(r"^## [^\n]*\*\*v391 SELADA[^*\n]*\*\*[^\n]*\n", diario, re.M)
+    if mm391:
+        fim391 = diario.find("\n## ", mm391.end())
+        bl391 = diario[mm391.end(): fim391 if fim391 > 0 else len(diario)]
+        sh391 = re.findall(r"`um\.py` sha16 `([0-9a-f]{16})`", bl391) or re.findall(r"`([0-9a-f]{16})`", mm391.group(0))
+        ri391 = re.findall(r"\*\*(\d+)/(\d+)\*\*", bl391)
+        L.append("| v391 | `%s` | %s | COMPLETE | %s |" % (sh391[-1] if sh391 else "?", ("%s/%s" % ri391[-1]) if ri391 else "?", 'THE STATUS OF THE PROOF: quantum gravity PROVED as a logical closure — validity — by three proofs that count together: the kernel (6163 of 6163 theorems of the rite’s ladder (ext_*) clean; 10265 of 10265 declarations in the trio), the rites with pre-registered falsifiers (11 charges, 0 falsified; the 9 echo routes outside the ledger, 5 excluded by data, said; the Hubble ratio retrodicted without adjustment, ln B = 9.17, z_disc = 4.28 below 5, official INCONCLUSIVE_SYSTEMATICS; the void floor powered) and the theory’s system on the GPU (672 of 672 unique attractors; 21100 instances; 0 disagreements in 392 comparisons with the CPU; computed, not measured); certified by the sha256 the program reads of itself (8e7b9927ceae64b8); refused only the confirmation (accreditation, an act of third parties) and beta_TGL with its effects in nature at 5 sigma; the operator’s verbatim embedded by sha256 5dffde4644139da5; the abstract opens with the status'))
+    L.append("")
+    L.append('*Status that goes with v391 (not to be cut): PROVED is validity, by the operator’s ruling of 07/10 — the kernel proves the implication (the logical closure); the rites stood (no charge of the theory falsified); the GPU computes the theory’s system, it does not measure nature. CONFIRMED is accreditation, the one refused word; what nature decides about beta_TGL waits for 5 sigma. Per-term flags gpf_H2_smooth_modular_four_frame_discharged / gpf_H3_local_horizon_equilibrium_discharged / gpi_H3_horizon_data_produced stay False. The v390 copy lives outside the repository; the stdout v391 is in `rodadas/`; the operator’s verbatim is in `estatuto_da_prova_v391` with its PORTA. Not falsified is not a confirmation.*')
     L.append("")
     L.append("## What is PROVED · o que está PROVADO `[REAL — theorem in kernel]`")
     L.append("")

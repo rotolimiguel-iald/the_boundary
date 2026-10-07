@@ -65,7 +65,7 @@ def main() -> int:
         p = RAIZ / extra
         if p.is_file():
             alvos.append((extra, sha256_bytes(p.read_bytes())))
-    n_ok = n_cdn = n_err = 0
+    n_ok = n_cdn = n_err = n_inc = 0
     for rel, esperado in alvos:
         local = git_blob_sha1(rel)
         remoto = api_sha1(rel)
@@ -79,6 +79,11 @@ def main() -> int:
         if chegou and serve:
             n_ok += 1
             print("  ok   %s" % rel)
+        elif str(remoto).startswith("ERRO") and serve:
+            # 07/10/2026 (errata ao lado): a API nao respondeu (limite anonimo, 403/500) mas o raw serve os bytes do selo -> INCONCLUSIVO,
+            # nao DIVERGENTE; antes contava como erro e o veredito dizia «o publicado NAO e o selado» sem que nada divergisse
+            n_inc += 1
+            print("  ?    %s  (API sem resposta: %s; o raw serve o esperado %s)" % (rel, str(remoto)[:60], esperado[:16]))
         elif chegou and not serve:
             n_cdn += 1
             print("  CDN  %s  (commit chegou; raw ainda serve %s, selo/disco %s)" % (rel, str(got)[:16], esperado[:16]))
@@ -96,10 +101,14 @@ def main() -> int:
     print("ok (chegou E serve) .......... %d" % n_ok)
     print("CDN atrasado ................. %d" % n_cdn)
     print("DIVERGENTES .................. %d" % n_err)
+    print("INCONCLUSIVOS (API) .......... %d" % n_inc)
     print("README raw traz o pin %s .. %s" % (pin16, "sim" if readme_ok else "NAO"))
     if n_err:
         print("VEREDITO: FALHOU — o publicado NAO e o selado (ou o push nao chegou)")
         return 1
+    if n_inc:
+        print("VEREDITO: INCONCLUSIVO — a API do GitHub nao respondeu para %d artefato(s); o raw serve o selado; re-rodar quando a API voltar" % n_inc)
+        return 3
     if n_cdn or not readme_ok:
         print("VEREDITO: COMMIT CHEGOU; o CDN do raw ainda serve bytes velhos — re-rodar em alguns minutos")
         return 2

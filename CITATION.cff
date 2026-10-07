@@ -21,10 +21,10 @@ identifiers:
     description: "the previous Zenodo version: v331, deposited 2026-09-08 (um.py sha256 e1b74a907c403538…)"
   - type: url
     value: "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md"
-    description: "the current seal of the repository, one page, regenerated at every custody (v390 on 2026-10-07; the Zenodo deposit holds v368)"
+    description: "the current seal of the repository, one page, regenerated at every custody (v391 on 2026-10-07; the Zenodo deposit holds v368)"
   - type: other
-    value: "sha256:0f5154bcc2f931cb5e66d13140a17d7f40b386ad805254f713d630ced9ae4773"
-    description: "the pin of um.py at v390, the repository head (33,871,858 bytes; sealed 2026-10-07 09:55:05); the Zenodo deposit holds v368 (4a34fbf36f3ae0d8…)"
+    value: "sha256:8e7b9927ceae64b8b6812019f77cca24c08296222ae7968af41baf2fe7a67dc6"
+    description: "the pin of um.py at v391, the repository head (33,910,631 bytes; sealed 2026-10-07 19:08:57); the Zenodo deposit holds v368 (4a34fbf36f3ae0d8…)"
   - type: url
     value: "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"
     description: "um.py, direct raw URL (GitHub refuses to render files above 5 MB; the raw route serves it whole, byte-exact)"

@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-07T22:30:14Z",
+  "gerado_utc": "2026-10-07T23:19:23Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
@@ -306,6 +306,16 @@
       "bytes": 7148
     },
     {
+      "nome": "ORDEM_019_ADENDO_002_nos_vivo_e_jev.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_019_ADENDO_002_nos_vivo_e_jev.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_019_ADENDO_002_nos_vivo_e_jev.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_019_ADENDO_002_nos_vivo_e_jev.md",
+      "sha256_16": "798d47c4609b8d72",
+      "bytes": 6757
+    },
+    {
       "nome": "RECIBO_015_MAQUINA_LIVRE.md",
       "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_015_MAQUINA_LIVRE.md",
       "papel": "documento",
@@ -406,8 +416,8 @@
       "bytes": 3872
     }
   ],
-  "total_arquivos_nesta_pasta": 37,
-  "total_arquivos_com_subpastas": 58,
+  "total_arquivos_nesta_pasta": 38,
+  "total_arquivos_com_subpastas": 59,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT",
   "rodape": "gerado por script de git ls-files em 2026-10-07 -- nao editar a mao"
 }

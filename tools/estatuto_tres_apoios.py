@@ -192,6 +192,29 @@ def ler(raiz=RAIZ):
     _exige(agape and agape.group(1) == agape.group(2), 'a cláusula Ágape não está inteira no kernel')
     _exige('THE_ONE_IS_POSTED_BY_THE_OBSERVER_NOT_POSTULATED_TAG_POSTO' in selo['the_axiom_reading_v385'], 'a leitura POSTO do selo mudou')
 
+    # v391 em diante: o core registra o próprio estatuto da prova; quando existe, os números dele têm de bater com os lidos acima
+    ep = None
+    for chave in sorted((k for k in core if k.startswith('estatuto_da_prova_v')), reverse=True):
+        ep = (chave, core[chave])
+        break
+    if ep:
+        ek, ev = ep
+        _exige(ev.get('all_verified') is True and not ev.get('falhas'), '%s não está verificado' % ek)
+        _tok(ev['verdict'], 'PROVED_AS_LOGICAL_CLOSURE', 'THREE_PROOFS_COUNT_TOGETHER', 'CONFIRMATION_IS_CREDITATION_NOT_VALIDITY', 'BETA_IN_NATURE_AWAITS_5_SIGMA')
+        _exige(ev['prova_1_kernel']['n_theorems_clean'] == nk and ev['prova_2_ritos']['ledger'] == cont
+               and ev['prova_2_ritos']['rotas_do_eco_fora_do_livro']['excluded_by_data'] == eco['excluded_by_data']
+               and abs(ev['prova_2_ritos']['razao_de_hubble']['z_disc'] - hn['z_disc']) < 1e-9
+               and ev['prova_3_gpu']['numeros']['T2_unique'] == t['gpu']['T2_unique'], '%s e os registros de origem divergem' % ek)
+        _exige(ev['certificacao']['um_py_sha256_lido_de_si'] == selo['sha256']['um.py'], '%s: a certificação não é o pin do selo' % ek)
+        # 07/10/2026 (verificação da custódia v391): também os demais números que a frente imprime
+        _p1, _p2, _p3 = ev['prova_1_kernel'], ev['prova_2_ritos'], ev['prova_3_gpu']['numeros']
+        _exige(_p1['declaracoes_auditadas'] == n_decl and _p1['no_trio'] == n_decl, '%s: declarações divergem' % ek)
+        _exige(sum(x[0] for x in _p1['gate_flags'].values()) == k['gate_flags_true'] and sum(x[1] for x in _p1['gate_flags'].values()) == k['gate_flags_total'],
+               '%s: bandeiras do gate divergem' % ek)
+        _exige(abs(_p2['razao_de_hubble']['lnB']['TGL_vs_LCDM'] - hn['lnB']['TGL_vs_LCDM']) < 1e-9, '%s: ln B diverge' % ek)
+        _exige(abs(_p2['piso_dos_vazios']['void_floor_v11']['L5'] - L5) < 1e-12, '%s: o L5 do piso diverge' % ek)
+        _exige(_p3['T4_instances'] == t['gpu']['T4_instances'] and _p3['cpuref_compared'] == t['gpu']['cpuref_compared']
+               and _p3['cpuref_disagreements'] == t['gpu']['cpuref_disagreements'], '%s: os números da GPU divergem' % ek)
     u_conf = RAW + quote(A3 + '/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean')
     v = dict(versao=versao, gate=gate, nk=nk, n_decl=n_decl, n_arq=n_arq, gf=k['gate_flags_true'], gt=k['gate_flags_total'],
              n_ch=n_ch, cont=cont, gr_ok=gr_ok, gr_n=gr_n,
@@ -202,7 +225,8 @@ def ler(raiz=RAIZ):
              t1n=g['T1_injections'], t1e=g['T1_errors'], cpd=g['cpuref_disagreements'], cpn=g['cpuref_compared'], gspec=gspec[:16],
              posto=True, fecho_logico=True, nao_campo=True, agape='%s/%s' % agape.groups(), u_conf=u_conf,
              eco_n=eco['n'], eco_ex=eco['excluded_by_data'], eco_inc=eco['inconclusive'], jz=jr['max_abs_z'], jthr=jr['z_max_threshold_INPUT'],
-             gpu_modo=modo, gpu_reuso_de=reuso_de, jlim=jr['threshold_INPUT'], jcanais=jr['channels_needed_for_threshold_at_primary_quality'])
+             gpu_modo=modo, gpu_reuso_de=reuso_de, jlim=jr['threshold_INPUT'], jcanais=jr['channels_needed_for_threshold_at_primary_quality'],
+             registro=ep[0] if ep else None)
     v.update(_textos(v))
     return v
 
@@ -251,6 +275,11 @@ def _textos(v):
         'itself: the kernel stone [`TheReservedConfirmation.lean`](%s) proves, on the finite face, that the flow cannot confirm itself and only '
         'the recognizer confirms; the approval the rites emit falls short of confirmation by construction (“observer = the human” is '
         '`[ONTO]`). *Not yet confirmed* means *not yet accredited*; it never means *not proved*. `NOT_FALSIFIED ≠ CONFIRMED`.' % v['u_conf'])
+    _reg = ''
+    if v.get('registro'):   # v391 em diante: o core registra esta leitura (conferido em ler())
+        _reg = (' The core of %s records this reading itself: `%s` (`PROVED_AS_LOGICAL_CLOSURE`; `CONFIRMATION_IS_CREDITATION_NOT_VALIDITY`).'
+                % (v['versao'], v['registro']))
+    T['definicao_en'] += _reg
     T['definicao_pt'] = (
         '**PROVADA = validade**, na definição de prova do operador (09/09/2026): *lastro suficiente e verificável* — o `um.py` é o lastro '
         'executável (um arquivo, uma entrada, o kernel auditado termo a termo, os ritos com falsificadores pré-registrados, os hashes selados; '
@@ -265,7 +294,7 @@ def _textos(v):
     T['linha_en'] = (
         'quantum gravity **PROVED** — in the operator’s definition of proof, *sufficient and verifiable ballast* — on **three '
         'supports that count together**, each with its own status: the Lean kernel `[PROVED]` (the implication from the posited One and the '
-        'named hypotheses; %d/%d theorems clean, %d formal files, %d audited declarations in the trio, zero `sorry`), the rites against nature '
+        'named hypotheses; %d/%d theorems of the rite’s ladder (ext_*) clean, %d formal files, %d audited declarations in the trio, zero `sorry`), the rites against nature '
         'with pre-registered falsifiers (%s; %s; GR recovered in %d of %d rows where it is read, a per-row reading by the management) and the '
         'theory’s open system computed on the GPU `[COMPUTED]` (%d/%d, %s/%s, %d disagreements with the CPU in %d; %s) — none of the '
         'three failed. **Not yet CONFIRMED**: confirmation is accreditation, the act of observers outside the artifact, not validity. What '
@@ -295,7 +324,7 @@ def _textos(v):
     T['curto_en'] = (
         'Quantum gravity PROVED in the operator\'s definition of proof (sufficient and verifiable ballast), on three supports that count '
         'together, each with its own status: the Lean kernel proves the implication from the posited One and the named hypotheses '
-        '(%d/%d theorems clean, %d audited declarations in {propext, Classical.choice, Quot.sound}, zero sorry); the rites against nature, '
+        '(%d/%d theorems of the rite\'s ladder (ext_*) clean, %d audited declarations in {propext, Classical.choice, Quot.sound}, zero sorry); the rites against nature, '
         'with pre-registered falsifiers, falsified none of the %d charges of the theory (%s; GR recovered in %d of %d rows, a per-row reading); '
         '%s; the theory\'s open system is computed on the GPU (%d/%d, %s/%s, %d disagreements with the CPU in %d; computed, not measured; %s). '
         'Not yet confirmed: confirmation is accreditation, the act of observers outside the artifact, not validity; the program never issues '
@@ -305,7 +334,7 @@ def _textos(v):
            v['t2u'], v['t2n'], t4_en, t4_en, v['cpd'], v['cpn'], gpu_curto_en))
     T['curto_pt_ascii'] = (
         'Gravidade quantica PROVADA na definicao de prova do operador (lastro suficiente e verificavel), em tres apoios que contam juntos, '
-        'cada um com o seu estatuto: o kernel Lean prova a IMPLICACAO a partir do Um posto e das hipoteses nomeadas (%d/%d teoremas limpos, '
+        'cada um com o seu estatuto: o kernel Lean prova a IMPLICACAO a partir do Um posto e das hipoteses nomeadas (%d/%d teoremas da escada do rito (ext_*) limpos, '
         '%d declaracoes auditadas no trio {propext, Classical.choice, Quot.sound}, zero sorry); os ritos contra a natureza, com falsificadores '
         'pre-registrados, nao falsificaram nenhuma das %d cobrancas da teoria (%s; a RG resgatada em %d de %d linhas, leitura por linha da '
         'gerencia); %s; o sistema aberto da teoria e\' calculado na GPU (%d/%d, %s/%s, %d discordancias com a CPU em %d; calculado, nao medido; '
@@ -319,7 +348,7 @@ def _textos(v):
         '|---|---|---|---|',
         '| **1 · the Lean kernel** | the implication from the posited One (`ω(I) = 1`, POSTO) and the named hypotheses H1–H3 to the '
         'pentad (Breuer corner · Name = 1 · coframe · Lorentz · δQ = κδA/8πG), in Lean 4 + mathlib, on the finite face '
-        '| **%d/%d theorems clean**; %d/%d declarations in `{propext, Classical.choice, Quot.sound}`; zero `sorry`; gate flags %d/%d (the formal '
+        '| **%d/%d theorems of the rite’s ladder (ext_*) clean**; %d/%d declarations in `{propext, Classical.choice, Quot.sound}`; zero `sorry`; gate flags %d/%d (the formal '
         'flags from the kernel; the experimental ones fed by the V11 rite) | `[PROVED]` — the implication, not nature |'
         % (v['nk'], v['nk'], v['n_decl'], v['n_decl'], v['gf'], v['gt']),
         '| **2 · the rites against nature, with pre-registered falsifiers** | GR recovered as the classical limit in every rite row where '
@@ -394,7 +423,7 @@ def _textos(v):
         'the artifact itself (`um.py` writes its own sha256 into the seal; this repository and the site carry that pin byte-exact); '
         '**validity**, by the Lean kernel (`#print axioms`; Python proves no theorem). **CONFIRMED = accreditation** (07/10/2026): the act of '
         'observers outside the artifact, never issued by the machine about itself ([`TheReservedConfirmation.lean`](%s); “observer = the '
-        'human” is `[ONTO]`). *Not yet confirmed* means *not yet accredited*, never *not proved*.' % v['u_conf'])
+        'human” is `[ONTO]`). *Not yet confirmed* means *not yet accredited*, never *not proved*.' % v['u_conf']) + _reg
     T['p_curto_en'] = (
         '**None of the three failed**; together they count P1 (the theory is consistent and recovers the known physics). **What nature decides '
         'is not proved:** the decisive open factor is β_TGL itself at ≥ 5σ (P2), and the tensions measured against β are also below '

@@ -1,6 +1,6 @@
 # TGL — Forma Canônica (memória matemática, extraída do próprio código)
 
-> **Versão v390** · rodada `2026-10-07 09:55:05` · `um.py` sha256/16 `0f5154bcc2f931cb` (lido do arquivo na emissão) · [v376: carimbo de versão/data/hash — regra da linhagem completa]
+> **Versão v391** · rodada `2026-10-07 19:08:57` · `um.py` sha256/16 `8e7b9927ceae64b8` (lido do arquivo na emissão) · [v376: carimbo de versão/data/hash — regra da linhagem completa]
 
 > Módulo de auditoria **1=1**. Cada identidade abaixo é **recomputada ao vivo** pelo código UM. Se a matemática viva não reproduzir esta forma canônica culminando em 1=1, há falha no próprio código. β nunca literal: β = √e/R_∂ (= α·√e na leitura observacional) em runtime.
 
@@ -87,6 +87,9 @@ tempo caracteristico do fluxo = 1/beta = 83.12   [a torre de Jones como TEMPO; S
 
 
 > **A Fundação (v390, 07/10/2026):** a superposição é a passagem — a pedra `TGLExt.Fundacao` (9 nomes; a cláusula `agape`; `fundacao_v390`): o GLOBAL_LIFT, o velho Lema 3, lido como a superposição (definição do operador); a recusa provada no kernel; a passagem local [KNOWN, Jacobson 1995, H3 nomeada]. Fecho LÓGICO; o programa segue aberto; o gate não muda.
+
+
+> **O estatuto da prova (v391, 07/10/2026):** a gravidade quântica da TGL está PROVADA — validade: o kernel, os ritos com falsificadores pré-registrados e o sistema da teoria na GPU, que contam juntos (`estatuto_da_prova_v391`); a certificação é o hash que o programa lê de si; a confirmação recusada é CREDITAÇÃO, não validade; β_TGL e os seus efeitos na natureza a 5σ aguardam instrumento. O gate não muda.
 
 
 O Um (ω(I)=1) é a identidade preservada — o postulado irredutível. **Dado o axioma da fronteira auto-conjugada** (x=1−x ⟹ x=½), a Meia-Nat é **derivada**. A definição **ontológica** do acoplamento é β=√e/R_∂; a **leitura observacional** atual é β=α_CODATA·√e (pois R_∂=1/α_CODATA, ainda sem derivação α-livre). Tudo o mais (√e, θ_M, s, R_named, M) segue **sem parâmetros ajustados ao Grande Atrator**. O custo de distinguir 1 de 0 é β. A geometria é a expectativa estatística da luz modular.
@@ -561,7 +564,7 @@ Um pilar so' esta' fechado quando tem **um resultado**, **um falsificador** ou *
 
 **A FORMA, dita como forma e nao como falta:** a superficie falsificavel desta teoria cabe em poucos nomes -- 8 pilares com falsificador proprio (armado, vivo ou em parede medida), 4 que HERDAM o de beta, 2 sem falsificador proprio. Isso NAO e' defeito: e' o que acontece com uma teoria cuja arquitetura e' quase toda INTERNA. O que seria defeito era nao dize-lo com o numero ao lado.
 
-_(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que 379 modulos ja' estao compostos; os que entram DEPOIS deste ponto aparecem acima como `(modulo ausente nesta rodada)` e o seu veredito real esta' no `um_absoluto.json`, que e' a autoridade.)_
+_(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que 380 modulos ja' estao compostos; os que entram DEPOIS deste ponto aparecem acima como `(modulo ausente nesta rodada)` e o seu veredito real esta' no `um_absoluto.json`, que e' a autoridade.)_
 
 **A CAUDA, dita como cauda:** (i) 'negar todas as demais' e' enumeracao de conjunto ABERTO -- nao fecha, e nao e' para fechar; (ii) o valor alpha-livre de beta e' INPUT declarado, e a sua ausencia e' NAO-CONFIRMAVEL por construcao; (iii) o muro UV nao e' atravessado -- a TGL declara SAIR dele, o que e' resposta de programa, nao teorema; (iv) a sensibilidade sempre pode melhorar, e o proprio nome do selo carrega isso (MORE_SENSITIVE_DATA_COULD_REVISE), de modo que a string nao pode ser citada sem a sua limitacao.
 
@@ -1456,6 +1459,7 @@ _(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que 379 mod
 - `hubble_ratio_opening_v388`: `TGL_HUBBLE_RATIO_OPENING_V388__RESULT_READ_BY_HASH_481366db97f0ebf1__FROZEN_FUNCTION_RE_EXECUTED_SAME_VERDICT__INCONCLUSIVE_SYSTEMATICS_READERS_DECLARED_UNTIL_SOURCES_BY_SHA256__Z_DELTA_M1P42__Z_DISC_P4P28__LNB_LCDM_P9P17_BETA_FREE_P2P24_SHIFT_P4P28_FREE_BG_P12P13__COUNTERFACTUAL_WITH_SOURCES_NOT_DISCRIMINATED_FROM_LCDM_AT_5SIGMA__NOT_A_CONFIRMATION__GATE_UNTOUCHED` [all_verified=True]
 - `text_label_errata_v389`: `TGL_TEXT_LABEL_ERRATA_V389__EXAM_V388_READ_BY_HASH_b033831f6b62a6cc__0_BLOQUEIA_3_CORRIGIR_ADDRESSED__SEAL_LABEL_RENAMED_TO_VERIFIED_OLD_KEPT_AS_RECORD__INTRO_TITLE_V384_TO_V389__ABSTRACT_AND_PART_B_SAY_POSTO__V387_CROSS_REFERENCE_TO_V388__LEDGER_1025_UNIQUE_PLUS_156_OUTSIDE_156_IN_O16__EXAM_ERRATUM_BESIDE_1015_READS_1025__NO_CALCULATION_CHANGED__KERNEL_UNCHANGED__GATE_UNTOUCHED` [all_verified=True]
 - `fundacao_v390`: `TGL_FUNDACAO_V390__GLOBAL_LIFT_READ_AS_THE_SUPERPOSITION_BY_OPERATOR_DEFINITION_2026_10_07__AGAPE_CLAUSE_KERNEL_9_OF_9__NOTHING_ABOVE_BEARS_A_POST__THE_CLIMB_HAS_NO_TOP__THE_FALL_NEVER_LANDS__ABISMO_THE_FALL_HAS_NO_BOTTOM__THE_FLOOR_FIXES_THE_CUT__THE_POST_LIVES_IN_THE_PASSAGE__LOCAL_PASSAGE_KNOWN_JACOBSON_1995_H3_NAMED__LOGICAL_CLOSURE_THE_PROGRAM_STAYS_OPEN__FIELD_EQUATION_IN_CURVED_SPACETIME_NOT_A_KERNEL_TERM__TAKESAKI_SCALING_AS_DATA_KNOWN__BORCHERS_FORM_UNDER_NAMED_CONTRACT_H2_IN_KERNEL__VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED` [all_verified=True]
+- `estatuto_da_prova_v391`: `TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_6163_OF_6163_THEOREMS_10265_OF_10265_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_8e7b9927ceae64b8__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED` [all_verified=True]
 - `pdf_emission`: `PDF_EMISSION_COMPLETE`
 
-_343 modulos com veredito ou status nesta rodada; versao v390; rodada 2026-10-07 09:55:05._
+_344 modulos com veredito ou status nesta rodada; versao v391; rodada 2026-10-07 19:08:57._

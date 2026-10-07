@@ -4,7 +4,7 @@
   "titulo": "tools",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-07T22:30:14Z",
+  "gerado_utc": "2026-10-07T23:19:23Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -27,8 +27,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/estatuto_tres_apoios.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/estatuto_tres_apoios.py",
-      "sha256_16": "5cb0434d4a0e5c2c",
-      "bytes": 39261
+      "sha256_16": "7a1e4a85596f93a3",
+      "bytes": 41969
     },
     {
       "nome": "gerar_estado_atual.py",
@@ -37,8 +37,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_estado_atual.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/gerar_estado_atual.py",
-      "sha256_16": "37576899ed9ae87b",
-      "bytes": 77214
+      "sha256_16": "fc167c56cc018612",
+      "bytes": 79863
     },
     {
       "nome": "gerar_portas.py",
@@ -47,8 +47,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_portas.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/gerar_portas.py",
-      "sha256_16": "dd5f9e6cc7dac9e1",
-      "bytes": 100398
+      "sha256_16": "b51f7e5f57d27caf",
+      "bytes": 100414
     },
     {
       "nome": "gerar_readme_frente.py",
@@ -87,8 +87,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/pos_push.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/pos_push.py",
-      "sha256_16": "c19a1f37a2e7d77c",
-      "bytes": 4584
+      "sha256_16": "d82730bf0fa52d29",
+      "bytes": 5300
     },
     {
       "nome": "verificar_portas.py",

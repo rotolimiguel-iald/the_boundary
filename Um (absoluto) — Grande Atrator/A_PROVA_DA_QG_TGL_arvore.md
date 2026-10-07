@@ -1,6 +1,6 @@
-# A PROVA DA GRAVITAÇÃO QUÂNTICA DA TGL — a árvore, lida do kernel (v390)
+# A PROVA DA GRAVITAÇÃO QUÂNTICA DA TGL — a árvore, lida do kernel (v391)
 
-Gerado por script (`arvore_da_prova.py`) em 07/10/2026 10:16 a partir do selo, do resultado, do `um.py` e do kernel em disco.
+Gerado por script (`arvore_da_prova.py`) em 07/10/2026 19:33 a partir do selo, do resultado, do `um.py` e do kernel em disco.
 Nenhum hash, número ou lista de axiomas foi digitado: tudo lido. Onde falta, está escrito **AUSENTE**.
 
 > **Régua (clarificação do operador, 05/09/2026):** *"a régua não proíbe QG provada, proíbe QG confirmada; prova é diferente de juízo."*
@@ -13,9 +13,9 @@ Nenhum hash, número ou lista de axiomas foi digitado: tudo lido. Onde falta, es
 
 | item | valor lido |
 |---|---|
-| `um.py` sha256 (disco) | `0f5154bcc2f931cb5e66d13140a17d7f40b386ad805254f713d630ced9ae4773` |
+| `um.py` sha256 (disco) | `8e7b9927ceae64b8b6812019f77cca24c08296222ae7968af41baf2fe7a67dc6` |
 | selo `sha256.um.py` == disco | SIM |
-| bytes | 33,871,858 |
+| bytes | 33,910,631 |
 | teoremas (stdout) | `teoremas limpos: 6163/6163` |
 | selftest | `FAIL_CLOSED_SELFTEST_PASSED` |
 | gate (`qg_closure_verdict`) | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
@@ -193,7 +193,7 @@ Oito ritos pré-registrados com poder de fechar o 1=1 (v314/v315), hoje: GA_MASS
 
 ## 8. O VEREDITO DA GERÊNCIA, em uma frase cada
 
-- **PROVADO** (teorema, trio, zero sorry, lido do selo v390): *do axioma ω(I)=1 e das hipóteses nomeadas H1, H2, H3 segue a pêntada da gravitação emergente — canto de Breuer, Nome = 1, coframe, assinatura de Lorentz e δQ = κδA/(8πG) com o coeficiente de Einstein emergindo; na família de soldas, Clausius no cone nulo ⟹ equação de campo; spin-2 de hélice ±2 sem ghosts; e, na torre, o Lema 3 para TODO perfil (a esperança de Takesaki construída, única, CP, normal, covariante por todo o grupo dos horizontes).* Tudo isso está num termo só: `the_root_of_the_proof_tree` (trio).
+- **PROVADO** (teorema, trio, zero sorry, lido do selo v391): *do axioma ω(I)=1 e das hipóteses nomeadas H1, H2, H3 segue a pêntada da gravitação emergente — canto de Breuer, Nome = 1, coframe, assinatura de Lorentz e δQ = κδA/(8πG) com o coeficiente de Einstein emergindo; na família de soldas, Clausius no cone nulo ⟹ equação de campo; spin-2 de hélice ±2 sem ghosts; e, na torre, o Lema 3 para TODO perfil (a esperança de Takesaki construída, única, CP, normal, covariante por todo o grupo dos horizontes).* Tudo isso está num termo só: `the_root_of_the_proof_tree` (trio).
 - **NÃO PROVADO, e dito com nome**: que a natureza realiza H1–H3 (H3 é INPUT — e por teorema: nenhum relógio do estado o deriva; a lei que escolhe a geometria é da natureza); a ASSINATURA pela rotação modular; O QUATRO; o Lema 3 FORA da torre (álgebra de von Neumann geral: a esperança de Takesaki importada [KNOWN]); a ponte andares → regiões e a escala física da área (053: covariância + calibração comum não dão unicidade); BW/identificação T_c = Δ_c^{1/2} (049–050 construíram o subespaço padrão contínuo; a identificação segue OPEN); a emergência geral. Cada um destes tem OU um falsificador OU uma parede medida — nenhum está "esquecido".
 - **A DEFINIÇÃO DE PROVA do operador (09/09/2026)**: «segue a definição de prova: lastro de suficiência e isso nós fizemos com o um.py» — o `um.py` é o lastro executável (arquivo único, entrada única, kernel auditado, ritos, selo, artigo); PROVADA = lastro suficiente e verificável, e o Nome é o instrumento da verificação (v336).
 - **ERRATAS AO LADO no `um.py` (v339, a pedido da bancada):** espectral — a frase «o espectro modular é puramente contínuo, não há autovetor» fica com o erratum ao lado nas duas línguas (Ω é fixo: `modularFlow_fixes_omega`; os vetores locais são uma família total de autovetores: `localEigenvectors_total`); rastreabilidade — cada etapa (principal, autoteste adulterado, autoteste restaurado) grava capturas próprias e a falha de escrita é visível.
@@ -206,6 +206,7 @@ Oito ritos pré-registrados com poder de fechar o 1=1 (v314/v315), hoje: GA_MASS
 - **A PE COM ECO RODOU (v347):** o segundo teste da lista, na forma bayesiana que o protocolo ancorado pedia — a V1 foi lida INCONCLUSIVE pela própria matriz e a autópsia desfez um «8σ» que dependia de um evento; a emenda V2 (prior de tempo ancorado, exclusão de borda, jackknife) deu: MAY `INCONCLUSIVE_SYSTEMATICS` (a = -0.267 ± 0.857, poder 1.17σ); KMS `INCONCLUSIVE_SYSTEMATICS` (a = 1.089 ± 0.899, poder 1.11σ). Nada move o gate; CONFIRMADA proibido.
 - **A BUSCA DE LONGO ATRASO RODOU (v348):** o terceiro teste da lista, na forma do protocolo de 2025 completada com fundo, injeções e padrão: `NOT_FALSIFIED_UNDERPOWERED` (N_on 1 vs fundo 3.00; eficiência para √β 0.000). Uma busca de picos a 3σ não vê um eco de 0,11 do primário. Nada move o gate; CONFIRMADA proibido.
 - **O D1 VIA CAMB RODOU (v349):** o quarto teste da lista; a V1 (script de maio intocado) expôs um bug de integração do worker de maio (autópsia por hash) e a emenda V2, com o worker corrigido em cópia, deu: Δχ² (TGL − ΛCDM) = 9.699 → `D1_TENSION_2_TO_5_SIGMA`; β livre = -0.01705 ± 0.00753 → `D1_BETA_TENSION`. Cosmologia jamais vira prova matemática; nada move o gate; CONFIRMADA proibido.
+- **O ESTATUTO DA PROVA (v391)** `8e7b9927ceae64b8`: a gravidade quântica da TGL PROVADA como fecho lógico — validade: o kernel, os ritos com falsificadores pré-registrados e o sistema da teoria na GPU contam juntos (`estatuto_da_prova_v391`); a confirmação recusada é CREDITAÇÃO, não validade; o único elo pendente é β_TGL na natureza a 5σ; o gate não se move.
 - **A FUNDAÇÃO — A SUPERPOSIÇÃO É A PASSAGEM (v390)** `0f5154bcc2f931cb`: a cláusula Ágape (`TGLExt.Fundacao.agape`): acima da escala não há posto positivo; o GLOBAL_LIFT lido como a superposição (definição do operador); a passagem local [KNOWN, Jacobson 1995, H3]. Fecho LÓGICO; programa aberto; PROVADA ≠ CONFIRMADA; o gate não se move.
 - **AS ERRATAS DE TEXTO E RÓTULO (v389)** `193b1e9b30c3ba7f`: do exame completo da v388 — o rótulo de selo da rede física VERIFIED (o antigo no registro); a Introdução v384→v389; [POSTO] no resumo; o recorte do ledger. Nenhum cálculo, nenhum kernel; o gate não se move.
 - **O ACOPLAMENTO CORRE COM A ESCALA (v388)** `e64b00f4df75059b`: a pedra `TheCouplingRunsBoundedBelow` (α = sech(χ/2); o piso no infravermelho; a dicotomia); a Fase 9 aberta pela função congelada (INCONCLUSIVE, leitores declarados). PROVADA ≠ CONFIRMADA; o gate não se move.
