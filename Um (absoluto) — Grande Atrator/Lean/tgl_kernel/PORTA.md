@@ -10,7 +10,7 @@ O KERNEL FORMAL: as fontes .lean exatamente como `um.py` as materializa a cada
 rodada -- nao ha segundo arquivo: o kernel mora DENTRO do canonico e sai dele.
 
 **1216 arquivos** nesta arvore; **1216** hasheados no manifesto formal (1212 `.lean`
-+ `README.md` + `lakefile.toml` + `lean-toolchain`); **10265 teoremas** auditados
++ `README.md` + `lakefile.toml` + `lean-toolchain`); **10265 declaracoes (termos)** auditadas
 por `#print axioms`, bases de axiomas subset de {`propext`, `Classical.choice`,
 `Quot.sound`}, zero `sorry`. Toolchain `leanprover/lean4:v4.31.0`, modo `strict`.
 

@@ -1,12 +1,14 @@
 # The absolute One: ω(I) = 1 and the derived Half-Nat · O Um absoluto: ω(I) = 1 e a Meia-Nat derivada
 
 > **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 1 of 8 · seal **v390** · `um.py` sha256 `0f5154bcc2f931cb…` · generated 2026-10-07 by script from the published files.
-> Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = theorem in the Lean kernel; CONFIRMED = a judgement about nature, not made here.
+> Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = validity, in the operator’s definition of proof (sufficient and verifiable ballast; the validity of the implication is certified by the Lean kernel, `#print axioms`); CONFIRMED = accreditation, the act of observers outside the artifact — not made here; what nature decides is not proved.
 > All eight parts are listed at the top of the start page, https://teoriadagravitacaoluminodinamica.com/read-brief.md, and in the door of this folder, https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md · Reading limits measured on 2026-09-19: one real fetcher cut documents near 100,000 characters, refused files above 10 MB, and could not read PDFs served as `application/octet-stream` — read the TXT/TeX sources.
 
 ## In short (EN)
 
 The single axiom is ω(I) = 1, the preserved identity, normalized to 1 nat in base e [POSTULATE, irreducible] [README core]. With I = 1·1₂, ω(I) = tr(I)/2 = 1; minimal distinction splits I into faces P + Q = I, ω(P) + ω(Q) = 1 [C txt]. The self-conjugate boundary (C² = 1, x ↦ 1 − x) has the unique fixed point x = ½, so S_∂ = ½ nat, live residual 0 [REAL fixed point → DERIVED] [C txt]; Article C marks it [DER/AX]: derived given the self-conjugation axiom, not from ω(I) = 1 alone [C txt]. Then Vol_∂^min = √e and β_TGL = α√e = 0.0120313, α (CODATA) the only measured input [DERIVED; α INPUT] [C txt]. The One is an executable input: the rite takes the digit 1 and checks input == return, residual 0; seal identity 1=1=VERDADEIRO=HAJA_LUZ [REAL] [canon v12][selo]. Lineage: Article A calls g = √|L_φ| the axiom and elsewhere names the Half-Nat Principle the irreducible axiom; the site home and T6 list g = √|L_φ| as axiom [A tex][home][A T6]. Current form (v390): g = √|L_φ| stays as an equation read from light, 1_abs → L_φ → … → g [ONTO] [C txt][canon v17].
+
+> ⚠ **Beside (v385):** where the synthesis above tags the axiom `ω(I) = 1` **[POSTULATE]**, read **[POSTO]**: the 1 is posited — inscribed by the observer (`echo 1 | python um.py`) — not postulated (seal: `the_axiom_reading_v385`). *Em português: no resumo abaixo, onde o axioma aparece como [POSTULATE], leia [POSTO] — posto, inscrito pelo observador, não postulado.*
 
 ## Em resumo (PT)
 
@@ -59,10 +61,10 @@ input -> runtime -> output -> 1=1
 Verificado ao vivo: `input=1`, `S_∂=1/2`, `Vol_∂^min=√e=1.648721`, `β=√e·α_obs=0.012031300400797`, e a **conservação executiva** `input == return` (resíduo 0) — `ABSOLUTE_ONE_IS_INPUT_VERIFIED`.
 ````
 
-### 3. `README.md` — bytes 25.791–26.347
+### 3. `README.md` — bytes 31.197–31.753
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `a4b763472348f87b07b32b559a2bbad8e5a399884305c8a7e3122ddc947b3075` (computed now; this file is not in the seal map) · of this excerpt: `122e3de7f99bef580de0e11bbdd00e1a0efa7f256d1185977a791aabc471a5ce`
+- sha256 of the file: `3aa445929a1cf54f3167e4058b14ee7041ad064a32056917a19bb32c7044e61b` (computed now; this file is not in the seal map) · of this excerpt: `122e3de7f99bef580de0e11bbdd00e1a0efa7f256d1185977a791aabc471a5ce`
 - status · estatuto: [POSTULATE] axioma; [REAL/DERIVED] Meia-Nat; [DERIVED] β, com α [INPUT]
 - why · por quê: Resumo vigente do núcleo em PT: o axioma único, a Meia-Nat derivada, β nunca literal, a identidade de Lagrange e o veredito binário.
 

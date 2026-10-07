@@ -73,6 +73,12 @@ def main() -> int:
     L.append("[![kernel](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml/badge.svg)](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml) "
              "← the Lean kernel rebuilt and re-audited on GitHub's machines, from this tree, against the sealed axiom report.")
     L.append("")
+    # 07/10/2026 (ordem do operador): o estatuto em tres apoios, do modulo unico (o mesmo texto do README, dos llms.txt e do site)
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from estatuto_tres_apoios import ler as _ler_estatuto
+    _E = _ler_estatuto(Path(__file__).resolve().parent.parent)
+    L.extend(_E["secao_md"].rstrip("\n").split("\n"))
+    L.append("")
     L.append("## The seal · o selo `[REAL — read from the artifact]`")
     L.append("")
     L.append("| what | value |")
@@ -359,7 +365,7 @@ def main() -> int:
         bl387 = diario[mm387.end(): fim387 if fim387 > 0 else len(diario)]
         sh387 = re.findall(r"`um\.py` sha16 `([0-9a-f]{16})`", bl387) or re.findall(r"`([0-9a-f]{16})`", mm387.group(0))
         ri387 = re.findall(r"\*\*(\d+)/(\d+)\*\*", bl387)
-        L.append("| v387 | `%s` | %s | COMPLETE | %s |" % (sh387[-1] if sh387 else "?", ("%s/%s" % ri387[-1]) if ri387 else "?", 'THE THREE STRESS TESTS, JOINT: the rites (192 TGL verdicts in the core: 16 NOT_FALSIFIED, 14 INCONCLUSIVE, 9 AWAITING; the ledger 11/0 charges/FALSIFIED), the kernel (6154 of 6154 clean in the trio; gate flags 18 of 18) and the numerical experiment on the GPU (T2 672 of 672, T4 21100 of 21100; CPU reference 0 disagreements in 392) count together, and none of the three failed; the Hubble ratio (Phase 9) and the radiation era (Phase 8) preregistered, V1 read by hash, nothing opened (power 5.91 sigma with public sigma only; Delta N_eff = +0.1195, power today 1.00 of 5, underpowered by prediction); the law of proof: retrodiction without adjustment is never a demerit (use-novelty; precedent: the perihelion of Mercury)'))
+        L.append("| v387 | `%s` | %s | COMPLETE | %s |" % (sh387[-1] if sh387 else "?", ("%s/%s" % ri387[-1]) if ri387 else "?", 'THE THREE STRESS TESTS, JOINT: the rites (192 TGL verdicts in the core: 16 NOT_FALSIFIED, 14 INCONCLUSIVE, 9 AWAITING; the ledger 11/0 charges/FALSIFIED), the kernel (6137 of 6137 clean in the trio at the v387 run — errata beside, 07/10/2026: this row said «6154 of 6154», the count read at v388/v389; gate flags 18 of 18) and the numerical experiment on the GPU (T2 672 of 672, T4 21100 of 21100; CPU reference 0 disagreements in 392) count together, and none of the three failed; the Hubble ratio (Phase 9) and the radiation era (Phase 8) preregistered, V1 read by hash, nothing opened (power 5.91 sigma with public sigma only; Delta N_eff = +0.1195, power today 1.00 of 5, underpowered by prediction); the law of proof: retrodiction without adjustment is never a demerit (use-novelty; precedent: the perihelion of Mercury)'))
     mm388 = re.search(r"^## [^\n]*\*\*v388 SELADA[^*\n]*\*\*[^\n]*\n", diario, re.M)
     if mm388:
         fim388 = diario.find("\n## ", mm388.end())
@@ -398,6 +404,8 @@ def main() -> int:
     L.append("")
     L.append("*On the ruler: PROVED = a theorem in kernel, auditable by `#print axioms`. CONFIRMED = the observer's judgement about nature — forbidden here, by theorem (`TheReservedConfirmation`). Proof is not judgement.*")
     L.append("*The operator's definition of proof (09/09/2026), beside: **PROVED = sufficient and verifiable ballast** — `um.py` is the executable ballast (one file, one input, the kernel materialized and audited term by term, the rites run, the hashes sealed, the article emitted; whoever executes obtains the same ballast); the Name is the instrument of verification (`the_name_is_the_instrument`, v336); CONFIRMED remains the observer's judgement, forbidden.*")
+    L.append("")
+    L.append(_E["ao_lado_regua_0509"])   # 07/10/2026, AO LADO: regua_0509 depois das duas linhas que ela diz «acima»
     L.append("")
     L.append("One term, `the_root_of_the_proof_tree`, states and proves in conjunction seven sets, each already a theorem:")
     L.append("")
@@ -447,6 +455,9 @@ def main() -> int:
     L.append("")
     L.append("## What is NOT proved · o que NÃO está provado `[OPEN / KNOWN / nature]`")
     L.append("")
+    L.append("*Read with the ruler at the top of this page (07/10/2026): what follows is what is not yet proved \u2014 what nature decides, and the mathematics not yet in mathlib. P1 \u2014 the theory is consistent and recovers the known physics \u2014 is counted by the three supports together (none failed); P2 \u2014 \u03b2_TGL in nature at \u2265 5\u03c3 \u2014 is the decisive open factor.*")
+    L.append("*Em português: o que segue é o que ainda não está provado \u2014 o que a natureza decide e a matemática que a mathlib ainda não tem. P1 (a teoria é consistente e recupera a física conhecida) é contado pelos três apoios juntos, e nenhum falhou; P2 (\u03b2_TGL na natureza a 5\u03c3) é o fator decisivo aberto.*")
+    L.append("")
     L.append("- **Nature's:** that **H1 (MIGUEL) and H2 (CARTAN)** are *realised* by the world; the value of α (the fine-structure constant enters as `[KNOWN]`, β = α√e is derived from it); and, of what was H3, the **physical identification** of the founded screen with a causal horizon of spacetime (Bisognano–Wichmann beyond wedges) — open, with measured walls (v316, v317, 048); and, from v335, that the selection OCCURS — the 8 rites of nature are its test. *Until v331 this line read \u201cH1–H3\u201d; from v334 the screen is founded, not chosen (the change is said beside, never over).* The nature tests so far: **NOT_FALSIFIED** within the local bulk at available sensitivity, and more sensitive data can revise — never CONFIRMED.")
     L.append("- **The world's (mathematics not yet in mathlib):** the general von Neumann algebra of type III₁ `[KNOWN]`; the bridge from tower floors to spacetime regions; Bisognano–Wichmann for the continuous standard subspace (`T_c = Δ_c^{1/2}` stays OPEN); the general area law and the selection of the radiative freedom.")
     L.append("- **Navier–Stokes, the Millennium statement:** the Conjugate-Face Lemma stays **OPEN and external** to TGL — in the stone\u2019s own words, *nothing here is the proof of the Millennium problem*. \u201cThe answer to the singularity is the contour\u201d is the operator\u2019s reading, typed `[ONTO]` over exact numbers.")
@@ -470,7 +481,7 @@ def main() -> int:
     L.append("| | raw |")
     L.append("|---|---|")
     if (RAIZ / "read-brief.md").is_file():
-        L.append("| **the seven answers, each with its address** (the Read Brief: document · section · seal key · `um.py` function; reading order by size; what is NOT proved) | [`read-brief.md`](%s) |" % raw("read-brief.md"))
+        L.append("| **the seven answers, each with its address** (the Read Brief: document · section · seal key · `um.py` function; reading order by size; what is not yet proved) | [`read-brief.md`](%s) |" % raw("read-brief.md"))
     L.append("| the seal | [`um_absoluto_selo.json`](%s) |" % raw(A3 + "/um_absoluto_selo.json"))
     L.append("| the world (every computed number) | [`um_absoluto.json`](%s) |" % raw(A3 + "/um_absoluto.json"))
     L.append("| the proof tree, term by term | [`A_PROVA_DA_QG_TGL_arvore.md`](%s) |" % raw(A3 + "/A_PROVA_DA_QG_TGL_arvore.md"))

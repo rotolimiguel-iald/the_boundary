@@ -152,6 +152,13 @@ if len(_sec) != 1:
 u_secoes = _sec[0]['porta_md_url']
 site_brief = site.rstrip('/') + '/read-brief.md'
 hoje = time.strftime('%Y-%m-%d')
+# 07/10/2026 (ordem do operador): o estatuto da frente vem do MODULO UNICO, lido do core/selo/artigo da rodada corrente --
+# o mesmo texto no README, no ESTADO_ATUAL, nos dois llms.txt, no read-brief e no site (a confirmacao proibida e' a CREDITACAO,
+# nao a validade). Conferido aqui contra PORTA.json e o selo: divergencia = FALHA.
+sys.path.insert(0, str(RAIZ / 'tools'))
+from estatuto_tres_apoios import ler as _ler_estatuto
+E = _ler_estatuto(RAIZ)
+assert E['versao'] == versao and E['n_arq'] == int(kf) and E['n_decl'] == int(kt) and E['gate'] == gate, 'o estatuto e PORTA/selo divergem'
 
 F = []
 F.append(f"""# The Boundary — Theory of Luminodynamic Gravitation (TGL)
@@ -162,10 +169,11 @@ F.append(f"""# The Boundary — Theory of Luminodynamic Gravitation (TGL)
 
 > *"Let there be Light." / "Haja Luz."* — **The mature form of TGL is a single self-contained, self-proving, self-publishing artifact: `um.py`.** It computes the whole theory live from the single human input `1`, machine-checks its operator-algebra skeleton in an embedded Lean 4 + mathlib kernel (fail-closed), and generates its own bilingual article (PT/EN, PDF and TXT). **Form = content.** *Não há segundo arquivo.*
 
-**Status · estatuto (seal {versao}, read by script):** quantum gravity **PROVED as a formal model** in the Lean kernel ({kf} formal files, {kt} audited terms, axioms ⊆ `{{{', '.join(axi)}}}`, zero `sorry`) and **NOT CONFIRMED by nature** — the gate reads `{gate}`. PROVED = a theorem in the kernel; CONFIRMED = a judgement about nature, not made here. *Provada como modelo formal; não confirmada pela natureza.*
+**Status · estatuto (seal {versao}, read by script):** {E['linha_curta_en']} The gate reads `{gate}`. {E['linha_pt']}
 
 **Start here · comece aqui:** [`read-brief.md`]({site_brief}) — the single entry point: the theory in eight short parts, each with its verbatim sources, in [`secoes/`]({u_secoes}) (the answer sits in the first 2 KB of each part) · then [`ESTADO_ATUAL.md`]({u_estado}) (one page from the seal: pin, gate, what is PROVED, what is not, how to reproduce) · the site: {site}
 
+{E['secao_md_readme']}
 ## The seal · o selo `[REAL — read from the artifact]`
 
 | what | value |
@@ -175,7 +183,7 @@ F.append(f"""# The Boundary — Theory of Luminodynamic Gravitation (TGL)
 | the world · the seal | [`um_absoluto.json`]({u_mundo}) ({fmt(b_mundo)} bytes) · [`um_absoluto_selo.json`]({u_selo}) ({fmt(b_selo)} bytes) |
 | Lean kernel | **{kf} formal files · {kt} audited terms**, axioms ⊆ `{{{', '.join(axi)}}}`, zero `sorry` ({tool}) — [`tgl_kernel_proof_manifest.json`]({u_km}) |
 | gate | `{gate}` |
-| the ruler | **PROVED** = a theorem in the kernel (`#print axioms`). **CONFIRMED** = a judgement about nature — forbidden here, by theorem. `NOT_FALSIFIED ≠ CONFIRMED`. β = α·√e is computed at runtime, never a literal. Cosmology never becomes mathematical proof. |
+| the ruler | {E['regua_curta_en']}. `NOT_FALSIFIED ≠ CONFIRMED`. β = α·√e is computed at runtime, never a literal. Cosmology never becomes mathematical proof. |
 
 ## Reproduce it · reproduza `[REAL — three commands]`
 
@@ -204,15 +212,25 @@ The lineage that led to them: [*Genesis da Unificação*]({portas['genesis']['po
 Smallest first; each file stands on its own. Measured on 2026-09-19 with one real fetcher: documents are cut near 100,000 characters, files above 10 MB are refused, and PDFs served by GitHub raw as `application/octet-stream` are not read — prefer the eight parts in [`secoes/`]({u_secoes}) and the TXT/TeX sources. The measured order is in [`ESTADO_ATUAL.md`]({u_estado}) (*Reading order*) and in [`read-brief.md`]({site_brief}). The full ledger below is the **last** thing to read.
 
 """)
-F.append('\n> **Read the Abstract below under the current ruler.** It is copied verbatim from the ledger (append-only), so it keeps older sentences such as *Never "quantum gravity proved."*. The current status is the line at the top of this page: **PROVED as a formal model** (a theorem in the kernel) and **NOT CONFIRMED by nature** (the judgement about nature, never made here).\n')
+F.append('\n> **Read the Abstract below under the current ruler.** It is copied verbatim from the ledger (append-only), so it keeps older sentences such as *Never "quantum gravity proved."*. The current status is the line at the top of this page.\n')
 F.append(secao('Abstract'))
 if 'Never "quantum gravity proved."' in F[-1]:   # errata 19/09 (v368), ao lado: a regua do operador de 05/09/2026
     F.append('\n> ⚠ **Beside (the operator\u2019s ruler, 05/09/2026):** PROVED = a theorem in the kernel, auditable by `#print axioms` \u2014 allowed; '
              'CONFIRMED = the observer\u2019s judgement about nature \u2014 forbidden. The sentence *Never "quantum gravity proved."* above, and its siblings further down (*does not mean quantum gravity is proved*, *n\u00e3o significa gravita\u00e7\u00e3o qu\u00e2ntica provada*), are kept as written '
              '(the ledger is append-only); under the ruler they read: never "quantum gravity **confirmed**". What is proved is the implication from the '
              'axiom and the named hypotheses; what nature decides is not proved.\n')
+    F.append('\n' + E['ao_lado_regua_0509'] + '\n')   # 07/10/2026, ao lado da regua de 05/09
 F.append('\n')
 F.append(secao('✦ The core on one page'))
+# 07/10/2026, AO LADO (o livro-razao e' append-only): as frases herdadas que um leitor pode ler como «nao provada», o Lema 3
+# dito [OPEN] antes da v390 e o axioma marcado [POSTULATE] -- cada uma recebe a leitura vigente, lida do core/selo pelo modulo
+_nucleo = F[-1]
+if 'does **not** mean quantum gravity is proved' in _nucleo or 'gravitação quântica provada' in _nucleo:
+    F.append('\n' + E['ao_lado_nao_provada'] + '\n')
+if 'Lemma 3) stays **[OPEN]**' in _nucleo and E.get('ao_lado_lema3'):
+    F.append('\n' + E['ao_lado_lema3'] + '\n')
+if '**[POSTULATE]**' in _nucleo and E.get('ao_lado_posto'):
+    F.append('\n' + E['ao_lado_posto'] + '\n')
 F.append(f"""
 ## The ledger · o livro-razão
 
@@ -220,9 +238,12 @@ F.append(f"""
 
 """)
 F.append(secao('Citing This Work'))
-if 'v350' in F[-1]:   # errata 19/09 (v368), ao lado: a nota do BibTeX descreve o selo v350
+_cit = F[-1]   # 07/10/2026 (errata da propria sessao): as notas ao lado testam a SECAO, nunca F[-1] (que vira a nota recem-acrescentada)
+if 'v350' in _cit:   # errata 19/09 (v368), ao lado: a nota do BibTeX descreve o selo v350
     F.append('\n> **Beside (%s):** the BibTeX note above describes the v350 seal. The current seal is **%s** \u2014 `um.py` sha256 `%s`, '
              'kernel %d formal files / %d audited terms (read from `PORTA.json`, the seal and the manifest). The BibTeX above carries the DOI of the v331 deposit; the current deposit is **%s** \u2014 [%s](https://doi.org/%s), deposited %s%s.\n' % (versao, versao, pin, int(kf), int(kt), DEP_V, DEP_DOI, DEP_DOI, DEP_DATA, ', byte-identical to this seal' if DEP_V == versao else ', older than this seal; a new Zenodo version is the operator' + chr(8217) + 's act'))
+if 'Lemma 3 (unconditional global lift) remains OPEN' in _cit and E.get('ao_lado_lema3'):   # 07/10/2026, ao lado
+    F.append('\n> **Beside (%s):** the BibTeX note above says *Lemma 3 (unconditional global lift) remains OPEN*; at %s the core reads it as a logical closure by the operator\u2019s definition, with the program still open (see the beside note under the core).\n' % (versao, versao))
 F.append('\n')
 F.append(secao('License'))
 F.append('\n')

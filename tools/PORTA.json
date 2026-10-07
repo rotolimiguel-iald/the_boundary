@@ -4,7 +4,7 @@
   "titulo": "tools",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-07T15:07:47Z",
+  "gerado_utc": "2026-10-07T22:30:14Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -21,14 +21,24 @@
   "dependencias": null,
   "arquivos": [
     {
+      "nome": "estatuto_tres_apoios.py",
+      "caminho": "tools/estatuto_tres_apoios.py",
+      "papel": "codigo",
+      "descricao": "Codigo executavel",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/estatuto_tres_apoios.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/estatuto_tres_apoios.py",
+      "sha256_16": "5cb0434d4a0e5c2c",
+      "bytes": 39261
+    },
+    {
       "nome": "gerar_estado_atual.py",
       "caminho": "tools/gerar_estado_atual.py",
       "papel": "codigo",
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_estado_atual.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/gerar_estado_atual.py",
-      "sha256_16": "9acb325772aa96e0",
-      "bytes": 75819
+      "sha256_16": "37576899ed9ae87b",
+      "bytes": 77214
     },
     {
       "nome": "gerar_portas.py",
@@ -37,8 +47,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_portas.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/gerar_portas.py",
-      "sha256_16": "e448f97b8c00c05c",
-      "bytes": 98292
+      "sha256_16": "dd5f9e6cc7dac9e1",
+      "bytes": 100398
     },
     {
       "nome": "gerar_readme_frente.py",
@@ -47,8 +57,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_readme_frente.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/gerar_readme_frente.py",
-      "sha256_16": "80f6069570954445",
-      "bytes": 18735
+      "sha256_16": "65fa4c3ec50ad235",
+      "bytes": 20094
     },
     {
       "nome": "guarda_do_selo.py",
@@ -91,8 +101,8 @@
       "bytes": 9398
     }
   ],
-  "total_arquivos_nesta_pasta": 7,
-  "total_arquivos_com_subpastas": 7,
+  "total_arquivos_nesta_pasta": 8,
+  "total_arquivos_com_subpastas": 8,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/tools",
   "rodape": "gerado por script de git ls-files em 2026-10-07 -- nao editar a mao"
 }

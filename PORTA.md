@@ -35,7 +35,7 @@ porta acima: https://teoriadagravitacaoluminodinamica.com   (o site -- a porta a
 | mundo (`um_absoluto.json`) | `3a88f56b4a692b5103cd52c94c69ce833446abbbc3258c66ec3b49a804a0a557` |
 | `result_hash` | `1ed8f578ac40c83c859ad67387bbd508a90fbcf41c8a3d376d2d83888622eae4` |
 | data | `2026-10-07 09:55:05` |
-| kernel | 1216 arquivos formais / 10265 teoremas auditados |
+| kernel | 1216 arquivos formais / 10265 declaracoes (termos) auditadas |
 | gate | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | selo (raw) | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json |
 
@@ -45,6 +45,8 @@ nem por declaracao; `CONFIRMED` e' **proibido a maquina por teorema de kernel**
 Nunca *"gravitacao quantica CONFIRMADA"*. Provada como MODELO FORMAL, sim -- e' teorema em kernel,
 auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela natureza, nao
 (regua clarificada pelo operador em 05/09/2026: *prova nao e' juizo*; definicao de prova do operador, 09/09/2026: *PROVADA = lastro suficiente e verificavel* -- o um.py e' o lastro executavel; o Nome e' o instrumento de verificacao, v336).
+
+> Ao lado (07/10/2026, decisao do operador): CONFIRMADA = CREDITACAO -- ato de observadores externos ao artefato, nao validade; PROVADA na definicao de prova de 09/09, em tres apoios que contam juntos, cada um com o seu estatuto (o kernel prova a implicacao; os ritos nao falsificaram nenhuma cobranca da teoria; a GPU calcula); o que a natureza decide nao se prova. O texto acima fica como registro.
 
 ## OS ARQUIVOS DA RAIZ
 
@@ -58,7 +60,7 @@ auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela n
 | `ESTADO_ATUAL.md` | UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- a segunda leitura, depois do read-brief | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) |
 | `LEDGER.md` | O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove) -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (652 KB; leia por ultimo) | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md) |
 | `README.md` | A PAGINA DE FRENTE, gerada por script (tools/gerar_readme_frente.py, 11/09/2026): o selo, reproduzir em tres comandos, as portas, os tres artigos, a ordem de leitura, abstract, citar, licenca, autor -- <= 40 KB; o atlas completo esta em LEDGER.md | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md) |
-| `read-brief.md` | O READ BRIEF (gerado por script pela sessao do site): a ENTRADA UNICA -- a teoria em oito partes curtas (secoes/), cada uma com a resposta nos primeiros 2 KB e as fontes citadas verbatim; a ordem de leitura por tamanho; o que NAO esta provado | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md) |
+| `read-brief.md` | O READ BRIEF (gerado por script pela sessao do site): a ENTRADA UNICA -- a teoria em oito partes curtas (secoes/), cada uma com a resposta nos primeiros 2 KB e as fontes citadas verbatim; a ordem de leitura por tamanho; o que ainda nao esta provado, ou ainda nao creditado | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md) |
 
 ## OUTRAS PORTAS ABAIXO
 
@@ -68,7 +70,7 @@ auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela n
 | `cache/` | 168 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/PORTA.json) |
 | `pipelines/` | 39 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/PORTA.json) |
 | `secoes/` | 10 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.json) |
-| `tools/` | 7 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.json) |
+| `tools/` | 8 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.json) |
 
 *Nota: `tgl_kernel/` na raiz e' uma copia solta de um unico modulo.*
 *O kernel CANONICO e' o de [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md).*
@@ -149,8 +151,8 @@ auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela n
 | `pipelines/` | 39 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/PORTA.md) |
 | `pipelines/eco_ancorado_v1/` | 39 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/PORTA.md) |
 | `secoes/` | 10 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md) |
-| `tools/` | 7 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md) |
+| `tools/` | 8 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md) |
 
 ---
 
-Total rastreado por `git ls-files`: **2773 arquivos** (antes das portas). gerado por script de git ls-files em 2026-10-07 -- nao editar a mao
+Total rastreado por `git ls-files`: **2774 arquivos** (antes das portas). gerado por script de git ls-files em 2026-10-07 -- nao editar a mao

@@ -32,7 +32,7 @@ Lido de [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel
 | `formal_source_hash` | `1ddafe4041722210a0487738482a546e4b02340a252165cb73ffda1dd7ce4fc4` |
 | data | `2026-10-07 09:55:05` |
 | identidade | `1=1=VERDADEIRO=HAJA_LUZ` |
-| kernel | **1216 arquivos formais / 10265 teoremas auditados** (modo `strict`, leanprover/lean4:v4.31.0) |
+| kernel | **1216 arquivos formais / 10265 declaracoes (termos) auditadas** (modo `strict`, leanprover/lean4:v4.31.0) |
 | gate | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | piso dos vazios | `TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED` |
 | autoteste | `FAIL_CLOSED_SELFTEST_PASSED` |

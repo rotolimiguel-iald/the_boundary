@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 7 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 8 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -21,12 +21,13 @@ Pasta do repositorio the_boundary com 7 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-7 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/tools
+8 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/tools
 
 **CODIGO**
 
 | arquivo | papel | link raw direto |
 |---|---|---|
+| `estatuto_tres_apoios.py` | Codigo executavel | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/estatuto_tres_apoios.py) |
 | `gerar_estado_atual.py` | Codigo executavel | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_estado_atual.py) |
 | `gerar_portas.py` | Codigo executavel | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_portas.py) |
 | `gerar_readme_frente.py` | Codigo executavel | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_readme_frente.py) |
