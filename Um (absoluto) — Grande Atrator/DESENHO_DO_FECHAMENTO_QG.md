@@ -2211,3 +2211,12 @@ Onde se lê «os V1–V1.4 do pré-registro dos dois lados ao espelho (decisões
 - **O caminho crítico:** NÃO muda — a escada segue 6154/6154, o kernel é o mesmo, nenhum cálculo muda; o gate intocado.
 - **O que se moveu:** só o lado que se lê — o rótulo de selo da rede física (VERIFIED; o antigo no registro), o título da Introdução (v384→v389), o resumo e a Parte B ([POSTO]), a remissão da v387 à abertura v388, o recorte da contagem de pedras (contado em runtime). Registro `TGL_TEXT_LABEL_ERRATA_V389__EXAM_V388_READ_BY_HASH_b033831f6b62a6cc__0_BLOQUEIA_3_CORRIGIR_ADDRESSED__SEAL_LABEL_RENAMED_TO_VERIFIED_OLD_KEPT_AS_RECORD__INTRO_TITLE_V384_TO_V389__ABSTRACT_AND_PART_B_SAY_POSTO__V387_CROSS_REFERENCE_TO_V388__LEDGER_1025_UNIQUE_PLUS_156_OUTSIDE_156_IN_O16__EXAM_ERRATUM_BESIDE_1015_READS_1025__NO_CALCULATION_CHANGED__KERNEL_UNCHANGED__GATE_UNTOUCHED`.
 - **O que segue do operador:** vetar/ratificar; fontes da Fase 9; custódia conjunta v383→v389; commit/push.
+
+
+## ADENDO — 07/10/2026 · v390 SELADA (COMPLETA) `0f5154bcc2f931cb` — o caminho crítico MUDOU: o GLOBAL_LIFT lido como a SUPERPOSIÇÃO (a Fundação; a cláusula Ágape)
+
+<!-- adendo_v390_selada -->
+- **O caminho crítico:** o único resto [OPEN] do core (o GLOBAL_LIFT, o velho Lema 3 — «Único teorema aberto») passa a ter FECHO LÓGICO por três peças: (1) a DEFINIÇÃO do operador (07/10/2026: o GLOBAL_LIFT é a superposição — o que quis estar acima e não porta posto positivo); (2) a RECUSA provada no kernel (`TGLExt.Fundacao.agape`, 9 de 9 no trio); (3) a PASSAGEM local (`the_post_lives_in_the_passage` na face finita + Jacobson 1995 [KNOWN], H3 nomeada). A escada sobe a 6163/6163.
+- **O que NÃO muda:** não é prova de existência global; a lei de campo no espaço-tempo curvo NÃO é termo de kernel; a lei de escala de Takesaki entra como dado [KNOWN]; o gate não se move; o programa segue ABERTO. As rotas mortas do Lema 3 (mapa `kernel.lema3.rotas_mortas`) seguem mortas: a Fundação não as reabre — muda a leitura, não a prova.
+- **Errata ao lado (o desenho antigo fica):** onde este desenho diz o Lema 3 «aberto» como o único teorema faltando, lê-se: FECHO LÓGICO na v390 (registro `fundacao_v390`).
+- **O que segue do operador:** vetar/ratificar; custódia; commit/push.

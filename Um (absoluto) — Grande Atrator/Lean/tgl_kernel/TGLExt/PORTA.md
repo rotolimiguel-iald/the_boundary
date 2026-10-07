@@ -23,7 +23,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ## OS ARQUIVOS DESTA PASTA
 
-1025 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
+1026 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
 
 **PROVA FORMAL**
 
@@ -210,6 +210,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `FourthOrderMatchingControls.lean` | Prova formal (Lean 4): FourthOrderMatchingControls | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/FourthOrderMatchingControls.lean) |
 | `FractalUnitarity.lean` | Prova formal (Lean 4): FractalUnitarity | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/FractalUnitarity.lean) |
 | `FrontierCertificate.lean` | Prova formal (Lean 4): FrontierCertificate | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/FrontierCertificate.lean) |
+| `Fundacao.lean` | Prova formal (Lean 4): Fundacao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Fundacao.lean) |
 | `FusedWitness.lean` | Prova formal (Lean 4): FusedWitness | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/FusedWitness.lean) |
 | `GNSBridge.lean` | Prova formal (Lean 4): GNSBridge | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/GNSBridge.lean) |
 | `GNSQuotient.lean` | Prova formal (Lean 4): GNSQuotient | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/GNSQuotient.lean) |
@@ -1063,4 +1064,4 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ---
 
-gerado por script de git ls-files em 2026-10-06 -- nao editar a mao
+gerado por script de git ls-files em 2026-10-07 -- nao editar a mao

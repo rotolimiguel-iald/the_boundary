@@ -376,6 +376,21 @@ def main() -> int:
         L.append("| v389 | `%s` | %s | COMPLETE | %s |" % (sh389[-1] if sh389 else "?", ("%s/%s" % ri389[-1]) if ri389 else "?", 'TEXT AND LABEL ERRATA from the full exam of v388 (read by hash `b033831f6b62a6cc`: 0 blocking, 3 to correct, the notes kept): the seal label renamed to VERIFIED (the old one kept as record); the Introduction title v384 to v389; the abstract and Part B say the axiom is POSTED; the v387 section points to the v388 opening; the ledger cut 1025 unique paths + 156 outside (the exam said 1015/166, corrected beside); no calculation changed, kernel unchanged'))
     L.append("")
     L.append('*Status that goes with v387–v389 (not to be cut): the three pillars count together as P1 (none failed); a joint probability (P2) is not determined; Phase 9 opened gives INCONCLUSIVE_SYSTEMATICS and, even with the sources, it does not discriminate at 5 sigma under this V1; Phase 8 is underpowered by prediction; beta(chi) is a bulk reading with the scale mu per rite [OPEN], the boundary constant stays beta_0. Per-term flags gpf_H2_smooth_modular_four_frame_discharged / gpf_H3_local_horizon_equilibrium_discharged / gpi_H3_horizon_data_produced stay False. The v386 copy and the v387/v388 seeds live outside the repository; v382 stays only in the house; the stdouts v387–v389 are in `rodadas/`; the new preregistrations are in `preregistro_fase9_hubble_v387`, `fase9_hubble_abertura_v388` and `preregistro_fase8_primordial_v387` with their PORTA. Proved is not a judgement of nature; not falsified is not a confirmation.*')
+    # custódia v390 (07/10/2026, sessão da Central por ordem do operador): ao lado; sha16 e rito LIDOS do diário
+    L.append("")
+    L.append("### v390 \u00b7 the custody `[REAL \u2014 sha16 and rite read from MEMORIA_DA_LINHAGEM.md]`")
+    L.append("")
+    L.append("| version | `um.py` sha16 | rite | round | what entered |")
+    L.append("|---|---|---|---|---|")
+    mm390 = re.search(r"^## [^\n]*\*\*v390 SELADA[^*\n]*\*\*[^\n]*\n", diario, re.M)
+    if mm390:
+        fim390 = diario.find("\n## ", mm390.end())
+        bl390 = diario[mm390.end(): fim390 if fim390 > 0 else len(diario)]
+        sh390 = re.findall(r"`um\.py` sha16 `([0-9a-f]{16})`", bl390) or re.findall(r"`([0-9a-f]{16})`", mm390.group(0))
+        ri390 = re.findall(r"\*\*(\d+)/(\d+)\*\*", bl390)
+        L.append("| v390 | `%s` | %s | COMPLETE | %s |" % (sh390[-1] if sh390 else "?", ("%s/%s" % ri390[-1]) if ri390 else "?", 'THE FOUNDATION: `TGLExt.Fundacao` (kernel 9/9): the agape clause — above every non-trivial scale nothing bears a positive post; the climb has no top nor ceiling; the fall never touches zero and the abyss has no bottom; the floor omega(I) = 1 fixes the cut, uniquely; the GLOBAL_LIFT (the old Lemma 3) READ as the superposition by the operator’s definition of 07/10 (verbatims embedded by sha256 0a9a5a98b3a3bd99 and d16bc8a7dc54962e and e2a915e23692f85c); the local passage [KNOWN, Jacobson 1995, H3 named]; a LOGICAL closure, the program stays open; the field equation in curved spacetime is not a kernel term; Takesaki’s scaling law enters as data [KNOWN]; Borchers’ form under the named contract H2 in the kernel'))
+    L.append("")
+    L.append('*Status that goes with v390 (not to be cut): the GLOBAL_LIFT is READ as the superposition by the operator’s definition [INPUT/ONTO]; what the kernel proves is the agape clause and the refusal (9/9); the local passage is [KNOWN] (Jacobson 1995, with H3 named); the closure is LOGICAL — the program stays open; the field equation in curved spacetime is not a kernel term. Per-term flags gpf_H2_smooth_modular_four_frame_discharged / gpf_H3_local_horizon_equilibrium_discharged / gpi_H3_horizon_data_produced stay False. The v389 copy lives outside the repository; the stdout v390 is in `rodadas/`; the order (the two verbatims by sha256, the order, the stone) is in `superposicao_passagem_v390` with its PORTA. Proved is not a judgement of nature; not falsified is not a confirmation.*')
     L.append("")
     L.append("## What is PROVED · o que está PROVADO `[REAL — theorem in kernel]`")
     L.append("")

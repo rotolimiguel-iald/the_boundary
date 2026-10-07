@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-06T19:21:53Z",
+  "gerado_utc": "2026-10-07T14:38:50Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -1837,6 +1837,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/FrontierCertificate.lean",
       "sha256_16": "1015e2fb8f4e8ebb",
       "bytes": 4606
+    },
+    {
+      "nome": "Fundacao.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/Fundacao.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): Fundacao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Fundacao.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Fundacao.lean",
+      "sha256_16": "66332d58fd216317",
+      "bytes": 9536
     },
     {
       "nome": "FusedWitness.lean",
@@ -10279,8 +10289,8 @@
       "bytes": 10880
     }
   ],
-  "total_arquivos_nesta_pasta": 1025,
-  "total_arquivos_com_subpastas": 1181,
+  "total_arquivos_nesta_pasta": 1026,
+  "total_arquivos_com_subpastas": 1182,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt",
-  "rodape": "gerado por script de git ls-files em 2026-10-06 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-10-07 -- nao editar a mao"
 }

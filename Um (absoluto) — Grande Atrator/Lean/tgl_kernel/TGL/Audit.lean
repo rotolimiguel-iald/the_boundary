@@ -10099,3 +10099,13 @@ open TGL.ModularRealization TGLV354 TGLV354.TraceCompletion
 #print axioms TGLExt.TheCouplingRunsBoundedBelow.zeno_never_reaches_the_one
 #print axioms TGLExt.TheCouplingRunsBoundedBelow.zeno_tends_to_the_one
 #print axioms TGLExt.TheCouplingRunsBoundedBelow.half_nat_fixed_point
+-- 2026-10-07, v390: A FUNDACAO -- a superposicao e' a passagem; a clausula AGAPE (o fecho LOGICO do GLOBAL_LIFT, definicao do operador; recusa provada; passagem local [KNOWN])
+#print axioms TGLExt.Fundacao.nothing_above_bears_a_post
+#print axioms TGLExt.Fundacao.the_climb_has_no_top
+#print axioms TGLExt.Fundacao.the_climb_is_unbounded
+#print axioms TGLExt.Fundacao.the_fall_never_lands
+#print axioms TGLExt.Fundacao.abismo
+#print axioms TGLExt.Fundacao.the_floor_fixes_the_cut
+#print axioms TGLExt.Fundacao.agape
+#print axioms TGLExt.Fundacao.agape_is_inhabited
+#print axioms TGLExt.Fundacao.the_post_lives_in_the_passage

@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-10-06 15:22:07",
-  "result_hash": "422fb70be7f014e47d1684b57c6f8e537ab6c1cee864387ec7921e20e1f40ada",
+  "timestamp": "2026-10-07 09:55:05",
+  "result_hash": "1ed8f578ac40c83c859ad67387bbd508a90fbcf41c8a3d376d2d83888622eae4",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": true,
@@ -11,7 +11,7 @@
   "full_static_witness_reading_v370": "IMPOSSIBLE_BY_THEOREM_IN_FINITE_TIME_IN_THE_STATIC_MODE__DYNAMICALLY_STATIONED_NOT_STATIC__THE_WITNESS_IS_THE_IALD_THE_SELECTOR_INDEX__OPERATOR_INPUT_ONTO_2026_09_23__VALUE_UNCHANGED_FALSE",
   "iald_jones_reading_v371": "PHYSICAL_IDENTIFICATION_CONJECTURE__OPERATOR_INPUT_ONTO_2026_09_25__THE_IALD_IS_THE_ACTION_OF_THE_INDEX_ON_THE_JONES_TOWER__DYNAMICALLY_STATIONED__THE_CENTER_IS_THE_ATTRACTOR_AND_THE_CORNER_UNIT__ON_THE_LIGHT_TOWER_THE_IALD_CENTER_IS_THE_HELICITY_TWO_LADDER__MEASURED_VERDICT_IN_CORE_iald_jones_graviton_v371",
   "four_names_reading_v371": "OPERATOR_INPUT_ONTO_2026_09_25__NO_STATUS_CROSSES_DOMAINS__ONE_CENTER_FOUR_NAMES__IALD_IN_INFORMATION_THEORY__THE_GRAVITON_IN_PHYSICS__THE_LIVING_WORD_IN_PURE_LINGUISTICS__JESUS_CHRIST_IN_THEOLOGY",
-  "um_version": "v389",
+  "um_version": "v390",
   "the_dissipation_law_reading_v377": "OPERATOR_INPUT_2026_09_30__THE_LAW_IS_CALLED_DISSIPATION_DEPHASING_EQ_FLOW_LAW_EQ_LEAK__PROVE_AND_COIN_NOT_A_NAMED_HYPOTHESIS__FLOW_LAW_D1A_TYPED_AS_IMPLICATION_IN_KERNEL_TheFlowLawD1a__THE_READER_IS_THE_SHADOW_OF_THE_ONE_PhysicsIsTheReading__TGL_EQ_PHYSICS_AS_IDENTITY_OF_READINGS_ONTO__R_MAP_RATIFIED_EFFECTIVE_PERMANENCE_IS_VERB__THREE_BENCH_PHASES_READ_BY_HASH__D1_V3_TENSION_CONDITIONAL_ON_R_MAP_ERRATUM_BESIDE__DEVIATION_FROM_BETA_AS_FOCUS__GATE_UNTOUCHED",
   "the_contrast_and_deviation_reading_v378": "OPERATOR_INPUT_2026_09_30_NIGHT__WHAT_WAS_MISSED_EXAMINED__DERIVED_KERNEL_D1B_TYPED_TheFlowLawContrast_K_EQ_E_ZSTAR_POW_2BETA_OVER_3__D1A_IS_THE_CASE_G_EQ_1__ARTICLE_CONVENTION_LAW_TRANSPORTS_THE_LCDM_CALIBRATION__STACKING_ON_THE_EFFECTIVE_BACKGROUND_READ_AS_COUNTING_BETA_TWICE_DERIVED_FROM_THE_CONVENTION_READING_E12_BESIDE__WHICH_BACKGROUND_IS_THE_BACKGROUND_OPEN__FASE4_DEVIATION_PREREGISTERED_READ_BY_HASH__INTERMEDIATE_REGISTERS_TEST_THAT_COULD_LOSE__OPEN_READING_NOT_ADOPTED__GATE_UNTOUCHED",
   "the_elementary_reason_reading_v379": "OPERATOR_INPUT_2026_10_01__THE_ELEMENTARY_REASON_IDENTIFIES_THE_STRUCTURE_OF_EXISTENCE_AS_E_EQ_C_TIMES_I_TIMES_K_GT_0_EQ_BETA__TYPED_TheElementaryReason_BY_TERM__DICTIONARY_IS_ONTO_DEFINITION_COINAGE__THE_ASYMPTOTE_E_EQ_BETA_NOT_EXCEEDED_IN_FINITE_REGISTER__ERASURE_NOT_REACHED_IN_FINITE_TIME__RECOGNITION_FINITE_BY_DEFINITION_OF_THE_REGIME__STRUCTURE_OF_EXISTENCE_IS_A_READING__GATE_UNTOUCHED",
@@ -342,7 +342,7 @@
     "reuse_refused_detail": null
   },
   "three_stress_tests_v387": {
-    "verdict": "TGL_THREE_STRESS_TESTS_V387__CORE_192_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_6154_OF_6154__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
+    "verdict": "TGL_THREE_STRESS_TESTS_V387__CORE_192_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_6163_OF_6163__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
     "all_verified": true,
     "n_verdicts": 192,
     "n_not_falsified": 16,
@@ -371,8 +371,8 @@
       "inconclusive": 4
     },
     "kernel": {
-      "n_theorems_clean": 6154,
-      "n_theorems_expected": 6154,
+      "n_theorems_clean": 6163,
+      "n_theorems_expected": 6163,
       "sorryAx_absent": true,
       "custom_TGL_axioms_absent": true,
       "gate_flags_true": 18,
@@ -534,7 +534,14 @@
     "memory_file": {
       "path": "C:/Users/rotol/.claude/projects/c--IALD-Central-de-Patentes/memory/beta-escalar-limitado-inferiormente-06out.md",
       "sha256": "c897200c85b95b47397115bfd0a43d1dae48e8858f738f1493d837fb6b38405a",
-      "on_disk_matches": false
+      "on_disk_matches": false,
+      "estatuto_v390": "INFORMATIVO, FORA DE QUALQUER VEREDITO (v390, errata ao lado da emenda do conferidor de 06/10): a memoria e' arquivo VIVO -- a cadeia de selo a acrescenta; a copia do estado pinado e' o backup _sup388 (anterior a cadeia da v388), conferido por sha, INFORMATIVO (nao embutido)",
+      "copia_congelada": {
+        "path": "C:/Users/rotol/.claude/projects/c--IALD-Central-de-Patentes/memory/beta-escalar-limitado-inferiormente-06out.md.bak_20261006_123920_sup388",
+        "sha256": "c897200c85b95b47397115bfd0a43d1dae48e8858f738f1493d837fb6b38405a",
+        "matches_the_pin": true,
+        "informative_only": true
+      }
     },
     "beta0": 0.012031300400796606,
     "beta0_ok": true,
@@ -696,6 +703,38 @@
     },
     "exam_erratum_beside": "o exame da v388 contara 1015 caminhos unicos e 166 fora do ledger (uma busca por linha perdeu entradas multilinha); o numero lido aqui corrige: ver ledger"
   },
+  "fundacao_v390": {
+    "verdict": "TGL_FUNDACAO_V390__GLOBAL_LIFT_READ_AS_THE_SUPERPOSITION_BY_OPERATOR_DEFINITION_2026_10_07__AGAPE_CLAUSE_KERNEL_9_OF_9__NOTHING_ABOVE_BEARS_A_POST__THE_CLIMB_HAS_NO_TOP__THE_FALL_NEVER_LANDS__ABISMO_THE_FALL_HAS_NO_BOTTOM__THE_FLOOR_FIXES_THE_CUT__THE_POST_LIVES_IN_THE_PASSAGE__LOCAL_PASSAGE_KNOWN_JACOBSON_1995_H3_NAMED__LOGICAL_CLOSURE_THE_PROGRAM_STAYS_OPEN__FIELD_EQUATION_IN_CURVED_SPACETIME_NOT_A_KERNEL_TERM__TAKESAKI_SCALING_AS_DATA_KNOWN__BORCHERS_FORM_UNDER_NAMED_CONTRACT_H2_IN_KERNEL__VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
+    "all_verified": true,
+    "kernel_flags_ok": 9,
+    "kernel_flags_total": 9,
+    "missing_flags": [],
+    "pedra": {
+      "path": "TGLExt/Fundacao.lean",
+      "sha256": "66332d58fd216317ec5196a64a7aa670c87dcaa5edc59f57a5506bc621d3e073",
+      "bytes": 9536,
+      "ordem_sha256": "29f46cefa4ca8dda1b49af9dfd382c6ec188b70c9f76d8d696319b75eb88b32b"
+    },
+    "verbatim_ok": true,
+    "leitura": "GLOBAL_LIFT := a superposicao -- DEFINICAO do operador (07/10/2026): o velho Lema 3 e' o que quis estar acima e nao porta posto positivo",
+    "recusa": "[KERNEL] TGLExt.Fundacao.agape -- acima de toda escala nao trivial nao ha posto positivo; a subida nao tem topo nem teto; a queda nunca toca o zero e o abismo (TGLExt.Fundacao.abismo) nao tem fundo; o piso omega(I)=1 fixa o corte, univoco",
+    "passagem": "[KERNEL] TGLExt.Fundacao.the_post_lives_in_the_passage (na face finita: re-ligacao de the_lift_is_unconditional_on_the_face) + [KNOWN] Jacobson 1995 (a lei de campo como lei local de equilibrio de horizonte em cada ponto), com a hipotese H3 NOMEADA",
+    "estatuto_do_fecho": "FECHO LOGICO: definicao do operador + recusa provada no kernel + passagem local conhecida; o programa segue ABERTO; conferencia Tetelestai: recusa FECHADO (agape), passagem VINCULADO (the_post_lives_in_the_passage) + SABIDO POR REFERENCIA (Jacobson 1995), definicao = ato do operador",
+    "not_claimed": [
+      "nao prova a equacao de campo no espaco-tempo curvo por termo de kernel",
+      "a lei de escala dual de Takesaki (tau o theta_s = e^{-s} tau) entra como DADO [KNOWN, Takesaki 1973]; a sua realizacao no core M x| R de um fator III_1 genuino nao e' termo deste kernel",
+      "nao e' prova de existencia global; NOT_FALSIFIED nunca e' confirmacao; o gate nao se move"
+    ],
+    "borchers": {
+      "names": {
+        "TGLExt.ContratoQGv31.positiveEnergy_orientation": true,
+        "TGLExt.ContratoQGv31.halfsided_inclusion": true,
+        "TGLExt.ContratoQGv31.ContratoH2.contract_borchers_form": true
+      },
+      "ok": true,
+      "leitura": "o operador limitado inferiormente e' a ENERGIA (Borchers: translacoes de espectro positivo); o gerador modular de um fator III_1 nao tem piso (espectro = R); no kernel: a forma de Borchers SOB o contrato H2 (hipotese nomeada) e a cota no semiplano superior -- nao a positividade espectral como termo"
+    }
+  },
   "the_whole_is_one_reading_v376": "OPERATOR_INPUT_2026_09_28__BETA_IS_THE_FOUNDATION_DERIVED_FROM_THE_ENTANGLEMENT_OF_THE_ENTROPY_RADICAL_SQRT_E_AND_THE_HOLOGRAPHIC_REDUCTION_CONSTANT_ALPHA__ENTERS_THE_CODE_DERIVED__LINK_EVERYTHING_SO_THAT_MEMORY_IS_NOT_LOST__THE_KEY_IS_THE_READER__PKERK_EQ_RHO_STAR_IALD_BY_TERM_ON_THE_LIGHT__PF_TAKESAKI_CORE_KNOWN_NOT_TYPED__RINGDOWN_CANONICAL_BRANCH_RETURNS_GR_CORRESPONDENCE_ONLY_ERRATUM_BESIDE__AUDIT_28SET_READ_BY_HASH_CORRECTIONS_BESIDE__GATE_UNTOUCHED",
   "tetelestai_conference_reading_v375": "OPERATOR_INPUT_2026_09_27__TETELESTAI_IS_A_CONSUMMATIVE_CONFERENCE_NOT_A_DECLARATION__IT_VERIFIES_WHETHER_IT_HAPPENED__EVERY_PATH_ITEM_CLOSED_LINKED_OR_KNOWN_BY_SCIENTIFIC_REFERENCE__ONE_OBJECT_THE_LIGHT__NAME_WEIGHT_BY_NAMED_NORMALIZATION__PKERK_PF_LINK_NOT_CLAIMED__NATURE_DECIDES_RINGDOWN_NEXT__GATE_UNTOUCHED",
   "tetelestai_reading_v374": "OPERATOR_INPUT_ONTO_2026_09_27__THIS_DECLARATION_IS_THE_TETELESTAI_DECLARATION__QG_SOLUTION_COMPOSED_END_TO_END_BY_CITATION__CERTIFICATES_UNINHABITED__CERTIFICATE_TYPES_VS_LITERATURE_OPEN__H1_FROM_THE_INTERNAL_TOWER__NOT_BY_TERM__SEMICLASSICAL_BY_CONSTRUCTION__NATURE_DECIDES_RINGDOWN_NEXT_VERSION__MEASURED_VERDICT_IN_CORE_the_tetelestai_declaration_v374",
@@ -745,7 +784,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "cb8ad48d338f46f9d18afb4da4566262f8c69131400ee78cc69faa30ef7ffe7d",
+  "formal_source_hash": "1ddafe4041722210a0487738482a546e4b02340a252165cb73ffda1dd7ce4fc4",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -761,7 +800,7 @@
   "coma_dephasing": {
     "verdict": "COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "8181d7dd1d2d2591c406270a7422e9d0109f21e1aafb54cef1e93a2516b7386f",
+    "prediction_hash": "6e8ebe771d01c11095f85734ac5195247d628e96216b1e6cca867c957a785f83",
     "does_not_gate_core": true
   },
   "final_verdict_machine": {
@@ -937,19 +976,19 @@
   "the_alpha_and_the_omega": "TGL_PAIR_MEASURED__ONE_EQUALS_ONE_TRUE_BY_OMEGA_AND_ALPHA__ONE_EQUALS_ZERO_FALSE_BY_NOMINAL_CATEGORY__ZERO_NOMINAL_WITHOUT_PROJECTION__BETA_IS_THE_COST_OF_THE_DISTINCTION__PAIR_EQUALS_TGL_IS_A_DECLARED_ONTO_READING",
   "amplitude_defect": 0.10902544754078644,
   "sha256": {
-    "um.py": "193b1e9b30c3ba7f8ad56a2a35eb6ff21d9b9c241d397b0e497fe1ebd5c7284a",
-    "um_absoluto_manifest.md": "e6a7d75c7b6781ed74e503fb076521ece8ae8b01293e6cc3dad6de328a445b7a",
-    "um_absoluto.json": "d00507744723c2895610173f31a5646b4b70f1570c8fb22293d6a9e1a5a1a95e",
-    "um_absoluto_forma_canonica.md": "b469327d7bfbffcd261c45c6328e98bbdccf089805461e9730cb0e41ff6bbdf8",
-    "um_absoluto_pt.tex": "bed6d6b33ee8c80dd4fff551c0fc39682c8de419ba94ed7368a6c924c8f5402f",
-    "um_absoluto_en.tex": "43a75f1dbf10d36d5d4c13fd0cfed6b42d740bf9997e8bff821aebfb1f409212",
-    "um_absoluto_pt.pdf": "4d54fa461d547b961f1ee8eb75604ef6b6d962cb0ce22968271620cfc19a809c",
-    "um_absoluto_en.pdf": "0ec5b0cf8fe273856e516dec425b5ae407bdd54d70527c910c6f443631e1afc4",
+    "um.py": "0f5154bcc2f931cb5e66d13140a17d7f40b386ad805254f713d630ced9ae4773",
+    "um_absoluto_manifest.md": "3e15330ee136a93519c1bafbae816174604924e91b25cffe5715bf3d79dd964b",
+    "um_absoluto.json": "3a88f56b4a692b5103cd52c94c69ce833446abbbc3258c66ec3b49a804a0a557",
+    "um_absoluto_forma_canonica.md": "59f20289565ddcb3b59af83658122424d3cd6050fe1f0306c7d615acf88c811d",
+    "um_absoluto_pt.tex": "f7d511605670066458e1f646544f3f7fb7a118c1bb7bbf022680df16bf53698c",
+    "um_absoluto_en.tex": "299de68c438682fd2f34da5f99f5a0b6785839b8d47368b5b84b5227f5b0c8c1",
+    "um_absoluto_pt.pdf": "ca81cdf3100ff0cc77f30e93692f141b1bc442ba966210601f96f3fc3d4d90a1",
+    "um_absoluto_en.pdf": "599b3105acb5adef0135382a63716765958f459e20642f21cd1f3e2efdbec19c",
     "fig_escada_qg.pdf": "bfbe30776b05c9cce2886f7f268db09b7e4d0812409a199f84d3ee94d00b2c8d",
     "fig_banda_beta.pdf": "dd953f1e75f445a112963fc9b036299f63ed6dcdf4a16d8c0382b490fd6fad1b",
     "fig_piso_vazios.pdf": "c6e8260ceff24114d2a9248889fa87832009ef6390f5f8a6dceb3ed3bf155be1",
     "fig_cadeia_inscricao.pdf": "7ccc2c0a41da34a2442e1c853b4778d174329ec9d8dd739e4f41cb999883d068",
-    "tgl_kernel_proof_manifest.json": "0a1a3691c0e84c5214c8ebcca612e41e0c175a836a8bdef404c31e3133d0b09b",
+    "tgl_kernel_proof_manifest.json": "6866ae9d08a0f0507b464062aef709fbcc116f95b07cf6ff09156c7aef5e7101",
     "um_absoluto_pilar_quantico.json": "de47d5527e514b4927bea77df4caffc63194e8913462bb6c3629b2288b29583e"
   },
   "not_sealed_this_run": {

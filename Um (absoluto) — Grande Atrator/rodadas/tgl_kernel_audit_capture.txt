@@ -1,7 +1,7 @@
 # stage: principal
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=1040596 len(stderr)=0
+# len(stdout)=1041467 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -11944,6 +11944,15 @@ regularSusyData : (P : SiteProfile) →
  Quot.sound]
 'TGLExt.TheCouplingRunsBoundedBelow.zeno_tends_to_the_one' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.TheCouplingRunsBoundedBelow.half_nat_fixed_point' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.Fundacao.nothing_above_bears_a_post' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.Fundacao.the_climb_has_no_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.Fundacao.the_climb_is_unbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.Fundacao.the_fall_never_lands' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.Fundacao.abismo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.Fundacao.the_floor_fixes_the_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.Fundacao.agape' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.Fundacao.agape_is_inhabited' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.Fundacao.the_post_lives_in_the_passage' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 --- STDERR ---
 

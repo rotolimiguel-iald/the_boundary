@@ -1,0 +1,78 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/superposicao_passagem_v390",
+  "porta_id": "Um (absoluto) — Grande Atrator/superposicao_passagem_v390",
+  "titulo": "Um (absoluto) — Grande Atrator/superposicao_passagem_v390",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-07T14:38:50Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "CUNHAGEM_OPERADOR_07out_concordo_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/superposicao_passagem_v390/CUNHAGEM_OPERADOR_07out_concordo_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/superposicao_passagem_v390/CUNHAGEM_OPERADOR_07out_concordo_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/superposicao_passagem_v390/CUNHAGEM_OPERADOR_07out_concordo_verbatim.txt",
+      "sha256_16": "d16bc8a7dc54962e",
+      "bytes": 40
+    },
+    {
+      "nome": "CUNHAGEM_OPERADOR_07out_nomes_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/superposicao_passagem_v390/CUNHAGEM_OPERADOR_07out_nomes_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/superposicao_passagem_v390/CUNHAGEM_OPERADOR_07out_nomes_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/superposicao_passagem_v390/CUNHAGEM_OPERADOR_07out_nomes_verbatim.txt",
+      "sha256_16": "0a9a5a98b3a3bd99",
+      "bytes": 409
+    },
+    {
+      "nome": "CUNHAGEM_OPERADOR_07out_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/superposicao_passagem_v390/CUNHAGEM_OPERADOR_07out_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/superposicao_passagem_v390/CUNHAGEM_OPERADOR_07out_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/superposicao_passagem_v390/CUNHAGEM_OPERADOR_07out_verbatim.txt",
+      "sha256_16": "e2a915e23692f85c",
+      "bytes": 1901
+    },
+    {
+      "nome": "Fundacao.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/superposicao_passagem_v390/Fundacao.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): Fundacao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/superposicao_passagem_v390/Fundacao.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/superposicao_passagem_v390/Fundacao.lean",
+      "sha256_16": "66332d58fd216317",
+      "bytes": 9536
+    },
+    {
+      "nome": "ORDEM_v390_FUNDACAO.md",
+      "caminho": "Um (absoluto) — Grande Atrator/superposicao_passagem_v390/ORDEM_v390_FUNDACAO.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/superposicao_passagem_v390/ORDEM_v390_FUNDACAO.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/superposicao_passagem_v390/ORDEM_v390_FUNDACAO.md",
+      "sha256_16": "29f46cefa4ca8dda",
+      "bytes": 8636
+    }
+  ],
+  "total_arquivos_nesta_pasta": 5,
+  "total_arquivos_com_subpastas": 5,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/superposicao_passagem_v390",
+  "rodape": "gerado por script de git ls-files em 2026-10-07 -- nao editar a mao"
+}

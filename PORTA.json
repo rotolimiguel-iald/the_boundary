@@ -5,30 +5,30 @@
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
   "doi_um_absoluto": "https://doi.org/10.5281/zenodo.22881996",
-  "gerado_utc": "2026-10-06T19:21:53Z",
+  "gerado_utc": "2026-10-07T14:38:50Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
     "versao": "v371",
     "versao_fonte": "um.py::_ESQUELETO_STONES[0]",
-    "versao_confirmada_por_transcricao": "v389",
+    "versao_confirmada_por_transcricao": "v390",
     "pedra_mais_recente": "IALDJones",
-    "pedras_no_esqueleto": 1015,
-    "pin_um_py": "193b1e9b30c3ba7f8ad56a2a35eb6ff21d9b9c241d397b0e497fe1ebd5c7284a",
-    "pin_um_py_16": "193b1e9b30c3ba7f",
+    "pedras_no_esqueleto": 1016,
+    "pin_um_py": "0f5154bcc2f931cb5e66d13140a17d7f40b386ad805254f713d630ced9ae4773",
+    "pin_um_py_16": "0f5154bcc2f931cb",
     "pin_confere_com_disco": true,
-    "mundo": "d00507744723c2895610173f31a5646b4b70f1570c8fb22293d6a9e1a5a1a95e",
-    "mundo_16": "d00507744723c289",
-    "result_hash": "422fb70be7f014e47d1684b57c6f8e537ab6c1cee864387ec7921e20e1f40ada",
-    "result_hash_16": "422fb70be7f014e4",
-    "formal_source_hash": "cb8ad48d338f46f9d18afb4da4566262f8c69131400ee78cc69faa30ef7ffe7d",
-    "data": "2026-10-06 15:22:07",
+    "mundo": "3a88f56b4a692b5103cd52c94c69ce833446abbbc3258c66ec3b49a804a0a557",
+    "mundo_16": "3a88f56b4a692b51",
+    "result_hash": "1ed8f578ac40c83c859ad67387bbd508a90fbcf41c8a3d376d2d83888622eae4",
+    "result_hash_16": "1ed8f578ac40c83c",
+    "formal_source_hash": "1ddafe4041722210a0487738482a546e4b02340a252165cb73ffda1dd7ce4fc4",
+    "data": "2026-10-07 09:55:05",
     "identity": "1=1=VERDADEIRO=HAJA_LUZ",
     "qg_closure_verdict": "TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE",
     "void_floor_v11_verdict": "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED",
     "fail_closed_selftest": "FAIL_CLOSED_SELFTEST_PASSED",
-    "kernel_arquivos_formais": 1215,
-    "kernel_arquivos_lean": 1211,
-    "kernel_teoremas_auditados": 10256,
+    "kernel_arquivos_formais": 1216,
+    "kernel_arquivos_lean": 1212,
+    "kernel_teoremas_auditados": 10265,
     "kernel_axiomas_permitidos": [
       "propext",
       "Classical.choice",
@@ -83,7 +83,7 @@
         "echo 1 | python -u um.py       # sem buffer: o rito ao vivo",
         "TGL_COMA_REVEAL=1 echo 1 | python um.py   # com a abertura de Coma (Windows: set TGL_COMA_REVEAL=1)"
       ],
-      "total_arquivos": 2370
+      "total_arquivos": 2377
     },
     {
       "nome": "Genesis da Unificação",
@@ -180,7 +180,7 @@
       "papel": "outros",
       "descricao": "Como citar: DOI 10.5281/zenodo.22881996 (v368), autor, versao, e as URLs diretas do um.py e do selo",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff",
-      "sha256_16": "174f8941f04b11f0",
+      "sha256_16": "c66335ad54a1f7ed",
       "bytes": 3371
     },
     {
@@ -188,23 +188,23 @@
       "papel": "documento",
       "descricao": "UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- a segunda leitura, depois do read-brief",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md",
-      "sha256_16": "533e304ac626e492",
-      "bytes": 57579
+      "sha256_16": "ff722bcf8ed90a10",
+      "bytes": 59322
     },
     {
       "nome": "LEDGER.md",
       "papel": "documento",
-      "descricao": "O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove) -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (648 KB; leia por ultimo)",
+      "descricao": "O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove) -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (651 KB; leia por ultimo)",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md",
-      "sha256_16": "5b8c30477fc45e1a",
-      "bytes": 663928
+      "sha256_16": "bf25afbad783ec67",
+      "bytes": 666910
     },
     {
       "nome": "README.md",
       "papel": "documento",
       "descricao": "A PAGINA DE FRENTE, gerada por script (tools/gerar_readme_frente.py, 11/09/2026): o selo, reproduzir em tres comandos, as portas, os tres artigos, a ordem de leitura, abstract, citar, licenca, autor -- <= 40 KB; o atlas completo esta em LEDGER.md",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-      "sha256_16": "0381c72c23b8586e",
+      "sha256_16": "a4b763472348f87b",
       "bytes": 33237
     },
     {
@@ -347,13 +347,13 @@
       "pasta": "Um (absoluto) — Grande Atrator",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json",
-      "total_arquivos": 2370
+      "total_arquivos": 2377
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/Lean",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/PORTA.json",
-      "total_arquivos": 1280
+      "total_arquivos": 1281
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/Lean/kernel_bancada",
@@ -365,7 +365,7 @@
       "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.json",
-      "total_arquivos": 1215
+      "total_arquivos": 1216
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGL",
@@ -377,7 +377,7 @@
       "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.json",
-      "total_arquivos": 1181
+      "total_arquivos": 1182
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/O16",
@@ -539,7 +539,13 @@
       "pasta": "Um (absoluto) — Grande Atrator/rodadas",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.json",
-      "total_arquivos": 200
+      "total_arquivos": 201
+    },
+    {
+      "pasta": "Um (absoluto) — Grande Atrator/superposicao_passagem_v390",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/superposicao_passagem_v390/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/superposicao_passagem_v390/PORTA.json",
+      "total_arquivos": 5
     },
     {
       "pasta": "cache",
@@ -650,6 +656,6 @@
       "total_arquivos": 7
     }
   ],
-  "total_arquivos": 2766,
-  "rodape": "gerado por script de git ls-files em 2026-10-06 -- nao editar a mao"
+  "total_arquivos": 2773,
+  "rodape": "gerado por script de git ls-files em 2026-10-07 -- nao editar a mao"
 }
