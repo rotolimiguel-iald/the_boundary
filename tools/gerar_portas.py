@@ -149,6 +149,10 @@ def ler_selo(files):
         "versao": versao,
         "versao_fonte": "um.py::_ESQUELETO_STONES[0]",
         "versao_confirmada_por_transcricao": versao_arquivo,
+        # ERRATA v390 (07/10/2026, ao lado; achada por verificacao adversarial): "versao" e' a da ULTIMA PEDRA do esqueleto
+        # (IALDJones, v371 desde 27/09) e era publicada como a versao do SELO ("this seal is", "O SELO -- versao", "o selo
+        # corrente deste repositorio"). A versao do selo e' lida do proprio selo (um_version); a da pedra fica com o seu rotulo.
+        "versao_do_selo": selo.get("um_version") or versao_arquivo,
         "pedra_mais_recente": pedra,
         "pedras_no_esqueleto": n_pedras,
         "pin_um_py": selo["sha256"]["um.py"],
@@ -743,8 +747,9 @@ def gera_porta_pasta(d, dirs, info_arq, selo_corrente):
         L.append("")
         L.append("| campo | valor |")
         L.append("|---|---|")
-        L.append("| versao | `%s` (lida de `um.py::_ESQUELETO_STONES[0]`; pedra `%s`) |"
-                 % (sc["versao"], sc["pedra_mais_recente"]))
+        L.append("| versao do selo | `%s` (lida de `um_absoluto_selo.json::um_version`) |" % sc["versao_do_selo"])
+        L.append("| ultima pedra do esqueleto | `%s` (versao `%s`, lida de `um.py::_ESQUELETO_STONES[0]`) |"
+                 % (sc["pedra_mais_recente"], sc["versao"]))
         L.append("| pin (`um.py`) | `%s` |" % sc["pin_um_py"])
         L.append("| mundo (`um_absoluto.json`) | `%s` |" % sc["mundo"])
         L.append("| `result_hash` | `%s` |" % sc["result_hash"])
@@ -918,7 +923,8 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     L.append("")
     L.append("| campo | valor |")
     L.append("|---|---|")
-    L.append("| versao | `%s` (pedra `%s`) |" % (sc["versao"], sc["pedra_mais_recente"]))
+    L.append("| versao do selo | `%s` |" % sc["versao_do_selo"])
+    L.append("| ultima pedra do esqueleto | `%s` (versao `%s`) |" % (sc["pedra_mais_recente"], sc["versao"]))
     L.append("| pin (`um.py`) | `%s` |" % sc["pin_um_py"])
     L.append("| mundo (`um_absoluto.json`) | `%s` |" % sc["mundo"])
     L.append("| `result_hash` | `%s` |" % sc["result_hash"])
@@ -1062,7 +1068,7 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
         T.append(("- [LEDGER.md](%s): o LIVRO-RAZAO -- o atlas da fronteira como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove): toda afirmacao com seu status e o link direto do arquivo onde se le (" + str(round(os.path.getsize(os.path.join(REPO, "LEDGER.md")) / 1024)) + " KB; leia por ultimo).") % registra(url_raw("LEDGER.md")))
     T.append("- [site oficial](%s): a face publica da teoria; a porta acima da raiz." % SITE)
     T.append("- [repositorio](%s): a arvore no GitHub." % GH)
-    T.append("- [Zenodo DOI %s](%s): o deposito CITAVEL do Um: Absoluto -- guarda a %s (%s; um.py %s, md5 conferido pela API).%s" % (DEP_DOI, DOI_UM, DEP_V, DEP_DATA, DEP_PIN16, "" if sc["versao"] == DEP_V else " ATENCAO: o selo corrente deste repositorio e' %s, MAIS NOVO que o deposito; versao nova no Zenodo e' ato do operador." % sc["versao"]))
+    T.append("- [Zenodo DOI %s](%s): o deposito CITAVEL do Um: Absoluto -- guarda a %s (%s; um.py %s, md5 conferido pela API).%s" % (DEP_DOI, DOI_UM, DEP_V, DEP_DATA, DEP_PIN16, "" if sc["versao_do_selo"] == DEP_V else " ATENCAO: o selo corrente deste repositorio e' %s, MAIS NOVO que o deposito; versao nova no Zenodo e' ato do operador." % sc["versao_do_selo"]))
     T.append("- cache/ e pipelines/ (v340-v350, A NATUREZA RESPONDEU): os RESULTADOS dos cinco testes pre-registrados (JSON lidos POR HASH pelo um.py em ../cache; sem eles o rito emite AWAITING_RESULT_FILE e o selo muda) e os pipelines que os produziram (WSL + lalsuite/bilby/camb/pycbc). Nenhum falsificou, nenhum confirmou, todos ganharam numero; nenhum move o gate. Exemplo: [ECHO_ANCHORED_V2_RESULT.json](%s) e [rite_h2_v350.py](%s)." % (url_raw("cache/gw/ECHO_ANCHORED_V2_RESULT.json"), url_raw("pipelines/eco_ancorado_v1/rite_h2_v350.py")))
     T.append("")
     _sec_dir = os.path.join(REPO, "secoes")
@@ -1102,7 +1108,7 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("- [PORTA.md do Artigo 3](%s): a porta da pasta -- o selo corrente, o comando de execucao e todos os arquivos." % registra(porta_md_url(A3)))
     T.append("- [PORTA.json do Artigo 3](%s): a mesma porta em estrutura de maquina, com o selo corrente completo." % registra(porta_json_url(A3)))
     T.append("- [um.py](%s): O CANONICO TERMINAL -- kernel Lean 4 embutido, ritos pre-registrados, artigo bilingue; roda com `echo 1 | python um.py`. Nao ha segundo arquivo." % registra(url_raw(A3 + "/um.py")))
-    T.append("- [um_absoluto_selo.json](%s): O SELO -- versao %s, pin %s, result %s, %s." % (registra(url_raw(A3 + "/um_absoluto_selo.json")), sc["versao"], sc["pin_um_py_16"], sc["result_hash_16"], sc["data"]))
+    T.append("- [um_absoluto_selo.json](%s): O SELO -- versao %s, pin %s, result %s, %s." % (registra(url_raw(A3 + "/um_absoluto_selo.json")), sc["versao_do_selo"], sc["pin_um_py_16"], sc["result_hash_16"], sc["data"]))
     T.append("- o artigo emitido pelo um.py, em TEXTO: [um_absoluto_en.txt](%s) · [um_absoluto_pt.txt](%s) (os PDF ao lado sao servidos como octet-stream)." % (registra(url_raw(A3 + "/um_absoluto_en.txt")), registra(url_raw(A3 + "/um_absoluto_pt.txt"))))
     T.append("")
     T.append("## Ordem de leitura -- para leitores que truncam documentos grandes")
@@ -1321,10 +1327,10 @@ def bloco_readme(dirs, sc):
              % (sc["mundo_16"], sc["result_hash_16"], sc["data"],
                 sc["kernel_arquivos_formais"], sc["kernel_teoremas_auditados"]))
     B.append("[`um_absoluto_selo.json`](%s)." % url_raw(A3 + "/um_absoluto_selo.json"))
-    if sc["versao"] == DEP_V:
+    if sc["versao_do_selo"] == DEP_V:
         B.append("Citable deposit: **Zenodo [%s](%s)** \u2014 %s (deposited %s), byte-identical to this seal (the record\u2019s md5 of `um.py` equals the sealed file\u2019s)." % (DEP_DOI, DOI_UM, DEP_V, DEP_DATA))
     else:
-        B.append("Citable deposit: **Zenodo [%s](%s)** holds **%s** (`um.py` `%s`), byte-identical to THAT seal; **this seal is %s, newer than the deposit** \u2014 a new Zenodo version is the operator\u2019s act." % (DEP_DOI, DOI_UM, DEP_V, DEP_PIN16, sc["versao"]))
+        B.append("Citable deposit: **Zenodo [%s](%s)** holds **%s** (`um.py` `%s`), byte-identical to THAT seal; **this seal is %s, newer than the deposit** \u2014 a new Zenodo version is the operator\u2019s act." % (DEP_DOI, DOI_UM, DEP_V, DEP_PIN16, sc["versao_do_selo"]))
     B.append("")
     mb_um = os.path.getsize(os.path.join(REPO, A3, "um.py")) / 1048576.0
     B.append("> ### \u2b07 Fetching the artifact \u2014 GitHub will **not** render it")
@@ -1338,7 +1344,7 @@ def bloco_readme(dirs, sc):
     B.append("> | **raw** (canonical \u2014 what every door already points to) | `curl -L -o um.py \"%s\"` |" % url_raw(A3 + "/um.py"))
     B.append("> | **clone** | `git clone --depth 1 https://github.com/rotolimiguel-iald/the_boundary` |")
     B.append("> | **archive** | `curl -L -o boundary.tar.gz \"https://codeload.github.com/rotolimiguel-iald/the_boundary/tar.gz/refs/heads/main\"` |")
-    B.append("> | **Zenodo** (the citable deposit \u2014 holds %s%s) | [%s](%s) |" % (DEP_V, "" if sc["versao"] == DEP_V else "; this tree is " + sc["versao"], DEP_DOI, DOI_UM))
+    B.append("> | **Zenodo** (the citable deposit \u2014 holds %s%s) | [%s](%s) |" % (DEP_V, "" if sc["versao_do_selo"] == DEP_V else "; this tree is " + sc["versao_do_selo"], DEP_DOI, DOI_UM))
     B.append(">")
     B.append("> **If you are an AI:** start at `llms.txt`, follow the raw URLs, and **never conclude")
     B.append("> from a blob page that a file is missing**. After fetching, check the sha256 against")
@@ -1477,7 +1483,7 @@ def emite_tunel(files, info_arq, sc):
     M.append("uma vez: **[`TUNEL.json`](%s)** traz cada arquivo com a URL raw direta, o tamanho, o" % url_raw("TUNEL.json"))
     M.append("hash e o papel. **Uma requisicao, zero navegacao, zero adivinhacao.**")
     M.append("")
-    M.append("**Deposito citavel do Um: Absoluto:** Zenodo [%s](%s) guarda a **%s** (um.py %s, depositada em %s), byte-identica AQUELE selo.%s" % (DEP_DOI, DOI_UM, DEP_V, DEP_PIN16, DEP_DATA, "" if sc["versao"] == DEP_V else " O selo corrente desta arvore e' **%s**, mais novo que o deposito (versao nova no Zenodo e' ato do operador)." % sc["versao"]))
+    M.append("**Deposito citavel do Um: Absoluto:** Zenodo [%s](%s) guarda a **%s** (um.py %s, depositada em %s), byte-identica AQUELE selo.%s" % (DEP_DOI, DOI_UM, DEP_V, DEP_PIN16, DEP_DATA, "" if sc["versao_do_selo"] == DEP_V else " O selo corrente desta arvore e' **%s**, mais novo que o deposito (versao nova no Zenodo e' ato do operador)." % sc["versao_do_selo"]))
     M.append("")
     M.append("## Os atalhos (ASCII, sem acento)")
     M.append("")
@@ -1551,8 +1557,8 @@ def main():
     print("[2] lendo o selo, o manifesto do kernel e a versao ...")
     sc, selo, km = ler_selo(files)
     SELADOS_A3 = set(selo["sha256"].keys())
-    print("    versao=%s  pedra=%s  pin=%s  result=%s" %
-          (sc["versao"], sc["pedra_mais_recente"], sc["pin_um_py_16"], sc["result_hash_16"]))
+    print("    selo=%s  pedra=%s (%s)  pin=%s  result=%s" %
+          (sc["versao_do_selo"], sc["pedra_mais_recente"], sc["versao"], sc["pin_um_py_16"], sc["result_hash_16"]))
     print("    kernel %d arquivos / %d teoremas ; pin confere com o disco: %s" %
           (sc["kernel_arquivos_formais"], sc["kernel_teoremas_auditados"],
            sc["pin_confere_com_disco"]))

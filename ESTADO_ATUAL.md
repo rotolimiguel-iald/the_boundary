@@ -161,6 +161,8 @@
 
 *Status that goes with v390 (not to be cut): the GLOBAL_LIFT is READ as the superposition by the operator’s definition [INPUT/ONTO]; what the kernel proves is the agape clause and the refusal (9/9); the local passage is [KNOWN] (Jacobson 1995, with H3 named); the closure is LOGICAL — the program stays open; the field equation in curved spacetime is not a kernel term. Per-term flags gpf_H2_smooth_modular_four_frame_discharged / gpf_H3_local_horizon_equilibrium_discharged / gpi_H3_horizon_data_produced stay False. The v389 copy lives outside the repository; the stdout v390 is in `rodadas/`; the order (the two verbatims by sha256, the order, the stone) is in `superposicao_passagem_v390` with its PORTA. Proved is not a judgement of nature; not falsified is not a confirmation.*
 
+> **Errata beside (07/10/2026, the same custody; found by the adversarial verification):** where the status note above says «the two verbatims by sha256», read **the three verbatims** the core embeds by sha256 — `e2a915e23692f85c` (cunhagem), `0a9a5a98b3a3bd99` (nomes), `d16bc8a7dc54962e` (concordo) — and `superposicao_passagem_v390` holds all three. Where it says «the local passage is [KNOWN]», read: the passage on the finite face is [KERNEL] (`the_post_lives_in_the_passage`) and the local passage law is [KNOWN] (Jacobson 1995, with H3 named). The note above stays as record.
+
 ## What is PROVED · o que está PROVADO `[REAL — theorem in kernel]`
 
 *On the ruler: PROVED = a theorem in kernel, auditable by `#print axioms`. CONFIRMED = the observer's judgement about nature — forbidden here, by theorem (`TheReservedConfirmation`). Proof is not judgement.*
@@ -255,7 +257,7 @@ To reproduce the nature rites v340–v350 as sealed, clone the repository (not o
 
 Many fetchers cut a document after a few hundred KB. Sizes measured now, smallest first; each file stands on its own:
 
-1. [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) — this page · 58 KB
+1. [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) — this page · 59 KB
 2. [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) — the seal: every sha256, the world hash, the gate · 105 KB
 3. [`A_PROVA_DA_QG_TGL_arvore.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md) — the proof tree, term by term · 104 KB
 4. [`um_absoluto_forma_canonica.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md) — the canonical form · 225 KB

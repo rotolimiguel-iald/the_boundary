@@ -24,7 +24,8 @@ Lido de [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel
 
 | campo | valor |
 |---|---|
-| versao | `v371` (lida de `um.py::_ESQUELETO_STONES[0]`; pedra `IALDJones`) |
+| versao do selo | `v390` (lida de `um_absoluto_selo.json::um_version`) |
+| ultima pedra do esqueleto | `IALDJones` (versao `v371`, lida de `um.py::_ESQUELETO_STONES[0]`) |
 | pin (`um.py`) | `0f5154bcc2f931cb5e66d13140a17d7f40b386ad805254f713d630ced9ae4773` |
 | mundo (`um_absoluto.json`) | `3a88f56b4a692b5103cd52c94c69ce833446abbbc3258c66ec3b49a804a0a557` |
 | `result_hash` | `1ed8f578ac40c83c859ad67387bbd508a90fbcf41c8a3d376d2d83888622eae4` |

@@ -60,7 +60,7 @@ GitHub raw and Zenodo honour HTTP `Range` (206): read `um.py` in pieces (`curl -
 **Current seal, read from the artifact** — pin `um.py` `0f5154bcc2f931cb` · last stone in the ledger: `IALDJones` (`v371`) ·
 world `3a88f56b4a692b51` · `result_hash` `1ed8f578ac40c83c` · 2026-10-07 09:55:05 · kernel **1216/10265** — source of truth:
 [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json).
-Citable deposit: **Zenodo [10.5281/zenodo.22881996](https://doi.org/10.5281/zenodo.22881996)** holds **v368** (`um.py` `4a34fbf36f3ae0d8`), byte-identical to THAT seal; **this seal is v371, newer than the deposit** — a new Zenodo version is the operator’s act.
+Citable deposit: **Zenodo [10.5281/zenodo.22881996](https://doi.org/10.5281/zenodo.22881996)** holds **v368** (`um.py` `4a34fbf36f3ae0d8`), byte-identical to THAT seal; **this seal is v390, newer than the deposit** — a new Zenodo version is the operator’s act.
 
 > ### ⬇ Fetching the artifact — GitHub will **not** render it
 > `um.py` is **32.30 MB**, and GitHub’s blob viewer refuses files above ~5 MB: the
@@ -73,7 +73,7 @@ Citable deposit: **Zenodo [10.5281/zenodo.22881996](https://doi.org/10.5281/zeno
 > | **raw** (canonical — what every door already points to) | `curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"` |
 > | **clone** | `git clone --depth 1 https://github.com/rotolimiguel-iald/the_boundary` |
 > | **archive** | `curl -L -o boundary.tar.gz "https://codeload.github.com/rotolimiguel-iald/the_boundary/tar.gz/refs/heads/main"` |
-> | **Zenodo** (the citable deposit — holds v368; this tree is v371) | [10.5281/zenodo.22881996](https://doi.org/10.5281/zenodo.22881996) |
+> | **Zenodo** (the citable deposit — holds v368; this tree is v390) | [10.5281/zenodo.22881996](https://doi.org/10.5281/zenodo.22881996) |
 >
 > **If you are an AI:** start at `llms.txt`, follow the raw URLs, and **never conclude
 > from a blob page that a file is missing**. After fetching, check the sha256 against
@@ -202,7 +202,7 @@ poderia cair vale mais do que um que não diz.*
 
 ## The ledger · o livro-razão
 
-[`LEDGER.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md) began as this README **as it was until 2026-09-11** (3.750 lines, 562.947 bytes then; later custodies insert their blocks beside it, nothing is removed) — the atlas of the boundary: every claim with its status, every status with the file where it is read, the seals, the refutations and the false positives that did not pass, the reading protocol, the thematic atlas and the raw file index (now 3.870 lines, 666.910 bytes, sha256 `bf25afbad783ec67211cf20ceecf15536506421ba292d38d6e38cee330e974f5`). It is kept **byte-exact** and append-only: nothing was removed when this front page was generated. The raw file index it carries is superseded by [`TUNEL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json) / [`TUNEL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.md), which are regenerated at every custody.
+[`LEDGER.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md) began as this README **as it was until 2026-09-11** (3.750 lines, 562.947 bytes then; later custodies insert their blocks beside it, nothing is removed) — the atlas of the boundary: every claim with its status, every status with the file where it is read, the seals, the refutations and the false positives that did not pass, the reading protocol, the thematic atlas and the raw file index (now 3.872 lines, 667.502 bytes, sha256 `68ac45705a49c8036528927b8b8777547d9e3ab52e930f2f5bc834461f9798d5`). It is kept **byte-exact** and append-only: nothing was removed when this front page was generated. The raw file index it carries is superseded by [`TUNEL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json) / [`TUNEL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.md), which are regenerated at every custody.
 
 ## Citing This Work
 
