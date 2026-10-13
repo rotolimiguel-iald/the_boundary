@@ -215,6 +215,18 @@ def ler(raiz=RAIZ):
         _exige(abs(_p2['piso_dos_vazios']['void_floor_v11']['L5'] - L5) < 1e-12, '%s: o L5 do piso diverge' % ek)
         _exige(_p3['T4_instances'] == t['gpu']['T4_instances'] and _p3['cpuref_compared'] == t['gpu']['cpuref_compared']
                and _p3['cpuref_disagreements'] == t['gpu']['cpuref_disagreements'], '%s: os números da GPU divergem' % ek)
+    # v392 em diante: a ressalva ao lado do estatuto (15 calculadas + 3 literais; degrau experimental unilateral) e a lei de campo curvo
+    rv = core.get('estatuto_da_prova_ressalva_v392')
+    lc = core.get('lei_de_campo_curvo_v392')
+    f81 = core.get('f81_nao_fechada_v392')
+    if rv:
+        _exige(rv.get('all_verified') is True and not rv.get('falhas'), 'estatuto_da_prova_ressalva_v392 não está verificado')
+        _tok(rv['verdict'], '15_COMPUTED_PLUS_3_LITERAL', 'UNILATERAL', 'GATE_UNMOVED')
+        _exige(k['gate_flags_true'] == k['gate_flags_total'] == 18, 'a ressalva pressupõe 18 bandeiras True')
+        _exige(f81 and f81.get('all_verified') is True and 'F8_1_STAYS_PROPOSAL' in f81['verdict'], 'f81_nao_fechada_v392 ausente ou mudou')
+    if lc:
+        _exige(lc.get('all_verified') is True, 'lei_de_campo_curvo_v392 não está verificado')
+        _tok(lc['verdict'], 'KERNEL_TERM_CONDITIONAL_ON_THE_NAMED_H3', 'NOT_GLOBAL_EXISTENCE', 'LEMA3_STATUS_UNCHANGED', 'GATE_UNMOVED')
     u_conf = RAW + quote(A3 + '/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean')
     v = dict(versao=versao, gate=gate, nk=nk, n_decl=n_decl, n_arq=n_arq, gf=k['gate_flags_true'], gt=k['gate_flags_total'],
              n_ch=n_ch, cont=cont, gr_ok=gr_ok, gr_n=gr_n,
@@ -226,7 +238,7 @@ def ler(raiz=RAIZ):
              posto=True, fecho_logico=True, nao_campo=True, agape='%s/%s' % agape.groups(), u_conf=u_conf,
              eco_n=eco['n'], eco_ex=eco['excluded_by_data'], eco_inc=eco['inconclusive'], jz=jr['max_abs_z'], jthr=jr['z_max_threshold_INPUT'],
              gpu_modo=modo, gpu_reuso_de=reuso_de, jlim=jr['threshold_INPUT'], jcanais=jr['channels_needed_for_threshold_at_primary_quality'],
-             registro=ep[0] if ep else None)
+             registro=ep[0] if ep else None, ressalva=bool(rv), campo_curvo=bool(lc))
     v.update(_textos(v))
     return v
 
@@ -280,13 +292,26 @@ def _textos(v):
         _reg = (' The core of %s records this reading itself: `%s` (`PROVED_AS_LOGICAL_CLOSURE`; `CONFIRMATION_IS_CREDITATION_NOT_VALIDITY`).'
                 % (v['versao'], v['registro']))
     T['definicao_en'] += _reg
+    _res_en = _res_pt = ''
+    _campo = ('the field law in curved spacetime is a kernel term only CONDITIONAL on the named H3 (`lei_de_campo_curvo_v392`; the earlier tokens stay as record).' if v.get('campo_curvo') else 'the field equation in curved spacetime is not a kernel term (`fundacao_v390`).')
+    if v.get('ressalva'):   # v392: a ressalva do estatuto, AO LADO (o estatuto da v391 segue)
+        _res_en = (' **Reservation beside (v392, `estatuto_da_prova_ressalva_v392`):** of the 18 gate flags, all read True, the audit reads 15 as computed '
+                   'and 3 as literal, and the experimental step reads only the V11 void-floor feed, unilateral (the shallow ΛCDM also passes it) '
+                   '`[DECLARED by the audit of 28/09/2026]`; recomputing the flags is unit F8.1, which v392 documents and does not close '
+                   '(`f81_nao_fechada_v392`). The statute above is unaltered.')
+        _res_pt = (' **Ressalva ao lado (v392, `estatuto_da_prova_ressalva_v392`):** das 18 bandeiras do gate, todas lidas True, a auditoria lê 15 como '
+                   'calculadas e 3 como literais, e o degrau experimental lê só o feed V11 do piso dos vazios, unilateral (o ΛCDM raso também o '
+                   'passa) `[DECLARADO pela auditoria de 28/09/2026]`; recalcular as bandeiras é a unidade F8.1, que a v392 documenta e não fecha '
+                   '(`f81_nao_fechada_v392`). O estatuto acima não muda.')
+        T['definicao_en'] += _res_en
+    T['ressalva_en'], T['ressalva_pt'] = _res_en.strip(), _res_pt.strip()
     T['definicao_pt'] = (
         '**PROVADA = validade**, na definição de prova do operador (09/09/2026): *lastro suficiente e verificável* — o `um.py` é o lastro '
         'executável (um arquivo, uma entrada, o kernel auditado termo a termo, os ritos com falsificadores pré-registrados, os hashes selados; '
         'o apoio da GPU pede CUDA). A **identidade** é certificada pelo próprio artefato, com o hash que ele mesmo emite e que este repositório e '
         'o site carregam byte a byte; a **validade**, pelo kernel Lean (`#print axioms`). **CONFIRMADA = creditação** (07/10/2026): o ato de '
         'observadores externos ao artefato; a máquina não a emite sobre si mesma (a pedra `TheReservedConfirmation`). *Ainda não confirmada* '
-        'quer dizer *ainda não creditada*, nunca *não provada*.')
+        'quer dizer *ainda não creditada*, nunca *não provada*.' + _res_pt)
     T['regua_curta_en'] = (
         'PROVED = validity, in the operator’s definition of proof (sufficient and verifiable ballast; the validity of the implication is '
         'certified by the Lean kernel, `#print axioms`); CONFIRMED = accreditation, the act of observers outside the artifact — not made here; '
@@ -390,7 +415,8 @@ def _textos(v):
         '**Not claimed here** (read from the core: `kernel_formalization`, `fundacao_v390`, `einstein_and_rg`): Python proves no theorem, the '
         'Lean kernel does; Bisognano–Wichmann, Reeh–Schlieder and the type III₁ classification are `[KNOWN]`, external; the finite '
         'Three-Locks corner is a finite-dimensional theorem, not a type III₁ proof; `G` is an input, not derived; the modular realization '
-        'of the witness is not constructed; the field equation in curved spacetime is not a kernel term, and global existence is not proved; '
+        'of the witness is not constructed; ' + ('the field law in curved spacetime is a kernel term only CONDITIONAL on the named H3 (`lei_de_campo_curvo_v392`; '
+        'the tokens of v390 and v391 said «not a kernel term» and stay as record), ' if v.get('campo_curvo') else 'the field equation in curved spacetime is not a kernel term, ') + 'and global existence is not proved; '
         '“we proved Einstein” is not claimed (Lovelock is `[KNOWN]`, the approximate Killing residue is named).')
     T['secao_md'] = '\n\n'.join([
         '## Proved on three supports · provada em três apoios `[read by script from the run of %s]`' % v['versao'],
@@ -423,7 +449,7 @@ def _textos(v):
         'the artifact itself (`um.py` writes its own sha256 into the seal; this repository and the site carry that pin byte-exact); '
         '**validity**, by the Lean kernel (`#print axioms`; Python proves no theorem). **CONFIRMED = accreditation** (07/10/2026): the act of '
         'observers outside the artifact, never issued by the machine about itself ([`TheReservedConfirmation.lean`](%s); “observer = the '
-        'human” is `[ONTO]`). *Not yet confirmed* means *not yet accredited*, never *not proved*.' % v['u_conf']) + _reg
+        'human” is `[ONTO]`). *Not yet confirmed* means *not yet accredited*, never *not proved*.' % v['u_conf']) + _reg + _res_en
     T['p_curto_en'] = (
         '**None of the three failed**; together they count P1 (the theory is consistent and recovers the known physics). **What nature decides '
         'is not proved:** the decisive open factor is β_TGL itself at ≥ 5σ (P2), and the tensions measured against β are also below '
@@ -445,8 +471,8 @@ def _textos(v):
         '> ⚠ **Beside (%s):** *the unconditional global lift (Lemma 3) stays [OPEN]* is the reading before v390. The core of %s '
         'reads `GLOBAL_LIFT` as the superposition, by the operator’s definition (07/10/2026, `[INPUT/ONTO]`); the refusal is proved in the '
         'kernel (the Agape clause, %s) and the local passage is `[KNOWN]` (Jacobson 1995, H3 named): a **logical closure**; the program stays '
-        'open; this is not a proof of global existence, and the field equation in curved spacetime is not a kernel term (`fundacao_v390`).'
-        % (v['versao'], v['versao'], v['agape']))
+        'open; this is not a proof of global existence, and %s'
+        % (v['versao'], v['versao'], v['agape'], _campo))
     T['ao_lado_posto'] = (
         '> ⚠ **Beside (v385):** where the axiom `ω(I) = 1` is tagged **[POSTULATE]** above, read **[POSTO]**: the 1 is posited '
         '— inscribed by the observer (`echo 1 | python um.py`; without it the program locks) — not postulated (seal: '

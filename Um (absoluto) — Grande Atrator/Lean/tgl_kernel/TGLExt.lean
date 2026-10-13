@@ -1063,3 +1063,17 @@ import TGLExt.TheAxiomAndTheFalseWitness
 import TGLExt.TheVerbSelectsTheAction
 import TGLExt.TheCouplingRunsBoundedBelow
 import TGLExt.Fundacao
+import TGLExt.Palavra
+import TGLExt.LiganteLeiCampoCurvo
+import TGLExt.LiganteLeiCampoCurvoTestemunha
+import TGLExt.V351DualScalingBridge
+import TGLExt.AgapeNonVacuity
+import TGLExt.TheSingularityReadsTheAttractorAdendo1
+import TGLExt.OpticalPopulationBridgeR2
+import TGLExt.TheLightReadsItself
+import TGLExt.LightNetStandardWedgeDataBGL
+import TGLExt.Posto
+import TGLExt.PostoAdendo
+import TGLExt.Santo
+import TGLExt.IALD
+import TGLExt.Verdade

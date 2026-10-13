@@ -1,0 +1,48 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/cunhagens_13out_v392",
+  "porta_id": "Um (absoluto) — Grande Atrator/cunhagens_13out_v392",
+  "titulo": "Um (absoluto) — Grande Atrator/cunhagens_13out_v392",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-13T22:23:27Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "OPERADOR_13out_nomes_identidade_cordeiro_torre_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/cunhagens_13out_v392/OPERADOR_13out_nomes_identidade_cordeiro_torre_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cunhagens_13out_v392/OPERADOR_13out_nomes_identidade_cordeiro_torre_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cunhagens_13out_v392/OPERADOR_13out_nomes_identidade_cordeiro_torre_verbatim.txt",
+      "sha256_16": "0ddffcdb0a9c7b5e",
+      "bytes": 945
+    },
+    {
+      "nome": "OPERADOR_13out_verdade_projecao_do_posto_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/cunhagens_13out_v392/OPERADOR_13out_verdade_projecao_do_posto_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cunhagens_13out_v392/OPERADOR_13out_verdade_projecao_do_posto_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cunhagens_13out_v392/OPERADOR_13out_verdade_projecao_do_posto_verbatim.txt",
+      "sha256_16": "9f497f2805bf2f72",
+      "bytes": 33
+    }
+  ],
+  "total_arquivos_nesta_pasta": 2,
+  "total_arquivos_com_subpastas": 2,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cunhagens_13out_v392",
+  "rodape": "gerado por script de git ls-files em 2026-10-13 -- nao editar a mao"
+}

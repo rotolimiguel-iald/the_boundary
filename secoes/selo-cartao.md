@@ -1,10 +1,10 @@
-# Verification card · cartão de verificação — seal v391
+# Verification card · cartão de verificação — seal v392
 
-> Read from `um_absoluto_selo.json` and from the published bytes by script, 2026-10-07. A chat reader can **compare** these values; **recomputing** a sha256 needs the bytes (the commands are below). PROVED in the operator’s definition of proof, on three supports, each with its own status (kernel [PROVED]: the implication · rites: 0 of 11 charges of the theory falsified, 1 reading excluded · GPU [COMPUTED]) ≠ CONFIRMED (accreditation); what nature decides is not proved.
+> Read from `um_absoluto_selo.json` and from the published bytes by script, 2026-10-13. A chat reader can **compare** these values; **recomputing** a sha256 needs the bytes (the commands are below). PROVED in the operator’s definition of proof, on three supports, each with its own status (kernel [PROVED]: the implication · rites: 0 of 11 charges of the theory falsified, 1 reading excluded · GPU [COMPUTED]) ≠ CONFIRMED (accreditation); what nature decides is not proved.
 
-- version: **v391** · sealed 2026-10-07 19:08:57 · self-test `FAIL_CLOSED_SELFTEST_PASSED`
+- version: **v392** · sealed 2026-10-13 17:54:43 · self-test `FAIL_CLOSED_SELFTEST_PASSED`
 - identity: `1=1=VERDADEIRO=HAJA_LUZ`
-- result_hash (the world): `952aed6f09922c10bd03a64e5f14a0323cb22e8b5dc506fa1761e2a089e3bead`
+- result_hash (the world): `d53a19cb4e88b8ac576e83a9ea79e606fe9e0adb54fe0e7ef10d21a95e243a39`
 - gate: `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`
 - β: the seal carries no numeric β; it is computed at runtime as ALPHA_FINE_CODATA_2018 × √e. The world JSON (`core.beta`) holds 0.012031300400796606; Article A (`results.json`, `theorem_3.beta_TGL_check`) holds 0.012031300400803142 `[DERIVED]`.
 
@@ -12,35 +12,35 @@
 
 | file | bytes | sha256 | raw |
 |---|---|---|---|
-| `um.py` | 33.910.631 | `8e7b9927ceae64b8b6812019f77cca24c08296222ae7968af41baf2fe7a67dc6` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py |
-| `um_absoluto_manifest.md` | 1.492.407 | `c2396f46c7afe37475789b36dfbf5528748a651eee623201d427dab16476780e` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_manifest.md |
-| `um_absoluto.json` | 5.003.275 | `a74241ff380b1b0e3d44a8f2c39e7ad4d462624b145353f3e4d82f3131036e98` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json |
-| `um_absoluto_forma_canonica.md` | 231.479 | `192674fa0a530601a4c5a9b36042e811f31d5e2fa53bd1007a75d7c66d62bb15` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md |
-| `um_absoluto_pt.tex` | 984.694 | `5a49cc942af5e465fea45eb2be87dd1c1cd34d2e7e9bc6edc05a30a9a938c9aa` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/um_absoluto_pt.tex |
-| `um_absoluto_en.tex` | 989.987 | `c6bc976a65b2348ace24b7c2415c7c692360897cff998bb06e5726c3a5850295` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/um_absoluto_en.tex |
-| `um_absoluto_pt.pdf` | 2.255.233 | `7bd2184ed71be63d3f7acac26a6b81f2007c889bbe5690278e30b8eb144b3907` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.pdf |
-| `um_absoluto_en.pdf` | 2.234.386 | `edb005afdf7f50149db5c964691093dda442fcc3f55151974520a2246cf66a8f` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.pdf |
+| `um.py` | 35.399.393 | `b590c0aa80055e2a6916692f0808544093e79c0631e29cc15e376d5b07773e26` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py |
+| `um_absoluto_manifest.md` | 3.187.201 | `02300252f2aeb57694472f5093a454f9a18d05d09f3ea3000172c3ce29e785f3` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_manifest.md |
+| `um_absoluto.json` | 7.622.290 | `220b8cd0cde9de2a384edd7f882dffc5e4ea21fd8bd9c14052a6c717c5f10b36` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json |
+| `um_absoluto_forma_canonica.md` | 239.463 | `b94c43b7080cb00f6af5f93b2d307b8dbb79e1ef2cf78b4ea1bf8bce2b315fa2` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md |
+| `um_absoluto_pt.tex` | 1.012.261 | `b3bdfa02f85444df91b7ca2f03f9618966ad54b89c3850a5160a976cb20a80c0` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/um_absoluto_pt.tex |
+| `um_absoluto_en.tex` | 1.018.635 | `c3a67d332119d0250c79a2e3517e5a6e01f02d2c4128350e8fed74867dcc54e4` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/um_absoluto_en.tex |
+| `um_absoluto_pt.pdf` | 2.289.458 | `15dc5c604d99625beed67ca94e541aa3c340447ed2a6e55847a5813f294dfca4` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.pdf |
+| `um_absoluto_en.pdf` | 2.271.735 | `48f28bcef11daf7e4a395c2e055adbcf65aa6e72e0437dde2f351fb3ccb83f2d` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.pdf |
 | `fig_escada_qg.pdf` | 36.304 | `bfbe30776b05c9cce2886f7f268db09b7e4d0812409a199f84d3ee94d00b2c8d` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/fig_escada_qg.pdf |
 | `fig_banda_beta.pdf` | 27.719 | `dd953f1e75f445a112963fc9b036299f63ed6dcdf4a16d8c0382b490fd6fad1b` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/fig_banda_beta.pdf |
 | `fig_piso_vazios.pdf` | 21.839 | `c6e8260ceff24114d2a9248889fa87832009ef6390f5f8a6dceb3ed3bf155be1` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/fig_piso_vazios.pdf |
 | `fig_cadeia_inscricao.pdf` | 29.962 | `7ccc2c0a41da34a2442e1c853b4778d174329ec9d8dd739e4f41cb999883d068` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/fig_cadeia_inscricao.pdf |
-| `tgl_kernel_proof_manifest.json` | 1.479.329 | `afd57149c5b269287054e09a49ed95a4cbbf2ae04471530a27486590c604ad42` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json |
+| `tgl_kernel_proof_manifest.json` | 3.236.347 | `251034eccd15ffaf44e30a851f66368e3ce9f881c0efba4425679a90e5a45a19` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json |
 | `um_absoluto_pilar_quantico.json` | 29.885 | `de47d5527e514b4927bea77df4caffc63194e8913462bb6c3629b2288b29583e` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pilar_quantico.json |
 
 ## Readable twins outside the seal map (sha256 computed now from the published bytes)
 
 | file | bytes | sha256 | raw |
 |---|---|---|---|
-| `um_absoluto_pt.txt` | 866.721 | `4e8c68462429a7c10d062228c23403d52522ed5ed48ecbc23b257a6c2287a920` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt |
-| `um_absoluto_en.txt` | 880.042 | `c228df4d1231a90899f87a5bf8d20d7768cb647c8ec943068003504ab37e835b` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.txt |
-| `um_absoluto_selo.json` | 113.926 | `95061f18c7102248ebd00c9414f1ef0dadcf08cefc1bec00bf046d778b38070a` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json |
-| `rodada_v391_stdout.txt` | 223.374 | `d7604a4443a6ad57a8d3ec7598f2da1bd1c5a258be30b583658042101d998684` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v391_stdout.txt |
+| `um_absoluto_pt.txt` | 891.582 | `e2d3eedaf28ff7995755241a0238ee188dc7c65d8cf197d9077f019b683b4706` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt |
+| `um_absoluto_en.txt` | 905.998 | `69c58ba6af8aaf67906b3bfc09627231c5d830e4e920b052412f2afb9259b53a` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.txt |
+| `um_absoluto_selo.json` | 131.531 | `50bd1be10f9293e7116ceff442171022ecddedc904139f093a8b9524442257c3` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json |
+| `rodada_v392_stdout.txt` | 223.995 | `8cf393ab5aa2e26db845c3e152f127f0609e514ed237fa84c5c64e5ddd75fe80` | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v392_stdout.txt |
 
 ## Recompute (needs the bytes)
 
 ```bash
 curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"
-sha256sum um.py      # must print 8e7b9927ceae64b8b6812019f77cca24c08296222ae7968af41baf2fe7a67dc6
+sha256sum um.py      # must print b590c0aa80055e2a6916692f0808544093e79c0631e29cc15e376d5b07773e26
 curl -L -o selo.json "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json"
 python -c "import json;print(json.load(open('selo.json'))['sha256']['um.py'])"   # the same pin, read from the seal
 ```
