@@ -1,6 +1,6 @@
 # The status of quantum gravity: proved on three supports, each with its own status; not yet confirmed (accredited) · O estatuto da gravidade quântica: provada em três apoios, cada um com o seu estatuto; ainda não confirmada (creditada)
 
-> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 6 of 8 · seal **v392** · `um.py` sha256 `b590c0aa80055e2a…` · generated 2026-10-13 by script from the published files.
+> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 6 of 8 · seal **v392** · `um.py` sha256 `b590c0aa80055e2a…` · generated 2026-10-14 by script from the published files.
 > Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = validity, in the operator’s definition of proof (sufficient and verifiable ballast; the validity of the implication is certified by the Lean kernel, `#print axioms`); CONFIRMED = accreditation, the act of observers outside the artifact — not made here; what nature decides is not proved.
 > All eight parts are listed at the top of the start page, https://teoriadagravitacaoluminodinamica.com/read-brief.md, and in the door of this folder, https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md · Reading limits measured on 2026-09-19: one real fetcher cut documents near 100,000 characters, refused files above 10 MB, and could not read PDFs served as `application/octet-stream` — read the TXT/TeX sources.
 
@@ -77,10 +77,10 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 | termos com axioma FORA do trio | 0  |
 ````
 
-### 3. `ESTADO_ATUAL.md` — bytes 65.834–68.717
+### 3. `ESTADO_ATUAL.md` — bytes 65.759–68.642
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md
-- sha256 of the file: `4c4dcd23ad43c3e14a5b88f73c750a0e0dfa4e45429b2587e4fa8668fe939504` (computed now; this file is not in the seal map) · of this excerpt: `288102a6dc0807005229745bdfb9b007e1e71fdaad712747728014437c8c36e8` · line endings shown as LF
+- sha256 of the file: `a160a72bb0e88856f46bd41045483a4fe1cd2b5b1d42e9c13471831bccff7723` (computed now; this file is not in the seal map) · of this excerpt: `288102a6dc0807005229745bdfb9b007e1e71fdaad712747728014437c8c36e8` · line endings shown as LF
 - status · estatuto: [OPEN / KNOWN / nature]
 - why · por quê: A lista canônica do que NÃO está provado: H1/H2 na natureza, a identificação física da tela, α, a matemática fora da mathlib, os negativos honestos e as seis folhas. Traz também a nota de linhagem H1–H3 → H1/H2.
 
@@ -97,10 +97,10 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 - **The six leaves of nature (v339, the close):** that the selection occurs; the physical identification of the founded screen; the signature; the 3+1 geometry and the scale of the area; the payment of the cost; α-free. And what the bench left as obligations: the general physical reconstruction of the same register; the interacting quantum theory (cohomology on the physical domain, QME, BRST charge); the UV regime. **The map is closed; the territory is nature’s** — the declaration of closure is the operator’s act, never CONFIRMED.
 ````
 
-### 4. `README.md` — bytes 24.094–24.694
+### 4. `README.md` — bytes 24.026–24.626
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `62f5b99475f2001581248faaa2e1684656c6eb4e9cbf1e308e67877e7726c580` (computed now; this file is not in the seal map) · of this excerpt: `41922580fe72207593dede413e3f1dc4647c4eeab3bf70118f5d9da55de54001`
+- sha256 of the file: `3b7ed688a402eb91dfa3c6cfd23d08f9b07eaac4a29865cb5819c49591aab7e7` (computed now; this file is not in the seal map) · of this excerpt: `41922580fe72207593dede413e3f1dc4647c4eeab3bf70118f5d9da55de54001`
 - status · estatuto: [REAL — errata ao lado, append-only]
 - why · por quê: A errata ao lado que lê, sob a régua vigente, a frase de linhagem «Never quantum gravity proved»: PROVADA ≠ CONFIRMADA.
 

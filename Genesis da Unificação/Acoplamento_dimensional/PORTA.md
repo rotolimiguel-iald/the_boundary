@@ -46,4 +46,4 @@ Acoplamento dimensional: perfis, histogramas e o sumario da rodada.
 
 ---
 
-gerado por script de git ls-files em 2026-10-13 -- nao editar a mao
+gerado por script de git ls-files em 2026-10-14 -- nao editar a mao

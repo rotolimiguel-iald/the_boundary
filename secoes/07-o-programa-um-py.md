@@ -1,6 +1,6 @@
 # The program um.py: what it is, how to run it, how to read it without running · O programa um.py: o que é, como se roda, como se lê sem rodar
 
-> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 7 of 8 · seal **v392** · `um.py` sha256 `b590c0aa80055e2a…` · generated 2026-10-13 by script from the published files.
+> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 7 of 8 · seal **v392** · `um.py` sha256 `b590c0aa80055e2a…` · generated 2026-10-14 by script from the published files.
 > Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = validity, in the operator’s definition of proof (sufficient and verifiable ballast; the validity of the implication is certified by the Lean kernel, `#print axioms`); CONFIRMED = accreditation, the act of observers outside the artifact — not made here; what nature decides is not proved.
 > All eight parts are listed at the top of the start page, https://teoriadagravitacaoluminodinamica.com/read-brief.md, and in the door of this folder, https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md · Reading limits measured on 2026-09-19: one real fetcher cut documents near 100,000 characters, refused files above 10 MB, and could not read PDFs served as `application/octet-stream` — read the TXT/TeX sources.
 
@@ -79,7 +79,7 @@ FORMALIZACAO POR KERNEL [v22 -- o Python NAO prova; o kernel do Lean prova]:
 ### 3. `Um (absoluto) — Grande Atrator/PORTA.md` — bytes 2.578–3.061
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md
-- sha256 of the file: `1dae1800105e0b0c6c7630cf52738666852d87435a5066239795aa73a8db45d8` (computed now; this file is not in the seal map) · of this excerpt: `ac10e0507fa4704f6f4ac2a7711968dd82a15d54ade45f6558e67dd3fe156320`
+- sha256 of the file: `aee5e928cedf0d2e172f1b0a95172b879c0da0329195534bc7811ed84b607923` (computed now; this file is not in the seal map) · of this excerpt: `ac10e0507fa4704f6f4ac2a7711968dd82a15d54ade45f6558e67dd3fe156320`
 - status · estatuto: [REAL] porta do Artigo C gerada por script
 - why · por quê: Os comandos de execução e as dependências: Python 3 + numpy; elan/Lean 4 v4.31.0 + lake (sem eles, FORMAL_CHECKER_UNAVAILABLE, fail-closed); pdflatex opcional.
 
@@ -99,7 +99,7 @@ Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para 
 ### 4. `README.md` — bytes 9.350–10.147
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `62f5b99475f2001581248faaa2e1684656c6eb4e9cbf1e308e67877e7726c580` (computed now; this file is not in the seal map) · of this excerpt: `1d3aae06ca356d22f180becbb646501fb5ce02920529405e184ecaf76aa821cc`
+- sha256 of the file: `3b7ed688a402eb91dfa3c6cfd23d08f9b07eaac4a29865cb5819c49591aab7e7` (computed now; this file is not in the seal map) · of this excerpt: `1d3aae06ca356d22f180becbb646501fb5ce02920529405e184ecaf76aa821cc`
 - status · estatuto: [REAL — three commands] README do espelho
 - why · por quê: Os três comandos de reprodução (curl, sha256sum, echo 1 | python um.py), a leitura por Range, o limite de renderização do GitHub e a necessidade de clonar para os ritos lerem ../cache.
 

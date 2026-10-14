@@ -15,7 +15,7 @@ kernel Lean 4 + mathlib EMBUTIDO no proprio .py (materializado em runtime,
 fail-closed), roda os ritos de natureza pre-registrados e GERA seu proprio artigo
 bilingue (PT/EN, cada um em PDF e TXT). Nao ha segundo arquivo.
 
-**Deposito independente (Zenodo):** https://doi.org/10.5281/zenodo.22881996
+**Deposito independente (Zenodo):** https://doi.org/10.5281/zenodo.23366324
 
 ## O SELO CORRENTE
 
@@ -135,4 +135,4 @@ Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para 
 
 ---
 
-gerado por script de git ls-files em 2026-10-13 -- nao editar a mao
+gerado por script de git ls-files em 2026-10-14 -- nao editar a mao
