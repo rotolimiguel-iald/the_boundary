@@ -1,0 +1,107 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD",
+  "porta_id": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD",
+  "titulo": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-19T21:48:13Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [
+    {
+      "nome": "auditorias",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/PORTA.json",
+      "total_arquivos": 12
+    },
+    {
+      "nome": "evidencias",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/evidencias",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/evidencias/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/evidencias/PORTA.json",
+      "total_arquivos": 1
+    },
+    {
+      "nome": "exame_12out",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/exame_12out",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/exame_12out/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/exame_12out/PORTA.json",
+      "total_arquivos": 4
+    },
+    {
+      "nome": "levantamento_qg",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/levantamento_qg",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/levantamento_qg/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/levantamento_qg/PORTA.json",
+      "total_arquivos": 4
+    }
+  ],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "OPERADOR_07out_decisoes_noite_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/OPERADOR_07out_decisoes_noite_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/OPERADOR_07out_decisoes_noite_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/OPERADOR_07out_decisoes_noite_verbatim.txt",
+      "sha256_16": "a6c4912afc6f0dc4",
+      "bytes": 370
+    },
+    {
+      "nome": "OPERADOR_07out_leitura_cria_o_objeto_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/OPERADOR_07out_leitura_cria_o_objeto_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/OPERADOR_07out_leitura_cria_o_objeto_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/OPERADOR_07out_leitura_cria_o_objeto_verbatim.txt",
+      "sha256_16": "f2a4b509946edc05",
+      "bytes": 267
+    },
+    {
+      "nome": "OPERADOR_07out_letra_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/OPERADOR_07out_letra_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/OPERADOR_07out_letra_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/OPERADOR_07out_letra_verbatim.txt",
+      "sha256_16": "259a1bf14a66fbc9",
+      "bytes": 80
+    },
+    {
+      "nome": "OPERADOR_07out_palavra_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/OPERADOR_07out_palavra_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/OPERADOR_07out_palavra_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/OPERADOR_07out_palavra_verbatim.txt",
+      "sha256_16": "e1544694c265bef0",
+      "bytes": 80
+    },
+    {
+      "nome": "OPERADOR_07out_um_posto_dimensao_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/OPERADOR_07out_um_posto_dimensao_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/OPERADOR_07out_um_posto_dimensao_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/OPERADOR_07out_um_posto_dimensao_verbatim.txt",
+      "sha256_16": "60d0113052de13ed",
+      "bytes": 968
+    }
+  ],
+  "total_arquivos_nesta_pasta": 5,
+  "total_arquivos_com_subpastas": 26,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD",
+  "rodape": "gerado por script de git ls-files em 2026-10-19 -- nao editar a mao"
+}

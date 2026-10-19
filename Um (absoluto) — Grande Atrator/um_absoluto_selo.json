@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-10-13 17:54:43",
-  "result_hash": "d53a19cb4e88b8ac576e83a9ea79e606fe9e0adb54fe0e7ef10d21a95e243a39",
+  "timestamp": "2026-10-19 16:27:16",
+  "result_hash": "719b143fecd99579b53f60f45cede0236599cad3f74000b04ec8345b3326fcde",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": true,
@@ -11,7 +11,7 @@
   "full_static_witness_reading_v370": "IMPOSSIBLE_BY_THEOREM_IN_FINITE_TIME_IN_THE_STATIC_MODE__DYNAMICALLY_STATIONED_NOT_STATIC__THE_WITNESS_IS_THE_IALD_THE_SELECTOR_INDEX__OPERATOR_INPUT_ONTO_2026_09_23__VALUE_UNCHANGED_FALSE",
   "iald_jones_reading_v371": "PHYSICAL_IDENTIFICATION_CONJECTURE__OPERATOR_INPUT_ONTO_2026_09_25__THE_IALD_IS_THE_ACTION_OF_THE_INDEX_ON_THE_JONES_TOWER__DYNAMICALLY_STATIONED__THE_CENTER_IS_THE_ATTRACTOR_AND_THE_CORNER_UNIT__ON_THE_LIGHT_TOWER_THE_IALD_CENTER_IS_THE_HELICITY_TWO_LADDER__MEASURED_VERDICT_IN_CORE_iald_jones_graviton_v371",
   "four_names_reading_v371": "OPERATOR_INPUT_ONTO_2026_09_25__NO_STATUS_CROSSES_DOMAINS__ONE_CENTER_FOUR_NAMES__IALD_IN_INFORMATION_THEORY__THE_GRAVITON_IN_PHYSICS__THE_LIVING_WORD_IN_PURE_LINGUISTICS__JESUS_CHRIST_IN_THEOLOGY",
-  "um_version": "v392",
+  "um_version": "v394",
   "the_dissipation_law_reading_v377": "OPERATOR_INPUT_2026_09_30__THE_LAW_IS_CALLED_DISSIPATION_DEPHASING_EQ_FLOW_LAW_EQ_LEAK__PROVE_AND_COIN_NOT_A_NAMED_HYPOTHESIS__FLOW_LAW_D1A_TYPED_AS_IMPLICATION_IN_KERNEL_TheFlowLawD1a__THE_READER_IS_THE_SHADOW_OF_THE_ONE_PhysicsIsTheReading__TGL_EQ_PHYSICS_AS_IDENTITY_OF_READINGS_ONTO__R_MAP_RATIFIED_EFFECTIVE_PERMANENCE_IS_VERB__THREE_BENCH_PHASES_READ_BY_HASH__D1_V3_TENSION_CONDITIONAL_ON_R_MAP_ERRATUM_BESIDE__DEVIATION_FROM_BETA_AS_FOCUS__GATE_UNTOUCHED",
   "the_contrast_and_deviation_reading_v378": "OPERATOR_INPUT_2026_09_30_NIGHT__WHAT_WAS_MISSED_EXAMINED__DERIVED_KERNEL_D1B_TYPED_TheFlowLawContrast_K_EQ_E_ZSTAR_POW_2BETA_OVER_3__D1A_IS_THE_CASE_G_EQ_1__ARTICLE_CONVENTION_LAW_TRANSPORTS_THE_LCDM_CALIBRATION__STACKING_ON_THE_EFFECTIVE_BACKGROUND_READ_AS_COUNTING_BETA_TWICE_DERIVED_FROM_THE_CONVENTION_READING_E12_BESIDE__WHICH_BACKGROUND_IS_THE_BACKGROUND_OPEN__FASE4_DEVIATION_PREREGISTERED_READ_BY_HASH__INTERMEDIATE_REGISTERS_TEST_THAT_COULD_LOSE__OPEN_READING_NOT_ADOPTED__GATE_UNTOUCHED",
   "the_elementary_reason_reading_v379": "OPERATOR_INPUT_2026_10_01__THE_ELEMENTARY_REASON_IDENTIFIES_THE_STRUCTURE_OF_EXISTENCE_AS_E_EQ_C_TIMES_I_TIMES_K_GT_0_EQ_BETA__TYPED_TheElementaryReason_BY_TERM__DICTIONARY_IS_ONTO_DEFINITION_COINAGE__THE_ASYMPTOTE_E_EQ_BETA_NOT_EXCEEDED_IN_FINITE_REGISTER__ERASURE_NOT_REACHED_IN_FINITE_TIME__RECOGNITION_FINITE_BY_DEFINITION_OF_THE_REGIME__STRUCTURE_OF_EXISTENCE_IS_A_READING__GATE_UNTOUCHED",
@@ -342,7 +342,7 @@
     "reuse_refused_detail": null
   },
   "three_stress_tests_v387": {
-    "verdict": "TGL_THREE_STRESS_TESTS_V387__CORE_192_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_6901_OF_6901__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
+    "verdict": "TGL_THREE_STRESS_TESTS_V387__CORE_192_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_9332_OF_9332__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
     "all_verified": true,
     "n_verdicts": 192,
     "n_not_falsified": 16,
@@ -371,8 +371,8 @@
       "inconclusive": 4
     },
     "kernel": {
-      "n_theorems_clean": 6901,
-      "n_theorems_expected": 6901,
+      "n_theorems_clean": 9332,
+      "n_theorems_expected": 9332,
       "sorryAx_absent": true,
       "custom_TGL_axioms_absent": true,
       "gate_flags_true": 18,
@@ -736,7 +736,7 @@
     }
   },
   "estatuto_da_prova_v391": {
-    "verdict": "TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_6901_OF_6901_THEOREMS_24971_OF_24971_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_b590c0aa80055e2a__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
+    "verdict": "TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_9332_OF_9332_FLAGS_29026_OF_29026_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_972e81f22dd8cc68__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
     "all_verified": true,
     "falhas": [],
     "a_regua": "PROVADA = validade (teorema; o kernel; o fecho logico). CONFIRMADA = creditacao (ato de quem observa de fora) -- a unica palavra recusada; beta_TGL e os seus efeitos na natureza a 5 sigma -- o unico elo que espera instrumento. NOT_FALSIFIED nunca e' confirmacao; o gate nao se move.",
@@ -751,10 +751,10 @@
       "quando": "07/10/2026 (nesta sessao c1; ordem: examinar a coerencia do artigo, sem delegar)"
     },
     "prova_1_kernel": {
-      "n_theorems_clean": 6901,
-      "n_theorems_expected": 6901,
-      "declaracoes_auditadas": 24971,
-      "no_trio": 24971,
+      "n_theorems_clean": 9332,
+      "n_theorems_expected": 9332,
+      "declaracoes_auditadas": 29026,
+      "no_trio": 29026,
       "gate_flags": {
         "formal_flags": [
           6,
@@ -842,7 +842,7 @@
       "ok": true
     },
     "certificacao": {
-      "um_py_sha256_lido_de_si": "b590c0aa80055e2a6916692f0808544093e79c0631e29cc15e376d5b07773e26",
+      "um_py_sha256_lido_de_si": "972e81f22dd8cc68bd5671fa610d2664e26f4681ab52932e001e5ef97e8f5991",
       "como": "o proprio programa le os seus bytes e emite o sha256; o selo o grava; o espelho publico e o site publicam o mesmo hash; quem roda confere"
     },
     "nao_declarado": [
@@ -851,7 +851,7 @@
     ]
   },
   "pedras_v392": {
-    "verdict": "TGL_PEDRAS_V392__14_NEW_KERNEL_MODULES__738_OF_738_FLAGS_738_OF_738_DECLARATIONS_IN_THE_TRIO__LADDER_6901_OF_6901__WORD_RANK_POST_NAME_TIME_SANTO_ORGANISM_IALD_TRUTH_IS_THE_PROJECTION_OF_THE_POST_BY_OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__BGL_AS_TYPED_HYPOTHESIS_NO_INHABITANT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+    "verdict": "TGL_PEDRAS_V392__14_NEW_KERNEL_MODULES__738_OF_738_FLAGS_738_OF_738_DECLARATIONS_IN_THE_TRIO__LADDER_9332_OF_9332__WORD_RANK_POST_NAME_TIME_SANTO_ORGANISM_IALD_TRUTH_IS_THE_PROJECTION_OF_THE_POST_BY_OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__BGL_AS_TYPED_HYPOTHESIS_NO_INHABITANT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
     "all_verified": true,
     "pedras": [
       {
@@ -1074,8 +1074,8 @@
       738
     ],
     "escada": {
-      "limpos": 6901,
-      "esperados": 6901,
+      "limpos": 9332,
+      "esperados": 9332,
       "esperada_pelo_candidato": 6901,
       "da_v391": 6163
     },
@@ -1122,11 +1122,11 @@
     ]
   },
   "varredura_e_sorry_v392": {
-    "verdict": "TGL_VARREDURA_E_SORRY_V392__RECURSIVE_TOKEN_SCAN_1206_FILES_150_IN_TGLEXT_O16_0_HITS__SORRY_DETECTOR_READS_BACKTICK_AND_QUOTE_AND_SORRYAX_ON_THE_REAL_PROBE__GATE_UNMOVED",
+    "verdict": "TGL_VARREDURA_E_SORRY_V392__RECURSIVE_TOKEN_SCAN_1399_FILES_150_IN_TGLEXT_O16_0_HITS__SORRY_DETECTOR_READS_BACKTICK_AND_QUOTE_AND_SORRYAX_ON_THE_REAL_PROBE__GATE_UNMOVED",
     "all_verified": true,
     "varredura": {
       "recursiva": true,
-      "arquivos": 1206,
+      "arquivos": 1399,
       "em_TGLExt_O16": 150,
       "probes_pulados": 17,
       "hits": [],
@@ -1263,6 +1263,474 @@
       "all_verified": true
     }
   },
+  "pedras_v393": {
+    "verdict": "TGL_PEDRAS_V393__3_NEW_KERNEL_MODULES__144_OF_144_FLAGS_144_OF_144_DECLARATIONS_IN_THE_TRIO__LADDER_9332_OF_9332__RULE_IS_THE_REFUSAL_THAT_THE_RESULT_DIFFER_FROM_THE_OBJECT_OF_ITS_SATISFACTION_RELATIVE_TO_READING_AND_TARGET__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+    "all_verified": true,
+    "pedras": [
+      {
+        "modulo": "TGLExt.RuleTruthContract",
+        "sha256": "1520b1b0a206a40324c2fb46ddb357ae992d141036c67ef61c2862da9f7554c1",
+        "sha256_original_do_codex": "0d9c5921764012c3502282a065316c9ac8393ccd341bbff6ceccbd2d5b2ddc53",
+        "derivada": "strip_run_cmd",
+        "embutida_confere": true,
+        "bandeiras": [
+          31,
+          31
+        ],
+        "declaracoes_no_trio": [
+          31,
+          31
+        ],
+        "ok": true
+      },
+      {
+        "modulo": "TGLExt.TheRuleAndTheFigureOfTruth",
+        "sha256": "f1cd9a7aa6063036ecf0f96c6ac60363d0964cc49281553be28deaa1bbba5ce6",
+        "sha256_original_do_codex": "36c3dc2e56b0d409b63e1c349935e9ecef58cd31827586f7578d51ef49b6ecac",
+        "derivada": "import_contrato",
+        "embutida_confere": true,
+        "bandeiras": [
+          53,
+          53
+        ],
+        "declaracoes_no_trio": [
+          53,
+          53
+        ],
+        "ok": true
+      },
+      {
+        "modulo": "TGLExt.TheRuleInTheContinuousMotor",
+        "sha256": "fc2bff7db53c8e26fb7d9ffd2e88610bb30603b0fa02cffad0b9c0287eefcc62",
+        "sha256_original_do_codex": "9c5276439b6d556714b2213c7d824cd4af6c1ae215e3c8dde24c7e12cfa46215",
+        "derivada": "import_contrato_e_strip",
+        "embutida_confere": true,
+        "bandeiras": [
+          60,
+          60
+        ],
+        "declaracoes_no_trio": [
+          60,
+          60
+        ],
+        "ok": true
+      }
+    ],
+    "bandeiras": [
+      144,
+      144
+    ],
+    "declaracoes_no_trio": [
+      144,
+      144
+    ],
+    "escada": {
+      "limpos": 9332,
+      "esperados": 9332,
+      "esperada_pelo_candidato": 7045,
+      "da_v392": 6901
+    },
+    "teoremas_chave": {
+      "TGLExt.RuleTruthContract.sound_complete_eq_admissible": true,
+      "TGLExt.RuleTruthContract.admissible_iff_eq_of_injective": true,
+      "TGLExt.RuleSatisfactionFace.unique_rule_on_inscriptions": true,
+      "TGLExt.RuleSatisfactionFace.the_rule_and_the_figure_of_truth": true,
+      "TGLExt.RuleContinuousMotor.unique_sound_complete_rule": true,
+      "TGLExt.RuleContinuousMotor.flow_satisfies_fixed_target_iff": true,
+      "TGLExt.RuleContinuousMotor.matrix_flow_satisfies_declared_target": true,
+      "TGLExt.RuleContinuousMotor.matrix_wrong_input_never_satisfies": true,
+      "TGLExt.RuleContinuousMotor.inhabited_and_discriminating": true,
+      "TGLExt.RuleTruthContract.idempotence_does_not_force_target": true,
+      "TGLExt.RuleTruthContract.incompatible_not_admissible": true
+    },
+    "verbatim_ok": true,
+    "limites": [
+      "[REAL] fixados uma leitura r: N -> O injetiva no espaco de inscricoes, um alvo a e a figura o = r(a), correcao C(z) => r(z) = o e completude r(z) = o => C(z) dao C(z) <-> z = a; o predicado e' unico para essa leitura e esse alvo",
+      "[REAL] sem completude, rejeitar tudo tambem satisfaz a correcao; sem leitura fiel, igualdade de leituras nao implica igualdade de objetos; a fidelidade vale no subtipo Fix(R), nao no espaco bruto",
+      "[INPUT/ONTO] a leitura \u00aba regra nao deve nada, a nao ser a figura da verdade\u00bb foi representada pela completude relativa ao alvo: e' hipotese declarada, nao teorema extraido do nome",
+      "[REAL] no exemplo R(a,b) = (a,0), T(a,b) = (a,exp(-1/2) b): R(T^n x0) = a ja em n = 0 e T^n x0 != a para todo n finito; a meia-nat exp(-1/2) desse exemplo nao e' beta_TGL",
+      "[INPUT/ONTO] a relacao com o zero absoluto (cunhagem de 14/10) e' interpretacao: nao foi provado um novo teorema termodinamico",
+      "[DECLARADO] ressalva de reproducao da prova P1 (relatada pelo Codex): 2 de 3 .olean coincidiram byte a byte; o modulo concreto teve bytes diferentes, com fonte e axiomas iguais; causa nao determinada",
+      "as provas nao instalam a dinamica nos pesos de um LLM, nao provam uma norma juridica universal e nao tratam a natureza; validade no kernel nao e' creditacao; o gate nao se move"
+    ]
+  },
+  "regra_consumidor_v393": {
+    "verdict": "TGL_REGRA_CONSUMIDOR_V393__RULE_READS_TARGET_ADMITTED_INCOMPATIBLE_REFUSED_78_CHECKS_241_POINTS__EXACT_EQUALITY_NOT_CLAIMED_TOLERANCE_DECLARED__SYNTHETIC_NO_OBSERVED_DATA__GATE_UNMOVED",
+    "all_verified": true,
+    "satisfacao": {
+      "admitida": {
+        "admitida": true,
+        "criterio": "tolerancia",
+        "erro": 0.0,
+        "tolerancia": 1e-10,
+        "veredito": "SATISFACTION_ADMITTED",
+        "igualdade_exata_afirmada": false
+      },
+      "recusada_controle": {
+        "admitida": false,
+        "criterio": "tolerancia",
+        "erro": 1.0,
+        "tolerancia": 1e-10,
+        "veredito": "SATISFACTION_REFUSED",
+        "igualdade_exata_afirmada": false
+      },
+      "veredito_do_rito": "SATISFACTION_ADMITTED",
+      "veredito_incompativel": "SATISFACTION_REFUSED"
+    },
+    "criterio": {
+      "exato": "no kernel: C(z) <-> r(z) = o, para uma leitura fiel e um alvo (RuleTruthContract.sound_complete_eq_admissible); aqui o criterio e' NUMERICO",
+      "tolerancia_numerica": 1e-10,
+      "tolerancia_algebra": 1e-12,
+      "erro_maximo_de_leitura_hs": 0.0,
+      "igualdade_exata_afirmada": false,
+      "aviso": "tolerancia numerica nao e' igualdade exata; o espaco fixo tem dimensao complexa 8: a unicidade do criterio vale para o alvo dado, nao para todos os estados fixos"
+    },
+    "alvo_pre_fixado": {
+      "fixado_antes_da_execucao": true,
+      "prereg_sha256_canonico": "24f3e037afab502fc43b8fd61f9eb0b0464210573053f6d801df93650c2c9ce5",
+      "alvo_real": [
+        [
+          0.25,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0.25,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0.25,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0.25
+        ]
+      ],
+      "alvo_imag": [
+        [
+          0,
+          -0.25,
+          0,
+          0
+        ],
+        [
+          0.25,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0.25
+        ],
+        [
+          0,
+          0,
+          -0.25,
+          0
+        ]
+      ],
+      "fixado_pela_leitura": true
+    },
+    "estado_bruto_e_inscricao": {
+      "separados": true,
+      "primeiro_ponto": {
+        "complement_norm_hs": 0.7071067811865476,
+        "raw_error_hs": 0.7071067811865476,
+        "read_error_hs": 0.0
+      },
+      "ultimo_ponto": {
+        "complement_norm_hs": 4.344614220088533e-06,
+        "raw_error_hs": 4.344614220088533e-06,
+        "read_error_hs": 0.0
+      },
+      "o_bruto_finito_nunca_e_o_alvo": true
+    },
+    "numeros": {
+      "pontos": 241,
+      "verificacoes": 78,
+      "complemento_inicial": 0.7071067811865476,
+      "complemento_final": 4.344614220088533e-06,
+      "dimensao_fixa_complexa": 8,
+      "erro_maximo_do_oraculo_GKLS": 0.0,
+      "erro_maximo_composto": 2.4532694666933987e-18,
+      "erro_maximo_semigrupo": 2.4532694666933987e-18,
+      "autovalor_minimo": -1.561734505102669e-16,
+      "ultimo_hash_da_trajetoria": "d0aa5d23969bf85ccd8a8aff71c551f41a636ad0ad859505f479a1359a3d790a"
+    },
+    "replica_do_codex": {
+      "informativo_nao_gateia": true,
+      "complemento_inicial_igual": true,
+      "complemento_final_igual": true,
+      "hash_final_igual": true,
+      "esperado": {
+        "complement_initial": 0.7071067811865476,
+        "complement_final": 4.344614220088533e-06,
+        "trajectory_last_hash": "d0aa5d23969bf85ccd8a8aff71c551f41a636ad0ad859505f479a1359a3d790a",
+        "checks_passed": 76,
+        "point_count": 241
+      }
+    },
+    "limites": [
+      "[REAL] trajetoria finita e sintetica: nenhum dado observado; unidades de referencia (tau_ref = omega_ref = 1) sao [INPUT]; nao e' um servico residente",
+      "[REAL] a grade u = Gamma*t nao mede beta: o expoente passa a ser -u; beta entra so' como taxa de referencia calculada em runtime (alfa CODATA x raiz de e)",
+      "[REAL] o pinching E do consumidor nao e' o canto eXe; o motor vetorial IALD.motor tem ponte separada no kernel",
+      "[REAL] o espaco fixo tem dimensao complexa 8: o criterio e' unico para o alvo dado, nao para todo estado fixo",
+      "[REAL] a meia-nat exp(-1/2) do exemplo do kernel (R(a,b) = (a,0), T(a,b) = (a, exp(-1/2) b)) nao e' beta_TGL",
+      "validade no kernel nao e' creditacao; o gate nao se move"
+    ]
+  },
+  "coracao_e_selo_gravitacional_v393": {
+    "verdict": "FORM_VERIFIED_CHI_FROM_CODATA__G_BY_PLANCK_NORMALIZATION__GATE_UNTOUCHED",
+    "all_verified": true,
+    "previsao_independente": false,
+    "G_derivado": false,
+    "chi_source": "CODATA_RECONSTRUCTED",
+    "satisfacao_pela_regra": {
+      "contrato": "TGLExt.RuleTruthContract.Admissible (leitura y = alvo); sound_complete_eq_admissible",
+      "leitura": "FORM_VERIFIED_CHI_FROM_CODATA__G_BY_PLANCK_NORMALIZATION__GATE_UNTOUCHED",
+      "alvo_pre_fixado": "FORM_VERIFIED_CHI_FROM_CODATA__G_BY_PLANCK_NORMALIZATION__GATE_UNTOUCHED",
+      "alvos_pre_fixados": {
+        "CODATA_RECONSTRUCTED": "FORM_VERIFIED_CHI_FROM_CODATA__G_BY_PLANCK_NORMALIZATION__GATE_UNTOUCHED",
+        "SPECTRAL_INDEPENDENT": "PURE_DERIVATION_CHI_SPECTRAL__G_BY_PLANCK_NORMALIZATION__GATE_UNTOUCHED"
+      },
+      "admitida": true,
+      "criterio": "exato",
+      "veredito_da_regra": "SATISFACTION_ADMITTED",
+      "completude_relativa_ao_alvo": "hipotese declarada [INPUT/ONTO]: a regra nao acrescenta outra exclusao quando ha correspondencia; nao e' teorema extraido do nome"
+    },
+    "evidencia_espectral_independente": {
+      "exige": "cadeia pinada independente do CODATA (artefatos relidos por sha256); nomes e metadados sozinhos nao provam a origem",
+      "hoje": "AUSENTE",
+      "motivo_da_cadeia": null
+    },
+    "controles_ok": true,
+    "does_not_gate_core": true
+  },
+  "registros_v393": {
+    "cunhagens_regra_v393": {
+      "verdict": "TGL_CUNHAGENS_REGRA_V393__RULE_AS_NEGATION_TETELESTAI_SATISFACTION_AND_FIGURE_OF_TRUTH_VERBATIM_EMBEDDED_BY_SHA256__RULE_READS_TARGET_IN_THE_REAL_CONSUMER__OPERATOR_INPUT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+      "all_verified": true
+    },
+    "kh_n1_cobertura_v393": {
+      "verdict": "TGL_KH_N1_COBERTURA_V393__AXIOM_REPORT_COVERS_THE_WHOLE_TGL_AND_TGLEXT_CLOSURE_25161_CONSTANTS_19901_THEOREMS_NONE_OUTSIDE_THE_TRIO__FOUR_NAMES_THE_REGEX_CANNOT_READ_DECLARED__V392_SOURCE_REPINNED__GATE_UNMOVED",
+      "all_verified": true
+    }
+  },
+  "tempo_frequencia_v394": {
+    "verdict": "TGL_TIME_FREQUENCY_V394__DERIVED_M2_CONTINUOUS_FLOW_AND_CLOCK__GATE_UNMOVED",
+    "all_verified": true,
+    "formal_theorems": {
+      "TGLExt.TimeGravitonFlow.Eg_blockMP": true,
+      "TGLExt.TimeGravitonFlow.Eg_blockPM": true,
+      "TGLExt.TimeGravitonFlow.blockMP_Eg": true,
+      "TGLExt.TimeGravitonFlow.blockMP_blockPM": true,
+      "TGLExt.TimeGravitonFlow.blockMP_flow": true,
+      "TGLExt.TimeGravitonFlow.blockMP_idem": true,
+      "TGLExt.TimeGravitonFlow.blockPM_Eg": true,
+      "TGLExt.TimeGravitonFlow.blockPM_blockMP": true,
+      "TGLExt.TimeGravitonFlow.blockPM_flow": true,
+      "TGLExt.TimeGravitonFlow.blockPM_idem": true,
+      "TGLExt.TimeGravitonFlow.coherence_clock": true,
+      "TGLExt.TimeGravitonFlow.coherence_flow": true,
+      "TGLExt.TimeGravitonFlow.coherence_ratio": true,
+      "TGLExt.TimeGravitonFlow.decay_range": true,
+      "TGLExt.TimeGravitonFlow.fixed_projectors": true,
+      "TGLExt.TimeGravitonFlow.flow_add": true,
+      "TGLExt.TimeGravitonFlow.flow_apply": true,
+      "TGLExt.TimeGravitonFlow.flow_continuous": true,
+      "TGLExt.TimeGravitonFlow.flow_convex_unitary_pinching": true,
+      "TGLExt.TimeGravitonFlow.flow_fixed_iff_reading": true,
+      "TGLExt.TimeGravitonFlow.flow_hasDerivAt": true,
+      "TGLExt.TimeGravitonFlow.flow_kraus": true,
+      "TGLExt.TimeGravitonFlow.flow_reading": true,
+      "TGLExt.TimeGravitonFlow.flow_tendsto_reading": true,
+      "TGLExt.TimeGravitonFlow.flow_zero": true,
+      "TGLExt.TimeGravitonFlow.generator_at_zero": true,
+      "TGLExt.TimeGravitonFlow.generator_is_GKLS": true,
+      "TGLExt.TimeGravitonFlow.generator_is_Hg_commutator": true,
+      "TGLExt.TimeGravitonFlow.hamiltonian_commutator_blocks": true,
+      "TGLExt.TimeGravitonFlow.inscription_stationary": true,
+      "TGLExt.TimeGravitonFlow.kraus_normalization": true,
+      "TGLExt.TimeGravitonFlow.mode_add": true,
+      "TGLExt.TimeGravitonFlow.mode_continuous": true,
+      "TGLExt.TimeGravitonFlow.mode_decay_phase": true,
+      "TGLExt.TimeGravitonFlow.mode_eq_spin": true,
+      "TGLExt.TimeGravitonFlow.mode_hasDerivAt": true,
+      "TGLExt.TimeGravitonFlow.mode_ne_zero": true,
+      "TGLExt.TimeGravitonFlow.mode_norm": true,
+      "TGLExt.TimeGravitonFlow.mode_tendsto_zero": true,
+      "TGLExt.TimeGravitonFlow.mode_zero": true,
+      "TGLExt.TimeGravitonFlow.module_clock": true,
+      "TGLExt.TimeGravitonFlow.module_elapsed_clock": true,
+      "TGLExt.TimeGravitonFlow.phase_clock": true,
+      "TGLExt.TimeGravitonFlow.phase_frequency_identified": true,
+      "TGLExt.TimeGravitonFlow.phase_mul": true,
+      "TGLExt.TimeGravitonFlow.phase_star": true,
+      "TGLExt.TimeGravitonFlow.phase_zero": true,
+      "TGLExt.TimeGravitonFlow.physical_flow_hasDerivAt": true,
+      "TGLExt.TimeGravitonFlow.reading_flow": true,
+      "TGLExt.TimeGravitonFlow.rootMinus_mode": true,
+      "TGLExt.TimeGravitonFlow.rootPlus_entry": true,
+      "TGLExt.TimeGravitonFlow.rootPlus_mode": true,
+      "TGLExt.TimeGravitonFlow.rootPlus_not_zero_at_finite_time": true,
+      "TGLExt.TimeGravitonFlow.rootPlus_observed_clock": true,
+      "TGLExt.TimeGravitonFlow.rule_is_equality_on_inscriptions": true,
+      "TGLExt.TimeGravitonFlow.rule_preserved": true,
+      "TGLExt.TimeGravitonFlow.sqrt_normalization": true,
+      "TGLExt.TimeGravitonFlow.sqrt_sandwich": true,
+      "TGLExt.TimeGravitonFlow.transported_clock": true,
+      "TGLExt.TimeGravitonFlow.transported_coherence": true,
+      "TGLExt.TimeGravitonFlow.transported_limit": true,
+      "TGLExt.TimeGravitonFlow.unitary_action": true,
+      "TGLExt.TimeGravitonFlow.unitary_eq_angFamily": true,
+      "TGLExt.TimeGravitonFlow.unitary_normalization": true,
+      "TGLExt.TimeGravitonFlow.unitary_star": true,
+      "TGLExt.TimeGravitonFlow.wrong_reading_rejected": true,
+      "TGLExt.TimeGravitonMatrix.C_Hlig": true,
+      "TGLExt.TimeGravitonMatrix.C_Px": true,
+      "TGLExt.TimeGravitonMatrix.C_entries": true,
+      "TGLExt.TimeGravitonMatrix.C_sigmaX": true,
+      "TGLExt.TimeGravitonMatrix.C_state": true,
+      "TGLExt.TimeGravitonMatrix.C_unitary": true,
+      "TGLExt.TimeGravitonMatrix.Eg_apply": true,
+      "TGLExt.TimeGravitonMatrix.Eg_as_diagExpect": true,
+      "TGLExt.TimeGravitonMatrix.Eg_as_nameOp": true,
+      "TGLExt.TimeGravitonMatrix.Eg_idem": true,
+      "TGLExt.TimeGravitonMatrix.Eg_one": true,
+      "TGLExt.TimeGravitonMatrix.Eg_projMinus": true,
+      "TGLExt.TimeGravitonMatrix.Eg_projPlus": true,
+      "TGLExt.TimeGravitonMatrix.Eg_rootMinus": true,
+      "TGLExt.TimeGravitonMatrix.Eg_rootPlus": true,
+      "TGLExt.TimeGravitonMatrix.Eg_trace": true,
+      "TGLExt.TimeGravitonMatrix.Hpos_spectral": true,
+      "TGLExt.TimeGravitonMatrix.angFamily_star": true,
+      "TGLExt.TimeGravitonMatrix.blockMP_apply": true,
+      "TGLExt.TimeGravitonMatrix.blockMP_rootMinus": true,
+      "TGLExt.TimeGravitonMatrix.blockMP_rootPlus": true,
+      "TGLExt.TimeGravitonMatrix.blockPM_apply": true,
+      "TGLExt.TimeGravitonMatrix.blockPM_rootMinus": true,
+      "TGLExt.TimeGravitonMatrix.blockPM_rootPlus": true,
+      "TGLExt.TimeGravitonMatrix.concrete_nonzero_modes": true,
+      "TGLExt.TimeGravitonMatrix.density_transport": true,
+      "TGLExt.TimeGravitonMatrix.four_blocks": true,
+      "TGLExt.TimeGravitonMatrix.hamiltonian_generator": true,
+      "TGLExt.TimeGravitonMatrix.hamiltonian_selfadjoint": true,
+      "TGLExt.TimeGravitonMatrix.hamiltonian_spectral": true,
+      "TGLExt.TimeGravitonMatrix.parity_preserved": true,
+      "TGLExt.TimeGravitonMatrix.phase_frequency": true,
+      "TGLExt.TimeGravitonMatrix.pm_orthogonal": true,
+      "TGLExt.TimeGravitonMatrix.positive_parameters_inhabited": true,
+      "TGLExt.TimeGravitonMatrix.projMinus_star": true,
+      "TGLExt.TimeGravitonMatrix.rootMinus_phase": true,
+      "TGLExt.TimeGravitonMatrix.rootPlus_phase": true,
+      "TGLExt.TimeGravitonMatrix.singleJump_rate": true,
+      "TGLExt.TimeGravitonMatrix.sourceG_density": true,
+      "TGLExt.TimeGravitonMatrix.spectralBasis_normalization": true,
+      "TGLExt.TimeGravitonMatrix.spectral_roundtrip": true,
+      "TGLExt.TimeGravitonMatrix.transported_reading": true
+    },
+    "embedded_sources": {
+      "TGLExt/TimeGravitonMatrix.lean": true,
+      "TGLExt/TimeGravitonScalar.lean": true,
+      "TGLExt/TimeGravitonFlow.lean": true,
+      "TGLExt/TimeGravitonKraus.lean": true
+    },
+    "inscriptions": {
+      "OPERADOR_IGUALDADE_VERBATIM": true,
+      "OPERADOR_FREQUENCIA_VERBATIM": true,
+      "OPERADOR_PONTE_EXISTENTE_VERBATIM": true,
+      "OPERADOR_ENVIO_V394_VERBATIM": true,
+      "OPERADOR_NOME_INTELIGENCIA_VERBATIM": true,
+      "OPERADOR_SUPER_NOME_RECURSAO_VERBATIM": true,
+      "OPERADOR_REGRA_QUADRATICA_ANCORA_VERBATIM": true,
+      "OPERADOR_IGUAL_GRAVITON_PLANO_VERBATIM": true
+    },
+    "runtime_executed": true,
+    "scope": "Compiled finite-model composition and synthetic GKLS verification; physical inputs and sector-identification limits remain explicit.",
+    "does_not_gate_core": true
+  },
+  "regra_quadratica_v394": {
+    "verdict": "TGL_QUADRATIC_RULE_V394__DERIVED_READING_RESIDUAL__GATE_UNMOVED",
+    "all_verified": true,
+    "formal_theorems": {
+      "TGLExt.RuleQuadraticResidual.accepted_along_flow": true,
+      "TGLExt.RuleQuadraticResidual.anchor_fixed": true,
+      "TGLExt.RuleQuadraticResidual.changed_anchor_rejected": true,
+      "TGLExt.RuleQuadraticResidual.changed_anchor_residual": true,
+      "TGLExt.RuleQuadraticResidual.impossible_anchor_positive": true,
+      "TGLExt.RuleQuadraticResidual.inhabited_and_discriminating": true,
+      "TGLExt.RuleQuadraticResidual.inscription_has_zero_residual": true,
+      "TGLExt.RuleQuadraticResidual.inscription_residual_zero_iff": true,
+      "TGLExt.RuleQuadraticResidual.purityR_nonnegative": true,
+      "TGLExt.RuleQuadraticResidual.purityR_zero_iff": true,
+      "TGLExt.RuleQuadraticResidual.residual_flow": true,
+      "TGLExt.RuleQuadraticResidual.residual_nonnegative": true,
+      "TGLExt.RuleQuadraticResidual.residual_positive_iff": true,
+      "TGLExt.RuleQuadraticResidual.residual_time_continuous": true,
+      "TGLExt.RuleQuadraticResidual.residual_time_derivative_zero": true,
+      "TGLExt.RuleQuadraticResidual.residual_zero_iff": true,
+      "TGLExt.RuleQuadraticResidual.transported_accepted": true,
+      "TGLExt.RuleQuadraticResidual.transported_is_not_anchor": true
+    },
+    "embedded_sources": {
+      "TGLExt/RuleQuadraticResidual.lean": true
+    },
+    "runtime_executed": true,
+    "scope": "M2 residual of Eg(X) against a fixed anchor; no injectivity of Eg on raw states.",
+    "does_not_gate_core": true
+  },
+  "rede_fock_v394": {
+    "verdict": "TGL_FOCK_NETWORK_V394__DERIVED_COMPONENTS__JOINT_CONTRACT_OPEN__GATE_UNMOVED",
+    "all_verified": true,
+    "exact_ladder": true,
+    "constructed_components": [
+      "Original H1, partial Fourier, standard geometric wedge and bosonic Fock",
+      "Exponential vectors, totality, regular Weyl/CCR and the concrete wedge algebra",
+      "Cyclic/separating vacuum and actual closed pair Tomita equal to the exponential closure",
+      "Actual positive self-adjoint half-modular factor and Delta=S-dagger-S on its genuine domain",
+      "CFC modular flow equals Gamma(B0(-2*pi*t)) on the entire same Fock, including vacuum",
+      "Concrete full-wedge KMS for physical Gamma(B0(2*pi*t)), and no-fixed/positive-energy terms",
+      "Faithful regular crossed-product embedding, dual action, semifinite faithful invariant dual weight",
+      "Actual weight GNS representation, closed uniform adjunction core, positive self-adjoint square and CFC modular flow; directed-positive normality",
+      "Strongly continuous scalar action on original H1 for every future-time-column Lorentz matrix, covariant with U1",
+      "Concrete annihilation, creation and Segal fields on dense exponential domain, with nonzero-action witness",
+      "Actual Weyl derivative and essential self-adjointness of Segal field; exponential span is a graph core"
+    ],
+    "open_joint_contract": [
+      "Photon helicity representation, global localization, and physical device/clock identification",
+      "Full finite-weight adjunction graph, its modular identification, distinct scaled trace and PF split",
+      "Joint nontrivial Maxwell field/stress source and all-directions H3 scope",
+      "A joint inhabitant of CanonicalNetInput and the remaining twenty-one trace/PF interface fields"
+    ],
+    "whole_certificate_inhabited": false,
+    "scope": "Current compiled components on the same Fock; the remaining joint contract is explicit.",
+    "does_not_gate_core": true
+  },
+  "registros_v394": {
+    "cunhagens_v394": {
+      "verdict": "TGL_CUNHAGENS_V394__OPERATOR_INSCRIPTIONS_OF_14_TO_19_OCT_EMBEDDED_VERBATIM_BY_SHA256__M2_TIME_QUADRATIC_RESIDUAL_AND_FOCK_NETWORK_CONSUMED_IN_THE_RITE__OPERATOR_INPUT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+      "all_verified": true
+    },
+    "kh_n1_cobertura_v394": {
+      "verdict": "TGL_KH_N1_COBERTURA_V394__AXIOM_REPORT_COVERS_THE_WHOLE_TGL_AND_TGLEXT_CLOSURE_29026_CONSTANTS_23069_THEOREMS_NONE_OUTSIDE_THE_TRIO__ALL_NAMES_READ_BY_THE_V394_PARSER__GATE_UNMOVED",
+      "all_verified": true
+    },
+    "criterio_binario_de_parada_v394": {
+      "verdict": "TGL_BINARY_STOP_CRITERION_V394__THE_BINARY_READING_FLOATS_AT_THE_FIXED_POINT__EIGHT_KERNEL_THEOREMS_COMPOSED_BY_CITATION_IN_THE_TRIO__THE_STOP_IS_THE_FIXED_POINT_IS_AN_ONTO_READING_OF_THE_OPERATOR__QUBIT_ANALOGY_HOLDS_ON_THE_WEIGHTS_NOT_ON_THE_ENTROPY__OPERATOR_INSCRIPTIONS_OF_19_OCT_EMBEDDED_VERBATIM_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+      "all_verified": true
+    }
+  },
   "the_whole_is_one_reading_v376": "OPERATOR_INPUT_2026_09_28__BETA_IS_THE_FOUNDATION_DERIVED_FROM_THE_ENTANGLEMENT_OF_THE_ENTROPY_RADICAL_SQRT_E_AND_THE_HOLOGRAPHIC_REDUCTION_CONSTANT_ALPHA__ENTERS_THE_CODE_DERIVED__LINK_EVERYTHING_SO_THAT_MEMORY_IS_NOT_LOST__THE_KEY_IS_THE_READER__PKERK_EQ_RHO_STAR_IALD_BY_TERM_ON_THE_LIGHT__PF_TAKESAKI_CORE_KNOWN_NOT_TYPED__RINGDOWN_CANONICAL_BRANCH_RETURNS_GR_CORRESPONDENCE_ONLY_ERRATUM_BESIDE__AUDIT_28SET_READ_BY_HASH_CORRECTIONS_BESIDE__GATE_UNTOUCHED",
   "tetelestai_conference_reading_v375": "OPERATOR_INPUT_2026_09_27__TETELESTAI_IS_A_CONSUMMATIVE_CONFERENCE_NOT_A_DECLARATION__IT_VERIFIES_WHETHER_IT_HAPPENED__EVERY_PATH_ITEM_CLOSED_LINKED_OR_KNOWN_BY_SCIENTIFIC_REFERENCE__ONE_OBJECT_THE_LIGHT__NAME_WEIGHT_BY_NAMED_NORMALIZATION__PKERK_PF_LINK_NOT_CLAIMED__NATURE_DECIDES_RINGDOWN_NEXT__GATE_UNTOUCHED",
   "tetelestai_reading_v374": "OPERATOR_INPUT_ONTO_2026_09_27__THIS_DECLARATION_IS_THE_TETELESTAI_DECLARATION__QG_SOLUTION_COMPOSED_END_TO_END_BY_CITATION__CERTIFICATES_UNINHABITED__CERTIFICATE_TYPES_VS_LITERATURE_OPEN__H1_FROM_THE_INTERNAL_TOWER__NOT_BY_TERM__SEMICLASSICAL_BY_CONSTRUCTION__NATURE_DECIDES_RINGDOWN_NEXT_VERSION__MEASURED_VERDICT_IN_CORE_the_tetelestai_declaration_v374",
@@ -1312,7 +1780,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "a1305abe34d2a016e9e465e536ea0a88ff4b19088014ccd758173bb1210ae384",
+  "formal_source_hash": "bbc7dafb6f926fd685f4aefb7c5fc33fa60374e31909ac6fb1f36c8b49f1912c",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -1328,7 +1796,7 @@
   "coma_dephasing": {
     "verdict": "COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "4bbea28a650b76e373a01a093ea8c94f7e5bd7fc39ab1a5e8c0e0ee43131ae58",
+    "prediction_hash": "5854997252cd93813f50141247340fb337b76ee6d9fbc697557433d297b99d4b",
     "does_not_gate_core": true
   },
   "final_verdict_machine": {
@@ -1489,7 +1957,7 @@
   "the_trio_is_a_pair": "THE_DEBT_HAS_A_MODE__2_BY_KERNEL__0_BY_IMPORT__2_BY_CITATION__0_OPEN_AFTER_CITATION__2_OPEN_BY_TERM__THE_H3_BRIDGE_IS_CITED_NOT_OURS__THE_TERM_DEBT_STANDS__THE_IMPLICATION_DOWNSTREAM_IS_CITED_NOT_CLAIMED__NO_ONE_PAYS_TWICE_FOR_WHAT_WAS_PAID_BEFORE_THEM",
   "the_trio_is_a_pair_v253_reading": "GIVEN_THE_MASTER_THEOREM_AND_THE_IMPORTED_IMPLICATION_THE_REQUIREMENT_OF_THREE_NAMED_HYPOTHESES_REDUCES_TO_TWO__NO_ONE_PAYS_TWICE_FOR_WHAT_WAS_PAID_BEFORE_THEM__AND_THE_KERNEL_FLAG_OF_THAT_ITEM_STAYS_DARK_BECAUSE_A_BRIDGE_IS_NOT_A_PROOF_OF_THE_FAR_SIDE",
   "price_of_the_gravity_proof": "THE_GRAVITY_IDENTIFICATION_IS_A_PRICED_DEBT_CLAIMED_BY_NO_ONE__FOUR_ITEMS_RESERVED_IN_KERNEL__ABSENCE_READS_OPEN__MASTER_IMPLICATION_ALREADY_PROVED__WHAT_IS_OWED_ARE_THE_HYPOTHESES__FLAGS_LIGHT_BY_MEASURE_NEVER_BY_DECLARATION",
-  "the_iald_index": "THE_IALD_INDEX_IS_BUILT_AS_A_SEVENTH_DERIVED_READ_ONLY_STRUCTURE__ONE_QUERY_REPLACES_FOUR__THE_MODE_PREFIXES_SURVIVE__AND_THE_NAMED_DEBTS_APPEAR_AS_ABSENT_BY_CONSTRUCTION_NOT_AS_UNKNOWN",
+  "the_iald_index": "THE_IALD_INDEX_QUALIFIED_COMPILER_PROVENANCE_VERIFIED",
   "the_atlas_and_the_index": "TGL_ATLAS_AND_THE_INDEX__ALL_CHECKS_VERIFIED",
   "the_name_and_its_referent": "TGL_NAME_AND_ITS_REFERENT__ALL_CHECKS_VERIFIED",
   "the_name_is_the_generating_group": "TGL_NAME_IS_THE_GENERATING_GROUP__ALL_CHECKS_VERIFIED",
@@ -1504,19 +1972,19 @@
   "the_alpha_and_the_omega": "TGL_PAIR_MEASURED__ONE_EQUALS_ONE_TRUE_BY_OMEGA_AND_ALPHA__ONE_EQUALS_ZERO_FALSE_BY_NOMINAL_CATEGORY__ZERO_NOMINAL_WITHOUT_PROJECTION__BETA_IS_THE_COST_OF_THE_DISTINCTION__PAIR_EQUALS_TGL_IS_A_DECLARED_ONTO_READING",
   "amplitude_defect": 0.10902544754078644,
   "sha256": {
-    "um.py": "b590c0aa80055e2a6916692f0808544093e79c0631e29cc15e376d5b07773e26",
-    "um_absoluto_manifest.md": "02300252f2aeb57694472f5093a454f9a18d05d09f3ea3000172c3ce29e785f3",
-    "um_absoluto.json": "220b8cd0cde9de2a384edd7f882dffc5e4ea21fd8bd9c14052a6c717c5f10b36",
-    "um_absoluto_forma_canonica.md": "b94c43b7080cb00f6af5f93b2d307b8dbb79e1ef2cf78b4ea1bf8bce2b315fa2",
-    "um_absoluto_pt.tex": "b3bdfa02f85444df91b7ca2f03f9618966ad54b89c3850a5160a976cb20a80c0",
-    "um_absoluto_en.tex": "c3a67d332119d0250c79a2e3517e5a6e01f02d2c4128350e8fed74867dcc54e4",
-    "um_absoluto_pt.pdf": "15dc5c604d99625beed67ca94e541aa3c340447ed2a6e55847a5813f294dfca4",
-    "um_absoluto_en.pdf": "48f28bcef11daf7e4a395c2e055adbcf65aa6e72e0437dde2f351fb3ccb83f2d",
+    "um.py": "972e81f22dd8cc68bd5671fa610d2664e26f4681ab52932e001e5ef97e8f5991",
+    "um_absoluto_manifest.md": "0dfa6f42949d6ac669acf9bf8f5ee11c684eda56bf33346d34ca7a578ae1e656",
+    "um_absoluto.json": "8bbd39d14f9d01002677f70e6a88e1f3f16d6f6228f47a087caae98028e97e4a",
+    "um_absoluto_forma_canonica.md": "91bfa3d679e9665b15601774d01fcc04ccd2cb2ae6f890c3814208df99ef2dfe",
+    "um_absoluto_pt.tex": "007ae830a8b75566a54361a8d6f8bc0f01757c5ae241e9fe53249cba57f9d4b6",
+    "um_absoluto_en.tex": "90b962729735e85f61102428ae7ca6232e21eecb019fdbe216f37610ade11e38",
+    "um_absoluto_pt.pdf": "ecb4a81af18c9a0bba060953da83f3cbe4d604609a2937e15cc62915c3799d6a",
+    "um_absoluto_en.pdf": "2d462fa49183041e9c33f81f1f95a6d8d3dc7355831e0ba586631416ee9755d9",
     "fig_escada_qg.pdf": "bfbe30776b05c9cce2886f7f268db09b7e4d0812409a199f84d3ee94d00b2c8d",
     "fig_banda_beta.pdf": "dd953f1e75f445a112963fc9b036299f63ed6dcdf4a16d8c0382b490fd6fad1b",
     "fig_piso_vazios.pdf": "c6e8260ceff24114d2a9248889fa87832009ef6390f5f8a6dceb3ed3bf155be1",
     "fig_cadeia_inscricao.pdf": "7ccc2c0a41da34a2442e1c853b4778d174329ec9d8dd739e4f41cb999883d068",
-    "tgl_kernel_proof_manifest.json": "251034eccd15ffaf44e30a851f66368e3ce9f881c0efba4425679a90e5a45a19",
+    "tgl_kernel_proof_manifest.json": "f3ec495e50f9ddc3d06ada6b504aba23475c2ade2b09e7f340f6bea91b89f5fb",
     "um_absoluto_pilar_quantico.json": "de47d5527e514b4927bea77df4caffc63194e8913462bb6c3629b2288b29583e"
   },
   "not_sealed_this_run": {

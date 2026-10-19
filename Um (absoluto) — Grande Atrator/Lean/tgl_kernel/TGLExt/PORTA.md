@@ -23,7 +23,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ## OS ARQUIVOS DESTA PASTA
 
-1040 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
+1049 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
 
 **PROVA FORMAL**
 
@@ -474,6 +474,8 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `RhoPlusPClosure.lean` | Prova formal (Lean 4): RhoPlusPClosure | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/RhoPlusPClosure.lean) |
 | `RicciLieNaturality.lean` | Prova formal (Lean 4): RicciLieNaturality | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/RicciLieNaturality.lean) |
 | `RightMult.lean` | Prova formal (Lean 4): RightMult | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/RightMult.lean) |
+| `RuleQuadraticResidual.lean` | Prova formal (Lean 4): RuleQuadraticResidual | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/RuleQuadraticResidual.lean) |
+| `RuleTruthContract.lean` | Prova formal (Lean 4): RuleTruthContract | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/RuleTruthContract.lean) |
 | `SMatrix.lean` | Prova formal (Lean 4): SMatrix | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/SMatrix.lean) |
 | `Santo.lean` | Prova formal (Lean 4): Santo | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Santo.lean) |
 | `SaturatedWitness.lean` | Prova formal (Lean 4): SaturatedWitness | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/SaturatedWitness.lean) |
@@ -575,6 +577,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `TheAtomOfIdentity.lean` | Prova formal (Lean 4): TheAtomOfIdentity | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheAtomOfIdentity.lean) |
 | `TheAxiomAndTheFalseWitness.lean` | Prova formal (Lean 4): TheAxiomAndTheFalseWitness | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheAxiomAndTheFalseWitness.lean) |
 | `TheBandNet.lean` | Prova formal (Lean 4): TheBandNet | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheBandNet.lean) |
+| `TheBinaryReadingAtTheFixedPoint.lean` | Prova formal (Lean 4): TheBinaryReadingAtTheFixedPoint | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheBinaryReadingAtTheFixedPoint.lean) |
 | `TheBireference.lean` | Prova formal (Lean 4): TheBireference | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheBireference.lean) |
 | `TheBoundaryDuality.lean` | Prova formal (Lean 4): TheBoundaryDuality | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheBoundaryDuality.lean) |
 | `TheCarrierBridge.lean` | Prova formal (Lean 4): TheCarrierBridge | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheCarrierBridge.lean) |
@@ -680,6 +683,8 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `TheRecordOfTheCut.lean` | Prova formal (Lean 4): TheRecordOfTheCut | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheRecordOfTheCut.lean) |
 | `TheReservedConfirmation.lean` | Prova formal (Lean 4): TheReservedConfirmation | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean) |
 | `TheRootOfTheProofTree.lean` | Prova formal (Lean 4): TheRootOfTheProofTree | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheRootOfTheProofTree.lean) |
+| `TheRuleAndTheFigureOfTruth.lean` | Prova formal (Lean 4): TheRuleAndTheFigureOfTruth | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheRuleAndTheFigureOfTruth.lean) |
+| `TheRuleInTheContinuousMotor.lean` | Prova formal (Lean 4): TheRuleInTheContinuousMotor | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheRuleInTheContinuousMotor.lean) |
 | `TheSameBetaReadsFourFaces.lean` | Prova formal (Lean 4): TheSameBetaReadsFourFaces | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheSameBetaReadsFourFaces.lean) |
 | `TheSameBetaReadsThreeFaces.lean` | Prova formal (Lean 4): TheSameBetaReadsThreeFaces | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheSameBetaReadsThreeFaces.lean) |
 | `TheScalarCorner.lean` | Prova formal (Lean 4): TheScalarCorner | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheScalarCorner.lean) |
@@ -723,6 +728,10 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `ThermodynamicFriedmann.lean` | Prova formal (Lean 4): ThermodynamicFriedmann | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ThermodynamicFriedmann.lean) |
 | `ThirdCone.lean` | Prova formal (Lean 4): ThirdCone | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ThirdCone.lean) |
 | `ThreeLocksCorner.lean` | Prova formal (Lean 4): ThreeLocksCorner | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ThreeLocksCorner.lean) |
+| `TimeGravitonFlow.lean` | Prova formal (Lean 4): TimeGravitonFlow | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TimeGravitonFlow.lean) |
+| `TimeGravitonKraus.lean` | Prova formal (Lean 4): TimeGravitonKraus | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TimeGravitonKraus.lean) |
+| `TimeGravitonMatrix.lean` | Prova formal (Lean 4): TimeGravitonMatrix | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TimeGravitonMatrix.lean) |
+| `TimeGravitonScalar.lean` | Prova formal (Lean 4): TimeGravitonScalar | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TimeGravitonScalar.lean) |
 | `TomitaAdjoint.lean` | Prova formal (Lean 4): TomitaAdjoint | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TomitaAdjoint.lean) |
 | `TomitaClosability.lean` | Prova formal (Lean 4): TomitaClosability | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TomitaClosability.lean) |
 | `TopologicalAtlasGluing.lean` | Prova formal (Lean 4): TopologicalAtlasGluing | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TopologicalAtlasGluing.lean) |
@@ -1074,8 +1083,9 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 | subpasta | arquivos | PORTA.md | PORTA.json |
 |---|---|---|---|
+| `F1Fecho394/` | 184 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/F1Fecho394/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/F1Fecho394/PORTA.json) |
 | `O16/` | 156 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/O16/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/O16/PORTA.json) |
 
 ---
 
-gerado por script de git ls-files em 2026-10-14 -- nao editar a mao
+gerado por script de git ls-files em 2026-10-19 -- nao editar a mao

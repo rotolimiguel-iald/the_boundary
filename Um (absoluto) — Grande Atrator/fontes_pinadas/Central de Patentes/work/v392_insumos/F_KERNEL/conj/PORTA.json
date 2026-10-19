@@ -1,0 +1,58 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/v392_insumos/F_KERNEL/conj",
+  "porta_id": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/v392_insumos/F_KERNEL/conj",
+  "titulo": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/v392_insumos/F_KERNEL/conj",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-19T21:48:13Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/v392_insumos/F_KERNEL",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/v392_insumos/F_KERNEL/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/v392_insumos/F_KERNEL/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "P1_PalavraEaLetra.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/v392_insumos/F_KERNEL/conj/P1_PalavraEaLetra.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): P1_PalavraEaLetra",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/v392_insumos/F_KERNEL/conj/P1_PalavraEaLetra.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/v392_insumos/F_KERNEL/conj/P1_PalavraEaLetra.lean",
+      "sha256_16": "8bb8e90245000426",
+      "bytes": 2316
+    },
+    {
+      "nome": "P1b_FechoDaPalavra.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/v392_insumos/F_KERNEL/conj/P1b_FechoDaPalavra.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): P1b_FechoDaPalavra",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/v392_insumos/F_KERNEL/conj/P1b_FechoDaPalavra.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/v392_insumos/F_KERNEL/conj/P1b_FechoDaPalavra.lean",
+      "sha256_16": "99ae1dcb3d13136d",
+      "bytes": 768
+    },
+    {
+      "nome": "P1c_FechoTransitivoPalavra.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/v392_insumos/F_KERNEL/conj/P1c_FechoTransitivoPalavra.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): P1c_FechoTransitivoPalavra",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/v392_insumos/F_KERNEL/conj/P1c_FechoTransitivoPalavra.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/v392_insumos/F_KERNEL/conj/P1c_FechoTransitivoPalavra.lean",
+      "sha256_16": "00ae97d2a19d6dcf",
+      "bytes": 2268
+    }
+  ],
+  "total_arquivos_nesta_pasta": 3,
+  "total_arquivos_com_subpastas": 3,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/v392_insumos/F_KERNEL/conj",
+  "rodape": "gerado por script de git ls-files em 2026-10-19 -- nao editar a mao"
+}

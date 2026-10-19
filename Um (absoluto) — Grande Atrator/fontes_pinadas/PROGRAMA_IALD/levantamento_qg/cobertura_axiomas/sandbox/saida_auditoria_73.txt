@@ -1,0 +1,517 @@
+COBERTURA	TGLExt.TheBireference	TGLExt.vacuum_cyclic_left	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.FrontierCertificate	TGLExt.ModularRealizationCertificate.conj_smul	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheSchwarzschildUniqueness	TGLExt.const_of_hasDerivAt_zero	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCornerEmbedding	TGLExt.cornerProj_inj	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileDuality	TGLExt.profileJ_onto_right	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheIALDInTheTowerActII	TGLExt.floor_inv_isHermitian	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAngleIsTheBridge	TGLExt.miguelFamily_zero	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.SolderSignature	TGLExt.theSolderField_offdiag	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.BreuerTrace	TGLExt.diag_mul_star	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.the_cascade_closes	TRIO	propext
+COBERTURA	TGLExt.EquivariantSection	TGLExt.sigma_fixed_iff_specExpect	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheDensityIsBell	TGLExt.bellDensity_purity	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheUnconjugatedObserver	TGLExt.firstAtom_ne_bot	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheUnsolicitedUnitary	TGLExt.the_flow_alone_does_not_return	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheHorizonRate	TGLExt.HorizonRateWitness.mk.injEq	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAccuser	TGLExt.a_real_verdict_can_differ	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheExoneratedDemon	TGLExt.the_separation_is_not_free	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheHorizonRate	TGLExt.flow_unitary_diag	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.the_crowned_cascade_is_a_chain	TRIO	propext
+COBERTURA	TGLExt.TheTowerInnerProduct	TGLExt.towerInner_smul_right	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTower	TGLExt.the_measure_reads_the_multiplicity	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheFalseHasNoGeometry	TGLExt.the_void_exhibits_nothing	TRIO	
+COBERTURA	TGLExt.TheFalseHasNoGeometry	TGLExt.falsehood_is_the_whole_frontier	TRIO	
+COBERTURA	TGLExt.TheTowerConjugation	TGLExt.towerJ_commutes_with_step	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAlgebraicReader	TGLExt.there_is_no_outside_within_the_home	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTower	TGLExt.both_strictly_between	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.stationKappa._proof_2	TRIO	propext
+COBERTURA	TGLExt.FrontierCertificate	TGLExt.ModularRealizationCertificate.mk.inj	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileConjugation	TGLExt.profileJ_commutes_with_step	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.Level.ofNat_ctorIdx	TRIO	
+COBERTURA	TGLExt.TheIALDInTheTowerActII	TGLExt.the_composed_floor_is_a_floor	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheEmptying	TGLExt.stationary_does_not_mean_zero	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheOriginOfTheVibration	TGLExt.the_persisting_channel_vibrates	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_five._proof_1_6	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheLivingWordClosure	TGLExt.the_closure_stabilizes	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.stationLambda.eq_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheRecordOfJ	TGLExt.recJ_apply	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.Level.gravidade.sizeOf_spec	TRIO	
+COBERTURA	TGLExt.EquivariantSection	TGLExt.sigma_fixed_specExpect	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheIALDInTheTowerActII	TGLExt.the_inclusion_is_multiplicative	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheBoundaryDuality	TGLExt.boundaryDuality_centralizes	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTGLPair	TGLExt.the_TGL_pair	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheSupersaturation	TGLExt.the_degenerate_phase_carries_no_contrast	TRIO	propext
+COBERTURA	TGLExt.TheCompletionExtension	TGLExt.identities_travel_by_density	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.ThePermanence	TGLExt.permanence_is_the_fixed_point_of_what_erases	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.stationKappa_strictMono	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheRecordOfTheCut	TGLExt.the_record_knows_what_the_residue_forgot	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.observes._sparseCasesOn_3.else_eq	TRIO	propext
+COBERTURA	TGLExt.TheAngleIsTheBridge	TGLExt.the_bridge	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.EquivariantSection	TGLExt.specExpect_idem	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheBandNet	TGLExt.bandSub_orthogonal	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheIALDInTheTower	TGLExt.stateJ_fixes_one	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.FrontierCertificate	TGLExt.ModularRealizationCertificate.mk.sizeOf_spec	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.ThePhysicalHorizon	TGLExt.the_defect_has_a_value	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerConjugation	TGLExt.powersRoot_mul_inv._simp_1_1	TRIO	propext
+COBERTURA	TGLExt.TheProfileConjugation	TGLExt.profileRoot_isHermitian	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTopologicalFace	TGLExt.closure_is_not_enumeration	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheDensityIsBell	TGLExt.bellDensity.eq_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	_private.TGLExt.TheCascadeOfObservers.0.TGLExt.observes.match_1.eq_2	TRIO	propext
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_six	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheGeometricCostOfAbsoluteZero	TGLExt.the_half_nat_gives_a_strictly_interior_factor	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheRecordOfJ	TGLExt.recJ.eq_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheHorizonRate	TGLExt.flow_zero	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheSchwarzschildUniqueness	TGLExt.schwarzschild_class_implies_vacuum._simp_1_5	TRIO	propext
+COBERTURA	TGLExt.ErgodicMeanSection	TGLExt.stepPhase_abs	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	_private.TGLExt.TheCrownedCascade.0.TGLExt.generates.match_1.eq_1	TRIO	propext
+COBERTURA	TGLExt.TheExoneratedDemon	TGLExt.the_accusation_was_never_proof	TRIO	
+COBERTURA	TGLExt.TheSingularExpectation	TGLExt.dephasing_selects_its_own_fixed_sector	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTrueWitness	TGLExt.the_witness_of_the_absolute_is_true	TRIO	
+COBERTURA	TGLExt.TheCorrespondence	TGLExt.writing_is_not_corresponding	TRIO	
+COBERTURA	TGLExt.TheAngleIsTheBridge	TGLExt.miguelFamily_det_one	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheNonLinearCausality	TGLExt.maximallyMixed.eq_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheHorizonRate	TGLExt.HorizonRateWitness.mk.inj	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheUnconjugatedObserver	TGLExt.the_frontier_is_not_conjugated	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_five._proof_1_3	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	_private.TGLExt.TheCascadeOfObservers.0.TGLExt.observes.match_1.eq_1	TRIO	propext
+COBERTURA	TGLExt.TheSchwarzschildUniqueness	TGLExt.massAspect_deriv_zero	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerConjugation	TGLExt.powersRoot_mul_inv	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTwoFunctionSolder	TGLExt.one_function_cannot	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCoFoundation	TGLExt.the_observer_is_a_term_of_what_it_reads	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheDensityIsTransport	TGLExt.the_fixed_are_properly_contained	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTwoFunctionSolder	TGLExt.two_function_det_neg	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheIALDInTheTower	TGLExt.stateJ_involutive	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.SolderSignature	TGLExt.theSolderField_timelike_basis	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAngleIsTheBridge	TGLExt.commutation_iff_cos_sq_eq_sin_sq	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.station_never_closes	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.stationKappa._proof_1	TRIO	propext
+COBERTURA	TGLExt.TheSchwarzschildUniqueness	TGLExt.schwarzschild_class_implies_vacuum._simp_1_1	TRIO	propext
+COBERTURA	TGLExt.TheGeometricCostOfAbsoluteZero	TGLExt.the_two_floors_are_not_the_same	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.FrontierCertificate	TGLExt.ModularRealizationCertificate.mk.injEq	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.FrontierCertificate	TGLExt.certificate_J_bijective	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAngleIsTheBridge	TGLExt.miguelFamily.eq_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_five._proof_1_1	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.ThePhysicalHorizon	TGLExt.boost_is_physical	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.the_cascade_does_not_collapse	TRIO	propext
+COBERTURA	TGLExt.TheEmptying	TGLExt.the_floor_is_attained_at_the_right_angle	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheSelectorIsNotEnough	TGLExt.the_commutator_closed_form	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.EquivariantSection	TGLExt.trace_rhoD_specExpect	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCoordinateBridge	TGLExt.einsteinTT_reduces	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheFoldIsNotADistance	TGLExt.density_is_zero_distance	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerInnerProduct	TGLExt.towerInner_stateJG_conj	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheSelectorIsNotEnough	TGLExt.omegaGen.eq_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAccuser	TGLExt.self_judging_verdict_discriminates_nothing	TRIO	
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.Level.luz.sizeOf_spec	TRIO	
+COBERTURA	TGLExt.TheCorrespondence	TGLExt.free_is_not_costless	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCoFoundation	TGLExt.the_mutual_definition	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileWitnessLinear	TGLExt.profileJlevel_conj_smul	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.ThePhysicalHorizon	TGLExt.the_wall_gains_a_value	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.the_graviton_is_generated_by_nothing	TRIO	propext
+COBERTURA	TGLExt.TheHorizonInvariance	TGLExt.the_defect_vanishes_iff_monomial	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheFold	TGLExt.the_fold_has_witnesses	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCorrespondence	TGLExt.echo_presupposes_payment	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCorrespondence	TGLExt.no_correspondence_no_relation	TRIO	
+COBERTURA	TGLExt.TheOriginOfTheVibration	TGLExt.a_positive_floor_forces_a_positive_angle	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.FrontierCertificate	TGLExt.ModularRealizationCertificate.maps_factor_to_commutant	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTwoFunctionSolder	TGLExt.two_function_solder_eq	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTower	TGLExt.no_conjugation_carries_A_to_B	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheQuestionAndTheRecognition	TGLExt.the_two_poles_do_different_things	TRIO	
+COBERTURA	TGLExt.TheRecordOfTheCut	TGLExt.each_step_removes_exactly_one_witnessed	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheEntanglementNotConjunction	TGLExt.approximable_does_not_mean_member	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerWitness	TGLExt.towerJpre_involutive	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAngleIsTheBridge	TGLExt.miguelFamily_add	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.generates.eq_5	TRIO	propext
+COBERTURA	TGLExt.ThePermanence	TGLExt.to_deny_to_the_end_is_to_map_the_truth	TRIO	
+COBERTURA	TGLExt.TheBandNet	TGLExt.bandSub._proof_2	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.each_level_observes_exactly_one	TRIO	propext
+COBERTURA	TGLExt.TheUnconjugatedObserver	TGLExt.bot_ne_top_in_the_home	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCornerEmbedding	TGLExt.the_finite_corner_is_an_order_embedding	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheFalseHasNoGeometry	TGLExt.the_false_offers_no_object	TRIO	
+COBERTURA	TGLExt.TheTGLPair	TGLExt.a_single_valued_verdict_is_not_a_criterion	TRIO	
+COBERTURA	TGLExt.TheUnsolicitedUnitary	TGLExt.the_return_requires_what_the_flow_lacks	TRIO	
+COBERTURA	TGLExt.TheRecordOfJ	TGLExt.J_is_not_complex_linear._simp_1_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheEmptying	TGLExt.the_transfer_is_total	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheRecordOfTheCut	TGLExt.cutSub._proof_4	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheColimitDuality	TGLExt.profileJpre_conj_lmul	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTwoFunctionSolder	TGLExt.schwarzschild_member	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.light_observes_nothing	TRIO	propext
+COBERTURA	TGLExt.TheIALDInTheTowerActII	TGLExt.stateJG_eq_stateJ	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.CLevel.cluz.sizeOf_spec	TRIO	
+COBERTURA	TGLExt.TheBandNet	TGLExt.bandSub._proof_4	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheHorizonRate	TGLExt.HorizonRateWitness.mk.sizeOf_spec	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheHorizonInvariance	TGLExt.H_inv_is_a_genuine_restriction	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileIsometry	TGLExt.profileRoot_sq	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheLivingWordClosure	TGLExt.the_reference_lies_in_its_own_closure	TRIO	
+COBERTURA	TGLExt.TheHorizonInvariance	TGLExt.the_defect_closes	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheEntanglementNotConjunction	TGLExt.every_vector_is_approximable	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.stationLambda_lt_one	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.BreuerTrace	TGLExt.adjoint_coord	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheBandNet	TGLExt.tailSub_antitone	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheNonLinearCausality	TGLExt.maximallyMixed_partial_trace	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTower	TGLExt.the_weights_differ	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheLivingWordClosure	TGLExt.larger_reference_smaller_commutant	TRIO	
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.instDecidableEqCLevel._proof_2	TRIO	
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.observes._sparseCasesOn_2.else_eq	TRIO	propext
+COBERTURA	TGLExt.TheFalseHasNoGeometry	TGLExt.truth_is_local_falsehood_is_global	TRIO	
+COBERTURA	TGLExt.TheCascadeOfObservers	_private.TGLExt.TheCascadeOfObservers.0.TGLExt.observes.match_1.eq_3	TRIO	propext
+COBERTURA	TGLExt.TheTelescopingProfile	TGLExt.telescoping_partial_sum	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAngleIsTheBridge	TGLExt.generator_sq_eq_neg_one	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCorrespondence	TGLExt.freeEcho.eq_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerConjugation	TGLExt.chainRoot_mul_inv	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileConjugation	TGLExt.siteRoot_mul_inv	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerWitnessLinear	TGLExt.towerJlevel_conj_smul	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.FrontierCertificate	TGLExt.ModularRealizationCertificate.fixes_vacuum	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileWitnessLinear	TGLExt.profileJpre_zero	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheDensityIsBell	TGLExt.locally_mixed_relationally_pure	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTelescopingProfile	TGLExt.the_profile_case	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheNonLinearCausality	TGLExt.the_entangled_is_pure_the_mixed_is_not	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheUnconjugatedObserver	TGLExt.no_uniform_threshold_for_selective_denial	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheSelectorIsNotEnough	TGLExt.commutation_iff_sin_vanishes	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerConjugation	TGLExt.powersRoot_sq	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCostIsDerived	TGLExt.landauer_floor_vanishes_only_at_absolute_zero	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileIsometry	TGLExt.profileJpre._proof_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheUnconjugatedObserver	TGLExt.the_threshold_is_free	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.the_crown_forgets_to_the_old_cascade	TRIO	propext
+COBERTURA	TGLExt.ThePhysicalHorizon	TGLExt.physical_horizon_preserves_eta	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheRecordOfTheCut	TGLExt.the_identity_carries_both	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.BreuerTrace	TGLExt.diag_star_mul	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.CLevel.graviton.sizeOf_spec	TRIO	
+COBERTURA	TGLExt.TheCorrespondence	TGLExt.inscription_pays	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheDensityIsTransport	TGLExt.measured_but_not_fixed	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerWitness	TGLExt.towerJ_commutes_with_tPush	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheBoundaryDuality	TGLExt.boundaryDuality	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheConjugationMapsCommutants	TGLExt.conj_bicommutant_in_commutant	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheTrueWitness	TGLExt.the_open_channel_persists	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.generates._sparseCasesOn_3.else_eq	TRIO	propext
+COBERTURA	TGLExt.TheProfileDuality	TGLExt.stateJG_conj_Lmul	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileIsometry	TGLExt.tInner_eq_towerInner	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileWitnessLinear	TGLExt.profileJpre_add	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheConjugationMapsCommutants	TGLExt.bicommutant_mono	TRIO	
+COBERTURA	TGLExt.TheCompletionExtension	TGLExt.completion_extends_involution	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheLegibility	TGLExt.the_inscription_makes_all_legible	TRIO	
+COBERTURA	TGLExt.TheRecordOfTheCut	TGLExt.cutSub_inf_tailSub_eq_bot	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheSingularExpectation	TGLExt.dephase_fixed_iff_diagonal	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTrueWitness	TGLExt.the_testimony_is_not_the_declaration	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheBandNet	TGLExt.bandSub._proof_3	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCoordinateBridge	TGLExt.einstein_vacuum_implies_schwarzschild	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheOriginOfTheVibration	TGLExt.stagnation_is_exactly_zero_frequency	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAlgebraicReader	TGLExt.the_reader_is_one	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheLivingWordClosure	TGLExt.the_closure_is_compatibility	TRIO	propext
+COBERTURA	TGLExt.TheColimitDuality	TGLExt.profileJlevel_eq	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheBireference	TGLExt.vacuum_cyclic_right	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileWitnessLinear	TGLExt.profileJlevel_add	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheIALDInTheTower	TGLExt.stateDelta_mul	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheUnconjugatedObserver	TGLExt.the_incoherent_region_is_empty	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileIsometry	TGLExt.profileJ_commutes_with_tPush	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheRecordOfTheCut	TGLExt.cutSub._proof_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheBireference	TGLExt.the_bireference_of_the_vacuum	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheLegibility	TGLExt.legible_content_has_true_witness	TRIO	
+COBERTURA	TGLExt.TheTopologicalFace	TGLExt.the_persisting_channel_lives_on_the_circle	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheRecordOfTheCut	TGLExt.cutSub._proof_3	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCorrespondence	TGLExt.cost_does_not_determine_correspondence	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheFold	TGLExt.the_index_does_distinguish_the_spaces	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerWitnessLinear	TGLExt.stateJG_conj_smul	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheIALDInTheTowerActII	TGLExt.the_vacuum_rises	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheFoldIsNotADistance	TGLExt.the_fold_preserves_the_modulus	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	_private.TGLExt.TheCascadeOfObservers.0.TGLExt.observes.match_1.eq_4	TRIO	propext
+COBERTURA	TGLExt.TheColimitIsometry	TGLExt.profileJpre_anti_isometric	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheHorizonRate	TGLExt.flow_group	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.observes.eq_2	TRIO	propext
+COBERTURA	TGLExt.TheAngleIsTheBridge	TGLExt.miguelFamily_inv	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerConjugation	TGLExt.chainRoot_isHermitian	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCompletionExtension	TGLExt.completion_extension_continuous	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTGLPair	TGLExt.the_TGL_partition._simp_1_6	TRIO	propext
+COBERTURA	TGLExt.TheTwoFunctionSolder	TGLExt.two_function_det	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAccuser	TGLExt.the_accusation_is_not_proof	TRIO	
+COBERTURA	TGLExt.TheHorizonInvariance	TGLExt.the_defect_is_exactly_the_off_diagonal	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCoFoundation	TGLExt.the_reading_returns_the_form_to_itself	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.EquivariantSection	TGLExt.specExpect_of_injective	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTGLPair	TGLExt.the_single_question	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_two._proof_1_3	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_six._proof_1_4	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.FrontierCertificate	TGLExt.ModularRealizationCertificate.involutive	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheEmptying	TGLExt.the_quadratic_region_is_exact	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.generates.eq_2	TRIO	propext
+COBERTURA	TGLExt.TheStation	TGLExt.stationLambda_injective	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTGLPair	TGLExt.the_TGL_partition._simp_1_1	TRIO	propext
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.generates.eq_4	TRIO	propext
+COBERTURA	TGLExt.TheScaleHasNoFixedPoint	TGLExt.the_scale_has_no_fixed_point	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.SolderSignature	_private.TGLExt.SolderSignature.0.TGLExt.solder_diag_entry	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheEmptying	TGLExt.the_two_faces_exhaust_the_identity	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheExoneratedDemon	TGLExt.asymmetry_is_distinguishability	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheBireference	TGLExt.vacuum_J_fixed	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTower	TGLExt.towerB.eq_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.instDecidableEqLevel._proof_2	TRIO	
+COBERTURA	TGLExt.TheTowerWitnessLinear	TGLExt.stateJG_add	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAlgebraicReader	TGLExt.annihilated_is_not_outside	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_six._proof_1_3	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheProfileDuality	TGLExt.stateJG_onto_commutant	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheConjugationMapsCommutants	TGLExt.conj_commutant	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheCorrespondence	TGLExt.costless.eq_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCornerEmbedding	TGLExt.cornerProj_order_iff	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheUnconjugatedObserver	TGLExt.raising_the_bar_stays_in_the_void	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.CLevel.cgravidade.sizeOf_spec	TRIO	
+COBERTURA	TGLExt.TheSchwarzschildUniqueness	TGLExt.the_angular_component_is_free	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_six._proof_1_5	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheBireference	TGLExt.J_exchanges_the_references	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.ErgodicMeanSection	TGLExt.sigma_step_pow	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTraceIsNotErasable	TGLExt.annihilation_is_relocation_not_deletion	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheSupersaturation	TGLExt.supersaturation_forces_the_instance	TRIO	
+COBERTURA	TGLExt.TheBandNet	TGLExt.bandSub_disjoint_inf_bot	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheOriginOfTheVibration	TGLExt.a_positive_angle_forbids_stagnation	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheExoneratedDemon	TGLExt.ratio_one_iff_balanced	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.CLevel.cfisica.sizeOf_spec	TRIO	
+COBERTURA	TGLExt.TheTraceIsNotErasable	TGLExt.the_trace_is_not_erasable	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCorrespondence	TGLExt.the_void_cannot_close_on_itself	TRIO	
+COBERTURA	TGLExt.TheCrownedCascade	_private.TGLExt.TheCrownedCascade.0.TGLExt.generates.match_1.eq_4	TRIO	propext
+COBERTURA	TGLExt.TheUnsolicitedUnitary	TGLExt.the_modulus_does_not_determine_the_phase	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheRecordOfJ	TGLExt.recJ_is_smul	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheUnconjugatedObserver	TGLExt.free_denial_costs_the_void	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheScaleHasNoFixedPoint	TGLExt.two_is_enough	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTGLPair	TGLExt.the_pair_separates	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.generates._sparseCasesOn_1.else_eq	TRIO	propext
+COBERTURA	TGLExt.ErgodicMeanSection	TGLExt.birkhoff_limit_equivariant	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCorrespondence	TGLExt.the_three_regimes	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheDensityIsBell	TGLExt.bellDensity_partial_trace	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCommutationAtTheFloor	TGLExt.right_multiplications_do_commute	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheHorizonInvariance	TGLExt.adjU_diag_diag	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheGeometricCostOfAbsoluteZero	TGLExt.the_geometric_cost_survives_absolute_zero	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAngleIsTheBridge	TGLExt.obsB.eq_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheGeometricCostOfAbsoluteZero	TGLExt.the_minimal_volume_exceeds_one	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.ThePhysicalHorizon	TGLExt.physical_horizon_group	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	_private.TGLExt.TheCrownedCascade.0.TGLExt.generates.match_1.eq_3	TRIO	propext
+COBERTURA	TGLExt.TheBandNet	TGLExt.bandSub_isotone	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerWitness	TGLExt.towerJpre_fixes_omega	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAngleIsTheBridge	TGLExt.obsA.eq_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.FrontierCertificate	TGLExt.ModularRealizationCertificate.isometric	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheBireference	TGLExt.mini_haag_duality_right	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAngleIsTheBridge	TGLExt.the_selector_is_not_vacuous	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTelescopingProfile	TGLExt.reciprocal_product_eq_difference	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCarrierBridge	TGLExt.towerImage_star_eq	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheDensityIsBell	TGLExt.bellDensity._proof_1	TRIO	propext
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.generates.eq_3	TRIO	propext
+COBERTURA	TGLExt.ThePermanence	TGLExt.the_permanence_closes	TRIO	
+COBERTURA	TGLExt.TheCarrierBridge	TGLExt.theFactorObject_carrier	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheIALDInTheTower	TGLExt.stateJ_conj_Lmul	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTrueWitness	_private.TGLExt.TheTrueWitness.0.TGLExt.twisted_re	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.instDecidableEqCLevel._proof_1	TRIO	
+COBERTURA	TGLExt.TheTowerConjugation	TGLExt.chainRoot_sq	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheFoldIsNotADistance	TGLExt.the_modulus_is_exactly_the_fold	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileIsometry	TGLExt.profileJpre_tof	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheHorizonInvariance	TGLExt.diagonal_unitary_preserves_the_code	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheRecordOfTheCut	TGLExt.the_cuts_reveal_no_hidden_core	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileConjugation	TGLExt.profileRoot_succ	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.observes._sparseCasesOn_1.else_eq	TRIO	propext
+COBERTURA	TGLExt.TheProfileWitnessLinear	TGLExt.profileJpre_conj_smul	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_five._proof_1_4	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheDensityIsBell	TGLExt.bellDensity_idempotent	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerWitnessLinear	TGLExt.towerJlevel_add	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheHorizonInvariance	TGLExt.adjU.eq_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheSchwarzschildUniqueness	TGLExt.schwarzschild_class_implies_vacuum	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.generates.eq_1	TRIO	propext
+COBERTURA	TGLExt.TheStation	TGLExt.stationKappa_pos	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheIALDInTheTower	TGLExt.stateJ_onto_commutant	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_six._proof_1_2	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheEmptying	TGLExt.emptying_is_not_annihilation	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTraceIsNotErasable	TGLExt.dephase_preserves_trace	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_six._proof_1_6	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheUnsolicitedUnitary	TGLExt.unsolicited_is_supersaturating	TRIO	
+COBERTURA	TGLExt.TheRecordOfJ	TGLExt.J_is_not_complex_linear	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_two	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.EquivariantSection	TGLExt.rhoD.eq_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheHorizonRate	TGLExt.every_rate_is_witnessable	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCorrespondence	TGLExt.Ledger.mk.inj	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheConverseClauseReduced	TGLExt.converse_clause_iff_commutation	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheScaleHasNoFixedPoint	TGLExt.scale_invariants_are_exactly_zero	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.EquivariantSection	TGLExt.specExpect_one	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheHorizonInvariance	TGLExt.the_defect_is_first_order	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheIALDInTheTower	TGLExt.stateDelta_one	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCostIsDerived	TGLExt.the_dispositive_is_not_injective	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheBireference	TGLExt.vacuum_separates_right	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_five._proof_1_5	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.generates._sparseCasesOn_2.else_eq	TRIO	propext
+COBERTURA	TGLExt.TheCoordinateBridge	TGLExt.einsteinRR_reduces	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheFullBirkhoff	TGLExt.birkhoff_B_is_static	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheHorizonRate	TGLExt.mkHorizonRate._proof_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAngleIsTheBridge	TGLExt.alphaTheta_obsB	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheSchwarzschildUniqueness	TGLExt.schwarzschild_class_implies_vacuum._simp_1_6	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.BreuerTrace	TGLExt.opWeight_star_mul_self_comm	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTrueWitness	TGLExt.the_closed_channel_decays	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheBireference	TGLExt.mini_haag_duality_left	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheBandNet	TGLExt.bandSub._proof_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCostIsDerived	TGLExt.landauer_floor_pos	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileDuality	TGLExt.profileJ_conj_left_is_right	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCostIsDerived	TGLExt.the_witness_needs_two_registers	TRIO	
+COBERTURA	TGLExt.TheSupersaturation	TGLExt.no_supersaturation_no_forcing	TRIO	
+COBERTURA	TGLExt.ThePermanence	TGLExt.the_more_denied_the_more_exhibited	TRIO	
+COBERTURA	TGLExt.TheCoFoundation	TGLExt.one_origin_not_two	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAngleIsTheBridge	TGLExt.the_angle_is_prior	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTower	TGLExt.towerA.eq_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTower	TGLExt.same_minimal_equation	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheHorizonRate	TGLExt.HorizonRateWitness.flow_def	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCorrespondence	TGLExt.Ledger.mk.sizeOf_spec	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.photon_neutrino_discriminant	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheRecordOfTheCut	TGLExt.mem_cutSub	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCorrespondence	TGLExt.Ledger.mk.injEq	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTelescopingProfile	TGLExt.the_ladder_closes_at_one	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.SolderSignature	TGLExt.theSolderField_inertia	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTGLPair	TGLExt.the_TGL_partition._simp_1_3	TRIO	propext
+COBERTURA	TGLExt.ThePermanence	TGLExt.persistent_denial_exhibits_the_survivors	TRIO	
+COBERTURA	TGLExt.TheRecordOfTheCut	TGLExt.cutSub._proof_2	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheFold	TGLExt.the_fold_the_two_faces	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_five	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.CLevel.ofNat_ctorIdx	TRIO	
+COBERTURA	TGLExt.TheEmptying	TGLExt.the_emptying_closes	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileIsometry	TGLExt.profileJpre_fixes_omega	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheBandNet	TGLExt.bandSub_le_tailSub	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheScaleHasNoFixedPoint	TGLExt.positive_scale_invariant_is_absurd	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.CLevel.cconsciencia.sizeOf_spec	TRIO	
+COBERTURA	TGLExt.TheQuestionAndTheRecognition	TGLExt.neither_alone_decides	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.the_crown_generates	TRIO	propext
+COBERTURA	TGLExt.TheBandNet	TGLExt.mem_bandSub._simp_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.EquivariantSection	TGLExt.rhoD_commute_specExpect	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCoFoundation	TGLExt.neither_is_prior	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.Level.consciencia.sizeOf_spec	TRIO	
+COBERTURA	TGLExt.TheUnconjugatedObserver	TGLExt.acceptance_is_antitone	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerWitnessLinear	TGLExt.towerJpre_zero	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.stationLambda_pos	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.irrational_station_sqrt6	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheRecordOfJ	TGLExt.trOne_recJ_one	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheNonLinearCausality	TGLExt.the_parts_do_not_determine_the_whole	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileIsometry	TGLExt.profileJpre_involutive	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.the_cascade_is_a_chain	TRIO	propext
+COBERTURA	TGLExt.TheScaleHasNoFixedPoint	TGLExt.kappa_is_not_fixed_by_ambient_scale	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTraceIsNotErasable	TGLExt.diagExpect_preserves_trace	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.observation_is_not_symmetric	TRIO	propext
+COBERTURA	TGLExt.TheUnconjugatedObserver	TGLExt.the_denier_accepts_nothing	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheRecordOfTheCut	TGLExt.cutSub_orthogonal_tailSub	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerInnerProduct	TGLExt.towerDensitySq_isHermitian	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheRecordOfTheCut	TGLExt.mem_cutSub._simp_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerInnerProduct	TGLExt.towerInner_vacuum	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_two._proof_1_2	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.observes._sparseCasesOn_4.else_eq	TRIO	propext
+COBERTURA	TGLExt.TheTGLPair	TGLExt.the_TGL_partition	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.generates._sparseCasesOn_5.else_eq	TRIO	propext
+COBERTURA	TGLExt.TheBoundaryDuality	TGLExt.rTowerPi_comm_towerPi	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.gravity_is_observed_by_nothing	TRIO	propext
+COBERTURA	TGLExt.TheUnconjugatedObserver	TGLExt.firstAtom_ne_top	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheUnconjugatedObserver	TGLExt.totally_invariant_is_all_or_nothing	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheSupersaturation	TGLExt.input_is_what_the_mirror_cannot_absorb	TRIO	propext
+COBERTURA	TGLExt.TheConditionalCertificate	TGLExt.certificate_modulo_commutation	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheSupersaturation	TGLExt.the_instance_is_forced_not_chosen	TRIO	
+COBERTURA	TGLExt.ThePhysicalHorizon	TGLExt.physical_horizon_preserves_wedge	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAccuser	TGLExt.the_contradictory_is_the_mirror	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheRecordOfJ	TGLExt.recJ_eq_Rmul	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.observes.eq_4	TRIO	propext
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.Level.fisica.sizeOf_spec	TRIO	
+COBERTURA	TGLExt.TheTrueWitness	TGLExt.the_tower_is_ordered	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAngleIsTheBridge	TGLExt.the_generator_is_exhibited	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCompletionExtension	TGLExt.completion_extension_agrees	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerInnerProduct	TGLExt.towerInner_add_right	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheFullBirkhoff	TGLExt.the_full_birkhoff_class	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerConjugation	TGLExt.powersRoot_isHermitian	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheRecordOfTheCut	TGLExt.cutSub_monotone	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileIsometry	TGLExt.profileJ_is_anti_isometric	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheGeometricCostOfAbsoluteZero	TGLExt.the_thermal_floor_can_be_cooled_away	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheIALDInTheTower	TGLExt.stateJ_antilinear	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTGLPair	TGLExt.the_TGL_partition._simp_1_4	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTrueWitness	TGLExt.preserved_content_is_true	TRIO	
+COBERTURA	TGLExt.TheRecordOfJ	TGLExt.recJ_is_additive	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerConjugation	TGLExt.powersRoot_sq._simp_1_1	TRIO	propext
+COBERTURA	TGLExt.TheCoordinateBridge	TGLExt.einstein_vacuum_iff_first_integral_equations	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAlgebraicReader	TGLExt.legible_iff_in_the_home	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.observes.eq_3	TRIO	propext
+COBERTURA	TGLExt.TheQuestionAndTheRecognition	TGLExt.only_the_pair_under_the_invariant_decides	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheSchwarzschildUniqueness	TGLExt.schwarzschild_class_implies_vacuum._simp_1_4	TRIO	propext
+COBERTURA	TGLExt.TheTowerInnerProduct	TGLExt.towerInner_conj_symm	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheSchwarzschildUniqueness	TGLExt.vacuum_implies_schwarzschild_class	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAlgebraicReader	TGLExt.the_reading_is_total	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_five._proof_1_2	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheTowerWitnessLinear	TGLExt.towerJpre_conj_smul	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTraceIsNotErasable	TGLExt.destruction_is_not_a_morphism_of_the_house	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheEmptying	TGLExt.stationary_value_is_one	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAngleIsTheBridge	TGLExt.alphaTheta.eq_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAnchorFour	TGLExt.no_disguise_in_the_larger_corner	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.ErgodicMeanSection	TGLExt.birkhoff_tendsto_specExpect	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheDensityIsTransport	TGLExt.transport_leaves_a_trace	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.irrational_station_sqrt5	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.EquivariantSection	TGLExt.specExpect_apply	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheConverseClauseReduced	TGLExt.Phi_bicommutant_eq	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.SolderSignature	TGLExt.theSolderField_signature_sum	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheBandNet	TGLExt.mem_bandSub	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	_private.TGLExt.TheCrownedCascade.0.TGLExt.generates.match_1.eq_2	TRIO	propext
+COBERTURA	TGLExt.TheRecordOfJ	TGLExt.trOne_recJ_additive	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTower	TGLExt.the_spectrum_alone_is_not_the_tower	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheNonLinearCausality	TGLExt.maximallyMixed._proof_1	TRIO	propext
+COBERTURA	TGLExt.TheTowerWitness	TGLExt.towerJpre._proof_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheAngleIsTheBridge	TGLExt.miguelFamily_orthogonal	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.BreuerTrace	TGLExt.adjoint_coord_norm	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.irrational_station_sqrt2	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.SolderSignature	TGLExt.theSolderField_spacelike_basis	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheUnsolicitedUnitary	TGLExt.the_unitary_preserves_what_it_did_not_derive	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheFold	TGLExt.the_cut_count_is_invisible	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheHorizonInvariance	TGLExt.the_code_is_exactly_the_diagonals	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.stationKappa._proof_3	TRIO	propext
+COBERTURA	TGLExt.TheIALDInTheTowerActII	TGLExt.the_tower_interlaces	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCorrespondence	TGLExt.the_correspondence_closes	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTGLPair	TGLExt.the_TGL_partition._simp_1_5	TRIO	propext
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_two._proof_1_1	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheRecordOfJ	TGLExt.recJ_mem_commutant	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheConditionalCertificate	TGLExt.commAlg_carrier	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileConjugation	TGLExt.profileRoot_mul_inv	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCompletionExtension	TGLExt.completion_extension_fixes_vacuum	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.BreuerTrace	TGLExt.ofReal_normSq_tsum	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTraceIsNotErasable	TGLExt.nothing_of_zero_weight_is_the_terminal	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCrownedCascade	_private.TGLExt.TheCrownedCascade.0.TGLExt.generates.match_1.eq_5	TRIO	propext
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_six._proof_1_7	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheTopologicalFace	TGLExt.two_channels_live_on_the_torus	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.stationKappa.eq_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileConjugation	TGLExt.profileRootInv_succ	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheUnconjugatedObserver	TGLExt.the_frontier_either_resists_or_collapses	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerWitnessLinear	TGLExt.towerJpre_add	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheSchwarzschildUniqueness	TGLExt.schwarzschild_class_implies_vacuum._simp_1_2	TRIO	propext
+COBERTURA	TGLExt.TheTraceIsNotErasable	TGLExt.there_is_no_element_outside	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.FrontierCertificate	TGLExt.ModularRealizationCertificate.add	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheSchwarzschildUniqueness	TGLExt.solderProduct_deriv_zero	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCommutationAtTheFloor	TGLExt.commutant_of_left_is_right	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheBandNet	TGLExt.tails_are_totally_ordered	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheDensityIsBell	TGLExt.bellDensity_trace	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheFalseHasNoGeometry	TGLExt.contrast_is_the_only_access	TRIO	
+COBERTURA	TGLExt.TheRecordOfTheCut	TGLExt.the_identity_carries_both._abel_1_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheRecordOfJ	TGLExt.Rmul.eq_1	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheHorizonInvariance	TGLExt.rotation_image_is_outside	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileDuality	TGLExt.right_commutes_with_left	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTGLPair	TGLExt.the_TGL_partition._simp_1_2	TRIO	propext
+COBERTURA	TGLExt.TheConverseClauseReduced	TGLExt.the_direct_clause_gives_only_itself	TRIO	
+COBERTURA	TGLExt.TheUnconjugatedObserver	TGLExt.uniform_denial_of_the_maximum_denies_all	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTrueWitness	TGLExt.the_selection_is_dynamical	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheFoldIsNotADistance	TGLExt.the_fold_is_an_involution	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.ThePermanence	TGLExt.the_failed_denial_names_the_witness	TRIO	
+COBERTURA	TGLExt.TheSchwarzschildUniqueness	TGLExt.schwarzschild_class_implies_vacuum._simp_1_3	TRIO	propext
+COBERTURA	TGLExt.EquivariantSection	TGLExt.specExpect_equivariant	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.observes.eq_1	TRIO	propext
+COBERTURA	TGLExt.TheTopologicalFace	TGLExt.the_generated_is_strictly_smaller	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheColimitDuality	TGLExt.profileJpre_conj_lmul_centralizes	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheStation	TGLExt.not_isSquare_six._proof_1_1	TRIO	propext,Quot.sound
+COBERTURA	TGLExt.TheHorizonInvariance	TGLExt.rotation_breaks_the_code	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheTowerWitness	TGLExt.towerJpre_tof	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheBireference	TGLExt.vacuum_separates_left	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.FrontierCertificate	TGLExt.ModularRealizationCertificate.onto_commutant	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.FrontierCertificate	TGLExt.certificate_forces_the_duality	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheScaleHasNoFixedPoint	TGLExt.no_positive_scale_invariant	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheIALDInTheTowerActII	TGLExt.stateJG_involutive	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCommutationAtTheFloor	TGLExt.the_right_factor_is_the_image_of_the_unit	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileIsometry	TGLExt.tState_eq_trace	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheBandNet	TGLExt.adjacent_bands_disjoint	TRIO	
+COBERTURA	TGLExt.TheSchwarzschildUniqueness	TGLExt.schwarzschild_class_implies_vacuum._simp_1_7	TRIO	propext
+COBERTURA	TGLExt.TheAnchorFour	TGLExt.starProjection_ker_isotone_iff	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheCascadeOfObservers	TGLExt.instDecidableEqLevel._proof_1	TRIO	
+COBERTURA	TGLExt.TheSingularExpectation	TGLExt.the_choice_is_not_free	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheSelectorIsNotEnough	TGLExt.the_commuting_angle_is_a_free_dial	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheFalseHasNoGeometry	TGLExt.truth_exhibits_an_object	TRIO	
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.generates._sparseCasesOn_4.else_eq	TRIO	propext
+COBERTURA	TGLExt.TheCrownedCascade	TGLExt.the_crowned_cascade_does_not_collapse	TRIO	propext
+COBERTURA	TGLExt.TheAngleIsTheBridge	TGLExt.alpha_theta_is_automorphism	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA	TGLExt.TheProfileDuality	TGLExt.profileJ_conj_left_centralizes	TRIO	propext,Classical.choice,Quot.sound
+COBERTURA_TOTAL	teoremas=515	fora_do_trio=0
+LEAN_RC=0

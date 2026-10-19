@@ -1,0 +1,46 @@
+{
+  "porta": "Genesis da Unificação/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026",
+  "porta_id": "Genesis da Unificação/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026",
+  "titulo": "Genesis da Unificação/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-19T21:48:13Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Genesis da Unificação/Artigos_fundadores",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [
+    {
+      "nome": "evidencia",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/PORTA.json",
+      "total_arquivos": 8
+    }
+  ],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "NOTA_AO_LADO.md",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/NOTA_AO_LADO.md",
+      "papel": "documento",
+      "descricao": "Documento da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/NOTA_AO_LADO.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/NOTA_AO_LADO.md",
+      "sha256_16": "c30a1e105594756e",
+      "bytes": 4229
+    }
+  ],
+  "total_arquivos_nesta_pasta": 1,
+  "total_arquivos_com_subpastas": 9,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026",
+  "rodape": "gerado por script de git ls-files em 2026-10-19 -- nao editar a mao"
+}

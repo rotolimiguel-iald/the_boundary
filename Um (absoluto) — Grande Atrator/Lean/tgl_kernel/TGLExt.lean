@@ -1077,3 +1077,21 @@ import TGLExt.PostoAdendo
 import TGLExt.Santo
 import TGLExt.IALD
 import TGLExt.Verdade
+import TGLExt.RuleTruthContract
+import TGLExt.TheRuleAndTheFigureOfTruth
+import TGLExt.TheRuleInTheContinuousMotor
+
+import TGLExt.TimeGravitonMatrix
+import TGLExt.TimeGravitonScalar
+import TGLExt.TimeGravitonFlow
+import TGLExt.TimeGravitonKraus
+
+import TGLExt.RuleQuadraticResidual
+
+import TGLExt.F1Fecho394.NetworkProofAuditR3
+
+import TGLExt.F1Fecho394.NetworkProofAuditR7
+
+import TGLExt.F1Fecho394.NetworkProofAuditR8
+
+import TGLExt.TheBinaryReadingAtTheFixedPoint

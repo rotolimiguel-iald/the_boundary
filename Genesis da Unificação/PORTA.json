@@ -4,7 +4,7 @@
   "titulo": "Genesis da Unificacao -- a linhagem",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-14T17:51:11Z",
+  "gerado_utc": "2026-10-19T21:48:13Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -35,7 +35,7 @@
       "caminho": "Genesis da Unificação/Artigos_fundadores",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/PORTA.json",
-      "total_arquivos": 31
+      "total_arquivos": 40
     },
     {
       "nome": "C3_consciencia",
@@ -113,7 +113,7 @@
   "dependencias": "numpy/scipy/matplotlib conforme o protocolo; cada .py roda sozinho",
   "arquivos": [],
   "total_arquivos_nesta_pasta": 0,
-  "total_arquivos_com_subpastas": 118,
+  "total_arquivos_com_subpastas": 127,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o",
-  "rodape": "gerado por script de git ls-files em 2026-10-14 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-10-19 -- nao editar a mao"
 }

@@ -1,0 +1,264 @@
+{
+ "um_py": {
+  "sha256": "8e7b9927ceae64b8b6812019f77cca24c08296222ae7968af41baf2fe7a67dc6",
+  "bytes": 33910631,
+  "alpha_line": 5557,
+  "alpha": 0.0072973525693
+ },
+ "beta0_runtime": 0.012031300400803142,
+ "beta0_conferencia": 0.012031300400803142,
+ "beta0_bitwise_igual_conferencia": true,
+ "v388": {
+  "chi_QED": 11.2267550516013,
+  "sech_chi_QED_over_2_minus_alpha": 0.0,
+  "beta_at_chi_QED_minus_beta0": 0.0,
+  "beta_at_chi_QED_rel": 0.0,
+  "beta_at_0_equals_sqrt_e": true,
+  "strictly_decreasing_on_grid_0_to_20": true,
+  "no_second_sqrt_e": true
+ },
+ "legacy_retired": [
+  {
+   "alpha_multiplier_INPUT": 1.0,
+   "beta": 0.012031300400803142,
+   "ratio": 0.9820074408111784,
+   "shift_pct": -1.7992559188821589
+  },
+  {
+   "alpha_multiplier_INPUT": 1.01,
+   "beta": 0.012151613404811173,
+   "ratio": 0.9818280656930682,
+   "shift_pct": -1.8171934306931758
+  },
+  {
+   "alpha_multiplier_INPUT": 1.05,
+   "beta": 0.0126328654208433,
+   "ratio": 0.9811106744571105,
+   "shift_pct": -1.8889325542889468
+  }
+ ],
+ "legacy_cancellation": {
+  "K": 1.0121778153555716,
+  "Ye": 1.0091195285337855
+ },
+ "legacy_with_beta_MZ_direction_only": {
+  "inv_alpha_MZ_read": 128.95,
+  "beta_MZ": 0.012785740757659002,
+  "beta_MZ_over_beta0": 1.0627064682721659,
+  "shift_pct": -1.9117176684142811
+ },
+ "coulomb": [
+  {
+   "Z": 6,
+   "q_Z": -0.01499803931735699,
+   "mass_ratio_to_ideal": 0.9775875060173957,
+   "coulomb_correction_pct": -2.2412493982604254,
+   "dlnM_dlnalpha": -0.02283960831960597,
+   "finite_diff": -0.02283960831919729,
+   "rows": [
+    {
+     "alpha_multiplier_INPUT": 1.0,
+     "shift_pct": 0.0
+    },
+    {
+     "alpha_multiplier_INPUT": 1.01,
+     "shift_pct": -0.02283873888470067
+    },
+    {
+     "alpha_multiplier_INPUT": 1.05,
+     "shift_pct": -0.11417630351815422
+    }
+   ]
+  },
+  {
+   "Z": 8,
+   "q_Z": -0.018168830730450315,
+   "mass_ratio_to_ideal": 0.9728709212385249,
+   "coulomb_correction_pct": -2.712907876147508,
+   "dlnM_dlnalpha": -0.02775756866218761,
+   "finite_diff": -0.02775756866198187,
+   "rows": [
+    {
+     "alpha_multiplier_INPUT": 1.0,
+     "shift_pct": 0.0
+    },
+    {
+     "alpha_multiplier_INPUT": 1.01,
+     "shift_pct": -0.027756284484892202
+    },
+    {
+     "alpha_multiplier_INPUT": 1.05,
+     "shift_pct": -0.13875573491617388
+    }
+   ]
+  }
+ ],
+ "dephasing": {
+  "rows": [
+   {
+    "A_INPUT": 0.0,
+    "energy": 1.0,
+    "trace": 1.0,
+    "pops": [
+     0.3333333333333333,
+     0.3333333333333333,
+     0.3333333333333333
+    ],
+    "rho01": 0.3333333333333333,
+    "purity": 1.0,
+    "closed_form_rho01": 0.3333333333333333,
+    "closed_form_purity": 1.0
+   },
+   {
+    "A_INPUT": 0.5,
+    "energy": 1.0,
+    "trace": 1.0,
+    "pops": [
+     0.3333333333333333,
+     0.3333333333333333,
+     0.3333333333333333
+    ],
+    "rho01": 0.20217688657087768,
+    "purity": 0.5009054491625817,
+    "closed_form_rho01": 0.20217688657087782,
+    "closed_form_purity": 0.500905449162582
+   },
+   {
+    "A_INPUT": 5.0,
+    "energy": 1.0,
+    "trace": 1.0,
+    "pops": [
+     0.3333333333333333,
+     0.3333333333333333,
+     0.3333333333333333
+    ],
+    "rho01": 0.0022459823330287353,
+    "purity": 0.3333535110798944,
+    "closed_form_rho01": 0.002245982333028489,
+    "closed_form_purity": 0.3333535110798944
+   }
+  ],
+  "max_abs_Tr_H_HHrho_random_synthetic": 0.0
+ },
+ "curvature": {
+  "lp2": 2.6122803039748724e-70,
+  "rows": [
+   {
+    "rho_g_cm3_INPUT": 100000000.0,
+    "R_proxy": 1.8663976436674883e-15,
+    "eps_beta0": 5.865925243545283e-87,
+    "eps_sqrt_e": 8.038429262994995e-85,
+    "eps_beta0_reduced_planck_8pi": 1.4742678121303022e-85
+   },
+   {
+    "rho_g_cm3_INPUT": 1000000000.0,
+    "R_proxy": 1.866397643667488e-14,
+    "eps_beta0": 5.865925243545282e-86,
+    "eps_sqrt_e": 8.038429262994993e-84,
+    "eps_beta0_reduced_planck_8pi": 1.474267812130302e-84
+   },
+   {
+    "rho_g_cm3_INPUT": 10000000000.0,
+    "R_proxy": 1.8663976436674882e-13,
+    "eps_beta0": 5.865925243545284e-85,
+    "eps_sqrt_e": 8.038429262994995e-83,
+    "eps_beta0_reduced_planck_8pi": 1.4742678121303022e-83
+   }
+  ]
+ },
+ "power": {
+  "rows": [
+   {
+    "signal_INPUT": 0.01,
+    "sigma_INPUT": 0.1,
+    "n50": 2500,
+    "n90": 3946,
+    "floor_at_s_over_5_gives": null,
+    "floor_just_below": 1250626
+   },
+   {
+    "signal_INPUT": 0.001,
+    "sigma_INPUT": 0.1,
+    "n50": 250000,
+    "n90": 394579,
+    "floor_at_s_over_5_gives": null,
+    "floor_just_below": 125062532
+   }
+  ],
+  "monte_carlo_synthetic": {
+   "2500": {
+    "median_z": 5.008693648589646,
+    "frac_z_ge_5": 0.50275
+   },
+   "3946": {
+    "median_z": 6.270426125283924,
+    "frac_z_ge_5": 0.898
+   }
+  }
+ },
+ "nuisance": {
+  "constant_Z2": 0.0,
+  "shape_Z2": 0.09999999999999998
+ },
+ "chandrasekhar_historico": {
+  "historico_tgl_paper_unified_7576_7578": {
+   "M_Ch_sem_Coulomb": 1.4350446027680757,
+   "M_TGL_retirada": 1.409224477814172,
+   "desvio_de_raiz2_pct": -0.35278155235276243,
+   "correcao_necessaria_para_raiz2_pct": 0.3540305066699778,
+   "Z6_com_Coulomb_M_TGL": 1.3776402426850234,
+   "Z6_com_Coulomb_desvio_de_raiz2_pct": -2.5861242361939007,
+   "Z8_com_Coulomb_M_TGL": 1.370993515962953,
+   "Z8_com_Coulomb_desvio_de_raiz2_pct": -3.0561187899808853
+  },
+  "codata2018_m_u_IAU_Msun": {
+   "M_Ch_sem_Coulomb": 1.4562564369202202,
+   "M_TGL_retirada": 1.4300546567848307,
+   "desvio_de_raiz2_pct": 1.1201345279954518,
+   "correcao_necessaria_para_raiz2_pct": -1.107726500982209,
+   "Z6_com_Coulomb_M_TGL": 1.3980035653948455,
+   "Z6_com_Coulomb_desvio_de_raiz2_pct": -1.1462198786333773,
+   "Z8_com_Coulomb_M_TGL": 1.3912585913677007,
+   "Z8_com_Coulomb_desvio_de_raiz2_pct": -1.6231615659854997
+  },
+  "codata2018_m_H_atomo": {
+   "M_Ch_sem_Coulomb": 1.4336884157182792,
+   "M_TGL_retirada": 1.4078926920401402,
+   "desvio_de_raiz2_pct": -0.4469530275433294,
+   "correcao_necessaria_para_raiz2_pct": 0.44895966636457896,
+   "Z6_com_Coulomb_M_TGL": 1.376338305551638,
+   "Z6_com_Coulomb_desvio_de_raiz2_pct": -2.678185093763435,
+   "Z8_com_Coulomb_M_TGL": 1.369697860310078,
+   "Z8_com_Coulomb_desvio_de_raiz2_pct": -3.14773547980394
+  },
+  "teste_da_atribuicao_a_Coulomb": {
+   "correcao_necessaria_pct": 0.3540305066699778,
+   "Coulomb_C_pct": -2.2412493982604254,
+   "Coulomb_O_pct": -2.712907876147508,
+   "sinal_necessario": "+",
+   "sinal_Coulomb": "-",
+   "razao_modulo_C": 6.330667431294801,
+   "razao_modulo_O": 7.662921203218348
+  }
+ },
+ "running_envelope_mu_pF_HIPOTESE": [
+  {
+   "rho_g_cm3_INPUT": 100000000.0,
+   "pF_MeV": 1.899184275320408,
+   "alpha_multiplier_one_loop": 1.0007430469523733,
+   "Coulomb_C_shift_pct": -0.0016970853353170945
+  },
+  {
+   "rho_g_cm3_INPUT": 1000000000.0,
+   "pF_MeV": 4.091668485513352,
+   "alpha_multiplier_one_loop": 1.0019347846232163,
+   "Coulomb_C_shift_pct": -0.004418939752026674
+  },
+  {
+   "rho_g_cm3_INPUT": 10000000000.0,
+   "pF_MeV": 8.815232525300184,
+   "alpha_multiplier_one_loop": 1.0031293640464796,
+   "Coulomb_C_shift_pct": -0.0071472597695465545
+  }
+ ]
+}

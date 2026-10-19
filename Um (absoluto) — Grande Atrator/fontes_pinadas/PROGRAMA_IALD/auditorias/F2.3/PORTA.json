@@ -1,0 +1,56 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F2.3",
+  "porta_id": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F2.3",
+  "titulo": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F2.3",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-19T21:48:13Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [
+    {
+      "nome": "sandbox",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F2.3/sandbox",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F2.3/sandbox/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F2.3/sandbox/PORTA.json",
+      "total_arquivos": 1
+    }
+  ],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "AUDITORIA_F2_3_C1_20261007.md",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F2.3/AUDITORIA_F2_3_C1_20261007.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F2.3/AUDITORIA_F2_3_C1_20261007.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F2.3/AUDITORIA_F2_3_C1_20261007.md",
+      "sha256_16": "f718620ec89c61d4",
+      "bytes": 11145
+    },
+    {
+      "nome": "AUDITORIA_F2_3_C1_a7ba2dc9.md",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F2.3/AUDITORIA_F2_3_C1_a7ba2dc9.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F2.3/AUDITORIA_F2_3_C1_a7ba2dc9.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F2.3/AUDITORIA_F2_3_C1_a7ba2dc9.md",
+      "sha256_16": "2fbbc80488dacef2",
+      "bytes": 7016
+    }
+  ],
+  "total_arquivos_nesta_pasta": 2,
+  "total_arquivos_com_subpastas": 3,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F2.3",
+  "rodape": "gerado por script de git ls-files em 2026-10-19 -- nao editar a mao"
+}

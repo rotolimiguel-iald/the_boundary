@@ -1,0 +1,108 @@
+{
+  "porta": "Genesis da Unificação/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia",
+  "porta_id": "Genesis da Unificação/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia",
+  "titulo": "Genesis da Unificação/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-19T21:48:13Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Genesis da Unificação/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "PREREGISTRO.json",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/PREREGISTRO.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/PREREGISTRO.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/PREREGISTRO.json",
+      "sha256_16": "a14bf9af4eeca7c4",
+      "bytes": 19749
+    },
+    {
+      "nome": "PREREGISTRO.json.sha256",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/PREREGISTRO.json.sha256",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/PREREGISTRO.json.sha256",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/PREREGISTRO.json.sha256",
+      "sha256_16": "fa47fb365dc6df79",
+      "bytes": 84
+    },
+    {
+      "nome": "RESULTADO.md",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/RESULTADO.md",
+      "papel": "documento",
+      "descricao": "Documento da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/RESULTADO.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/RESULTADO.md",
+      "sha256_16": "e7a856797c5b89c0",
+      "bytes": 15015
+    },
+    {
+      "nome": "curva_O_gamma_oitavas.csv",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/curva_O_gamma_oitavas.csv",
+      "papel": "dados",
+      "descricao": "Dado da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/curva_O_gamma_oitavas.csv",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/curva_O_gamma_oitavas.csv",
+      "sha256_16": "e900c54186156101",
+      "bytes": 50462
+    },
+    {
+      "nome": "manifesto_dados.json",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/manifesto_dados.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/manifesto_dados.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/manifesto_dados.json",
+      "sha256_16": "8e260d60e8fcbb91",
+      "bytes": 988
+    },
+    {
+      "nome": "rodar.py",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/rodar.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/rodar.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/rodar.py",
+      "sha256_16": "207445ac0c6a3cce",
+      "bytes": 20217
+    },
+    {
+      "nome": "veredito.json",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/veredito.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/veredito.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/veredito.json",
+      "sha256_16": "eb9ffaeab408bcf5",
+      "bytes": 30190
+    },
+    {
+      "nome": "veredito.py",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/veredito.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/veredito.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia/veredito.py",
+      "sha256_16": "1c6fc5f52ff724aa",
+      "bytes": 13866
+    }
+  ],
+  "total_arquivos_nesta_pasta": 8,
+  "total_arquivos_com_subpastas": 8,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/evidencia",
+  "rodape": "gerado por script de git ls-files em 2026-10-19 -- nao editar a mao"
+}

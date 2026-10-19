@@ -1,0 +1,38 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F3.6.E1/art_a4f6da3d/lean_sb/TGLExt",
+  "porta_id": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F3.6.E1/art_a4f6da3d/lean_sb/TGLExt",
+  "titulo": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F3.6.E1/art_a4f6da3d/lean_sb/TGLExt",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-19T21:48:13Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F3.6.E1/art_a4f6da3d/lean_sb",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F3.6.E1/art_a4f6da3d/lean_sb/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F3.6.E1/art_a4f6da3d/lean_sb/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "LiganteLeiCampoCurvoAuditoriaC1.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F3.6.E1/art_a4f6da3d/lean_sb/TGLExt/LiganteLeiCampoCurvoAuditoriaC1.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): LiganteLeiCampoCurvoAuditoriaC1",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F3.6.E1/art_a4f6da3d/lean_sb/TGLExt/LiganteLeiCampoCurvoAuditoriaC1.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F3.6.E1/art_a4f6da3d/lean_sb/TGLExt/LiganteLeiCampoCurvoAuditoriaC1.lean",
+      "sha256_16": "992e4983ec4f0686",
+      "bytes": 5291
+    }
+  ],
+  "total_arquivos_nesta_pasta": 1,
+  "total_arquivos_com_subpastas": 1,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/auditorias/F3.6.E1/art_a4f6da3d/lean_sb/TGLExt",
+  "rodape": "gerado por script de git ls-files em 2026-10-19 -- nao editar a mao"
+}

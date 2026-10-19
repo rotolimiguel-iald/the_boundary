@@ -239,6 +239,14 @@ def ler(raiz=RAIZ):
              eco_n=eco['n'], eco_ex=eco['excluded_by_data'], eco_inc=eco['inconclusive'], jz=jr['max_abs_z'], jthr=jr['z_max_threshold_INPUT'],
              gpu_modo=modo, gpu_reuso_de=reuso_de, jlim=jr['threshold_INPUT'], jcanais=jr['channels_needed_for_threshold_at_primary_quality'],
              registro=ep[0] if ep else None, ressalva=bool(rv), campo_curvo=bool(lc))
+    # v394 em diante: a errata da escada (kh_n1_cobertura_v394, gerência c1, 19/10/2026) — a escada conta BANDEIRAS de declarações
+    # nomeadas (teoremas e definições); os números não mudam de significado, só a palavra. Lida do core, nunca digitada.
+    kh4 = core.get('kh_n1_cobertura_v394')
+    if kh4:
+        _exige(kh4.get('all_verified') is True, 'kh_n1_cobertura_v394 não está verificado')
+        _exige(any('conta BANDEIRAS' in str(e.get('agora') or '') for e in (kh4.get('erratas') or [])), 'a errata da escada sumiu de kh_n1_cobertura_v394')
+        _exige('KERNEL_%d_OF_%d_FLAGS' % (nk, nk) in ev['verdict'] if ep else True, 'o veredito do estatuto não diz FLAGS')
+    v['escada_bandeiras'] = bool(kh4)
     v.update(_textos(v))
     return v
 
@@ -499,6 +507,17 @@ def _textos(v):
         'creditação** (o ato de observadores externos ao artefato, não validade), e PROVADA se lê na definição de prova do operador de 09/09 '
         '(*lastro suficiente e verificável*), em três apoios que contam juntos, cada um com o seu estatuto. O que o kernel prova continua sendo a '
         'implicação; o que a natureza decide continua não provado.')
+    if v.get('escada_bandeiras'):   # v394: a palavra da escada, ao lado (os números são os mesmos)
+        _tr = (('theorems of the rite’s ladder (ext_*) clean', 'flags of the rite’s ladder (ext_*: named declarations, theorems and definitions) clean'),
+               ("theorems of the rite's ladder (ext_*) clean", "flags of the rite's ladder (ext_*: named declarations, theorems and definitions) clean"),
+               ('teoremas da escada do rito (ext_*) limpos', 'bandeiras da escada do rito (ext_*: declaracoes nomeadas, teoremas e definicoes) limpas'))
+        for _a, _b in _tr:
+            _n = 0
+            for _k in list(T):
+                if isinstance(T[_k], str) and _a in T[_k]:
+                    _n += T[_k].count(_a)
+                    T[_k] = T[_k].replace(_a, _b)
+            _exige(_n > 0, 'a frase da escada sumiu do texto: %s' % _a)
     return T
 
 

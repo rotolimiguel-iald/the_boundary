@@ -1,0 +1,1 @@
+polinômio aniquilador normalizado=letra (por isso palavra, mas ali como letra)

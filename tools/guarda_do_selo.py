@@ -17,6 +17,11 @@ disco e o selo tinham CRLF: o blob de um.py era 9a3becab15f1f011, o selo dizia
 e1b74a907c403538. O que o leitor recebe e o BLOB, nao o disco. A guarda agora
 confere TAMBEM o blob do indice (`git cat-file -p :caminho`) contra o selo.
 
+v3 (19/10/2026) — a terceira licao (custodia v393+v394): o espelho passou a publicar as FONTES PINADAS que os
+registros do um.py releem por caminho absoluto (fontes_pinadas/, com mapa). Uma delas e' uma COPIA do selo da
+v391 (insumo da bateria pre-selo da v392). Copia de selo dentro de fontes_pinadas/ nao e' o selo da pasta: a
+guarda a confere como insumo pinado — no MAPA_FONTES_PINADAS.json, publicada, disco E blob = o sha256 do pino.
+
 Uso:  python tools/guarda_do_selo.py
 """
 import hashlib
@@ -50,6 +55,31 @@ def main() -> int:
     erros = 0
     selos = sorted(RAIZ.rglob("um_grande_atrator_selo.json")) + sorted(
         RAIZ.rglob("um_absoluto_selo.json"))  # renome v209: os dois nomes valem
+    # v3 (19/10/2026): copia de selo em fontes_pinadas/ e' insumo pinado, nao selo da pasta — conferida pelo mapa
+    pinadas = [s_ for s_ in selos if "fontes_pinadas" in s_.relative_to(RAIZ).parts]
+    selos = [s_ for s_ in selos if s_ not in pinadas]
+    for s_ in pinadas:
+        partes = s_.relative_to(RAIZ).parts
+        mapa_p = RAIZ.joinpath(*partes[:partes.index("fontes_pinadas") + 1]) / "MAPA_FONTES_PINADAS.json"
+        rel_s = s_.relative_to(RAIZ).as_posix()
+        try:
+            ents = [e for e in json.loads(mapa_p.read_text(encoding="utf-8"))["fontes"]
+                    if e.get("publicado") and e.get("caminho_no_espelho") == rel_s]
+        except (OSError, KeyError, json.JSONDecodeError) as e:
+            print(f"  ! mapa das fontes pinadas ilegivel para {rel_s}: {e}")
+            erros += 1
+            continue
+        pinos = {e.get("sha256") for e in ents}
+        if len(pinos) != 1 or None in pinos:
+            print(f"  ! COPIA DE SELO EM fontes_pinadas FORA DO MAPA (ou com pinos divergentes): {rel_s}")
+            erros += 1
+            continue
+        pino = pinos.pop()
+        if sha256(s_) != pino or sha256_blob(rel_s) != pino:
+            print(f"  ! COPIA DE SELO EM fontes_pinadas DIVERGE DO PINO (disco ou blob): {rel_s}")
+            erros += 1
+            continue
+        print(f"[insumo pinado] {rel_s}: copia de selo conferida contra o pino do mapa (disco E blob do git)")
     if not selos:
         print("nenhum selo encontrado — nada a conferir")
         return 0

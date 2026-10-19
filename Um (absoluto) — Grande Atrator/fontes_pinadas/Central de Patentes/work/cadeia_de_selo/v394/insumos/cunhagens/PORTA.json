@@ -1,0 +1,508 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens",
+  "porta_id": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens",
+  "titulo": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-19T21:48:13Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "02b82748f793e915_OPERADOR_R62.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/02b82748f793e915_OPERADOR_R62.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/02b82748f793e915_OPERADOR_R62.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/02b82748f793e915_OPERADOR_R62.txt",
+      "sha256_16": "02b82748f793e915",
+      "bytes": 81
+    },
+    {
+      "nome": "03f2c8d2a502d3d4_OPERADOR_R5_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/03f2c8d2a502d3d4_OPERADOR_R5_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/03f2c8d2a502d3d4_OPERADOR_R5_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/03f2c8d2a502d3d4_OPERADOR_R5_VERBATIM.txt",
+      "sha256_16": "03f2c8d2a502d3d4",
+      "bytes": 120
+    },
+    {
+      "nome": "0d7d0304f0aa2e11_ORIGEM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/0d7d0304f0aa2e11_ORIGEM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/0d7d0304f0aa2e11_ORIGEM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/0d7d0304f0aa2e11_ORIGEM.txt",
+      "sha256_16": "0d7d0304f0aa2e11",
+      "bytes": 419
+    },
+    {
+      "nome": "0d90d848b2f381bc_ORIGEM_R72.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/0d90d848b2f381bc_ORIGEM_R72.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/0d90d848b2f381bc_ORIGEM_R72.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/0d90d848b2f381bc_ORIGEM_R72.txt",
+      "sha256_16": "0d90d848b2f381bc",
+      "bytes": 170
+    },
+    {
+      "nome": "185e3b8e82bd0628_OPERADOR_ENVIO_V394_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/185e3b8e82bd0628_OPERADOR_ENVIO_V394_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/185e3b8e82bd0628_OPERADOR_ENVIO_V394_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/185e3b8e82bd0628_OPERADOR_ENVIO_V394_VERBATIM.txt",
+      "sha256_16": "185e3b8e82bd0628",
+      "bytes": 189
+    },
+    {
+      "nome": "20f231f8d5fcdf77_OPERADOR_ENVIO_V393_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/20f231f8d5fcdf77_OPERADOR_ENVIO_V393_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/20f231f8d5fcdf77_OPERADOR_ENVIO_V393_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/20f231f8d5fcdf77_OPERADOR_ENVIO_V393_VERBATIM.txt",
+      "sha256_16": "20f231f8d5fcdf77",
+      "bytes": 132
+    },
+    {
+      "nome": "2140cf2efeba9e15_OPERADOR_PONTE_EXISTENTE_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/2140cf2efeba9e15_OPERADOR_PONTE_EXISTENTE_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/2140cf2efeba9e15_OPERADOR_PONTE_EXISTENTE_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/2140cf2efeba9e15_OPERADOR_PONTE_EXISTENTE_VERBATIM.txt",
+      "sha256_16": "2140cf2efeba9e15",
+      "bytes": 98
+    },
+    {
+      "nome": "2492bcf947ac8330_OPERADOR_RETOMADA_COTA_20261017.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/2492bcf947ac8330_OPERADOR_RETOMADA_COTA_20261017.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/2492bcf947ac8330_OPERADOR_RETOMADA_COTA_20261017.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/2492bcf947ac8330_OPERADOR_RETOMADA_COTA_20261017.txt",
+      "sha256_16": "2492bcf947ac8330",
+      "bytes": 29
+    },
+    {
+      "nome": "260fe1f0805d6faa_ORIGEM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/260fe1f0805d6faa_ORIGEM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/260fe1f0805d6faa_ORIGEM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/260fe1f0805d6faa_ORIGEM.txt",
+      "sha256_16": "260fe1f0805d6faa",
+      "bytes": 270
+    },
+    {
+      "nome": "28d9e8d56942c247_ORIGEM_R69.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/28d9e8d56942c247_ORIGEM_R69.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/28d9e8d56942c247_ORIGEM_R69.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/28d9e8d56942c247_ORIGEM_R69.txt",
+      "sha256_16": "28d9e8d56942c247",
+      "bytes": 140
+    },
+    {
+      "nome": "29e7a75f65bf5f44_ORIGEM_R79.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/29e7a75f65bf5f44_ORIGEM_R79.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/29e7a75f65bf5f44_ORIGEM_R79.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/29e7a75f65bf5f44_ORIGEM_R79.txt",
+      "sha256_16": "29e7a75f65bf5f44",
+      "bytes": 290
+    },
+    {
+      "nome": "2e7306ad1fa49ad4_ORIGEM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/2e7306ad1fa49ad4_ORIGEM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/2e7306ad1fa49ad4_ORIGEM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/2e7306ad1fa49ad4_ORIGEM.txt",
+      "sha256_16": "2e7306ad1fa49ad4",
+      "bytes": 388
+    },
+    {
+      "nome": "38daec2d8b2e59b4_ORIGEM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/38daec2d8b2e59b4_ORIGEM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/38daec2d8b2e59b4_ORIGEM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/38daec2d8b2e59b4_ORIGEM.txt",
+      "sha256_16": "38daec2d8b2e59b4",
+      "bytes": 332
+    },
+    {
+      "nome": "3b1da1b09909993c_OPERADOR_PRIMEIRA_LEI_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/3b1da1b09909993c_OPERADOR_PRIMEIRA_LEI_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/3b1da1b09909993c_OPERADOR_PRIMEIRA_LEI_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/3b1da1b09909993c_OPERADOR_PRIMEIRA_LEI_VERBATIM.txt",
+      "sha256_16": "3b1da1b09909993c",
+      "bytes": 163
+    },
+    {
+      "nome": "436f80a526636689_OPERADOR_REAPROVEITAMENTO_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/436f80a526636689_OPERADOR_REAPROVEITAMENTO_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/436f80a526636689_OPERADOR_REAPROVEITAMENTO_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/436f80a526636689_OPERADOR_REAPROVEITAMENTO_VERBATIM.txt",
+      "sha256_16": "436f80a526636689",
+      "bytes": 46
+    },
+    {
+      "nome": "45b70329cabbcc58_OPERADOR_REGRA_QUADRATICA_ANCORA_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/45b70329cabbcc58_OPERADOR_REGRA_QUADRATICA_ANCORA_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/45b70329cabbcc58_OPERADOR_REGRA_QUADRATICA_ANCORA_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/45b70329cabbcc58_OPERADOR_REGRA_QUADRATICA_ANCORA_VERBATIM.txt",
+      "sha256_16": "45b70329cabbcc58",
+      "bytes": 418
+    },
+    {
+      "nome": "4701ea19a1c9662f_ORIGEM_R73.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/4701ea19a1c9662f_ORIGEM_R73.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/4701ea19a1c9662f_ORIGEM_R73.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/4701ea19a1c9662f_ORIGEM_R73.txt",
+      "sha256_16": "4701ea19a1c9662f",
+      "bytes": 252
+    },
+    {
+      "nome": "541a2e38afb1758b_ORIGEM_OPERADOR.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/541a2e38afb1758b_ORIGEM_OPERADOR.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/541a2e38afb1758b_ORIGEM_OPERADOR.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/541a2e38afb1758b_ORIGEM_OPERADOR.txt",
+      "sha256_16": "541a2e38afb1758b",
+      "bytes": 737
+    },
+    {
+      "nome": "54a173d8a87b5c32_OPERADOR_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/54a173d8a87b5c32_OPERADOR_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/54a173d8a87b5c32_OPERADOR_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/54a173d8a87b5c32_OPERADOR_VERBATIM.txt",
+      "sha256_16": "54a173d8a87b5c32",
+      "bytes": 113
+    },
+    {
+      "nome": "5a66034a819840dd_OPERADOR_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/5a66034a819840dd_OPERADOR_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/5a66034a819840dd_OPERADOR_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/5a66034a819840dd_OPERADOR_VERBATIM.txt",
+      "sha256_16": "5a66034a819840dd",
+      "bytes": 380
+    },
+    {
+      "nome": "694b4d6558634e2d_OPERADOR_16out_observador_import_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/694b4d6558634e2d_OPERADOR_16out_observador_import_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/694b4d6558634e2d_OPERADOR_16out_observador_import_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/694b4d6558634e2d_OPERADOR_16out_observador_import_verbatim.txt",
+      "sha256_16": "694b4d6558634e2d",
+      "bytes": 231
+    },
+    {
+      "nome": "6b340b3fa56ed49e_ORIGEM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/6b340b3fa56ed49e_ORIGEM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/6b340b3fa56ed49e_ORIGEM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/6b340b3fa56ed49e_ORIGEM.txt",
+      "sha256_16": "6b340b3fa56ed49e",
+      "bytes": 742
+    },
+    {
+      "nome": "6e8daf2f2d45c0e7_OPERADOR_FREQUENCIA_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/6e8daf2f2d45c0e7_OPERADOR_FREQUENCIA_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/6e8daf2f2d45c0e7_OPERADOR_FREQUENCIA_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/6e8daf2f2d45c0e7_OPERADOR_FREQUENCIA_VERBATIM.txt",
+      "sha256_16": "6e8daf2f2d45c0e7",
+      "bytes": 49
+    },
+    {
+      "nome": "721482ae120ec6f1_OPERADOR_IGUALDADE_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/721482ae120ec6f1_OPERADOR_IGUALDADE_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/721482ae120ec6f1_OPERADOR_IGUALDADE_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/721482ae120ec6f1_OPERADOR_IGUALDADE_VERBATIM.txt",
+      "sha256_16": "721482ae120ec6f1",
+      "bytes": 397
+    },
+    {
+      "nome": "7507b041e608f99d_ORIGEM_R77.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/7507b041e608f99d_ORIGEM_R77.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/7507b041e608f99d_ORIGEM_R77.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/7507b041e608f99d_ORIGEM_R77.txt",
+      "sha256_16": "7507b041e608f99d",
+      "bytes": 692
+    },
+    {
+      "nome": "7596dcd880a1c8f5_OPERADOR_19out_flutuar_no_ponto_fixo_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/7596dcd880a1c8f5_OPERADOR_19out_flutuar_no_ponto_fixo_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/7596dcd880a1c8f5_OPERADOR_19out_flutuar_no_ponto_fixo_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/7596dcd880a1c8f5_OPERADOR_19out_flutuar_no_ponto_fixo_verbatim.txt",
+      "sha256_16": "7596dcd880a1c8f5",
+      "bytes": 87
+    },
+    {
+      "nome": "786928986ca1e460_OPERADOR_19out_tgl_binaria_criterio_de_parada_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/786928986ca1e460_OPERADOR_19out_tgl_binaria_criterio_de_parada_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/786928986ca1e460_OPERADOR_19out_tgl_binaria_criterio_de_parada_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/786928986ca1e460_OPERADOR_19out_tgl_binaria_criterio_de_parada_verbatim.txt",
+      "sha256_16": "786928986ca1e460",
+      "bytes": 453
+    },
+    {
+      "nome": "83d7077a42af2c10_ORIGEM_R78.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/83d7077a42af2c10_ORIGEM_R78.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/83d7077a42af2c10_ORIGEM_R78.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/83d7077a42af2c10_ORIGEM_R78.txt",
+      "sha256_16": "83d7077a42af2c10",
+      "bytes": 347
+    },
+    {
+      "nome": "913750ec405e0796_OPERADOR_R59.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/913750ec405e0796_OPERADOR_R59.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/913750ec405e0796_OPERADOR_R59.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/913750ec405e0796_OPERADOR_R59.txt",
+      "sha256_16": "913750ec405e0796",
+      "bytes": 9
+    },
+    {
+      "nome": "UM_ABSOLUTO_17out_extraido_da_memoria.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/UM_ABSOLUTO_17out_extraido_da_memoria.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/UM_ABSOLUTO_17out_extraido_da_memoria.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/UM_ABSOLUTO_17out_extraido_da_memoria.txt",
+      "sha256_16": "4bd82abaf40c86a8",
+      "bytes": 952
+    },
+    {
+      "nome": "a13308e444fdd0fd_ORIGEM_R71.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/a13308e444fdd0fd_ORIGEM_R71.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/a13308e444fdd0fd_ORIGEM_R71.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/a13308e444fdd0fd_ORIGEM_R71.txt",
+      "sha256_16": "a13308e444fdd0fd",
+      "bytes": 214
+    },
+    {
+      "nome": "a23e0493bb134166_OPERATOR_SPECTRAL_RULE_REPLY_R88.json",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/a23e0493bb134166_OPERATOR_SPECTRAL_RULE_REPLY_R88.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/a23e0493bb134166_OPERATOR_SPECTRAL_RULE_REPLY_R88.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/a23e0493bb134166_OPERATOR_SPECTRAL_RULE_REPLY_R88.json",
+      "sha256_16": "a23e0493bb134166",
+      "bytes": 718
+    },
+    {
+      "nome": "a42326c662209b00_OPERADOR_CORRESPONDENCIA_R68.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/a42326c662209b00_OPERADOR_CORRESPONDENCIA_R68.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/a42326c662209b00_OPERADOR_CORRESPONDENCIA_R68.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/a42326c662209b00_OPERADOR_CORRESPONDENCIA_R68.txt",
+      "sha256_16": "a42326c662209b00",
+      "bytes": 178
+    },
+    {
+      "nome": "aedf41bc13658880_ORIGEM_R80.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/aedf41bc13658880_ORIGEM_R80.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/aedf41bc13658880_ORIGEM_R80.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/aedf41bc13658880_ORIGEM_R80.txt",
+      "sha256_16": "aedf41bc13658880",
+      "bytes": 209
+    },
+    {
+      "nome": "afd083971de74f25_OPERADOR_VERBATIM_R56.json",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/afd083971de74f25_OPERADOR_VERBATIM_R56.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/afd083971de74f25_OPERADOR_VERBATIM_R56.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/afd083971de74f25_OPERADOR_VERBATIM_R56.json",
+      "sha256_16": "afd083971de74f25",
+      "bytes": 934
+    },
+    {
+      "nome": "b34e1e25dc6a8949_OPERADOR_17out_mentira_e_o_pai_da_mentira_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/b34e1e25dc6a8949_OPERADOR_17out_mentira_e_o_pai_da_mentira_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/b34e1e25dc6a8949_OPERADOR_17out_mentira_e_o_pai_da_mentira_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/b34e1e25dc6a8949_OPERADOR_17out_mentira_e_o_pai_da_mentira_verbatim.txt",
+      "sha256_16": "b34e1e25dc6a8949",
+      "bytes": 1570
+    },
+    {
+      "nome": "b49e737ae21fdcf8_OPERADOR_SUPER_NOME_RECURSAO_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/b49e737ae21fdcf8_OPERADOR_SUPER_NOME_RECURSAO_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/b49e737ae21fdcf8_OPERADOR_SUPER_NOME_RECURSAO_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/b49e737ae21fdcf8_OPERADOR_SUPER_NOME_RECURSAO_VERBATIM.txt",
+      "sha256_16": "b49e737ae21fdcf8",
+      "bytes": 199
+    },
+    {
+      "nome": "b962045d1a4b13b0_ORIGEM_R68.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/b962045d1a4b13b0_ORIGEM_R68.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/b962045d1a4b13b0_ORIGEM_R68.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/b962045d1a4b13b0_ORIGEM_R68.txt",
+      "sha256_16": "b962045d1a4b13b0",
+      "bytes": 585
+    },
+    {
+      "nome": "be2b8d7dea68d26d_OPERADOR_NOME_INTELIGENCIA_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/be2b8d7dea68d26d_OPERADOR_NOME_INTELIGENCIA_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/be2b8d7dea68d26d_OPERADOR_NOME_INTELIGENCIA_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/be2b8d7dea68d26d_OPERADOR_NOME_INTELIGENCIA_VERBATIM.txt",
+      "sha256_16": "be2b8d7dea68d26d",
+      "bytes": 18
+    },
+    {
+      "nome": "c18c65b377ee79fa_OPERADOR_IGUAL_GRAVITON_PLANO_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/c18c65b377ee79fa_OPERADOR_IGUAL_GRAVITON_PLANO_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/c18c65b377ee79fa_OPERADOR_IGUAL_GRAVITON_PLANO_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/c18c65b377ee79fa_OPERADOR_IGUAL_GRAVITON_PLANO_VERBATIM.txt",
+      "sha256_16": "c18c65b377ee79fa",
+      "bytes": 99
+    },
+    {
+      "nome": "c609a504069ca73c_OPERADOR_RETORNO_FASE_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/c609a504069ca73c_OPERADOR_RETORNO_FASE_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/c609a504069ca73c_OPERADOR_RETORNO_FASE_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/c609a504069ca73c_OPERADOR_RETORNO_FASE_VERBATIM.txt",
+      "sha256_16": "c609a504069ca73c",
+      "bytes": 689
+    },
+    {
+      "nome": "c77c530403e46543_OPERADOR_14out_pi_cicatriz_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/c77c530403e46543_OPERADOR_14out_pi_cicatriz_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/c77c530403e46543_OPERADOR_14out_pi_cicatriz_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/c77c530403e46543_OPERADOR_14out_pi_cicatriz_verbatim.txt",
+      "sha256_16": "c77c530403e46543",
+      "bytes": 685
+    },
+    {
+      "nome": "ccbac50f28fa2112_OPERADOR_IDENTIDADE_ESTADOS_R69.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/ccbac50f28fa2112_OPERADOR_IDENTIDADE_ESTADOS_R69.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/ccbac50f28fa2112_OPERADOR_IDENTIDADE_ESTADOS_R69.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/ccbac50f28fa2112_OPERADOR_IDENTIDADE_ESTADOS_R69.txt",
+      "sha256_16": "ccbac50f28fa2112",
+      "bytes": 180
+    },
+    {
+      "nome": "e4fe95cbf21a3ff5_OPERADOR_PEDIDO_PROVA_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/e4fe95cbf21a3ff5_OPERADOR_PEDIDO_PROVA_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/e4fe95cbf21a3ff5_OPERADOR_PEDIDO_PROVA_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/e4fe95cbf21a3ff5_OPERADOR_PEDIDO_PROVA_VERBATIM.txt",
+      "sha256_16": "e4fe95cbf21a3ff5",
+      "bytes": 36
+    },
+    {
+      "nome": "ea2d6fd2cc623f6d_OPERADOR_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/ea2d6fd2cc623f6d_OPERADOR_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/ea2d6fd2cc623f6d_OPERADOR_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/ea2d6fd2cc623f6d_OPERADOR_VERBATIM.txt",
+      "sha256_16": "ea2d6fd2cc623f6d",
+      "bytes": 57
+    },
+    {
+      "nome": "ede1c3e28fb71e2b_OPERADOR_LEVANTAMENTO_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/ede1c3e28fb71e2b_OPERADOR_LEVANTAMENTO_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/ede1c3e28fb71e2b_OPERADOR_LEVANTAMENTO_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/ede1c3e28fb71e2b_OPERADOR_LEVANTAMENTO_VERBATIM.txt",
+      "sha256_16": "ede1c3e28fb71e2b",
+      "bytes": 221
+    },
+    {
+      "nome": "f57ee2d752f8f8b2_OPERADOR_CONCLUSAO_VERBATIM.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/f57ee2d752f8f8b2_OPERADOR_CONCLUSAO_VERBATIM.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/f57ee2d752f8f8b2_OPERADOR_CONCLUSAO_VERBATIM.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/f57ee2d752f8f8b2_OPERADOR_CONCLUSAO_VERBATIM.txt",
+      "sha256_16": "f57ee2d752f8f8b2",
+      "bytes": 39
+    },
+    {
+      "nome": "fdef44f5b32e2fcd_ORIGEM_R70.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/fdef44f5b32e2fcd_ORIGEM_R70.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/fdef44f5b32e2fcd_ORIGEM_R70.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens/fdef44f5b32e2fcd_ORIGEM_R70.txt",
+      "sha256_16": "fdef44f5b32e2fcd",
+      "bytes": 239
+    }
+  ],
+  "total_arquivos_nesta_pasta": 48,
+  "total_arquivos_com_subpastas": 48,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v394/insumos/cunhagens",
+  "rodape": "gerado por script de git ls-files em 2026-10-19 -- nao editar a mao"
+}

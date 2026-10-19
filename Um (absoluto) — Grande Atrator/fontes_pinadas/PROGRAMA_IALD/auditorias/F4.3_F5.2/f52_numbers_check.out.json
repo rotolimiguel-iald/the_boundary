@@ -1,0 +1,78 @@
+{
+ "frozen_sha256": "5ba7faca7a3425fa01ad4e06b76db5aeaf30895768b6331558cd695c42c30057",
+ "beta_runtime": 0.012031300400803142,
+ "dN_dbeta": 9.929606216611285,
+ "Delta_N_eff": 0.11946607525373273,
+ "N_eff_TGL": 3.1634660752537327,
+ "conversoes": {
+  "SPT3G_like_fisher_casa": {
+   "sigma_Neff": 0.10986915143278586,
+   "sigma_beta_over_beta": 0.9196682087315242,
+   "Delta_over_sigma": 1.0873486660795586,
+   "cruza_regua_beta_meio": false
+  },
+  "SO_baseline_no_syst_2019": {
+   "sigma_Neff": 0.055,
+   "sigma_beta_over_beta": 0.4603817433793324,
+   "Delta_over_sigma": 2.1721104591587768,
+   "cruza_regua_beta_meio": true
+  },
+  "SO_nominal_2019_25pct": {
+   "sigma_Neff": 0.07,
+   "sigma_beta_over_beta": 0.585940400664605,
+   "Delta_over_sigma": 1.7066582179104675,
+   "cruza_regua_beta_meio": false
+  },
+  "SO_goal_2019": {
+   "sigma_Neff": 0.05,
+   "sigma_beta_over_beta": 0.41852885761757497,
+   "Delta_over_sigma": 2.3893215050746544,
+   "cruza_regua_beta_meio": true
+  },
+  "SO_enhanced_2025": {
+   "sigma_Neff": 0.045,
+   "sigma_beta_over_beta": 0.3766759718558174,
+   "Delta_over_sigma": 2.654801672305172,
+   "cruza_regua_beta_meio": true
+  },
+  "LiteBIRD_alone_2023": {
+   "sigma_Neff": 0.15,
+   "sigma_beta_over_beta": 1.2555865728527247,
+   "Delta_over_sigma": 0.7964405016915516,
+   "cruza_regua_beta_meio": false
+  },
+  "CMB_S4_target": {
+   "sigma_Neff": 0.03,
+   "sigma_beta_over_beta": 0.2511173145705449,
+   "Delta_over_sigma": 3.982202508457758,
+   "cruza_regua_beta_meio": true
+  },
+  "CMB_S4_concept_7yr_BBN": {
+   "sigma_Neff": 0.029,
+   "sigma_beta_over_beta": 0.24274673741819347,
+   "Delta_over_sigma": 4.119519836335611,
+   "cruza_regua_beta_meio": true
+  },
+  "CMB_S4_Yp_free": {
+   "sigma_Neff": 0.072,
+   "sigma_beta_over_beta": 0.6026815549693079,
+   "Delta_over_sigma": 1.6592510451907325,
+   "cruza_regua_beta_meio": false
+  },
+  "CMB_S4_Yp_prior_LBT": {
+   "sigma_Neff": 0.039,
+   "sigma_beta_over_beta": 0.32645250894170846,
+   "Delta_over_sigma": 3.06323269881366,
+   "cruza_regua_beta_meio": true
+  }
+ },
+ "tensoes": {
+  "frozen_CMB_SPA_2p97_0p12__tens_now": 1.6122172937811041,
+  "SPT_v1_CMB_SPA_BBN_2p81_0p12": 2.945550627114439,
+  "SPT_v2_CMB_SPA_BBN_2p82_0p12": 2.8622172937811072,
+  "SPT_v1_CMB_SPA_Ypfree_2p99_up0p22": 0.7884821602442386,
+  "SPT_v2_CMB_SPA_Ypfree_2p96_up0p21": 0.9688860726368226,
+  "ACT_DR6_extBBN_2p89_0p11__tens_act": 2.486055229579387,
+  "ACT_DR6_2p86_0p13": 2.334354425028714
+ }
+}

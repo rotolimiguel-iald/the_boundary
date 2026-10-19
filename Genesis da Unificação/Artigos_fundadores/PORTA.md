@@ -55,7 +55,8 @@ Estratigrafia datada: leia como GENESE, nao como forma citavel corrente.
 | subpasta | arquivos | PORTA.md | PORTA.json |
 |---|---|---|---|
 | `Artigos_complementares_zenodo/` | 12 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/PORTA.json) |
+| `NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/` | 9 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/NOTA_AO_LADO_PISO_DAS_DOBRAS_19OUT2026/PORTA.json) |
 
 ---
 
-gerado por script de git ls-files em 2026-10-14 -- nao editar a mao
+gerado por script de git ls-files em 2026-10-19 -- nao editar a mao
