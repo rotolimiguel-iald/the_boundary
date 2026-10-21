@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-19 16:27:16",
+  "timestamp": "2026-10-21 16:16:18",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,17 +10,17 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "bbc7dafb6f926fd685f4aefb7c5fc33fa60374e31909ac6fb1f36c8b49f1912c",
+  "formal_source_hash": "7e7c0e9aa0076840bc3227ad9141886a38ac9596c2456a2832e7c20b8383a37d",
   "formal_files_sha256": {
     "README.md": "395b1201109079084f3562349161283bd644e17d5e18cea19971bac041e58d11",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "e2f6c653efd20c7ef55288bad453512e96b58af538b8b9845a1aba2464ef6d45",
+    "TGLExt.lean": "1a1f36f78534936eeeac5682a1b1b83afa7e1ef725df5239101cd5f1fa695773",
     "_check_damming.lean": "485969b99f3e3db7ef4f9e4b1e97fb501ff68540a957e21949784d57d7536d21",
     "lake-manifest.json": "31a94eb76a8370ae8d75999ccec510f1ef7b994e369beebee2a3ea0088eee235",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "0ce631a213f9bb37d60ab544e32a29c5e5e712f15c34894ae42617b61c3f934d",
+    "TGL/Audit.lean": "b3e815ec51bc0612e63f27732e64349265daf75edb9283e14929f9114f41e3b4",
     "TGL/Basic.lean": "6de2b310b37c0af52fc83f9bf3c34d4c141115f4e74be86f9870b9bd531ebd04",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -461,6 +461,7 @@
     "TGLExt/ProfileTransportControls.lean": "d97a140bf76842f6cbe3fdd7c80a1a0477a6a94362b98d80c54ccae194f5195e",
     "TGLExt/ProgrammerRule.lean": "89e5e14bee9dc4aa37ded5f8b5269ce9fd93787f16eec9346273042c93fc349d",
     "TGLExt/PsiEmergence.lean": "ff0fd49da7bda187a61454a6b57099e99d1c59c8af038fa43c90c1653736bb04",
+    "TGLExt/Psibit.lean": "50c199eb019761519da99f97357a04a3d0b66ee4051cd2f751644f7f010a301b",
     "TGLExt/QGCitationDischarge.lean": "78cd50266981be5074350678d67bba1cc02edd55c8bd7f316166a3a8f2bd7826",
     "TGLExt/QGReaderUVLock.lean": "77ba8803c7cd0a80f8dbe7fb78d290d154a7cdac220efa92f8ae72c742f56807",
     "TGLExt/QGSolutionComplete.lean": "8c3a4bc82c5c4308515063254744cfaefcc7e7b926038221be2e7de6293dc598",
@@ -2139,6 +2140,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.balanced_collapse_is_half": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.scalarTomita_sqrt_factor": [
       "propext",
       "Classical.choice",
@@ -2489,13 +2495,13 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "ChatgptAudit.Collapse057.actualTowerCollapse._proof_1": [
-      "propext"
-    ],
     "F1Fecho.ConcreteWeyl.R._proof_2": [
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "ChatgptAudit.Collapse057.actualTowerCollapse._proof_1": [
+      "propext"
     ],
     "TGLExt.the_light_squares_to_the_graviton": [
       "propext",
@@ -3524,6 +3530,11 @@
       "Quot.sound"
     ],
     "F1Fecho.CanonicalFockWeightModularOperator.scalarTomitaResolvent_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.Code.noConfusionType": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -8789,6 +8800,11 @@
       "propext"
     ],
     "TGLExt.ImportedSQ.LightOneParticle.mk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.decodeAmp_codeAmp": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -14120,6 +14136,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.rhoOut_00": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.BicommutantTwoVector.orbitMap._proof_4": [
       "propext",
       "Classical.choice",
@@ -15003,6 +15024,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.the_ledger_of_losses": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Clock040.fisher_original_time_ratio_limit._simp_1_2": [
       "propext"
     ],
@@ -15021,6 +15047,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.the_patent_convention_is_also_lossless": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Continuous049.spectralJ_involutive": [
       "propext",
       "Classical.choice",
@@ -15032,6 +15063,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Unitary022.unitaryStateCurve._proof_1": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.rho_pi_div_four_ne_half": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -17928,6 +17964,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.sqrt_two_div_two_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.ScalarPolarRight._proof_7": [
       "propext",
       "Classical.choice",
@@ -17973,6 +18014,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.lattice_local_phase_period": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.v": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -18614,6 +18660,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.balanced_weights_are_half": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.fixed_of_compression_covariance": [],
     "F1Fecho.CanonicalFockFiniteWeight.averageSquare": [
       "propext",
@@ -18986,6 +19037,9 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.Psibit.psibitPosto._proof_2": [
+      "propext"
     ],
     "F1Rede.Canonical.canonicalFub._proof_3": [
       "propext",
@@ -19695,6 +19749,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.collapse_forgets_the_parity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Screen013.NormalizedScreenAt.vectors": [
       "propext",
       "Classical.choice",
@@ -19731,6 +19790,11 @@
       "Quot.sound"
     ],
     "ORDEM016.D6.dampingRoot._proof_11": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.Code.recOn": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -20823,6 +20887,11 @@
     ],
     "TGLV350.Regular.hilbertPairInl._proof_1": [
       "propext"
+    ],
+    "TGLExt.Psibit.parity_neg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ],
     "ChatgptAudit.CocycleLimit.CocycleApproximation.error_tendsto": [
       "propext",
@@ -22254,6 +22323,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.Code.verb": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.factor_commAlg_commute": [
       "propext",
       "Classical.choice",
@@ -22772,6 +22846,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Continuous049.spectralJB_eq_AJ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.collapse_identifies_exactly_equal_weights": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -23374,6 +23453,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.codeAmp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.PairTomita.graph_conj_smul": [
       "propext",
       "Classical.choice",
@@ -23774,6 +23858,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.Code.mk.injEq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.ContratoQGv31.ContratoH2.mk._flat_ctor": [
       "propext",
       "Classical.choice",
@@ -23991,6 +24080,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.decodeRho_readRho": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Quartic037.cancelling_clock_same_initial_calibration": [
       "propext",
       "Classical.choice",
@@ -24140,12 +24234,12 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "ChatgptAudit.Relative031.instNormedAlgebraRatContinuousLinearMapComplexIdTowerHilbert._proof_3": [
+    "F1Fecho.ScalarL2.compactRepresentation._proof_16": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "F1Fecho.ScalarL2.compactRepresentation._proof_16": [
+    "ChatgptAudit.Relative031.instNormedAlgebraRatContinuousLinearMapComplexIdTowerHilbert._proof_3": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -27092,6 +27186,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.Code._sizeOf_inst": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.WeylFiniteAlgebra.generator_mem": [
       "propext",
       "Classical.choice",
@@ -28056,6 +28155,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.decodeRho": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.MetricVariation.perturbedMetricInverse": [
       "propext",
       "Classical.choice",
@@ -28102,6 +28206,11 @@
       "Quot.sound"
     ],
     "TGLExt.boundaryState_eq_vector_state": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.rhoOut_11": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -28826,6 +28935,11 @@
       "Quot.sound"
     ],
     "TGLExt.FullWitnessDataV3.instNACG": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.hasDerivAt_sin_sq": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -30170,6 +30284,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.rhoWeight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.matrixUnit_imaginaryPower_right_scaling": [
       "propext",
       "Classical.choice",
@@ -30798,6 +30917,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.decodeAmp_codeOf": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Cocycle030.towerPiAlgHom._proof_8": [
       "propext",
       "Classical.choice",
@@ -31057,6 +31181,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Heat041.optical_clausius_eventually_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.decodeAmp_mem_unit": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -31516,6 +31645,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.FiniteCommutatorSeries.bracketOperator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.Code.mk": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -32628,6 +32762,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.basis0_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Observable035.omegaContinuous._proof_7": [
       "propext",
       "Classical.choice",
@@ -33533,6 +33672,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.the_psibit_crossing_pays_loss": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.DeviceRootObstruction.dissipator._proof_1": [
       "propext"
     ],
@@ -33822,6 +33966,11 @@
       "Quot.sound"
     ],
     "F1Fecho.TensorCoordinates.SpectralData.noConfusionType": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.Code.rec": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -35892,6 +36041,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.the_collapse_has_no_left_inverse_on_the_orbit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.scalarPolarRight_mul": [
       "propext",
       "Classical.choice",
@@ -36463,6 +36617,11 @@
       "Quot.sound"
     ],
     "_private.TGLExt.ExistingTowerRealization.0.ChatgptAudit.CocycleRealization.towerConfiguration.match_1.eq_2": [],
+    "TGLExt.Psibit.only_the_global_sign_is_lost": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.universal_compactness._simp_1_2": [
       "propext"
     ],
@@ -37126,6 +37285,11 @@
       "Quot.sound"
     ],
     "TGLExt.ContratoQGv32.ContratoH3v32._sizeOf_inst": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.signPat_eq_one_or_neg_one": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -38285,6 +38449,11 @@
       "Quot.sound"
     ],
     "F1Fecho.PairTomita.orbit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.rhoOut_10": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -40173,6 +40342,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.v_is_the_S_orbit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.chainVolume_nonnegative": [
       "propext",
       "Classical.choice",
@@ -40667,6 +40841,11 @@
       "Quot.sound"
     ],
     "F1Rede.LightRay.translation_inv_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.rhoOut_01": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -42347,6 +42526,11 @@
     ],
     "ChatgptAudit.Coherent023.response_coupling_identity._simp_1_3": [
       "propext"
+    ],
+    "TGLExt.Psibit.v_snd_is_the_derivative_of_v_fst": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ],
     "ChatgptAudit.Collapse057.normalized_branch_requires_nonzero_weight": [
       "propext",
@@ -47348,6 +47532,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.Code.mk.noConfusion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.TheVerbSelectsTheAction.Station.ctorElim": [],
     "TGLExt.alphaAct_id": [
       "propext",
@@ -48536,6 +48725,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.codeAmp_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Flow016.LipschitzLocalFlow.radius": [
       "propext",
       "Classical.choice",
@@ -49077,6 +49271,11 @@
       "propext"
     ],
     "ChatgptAudit.Relative031.boundedCongruenceLift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.v_pi_div_four": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -50288,6 +50487,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.rhoOut_eq_real": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.StaticDynamic.mixed_joint_modular_limit": [
       "propext",
       "Classical.choice",
@@ -50515,6 +50719,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.at_the_fixed_point_the_collapse_is_half": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.NormalizedFirstOrder016.reading_hasDerivAt": [
       "propext",
       "Classical.choice",
@@ -50628,6 +50837,11 @@
       "propext"
     ],
     "ChatgptAudit.Flow019.connectionInitialJet._proof_4": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.psibitCrossing": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -51309,6 +51523,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.Code.noConfusion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.the_emptying_closes": [
       "propext",
       "Classical.choice",
@@ -51723,6 +51942,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.UnifiedRecorded.unifiedFrequency": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.pair_equal_up_to_the_global_sign": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -52940,6 +53164,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.codeAmp_eq_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.FisherField.fisher_tensor_directional": [
       "propext",
       "Classical.choice",
@@ -53076,6 +53305,11 @@
       "Quot.sound"
     ],
     "TGLExt.SiteProfile.rec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.signPat": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -56704,6 +56938,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.rhoOut_eq_decodeRho": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.Creation.segal_dense": [
       "propext",
       "Classical.choice",
@@ -58399,6 +58638,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.codeOf_decodeAmp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Observable035.pauliExpectation": [
       "propext",
       "Classical.choice",
@@ -59893,6 +60137,11 @@
     "TGLExt.EquationOfTruth.profA._proof_1": [
       "propext"
     ],
+    "TGLExt.Psibit.the_verb_is_minus_the_derivative_of_the_reflected_weight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Flow019.connectionInitialJet.eq_1": [
       "propext",
       "Classical.choice",
@@ -60054,6 +60303,11 @@
     ],
     "ChatgptAudit.Horizons045.swapHorizon._proof_1": [
       "propext"
+    ],
+    "TGLExt.Psibit.v_neg_pi_div_four": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ],
     "F1Fecho.GammaGraph.GA_denseRange": [
       "propext",
@@ -61563,6 +61817,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Aperiodic046.local_average_eq_embedding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.sign_of_signType_cast": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -64254,6 +64513,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.exists_angle_of_unit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.IALD.probe_the_light": [
       "propext",
       "Classical.choice",
@@ -65553,6 +65817,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.Code.ext_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Unitary022.pair_flow_group": [
       "propext",
       "Classical.choice",
@@ -65734,6 +66003,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.pencil_ricci_balance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.rhoParity_eq_product": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -66919,6 +67193,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Optical036.ConstantJacobiField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.signPat_eq_sign": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -69374,6 +69653,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.codeOf": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.scalarGNSOrbit._proof_10": [
       "propext",
       "Classical.choice",
@@ -69566,6 +69850,11 @@
       "Quot.sound"
     ],
     "TGLV350.Regular.finiteDualLeftIdeal._proof_8": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.Code.casesOn": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -70809,6 +71098,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.the_weight_alone_does_not_read": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.TransportedCornerFamily.recOn": [
       "propext",
       "Classical.choice",
@@ -70870,6 +71164,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Optical043.past_integral_original_germ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.Code.mk._flat_ctor": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -70937,6 +71236,11 @@
       "propext"
     ],
     "F1Fecho.ConcreteWeyl.W_ccr": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.collapseEntropy": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -72267,6 +72571,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.v_pi_sub_pi_div_four": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Observable035.pauli_fisher_area_eq_abs_jacobian": [
       "propext",
       "Classical.choice",
@@ -72613,6 +72922,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.the_verb_without_the_word_does_not_read": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.PositiveRegularized.image_bound": [
       "propext",
       "Classical.choice",
@@ -72629,6 +72943,11 @@
       "Quot.sound"
     ],
     "F1Fecho.Creation.segal._proof_1": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.v.eq_1": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -72775,6 +73094,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.FiniteLeviCivita.connection_pullback_torsion_free": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.stateVec": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -73534,6 +73858,11 @@
       "Quot.sound"
     ],
     "TGLV350.compression_variable_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.Code.word": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -74404,6 +74733,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.the_pair_is_necessary_and_sufficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.qKappa": [
       "propext",
       "Classical.choice",
@@ -74837,6 +75171,11 @@
     ],
     "TGLExt.ProgrammerRule.mk._flat_ctor": [],
     "TGLExt.QGSolution.LightNetData.K_local": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.rhoWeight_eq": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -75404,6 +75743,11 @@
       "Quot.sound"
     ],
     "TGLExt.SolvedEinsteinData.mk._flat_ctor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.codeOf.eq_1": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -77311,6 +77655,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.v_snd": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.scalarRightAdjointPair_vector_mem_range_closure": [
       "propext",
       "Classical.choice",
@@ -77842,6 +78191,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.Code.ext": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.NetworkReuse.CanonicalNetInput.recOn": [
       "propext",
       "Classical.choice",
@@ -77892,12 +78246,12 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "ChatgptAudit.Response028.amplitude_relative_scaled_bound": [
+    "F1Fecho.RegularScalarGNS.finiteIdeal._proof_4": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "F1Fecho.RegularScalarGNS.finiteIdeal._proof_4": [
+    "ChatgptAudit.Response028.amplitude_relative_scaled_bound": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -78083,6 +78437,11 @@
       "Quot.sound"
     ],
     "ORDEM016.Photon.Contract.ContratoH2.mk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.the_density_is_its_code": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -78937,6 +79296,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.psibitCrossing._proof_3": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Continuous049.boundedSpectralMultiplier._proof_9": [
       "propext",
       "Classical.choice",
@@ -79780,6 +80144,11 @@
       "Quot.sound"
     ],
     "F1Fecho.ExponentialTomita.Sexp_maps_domain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.the_code_reads_L_and_dL": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -80634,6 +81003,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.v_fst": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Quartic037.binaryAffineCurve._proof_3": [
       "propext",
       "Classical.choice",
@@ -80773,6 +81147,11 @@
       "Quot.sound"
     ],
     "TGLV350.Regular.scalarGNSLinear._proof_7": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.rhoParity": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -81601,6 +81980,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.range_v_eq_unit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.UnboundedTransform016.normalizedInput_image_norm": [
       "propext",
       "Classical.choice",
@@ -82277,6 +82661,11 @@
       "Quot.sound"
     ],
     "F1Fecho.OrbitalSpatial.spatialUnitary_ae": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.codeAmp_verb": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -83192,6 +83581,11 @@
       "Quot.sound"
     ],
     "TGLExt.ImportedSQ.lightH2._proof_1": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.Code._sizeOf_1": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -85403,6 +85797,9 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.psibitPosto._proof_1": [
+      "propext"
+    ],
     "ChatgptAudit.CurvedConnection.ricci_exact_expansion": [
       "propext",
       "Classical.choice",
@@ -86214,6 +86611,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.v_add_pi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.CanonicalFockPolar.operatorRealModule._proof_3": [
       "propext",
       "Classical.choice",
@@ -86664,12 +87066,22 @@
     "ChatgptAudit.Covariant053.local_polarizer_sylvester._simp_1_5": [
       "propext"
     ],
+    "TGLExt.Psibit.the_parity_is_the_sign_of_the_derivative_of_the_name": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.TensorCoordinates.sector_WA": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
     "TGLExt.cutSub._proof_4": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.psibitCrossing._proof_1": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -87094,9 +87506,18 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.the_psion_face_of_the_psibit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.scalarWeightStarCore._proof_18": [
       "propext",
       "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.codeAmp_injOn._proof_1_1": [
+      "propext",
       "Quot.sound"
     ],
     "ChatgptAudit.WignerRapidityMeasure016.boost_chart_intertwines_of_positive": [
@@ -88140,6 +88561,11 @@
       "Quot.sound"
     ],
     "ORDEM016.Photon.Contract.ContratoH2.boost": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.basis0.eq_1": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -89688,6 +90114,11 @@
     "ChatgptAudit.LightRayCore016.productCore._proof_1": [
       "propext"
     ],
+    "TGLExt.Psibit.Code.weight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.UnboundedTransform016.NormalizedGraphWitness.injectiveA": [
       "propext",
       "Classical.choice",
@@ -89759,6 +90190,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.psibitPosto._proof_3": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.TimeGravitonFlow.blockPM_blockMP": [
       "propext",
       "Classical.choice",
@@ -89770,6 +90206,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Quartic037.smallSingleAmplitude.congr_simp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.signPat_mul_abs": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -91452,6 +91893,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.readRho": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.TheFlowLawContrast.survivingWeightContrast_eq._simp_1_3": [
       "propext"
     ],
@@ -91782,6 +92228,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.WignerRapidityMeasure016.screenTwo_transverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.parity_ne_zero_of_generic": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -93051,6 +93502,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Transport027.profile_gns_unitary_intertwines": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.stateVec_zero": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -94375,6 +94831,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.Code.ctorIdx": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.WeylFlow.restrictAutomorphism._proof_13": [
       "propext",
       "Classical.choice",
@@ -94690,6 +95151,11 @@
       "Quot.sound"
     ],
     "TGLExt.RuleContinuousMotor.P4.eq_1": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.collapseEntropy_at_balanced_weights": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -95659,6 +96125,11 @@
       "Quot.sound"
     ],
     "TGLV350.Regular.regularSpectralResolvent._proof_6": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.the_word_without_the_verb_does_not_read": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -96651,6 +97122,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.the_state_is_a_rank_one_projector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.WeakModulatorPair": [
       "propext",
       "Classical.choice",
@@ -96903,6 +97379,11 @@
     ],
     "ChatgptAudit.BondLocality.cutoff_hamiltonian_mem_prefix._proof_1_4": [
       "propext",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.collapseEntropy_at_the_fixed_point": [
+      "propext",
+      "Classical.choice",
       "Quot.sound"
     ],
     "ChatgptAudit.Relative031.relativeTomitaAdjoint": [
@@ -97832,6 +98313,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.v_pi_div_four_add_pi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.JointGravitation.jointMatter.eq_1": [
       "propext",
       "Classical.choice",
@@ -98167,12 +98653,12 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "ChatgptAudit.Relative031.inverseLikelihoodFilter._proof_5": [
+    "F1Fecho.CompletedTensor.completeRight._proof_4": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "F1Fecho.CompletedTensor.completeRight._proof_4": [
+    "ChatgptAudit.Relative031.inverseLikelihoodFilter._proof_5": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -98506,6 +98992,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.codeAmp_weight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.theFusedNet._proof_5": [
       "propext",
       "Classical.choice",
@@ -98783,6 +99274,11 @@
       "Quot.sound"
     ],
     "TGLExt.the_reading_preserves_omega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.balanced_weights_iff": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -101752,6 +102248,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.half_identity_is_a_fixed_point": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.WignerRapidityMeasure016.screenOne_measurable": [
       "propext",
       "Classical.choice",
@@ -102484,6 +102985,11 @@
       "propext"
     ],
     "ChatgptAudit.Micro021.relative_curve_derivative_past": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.the_orbit_is_in_bijection_with_the_code_book": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -103415,6 +103921,11 @@
       "Quot.sound"
     ],
     "TGL.NameIndex.ParityData.noConfusion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.the_verb_is_the_derivative_of_the_name": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -106858,6 +107369,11 @@
       "propext",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.psibitCrossing._proof_2": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Flow019.local_null_seed_with_zero_covariant_jet": [
       "propext",
       "Classical.choice",
@@ -107171,6 +107687,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.the_global_sign_is_not_observed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.scalarRightAdjointPair_star": [
       "propext",
       "Classical.choice",
@@ -107289,6 +107810,11 @@
       "propext"
     ],
     "ChatgptAudit.GeneralLinearized.pd_mul_const_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.readRho.eq_1": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -108139,6 +108665,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.hasDerivAt_nome": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Collapse057.AttestedCollapse.noConfusion": [],
     "ChatgptAudit.SummableInteraction.interaction_prefix_selfadjoint": [
       "propext",
@@ -108381,6 +108912,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Thermal024.gibbs_weights_not_modular_orbit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.Code.ext.match_1": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -108796,6 +109332,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.AdmissibleInteraction.SummableCouplingData.casesOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.codeAmp_injOn": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -109695,6 +110236,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.the_lost_variable_is_one_bit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.QGSolution.LightNetData.K_mono": [
       "propext",
       "Classical.choice",
@@ -110067,6 +110613,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.Code.mk.sizeOf_spec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.theFactorObject_carrier": [
       "propext",
       "Classical.choice",
@@ -110276,6 +110827,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.SignedGibbsCoverage.probeSign.eq_1": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.decodeAmp": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -110574,6 +111130,11 @@
       "Quot.sound"
     ],
     "F1Rede.BosonicFock.gamma": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.psibit_is_the_mode_of_the_reader": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -112407,12 +112968,12 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLExt.Posto.ad_rhoStar": [
+    "F1Fecho.OrbitalContraction.boundedMultiplier._proof_12": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "F1Fecho.OrbitalContraction.boundedMultiplier._proof_12": [
+    "TGLExt.Posto.ad_rhoStar": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -113256,6 +113817,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.codeOf_isCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.SelectedFisher.reflectedMetric": [
       "propext",
       "Classical.choice",
@@ -113655,6 +114221,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.the_state_is_pure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Thermal025.diagonal_affinity_product._simp_1_3": [
       "propext",
       "Quot.sound"
@@ -114006,6 +114577,11 @@
       "propext"
     ],
     "ChatgptAudit.Flow018.smoothLocalChart._proof_12": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.UnitVec": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -115235,12 +115811,12 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLExt.IALDJones.jonesU": [
+    "ChatgptAudit.LocalCentralizerInput.rec": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "ChatgptAudit.LocalCentralizerInput.rec": [
+    "TGLExt.IALDJones.jonesU": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -116974,6 +117550,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.psibitPosto._proof_4": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.landauer_floor_pos": [
       "propext",
       "Classical.choice",
@@ -117590,6 +118171,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.Code": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.IALDJones.proj_mul_jonesU": [
       "propext",
       "Classical.choice",
@@ -117626,6 +118212,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Expectation047.operatorBlockRepresentation._proof_1": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.decodeAmp.eq_1": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -118487,6 +119078,11 @@
       "Quot.sound"
     ],
     "F1Fecho.ExponentialTomita.Sexp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.inner_basis0_stateVec": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -121138,6 +121734,11 @@
       "Quot.sound"
     ],
     "TGLExt.UmPostoRelacao.no_posto_reading_is_pressupposed": [],
+    "TGLExt.Psibit.collapseEntropy_le_the_fair_bit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.CanonicalFockWeight.PositiveInput._proof_6": [
       "propext",
       "Classical.choice",
@@ -121670,6 +122271,11 @@
       "Quot.sound"
     ],
     "ORDEM016.EquationOfTruth.NegativeControls.invalidDensity_not_positive._simp_1_2": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.v_is_unit": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -123107,6 +123713,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Clock040.discrete_region_inclusion_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.the_orbit_visits_all_four_states": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -127430,6 +128041,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.psibitPosto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.NameInstrument.casesOn": [],
     "TGLV350.Regular.scalarGNSVonNeumann._proof_14": [
       "propext",
@@ -129150,6 +129766,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.basis0": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.swapF": [
       "propext",
       "Classical.choice",
@@ -129182,6 +129803,11 @@
       "propext"
     ],
     "ChatgptAudit.Boost044.boost_even_hasDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.Code.mk.inj": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -132070,6 +132696,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.IsCode": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGL.ModularRealization.WedgeModularData._sizeOf_1": [
       "propext",
       "Classical.choice",
@@ -132410,6 +133041,11 @@
       "propext"
     ],
     "TGLV350.Regular.scalarGaussianOrbitLinear._proof_16": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.readRho_rhoOut": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -133091,6 +133727,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Horizons045.finite_site_unitary_site_action": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.the_name_is_the_born_reading_of_the_post": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -134486,6 +135127,11 @@
       "Quot.sound"
     ],
     "TGLExt.S_star_S_is_deltaLevel._simp_1_1": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.the_full_reading_remembers_the_parity": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -136703,12 +137349,12 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLExt.tailSub_one_eq_firstAtom_orthogonal": [
+    "TGLExt.lorentzGrp_one_val": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLExt.lorentzGrp_one_val": [
+    "TGLExt.tailSub_one_eq_firstAtom_orthogonal": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -137037,6 +137683,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.the_collapse_loses_exactly_the_parity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.RuleTruthContract.firstRetraction": [],
     "F1Fecho.TensorContraction.contraction._proof_1": [
       "propext",
@@ -137049,6 +137700,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Quartic037.quartic_matching_square_criterion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Psibit.pi_div_four_weights_are_balanced": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -138962,6 +139618,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Psibit.signType_cast_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.SigmaMatter.sigmaGibbsRecord.congr_simp": [
       "propext",
       "Classical.choice",
@@ -140088,8 +140749,8 @@
       "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "02728c720957363dbde61c4c8e6f2bdba424b1255500d443c239848e22733b89",
-  "audit_stdout_sha256": "50294c5e8a474aad63b9053e2d903ce7cece66f57c1b2f1a6fa3eeff81360886",
+  "build_stdout_sha256": "0ae3ac45d8062d3a4b54e82ce3890e629b60b15957551721310ab3c82d126707",
+  "audit_stdout_sha256": "b55ea1f3b2d0212c8e00bc659f55bc1f7cee72c26aa7edc56ca3b3b12be3781e",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

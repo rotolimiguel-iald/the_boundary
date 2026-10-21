@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-19T21:48:13Z",
+  "gerado_utc": "2026-10-21T21:07:03Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -4184,6 +4184,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PsiEmergence.lean",
       "sha256_16": "ff0fd49da7bda187",
       "bytes": 7887
+    },
+    {
+      "nome": "Psibit.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/Psibit.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): Psibit",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Psibit.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Psibit.lean",
+      "sha256_16": "50c199eb01976151",
+      "bytes": 65791
     },
     {
       "nome": "QGCitationDischarge.lean",
@@ -10526,8 +10536,8 @@
       "bytes": 10880
     }
   ],
-  "total_arquivos_nesta_pasta": 1049,
-  "total_arquivos_com_subpastas": 1389,
+  "total_arquivos_nesta_pasta": 1050,
+  "total_arquivos_com_subpastas": 1390,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt",
-  "rodape": "gerado por script de git ls-files em 2026-10-19 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-10-21 -- nao editar a mao"
 }
