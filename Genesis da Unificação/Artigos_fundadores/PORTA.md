@@ -59,4 +59,4 @@ Estratigrafia datada: leia como GENESE, nao como forma citavel corrente.
 
 ---
 
-gerado por script de git ls-files em 2026-10-21 -- nao editar a mao
+gerado por script de git ls-files em 2026-10-22 -- nao editar a mao

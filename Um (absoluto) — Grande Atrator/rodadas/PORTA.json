@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/rodadas",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-21T21:07:03Z",
+  "gerado_utc": "2026-10-22T23:14:20Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator",
@@ -1961,14 +1961,24 @@
       "bytes": 227308
     },
     {
+      "nome": "rodada_v396_stdout.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/rodadas/rodada_v396_stdout.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v396_stdout.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v396_stdout.txt",
+      "sha256_16": "1aff2e710c36b1fd",
+      "bytes": 229676
+    },
+    {
       "nome": "tgl_kernel_audit_capture.txt",
       "caminho": "Um (absoluto) — Grande Atrator/rodadas/tgl_kernel_audit_capture.txt",
       "papel": "dados",
       "descricao": "Captura por etapa (principal) do #print axioms de cada teorema -- rastreabilidade da auditoria (v339+)",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/tgl_kernel_audit_capture.txt",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/tgl_kernel_audit_capture.txt",
-      "sha256_16": "f91c5eb0536ac2b9",
-      "bytes": 6926307
+      "sha256_16": "24d8e88fca2442e2",
+      "bytes": 6939891
     },
     {
       "nome": "tgl_kernel_audit_capture_selftest_restored.txt",
@@ -1977,8 +1987,8 @@
       "descricao": "Dado ou saida de execucao",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/tgl_kernel_audit_capture_selftest_restored.txt",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/tgl_kernel_audit_capture_selftest_restored.txt",
-      "sha256_16": "98e5c77e1861bc31",
-      "bytes": 6926316
+      "sha256_16": "3721a6e5d7906d83",
+      "bytes": 6939900
     },
     {
       "nome": "tgl_kernel_audit_capture_selftest_tampered.txt",
@@ -1987,8 +1997,8 @@
       "descricao": "Dado ou saida de execucao",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/tgl_kernel_audit_capture_selftest_tampered.txt",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/tgl_kernel_audit_capture_selftest_tampered.txt",
-      "sha256_16": "c8f27b8af59060bd",
-      "bytes": 6926406
+      "sha256_16": "6bb60bc2001d8144",
+      "bytes": 6939990
     },
     {
       "nome": "tgl_kernel_build_capture.txt",
@@ -1997,8 +2007,8 @@
       "descricao": "Captura por etapa (principal) do lake build do kernel embutido -- rastreabilidade da compilacao (v339+)",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/tgl_kernel_build_capture.txt",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/tgl_kernel_build_capture.txt",
-      "sha256_16": "f0edaed82c8b59c9",
-      "bytes": 10576170
+      "sha256_16": "91078ecb591417ac",
+      "bytes": 10594211
     },
     {
       "nome": "tgl_kernel_build_capture_selftest_restored.txt",
@@ -2007,8 +2017,8 @@
       "descricao": "Dado ou saida de execucao",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/tgl_kernel_build_capture_selftest_restored.txt",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/tgl_kernel_build_capture_selftest_restored.txt",
-      "sha256_16": "e9f14e3fbd69189c",
-      "bytes": 10576571
+      "sha256_16": "44e05ef1c164c9cf",
+      "bytes": 10594611
     },
     {
       "nome": "tgl_kernel_build_capture_selftest_tampered.txt",
@@ -2017,8 +2027,8 @@
       "descricao": "Dado ou saida de execucao",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/tgl_kernel_build_capture_selftest_tampered.txt",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/tgl_kernel_build_capture_selftest_tampered.txt",
-      "sha256_16": "baf73b004564f6e3",
-      "bytes": 10576737
+      "sha256_16": "ce02f8ef758febe1",
+      "bytes": 10594777
     },
     {
       "nome": "tgl_kernel_build_capture_v372_tentativa1.txt",
@@ -2081,8 +2091,8 @@
       "bytes": 2476
     }
   ],
-  "total_arquivos_nesta_pasta": 206,
-  "total_arquivos_com_subpastas": 206,
+  "total_arquivos_nesta_pasta": 207,
+  "total_arquivos_com_subpastas": 207,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas",
-  "rodape": "gerado por script de git ls-files em 2026-10-21 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-10-22 -- nao editar a mao"
 }

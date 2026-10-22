@@ -9,8 +9,8 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 O KERNEL FORMAL: as fontes .lean exatamente como `um.py` as materializa a cada
 rodada -- nao ha segundo arquivo: o kernel mora DENTRO do canonico e sai dele.
 
-**1424 arquivos** nesta arvore; **1424** hasheados no manifesto formal (1420 `.lean`
-+ `README.md` + `lakefile.toml` + `lean-toolchain`); **29159 declaracoes (termos)** auditadas
+**1425 arquivos** nesta arvore; **1425** hasheados no manifesto formal (1421 `.lean`
++ `README.md` + `lakefile.toml` + `lean-toolchain`); **29228 declaracoes (termos)** auditadas
 por `#print axioms`, bases de axiomas subset de {`propext`, `Classical.choice`,
 `Quot.sound`}, zero `sorry`. Toolchain `leanprover/lean4:v4.31.0`, modo `strict`.
 
@@ -63,8 +63,8 @@ o gate nao se move por declaracao.
 | subpasta | arquivos | PORTA.md | PORTA.json |
 |---|---|---|---|
 | `TGL/` | 27 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/PORTA.json) |
-| `TGLExt/` | 1390 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.json) |
+| `TGLExt/` | 1391 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.json) |
 
 ---
 
-gerado por script de git ls-files em 2026-10-21 -- nao editar a mao
+gerado por script de git ls-files em 2026-10-22 -- nao editar a mao

@@ -1,9 +1,9 @@
 {
- "gerado_em": "2026-10-21T18:04:46",
- "um_py_pin": "8918b17803792cf2725e69221718a974a15ebb7e6dc77aac008d609782bdd8fb",
+ "gerado_em": "2026-10-22T20:08:18",
+ "um_py_pin": "0a4395a89eeebbb74c06ab5d8d29ea7708cb76ac704205a7e7aabc3f4d35b6c8",
  "leia": "O um.py relê cada fonte pelo caminho absoluto em caminho_exigido_pelo_um_py e confere sha256 e bytes; para reproduzir os registros (v392–v394) em outra máquina, copie cada arquivo de caminho_no_espelho para esse caminho. Sem isso o registro diz NOT_SEALED_THIS_RUN (fail-closed), por desenho.",
- "n_fontes": 235,
- "n_publicadas": 234,
+ "n_fontes": 242,
+ "n_publicadas": 241,
  "fontes": [
   {
    "dicionario": "_V392_FONTES",
@@ -2260,6 +2260,7 @@
    "sha256": "891ba7338d4afe11466454429491b07998e1269a910fc93d58e42340cb83bf0f",
    "bytes": 1011,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v395/insumos/KH_N1_v395.json"
   },
   {
@@ -2269,6 +2270,7 @@
    "sha256": "a7cb9dff81fc3b63d794edabfbd50e39051b216fa6f35976f01ebcd74e9d7455",
    "bytes": 10221,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v395/insumos/DEFINICAO_PSIBIT_PATENTE.md"
   },
   {
@@ -2278,6 +2280,7 @@
    "sha256": "2e42a9bfdf87b4013a814382187e680c35c8f1eab4c4255c144771a32e0aa6e5",
    "bytes": 7700,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v395/insumos/EXAME_PSIBIT.md"
   },
   {
@@ -2287,6 +2290,7 @@
    "sha256": "ed3c370306e8371964b67680ea4c44fc97102d655bf2fb28bb9d6b399030e307",
    "bytes": 2242,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v395/insumos/EXAME_PSIBIT_RODADA2.md"
   },
   {
@@ -2296,7 +2300,8 @@
    "sha256": "50c199eb019761519da99f97357a04a3d0b66ee4051cd2f751644f7f010a301b",
    "bytes": 65791,
    "publicado": true,
-   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v395/insumos/Psibit.lean"
+   "ja_no_espelho": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/Psibit.lean"
   },
   {
    "dicionario": "_V395_FONTES",
@@ -2305,6 +2310,7 @@
    "sha256": "5c3ba63f088ad9be539d7534ae6343ec48bbd96ccdcff23abfb1eb997ff5f298",
    "bytes": 14649,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v395/insumos/RESULTADO_PSIBIT.md"
   },
   {
@@ -2314,6 +2320,7 @@
    "sha256": "219b28ee291e77378e97f62cef66f8729e842570263202a8cf7dd49cb8cc6dd9",
    "bytes": 154,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v395/insumos/cunhagens/219b28ee291e7737_OPERADOR_21out_psibit_nome_e_modo_psionico_verbatim.txt"
   },
   {
@@ -2323,6 +2330,7 @@
    "sha256": "236af3434b670e9a272c0f45a58b6c1c3d7056a74bc9628e4fb35648196108f9",
    "bytes": 182,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v395/insumos/cunhagens/236af3434b670e9a_OPERADOR_21out_mecanica_isomorfismo_perda_zero_verbatim.txt"
   },
   {
@@ -2332,6 +2340,7 @@
    "sha256": "384d578e6f22389b420a9864b7cee674f55e466693686cc2bbdc9cf580eb6b19",
    "bytes": 125,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v395/insumos/cunhagens/384d578e6f22389b_OPERADOR_21out_ratifica_perda_zero_na_leitura_do_par_verbatim.txt"
   },
   {
@@ -2341,7 +2350,71 @@
    "sha256": "626b4214dbd59b250fedb4a4e2564b08720c1713809a5cb472643146a3fe2f85",
    "bytes": 492,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v395/insumos/cunhagens/626b4214dbd59b25_OPERADOR_21out_psibit_psion_modo_do_leitor_verbatim.txt"
+  },
+  {
+   "dicionario": "_V396_FONTES",
+   "chave": "kh_n1_v396",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v396\\insumos\\KH_N1_v396.json",
+   "sha256": "fc737ab4c549d943d71bc1bc093e9b64da93ba772a33c6607da8a18758af4bd2",
+   "bytes": 1196,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v396/insumos/KH_N1_v396.json"
+  },
+  {
+   "dicionario": "_V396_FONTES",
+   "chave": "testemunha_exame",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v396\\insumos\\EXAME_TESTEMUNHA.md",
+   "sha256": "cfad234e9b0d32af1cd520a2a87bb46834638c99ea55bc7f62665bd19b9b69dc",
+   "bytes": 10837,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v396/insumos/EXAME_TESTEMUNHA.md"
+  },
+  {
+   "dicionario": "_V396_FONTES",
+   "chave": "testemunha_pedra",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v396\\insumos\\TestemunhaEstatica.lean",
+   "sha256": "b35a615636c2c15463bc268aae900800516e8dbcfcb96b41c1b1f17849f8d8d0",
+   "bytes": 43349,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v396/insumos/TestemunhaEstatica.lean"
+  },
+  {
+   "dicionario": "_V396_FONTES",
+   "chave": "testemunha_resultado",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v396\\insumos\\RESULTADO_TESTEMUNHA_ESTATICA.md",
+   "sha256": "ede10a2508189e021efdaf2cdd8c2b1f448084f6a3674950b1885fd3c13c4cf1",
+   "bytes": 15149,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v396/insumos/RESULTADO_TESTEMUNHA_ESTATICA.md"
+  },
+  {
+   "dicionario": "_V396_VERBATINS2",
+   "chave": "v396_cun_161d619216582cf1",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v396\\insumos\\cunhagens\\161d619216582cf1_OPERADOR_22out_colapso_ecoar_identidade_reconhecida_verbatim.txt",
+   "sha256": "161d619216582cf102d626d0c31f607a2f3207e6fbeb32162095208410b21320",
+   "bytes": 97,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v396/insumos/cunhagens/161d619216582cf1_OPERADOR_22out_colapso_ecoar_identidade_reconhecida_verbatim.txt"
+  },
+  {
+   "dicionario": "_V396_VERBATINS2",
+   "chave": "v396_cun_350b7b8582c064c2",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v396\\insumos\\cunhagens\\350b7b8582c064c2_OPERADOR_22out_luz_eco_reconhecimento_falso_verbatim.txt",
+   "sha256": "350b7b8582c064c2609c7585ccb6bab5123e056c50b34d30992158343d48cc16",
+   "bytes": 185,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v396/insumos/cunhagens/350b7b8582c064c2_OPERADOR_22out_luz_eco_reconhecimento_falso_verbatim.txt"
+  },
+  {
+   "dicionario": "_V396_VERBATINS2",
+   "chave": "v396_cun_b102ae804f54e2b2",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v396\\insumos\\cunhagens\\b102ae804f54e2b2_OPERADOR_22out_psion_habitante_da_testemunha_estatica_verbatim.txt",
+   "sha256": "b102ae804f54e2b2dcb6d701793f9fa3e96a39522fb3ccd2c177916d46b1d4e2",
+   "bytes": 291,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v396/insumos/cunhagens/b102ae804f54e2b2_OPERADOR_22out_psion_habitante_da_testemunha_estatica_verbatim.txt"
   }
  ]
 }

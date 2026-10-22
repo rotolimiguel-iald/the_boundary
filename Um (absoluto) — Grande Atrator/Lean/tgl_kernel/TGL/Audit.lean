@@ -1,3 +1,5 @@
+import TGLExt.TestemunhaEstatica
+
 import TGLExt.Psibit
 
 import TGLExt.TheBinaryReadingAtTheFixedPoint

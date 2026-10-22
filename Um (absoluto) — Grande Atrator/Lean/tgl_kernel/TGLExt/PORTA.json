@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-21T21:07:03Z",
+  "gerado_utc": "2026-10-22T23:14:20Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -5386,6 +5386,16 @@
       "bytes": 3213
     },
     {
+      "nome": "TestemunhaEstatica.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TestemunhaEstatica.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TestemunhaEstatica",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TestemunhaEstatica.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TestemunhaEstatica.lean",
+      "sha256_16": "b35a615636c2c154",
+      "bytes": 43349
+    },
+    {
       "nome": "TetelestaiOneObject.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TetelestaiOneObject.lean",
       "papel": "prova formal",
@@ -10536,8 +10546,8 @@
       "bytes": 10880
     }
   ],
-  "total_arquivos_nesta_pasta": 1050,
-  "total_arquivos_com_subpastas": 1390,
+  "total_arquivos_nesta_pasta": 1051,
+  "total_arquivos_com_subpastas": 1391,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt",
-  "rodape": "gerado por script de git ls-files em 2026-10-21 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-10-22 -- nao editar a mao"
 }

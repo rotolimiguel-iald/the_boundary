@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/levantamento_qg/cobertura_axiomas/sandbox",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-21T21:07:03Z",
+  "gerado_utc": "2026-10-22T23:14:20Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/PROGRAMA_IALD/levantamento_qg/cobertura_axiomas",
@@ -34,5 +34,5 @@
   "total_arquivos_nesta_pasta": 1,
   "total_arquivos_com_subpastas": 1,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/levantamento_qg/cobertura_axiomas/sandbox",
-  "rodape": "gerado por script de git ls-files em 2026-10-21 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-10-22 -- nao editar a mao"
 }

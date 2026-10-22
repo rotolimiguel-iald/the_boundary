@@ -1,0 +1,48 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/diferencas_v396",
+  "porta_id": "Um (absoluto) — Grande Atrator/diferencas_v396",
+  "titulo": "Um (absoluto) — Grande Atrator/diferencas_v396",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-22T23:14:20Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "DIFF_KERNEL_v396.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/diferencas_v396/DIFF_KERNEL_v396.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/diferencas_v396/DIFF_KERNEL_v396.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/diferencas_v396/DIFF_KERNEL_v396.txt",
+      "sha256_16": "43d9dcaaa77c790f",
+      "bytes": 636
+    },
+    {
+      "nome": "DIFF_v395_v396.diff",
+      "caminho": "Um (absoluto) — Grande Atrator/diferencas_v396/DIFF_v395_v396.diff",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/diferencas_v396/DIFF_v395_v396.diff",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/diferencas_v396/DIFF_v395_v396.diff",
+      "sha256_16": "5024ad6c765f5d88",
+      "bytes": 1694512
+    }
+  ],
+  "total_arquivos_nesta_pasta": 2,
+  "total_arquivos_com_subpastas": 2,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/diferencas_v396",
+  "rodape": "gerado por script de git ls-files em 2026-10-22 -- nao editar a mao"
+}

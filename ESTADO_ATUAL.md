@@ -4,15 +4,15 @@
 
 [![kernel](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml/badge.svg)](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml) ← the Lean kernel rebuilt and re-audited on GitHub's machines, from this tree, against the sealed axiom report.
 
-## Proved on three supports · provada em três apoios `[read by script from the run of v395]`
+## Proved on three supports · provada em três apoios `[read by script from the run of v396]`
 
-**PROVED = validity**, in the operator’s definition of proof (09/09/2026): *sufficient and verifiable ballast* — `um.py` is the executable ballast: one file, one input, the kernel materialized and audited term by term, the rites run with pre-registered falsifiers, the hashes sealed, the article emitted; whoever executes it after cloning the repository (the rites are re-read by hash from its ../cache) obtains the same ballast (the GPU support needs a CUDA GPU). Two certifications, not to be mixed: **identity** is certified by the artifact itself — `um.py` computes its own sha256 and writes it into the seal, and this repository and the site carry that same pin byte-exact; **validity** is certified by the Lean kernel (`#print axioms`), which anyone re-runs and the CI rebuilds — Python proves no theorem. **CONFIRMED = accreditation** (the operator’s ruling, 07/10/2026): the act by which observers outside the artifact accept the result. The machine never issues it about itself: the kernel stone [`TheReservedConfirmation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean) proves, on the finite face, that the flow cannot confirm itself and only the recognizer confirms; the approval the rites emit falls short of confirmation by construction (“observer = the human” is `[ONTO]`). *Not yet confirmed* means *not yet accredited*; it never means *not proved*. `NOT_FALSIFIED ≠ CONFIRMED`. The core of v395 records this reading itself: `estatuto_da_prova_v391` (`PROVED_AS_LOGICAL_CLOSURE`; `CONFIRMATION_IS_CREDITATION_NOT_VALIDITY`). **Reservation beside (v392, `estatuto_da_prova_ressalva_v392`):** of the 18 gate flags, all read True, the audit reads 15 as computed and 3 as literal, and the experimental step reads only the V11 void-floor feed, unilateral (the shallow ΛCDM also passes it) `[DECLARED by the audit of 28/09/2026]`; recomputing the flags is unit F8.1, which v392 documents and does not close (`f81_nao_fechada_v392`). The statute above is unaltered.
+**PROVED = validity**, in the operator’s definition of proof (09/09/2026): *sufficient and verifiable ballast* — `um.py` is the executable ballast: one file, one input, the kernel materialized and audited term by term, the rites run with pre-registered falsifiers, the hashes sealed, the article emitted; whoever executes it after cloning the repository (the rites are re-read by hash from its ../cache) obtains the same ballast (the GPU support needs a CUDA GPU). Two certifications, not to be mixed: **identity** is certified by the artifact itself — `um.py` computes its own sha256 and writes it into the seal, and this repository and the site carry that same pin byte-exact; **validity** is certified by the Lean kernel (`#print axioms`), which anyone re-runs and the CI rebuilds — Python proves no theorem. **CONFIRMED = accreditation** (the operator’s ruling, 07/10/2026): the act by which observers outside the artifact accept the result. The machine never issues it about itself: the kernel stone [`TheReservedConfirmation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean) proves, on the finite face, that the flow cannot confirm itself and only the recognizer confirms; the approval the rites emit falls short of confirmation by construction (“observer = the human” is `[ONTO]`). *Not yet confirmed* means *not yet accredited*; it never means *not proved*. `NOT_FALSIFIED ≠ CONFIRMED`. The core of v396 records this reading itself: `estatuto_da_prova_v391` (`PROVED_AS_LOGICAL_CLOSURE`; `CONFIRMATION_IS_CREDITATION_NOT_VALIDITY`). **Reservation beside (v392, `estatuto_da_prova_ressalva_v392`):** of the 18 gate flags, all read True, the audit reads 15 as computed and 3 as literal, and the experimental step reads only the V11 void-floor feed, unilateral (the shallow ΛCDM also passes it) `[DECLARED by the audit of 28/09/2026]`; recomputing the flags is unit F8.1, which v392 documents and does not close (`f81_nao_fechada_v392`). The statute above is unaltered.
 
 | support | what it establishes | read from the core and the emitted article | status |
 |---|---|---|---|
-| **1 · the Lean kernel** | the implication from the posited One (`ω(I) = 1`, POSTO) and the named hypotheses H1–H3 to the pentad (Breuer corner · Name = 1 · coframe · Lorentz · δQ = κδA/8πG), in Lean 4 + mathlib, on the finite face | **9451/9451 flags of the rite’s ladder (ext_*: named declarations, theorems and definitions) clean**; 29159/29159 declarations in `{propext, Classical.choice, Quot.sound}`; zero `sorry`; gate flags 18/18 (the formal flags from the kernel; the experimental ones fed by the V11 rite) | `[PROVED]` — the implication, not nature |
+| **1 · the Lean kernel** | the implication from the posited One (`ω(I) = 1`, POSTO) and the named hypotheses H1–H3 to the pentad (Breuer corner · Name = 1 · coframe · Lorentz · δQ = κδA/8πG), in Lean 4 + mathlib, on the finite face | **9498/9498 flags of the rite’s ladder (ext_*: named declarations, theorems and definitions) clean**; 29228/29228 declarations in `{propext, Classical.choice, Quot.sound}`; zero `sorry`; gate flags 18/18 (the formal flags from the kernel; the experimental ones fed by the V11 rite) | `[PROVED]` — the implication, not nature |
 | **2 · the rites against nature, with pre-registered falsifiers** | GR recovered as the classical limit in every rite row where GR is read (a per-row reading by the management). **The Hubble ratio** `K = E(z*)^{2β/3}`, β fixed by the axiom, zero parameters adjusted (use-novelty): local H₀ predicted 74.27 against the readers 72.88 ± 0.91 km/s/Mpc as declared; the fitted β̂ = 0.0092 ± 0.0020 sits at z_δ = -1.42 from β_TGL; with the readers as declared, ln B(TGL/ΛCDM) = 9.17 and z_disc = 4.28 (√Δχ²), below the 5 at which the protocol discriminates. **The void floor**: the 5σ lower bound 0.0588 sits above β = 0.01203 (powered; one-sided — shallow ΛCDM also passes) | **10 of 10** GR rows; **11 charges: 0 falsified, 6 not falsified, 1 excluded in reading, 2 inconclusive, 2 awaiting**; Phase 9 pre-registered by hash (`d956c8db6bb9ab8d`) | **0 of 11 charges of the theory FALSIFIED** — the theory stood; the 9 echo routes are outside the ledger by the operator’s decision of 02/10/2026 — examined routes, not charges of the theory: 5 excluded by data (the pair amplitude reading × delay law), 4 inconclusive. Phase 9’s frozen verdict reads `INCONCLUSIVE_SYSTEMATICS` until the readers’ sources are pinned by sha256; the article reads the resolution of the Hubble tension as a `[CONJECTURE]` of mechanism |
-| **3 · the quantum pillar on the GPU** | the theory’s open system (H_LD + five GKLS/Lindblad jumps) computed in double precision on an NVIDIA GeForce RTX 5090 under pre-registration: unique attractor over the whole grid; the blind instrument recovers the law the code injected; the controls fail as required | **672/672** grid points; **21,100/21,100** stress instances; 3,220 blind injections, 0 errors; CPU reference: 0 disagreements in 392; spec `ff19731097e01aab` | `[COMPUTED]` — a numerical experiment: measurement in the simulated environment, not of nature; reused at v395 by key from the sealed v385 run (result sha256 matches; reproducibility not remeasured this run); it needs a CUDA GPU — without one, um.py returns `NOT_RUN__GPU_UNAVAILABLE` |
+| **3 · the quantum pillar on the GPU** | the theory’s open system (H_LD + five GKLS/Lindblad jumps) computed in double precision on an NVIDIA GeForce RTX 5090 under pre-registration: unique attractor over the whole grid; the blind instrument recovers the law the code injected; the controls fail as required | **672/672** grid points; **21,100/21,100** stress instances; 3,220 blind injections, 0 errors; CPU reference: 0 disagreements in 392; spec `ff19731097e01aab` | `[COMPUTED]` — a numerical experiment: measurement in the simulated environment, not of nature; reused at v396 by key from the sealed v385 run (result sha256 matches; reproducibility not remeasured this run); it needs a CUDA GPU — without one, um.py returns `NOT_RUN__GPU_UNAVAILABLE` |
 
 **None of the three failed** (`three_stress_tests_v387`: `NONE_OF_THE_THREE_FAILED`). What they measure together is P1 — *the theory is consistent and recovers the known physics* — counted by the three supports (`P1_COUNTED_BY_THE_THREE`). The core keeps no single probability for it; the joint coincidence of the nature channels (V3) reads P_all = 6.57×10⁻³ (no correction for the choice of the set) and boolean False — not excluded at the protocol threshold 10⁻³⁰ (28 channels of this quality would be needed) and inconsistent at its 3σ rule (max |z| = 3.12, the D1 tension).
 
@@ -20,21 +20,21 @@
 
 **Not claimed here** (read from the core: `kernel_formalization`, `fundacao_v390`, `einstein_and_rg`): Python proves no theorem, the Lean kernel does; Bisognano–Wichmann, Reeh–Schlieder and the type III₁ classification are `[KNOWN]`, external; the finite Three-Locks corner is a finite-dimensional theorem, not a type III₁ proof; `G` is an input, not derived; the modular realization of the witness is not constructed; the field law in curved spacetime is a kernel term only CONDITIONAL on the named H3 (`lei_de_campo_curvo_v392`; the tokens of v390 and v391 said «not a kernel term» and stay as record), and global existence is not proved; “we proved Einstein” is not claimed (Lovelock is `[KNOWN]`, the approximate Killing residue is named).
 
-*Em português.* **PROVADA = validade**, na definição de prova do operador (09/09/2026): *lastro suficiente e verificável* — o `um.py` é o lastro executável (um arquivo, uma entrada, o kernel auditado termo a termo, os ritos com falsificadores pré-registrados, os hashes selados; o apoio da GPU pede CUDA). A **identidade** é certificada pelo próprio artefato, com o hash que ele mesmo emite e que este repositório e o site carregam byte a byte; a **validade**, pelo kernel Lean (`#print axioms`). **CONFIRMADA = creditação** (07/10/2026): o ato de observadores externos ao artefato; a máquina não a emite sobre si mesma (a pedra `TheReservedConfirmation`). *Ainda não confirmada* quer dizer *ainda não creditada*, nunca *não provada*. **Ressalva ao lado (v392, `estatuto_da_prova_ressalva_v392`):** das 18 bandeiras do gate, todas lidas True, a auditoria lê 15 como calculadas e 3 como literais, e o degrau experimental lê só o feed V11 do piso dos vazios, unilateral (o ΛCDM raso também o passa) `[DECLARADO pela auditoria de 28/09/2026]`; recalcular as bandeiras é a unidade F8.1, que a v392 documenta e não fecha (`f81_nao_fechada_v392`). O estatuto acima não muda. Os três apoios contam juntos, cada um com o seu estatuto, e nenhum falhou: o kernel (9451/9451, a implicação), os ritos com falsificadores pré-registrados (11 cobranças: 0 falsificada(s), 6 não falsificadas, 1 excluída(s) na leitura, 2 inconclusivas, 2 aguardando; as 9 rotas do eco ficam fora do livro por decisão do operador de 02/10/2026 — rotas examinadas, não cobranças da teoria: 5 excluídas pelo dado (o par leitura de amplitude × lei de atraso), 4 inconclusivas; a RG resgatada em 10 de 10, leitura por linha da gerência) e a GPU (672/672; 21.100/21.100; 0 discordâncias em 392; calculado, não medido). O que a natureza decide não se prova: o fator decisivo aberto é **β_TGL na natureza a 5σ** — e as tensões medidas contra β também estão abaixo de 5σ (D1 3,01σ, cobrança R6 inconclusiva; neutrino m₂ 2,95σ, em alta: 1,64σ → 2,21σ → 2,95σ).
+*Em português.* **PROVADA = validade**, na definição de prova do operador (09/09/2026): *lastro suficiente e verificável* — o `um.py` é o lastro executável (um arquivo, uma entrada, o kernel auditado termo a termo, os ritos com falsificadores pré-registrados, os hashes selados; o apoio da GPU pede CUDA). A **identidade** é certificada pelo próprio artefato, com o hash que ele mesmo emite e que este repositório e o site carregam byte a byte; a **validade**, pelo kernel Lean (`#print axioms`). **CONFIRMADA = creditação** (07/10/2026): o ato de observadores externos ao artefato; a máquina não a emite sobre si mesma (a pedra `TheReservedConfirmation`). *Ainda não confirmada* quer dizer *ainda não creditada*, nunca *não provada*. **Ressalva ao lado (v392, `estatuto_da_prova_ressalva_v392`):** das 18 bandeiras do gate, todas lidas True, a auditoria lê 15 como calculadas e 3 como literais, e o degrau experimental lê só o feed V11 do piso dos vazios, unilateral (o ΛCDM raso também o passa) `[DECLARADO pela auditoria de 28/09/2026]`; recalcular as bandeiras é a unidade F8.1, que a v392 documenta e não fecha (`f81_nao_fechada_v392`). O estatuto acima não muda. Os três apoios contam juntos, cada um com o seu estatuto, e nenhum falhou: o kernel (9498/9498, a implicação), os ritos com falsificadores pré-registrados (11 cobranças: 0 falsificada(s), 6 não falsificadas, 1 excluída(s) na leitura, 2 inconclusivas, 2 aguardando; as 9 rotas do eco ficam fora do livro por decisão do operador de 02/10/2026 — rotas examinadas, não cobranças da teoria: 5 excluídas pelo dado (o par leitura de amplitude × lei de atraso), 4 inconclusivas; a RG resgatada em 10 de 10, leitura por linha da gerência) e a GPU (672/672; 21.100/21.100; 0 discordâncias em 392; calculado, não medido). O que a natureza decide não se prova: o fator decisivo aberto é **β_TGL na natureza a 5σ** — e as tensões medidas contra β também estão abaixo de 5σ (D1 3,01σ, cobrança R6 inconclusiva; neutrino m₂ 2,95σ, em alta: 1,64σ → 2,21σ → 2,95σ).
 
 ## The seal · o selo `[REAL — read from the artifact]`
 
 | what | value |
 |---|---|
-| version · versão | **v395** (sealed 2026-10-21 16:16:18) |
-| `um.py` sha256 | `8918b17803792cf2725e69221718a974a15ebb7e6dc77aac008d609782bdd8fb` |
-| `result_hash` (the world) | `4f27c04158a8f32b2d6d2321fc299b80f3ebc4f52e0c5d5f43f5cc2802a3f8d9` |
-| size | 246,739 lines · 38,038,591 bytes · **one self-contained file** (Lean kernel + PT/EN articles embedded) |
-| Lean kernel | **1424 formal files** · **29159 audited terms**, axioms ⊆ `{propext, Classical.choice, Quot.sound}` · 0 outside the trio · 772 axiom-free · zero `sorry` |
-| the rite | **9451/9451 clean** (`rodadas/rodada_v395_stdout.txt`) · complete round: yes |
+| version · versão | **v396** (sealed 2026-10-22 11:41:44) |
+| `um.py` sha256 | `0a4395a89eeebbb74c06ab5d8d29ea7708cb76ac704205a7e7aabc3f4d35b6c8` |
+| `result_hash` (the world) | `45cabec7852b7789a45c4367ac38b4b39e1cbfbca7ef103f701cdb359f78c2cb` |
+| size | 247,582 lines · 38,162,265 bytes · **one self-contained file** (Lean kernel + PT/EN articles embedded) |
+| Lean kernel | **1425 formal files** · **29228 audited terms**, axioms ⊆ `{propext, Classical.choice, Quot.sound}` · 0 outside the trio · 772 axiom-free · zero `sorry` |
+| the rite | **9498/9498 clean** (`rodadas/rodada_v396_stdout.txt`) · complete round: yes |
 | gate | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | selftest | `FAIL_CLOSED_SELFTEST_PASSED` |
-| citable deposit | Zenodo **[10.5281/zenodo.23366324](https://doi.org/10.5281/zenodo.23366324)** holds **v392** (2026-10-14; `um.py` `b590c0aa80055e2a`), byte-identical to THAT seal. **This seal is v395, newer than the deposit** — a new Zenodo version is the operator’s act. Cite: *MIGUEL, L. (2026). Um: Absoluto [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.23366324* |
+| citable deposit | Zenodo **[10.5281/zenodo.23366324](https://doi.org/10.5281/zenodo.23366324)** holds **v392** (2026-10-14; `um.py` `b590c0aa80055e2a`), byte-identical to THAT seal. **This seal is v396, newer than the deposit** — a new Zenodo version is the operator’s act. Cite: *MIGUEL, L. (2026). Um: Absoluto [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.23366324* |
 | the root of the proof tree | `the_root_of_the_proof_tree` — axioms read from the seal: `['propext', 'Classical.choice', 'Quot.sound']` · `TheRootOfTheProofTree.lean` `9b36ab3b6e47a315` |
 | the founded screen (v334) | `the_answer_of_the_operator_08_09` — axioms read from the seal: `['propext', 'Classical.choice', 'Quot.sound']` · `TheScreenIsFounded.lean` `2a3f26fca48c615a` |
 | the collapse, typed (v333) | seal `collapse_definition.reading` = `COLAPSO_TIPADO__TODAS_AS_CLAUSULAS_NO_KERNEL_COM_O_TRIO` · `physical_collapse_proven` = `False` · `cost_payment_status` = `NOT_MEASURED` · `CollapseCostAndAttestation.lean` `c3dccdc92b6d3b39` |
@@ -231,6 +231,65 @@
 > 2. *The three v394 contracts* (`_V394_FORMAL_CONTRACT`, `_V394_QUADRATIC_CONTRACT`, `_V394_NETWORK_CONTRACT`) now read `expected_ladder` = 9451, the ladder of this version (the consumer requires exact equality with the rite's ladder; only the number changes).
 > 3. *What stays open*: the psion face (no inhabitant of the Fock certificate of the light), the joint contract of the network and H3 in every null direction, F8.1; the ACOM Mirror divergence is the operator's decision [LEGAL]. The statute of v391 is unaltered.
 
+### v396 · the custody `[REAL — sha16 and rite read from MEMORIA_DA_LINHAGEM.md]`
+
+| version | `um.py` sha16 | rite | round | what entered |
+|---|---|---|---|---|
+| v396 | `0a4395a89eeebbb7` | 9498/9498 | COMPLETE | THE STATIC WITNESS: 1 new kernel module (TestemunhaEstatica; the name is provisional, the operator names it), 47 new flags (named declarations; the compiler auxiliaries are covered by KH-N1 without a flag); ladder 9451/9451 -> 9498/9498 (29228 audited declarations, 23227 theorems, none outside the trio); `testemunha_estatica_v396`: the psion corner (the 4x4 Bell projector), its reduction to one site and a CONSTRUCTED diagonal flow on R^4 whose line of fixed points is the psion line, read against 19 kernel terms of the stone and 8 support terms, with 14 numerical checks computed in the rite at beta = alpha sqrt(e); the UNCONDITIONAL composition `the_psion_inhabits_the_static_witness` (flag ext_tes396_0043; no certificate as hypothesis); the stone proves that the pair echoes (P^2 = P, Tr P^2 = 1), that its reduction to one site is (1/2) I and does not echo, that the flow fixes exactly the psion line while the global witness is false, and that the collapse P y P = Tr(P y) P echoes the identity while its self-attestation does not inhabit the type; the bridge is CONSTRUCTED, not derived (not the dynamics of the theory); the Fock face `the_psion_face_of_the_psibit` (declared in Psibit, outside the stone) stays CONDITIONAL on a Fock certificate of the light with no inhabitant exhibited; “the psion inhabits the static witness” is the operator's [INPUT/ONTO] reading; `cunhagens_v396`: 3 inscriptions of the operator of 22/10 by sha256; certified by the sha256 the program reads of itself (0a4395a89eeebbb7) |
+
+*Status that goes with v396 (not to be cut): PROVED is validity, by the operator’s ruling of 07/10 — the kernel proves the implication; validity in the kernel is not accreditation. CONFIRMED is accreditation, the one refused word; what nature decides about beta_TGL waits for 5 sigma. The reservation of v392 (15 computed + 3 literal gate flags; the unilateral V11 step) is [DECLARED by the audit] and F8.1 is open. Per-term flags gpf_H2_smooth_modular_four_frame_discharged / gpf_H3_local_horizon_equilibrium_discharged / gpi_H3_horizon_data_produced stay False. The v395 copy lives outside the repository; the stdout v396 is in `rodadas/`; the diffs of v396 are in `diferencas_v396/`; the pinned sources that the registries reread by absolute path are in `fontes_pinadas/` with their map (now with the v396 sources: the TestemunhaEstatica stone, its independent exam, its result and the KH-N1 coverage of v396, plus the three inscriptions of 22/10); the B(n) receipts of the Bancada are in `recibos_bancada_v396/`. The Zenodo deposit holds v392 (10.5281/zenodo.23366324). Not falsified is not a confirmation.*
+
+> **Errata beside (22/10/2026, the custody of v396; read from the lineage diary (erratas of the management c1), from the registries of the sealed core and from the kernel file, none typed):**
+> 1. *kh_n1 coverage*: with the TestemunhaEstatica module the coverage grows (29159 -> 29228 constants, 23170 -> 23227 theorems; the formal tree of the Nós 1424 -> 1425 entries); `kh_n1_cobertura_v395` now charges floors at h2, h3 and h6 and a minimum tree size at h8; the exact equalities and the exact tree pin live in `kh_n1_cobertura_v396`. The verdict of the v395 registry does not change.
+> 2. *The four contracts* (`_V394_FORMAL_CONTRACT`, `_V394_QUADRATIC_CONTRACT`, `_V394_NETWORK_CONTRACT`, `_V395_PSIBIT_CONTRACT`) now read `expected_ladder` = 9498, the ladder of this version (the consumer requires exact equality with the rite's ladder; only the number changes).
+> 3. *Beside the docstring of `bell_cci_half`* (`TGL/GravitonShadow.lean`, kernel v29; verbatim: «Traco parcial sobre o segundo fator: `ptr(X) i j = Σ_k X (i,k) (j,k)`. -/
+noncomputable def ptr (X : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) ℂ) :
+    Matrix (Fin 2) (Fin 2) ℂ :=
+  Matrix.of fun i j => ∑ k : Fin 2, X (i, k) (j, k)
+
+/-- O projetor de BELL: `|G⟩⟨G|` com `|G⟩ = (e₀₀ + e₁₁)/√2` -- entradas
+    RACIONAIS `½` nos pares diagonais (sem raizes: o projetor E' o estado,
+    operacionalmente). -/
+noncomputable def bellProjector : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) ℂ :=
+  Matrix.of fun p q => if p.1 = p.2 ∧ q.1 = q.2 then (2⁻¹ : ℂ) else 0
+
+/-- O projetor do estado PRODUTO `|e₀⊗e₀⟩⟨e₀⊗e₀|` (o controle nao-ligado). -/
+noncomputable def productProjector : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) ℂ :=
+  Matrix.of fun p q => if p = (0, 0) ∧ q = (0, 0) then (1 : ℂ) else 0
+
+/-- `|e₀⟩⟨e₀|` em `M₂` (a reducao do produto). -/
+noncomputable def e00 : Matrix (Fin 2) (Fin 2) ℂ :=
+  Matrix.of fun i j => if i = 0 ∧ j = 0 then (1 : ℂ) else 0
+
+/-- [KERNEL] O projetor de Bell e' idempotente. -/
+theorem bell_idem : bellProjector * bellProjector = bellProjector := by
+  ext p q
+  rw [Matrix.mul_apply, Fintype.sum_prod_type]
+  simp only [bellProjector, Matrix.of_apply, Fin.sum_univ_two]
+  by_cases h1 : p.1 = p.2 <;> by_cases h2 : q.1 = q.2 <;> simp [h1, h2] <;> norm_num
+
+/-- [KERNEL] O projetor de Bell e' auto-adjunto. -/
+theorem bell_star : star bellProjector = bellProjector := by
+  ext p q
+  rw [Matrix.star_apply]
+  show star (bellProjector q p) = bellProjector p q
+  simp only [bellProjector, Matrix.of_apply]
+  by_cases h1 : p.1 = p.2 <;> by_cases h2 : q.1 = q.2 <;> simp [h1, h2, star_inv₀]
+
+/-- [KERNEL] `Tr(P_G) = 1` — a forma tracial de `ω(I)=1` no canto do graviton. -/
+theorem bell_trace_one : Matrix.trace bellProjector = 1 := by
+  simp [Matrix.trace, bellProjector, Fintype.sum_prod_type, Matrix.diag]
+
+/-- [KERNEL] A reducao do Bell e' `I/2` — maximamente misturada. -/
+theorem bell_reduced_half : ptr bellProjector = (2⁻¹ : ℂ) • 1 := by
+  ext i j
+  simp only [ptr, bellProjector, Matrix.of_apply, Fin.sum_univ_two,
+             Matrix.smul_apply, Matrix.one_apply]
+  fin_cases i <;> fin_cases j <;> simp <;> norm_num
+
+/-- [KERNEL] `CCI(Bell) = 1 − Tr(ρ²) = ½` — a MEIA-NAT de emaranhamento.»): the 1/2 is the LINEAR entropy of the reduction to one site (a purity deficit, with no unit); the von Neumann entropy of that reduction, (1/2) I, is ln 2 nat (kernel: `fair_bit_entropy_is_log_two`, `fair_bit_entropy_is_not_half_nat`); the MEIA-NAT of entanglement stays as an [ONTO] reading of v29; the term `bell_cci_half` does not change (the registry renders the docstring in ASCII; the line above is read from the file).
+> 4. *What stays open*: the Fock face of the psion (no inhabitant of the Fock certificate of the light; no lemma links the Fock psion to the psion corner), the joint contract of the network and H3 in every null direction, F8.1; the name of the stone is provisional (the operator names it); the ACOM Mirror divergence is the operator's decision [LEGAL]. The statute of v391 is unaltered.
+
 ## What is PROVED · o que está PROVADO `[REAL — theorem in kernel]`
 
 *On the ruler: PROVED = a theorem in kernel, auditable by `#print axioms`. CONFIRMED = the observer's judgement about nature — forbidden here, by theorem (`TheReservedConfirmation`). Proof is not judgement.*
@@ -298,7 +357,7 @@ Five pre-registered tests (hash before the data; result read back by hash by `um
 
 ```bash
 curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"
-sha256sum um.py            # must print 8918b17803792cf2725e69221718a974a15ebb7e6dc77aac008d609782bdd8fb
+sha256sum um.py            # must print 0a4395a89eeebbb74c06ab5d8d29ea7708cb76ac704205a7e7aabc3f4d35b6c8
 echo 1 | python um.py      # the rite: materializes the Lean kernel, builds it, audits every theorem, re-derives the chain, emits the article
 ```
 
@@ -315,7 +374,7 @@ To reproduce the nature rites v340–v350 as sealed, clone the repository (not o
 | the world (every computed number) | [`um_absoluto.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json) |
 | the proof tree, term by term | [`A_PROVA_DA_QG_TGL_arvore.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md) |
 | the article (EN / PT) | [`um_absoluto_en.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.pdf) · [`um_absoluto_pt.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.pdf) · plain text [`en`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.txt) · [`pt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt) |
-| the sealed rite, line by line | [`rodada_v395_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v395_stdout.txt) |
+| the sealed rite, line by line | [`rodada_v396_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v396_stdout.txt) |
 | the bench (what failed, and the tunnel with the ChatGPT bench) | [`bancada/`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md) |
 | the flat index of every file | [`TUNEL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json) |
 | the kernel proof manifest (every audited term with its axioms) | [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) |
@@ -330,21 +389,21 @@ To reproduce the nature rites v340–v350 as sealed, clone the repository (not o
 
 Many fetchers cut a document after a few hundred KB. Sizes measured now, smallest first; each file stands on its own:
 
-1. [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) — this page · 83 KB
-2. [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) — the seal: every sha256, the world hash, the gate · 154 KB
+1. [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) — this page · 90 KB
+2. [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) — the seal: every sha256, the world hash, the gate · 156 KB
 3. [`A_PROVA_DA_QG_TGL_arvore.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md) — the proof tree, term by term · 107 KB
-4. [`um_absoluto_forma_canonica.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md) — the canonical form · 240 KB
-5. [`um_absoluto_en.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.txt) — the article, plain text (EN) · 923 KB
-6. [`um_absoluto_pt.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt) — the article, plain text (PT) · 909 KB
-7. [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) — the kernel proof manifest · 3701 KB
-8. [`um_absoluto.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json) — the world: every computed number · 12443 KB
-9. [`um.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py) — the artifact itself (Lean kernel and articles embedded) · 37147 KB
+4. [`um_absoluto_forma_canonica.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md) — the canonical form · 242 KB
+5. [`um_absoluto_en.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.txt) — the article, plain text (EN) · 928 KB
+6. [`um_absoluto_pt.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt) — the article, plain text (PT) · 914 KB
+7. [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) — the kernel proof manifest · 3709 KB
+8. [`um_absoluto.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json) — the world: every computed number · 12495 KB
+9. [`um.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py) — the artifact itself (Lean kernel and articles embedded) · 37268 KB
 
 **Chunked download.** Both GitHub raw and the Zenodo record honour HTTP `Range` (verified: `206 Partial Content`, byte-exact), so a large file can be read in pieces:
 
 ```bash
 curl -L -r 0-999999 -o um.py.part1 "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"      # first MB; then -r 1000000-1999999, and so on
-curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py" && sha256sum um.py    # or the whole file: must print 8918b17803792cf2725e69221718a974a15ebb7e6dc77aac008d609782bdd8fb
+curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py" && sha256sum um.py    # or the whole file: must print 0a4395a89eeebbb74c06ab5d8d29ea7708cb76ac704205a7e7aabc3f4d35b6c8
 ```
 
 *Cosmology never becomes mathematical proof. The gate does not move by this page. NOT_FALSIFIED ≠ CONFIRMED.*

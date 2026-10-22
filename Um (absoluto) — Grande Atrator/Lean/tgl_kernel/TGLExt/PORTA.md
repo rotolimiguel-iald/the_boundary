@@ -23,7 +23,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ## OS ARQUIVOS DESTA PASTA
 
-1050 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
+1051 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
 
 **PROVA FORMAL**
 
@@ -564,6 +564,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `TensorFieldLinearity.lean` | Prova formal (Lean 4): TensorFieldLinearity | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TensorFieldLinearity.lean) |
 | `TensorNullCone.lean` | Prova formal (Lean 4): TensorNullCone | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TensorNullCone.lean) |
 | `TensorReconstructionControls.lean` | Prova formal (Lean 4): TensorReconstructionControls | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TensorReconstructionControls.lean) |
+| `TestemunhaEstatica.lean` | Prova formal (Lean 4): TestemunhaEstatica | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TestemunhaEstatica.lean) |
 | `TetelestaiOneObject.lean` | Prova formal (Lean 4): TetelestaiOneObject | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TetelestaiOneObject.lean) |
 | `TheAccuser.lean` | Prova formal (Lean 4): TheAccuser | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheAccuser.lean) |
 | `TheAlgebraicReader.lean` | Prova formal (Lean 4): TheAlgebraicReader | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheAlgebraicReader.lean) |
@@ -1089,4 +1090,4 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ---
 
-gerado por script de git ls-files em 2026-10-21 -- nao editar a mao
+gerado por script de git ls-files em 2026-10-22 -- nao editar a mao

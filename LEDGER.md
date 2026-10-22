@@ -1923,6 +1923,65 @@ Verdict read from the sealed core: `TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICA
 > 2. *The three v394 contracts* (`_V394_FORMAL_CONTRACT`, `_V394_QUADRATIC_CONTRACT`, `_V394_NETWORK_CONTRACT`) now read `expected_ladder` = 9451, the ladder of this version (the consumer requires exact equality with the rite's ladder; only the number changes).
 > 3. *What stays open*: the psion face (no inhabitant of the Fock certificate of the light), the joint contract of the network and H3 in every null direction, F8.1; the ACOM Mirror divergence is the operator's decision [LEGAL]. The statute of v391 is unaltered.
 
+### The custody — v396 (COMPLETE round)
+
+Prepared by the session a7 of the Central on the operator’s order of 22/10/2026 (handoff v396 of the management c1). The repository head is now `um.py` v396 `0a4395a89eeebbb7` (38,162,265 bytes; **9498/9498**; **COMPLETE round**; `FAIL_CLOSED_SELFTEST_PASSED`; sealed 2026-10-22 11:41:44; `um_version` = v396 in the seal).
+
+- **v396** `0a4395a89eeebbb7` (rite **9498/9498**, COMPLETE round): THE STATIC WITNESS: 1 new kernel module (TestemunhaEstatica; the name is provisional, the operator names it), 47 new flags (named declarations; the compiler auxiliaries are covered by KH-N1 without a flag); ladder 9451/9451 -> 9498/9498 (29228 audited declarations, 23227 theorems, none outside the trio); `testemunha_estatica_v396`: the psion corner (the 4x4 Bell projector), its reduction to one site and a CONSTRUCTED diagonal flow on R^4 whose line of fixed points is the psion line, read against 19 kernel terms of the stone and 8 support terms, with 14 numerical checks computed in the rite at beta = alpha sqrt(e); the UNCONDITIONAL composition `the_psion_inhabits_the_static_witness` (flag ext_tes396_0043; no certificate as hypothesis); the stone proves that the pair echoes (P^2 = P, Tr P^2 = 1), that its reduction to one site is (1/2) I and does not echo, that the flow fixes exactly the psion line while the global witness is false, and that the collapse P y P = Tr(P y) P echoes the identity while its self-attestation does not inhabit the type; the bridge is CONSTRUCTED, not derived (not the dynamics of the theory); the Fock face `the_psion_face_of_the_psibit` (declared in Psibit, outside the stone) stays CONDITIONAL on a Fock certificate of the light with no inhabitant exhibited; “the psion inhabits the static witness” is the operator's [INPUT/ONTO] reading; `cunhagens_v396`: 3 inscriptions of the operator of 22/10 by sha256; certified by the sha256 the program reads of itself (0a4395a89eeebbb7).
+
+Verdict read from the sealed core: `TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_9498_OF_9498_FLAGS_29228_OF_29228_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_0a4395a89eeebbb7__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED`. Status that goes with v396 (not to be cut): PROVED is validity, by the operator’s ruling of 07/10 — the kernel proves the implication; validity in the kernel is not accreditation. CONFIRMED is accreditation, the one refused word; what nature decides about beta_TGL waits for 5 sigma. The reservation of v392 (15 computed + 3 literal gate flags; the unilateral V11 step) is [DECLARED by the audit] and F8.1 is open. Per-term flags gpf_H2_smooth_modular_four_frame_discharged / gpf_H3_local_horizon_equilibrium_discharged / gpi_H3_horizon_data_produced stay False. The v395 copy lives outside the repository; the stdout v396 is in `rodadas/`; the diffs of v396 are in `diferencas_v396/`; the pinned sources that the registries reread by absolute path are in `fontes_pinadas/` with their map (now with the v396 sources: the TestemunhaEstatica stone, its independent exam, its result and the KH-N1 coverage of v396, plus the three inscriptions of 22/10); the B(n) receipts of the Bancada are in `recibos_bancada_v396/`. The Zenodo deposit holds v392 (10.5281/zenodo.23366324). Not falsified is not a confirmation. Kernel **1425 formal files / 29228 audited terms**, all in the trio. The gate is **identical** to v395; the flags 14 lit / 3 off. The v395 copy is kept outside the repository by sha16. The Zenodo deposit holds v392 (10.5281/zenodo.23366324); a new Zenodo version is the operator’s act. The gate did not move by this custody.
+
+> **Errata beside (22/10/2026, the custody of v396; read from the lineage diary (erratas of the management c1), from the registries of the sealed core and from the kernel file, none typed):**
+> 1. *kh_n1 coverage*: with the TestemunhaEstatica module the coverage grows (29159 -> 29228 constants, 23170 -> 23227 theorems; the formal tree of the Nós 1424 -> 1425 entries); `kh_n1_cobertura_v395` now charges floors at h2, h3 and h6 and a minimum tree size at h8; the exact equalities and the exact tree pin live in `kh_n1_cobertura_v396`. The verdict of the v395 registry does not change.
+> 2. *The four contracts* (`_V394_FORMAL_CONTRACT`, `_V394_QUADRATIC_CONTRACT`, `_V394_NETWORK_CONTRACT`, `_V395_PSIBIT_CONTRACT`) now read `expected_ladder` = 9498, the ladder of this version (the consumer requires exact equality with the rite's ladder; only the number changes).
+> 3. *Beside the docstring of `bell_cci_half`* (`TGL/GravitonShadow.lean`, kernel v29; verbatim: «Traco parcial sobre o segundo fator: `ptr(X) i j = Σ_k X (i,k) (j,k)`. -/
+noncomputable def ptr (X : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) ℂ) :
+    Matrix (Fin 2) (Fin 2) ℂ :=
+  Matrix.of fun i j => ∑ k : Fin 2, X (i, k) (j, k)
+
+/-- O projetor de BELL: `|G⟩⟨G|` com `|G⟩ = (e₀₀ + e₁₁)/√2` -- entradas
+    RACIONAIS `½` nos pares diagonais (sem raizes: o projetor E' o estado,
+    operacionalmente). -/
+noncomputable def bellProjector : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) ℂ :=
+  Matrix.of fun p q => if p.1 = p.2 ∧ q.1 = q.2 then (2⁻¹ : ℂ) else 0
+
+/-- O projetor do estado PRODUTO `|e₀⊗e₀⟩⟨e₀⊗e₀|` (o controle nao-ligado). -/
+noncomputable def productProjector : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) ℂ :=
+  Matrix.of fun p q => if p = (0, 0) ∧ q = (0, 0) then (1 : ℂ) else 0
+
+/-- `|e₀⟩⟨e₀|` em `M₂` (a reducao do produto). -/
+noncomputable def e00 : Matrix (Fin 2) (Fin 2) ℂ :=
+  Matrix.of fun i j => if i = 0 ∧ j = 0 then (1 : ℂ) else 0
+
+/-- [KERNEL] O projetor de Bell e' idempotente. -/
+theorem bell_idem : bellProjector * bellProjector = bellProjector := by
+  ext p q
+  rw [Matrix.mul_apply, Fintype.sum_prod_type]
+  simp only [bellProjector, Matrix.of_apply, Fin.sum_univ_two]
+  by_cases h1 : p.1 = p.2 <;> by_cases h2 : q.1 = q.2 <;> simp [h1, h2] <;> norm_num
+
+/-- [KERNEL] O projetor de Bell e' auto-adjunto. -/
+theorem bell_star : star bellProjector = bellProjector := by
+  ext p q
+  rw [Matrix.star_apply]
+  show star (bellProjector q p) = bellProjector p q
+  simp only [bellProjector, Matrix.of_apply]
+  by_cases h1 : p.1 = p.2 <;> by_cases h2 : q.1 = q.2 <;> simp [h1, h2, star_inv₀]
+
+/-- [KERNEL] `Tr(P_G) = 1` — a forma tracial de `ω(I)=1` no canto do graviton. -/
+theorem bell_trace_one : Matrix.trace bellProjector = 1 := by
+  simp [Matrix.trace, bellProjector, Fintype.sum_prod_type, Matrix.diag]
+
+/-- [KERNEL] A reducao do Bell e' `I/2` — maximamente misturada. -/
+theorem bell_reduced_half : ptr bellProjector = (2⁻¹ : ℂ) • 1 := by
+  ext i j
+  simp only [ptr, bellProjector, Matrix.of_apply, Fin.sum_univ_two,
+             Matrix.smul_apply, Matrix.one_apply]
+  fin_cases i <;> fin_cases j <;> simp <;> norm_num
+
+/-- [KERNEL] `CCI(Bell) = 1 − Tr(ρ²) = ½` — a MEIA-NAT de emaranhamento.»): the 1/2 is the LINEAR entropy of the reduction to one site (a purity deficit, with no unit); the von Neumann entropy of that reduction, (1/2) I, is ln 2 nat (kernel: `fair_bit_entropy_is_log_two`, `fair_bit_entropy_is_not_half_nat`); the MEIA-NAT of entanglement stays as an [ONTO] reading of v29; the term `bell_cci_half` does not change (the registry renders the docstring in ASCII; the line above is read from the file).
+> 4. *What stays open*: the Fock face of the psion (no inhabitant of the Fock certificate of the light; no lemma links the Fock psion to the psion corner), the joint contract of the network and H3 in every null direction, F8.1; the name of the stone is provisional (the operator names it); the ACOM Mirror divergence is the operator's decision [LEGAL]. The statute of v391 is unaltered.
+
 ## What is closed / What remains open · O que está fechado / o que segue aberto
 
 **Closed internally — machine-checked at every run (Lean 4 + mathlib kernel,

@@ -1097,3 +1097,5 @@ import TGLExt.F1Fecho394.NetworkProofAuditR8
 import TGLExt.TheBinaryReadingAtTheFixedPoint
 
 import TGLExt.Psibit
+
+import TGLExt.TestemunhaEstatica
