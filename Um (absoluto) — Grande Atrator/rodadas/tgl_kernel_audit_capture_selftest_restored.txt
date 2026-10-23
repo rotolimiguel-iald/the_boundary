@@ -1,7 +1,7 @@
 # stage: _selftest_restored
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=6860037 len(stderr)=0
+# len(stdout)=6860236 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -38113,7 +38113,7 @@ TGL_DECL_SOURCE	ChatgptAudit.Quartic037.binaryRelativeAt	TGLExt.BinaryRelativeQu
 'ChatgptAudit.Quartic037.binaryRelativeAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	F1Rede.rectangle_memLp	TGLExt.F1Fecho394.FubiniL2
 'F1Rede.rectangle_memLp' depends on axioms: [propext, Classical.choice, Quot.sound]
-TGL_DECL_SOURCE	TGLExt.diagFlow.eq_1	TGLExt.TestemunhaEstatica
+TGL_DECL_SOURCE	TGLExt.diagFlow.eq_1	TGLExt.TheGreatAttractor
 'TGLExt.diagFlow.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Covariant053.doubleFlipYMatrix	TGLExt.LocalPolarizerWitness
 'ChatgptAudit.Covariant053.doubleFlipYMatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -63307,6 +63307,8 @@ TGL_DECL_SOURCE	ChatgptAudit.SignedCoverage.trace_reverse_involutive._abel_1_2	T
 'ChatgptAudit.SignedCoverage.trace_reverse_involutive._abel_1_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.AffineObstruction.probabilityEntropyField	TGLExt.AffineSamplingObstruction
 'ChatgptAudit.AffineObstruction.probabilityEntropyField' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.Token.token_is_the_psibit_in_the_static_witness	TGLExt.Token
+'TGLExt.Token.token_is_the_psibit_in_the_static_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLExt.MaxwellBridge.toCertificate._proof_2	TGLExt.MaxwellLiteratureBridge
 'TGLExt.MaxwellBridge.toCertificate._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLExt.TheFlowLawContrast.survivingWeightContrast_eq._simp_1_4	TGLExt.TheFlowLawContrast
@@ -71367,7 +71369,7 @@ TGL_DECL_SOURCE	TGLV350.Regular.dualOrbitConjugation._proof_2	TGLExt.V350DualOrb
 'TGLV350.Regular.dualOrbitConjugation._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ORDEM016.D2prime.maxwell_null_flux	TGLExt.O16.MaxwellPolynomial_v2
 'ORDEM016.D2prime.maxwell_null_flux' depends on axioms: [propext, Classical.choice, Quot.sound]
-TGL_AXIOM_COVERAGE_TOTAL decl=29228 thm=23227 fora_do_trio=0
+TGL_AXIOM_COVERAGE_TOTAL decl=29229 thm=23228 fora_do_trio=0
 
 --- STDERR ---
 

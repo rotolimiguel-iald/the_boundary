@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-22 11:41:44",
+  "timestamp": "2026-10-23 16:20:22",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,17 +10,17 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "513e59082aa93a2b69c2d325da7798455c6b6f9a2c25d9de1d48fb29d10b8e4e",
+  "formal_source_hash": "60da7847d1f2228f32b738dcaa9b6a5a18003c259533b02e7a96dce67426cd61",
   "formal_files_sha256": {
     "README.md": "395b1201109079084f3562349161283bd644e17d5e18cea19971bac041e58d11",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "17d7084d5145ece35d1b000ff5416311f0d2a4e0eb5ed12d7d63b30d96f2ddb4",
+    "TGLExt.lean": "39384cfd80374b2d4a9fbfdf81a652b634cf70785aa15f7e00a3b2eb22af6174",
     "_check_damming.lean": "485969b99f3e3db7ef4f9e4b1e97fb501ff68540a957e21949784d57d7536d21",
     "lake-manifest.json": "31a94eb76a8370ae8d75999ccec510f1ef7b994e369beebee2a3ea0088eee235",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "a1f94e2bdaf2d62eaf07385b8d6b3732d05223e68de0cf02f9cc40c09f42a6fc",
+    "TGL/Audit.lean": "460110b38dae7cead4f94d5624897eeff39f860173efbd4ec22587ed71257000",
     "TGL/Basic.lean": "6de2b310b37c0af52fc83f9bf3c34d4c141115f4e74be86f9870b9bd531ebd04",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -751,6 +751,7 @@
     "TGLExt/TimeGravitonKraus.lean": "8f30d793279ae5b0b07b629f3260e7c28c9fb185ea114ba2c1f154323f9b30d0",
     "TGLExt/TimeGravitonMatrix.lean": "c3663a500e3a2d1746b827d3d739e489fc1feb7d1fdd5079618b96b55108cf46",
     "TGLExt/TimeGravitonScalar.lean": "7c175efa02569a677828470e25251d20a7d8f45a27c72e6fa5572e76d6900ff6",
+    "TGLExt/Token.lean": "0b6a58e795af73110f55039943d01c7350b1e1b82152689c629bc8429872a300",
     "TGLExt/TomitaAdjoint.lean": "e023aa70d05dc785ff2bd0572a1ab8f60d3ac0d6e54259f01d460dca1ef3224b",
     "TGLExt/TomitaClosability.lean": "0872fa8fd32c55d2c077bb35bbbea9a9181da487455fdcf40552e704d9adc5aa",
     "TGLExt/TopologicalAtlasGluing.lean": "4289a0b55babc8e01a5028ed01def2d8051d3b87e85fbb78f3b3410447a2ca71",
@@ -121888,6 +121889,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Token.token_is_the_psibit_in_the_static_witness": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.MaxwellBridge.toCertificate._proof_2": [
       "propext",
       "Classical.choice",
@@ -141081,8 +141087,8 @@
       "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "9cc89724286a47aeb6d06cadcfeea215aca8cd9bb20e5ec99ceb23ad6dfe2148",
-  "audit_stdout_sha256": "90ed0bd3210e9c8313fad22a9560e7a4229be343884f5a8833c40877dd94a137",
+  "build_stdout_sha256": "33abbbfb7221567f6d4dd0d3d0af86b6664604287a029b1efd216f617d26dcc9",
+  "audit_stdout_sha256": "9804754020b9305945f9a01ca84cb3ee87aaa16e64597ae7486fe60bb7b16cec",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

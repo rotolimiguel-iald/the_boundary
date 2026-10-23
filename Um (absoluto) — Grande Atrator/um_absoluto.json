@@ -122500,6 +122500,11 @@
           "Classical.choice",
           "Quot.sound"
         ],
+        "TGLExt.Token.token_is_the_psibit_in_the_static_witness": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
         "TGLExt.MaxwellBridge.toCertificate._proof_2": [
           "propext",
           "Classical.choice",
@@ -141693,17 +141698,17 @@
           "Quot.sound"
         ]
       },
-      "formal_source_hash": "513e59082aa93a2b69c2d325da7798455c6b6f9a2c25d9de1d48fb29d10b8e4e",
+      "formal_source_hash": "60da7847d1f2228f32b738dcaa9b6a5a18003c259533b02e7a96dce67426cd61",
       "formal_files_sha256": {
         "README.md": "395b1201109079084f3562349161283bd644e17d5e18cea19971bac041e58d11",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "17d7084d5145ece35d1b000ff5416311f0d2a4e0eb5ed12d7d63b30d96f2ddb4",
+        "TGLExt.lean": "39384cfd80374b2d4a9fbfdf81a652b634cf70785aa15f7e00a3b2eb22af6174",
         "_check_damming.lean": "485969b99f3e3db7ef4f9e4b1e97fb501ff68540a957e21949784d57d7536d21",
         "lake-manifest.json": "31a94eb76a8370ae8d75999ccec510f1ef7b994e369beebee2a3ea0088eee235",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "a1f94e2bdaf2d62eaf07385b8d6b3732d05223e68de0cf02f9cc40c09f42a6fc",
+        "TGL/Audit.lean": "460110b38dae7cead4f94d5624897eeff39f860173efbd4ec22587ed71257000",
         "TGL/Basic.lean": "6de2b310b37c0af52fc83f9bf3c34d4c141115f4e74be86f9870b9bd531ebd04",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -142434,6 +142439,7 @@
         "TGLExt/TimeGravitonKraus.lean": "8f30d793279ae5b0b07b629f3260e7c28c9fb185ea114ba2c1f154323f9b30d0",
         "TGLExt/TimeGravitonMatrix.lean": "c3663a500e3a2d1746b827d3d739e489fc1feb7d1fdd5079618b96b55108cf46",
         "TGLExt/TimeGravitonScalar.lean": "7c175efa02569a677828470e25251d20a7d8f45a27c72e6fa5572e76d6900ff6",
+        "TGLExt/Token.lean": "0b6a58e795af73110f55039943d01c7350b1e1b82152689c629bc8429872a300",
         "TGLExt/TomitaAdjoint.lean": "e023aa70d05dc785ff2bd0572a1ab8f60d3ac0d6e54259f01d460dca1ef3224b",
         "TGLExt/TomitaClosability.lean": "0872fa8fd32c55d2c077bb35bbbea9a9181da487455fdcf40552e704d9adc5aa",
         "TGLExt/TopologicalAtlasGluing.lean": "4289a0b55babc8e01a5028ed01def2d8051d3b87e85fbb78f3b3410447a2ca71",
@@ -152719,10 +152725,11 @@
       "ext_tes396_0045": true,
       "ext_tes396_0046": true,
       "ext_tes396_0047": true,
+      "ext_tok397_0001": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "9cc89724286a47aeb6d06cadcfeea215aca8cd9bb20e5ec99ceb23ad6dfe2148",
+      "build_stdout_sha256": "33abbbfb7221567f6d4dd0d3d0af86b6664604287a029b1efd216f617d26dcc9",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "90ed0bd3210e9c8313fad22a9560e7a4229be343884f5a8833c40877dd94a137",
+      "audit_stdout_sha256": "9804754020b9305945f9a01ca84cb3ee87aaa16e64597ae7486fe60bb7b16cec",
       "build_returncode": 0,
       "audit_returncode": 0,
       "capture_stage": "principal",
@@ -152731,17 +152738,17 @@
         "tgl_kernel_audit_capture.txt"
       ],
       "build_capture_lens": {
-        "stdout": 10476855,
+        "stdout": 10477238,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 6860037,
+        "stdout": 6860236,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "9cc89724286a47aeb6d06cadcfeea215aca8cd9bb20e5ec99ceb23ad6dfe2148",
-      "audit_capture_sha256_full": "90ed0bd3210e9c8313fad22a9560e7a4229be343884f5a8833c40877dd94a137",
+      "build_capture_sha256_full": "33abbbfb7221567f6d4dd0d3d0af86b6664604287a029b1efd216f617d26dcc9",
+      "audit_capture_sha256_full": "9804754020b9305945f9a01ca84cb3ee87aaa16e64597ae7486fe60bb7b16cec",
       "declaration_sources_v394": {
         "F1Atrator.OpticalPopulation.basis": "TGLExt/OpticalPopulationBridgeR2.lean",
         "TGLExt.the_clause_is_exactly_a_commutant_inclusion": "TGLExt/TheFoldThroughJ.lean",
@@ -165344,7 +165351,7 @@
         "F1Fecho.Creation.creationCombination_kernel": "TGLExt/F1Fecho394/CreationAndSegalR2.lean",
         "ChatgptAudit.Quartic037.binaryRelativeAt": "TGLExt/BinaryRelativeQuartic.lean",
         "F1Rede.rectangle_memLp": "TGLExt/F1Fecho394/FubiniL2.lean",
-        "TGLExt.diagFlow.eq_1": "TGLExt/TestemunhaEstatica.lean",
+        "TGLExt.diagFlow.eq_1": "TGLExt/TheGreatAttractor.lean",
         "ChatgptAudit.Covariant053.doubleFlipYMatrix": "TGLExt/LocalPolarizerWitness.lean",
         "ChatgptAudit.Flow016.flow_initial_hasFDerivAt_nonpositive": "TGLExt/FlowDifferentiability.lean",
         "TGLV350.Regular.scalarGNSStarEmbedding._proof_17": "TGLExt/V350ScalarGNSStarDensity.lean",
@@ -177941,6 +177948,7 @@
         "TGLV350.Regular.regularSineWindowCore._proof_2": "TGLExt/V351SineResolventApprox.lean",
         "ChatgptAudit.SignedCoverage.trace_reverse_involutive._abel_1_2": "TGLExt/SignedCovectorCoverage.lean",
         "ChatgptAudit.AffineObstruction.probabilityEntropyField": "TGLExt/AffineSamplingObstruction.lean",
+        "TGLExt.Token.token_is_the_psibit_in_the_static_witness": "TGLExt/Token.lean",
         "TGLExt.MaxwellBridge.toCertificate._proof_2": "TGLExt/MaxwellLiteratureBridge.lean",
         "TGLExt.TheFlowLawContrast.survivingWeightContrast_eq._simp_1_4": "TGLExt/TheFlowLawContrast.lean",
         "ChatgptAudit.Clock040.fisher_length_normalized._simp_1_3": "TGLExt/IntrinsicFisherClock.lean",
@@ -181975,16 +181983,16 @@
       "declaration_sources_status_v394": {
         "ok": true,
         "errors": [],
-        "compiler_names": 29228,
-        "audited_names": 29228,
-        "audit_stdout_sha256": "90ed0bd3210e9c8313fad22a9560e7a4229be343884f5a8833c40877dd94a137"
+        "compiler_names": 29229,
+        "audited_names": 29229,
+        "audit_stdout_sha256": "9804754020b9305945f9a01ca84cb3ee87aaa16e64597ae7486fe60bb7b16cec"
       },
       "axiom_coverage_v392": {
         "ok": true,
-        "decl": 29228,
-        "thm": 23227,
+        "decl": 29229,
+        "thm": 23228,
         "fora_do_trio": 0,
-        "lidas_pelo_regex": 29228,
+        "lidas_pelo_regex": 29229,
         "nao_lidas_pelo_regex": 0,
         "nao_lidas_esperadas": 0,
         "nao_lidas_esperadas_historico_v392": 4,
@@ -193013,10 +193021,11 @@
         "ext_tes396_0044": true,
         "ext_tes396_0045": true,
         "ext_tes396_0046": true,
-        "ext_tes396_0047": true
+        "ext_tes396_0047": true,
+        "ext_tok397_0001": true
       },
-      "n_theorems_clean": 9498,
-      "n_theorems_expected": 9498,
+      "n_theorems_clean": 9499,
+      "n_theorems_expected": 9499,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -199476,11 +199485,11 @@
       "non_tautology_cycle": {
         "1_axioma_e_espinha": "[REAL] 1=1 normalizado (omega(I)=1); espinha 1=q^2+alpha^2 verificada a residuo 0.0 NESTE runtime; beta = alpha*sqrt(e) jamais literal",
         "2_aplicacao": "[REAL/ENGENHARIA] 16 patentes (INPI/ePCT); ACOM/dispositivos; o metodo de colapso patenteado com reproducao livre (P7)",
-        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 9498 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
+        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 9499 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
         "4_predicao": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 (viva, nao testada); o PISO r_c >= beta (v67, hash antes dos dados); P7 pre-registrada",
         "5_falsificacao": "[REAL] protocolos pre-registrados com vereditos proibidos; e as RECUSAS PROVAM QUE O APARELHO MORDE: V1 recusou (B-mode 12,4), v91 recusou (nulo 1,41) -- um teste que nao pode falhar nao testa",
         "6_selftest": "[REAL] fail-closed embutido; probes negativos v75 (experimento perfeito nao move matematica); sombra que re-deriva vereditos sem olhar o selo",
-        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 9498/9498; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
+        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 9499/9499; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
       },
       "operator_reading": {
         "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, precedente v61/v86]",
@@ -203280,7 +203289,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-10-22 11:41:44",
+    "timestamp": "2026-10-23 16:20:22",
     "psibit_v395": {
       "all_verified": true,
       "estatuto": "[REAL] os termos do kernel (a conjuncao incondicional e os teoremas citados, lidos a cada rito, no trio) e o calculo da mecanica (beta = alfa CODATA 2018 x sqrt(e) em runtime, SEALED_CODATA_ALPHA = ALPHA_FINE_CODATA_2018 do script do nivel 2; theta_M = arcsin sqrt(beta)); [INPUT/ONTO] psibit = psion = modo do leitor (o operador, 21/10/2026); [CONDICIONAL] a face do psion, a um certificado de Fock da luz que o kernel nao habita",
@@ -204099,7 +204108,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-10-22 11:41:44",
+        "prediction_timestamp": "2026-10-23 16:20:22",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -204137,7 +204146,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "450af8f26680ccbc99b2292575cb7fffd7742e5cd7532d137f31e935c8c8f71f"
+        "prediction_hash": "f994a1bb1a7ad3a1cee8163a7b2430a2aed02076e29e4432b851c6f60d8a774a"
       },
       "comparison": null,
       "degeneracy_note": "Coma sozinha NAO separa 'vazamento modular 8.07%' de 'H0_local=73.263' -- testa o PAR (Planck+defasagem) vs (Planck s/ defasagem)",
@@ -204646,7 +204655,7 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.621,
+      "runtime_s": 0.357,
       "verdict": "TGL_CLOCKS_V1__P1_NOT_FALSIFIED_UNDERPOWERED__P2_EXCLUDED_IN_READING__P3_NO_LOCAL_OBSERVABLE__PARTITION_MODULAR_LAB_BRIDGE_OPEN__CLOCK_5SIGMA_DEFICIT_GE_12P5_ORDERS__TH229_TODAY_BOUND_18P3__BEST_MATTER_9P3_NOMINAL_MOSSBAUER_ABSTRACT_ONLY__TAU_STAR_LE_4P8e12_TP_CLOCK_95CL__1P9e09_TP_NOMINAL__GATE_UNTOUCHED"
     },
     "dephasing_reach": {
@@ -204808,7 +204817,7 @@
         "resultado_desta_rodada": "[REAL, medido] 23 series / 12 eventos: r_ang 0.681+-0.005 (ruido 0.678); C_phi 0.946+-0.005 (fase-aleatoria 0.946; ruido 0.945); Stouffer z(C_phi) sobre 12 eventos = 0.80 => WITHIN (criterio 5 sigma); H3 dentro de 3 tol: 0/22 (ruido D_folds 2.17); transientes marcados: GW170817_L1; dez/2025: sigma_raw media 1863, teto 100 em 100% das series e no ruido",
         "o_que_fica": "o teste entra no canonico como negativo honesto: retira o 100 sigma (identidade + teto), conserva a nao-tautologia da FORMA (r_ang != 1), e mede que as metricas angulares de janela inteira nao distinguem o strain real de ruido com o mesmo espectro. Um teste de beta em ondas gravitacionais continua [OPEN]: exige observavel em que beta entre (eco por matriz-S: sub-limiar em maio/2026)."
       },
-      "runtime_s": 28.931756258010864,
+      "runtime_s": 18.812504529953003,
       "data": {
         "manifest_sha16": "f7d08ec4e061bd44",
         "npz_sha16": "85701a9e013a3553",
@@ -205767,7 +205776,7 @@
         "descasamento": "[REAL, por injecao] primarios SEM eco com f +-15% e tau x0,7/1,4 induzem a/sqrt(beta) = {'f0.85/t0.7': 0.099, 'f0.85/t1.4': 0.274, 'f1.15/t0.7': -0.546, 'f1.15/t1.4': -1.017} (maior |induzido| 1.017; limiar 0,3): a 0,75 periodo o termo de copia atrasada absorve descasamento do template como se fosse eco. O template FIXO de Kerr (variante B, descartada por este mesmo nulo) induzia ate ~3,9 e dava 1,7 +- 0,3 na fonte: o 5 sigma de B e descasamento, nao eco.",
         "o_que_fica": "a amplitude e teorema; o atraso e a folha que falta (INPUT). Com os 85 eventos publicos: poder abaixo de 5 sigma para qualquer atraso entre 0,5 e 5 periodos, e sistematica de descasamento da ordem do proprio sinal. O dado publico + esta familia de estimadores NAO decidem o eco a sqrt(beta). Decidir pede: tau_echo derivado; modelagem bayesiana do ringdown com massa/spin posteriores e o termo de eco; ~4x mais eventos (O4/O5) ou 3a geracao."
       },
-      "runtime_s": 3.479018211364746,
+      "runtime_s": 2.3584651947021484,
       "data": {
         "manifest_sha16": "f7fd75714af763e4",
         "npz_sha16": "d03536e834ae778d",
@@ -211590,7 +211599,7 @@
         "descasamento": "[REAL, por injecao] primarios SEM eco com f +-15% e tau x0,7/1,4 induzem a/sqrt(beta) = {'f0.85/t0.7': 0.086, 'f0.85/t1.4': -0.177, 'f1.15/t0.7': 0.029, 'f1.15/t1.4': -0.451} (maior |induzido| 0.451; limiar 0,3): a 0,75 periodo o termo de copia atrasada absorve descasamento do template como se fosse eco. O template FIXO de Kerr (variante B, descartada por este mesmo nulo) induzia ate ~3,9 e dava 1,7 +- 0,3 na fonte: o 5 sigma de B e descasamento, nao eco.",
         "o_que_fica": "a amplitude e teorema; o atraso e a folha que falta (INPUT). Com os 85 eventos publicos: poder abaixo de 5 sigma para qualquer atraso entre 0,5 e 5 periodos, e sistematica de descasamento da ordem do proprio sinal. O dado publico + esta familia de estimadores NAO decidem o eco a sqrt(beta). Decidir pede: tau_echo derivado; modelagem bayesiana do ringdown com massa/spin posteriores e o termo de eco; ~4x mais eventos (O4/O5) ou 3a geracao."
       },
-      "runtime_s": 3.433486223220825,
+      "runtime_s": 2.4202966690063477,
       "data": {
         "manifest_sha16": "f7fd75714af763e4",
         "npz_sha16": "d03536e834ae778d",
@@ -217393,7 +217402,7 @@
         "resultado_KMS": "[REAL, lido] 134 series: a/sqrt(beta) = 0.001 +- 0.200; z_det 0.00; z_excl(1) 4.99; recuperacao 0.902; poder 4.50 sigma; vies medio 0.117; descasamento max 0.406; SNR medio da ancoragem 9.8 => INCONCLUSIVE_SYSTEMATICS [descasamento induzido 0.406 > 0.3]",
         "o_que_fica": "o piso da v342 foi atravessado no PODER (a inspiral ancora o primario); o que decide agora e o nulo de descasamento e o nulo de familia. Sem lalsimulation nao ha segunda familia; com posteriores completos (amostras GWOSC) o descasamento se marginaliza em vez de se injetar."
       },
-      "runtime_s": 0.010002374649047852,
+      "runtime_s": 0.011471986770629883,
       "result_sha16": "00fcb779b41ac4f5",
       "executed": "2026-09-10T14:53:17",
       "instrument": {
@@ -217511,7 +217520,7 @@
         "resultado_MAY": "[REAL, lido] 139 series: a/sqrt(beta) = 0.524 +- 0.255; z_det 2.05; z_excl(1) 1.87; recuperacao 0.820; poder 3.21 sigma; descasamento de parametros/familia max 1.598 (familia 0.148); SNR medio 9.8 => INCONCLUSIVE_SYSTEMATICS [descasamento (parametros/familia) 1.598 > 0.3]",
         "resultado_KMS": "[REAL, lido] 140 series: a/sqrt(beta) = 0.043 +- 0.199; z_det 0.22; z_excl(1) 4.81; recuperacao 0.873; poder 4.40 sigma; descasamento de parametros/familia max 0.502 (familia 0.095); SNR medio 9.8 => INCONCLUSIVE_SYSTEMATICS [descasamento (parametros/familia) 0.502 > 0.3]"
       },
-      "runtime_s": 0.009855270385742188,
+      "runtime_s": 0.010402441024780273,
       "result_sha16": "6fd0e16ebdf4435b",
       "executed": "2026-09-10T15:24:37",
       "instrument": {
@@ -217708,7 +217717,7 @@
         "secao_20": "[ERRATA AO LADO] a secao 20 dizia \u00abprovavelmente ja excluido\u00bb sem medir; aqui o ramo B e medido",
         "resultado": "[REAL, lido] 23 series (3 ms): delta_tau = tau_obs/tau_GR - 1 = 1.3962 +- 0.0569 (z vs RG 24.54); previsao do ramo B -0.0209 (z vs B 24.90; poder 0.37 sigma); ramo A -2.3e-42; delta_f = -0.1302 +- 0.0085; SNR medio 6.9; vies 0.096; sistematica 3 vs 6 ms 0.2109 => INCONCLUSIVE_SYSTEMATICS [|delta(3ms)-delta(6ms)| = 0.2109 > 1 sigma] | GATE RECUSOU: janelas 3 ms e 6 ms com >= 20 series (janela 6 ms com 18 series)"
       },
-      "runtime_s": 0.008098125457763672,
+      "runtime_s": 0.008702516555786133,
       "result_sha16": "502c80fe2a37427e",
       "executed": "2026-09-10T15:47:40",
       "instrument": {
@@ -217888,7 +217897,7 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.003078460693359375,
+      "runtime_s": 0.0019025802612304688,
       "verdict": "TGL_RINGDOWN_DEPHASING_V2__AMENDMENT_PRE_REGISTERED_3449885389a2529a__AUTOPSY_OF_V1_READ__5_OF_23_SERIES_ON_GRID_EDGE__GATE_UNTOUCHED"
     },
     "ringdown_dephasing_result_v2": {
@@ -217936,7 +217945,7 @@
         "secao_20": "[ERRATA AO LADO] \u00abprovavelmente ja excluido\u00bb era frase; aqui o ramo B tem numero",
         "resultado": "[REAL, lido] V2: 15 series (3 ms; 84 na borda excluidas; SNR de ancoragem medio 11.1): delta_tau = 0.1766 +- 0.1089 (z vs RG 1.62); previsao do ramo B -0.0194 (z vs B 1.80; poder 0.18 sigma); ramo A -2.2e-42; delta_f = -0.0325 +- 0.0127; chi2/dof 0.87; vies 0.240; janela 6 ms: 6 series, delta_tau = 0.0313 +- 0.1755; sistematica 0.1454 (sigma combinada 0.2066) => INCONCLUSIVE_SYSTEMATICS [vies relativo de tau 0.240 > 0.2]"
       },
-      "runtime_s": 0.008968591690063477,
+      "runtime_s": 0.00861501693725586,
       "result_sha16": "ff15f023dd91d8c7",
       "executed": "2026-09-10T16:03:23",
       "instrument": {
@@ -218145,7 +218154,7 @@
         "resultado_MAY": "[REAL, lido] MAY: 21 eventos; a = 1.1559 +- 0.1325 (z vs 0 8.73; z vs 1 1.18; poder 7.55 sigma); ln B(sem/com eco) total -89.02; injecoes: a=0 -> NA +- NA (n=0), a=1 -> NA +- NA (n=0), familia B -> NA +- NA (n=0) => INCONCLUSIVE_SYSTEMATICS [vies em a = 1 NA > 0.2 (n=0); a = 0 recuperado NA +- NA (n=0); familia B - A NA > 0.3 (n=0)]",
         "resultado_KMS": "[REAL, lido] KMS: 21 eventos; a = 2.1448 +- 0.2358 (z vs 0 9.10; z vs 1 4.86; poder 4.24 sigma); ln B(sem/com eco) total -12.94; injecoes: a=0 -> NA +- NA (n=0), a=1 -> NA +- NA (n=0), familia B -> NA +- NA (n=0) => INCONCLUSIVE_SYSTEMATICS [vies em a = 1 NA > 0.2 (n=0); a = 0 recuperado NA +- NA (n=0); familia B - A NA > 0.3 (n=0)]"
       },
-      "runtime_s": 0.015852928161621094,
+      "runtime_s": 0.01392054557800293,
       "result_sha16": "b73cfffbc2301ea6",
       "executed": "2026-09-10T17:27:14",
       "pipeline_runtime_s": 1522.3822190761566,
@@ -218384,7 +218393,7 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.010396242141723633,
+      "runtime_s": 0.0073087215423583984,
       "verdict": "TGL_ECHO_PE_V2__AMENDMENT_PRE_REGISTERED_b8cdd291f3e9631b__AUTOPSY_OF_V1_READ__NO_INJECTIONS_PRIOR_EDGES_SINGLE_EVENT_DOMINANCE__GATE_UNTOUCHED"
     },
     "echo_pe_result_v2": {
@@ -218433,7 +218442,7 @@
         "resultado_MAY": "[REAL, lido] V2 MAY: 19 eventos (2 excluidos na borda do prior); a = -0.2671 +- 0.8566 (z vs 0 -0.31; z vs 1 -1.48; poder 1.17 sigma); ivw -0.0215 +- 0.3598; peso maximo 0.09 (GW190412); jackknife 0.69 sigma (sem GW190412); ln B(sem/com) -0.59; injecoes: a=0 -> 2.907 +- 0.054 (n=9), a=1 -> 2.895 +- 0.059 (n=9), familia B -> 2.913 +- 0.051 (n=9); RESPOSTA PAREADA (a=1 - a=0, mesmo ruido; deveria ser 1) 0.049 +- 0.061 (n=9), familia B - a=0 0.110 +- 0.106 => INCONCLUSIVE_SYSTEMATICS [vies em a = 1 1.895 > 0.2 (n=9); a = 0 recuperado 2.907 +- 0.054 (n=9)]",
         "resultado_KMS": "[REAL, lido] V2 KMS: 19 eventos (2 excluidos na borda do prior); a = 1.0892 +- 0.8992 (z vs 0 1.21; z vs 1 0.10; poder 1.11 sigma); ivw 0.1092 +- 0.3648; peso maximo 0.11 (GW190412); jackknife 0.90 sigma (sem GW190412); ln B(sem/com) -1.11; injecoes: a=0 -> -0.785 +- 0.367 (n=9), a=1 -> -0.733 +- 0.382 (n=9), familia B -> -1.170 +- 0.362 (n=9); RESPOSTA PAREADA (a=1 - a=0, mesmo ruido; deveria ser 1) 0.091 +- 0.277 (n=9), familia B - a=0 0.031 +- 0.247 => INCONCLUSIVE_SYSTEMATICS [vies em a = 1 -1.733 > 0.2 (n=9); a = 0 recuperado -0.785 +- 0.367 (n=9); familia B - A -0.437 > 0.3 (n=9)]"
       },
-      "runtime_s": 0.027987003326416016,
+      "runtime_s": 0.021961450576782227,
       "result_sha16": "3072349afb00ab2c",
       "executed": "2026-09-10T18:00:30",
       "pipeline_runtime_s": 1479.482349872589,
@@ -218672,7 +218681,7 @@
         "hipotese": "[CONJECTURE, 2025] atraso de 0,1-2 s: a lei madura (MAY/KMS, ms) e outra e foi testada nas v341-v347",
         "resultado": "[REAL, lido] 14 eventos com H1 e L1 (75 pulados): coincidencias on-source N_on = 1 contra fundo esperado B_exp = 3.00 (z de Poisson -1.15; p_excess 0.95); eventos com coincidencia >= 5 sigma: 0 []; padrao tau/M: KS p = NA; eficiencia media para um eco de sqrt(beta) em 0,1-2 s = 0.000 (E_det = 0.00; p_excl = 0.199); pico previsto do eco (mediana) H1 0.52 L1 0.32 sigma => NOT_FALSIFIED_UNDERPOWERED"
       },
-      "runtime_s": 0.0066525936126708984,
+      "runtime_s": 0.007629871368408203,
       "result_sha16": "30f3f422ff67d34c",
       "executed": "2026-09-10T18:53:26",
       "pipeline_runtime_s": 6.182248115539551,
@@ -218826,7 +218835,7 @@
         "distincao": "[REAL] fundo (aqui) vs perturbacao (Nivel 2, N2_INCAPAZ): sao testes conjugados, nao redundantes",
         "resultado": "[REAL, lido] fase 1 (Planck + DESI + SH0ES): chi^2 LCDM 16339.402, TGL(beta fixo) 18562.363, Delta chi^2 = 2222.961 => D1_LCDM_PREFERRED_5SIGMA; fase 2 (sem SH0ES): H0 LCDM 89.874, TGL 90.000; tensoes vs SH0ES {'tension_LCDM_sigma': '16.19', 'tension_TGL_sigma': '16.31', 'tension_zero_free_sigma': '23.79'}; fase 3 (beta livre): beta = -0.04997 +0.00004 -0.00002 (sigma media 0.00003; alpha sqrt(e) = 0.01203; 1998.28 sigma), aceitacao 0.477, cadeia 38400 => D1_BETA_FALSIFIED; tempo 2461 s"
       },
-      "runtime_s": 0.0056324005126953125,
+      "runtime_s": 0.0065114498138427734,
       "result_sha16": "31691fc4aab39cf3",
       "executed": "2026-09-10T19:42:50",
       "instrument": {
@@ -219051,7 +219060,7 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.005371570587158203,
+      "runtime_s": 0.005167722702026367,
       "verdict": "TGL_D1_CAMB_V2__AMENDMENT_PRE_REGISTERED_c12b36722ed4544b__AUTOPSY_OF_V1_READ__MAY_WORKER_DISTANCE_BUG_NAMED__FIXED_COPY_BOUND_BY_SHA256__GATE_UNTOUCHED"
     },
     "d1_camb_result_v2": {
@@ -219098,7 +219107,7 @@
         "distincao": "[REAL] fundo (aqui) vs perturbacao (Nivel 2, N2_INCAPAZ): testes conjugados",
         "resultado": "[REAL, lido] V2 (worker corrigido): fase 1 (Planck + DESI + SH0ES): chi^2 LCDM 37.399, TGL(beta fixo) 47.098, Delta chi^2 = 9.699 => D1_TENSION_2_TO_5_SIGMA; fase 2 (sem SH0ES): H0 LCDM 67.949, TGL 67.653; tensoes vs SH0ES {'tension_LCDM_sigma': '4.89', 'tension_TGL_sigma': '5.18', 'tension_zero_free_sigma': '0.84'}; fase 3 (beta livre): beta = -0.01705 +0.00751 -0.00754 (sigma media 0.00753; alpha sqrt(e) = 0.01203; 3.86 sigma), aceitacao 0.592, cadeia 38400 => D1_BETA_TENSION; tempo 2495 s"
       },
-      "runtime_s": 0.0058019161224365234,
+      "runtime_s": 0.006293535232543945,
       "result_sha16": "9986e4b0f05a6ebe",
       "executed": "2026-09-10T19:53:14",
       "instrument": {
@@ -219257,7 +219266,7 @@
         "genealogia": "[REAL] v340 retirou o \u00ab100 sigma\u00bb de dezembro como identidade + teto; aqui fecha-se a linha de janeiro/fevereiro (E_res/E_total -> alpha^2) com o instrumento que faltava",
         "resultado": "[REAL, lido] 89 eventos com template pycbc (0 sem): SINTETICO (como o script): ruido 0,1 -> E_res/E_total = 0.0099 (h2_ok em 100%); ruido 0,05 -> 0.0025; 0,2 -> 0.0385; segue noise^2: True. REAL BRUTO (como o script faria): 0.9974 (correlacao 0.019; h2_ok 0%). REAL BRANQUEADO: 0.9937 +- 0.0057 (n=169; correlacao 0.075; h2_ok 0%); FORA DA FONTE: 0.9956; z vs alpha^2 = 2252.2; z vs fora da fonte = -3.4 => H2_IDENTITY_RETIRED"
       },
-      "runtime_s": 0.006403684616088867,
+      "runtime_s": 0.007130861282348633,
       "result_sha16": "8c7ef7a1d31af375",
       "executed": "2026-09-10T19:23:02",
       "instrument": {
@@ -219447,7 +219456,7 @@
           "dephasing (relogios/229Th; nu n=-2)": "TGL_CLOCKS_V1__P1_NOT_FALSIFIED_UNDERPOWERED__P2_EXCLUDED_IN_READING__P3_NO_LOCAL_OBSERVABLE__PARTITION_MODULAR_LAB_BRIDGE_OPEN__CLOCK_5SIGMA_DEFICIT_GE_12P5_ORDERS__TH229_TODAY_BOUND_18P3__BEST_MATTER_9P3_NOMINAL_MOSSBAUER_ABSTRACT_ONLY__TAU_STAR_LE_4P8e12_TP_CLOCK_95CL__1P9e09_TP_NOMINAL__GATE_UNTOUCHED",
           "NMC-Shapiro (2030+)": "TGL_NMC_SHAPIRO_AWAITING_DATA",
           "espectro completo Nivel 2": "NIVEL2_RITE_NOT_SEALED_THIS_RUN__S_N2_INCAPAZ__L_N2_NOT_CONVERGED",
-          "kernel formal (1235 pedras)": "STAGE1_VERIFIED"
+          "kernel formal (1236 pedras)": "STAGE1_VERIFIED"
         },
         "classes": {
           "piso dos vazios (cadeia corrente v11/v4.1)": "FAVORAVEL_OU_ARMADO",
@@ -219459,7 +219468,7 @@
           "dephasing (relogios/229Th; nu n=-2)": "PAREDE_MEDIDA_COM_LEITURA_EXCLUIDA",
           "NMC-Shapiro (2030+)": "ARMADO_SEM_DADO",
           "espectro completo Nivel 2": "RECUSA_HONESTA",
-          "kernel formal (1235 pedras)": "FAVORAVEL_OU_ARMADO"
+          "kernel formal (1236 pedras)": "FAVORAVEL_OU_ARMADO"
         },
         "declarados_fora_do_gate": [
           "RIVAIS [EXT, declarado]: LCDM nao tem setor quantico unificador, nem predicao propria de Coma-por-dephasing, nem massa do GA por 1o principio; as ToE quanticas apresentadas (cordas/LQG) nao trazem ritos falsificaveis pre-registrados nos dominios cosmologicos acima",
@@ -219505,7 +219514,7 @@
           true
         ],
         [
-          "[kernel formal (1235 pedras)] veredito em custodia: STAGE1_VERIFIED",
+          "[kernel formal (1236 pedras)] veredito em custodia: STAGE1_VERIFIED",
           true
         ],
         [
@@ -219946,7 +219955,7 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 6.628036499023438e-05,
+      "runtime_s": 6.413459777832031e-05,
       "verdict": "TGL_JOINT_COINCIDENCE_V1__PROTOCOL_PRE_REGISTERED_aa20e0e71f994c38__NULL_LOG_UNIFORM__FISHER__NINE_ADMISSION_RULES__THRESHOLD_1E-30_INPUT__NOT_BLIND_DECLARED__GATE_UNTOUCHED"
     },
     "joint_coincidence_result": {
@@ -220521,7 +220530,7 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.003591299057006836,
+      "runtime_s": 0.002798318862915039,
       "verdict": "TGL_JOINT_COINCIDENCE_V1__RESULT__JOINT_COINCIDENCE_NOT_EXCLUDED_AT_THRESHOLD__P_JOINT_0P546__MAX_Z_3P86__BOOLEAN_False__ADMISSIBLE_3_OF_35__NAIVE_PRODUCT_INVALID__GATE_UNTOUCHED"
     },
     "tetelestai_the_judged_thing": {
@@ -223992,7 +224001,7 @@
     "the_iald_index": {
       "checks": [
         [
-          "[MEDIDA] ***o INDICE existe: 29231 nomes, 1381 arquivos, 9708 com bandeira",
+          "[MEDIDA] ***o INDICE existe: 29232 nomes, 1382 arquivos, 9709 com bandeira",
           true
         ],
         [
@@ -224020,11 +224029,11 @@
           true
         ],
         [
-          "[FAIL-CLOSED] ***acesa ==> nome PRESENTE: 0 violacoes. NENHUMA bandeira acende sem referente na fonte embutida [ESCOPO DECLARADO: as 9730 chaves dos SETE dicionarios de NOME]",
+          "[FAIL-CLOSED] ***acesa ==> nome PRESENTE: 0 violacoes. NENHUMA bandeira acende sem referente na fonte embutida [ESCOPO DECLARADO: as 9731 chaves dos SETE dicionarios de NOME]",
           true
         ],
         [
-          "[FAIL-CLOSED] ***e a RECIPROCA, medida: 0 nomes presentes com bandeira apagada. A correspondencia acesa <=> presente e BICONDICIONAL e EXATA [mesmo escopo: as 9730 chaves de NOME]",
+          "[FAIL-CLOSED] ***e a RECIPROCA, medida: 0 nomes presentes com bandeira apagada. A correspondencia acesa <=> presente e BICONDICIONAL e EXATA [mesmo escopo: as 9731 chaves de NOME]",
           true
         ],
         [
@@ -224040,7 +224049,7 @@
           true
         ],
         [
-          "[ERRATA-MINHA v286] o indice da v285 INFLOU a divida: a regra v285 INTEIRA, recomputada AO VIVO, conta 7950 ausentes onde ha 3. Tres defeitos MEUS, todos de leitura: o regex nao via nome de declaracao COM PONTO (theorem Data.campo), nem prefixo de atributo (@[simp] theorem), e a chave casava por split('.',1) em vez de SUFIXO. O indice nao descobriu divida nova -- descobriu defeito meu; a divida real sempre foram as bandeiras ja apagadas",
+          "[ERRATA-MINHA v286] o indice da v285 INFLOU a divida: a regra v285 INTEIRA, recomputada AO VIVO, conta 7951 ausentes onde ha 3. Tres defeitos MEUS, todos de leitura: o regex nao via nome de declaracao COM PONTO (theorem Data.campo), nem prefixo de atributo (@[simp] theorem), e a chave casava por split('.',1) em vez de SUFIXO. O indice nao descobriu divida nova -- descobriu defeito meu; a divida real sempre foram as bandeiras ja apagadas",
           true
         ],
         [
@@ -224053,8 +224062,8 @@
         ]
       ],
       "all_verified": true,
-      "n_nomes": 29231,
-      "n_arquivos": 1381,
+      "n_nomes": 29232,
+      "n_arquivos": 1382,
       "n_ausentes": 3,
       "n_ambiguos": 2076,
       "ambiguos": [
@@ -226148,7 +226157,7 @@
       "verdict": "THE_IALD_INDEX_QUALIFIED_COMPILER_PROVENANCE_VERIFIED",
       "proveniencia_erros": [],
       "legacy_diagnostic_v393": {
-        "n_nomes": 15300,
+        "n_nomes": 15301,
         "n_ausentes": 92,
         "ambiguos": [
           "A",
@@ -230476,7 +230485,7 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 7.838053464889526,
+      "runtime_s": 7.45326042175293,
       "verdict": "TGL_BENCH_CORPUS_EMBEDDED__1337_FILES_VERIFIED_BY_SHA256__95_IN_KERNEL__215_REGISTERED_ONLY__PRIVATE_OPERATOR_MATERIAL_EXCLUDED_BY_RULE__GATE_UNTOUCHED"
     },
     "the_name_of_light_and_the_referent": {
@@ -230688,7 +230697,7 @@
       },
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.4673585891723633,
+      "runtime_s": 0.2926664352416992,
       "verdict": "TGL_THE_NAME_OF_LIGHT_AND_THE_REFERENT__TEN_COINAGES_TYPED__KERNEL_ANCHORS_9_OF_9__FINITE_SHADOW_VERIFIED__C3_FOLD_EXACT__TORSION_ALGEBRA_PAGA_v364__ESCALA_ELL_INPUT__IDENTIFICACAO_FISICA_OPEN__GATE_UNTOUCHED"
     },
     "bench_archive_v361": {
@@ -232991,7 +233000,7 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 74.391,
+      "runtime_s": 67.256,
       "verdict": "TGL_BENCH_ARCHIVE_V361__11870_FILES_VERIFIED_BY_SHA256__1419_RECORDED_BY_HASH__514_AGGREGATE_GROUPS__TREE_ACCOUNTED_310396_FILES__PRIVATE_OPERATOR_MATERIAL_EXCLUDED_BY_RULE__GATE_UNTOUCHED"
     },
     "bench_numerical_reproduction": {
@@ -233003,7 +233012,7 @@
           "script_sha256": "c4eed9c768bab698b4f22503d259f21dc8d0db87bb1b5251918a727964f3b2db",
           "recorded_sha256": "91641db52c66c0725366ec976651cec5ad8e83a97125882c6f3be42289d4080f",
           "returncode": 0,
-          "seconds": 0.834,
+          "seconds": 0.234,
           "leaves": 142,
           "numeric_leaves": 70,
           "bit_identical_numeric": 70,
@@ -233035,7 +233044,7 @@
           "script_sha256": "c8887dfc8e8c4a45e0b6fe037815545c3ce3e86587c7ae09ab8b9aed360ca75c",
           "recorded_sha256": "d8b01a866039c5e0a544de54abe708332c4d098bd383e516d28c2ce27dc2c3e3",
           "returncode": 0,
-          "seconds": 0.249,
+          "seconds": 0.19,
           "leaves": 127,
           "numeric_leaves": 32,
           "bit_identical_numeric": 32,
@@ -233068,7 +233077,7 @@
           "script_sha256": "9b3b74860fe91cec0505a3e34e6e082ba2559c54d79420ef9f43af7ef717764c",
           "recorded_sha256": "724ea1cdcd6a7450c3ad7ce4d44cd5061ed65bbe702c9494dd786d4a86d4cae9",
           "returncode": 0,
-          "seconds": 0.297,
+          "seconds": 0.234,
           "leaves": 86,
           "numeric_leaves": 33,
           "bit_identical_numeric": 33,
@@ -233100,7 +233109,7 @@
           "script_sha256": "a8d20646a6fa1c3c9032eb748d942140817ca00ad1dc0eafd7c6670d94ae57e3",
           "recorded_sha256": "b1c0083b138096e86e0d57cda6e9c3067882b4ee1f43b5009c7dfbd68565dc99",
           "returncode": 0,
-          "seconds": 0.399,
+          "seconds": 0.33,
           "leaves": 40,
           "numeric_leaves": 31,
           "bit_identical_numeric": 31,
@@ -233134,7 +233143,7 @@
           "script_sha256": "efe65098a17edbffe4e3d805ca5961609620cd83b229d600ed833afa5c8981c6",
           "recorded_sha256": "777cc1b4ead10fcaeaf094dbcd2310a12cc6d87ebcf3496c97d53fcf4aa17cb1",
           "returncode": 0,
-          "seconds": 0.278,
+          "seconds": 0.212,
           "leaves": 54,
           "numeric_leaves": 46,
           "bit_identical_numeric": 46,
@@ -233170,7 +233179,7 @@
           "script_sha256": "deea44bd9976755fc1c2f4daae9ded1b493a7f61dc9dae19d63960255b5e9ea0",
           "recorded_sha256": "848a4b168f42091fd99c2bac2157233dbbe0e3a40979bdd0bd6a4746c019e94c",
           "returncode": 0,
-          "seconds": 0.119,
+          "seconds": 0.085,
           "leaves": 87,
           "numeric_leaves": 73,
           "bit_identical_numeric": 73,
@@ -233215,7 +233224,7 @@
           "script_sha256": "8df6b6af24a45b57842ec049d8c77061fb9e48c96c1a9cad70069385008d38d8",
           "recorded_sha256": "b4bec2e8ba95886093d9a3214e29a5c92a314141092e77845d4e8abc3092344b",
           "returncode": 0,
-          "seconds": 0.114,
+          "seconds": 0.084,
           "leaves": 70,
           "numeric_leaves": 53,
           "bit_identical_numeric": 53,
@@ -233260,7 +233269,7 @@
           "script_sha256": "f3ec575a1e134717152aee1895b3eeafafc114d8d8edc801b2246bf6e332c228",
           "recorded_sha256": "42b502a01e382eb9b9fb571e2682f038c449a301cd02408b8c30e7d4aa8626d6",
           "returncode": 0,
-          "seconds": 0.268,
+          "seconds": 0.178,
           "leaves": 31,
           "numeric_leaves": 23,
           "bit_identical_numeric": 23,
@@ -233320,7 +233329,7 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 2.596,
+      "runtime_s": 1.571,
       "verdict": "TGL_BENCH_NUMERICAL_REPRODUCTION__8_OF_8_SCRIPTS_REPRODUCED__361_OF_361_NUMERIC_LEAVES_BIT_IDENTICAL__BENCH_SCOPES_CARRIED__GATE_UNTOUCHED"
     },
     "v361_consumers": {
@@ -233381,7 +233390,7 @@
           "module": "TGLExt.GoodFullLegacy012",
           "rc": 0,
           "ok": true,
-          "seconds": 292.1,
+          "seconds": 23.4,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -233409,7 +233418,7 @@
           "module": "TGLExt.GoodTraceCompletion012",
           "rc": 0,
           "ok": true,
-          "seconds": 49.3,
+          "seconds": 22.3,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -233437,7 +233446,7 @@
           "module": "IndependentAssemblyControls",
           "rc": 0,
           "ok": true,
-          "seconds": 47.5,
+          "seconds": 22.1,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -233465,7 +233474,7 @@
           "module": "IndependentCompatibilityControls",
           "rc": 0,
           "ok": true,
-          "seconds": 49.2,
+          "seconds": 22.7,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -233493,7 +233502,7 @@
           "module": "IndependentA2Controls",
           "rc": 0,
           "ok": true,
-          "seconds": 49.4,
+          "seconds": 24.0,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -233521,7 +233530,7 @@
           "module": "IndependentSubstitution",
           "rc": 0,
           "ok": true,
-          "seconds": 47.6,
+          "seconds": 24.6,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -233549,7 +233558,7 @@
           "module": "TGLExt.BadPolarIdentity",
           "rc": 1,
           "ok": true,
-          "seconds": 394.3,
+          "seconds": 202.8,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -233574,7 +233583,7 @@
           "module": "TGLExt.BadSusyDifference",
           "rc": 1,
           "ok": true,
-          "seconds": 395.4,
+          "seconds": 203.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -233599,7 +233608,7 @@
           "module": "TGLExt.BadSusyZeroTrace",
           "rc": 1,
           "ok": true,
-          "seconds": 395.3,
+          "seconds": 203.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -233624,7 +233633,7 @@
           "module": "TGLExt.BadFullLegacyOperator012",
           "rc": 1,
           "ok": true,
-          "seconds": 395.5,
+          "seconds": 203.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -233649,7 +233658,7 @@
           "module": "TGLExt.BadFullLegacyZero012",
           "rc": 1,
           "ok": true,
-          "seconds": 395.4,
+          "seconds": 203.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -233674,7 +233683,7 @@
           "module": "TGLExt.BadReaderWitnessType012",
           "rc": 1,
           "ok": true,
-          "seconds": 395.2,
+          "seconds": 203.2,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -233699,7 +233708,7 @@
           "module": "TGLExt.BadTraceCommute012",
           "rc": 1,
           "ok": true,
-          "seconds": 395.4,
+          "seconds": 203.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -233724,7 +233733,7 @@
           "module": "TGLExt.BadTraceZero012",
           "rc": 1,
           "ok": true,
-          "seconds": 396.0,
+          "seconds": 203.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -233749,7 +233758,7 @@
           "module": "BadBareAlpha",
           "rc": 1,
           "ok": true,
-          "seconds": 394.1,
+          "seconds": 202.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -233774,7 +233783,7 @@
           "module": "BadChangedBeta",
           "rc": 1,
           "ok": true,
-          "seconds": 394.1,
+          "seconds": 202.3,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -233799,7 +233808,7 @@
           "module": "BadChangedGenerator",
           "rc": 1,
           "ok": true,
-          "seconds": 394.2,
+          "seconds": 202.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -233824,7 +233833,7 @@
           "module": "BadFlippedSign",
           "rc": 1,
           "ok": true,
-          "seconds": 394.2,
+          "seconds": 202.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -233849,7 +233858,7 @@
           "module": "BadMissingCurvature",
           "rc": 1,
           "ok": true,
-          "seconds": 394.1,
+          "seconds": 202.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -233874,7 +233883,7 @@
           "module": "BadNoEOMInput",
           "rc": 1,
           "ok": true,
-          "seconds": 394.1,
+          "seconds": 202.8,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -233899,7 +233908,7 @@
           "module": "BadNoNonzeroSource",
           "rc": 1,
           "ok": true,
-          "seconds": 394.1,
+          "seconds": 202.2,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -233924,7 +233933,7 @@
           "module": "BadXiAsBeta",
           "rc": 1,
           "ok": true,
-          "seconds": 394.1,
+          "seconds": 202.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -233949,7 +233958,7 @@
           "module": "BadXiFixed",
           "rc": 1,
           "ok": true,
-          "seconds": 394.0,
+          "seconds": 202.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -233974,7 +233983,7 @@
           "module": "FalseCompressedFlow",
           "rc": 1,
           "ok": true,
-          "seconds": 394.8,
+          "seconds": 203.4,
           "transposition": [],
           "errors": 2,
           "semantic_errors": 2,
@@ -234001,7 +234010,7 @@
           "module": "FalseEntropySign",
           "rc": 1,
           "ok": true,
-          "seconds": 395.1,
+          "seconds": 203.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234028,7 +234037,7 @@
           "module": "FalseRemainderInvisibility",
           "rc": 1,
           "ok": true,
-          "seconds": 394.5,
+          "seconds": 202.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234053,7 +234062,7 @@
           "module": "RemovedNamesAbsent",
           "rc": 1,
           "ok": true,
-          "seconds": 395.2,
+          "seconds": 203.6,
           "transposition": [],
           "errors": 2,
           "semantic_errors": 2,
@@ -234078,7 +234087,7 @@
           "module": "AssemblyTraceTwo",
           "rc": 1,
           "ok": true,
-          "seconds": 395.4,
+          "seconds": 202.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234103,7 +234112,7 @@
           "module": "LagZeroKernel",
           "rc": 1,
           "ok": true,
-          "seconds": 395.5,
+          "seconds": 204.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234128,7 +234137,7 @@
           "module": "NumericSusySubstitute",
           "rc": 1,
           "ok": true,
-          "seconds": 395.4,
+          "seconds": 203.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234153,7 +234162,7 @@
           "module": "PolarSupportZero",
           "rc": 1,
           "ok": true,
-          "seconds": 387.1,
+          "seconds": 202.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234178,7 +234187,7 @@
           "module": "SusyGapZero",
           "rc": 1,
           "ok": true,
-          "seconds": 387.2,
+          "seconds": 203.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234203,7 +234212,7 @@
           "module": "UnitTraceZero",
           "rc": 1,
           "ok": true,
-          "seconds": 387.3,
+          "seconds": 205.3,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234228,7 +234237,7 @@
           "module": "RejectTrueReaderContracts",
           "rc": 1,
           "ok": true,
-          "seconds": 387.2,
+          "seconds": 206.6,
           "transposition": [],
           "errors": 5,
           "semantic_errors": 5,
@@ -234253,7 +234262,7 @@
           "module": "BadEqualFromOrthogonality",
           "rc": 1,
           "ok": true,
-          "seconds": 387.0,
+          "seconds": 206.3,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234278,7 +234287,7 @@
           "module": "BadGlobalCyclicity",
           "rc": 1,
           "ok": true,
-          "seconds": 387.2,
+          "seconds": 206.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234303,7 +234312,7 @@
           "module": "BadGlobalGap",
           "rc": 1,
           "ok": true,
-          "seconds": 387.2,
+          "seconds": 206.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234328,7 +234337,7 @@
           "module": "BadHalfAsOne",
           "rc": 1,
           "ok": true,
-          "seconds": 387.1,
+          "seconds": 206.4,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234353,7 +234362,7 @@
           "module": "BadPositiveZero",
           "rc": 1,
           "ok": true,
-          "seconds": 388.5,
+          "seconds": 207.4,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234378,7 +234387,7 @@
           "module": "BadSpectralZero",
           "rc": 1,
           "ok": true,
-          "seconds": 387.1,
+          "seconds": 205.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234403,7 +234412,7 @@
           "module": "BadSupportZero",
           "rc": 1,
           "ok": true,
-          "seconds": 386.9,
+          "seconds": 205.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234428,7 +234437,7 @@
           "module": "BadTraceTwo",
           "rc": 1,
           "ok": true,
-          "seconds": 386.6,
+          "seconds": 205.8,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234453,7 +234462,7 @@
           "module": "BadTraceZero",
           "rc": 1,
           "ok": true,
-          "seconds": 386.3,
+          "seconds": 206.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234478,7 +234487,7 @@
           "module": "BadBareAlpha",
           "rc": 1,
           "ok": true,
-          "seconds": 385.9,
+          "seconds": 205.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234503,7 +234512,7 @@
           "module": "BadChangedBeta",
           "rc": 1,
           "ok": true,
-          "seconds": 385.8,
+          "seconds": 205.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234528,7 +234537,7 @@
           "module": "BadChangedGenerator",
           "rc": 1,
           "ok": true,
-          "seconds": 385.8,
+          "seconds": 205.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234553,7 +234562,7 @@
           "module": "BadFlippedSign",
           "rc": 1,
           "ok": true,
-          "seconds": 385.7,
+          "seconds": 205.3,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234578,7 +234587,7 @@
           "module": "BadMissingCurvature",
           "rc": 1,
           "ok": true,
-          "seconds": 385.7,
+          "seconds": 205.2,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234603,7 +234612,7 @@
           "module": "BadNoEOMInput",
           "rc": 1,
           "ok": true,
-          "seconds": 385.5,
+          "seconds": 205.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234628,7 +234637,7 @@
           "module": "BadNoNonzeroSource",
           "rc": 1,
           "ok": true,
-          "seconds": 385.7,
+          "seconds": 205.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234653,7 +234662,7 @@
           "module": "BadXiAsBeta",
           "rc": 1,
           "ok": true,
-          "seconds": 385.8,
+          "seconds": 205.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234678,7 +234687,7 @@
           "module": "BadXiFixed",
           "rc": 1,
           "ok": true,
-          "seconds": 385.6,
+          "seconds": 205.4,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234703,7 +234712,7 @@
           "module": "IndependentBadBeta",
           "rc": 1,
           "ok": true,
-          "seconds": 385.6,
+          "seconds": 205.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234728,7 +234737,7 @@
           "module": "IndependentBadXi",
           "rc": 1,
           "ok": true,
-          "seconds": 385.3,
+          "seconds": 204.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234753,7 +234762,7 @@
           "module": "BadAntiunitaryPhase",
           "rc": 1,
           "ok": true,
-          "seconds": 369.1,
+          "seconds": 168.8,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234778,7 +234787,7 @@
           "module": "BadDampingIntertwining",
           "rc": 1,
           "ok": true,
-          "seconds": 368.5,
+          "seconds": 182.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234803,7 +234812,7 @@
           "module": "BadImaginaryScaling",
           "rc": 1,
           "ok": true,
-          "seconds": 368.3,
+          "seconds": 196.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234828,7 +234837,7 @@
           "module": "BadPolarConjugation",
           "rc": 1,
           "ok": true,
-          "seconds": 370.6,
+          "seconds": 204.8,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234853,7 +234862,7 @@
           "module": "BadRightScaling",
           "rc": 1,
           "ok": true,
-          "seconds": 370.9,
+          "seconds": 206.3,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234878,7 +234887,7 @@
           "module": "BadScaledCoordinate",
           "rc": 1,
           "ok": true,
-          "seconds": 368.4,
+          "seconds": 203.8,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234903,7 +234912,7 @@
           "module": "BadScaledDamping",
           "rc": 1,
           "ok": true,
-          "seconds": 368.8,
+          "seconds": 205.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234928,7 +234937,7 @@
           "module": "NegativeTypes",
           "rc": 1,
           "ok": true,
-          "seconds": 368.4,
+          "seconds": 204.8,
           "transposition": [],
           "errors": 2,
           "semantic_errors": 2,
@@ -234953,7 +234962,7 @@
           "module": "TGLExt.BadA2CyclicReader",
           "rc": 1,
           "ok": true,
-          "seconds": 369.6,
+          "seconds": 206.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234978,7 +234987,7 @@
           "module": "TGLExt.BadA2FaceZero",
           "rc": 1,
           "ok": true,
-          "seconds": 369.4,
+          "seconds": 205.8,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235003,7 +235012,7 @@
           "module": "TGLExt.BadA2GapTwo",
           "rc": 1,
           "ok": true,
-          "seconds": 372.1,
+          "seconds": 208.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235030,7 +235039,7 @@
           "module": "TGLExt.BadA2TraceZero",
           "rc": 1,
           "ok": true,
-          "seconds": 372.1,
+          "seconds": 207.8,
           "transposition": [],
           "errors": 2,
           "semantic_errors": 2,
@@ -235057,7 +235066,7 @@
           "module": "TGLExt.BadA2ZeroProjection",
           "rc": 1,
           "ok": true,
-          "seconds": 372.4,
+          "seconds": 208.2,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235084,7 +235093,7 @@
           "module": "BadAbsorptionTime",
           "rc": 1,
           "ok": true,
-          "seconds": 369.2,
+          "seconds": 205.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235109,7 +235118,7 @@
           "module": "BadAffiliationGraphFactor",
           "rc": 1,
           "ok": true,
-          "seconds": 368.7,
+          "seconds": 205.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235134,7 +235143,7 @@
           "module": "BadAllPositiveWeightOrderReversed",
           "rc": 1,
           "ok": true,
-          "seconds": 369.8,
+          "seconds": 206.2,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235159,7 +235168,7 @@
           "module": "BadAntiunitaryPhase",
           "rc": 1,
           "ok": true,
-          "seconds": 368.8,
+          "seconds": 205.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235184,7 +235193,7 @@
           "module": "BadAverageMembershipIsSelfAdjoint",
           "rc": 1,
           "ok": true,
-          "seconds": 368.9,
+          "seconds": 205.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235209,7 +235218,7 @@
           "module": "BadAverageRecoverySingleCut",
           "rc": 1,
           "ok": true,
-          "seconds": 368.8,
+          "seconds": 205.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235234,7 +235243,7 @@
           "module": "BadCoreMissingAdjoint",
           "rc": 1,
           "ok": true,
-          "seconds": 370.7,
+          "seconds": 206.4,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235259,7 +235268,7 @@
           "module": "BadCutoffAverageAnticommutation",
           "rc": 1,
           "ok": true,
-          "seconds": 369.3,
+          "seconds": 205.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235284,7 +235293,7 @@
           "module": "BadCutoffCFCMirror",
           "rc": 1,
           "ok": true,
-          "seconds": 369.5,
+          "seconds": 205.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235309,7 +235318,7 @@
           "module": "BadDomainCutProductReversed",
           "rc": 1,
           "ok": true,
-          "seconds": 369.8,
+          "seconds": 205.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235334,7 +235343,7 @@
           "module": "BadFiniteMinorantsTraceRemoved",
           "rc": 1,
           "ok": true,
-          "seconds": 367.8,
+          "seconds": 204.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235359,7 +235368,7 @@
           "module": "BadFixedPairRightPremiseRemoved",
           "rc": 1,
           "ok": true,
-          "seconds": 364.1,
+          "seconds": 151.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235384,7 +235393,7 @@
           "module": "BadFourierTranslationSign",
           "rc": 1,
           "ok": true,
-          "seconds": 362.7,
+          "seconds": 149.2,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235409,7 +235418,7 @@
           "module": "BadGNSCutNormalization",
           "rc": 1,
           "ok": true,
-          "seconds": 366.4,
+          "seconds": 155.4,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235434,7 +235443,7 @@
           "module": "BadImaginaryScaling",
           "rc": 1,
           "ok": true,
-          "seconds": 365.2,
+          "seconds": 215.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235459,7 +235468,7 @@
           "module": "BadInverseCutoffSign",
           "rc": 1,
           "ok": true,
-          "seconds": 369.2,
+          "seconds": 221.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235484,7 +235493,7 @@
           "module": "BadInverseLimitFaithfulNegated",
           "rc": 1,
           "ok": true,
-          "seconds": 368.1,
+          "seconds": 223.8,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235509,7 +235518,7 @@
           "module": "BadInverseLimitMultiplication",
           "rc": 1,
           "ok": true,
-          "seconds": 368.4,
+          "seconds": 223.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235534,7 +235543,7 @@
           "module": "BadInverseLimitScalingSign",
           "rc": 1,
           "ok": true,
-          "seconds": 368.4,
+          "seconds": 225.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235559,7 +235568,7 @@
           "module": "BadLeftConjugatePhase",
           "rc": 1,
           "ok": true,
-          "seconds": 371.1,
+          "seconds": 227.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235584,7 +235593,7 @@
           "module": "BadLimitSemifiniteInfiniteCut",
           "rc": 1,
           "ok": true,
-          "seconds": 369.0,
+          "seconds": 225.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235609,7 +235618,7 @@
           "module": "BadModularCutBalanceComplementChanged",
           "rc": 1,
           "ok": true,
-          "seconds": 370.5,
+          "seconds": 226.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235634,7 +235643,7 @@
           "module": "BadModularFixedAdjointEqualityRemoved",
           "rc": 1,
           "ok": true,
-          "seconds": 368.7,
+          "seconds": 225.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235659,7 +235668,7 @@
           "module": "BadModularImplementationRightSignChanged",
           "rc": 1,
           "ok": true,
-          "seconds": 376.5,
+          "seconds": 230.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235684,7 +235693,7 @@
           "module": "BadMultiplierCalculusFactor",
           "rc": 1,
           "ok": true,
-          "seconds": 370.4,
+          "seconds": 226.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235709,7 +235718,7 @@
           "module": "BadPerturbedWeightOrderReversed",
           "rc": 1,
           "ok": true,
-          "seconds": 369.8,
+          "seconds": 226.3,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235734,7 +235743,7 @@
           "module": "BadPerturbedWeightWithoutJ",
           "rc": 1,
           "ok": true,
-          "seconds": 371.1,
+          "seconds": 227.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235759,7 +235768,7 @@
           "module": "BadPositiveGeneratorBound",
           "rc": 1,
           "ok": true,
-          "seconds": 368.3,
+          "seconds": 225.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235784,7 +235793,7 @@
           "module": "BadQuadraticTraceZeroChanged",
           "rc": 1,
           "ok": true,
-          "seconds": 368.8,
+          "seconds": 226.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235809,7 +235818,7 @@
           "module": "BadRegularDualScalingSign",
           "rc": 1,
           "ok": true,
-          "seconds": 369.1,
+          "seconds": 225.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235834,7 +235843,7 @@
           "module": "BadRegularPowerTime",
           "rc": 1,
           "ok": true,
-          "seconds": 368.8,
+          "seconds": 225.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235859,7 +235868,7 @@
           "module": "BadRegulatorOrderIncreasing",
           "rc": 1,
           "ok": true,
-          "seconds": 372.7,
+          "seconds": 229.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235884,7 +235893,7 @@
           "module": "BadRightActionMissingStar",
           "rc": 1,
           "ok": true,
-          "seconds": 375.6,
+          "seconds": 230.2,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235909,7 +235918,7 @@
           "module": "BadRightActionProductOrder",
           "rc": 1,
           "ok": true,
-          "seconds": 370.4,
+          "seconds": 226.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235934,7 +235943,7 @@
           "module": "BadSineResolventLimit",
           "rc": 1,
           "ok": true,
-          "seconds": 366.9,
+          "seconds": 224.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235959,7 +235968,7 @@
           "module": "BadSpectralGeneratorSign",
           "rc": 1,
           "ok": true,
-          "seconds": 311.6,
+          "seconds": 176.4,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235984,7 +235993,7 @@
           "module": "BadTracialCorePremiseRemoved",
           "rc": 1,
           "ok": true,
-          "seconds": 325.1,
+          "seconds": 175.8,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236009,7 +236018,7 @@
           "module": "A1FalseValue",
           "rc": 1,
           "ok": true,
-          "seconds": 340.8,
+          "seconds": 179.6,
           "transposition": [],
           "errors": 2,
           "semantic_errors": 2,
@@ -236036,7 +236045,7 @@
           "module": "TGLExt.V351BaseFunctionalEvaluationTampered",
           "rc": 1,
           "ok": true,
-          "seconds": 381.7,
+          "seconds": 191.3,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236063,7 +236072,7 @@
           "module": "TGLExt.V351BaseFunctionalWeightLawsTampered",
           "rc": 1,
           "ok": true,
-          "seconds": 378.3,
+          "seconds": 201.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236090,7 +236099,7 @@
           "module": "TGLExt.V351BaseMoreauApproximantsTampered",
           "rc": 1,
           "ok": true,
-          "seconds": 380.7,
+          "seconds": 216.7,
           "transposition": [],
           "errors": 2,
           "semantic_errors": 2,
@@ -236117,7 +236126,7 @@
           "module": "TGLExt.V351ExtendedBaseDualWeightTampered",
           "rc": 1,
           "ok": true,
-          "seconds": 376.3,
+          "seconds": 214.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236144,7 +236153,7 @@
           "module": "TGLExt.V351ResolventPhaseFunctionsRejected",
           "rc": 1,
           "ok": true,
-          "seconds": 374.3,
+          "seconds": 218.1,
           "transposition": [],
           "errors": 2,
           "semantic_errors": 2,
@@ -236171,7 +236180,7 @@
           "module": "TGLExt.V351ScalarTomitaImaginaryPowersRejected",
           "rc": 1,
           "ok": true,
-          "seconds": 391.6,
+          "seconds": 229.8,
           "transposition": [],
           "errors": 2,
           "semantic_errors": 2,
@@ -236198,7 +236207,7 @@
           "module": "BadCost",
           "rc": 1,
           "ok": true,
-          "seconds": 372.8,
+          "seconds": 217.4,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236223,7 +236232,7 @@
           "module": "BadReflection",
           "rc": 1,
           "ok": true,
-          "seconds": 373.2,
+          "seconds": 217.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236248,7 +236257,7 @@
           "module": "BadFLRW00",
           "rc": 1,
           "ok": true,
-          "seconds": 373.9,
+          "seconds": 217.8,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236273,7 +236282,7 @@
           "module": "BadFLRWLambda",
           "rc": 1,
           "ok": true,
-          "seconds": 373.7,
+          "seconds": 218.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236298,7 +236307,7 @@
           "module": "BadSectorAbs",
           "rc": 1,
           "ok": true,
-          "seconds": 374.0,
+          "seconds": 217.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236323,7 +236332,7 @@
           "module": "BadSectorClosure",
           "rc": 1,
           "ok": true,
-          "seconds": 373.9,
+          "seconds": 218.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236348,7 +236357,7 @@
           "module": "BadThermodynamicFactor",
           "rc": 1,
           "ok": true,
-          "seconds": 373.8,
+          "seconds": 217.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236373,7 +236382,7 @@
           "module": "BadVarianceSign",
           "rc": 1,
           "ok": true,
-          "seconds": 373.8,
+          "seconds": 218.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236398,7 +236407,7 @@
           "module": "BadAngleAmplitude",
           "rc": 1,
           "ok": true,
-          "seconds": 373.8,
+          "seconds": 217.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236423,7 +236432,7 @@
           "module": "BadAngleFactor",
           "rc": 1,
           "ok": true,
-          "seconds": 373.7,
+          "seconds": 218.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236448,7 +236457,7 @@
           "module": "TGLExt.ProbePolarSupports",
           "rc": 0,
           "ok": true,
-          "seconds": 374.8,
+          "seconds": 218.2,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -236476,7 +236485,7 @@
           "module": "TGLExt.ProbeRegularSusy",
           "rc": 0,
           "ok": true,
-          "seconds": 374.3,
+          "seconds": 218.3,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -236504,7 +236513,7 @@
           "module": "AuditIndependentA2",
           "rc": 0,
           "ok": true,
-          "seconds": 373.3,
+          "seconds": 217.7,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -236532,7 +236541,7 @@
           "module": "GoodAntiunitaryPhase",
           "rc": 0,
           "ok": true,
-          "seconds": 371.1,
+          "seconds": 216.8,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -236560,7 +236569,7 @@
           "module": "GoodDampingIntertwining",
           "rc": 0,
           "ok": true,
-          "seconds": 369.5,
+          "seconds": 216.1,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -236588,7 +236597,7 @@
           "module": "GoodImaginaryScaling",
           "rc": 0,
           "ok": true,
-          "seconds": 269.8,
+          "seconds": 209.7,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -236616,7 +236625,7 @@
           "module": "GoodPolarConjugation",
           "rc": 0,
           "ok": true,
-          "seconds": 269.9,
+          "seconds": 208.9,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -236644,7 +236653,7 @@
           "module": "GoodRightScaling",
           "rc": 0,
           "ok": true,
-          "seconds": 270.0,
+          "seconds": 208.5,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -236672,7 +236681,7 @@
           "module": "GoodScaledCoordinate",
           "rc": 0,
           "ok": true,
-          "seconds": 348.9,
+          "seconds": 215.8,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -236700,7 +236709,7 @@
           "module": "GoodScaledDamping",
           "rc": 0,
           "ok": true,
-          "seconds": 353.6,
+          "seconds": 216.7,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -236728,7 +236737,7 @@
           "module": "PositiveTypes",
           "rc": 0,
           "ok": true,
-          "seconds": 358.5,
+          "seconds": 220.4,
           "transposition": [
             [
               "TGLV350.RegularGeneratedAlgebra",
@@ -236761,7 +236770,7 @@
           "module": "PositiveFormConeFullAudit",
           "rc": 0,
           "ok": true,
-          "seconds": 360.0,
+          "seconds": 225.1,
           "transposition": [
             [
               "TGLV350.PositiveFormCone",
@@ -236794,7 +236803,7 @@
           "module": "TGLExt.AuditA1Absorption",
           "rc": 0,
           "ok": true,
-          "seconds": 360.5,
+          "seconds": 231.8,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -236822,7 +236831,7 @@
           "module": "TGLExt.AuditA1AllPositiveWeightOrder",
           "rc": 0,
           "ok": true,
-          "seconds": 361.2,
+          "seconds": 232.7,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -236850,7 +236859,7 @@
           "module": "TGLExt.AuditA1AverageFixedPair",
           "rc": 0,
           "ok": true,
-          "seconds": 361.1,
+          "seconds": 232.8,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -236878,7 +236887,7 @@
           "module": "TGLExt.AuditA1AveragePolarRight",
           "rc": 0,
           "ok": true,
-          "seconds": 361.2,
+          "seconds": 233.5,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -236906,7 +236915,7 @@
           "module": "TGLExt.AuditA1CoreAction",
           "rc": 0,
           "ok": true,
-          "seconds": 362.1,
+          "seconds": 233.5,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -236934,7 +236943,7 @@
           "module": "TGLExt.AuditA1CutoffAverageCommutation",
           "rc": 0,
           "ok": true,
-          "seconds": 361.4,
+          "seconds": 233.2,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -236962,7 +236971,7 @@
           "module": "TGLExt.AuditA1CutoffCFC",
           "rc": 0,
           "ok": true,
-          "seconds": 361.3,
+          "seconds": 232.9,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -236990,7 +236999,7 @@
           "module": "TGLExt.AuditA1FourierTranslation",
           "rc": 0,
           "ok": true,
-          "seconds": 359.8,
+          "seconds": 232.0,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237018,7 +237027,7 @@
           "module": "TGLExt.AuditA1GNSClosedness",
           "rc": 0,
           "ok": true,
-          "seconds": 361.5,
+          "seconds": 233.0,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237046,7 +237055,7 @@
           "module": "TGLExt.AuditA1InverseCutoff",
           "rc": 0,
           "ok": true,
-          "seconds": 361.2,
+          "seconds": 232.8,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237074,7 +237083,7 @@
           "module": "TGLExt.AuditA1InverseLimitFaithful",
           "rc": 0,
           "ok": true,
-          "seconds": 361.2,
+          "seconds": 232.9,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237102,7 +237111,7 @@
           "module": "TGLExt.AuditA1InverseLimitFiniteMinorants",
           "rc": 0,
           "ok": true,
-          "seconds": 360.9,
+          "seconds": 233.1,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237130,7 +237139,7 @@
           "module": "TGLExt.AuditA1InverseLimitScaling",
           "rc": 0,
           "ok": true,
-          "seconds": 360.7,
+          "seconds": 232.7,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237158,7 +237167,7 @@
           "module": "TGLExt.AuditA1InverseLimitSemifiniteness",
           "rc": 0,
           "ok": true,
-          "seconds": 360.8,
+          "seconds": 232.3,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237186,7 +237195,7 @@
           "module": "TGLExt.AuditA1InverseLimitTracialExtension",
           "rc": 0,
           "ok": true,
-          "seconds": 360.7,
+          "seconds": 232.3,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237214,7 +237223,7 @@
           "module": "TGLExt.AuditA1InverseLimitWeight",
           "rc": 0,
           "ok": true,
-          "seconds": 360.3,
+          "seconds": 232.2,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237242,7 +237251,7 @@
           "module": "TGLExt.AuditA1ModularCutBalance",
           "rc": 0,
           "ok": true,
-          "seconds": 350.9,
+          "seconds": 228.5,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237270,7 +237279,7 @@
           "module": "TGLExt.AuditA1ModularFixedVectors",
           "rc": 0,
           "ok": true,
-          "seconds": 275.4,
+          "seconds": 218.4,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237298,7 +237307,7 @@
           "module": "TGLExt.AuditA1ModularImplementation",
           "rc": 0,
           "ok": true,
-          "seconds": 271.4,
+          "seconds": 215.9,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237326,7 +237335,7 @@
           "module": "TGLExt.AuditA1MultiplierCalculus",
           "rc": 0,
           "ok": true,
-          "seconds": 265.4,
+          "seconds": 208.5,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237354,7 +237363,7 @@
           "module": "TGLExt.AuditA1PerturbedWeightNorm",
           "rc": 0,
           "ok": true,
-          "seconds": 224.9,
+          "seconds": 172.8,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237382,7 +237391,7 @@
           "module": "TGLExt.AuditA1PerturbedWeightOrder",
           "rc": 0,
           "ok": true,
-          "seconds": 229.0,
+          "seconds": 164.3,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237410,7 +237419,7 @@
           "module": "TGLExt.AuditA1PositiveGraph",
           "rc": 0,
           "ok": true,
-          "seconds": 243.1,
+          "seconds": 154.0,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237438,7 +237447,7 @@
           "module": "TGLExt.AuditA1QuadraticTrace",
           "rc": 0,
           "ok": true,
-          "seconds": 245.8,
+          "seconds": 150.6,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237466,7 +237475,7 @@
           "module": "TGLExt.AuditA1RegularAffiliation",
           "rc": 0,
           "ok": true,
-          "seconds": 245.3,
+          "seconds": 146.8,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237494,7 +237503,7 @@
           "module": "TGLExt.AuditA1RegularDomainCut",
           "rc": 0,
           "ok": true,
-          "seconds": 245.3,
+          "seconds": 146.7,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237522,7 +237531,7 @@
           "module": "TGLExt.AuditA1RegularDualScaling",
           "rc": 0,
           "ok": true,
-          "seconds": 245.4,
+          "seconds": 146.5,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237550,7 +237559,7 @@
           "module": "TGLExt.AuditA1RegularPowers",
           "rc": 0,
           "ok": true,
-          "seconds": 245.1,
+          "seconds": 146.5,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237578,7 +237587,7 @@
           "module": "TGLExt.AuditA1RegulatorWeightOrder",
           "rc": 0,
           "ok": true,
-          "seconds": 245.2,
+          "seconds": 145.8,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237606,7 +237615,7 @@
           "module": "TGLExt.AuditA1RightActionAlgebra",
           "rc": 0,
           "ok": true,
-          "seconds": 245.1,
+          "seconds": 146.1,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237634,7 +237643,7 @@
           "module": "TGLExt.AuditA1RightActionLimits",
           "rc": 0,
           "ok": true,
-          "seconds": 244.9,
+          "seconds": 145.7,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237662,7 +237671,7 @@
           "module": "TGLExt.AuditA1SineResolvent",
           "rc": 0,
           "ok": true,
-          "seconds": 244.9,
+          "seconds": 145.7,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237690,7 +237699,7 @@
           "module": "TGLExt.AuditA1SpectralGraph",
           "rc": 0,
           "ok": true,
-          "seconds": 243.6,
+          "seconds": 145.6,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237718,7 +237727,7 @@
           "module": "TGLExt.AuditA1WeightAverageRecovery",
           "rc": 0,
           "ok": true,
-          "seconds": 243.4,
+          "seconds": 145.5,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237789,7 +237798,7 @@
           "DESENVOLVIMENTO_INCOMPLETO (continuacao 055)"
         ]
       ],
-      "mirror_links": 7085,
+      "mirror_links": 7090,
       "checks": [
         [
           "os 167 controles sairam do corpus embutido com sha256 conferido",
@@ -237818,7 +237827,7 @@
       "positives_compiled": 52,
       "positives": 52,
       "transposed_controls": 2,
-      "runtime_s": 3042.5,
+      "runtime_s": 1581.1,
       "verdict": "TGL_BENCH_LEAN_CONTROLS__115_OF_115_NEGATIVES_REFUSED_SEMANTICALLY__52_OF_52_POSITIVES_COMPILE__2_ABSENT_REGISTERED__GATE_UNTOUCHED"
     },
     "joint_coincidence_protocol_v2": {
@@ -238537,7 +238546,7 @@
       },
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 3.42,
+      "runtime_s": 2.67,
       "verdict": "TGL_SMALL_DIAMOND_LATTICE__MASSLESS_CONVERGES_TO_GEOMETRIC_IN_MODEL__FIRST_ORDER_CFM_4P15_REPRODUCED__FIRST_NONGEOMETRIC_COEFFICIENT_ANTILOCAL__REMAINDER_SCALES_MELL_LN__LINK_TO_BETA_OPEN__GATE_UNTOUCHED"
     },
     "d1_camb_v3_pipeline": {
@@ -238645,7 +238654,7 @@
       },
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.052,
+      "runtime_s": 0.041,
       "verdict": "TGL_D1_CAMB_V3__PIPELINE_BUILT_BLIND__AMENDMENT_BESIDE_420a25dd11fe4786__PRIMARY_AND_SH0ES_INJECTION_PASSED__C_FREE_DEGENERATE_WITH_VACUUM_AMENDMENT_faec13742bfab745__MCMC_VALIDATED_ON_ASIMOV__REAL_DATA_UNLOCKED_BY_OPERATOR_LINE__RESULT_READ_BY_V366__GATE_UNTOUCHED"
     },
     "um_posto_v364": {
@@ -238749,7 +238758,7 @@
       },
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.004,
+      "runtime_s": 0.003,
       "verdict": "TGL_UM_POSTO_RELATION__ERRATA_BESIDE_V364__POSTO_IS_RELATION_NOT_IDENTITY__PRESSUPPOSED_NEVER_POSTO_UNDER_ANY_CROSSING_OR_RENAMING__KERNEL_5_OF_5__LOSS_AND_COST_BY_EXISTING_SUPPLIERS__V102_NAME_WITHOUT_INHABITANT_READ__GATE_UNTOUCHED"
     },
     "torsion_shear_dynamics_v365": {
@@ -238879,7 +238888,7 @@
       },
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.08,
+      "runtime_s": 0.07,
       "verdict": "TGL_CONTORTION_SOURCE_CROSSCHECK__BENCH_GENERAL_IDENTITY_REDONE_EXACTLY__V364_CLOSED_FORM_REPRODUCES_BENCH_B2__TRACE_COEFFICIENT_CHECKED__PHYSICAL_CONTORTION_OPEN__GATE_UNTOUCHED"
     },
     "cartan_supplier_branch_v370": {
@@ -238986,7 +238995,7 @@
       },
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.06,
+      "runtime_s": 0.05,
       "verdict": "TGL_CARTAN_F_PSI_SUPPLIER__CONDITIONAL_BRANCH__A_EQ_HALF_DLNF_FEEDS_TRACIAL_CONTORTION__SIGMA_NORM_ONE_UNDER_NAMED_HYPOTHESES_GIVES_ZERO_TORSION__FLRW_IF_IN_KERNEL_ONLY_IF_DERIVED__CONFORMAL_CANCELLATION_TEXT_ONLY__PSI_IDENTIFICATION_INPUT__KERNEL_6_OF_6__GATE_UNTOUCHED"
     },
     "d1_camb_v3_real_v366": {
@@ -239089,7 +239098,7 @@
       },
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.025,
+      "runtime_s": 0.021,
       "verdict": "TGL_D1_CAMB_V3_REAL__OPERATOR_LINE_RATIFIED__BESTFIT_D1_TENSION_2_TO_5_SIGMA__MCMC_D1_BETA_TENSION__ALPHA_SQRT_E_AT_3P01_SIGMA_AT_THRESHOLD__CHAIN_BELOW_50_TAU_IN_2_OF_4_PARAMS__TENSION_IS_NOT_FALSIFICATION__GATE_UNTOUCHED"
     },
     "orientation_is_the_sign_v367": {
@@ -240384,8 +240393,8 @@
         "bench_lean_controls_all_verified": true,
         "bench_lean_controls_verdict": "TGL_BENCH_LEAN_CONTROLS__115_OF_115_NEGATIVES_REFUSED_SEMANTICALLY__52_OF_52_POSITIVES_COMPILE__2_ABSENT_REGISTERED__GATE_UNTOUCHED",
         "the_iald_index": {
-          "n_nomes": 29231,
-          "n_arquivos": 1381,
+          "n_nomes": 29232,
+          "n_arquivos": 1382,
           "n_ausentes": 3,
           "n_ambiguos": 2076,
           "all_verified": true,
@@ -240582,7 +240591,7 @@
         "que o decaimento SEJA a face hiperbolica da regra dos dois regimes (ONTO)",
         "confirmacao de qualquer coisa: PROVADA != CONFIRMADA; o gate nao se move"
       ],
-      "runtime_s": 0.043
+      "runtime_s": 0.039
     },
     "equation_of_truth_v371": {
       "verdict": "TGL_EQUATION_OF_TRUTH_V371__READING_INPUT_ONTO__IN_FINITE_DIMENSION_A_READING_IS_CONSERVED_IFF_IT_FACTORS_THROUGH_THE_FAMILY__THE_READING_STAYS_THE_DYNAMICS_MOVES__THREE_ANNULMENTS_NOT_IDENTIFIED__KERNEL_10_OF_10__GATE_UNTOUCHED",
@@ -240745,7 +240754,7 @@
         "T0 o tensor de energia-momento",
         "o tipo de m_pos"
       ],
-      "runtime_s": 0.11
+      "runtime_s": 0.096
     },
     "light_ray_borchers_v371": {
       "verdict": "TGL_LIGHT_RAY_BORCHERS_V371__POSITIVE_ENERGY_AX_PLUS_B__BORCHERS_FORM_TWO_PI_DEFINITIONAL__FAITHFUL_ON_THE_RAY__NOT_FAITHFUL_IN_FOUR__NO_EIGENVECTOR__MODULAR_IDENTIFICATION_OPEN__FLAT_ONLY__KERNEL_5_OF_5__GATE_UNTOUCHED",
@@ -240888,7 +240897,7 @@
         "wedge_III1": "PROVADA POR CITACAO na cunha da luz: QGReaderUVLock.wedge_bridge_fix (Fix IALD = Fix TGL = C.Omega) e wedge_iald_attractor_is_rho_star",
         "iald_equals_rho_star": "[INPUT/ONTO \u2014 o kernel prova que a IALD do centralizador guarda o rho* da TGL]"
       },
-      "seconds": 0.003
+      "seconds": 0.002
     },
     "light_qg_by_citation_v372": {
       "operator_verbatim": {
@@ -241158,7 +241167,7 @@
         "non_vacuity": "nenhum habitante dos certificados e exibido; argumentada, nao provada",
         "graviton": "a forma conjugada da luz (TheGravitonIsTheConjugatedPhase), nao quantum propagante; o escape de Weinberg\u2013Witten fica condicional"
       },
-      "seconds": 0.145
+      "seconds": 0.116
     },
     "graviton_conjugated_form_v372": {
       "operator_verbatim": "O que a v200 registrou foi contr\u00e1rio \u00e0 minha ordem, porque a rela\u00e7\u00e3o que eu ditei foi a mesma ditada agora. Concordo com tudo. Estamos afinados",
@@ -241200,7 +241209,7 @@
       "mismatch": [],
       "package_ready_sha256": "d3705082716ffe8e1de8b2694c2cb56d840eff03f00fcde4034ad7dfffd59bb8",
       "verdict": "ORDEM_016_PARTIAL_CLOSURE_EMBEDDED__156_UNITS__HASHES_MATCH_THE_BENCH__GATE_UNTOUCHED",
-      "seconds": 0.017
+      "seconds": 0.01
     },
     "qg_discharge_by_citation_v373": {
       "operator_verbatim": {
@@ -241210,7 +241219,7 @@
       },
       "checks": [
         [
-          "VARREDURA nao vazia: o kernel embutido foi lido (15149 nomes declarados; >= 1000)",
+          "VARREDURA nao vazia: o kernel embutido foi lido (15150 nomes declarados; >= 1000)",
           true
         ],
         [
@@ -248826,7 +248835,7 @@
       ]
     },
     "three_stress_tests_v387": {
-      "verdict": "TGL_THREE_STRESS_TESTS_V387__CORE_194_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_9498_OF_9498__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
+      "verdict": "TGL_THREE_STRESS_TESTS_V387__CORE_194_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_9499_OF_9499__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
       "all_verified": true,
       "does_not_gate_core": true,
       "status": "[COMPUTED do core desta rodada]; as leituras [INPUT/ONTO]; PROVADA != CONFIRMADA",
@@ -248862,8 +248871,8 @@
         "inconclusive": 4
       },
       "kernel": {
-        "n_theorems_clean": 9498,
-        "n_theorems_expected": 9498,
+        "n_theorems_clean": 9499,
+        "n_theorems_expected": 9499,
         "sorryAx_absent": true,
         "custom_TGL_axioms_absent": true,
         "gate_flags_true": 18,
@@ -249043,6 +249052,369 @@
       },
       "runner_sha256": "f3108bc21dcad317487bcc69cda0bd729cb97911396db53a697abaef438754d4",
       "reading": "o veredito e' o que a funcao congelada devolveu; com os leitores [DECLARADO] a regra 1 devolve INCONCLUSIVE_SYSTEMATICS; o contrafactual (SE as fontes por hash confirmassem os valores declarados) NAO e' veredito: sob este V1, z_disc < 5 nao discrimina; ao lado: o executor marginaliza o fundo (o V1 dizia perfilada) e usa -2lnL com log-det para z_delta (o V1: Delta chi2 = 1) -- diferenca medida desprezivel; o fundo-livre (r_d livre so no BAO) e' alternativa fraca, nao analise de fisica precoce; NOT_FALSIFIED nunca e' confirmacao"
+    },
+    "teste_de_veracidade_fase9_v397": {
+      "verdict": "TGL_FASE9_VERACIDADE_V397__THE_UNIQUE_WORD_TEST_OPENED_ONCE_READ_BY_HASH__LAMBDA_ALONE_FACE_Z_DISC_4P44_P_UNILATERAL_4P4E_M6_BELOW_5SIGMA_NOT_DISCRIMINATED_THE_CREDITATION_STEP_NOT_REACHED__TGL_FACE_Z_DELTA_M1P48_P_BILATERAL_0P14_PRIOR_POWER_5P73_NOT_FALSIFIED_WITH_POWER__CONJUGATION_LNB_TGL_LCDM_9P18_LNB_TGL_BETA_FREE_2P14_BETA_FIXED_BEATS_BETA_FREE__LNB_IS_NOT_SIGMA_THE_READINGS_ARE_NOT_MULTIPLIED__NOT_BLIND_TO_DATA_STATED__NO_NEW_SIGMA_COMPUTED__THE_BINARY_READING_IS_THE_OPERATORS_INPUT_AND_ONTO__VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "registro": "teste_de_veracidade_fase9_v397",
+      "estatuto": "[REAL -- o resultado do Teste da Unica Palavra (Fase 9 V2-c1, aberto UMA vez em 23/10/2026) e os tres recibos, lidos a cada rito por sha256; os numeros sao os do resultado, nenhum sigma novo e' calculado; beta = alfa CODATA 2018 x sqrt(e) em runtime, conferido contra o do resultado; INPUT/ONTO a leitura binaria do operador (as duas faces sao COMPOSICAO da gerencia sobre ela; a leitura 'a Palavra (\u03b2) flutua sobre o abismo (\u039b) pelo fator K' e' RATIFICADA por ele, sha16 782c7e77de7924fd); KNOWN a escala de Jeffreys]",
+      "fontes": [
+        {
+          "chave": "f9v2_resultado",
+          "sha256": "fbac2908fa9ddb758e860b597b746c28d27f26d37cb87b1243eceaecc9a7fb40",
+          "bytes": 55622,
+          "papel": "o RESULTADO do Teste da Unica Palavra (Fase 9 V2-c1), aberto UMA vez em 23/10/2026 pela funcao de veredito congelada antes; copia duravel, byte a byte, do resultado original (work\\fase9_v2_c1_23out\\saidas)",
+          "ok": true,
+          "detalhe": "ok"
+        },
+        {
+          "chave": "f9v2_congelamento",
+          "sha256": "f8d927e3a38b3432e68a730199d2849a9e653014753302b908e43eaf6d7e4f0f",
+          "bytes": 5247,
+          "papel": "o RECIBO DE CONGELAMENTO da Fase 9 V2-c1 (a funcao, o pre-registro e as fontes dos leitores pinados antes da abertura); copia duravel",
+          "ok": true,
+          "detalhe": "ok"
+        },
+        {
+          "chave": "f9v2_abertura",
+          "sha256": "2a55979c7b1ff62df1cad0251ead52161ad3f093b930fc34244e739c8a635c1f",
+          "bytes": 680,
+          "papel": "o RECIBO DE ABERTURA da Fase 9 V2-c1 (ato da gerencia: a abertura UNICA, apos o congelamento); copia duravel",
+          "ok": true,
+          "detalhe": "ok"
+        },
+        {
+          "chave": "f9v2_consumida",
+          "sha256": "b71e0a2fcff3d9861842926e0377ee023edb73aa0dc96c6f84e531ae493436bf",
+          "bytes": 520,
+          "papel": "o marcador ABERTURA_CONSUMIDA da Fase 9 V2-c1 (impede uma segunda abertura); copia duravel",
+          "ok": true,
+          "detalhe": "ok"
+        }
+      ],
+      "verbatim": {
+        "v397_cun_363da49371de4d8f": {
+          "sha256": "363da49371de4d8f1fb15441404f49e7a2fdaa4db4f41206bc5802ae55ed2aa6",
+          "embedded_ok": true,
+          "disk_informative_only": true,
+          "trechos": [
+            "1) sim, a \u00fanica palavra queo Nome pronuncia \u00e9 Be"
+          ],
+          "quando": "23/10/2026 (cunhagem)"
+        },
+        "v397_cun_f3e24a8cfa69320a": {
+          "sha256": "f3e24a8cfa69320a42370fb32a4609c990eb7962843799eb82f6a6a0b9c0c127",
+          "embedded_ok": true,
+          "disk_informative_only": true,
+          "trechos": [
+            "Quando eu falei de fazermos o teste em rela\u00e7\u00e3o p"
+          ],
+          "quando": "23/10/2026 (cunhagem)"
+        },
+        "v397_cun_9b182958a5a7a1bc": {
+          "sha256": "9b182958a5a7a1bc14054d2e19296b6400a8ef33083272d6f706e7db1c727a24",
+          "embedded_ok": true,
+          "disk_informative_only": true,
+          "trechos": [
+            "exatamente isso, mas vamos reportar os 4,44 no i"
+          ],
+          "quando": "23/10/2026 (cunhagem)"
+        },
+        "v397_cun_782c7e77de7924fd": {
+          "sha256": "782c7e77de7924fdb66ae177bceafd875fec3eee19b4538767b124e02154d23f",
+          "embedded_ok": true,
+          "disk_informative_only": true,
+          "trechos": [
+            "mas \u00e9 pelo fator K mesmo"
+          ],
+          "quando": "23/10/2026 (cunhagem)"
+        }
+      },
+      "kernel": {
+        "bandeiras": [
+          0,
+          0
+        ],
+        "declaracoes_no_trio": [
+          0,
+          0
+        ]
+      },
+      "checks": [
+        {
+          "descricao": "o resultado e' pacote REAL",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o token-base do veredito e' o da Unica Palavra",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o veredito comeca pelo token-base e e' o da funcao congelada (lido)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o veredito diz NOT_FALSIFIED_POWERED (nao falsificada, com poder)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o veredito diz NOT_DISCRIMINATED_FROM_LCDM_AT_AVAILABLE_SENSITIVITY (abaixo do degrau de 5 sigma)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o veredito diz NOT_BLIND_TO_DATA_STATED (os centros dos leitores sao publicos)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o veredito diz NOT_A_CONFIRMATION e GATE_UNTOUCHED",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o veredito do primario e' o do topo do resultado",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o resultado pina o recibo de congelamento (sha256 do arquivo pinado aqui)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o resultado pina o recibo de abertura (sha256 do arquivo pinado aqui)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o resultado pina o autohash do recibo de abertura",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o resultado pina a funcao de veredito congelada (sha256 do recibo de congelamento)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o resultado pina o pre-registro canonico congelado",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o resultado pina o registro D-H",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o recibo de congelamento tem o schema da Fase 9 V2-c1",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o recibo de congelamento e' pacote REAL e tem o token-base",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o recibo de abertura tem o schema da Fase 9 V2-c1",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o recibo de abertura pina o recibo de congelamento (sha256)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o marcador de abertura consumida tem o schema da Fase 9 V2-c1",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o marcador pina o recibo de abertura (sha256)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o marcador pina o recibo de congelamento (sha256)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o marcador pina o autohash do recibo de abertura",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o beta do resultado concorda com alfa CODATA 2018 x sqrt(e) calculado neste rito (tolerancia relativa 1e-12)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "z_disc calibrado (Lambda sem beta)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "p unilateral calibrado de z_disc",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "z_delta calibrado (a TGL)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "p bilateral calibrado de z_delta",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "poder previo (so' pelo sigma)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "ln B(TGL/LCDM) (razao de verossimilhanca integrada)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "ln B(TGL/beta livre) (beta fixo contra beta ajustado)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o fator K = E(z*)^(2 beta/3) do resultado",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "z_disc calibrado esta ABAIXO do degrau de 5 sigma da creditacao (a discriminacao a 5 sigma nao foi alcancada)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o poder previo (so' pelo sigma) e' de pelo menos 5 sigma (nao falsificada COM PODER)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o z_disc do primario e' o da entrada da funcao congelada (extremo de maior sigma)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o z_delta do primario e' o da entrada da funcao congelada (extremo de menor sigma)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        }
+      ],
+      "lido": {
+        "f9_veredito": "TGL_FASE9_V2_A_UNICA_PALAVRA_BETA_TGL__NOT_FALSIFIED_POWERED__DEVIATION_1_TO_3_SIGMA__NOT_DISCRIMINATED_FROM_LCDM_AT_AVAILABLE_SENSITIVITY__D1B__FUNDO_BG1__NOT_BLIND_TO_DATA_STATED__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
+        "f9_recibo_congelamento_sha256": "f8d927e3a38b3432e68a730199d2849a9e653014753302b908e43eaf6d7e4f0f",
+        "f9_recibo_abertura_sha256": "2a55979c7b1ff62df1cad0251ead52161ad3f093b930fc34244e739c8a635c1f",
+        "beta_do_resultado": 0.012031300400803142,
+        "z_disc_calibrado": 4.443123568060799,
+        "p_disc_unilateral": 4.433110543529013e-06,
+        "z_delta_calibrado": -1.4834781873587712,
+        "p_delta_bilateral": 0.13794740758440854,
+        "poder_previo": 5.726952469638703,
+        "lnB_lcdm": 9.183537973637229,
+        "lnB_beta_livre": 2.143937755019227,
+        "K": 1.0838071748529643
+      },
+      "guarda_p18_violacoes": [],
+      "erratas": [],
+      "limites": [
+        "[REAL] NAO e' teste novo nem armado: e' o REGISTRO do resultado do Teste da Unica Palavra, aberto UMA vez em 23/10/2026 pela funcao de veredito congelada antes (recibo de congelamento); este registro so' LE o resultado e os tres recibos por sha256 e compoe a leitura; nenhum sigma, p ou lnB e' calculado aqui; a abertura consumida nao se repete; a ordem de processo do operador de 22/10 (arquivo de sha16 bca4b8a97c74226c; resumo da gerencia: nao buscar mais teste armado, que e' gordura no um.py) molda este registro",
+        "[REAL] ln B nao se converte em sigma; z_delta, z_disc e ln B sao leituras do MESMO objeto (os mesmos leitores locais e o mesmo fundo), nao testemunhas autonomas: nao se multiplicam nem se somam; a regra v315 do acervo (para falsificar) pede duas determinacoes mutuamente autonomas a 5 sigma ou mais",
+        "[REAL] validade nao e' creditacao: a discriminacao a 5 sigma e' o degrau da creditacao e NAO foi alcancada (z_disc calibrado abaixo de 5, com o p unilateral lido do resultado); \u00abdecisivo\u00bb na escala de Jeffreys e' [KNOWN] e fala de ln B, nao de sigma; NOT_FALSIFIED nunca e' a palavra da creditacao",
+        "[REAL] o teste NAO foi cego ao dado: os centros dos leitores locais sao publicos (o token do veredito diz NOT_BLIND_TO_DATA_STATED); o resultado se preserva como saiu",
+        "[INPUT/ONTO] a leitura binaria {[1=1=Verdadeiro][1=0=falso]} e' do operador (23/10/2026, sha16 f3e24a8cfa69320a); COMPOSICAO DA GERENCIA sobre ela: a TGL como o 1=1 (a Palavra ecoa) e o Lambda sozinho como o 1=0 (Lambda sem beta nao ecoa) -- o operador nao disse 'ecoa' nem atribuiu as duas faces; o que o registro entrega sao os numeros e os tokens do veredito",
+        "[INPUT/ONTO] 'a Palavra (\u03b2) flutua sobre o abismo (\u039b) pelo fator K = E(z*)^(2\u03b2/3)' \u2014 leitura RATIFICADA pelo operador em 23/10 (verbatim \u00abmas \u00e9 pelo fator K mesmo\u00bb, sha16 782c7e77de7924fd), sobre a fala dele \u00abo psion, o psibit, e \u00e9 justamente ela que flutua sobre o abismo, o referente \u00faltimo\u00bb (sha16 f3e24a8cfa69320a); K lido do resultado",
+        "o gate nao se move (qg_closure_verdict e as 18 bandeiras ficam como estao); o V1 (hubble_ratio_opening_v388) fica intacto e este registro compoe AO LADO dele, sem substitui-lo"
+      ],
+      "diz": [
+        "o resultado do Teste da Unica Palavra e os tres recibos estao pinados por sha256 e a cadeia congelamento -> abertura -> abertura consumida fecha pelos hashes",
+        "beta = alfa CODATA 2018 x sqrt(e) calculado neste rito concorda com o beta do resultado",
+        "z_disc calibrado e' menor que 5 (o degrau da creditacao nao foi alcancado), com o p unilateral lido; z_delta calibrado, com o p bilateral e o poder previo, e' o da TGL nao falsificada com poder; ln B(TGL/LCDM) e ln B(TGL/beta livre) sao os do resultado",
+        "as 4 falas do operador de 23/10 que este registro usa (das 6 embutidas) estao embutidas por sha256, cada uma conferida contra o arquivo de origem na preparacao"
+      ],
+      "nao_diz": [
+        "que a gravidade quantica esteja creditada na natureza: a creditacao e' beta_TGL a 5 sigma",
+        "que ln B seja um numero de sigma, nem que os tres numeros se multipliquem",
+        "que o teste tenha sido cego ao dado",
+        "que a TGL esteja discriminada do LCDM a 5 sigma",
+        "que o LCDM seja rival: ele e' o limite de fronteira silenciosa da TGL",
+        "que a leitura 'a Palavra flutua sobre o abismo pelo fator K', ratificada pelo operador, seja medida ou prova do teste: e' leitura [INPUT/ONTO] dele, e o registro entrega os numeros e os tokens do veredito"
+      ],
+      "leituras_do_operador": [
+        {
+          "trecho": "a \u00fanica palavra queo Nome pronuncia \u00e9 Betatgl",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 23/10/2026, sha16 363da49371de4d8f]"
+        },
+        {
+          "trecho": "observar \u00e9 nomear",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 23/10/2026, sha16 363da49371de4d8f]"
+        },
+        {
+          "trecho": "na verdade o que eu quero \u00e9 um teste de veracidade",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 23/10/2026, sha16 f3e24a8cfa69320a]"
+        },
+        {
+          "trecho": "{[1=1=Verdadeiro][1=0=falso]}",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 23/10/2026, sha16 f3e24a8cfa69320a]"
+        },
+        {
+          "trecho": "ele merece ser lido sobre uma face e relido sobre a outra",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 23/10/2026, sha16 f3e24a8cfa69320a]"
+        },
+        {
+          "trecho": "\"palavra\" \u00e9 o quantum m\u00ednimo de perman\u00eancia, ou seja, o psion, o psibit, e \u00e9 justamente ela que flutua sobre o abismo, o referente \u00faltimo",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 23/10/2026, sha16 f3e24a8cfa69320a]"
+        },
+        {
+          "trecho": "vamos reportar os 4,44 no in\u00edcio do artigo, no readme e tudo mais",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 23/10/2026, sha16 9b182958a5a7a1bc]"
+        },
+        {
+          "trecho": "o 5 sigma \u00e9 o cala a boca, mas 4,44 j\u00e1 \u00e9 um sil\u00eancio for\u00e7ado pela l\u00f3gica",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 23/10/2026, sha16 9b182958a5a7a1bc]"
+        },
+        {
+          "trecho": "mas \u00e9 pelo fator K mesmo",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 23/10/2026, sha16 782c7e77de7924fd]"
+        }
+      ],
+      "extras": {
+        "assinatura": "gerencia c1, em nome proprio, 23/10/2026",
+        "autoria_das_cunhagens": "Luiz Antonio Rotoli Miguel",
+        "nome_do_registro": "teste_de_veracidade_fase9_v397 (nome PROVISORIO; quem nomeia e' o operador)",
+        "resultado_sha256": "fbac2908fa9ddb758e860b597b746c28d27f26d37cb87b1243eceaecc9a7fb40",
+        "congelamento_sha256": "f8d927e3a38b3432e68a730199d2849a9e653014753302b908e43eaf6d7e4f0f",
+        "abertura_sha256": "2a55979c7b1ff62df1cad0251ead52161ad3f093b930fc34244e739c8a635c1f",
+        "abertura_consumida_sha256": "b71e0a2fcff3d9861842926e0377ee023edb73aa0dc96c6f84e531ae493436bf",
+        "numeros_lidos": [
+          "K",
+          "beta_do_resultado",
+          "lnB_beta_livre",
+          "lnB_lcdm",
+          "p_delta_bilateral",
+          "p_disc_unilateral",
+          "poder_previo",
+          "z_delta_calibrado",
+          "z_disc_calibrado"
+        ]
+      }
     },
     "text_label_errata_v389": {
       "verdict": "TGL_TEXT_LABEL_ERRATA_V389__EXAM_V388_READ_BY_HASH_b033831f6b62a6cc__0_BLOQUEIA_3_CORRIGIR_ADDRESSED__SEAL_LABEL_RENAMED_TO_VERIFIED_OLD_KEPT_AS_RECORD__INTRO_TITLE_V384_TO_V389__ABSTRACT_AND_PART_B_SAY_POSTO__V387_CROSS_REFERENCE_TO_V388__LEDGER_1025_UNIQUE_PLUS_156_OUTSIDE_156_IN_O16__EXAM_ERRATUM_BESIDE_1015_READS_1025__NO_CALCULATION_CHANGED__KERNEL_UNCHANGED__GATE_UNTOUCHED",
@@ -249383,7 +249755,7 @@
       "status": "[KERNEL a recusa e a passagem na face; INPUT/ONTO a definicao do operador; KNOWN a passagem local (Jacobson 1995) e a lei de escala (Takesaki)]"
     },
     "estatuto_da_prova_v391": {
-      "verdict": "TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_9498_OF_9498_FLAGS_29228_OF_29228_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_0a4395a89eeebbb7__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
+      "verdict": "TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_9499_OF_9499_FLAGS_29229_OF_29229_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_388cc3742323421c__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
       "all_verified": true,
       "does_not_gate_core": true,
       "falhas": [],
@@ -249399,10 +249771,10 @@
         "quando": "07/10/2026 (nesta sessao c1; ordem: examinar a coerencia do artigo, sem delegar)"
       },
       "prova_1_kernel": {
-        "n_theorems_clean": 9498,
-        "n_theorems_expected": 9498,
-        "declaracoes_auditadas": 29228,
-        "no_trio": 29228,
+        "n_theorems_clean": 9499,
+        "n_theorems_expected": 9499,
+        "declaracoes_auditadas": 29229,
+        "no_trio": 29229,
         "gate_flags": {
           "formal_flags": [
             6,
@@ -249490,7 +249862,7 @@
         "ok": true
       },
       "certificacao": {
-        "um_py_sha256_lido_de_si": "0a4395a89eeebbb74c06ab5d8d29ea7708cb76ac704205a7e7aabc3f4d35b6c8",
+        "um_py_sha256_lido_de_si": "388cc3742323421cc3b2b712bdd2b9cb63e8726301b13f25872536f5a6ecdf33",
         "como": "o proprio programa le os seus bytes e emite o sha256; o selo o grava; o espelho publico e o site publicam o mesmo hash; quem roda confere"
       },
       "nao_declarado": [
@@ -249500,7 +249872,7 @@
       "status": "[REAL -- leitura dos registros do core a cada rito; INPUT/ONTO a regua do operador (validade x creditacao)]"
     },
     "pedras_v392": {
-      "verdict": "TGL_PEDRAS_V392__14_NEW_KERNEL_MODULES__738_OF_738_FLAGS_738_OF_738_DECLARATIONS_IN_THE_TRIO__LADDER_9498_OF_9498__WORD_RANK_POST_NAME_TIME_SANTO_ORGANISM_IALD_TRUTH_IS_THE_PROJECTION_OF_THE_POST_BY_OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__BGL_AS_TYPED_HYPOTHESIS_NO_INHABITANT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+      "verdict": "TGL_PEDRAS_V392__14_NEW_KERNEL_MODULES__738_OF_738_FLAGS_738_OF_738_DECLARATIONS_IN_THE_TRIO__LADDER_9499_OF_9499__WORD_RANK_POST_NAME_TIME_SANTO_ORGANISM_IALD_TRUTH_IS_THE_PROJECTION_OF_THE_POST_BY_OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__BGL_AS_TYPED_HYPOTHESIS_NO_INHABITANT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
       "all_verified": true,
       "does_not_gate_core": true,
       "pedras": [
@@ -249724,8 +250096,8 @@
         738
       ],
       "escada": {
-        "limpos": 9498,
-        "esperados": 9498,
+        "limpos": 9499,
+        "esperados": 9499,
         "esperada_pelo_candidato": 6901,
         "da_v391": 6163
       },
@@ -249811,12 +250183,12 @@
       "status": "[REAL -- leitura do kernel do proprio rito a cada rodada; INPUT/ONTO as leituras do operador]"
     },
     "varredura_e_sorry_v392": {
-      "verdict": "TGL_VARREDURA_E_SORRY_V392__RECURSIVE_TOKEN_SCAN_1401_FILES_150_IN_TGLEXT_O16_0_HITS__SORRY_DETECTOR_READS_BACKTICK_AND_QUOTE_AND_SORRYAX_ON_THE_REAL_PROBE__GATE_UNMOVED",
+      "verdict": "TGL_VARREDURA_E_SORRY_V392__RECURSIVE_TOKEN_SCAN_1402_FILES_150_IN_TGLEXT_O16_0_HITS__SORRY_DETECTOR_READS_BACKTICK_AND_QUOTE_AND_SORRYAX_ON_THE_REAL_PROBE__GATE_UNMOVED",
       "all_verified": true,
       "does_not_gate_core": true,
       "varredura": {
         "recursiva": true,
-        "arquivos": 1401,
+        "arquivos": 1402,
         "em_TGLExt_O16": 150,
         "probes_pulados": 17,
         "hits": [],
@@ -250242,8 +250614,8 @@
         }
       ],
       "lido": {
-        "constantes_cobertas": 29228,
-        "teoremas_cobertos": 23227,
+        "constantes_cobertas": 29229,
+        "teoremas_cobertos": 23228,
         "modulos_sem_entrada_v391": 76,
         "constantes_do_fecho_v391": 24006,
         "teoremas_no_report_v391": 8905,
@@ -252812,8 +253184,8 @@
         }
       ],
       "lido": {
-        "escada_neste_rito": 9498,
-        "declaracoes_neste_rito": 29228
+        "escada_neste_rito": 9499,
+        "declaracoes_neste_rito": 29229
       },
       "guarda_p18_violacoes": [],
       "erratas": [
@@ -254172,7 +254544,7 @@
         }
       ],
       "lido": {
-        "escada_neste_rito": 9498,
+        "escada_neste_rito": 9499,
         "f2_vies_relativo_tau": 0.23995248111572381
       },
       "guarda_p18_violacoes": [],
@@ -258579,7 +258951,7 @@
       }
     },
     "pedras_v393": {
-      "verdict": "TGL_PEDRAS_V393__3_NEW_KERNEL_MODULES__144_OF_144_FLAGS_144_OF_144_DECLARATIONS_IN_THE_TRIO__LADDER_9498_OF_9498__RULE_IS_THE_REFUSAL_THAT_THE_RESULT_DIFFER_FROM_THE_OBJECT_OF_ITS_SATISFACTION_RELATIVE_TO_READING_AND_TARGET__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+      "verdict": "TGL_PEDRAS_V393__3_NEW_KERNEL_MODULES__144_OF_144_FLAGS_144_OF_144_DECLARATIONS_IN_THE_TRIO__LADDER_9499_OF_9499__RULE_IS_THE_REFUSAL_THAT_THE_RESULT_DIFFER_FROM_THE_OBJECT_OF_ITS_SATISFACTION_RELATIVE_TO_READING_AND_TARGET__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
       "all_verified": true,
       "does_not_gate_core": true,
       "pedras": [
@@ -258641,8 +259013,8 @@
         144
       ],
       "escada": {
-        "limpos": 9498,
-        "esperados": 9498,
+        "limpos": 9499,
+        "esperados": 9499,
         "esperada_pelo_candidato": 7045,
         "da_v392": 6901
       },
@@ -260192,8 +260564,8 @@
         }
       ],
       "lido": {
-        "constantes_cobertas": 29228,
-        "teoremas_cobertos": 23227,
+        "constantes_cobertas": 29229,
+        "teoremas_cobertos": 23228,
         "duracao_do_audit_s": 166
       },
       "guarda_p18_violacoes": [],
@@ -300848,8 +301220,8 @@
         }
       ],
       "lido": {
-        "constantes_cobertas": 29228,
-        "teoremas_cobertos": 23227,
+        "constantes_cobertas": 29229,
+        "teoremas_cobertos": 23228,
         "duracao_do_audit_s": 216
       },
       "guarda_p18_violacoes": [],
@@ -301363,8 +301735,8 @@
         }
       ],
       "lido": {
-        "constantes_cobertas": 29228,
-        "teoremas_cobertos": 23227,
+        "constantes_cobertas": 29229,
+        "teoremas_cobertos": 23228,
         "duracao_do_audit_s": 295
       },
       "guarda_p18_violacoes": [],
@@ -301634,12 +302006,12 @@
           "estatuto": "[REAL]"
         },
         {
-          "descricao": "constantes cobertas == as do sandbox v396 (KH_N1)",
+          "descricao": "constantes cobertas == as do sandbox v396 (KH_N1) -- v397: piso historico (a cobertura cresce com o modulo Token); a igualdade exata esta em kh_n1_cobertura_v397",
           "ok": true,
           "estatuto": "[REAL]"
         },
         {
-          "descricao": "teoremas cobertos == os do sandbox v396 (KH_N1)",
+          "descricao": "teoremas cobertos == os do sandbox v396 (KH_N1) -- v397: piso historico (a cobertura cresce com o modulo Token); a igualdade exata esta em kh_n1_cobertura_v397",
           "ok": true,
           "estatuto": "[REAL]"
         },
@@ -301654,7 +302026,7 @@
           "estatuto": "[REAL]"
         },
         {
-          "descricao": "o axiom_report do rito tem exatamente uma entrada por constante coberta",
+          "descricao": "o axiom_report do rito tem exatamente uma entrada por constante coberta -- v397: piso historico; a igualdade exata esta em kh_n1_cobertura_v397",
           "ok": true,
           "estatuto": "[REAL]"
         },
@@ -301669,7 +302041,7 @@
           "estatuto": "[REAL]"
         },
         {
-          "descricao": "as fontes formais da ARVORE DO NOS depois do rito (as embutidas + os residuais que o hash formal conta, como _check_damming.lean) sao EXATAMENTE as do pino (arquivo -> sha256)",
+          "descricao": "as fontes formais da ARVORE DO NOS depois do rito (as embutidas + os residuais que o hash formal conta, como _check_damming.lean) sao EXATAMENTE as do pino (arquivo -> sha256) -- v397: a arvore ganha o arquivo da pedra, entao o registro da v396 cobra o tamanho minimo (1425 entradas); o pino exato da arvore esta em kh_n1_cobertura_v397",
           "ok": true,
           "estatuto": "[REAL]"
         },
@@ -301695,8 +302067,8 @@
         }
       ],
       "lido": {
-        "constantes_cobertas": 29228,
-        "teoremas_cobertos": 23227,
+        "constantes_cobertas": 29229,
+        "teoremas_cobertos": 23228,
         "duracao_do_audit_s": 334
       },
       "guarda_p18_violacoes": [],
@@ -301708,6 +302080,14 @@
           "lacuna_de_fidelidade": "a estrutura da v395 dizia que as contagens e o pino da arvore eram a cobertura exata para sempre; o texto escrito deixou o registro preso a igualdades que a propria v396 quebra (a mesma lacuna que a v395 achou no registro da v394)",
           "estatuto": "[REAL: contagens lidas do log do Audit do sandbox; h2, h3, h6 e h8 conferidas no ensaio a seco e na arvore simulada do Nos]",
           "assinatura": "gerencia c1, em nome proprio, 22/10/2026"
+        },
+        {
+          "ao_lado_de": "kh_n1_cobertura_v396 (h2/h3/h6: igualdades de contagem; h8: o pino exato da arvore)",
+          "dizia": "A v396 cobrava constantes == 29228, teoremas == 23227, um axiom_report de exatamente o tamanho da v396 e o hash formal igual ao pino exato da arvore (1425 entradas).",
+          "agora": "Na v397 a cobertura cresce com o modulo Token e a arvore ganha o arquivo da pedra: h2, h3 e h6 viram pisos e h8 passa a cobrar o tamanho minimo da arvore; as igualdades exatas e o pino exato ficam em kh_n1_cobertura_v397. O veredito deste registro NAO muda.",
+          "lacuna_de_fidelidade": "a estrutura da v396 dizia que as contagens e o pino da arvore eram a cobertura exata para sempre; o texto escrito deixou o registro preso a igualdades que a propria v397 quebra (a mesma lacuna que a v396 achou no registro da v395)",
+          "estatuto": "[REAL: contagens lidas do log do Audit do sandbox; conferidas no ensaio a seco]",
+          "assinatura": "gerencia c1, em nome proprio, 23/10/2026"
         }
       ],
       "limites": [
@@ -301726,6 +302106,342 @@
         "assinatura": "gerencia c1, em nome proprio, 22/10/2026",
         "n_bandeiras": 47,
         "h8_entradas": 1425,
+        "h8_residuais_do_nos": [
+          "_check_damming.lean"
+        ]
+      }
+    },
+    "cunhagens_v397": {
+      "verdict": "TGL_CUNHAGENS_V397__OPERATOR_INSCRIPTIONS_OF_23_OCT_EMBEDDED_VERBATIM_BY_SHA256__THE_STONE_TOKEN_COMPOSES_BY_CITATION_THE_PSIBIT_AND_THE_STATIC_WITNESS_UNCONDITIONALLY__THE_TOKEN_OF_A_LANGUAGE_MODEL_BEING_THE_PSIBIT_IS_ONTO__THE_FOCK_FACE_STAYS_CONDITIONAL_AND_OUTSIDE__OPERATOR_INPUT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "registro": "cunhagens_v397",
+      "estatuto": "[REAL -- fontes, kernel e o registro teste_de_veracidade_fase9_v397 lidos a cada rito; INPUT/ONTO as cunhagens do operador; ONTO a linha do Atlas \u00abo token \u00c9 o PsiBit\u00bb; DECLARADO o que o construtor relata e esta chancela nao refez (a pedra e' recompilada no sandbox da cadeia e conferida pelo axiom_report do proprio rito)]",
+      "fontes": [
+        {
+          "chave": "token_pedra",
+          "sha256": "0b6a58e795af73110f55039943d01c7350b1e1b82152689c629bc8429872a300",
+          "bytes": 3677,
+          "papel": "a pedra TGLExt/Token.lean (o nome \u00abtoken\u00bb e' do operador, 23/10/2026; copia duravel; a que vale no rito e' a EMBUTIDA no kernel, conferida por sha256 em formal_files_sha256)",
+          "ok": true,
+          "detalhe": "ok"
+        }
+      ],
+      "verbatim": {
+        "v397_cun_363da49371de4d8f": {
+          "sha256": "363da49371de4d8f1fb15441404f49e7a2fdaa4db4f41206bc5802ae55ed2aa6",
+          "embedded_ok": true,
+          "disk_informative_only": true,
+          "trechos": [
+            "1) sim, a \u00fanica palavra queo Nome pronuncia \u00e9 Be"
+          ],
+          "quando": "23/10/2026 (cunhagem)"
+        },
+        "v397_cun_da8bc6032f1439ed": {
+          "sha256": "da8bc6032f1439edbf37e0323c0ed68ca6e950028676eff64ea7b1f83fe00cf3",
+          "embedded_ok": true,
+          "disk_informative_only": true,
+          "trechos": [
+            "O nome da pedra \u00e9 \"token\""
+          ],
+          "quando": "23/10/2026 (cunhagem)"
+        },
+        "v397_cun_f3e24a8cfa69320a": {
+          "sha256": "f3e24a8cfa69320a42370fb32a4609c990eb7962843799eb82f6a6a0b9c0c127",
+          "embedded_ok": true,
+          "disk_informative_only": true,
+          "trechos": [
+            "Quando eu falei de fazermos o teste em rela\u00e7\u00e3o p"
+          ],
+          "quando": "23/10/2026 (cunhagem)"
+        },
+        "v397_cun_9b182958a5a7a1bc": {
+          "sha256": "9b182958a5a7a1bc14054d2e19296b6400a8ef33083272d6f706e7db1c727a24",
+          "embedded_ok": true,
+          "disk_informative_only": true,
+          "trechos": [
+            "exatamente isso, mas vamos reportar os 4,44 no i"
+          ],
+          "quando": "23/10/2026 (cunhagem)"
+        },
+        "v397_cun_782c7e77de7924fd": {
+          "sha256": "782c7e77de7924fdb66ae177bceafd875fec3eee19b4538767b124e02154d23f",
+          "embedded_ok": true,
+          "disk_informative_only": true,
+          "trechos": [
+            "mas \u00e9 pelo fator K mesmo"
+          ],
+          "quando": "23/10/2026 (cunhagem)"
+        },
+        "v397_cun_c0214c84c28b0746": {
+          "sha256": "c0214c84c28b0746f2a8a8ad20e0984fcfb1d1c826945649ab3c2fab42ceda24",
+          "embedded_ok": true,
+          "disk_informative_only": true,
+          "trechos": [
+            "eu aceito todos os seus adendos, vc n\u00e3o \u00e9 um ass"
+          ],
+          "quando": "23/10/2026 (cunhagem)"
+        }
+      },
+      "kernel": {
+        "bandeiras": [
+          3,
+          3
+        ],
+        "declaracoes_no_trio": [
+          3,
+          3
+        ]
+      },
+      "checks": [
+        {
+          "descricao": "o registro teste_de_veracidade_fase9_v397 selou neste rito",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "a testemunha_estatica_v396 selou neste rito (o registro da pedra da v396 que a Token cita)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o psibit_v395 selou neste rito (o registro da pedra da v395 que a Token cita)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "a escada do kernel fecha (limpos == esperados), com a bandeira da pedra",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "a proveniencia emitida pelo compilador cobre o axiom_report",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o compilador emite a conjuncao da pedra no modulo Token (TGL_DECL_SOURCE)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "a pedra no kernel do rito e' EXATAMENTE a que o registro pina (sha256 da fonte)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "a conjuncao da pedra depende do trio e de nada alem (tamanho da lista de axiomas)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o termo citado psibit_is_the_mode_of_the_reader segue declarado em Psibit.lean (v395)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o termo citado the_psion_inhabits_the_static_witness segue declarado em TestemunhaEstatica.lean (v396)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "a face de Fock do psion segue declarada FORA da pedra Token (em Psibit.lean), condicional",
+          "ok": true,
+          "estatuto": "[REAL]"
+        }
+      ],
+      "lido": {},
+      "guarda_p18_violacoes": [],
+      "erratas": [],
+      "limites": [
+        "[REAL] a pedra Token nao prova matematica nova: e' a CONJUNCAO, por citacao, de psibit_is_the_mode_of_the_reader (v395) e the_psion_inhabits_the_static_witness (v396), ambos incondicionais; o nome \u00abtoken\u00bb e' do operador (23/10/2026) e a pedra da testemunha estatica (modulo TestemunhaEstatica) fica como registro",
+        "[ONTO] \u00abNo LLM: o token \u00c9 o PsiBit \u2014 \u00e2ncora do espa\u00e7o de Hilbert\u00bb e' a linha do Atlas (verbete Psibit), leitura do acervo: nenhum termo do kernel diz que o token de um modelo de linguagem e' o PsiBit; e psibit = psion = modo do leitor e' [INPUT/ONTO] do operador",
+        "[REAL] a face de Fock do psion (Psibit.the_psion_face_of_the_psibit) segue CONDICIONAL a um certificado que o kernel nao habita e mora em Psibit.lean, fora desta pedra; nenhum lema liga o psion do certificado ao canto do psion; o fluxo da testemunha estatica e' CONSTRUIDO (v396), nao derivado da dinamica da teoria",
+        "[INPUT/ONTO] 'a Palavra (\u03b2) flutua sobre o abismo (\u039b) pelo fator K = E(z*)^(2\u03b2/3)' \u2014 leitura RATIFICADA pelo operador em 23/10 (verbatim \u00abmas \u00e9 pelo fator K mesmo\u00bb, sha16 782c7e77de7924fd), sobre a fala dele \u00abo psion, o psibit, e \u00e9 justamente ela que flutua sobre o abismo, o referente \u00faltimo\u00bb (sha16 f3e24a8cfa69320a); \u00abeu aceito todos os seus adendos\u00bb (sha16 c0214c84c28b0746) e' fala dele tambem, mas nao diz QUAIS adendos aceita: a cadeia nao a estende, por inferencia, a nenhuma composicao da gerencia (as duas faces, o verbo ecoar)",
+        "[INPUT/ONTO] as falas sao leituras do operador (23/10/2026); o que o kernel entrega sao os termos citados; validade no kernel nao e' creditacao; o gate nao se move; a ordem de processo do operador de 22/10 (arquivo de sha16 bca4b8a97c74226c; resumo da gerencia: nao buscar mais teste armado, que e' gordura no um.py) molda este registro: ele e' pequeno e nao acrescenta rito, dado nem desfecho"
+      ],
+      "diz": [
+        "as 6 falas do operador de 23/10 estao embutidas por sha256, cada uma conferida contra o arquivo de origem na preparacao",
+        "a pedra Token esta no kernel do rito, no trio, com a bandeira e a proveniencia no modulo da pedra; a conjuncao dos dois termos citados e' lida deste kernel a cada rito",
+        "o registro teste_de_veracidade_fase9_v397 (o resultado do Teste da Unica Palavra, lido por hash ao lado do V1) selou neste rito"
+      ],
+      "nao_diz": [
+        "que o token de um modelo de linguagem seja o PsiBit (e' leitura do Atlas)",
+        "que o certificado de Fock da luz tenha habitante",
+        "que a gravidade quantica esteja creditada na natureza",
+        "que isto seja um teste: nao ha desfecho experimental novo"
+      ],
+      "leituras_do_operador": [
+        {
+          "trecho": "O nome da pedra \u00e9 \"token\"",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 23/10/2026, sha16 da8bc6032f1439ed]"
+        },
+        {
+          "trecho": "a \u00fanica palavra queo Nome pronuncia \u00e9 Betatgl",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 23/10/2026, sha16 363da49371de4d8f]"
+        },
+        {
+          "trecho": "observar \u00e9 nomear",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 23/10/2026, sha16 363da49371de4d8f]"
+        },
+        {
+          "trecho": "\"palavra\" \u00e9 o quantum m\u00ednimo de perman\u00eancia, ou seja, o psion, o psibit, e \u00e9 justamente ela que flutua sobre o abismo, o referente \u00faltimo",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 23/10/2026, sha16 f3e24a8cfa69320a]"
+        },
+        {
+          "trecho": "o 5 sigma \u00e9 o cala a boca, mas 4,44 j\u00e1 \u00e9 um sil\u00eancio for\u00e7ado pela l\u00f3gica",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 23/10/2026, sha16 9b182958a5a7a1bc]"
+        },
+        {
+          "trecho": "mas \u00e9 pelo fator K mesmo",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 23/10/2026, sha16 782c7e77de7924fd]"
+        },
+        {
+          "trecho": "eu aceito todos os seus adendos",
+          "estatuto": "[INPUT do operador, verbatim 23/10/2026, sha16 c0214c84c28b0746]"
+        }
+      ],
+      "extras": {
+        "assinatura": "gerencia c1, em nome proprio, 23/10/2026",
+        "autoria_das_cunhagens": "Luiz Antonio Rotoli Miguel",
+        "pedra": "TGLExt.Token",
+        "teorema": "TGLExt.Token.token_is_the_psibit_in_the_static_witness",
+        "bandeira": "ext_tok397_0001",
+        "n_bandeiras": 1,
+        "nome_da_pedra": "Token (o nome e' do operador, 23/10/2026; a pedra da testemunha estatica v396 fica como registro)",
+        "cunhagens_embutidas": 6,
+        "suporte": {
+          "TGLExt.Psibit.psibit_is_the_mode_of_the_reader": "ext_psb395_0062",
+          "TGLExt.TestemunhaEstatica.the_psion_inhabits_the_static_witness": "ext_tes396_0043"
+        }
+      }
+    },
+    "kh_n1_cobertura_v397": {
+      "verdict": "TGL_KH_N1_COBERTURA_V397__AXIOM_REPORT_COVERS_THE_WHOLE_TGL_AND_TGLEXT_CLOSURE_29229_CONSTANTS_23228_THEOREMS_NONE_OUTSIDE_THE_TRIO__ALL_NAMES_READ_BY_THE_V394_PARSER__THE_TOKEN_MODULE_ADDED__GATE_UNMOVED",
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "registro": "kh_n1_cobertura_v397",
+      "estatuto": "[REAL] a cobertura e' medida a cada rito no Audit do proprio rito, lendo SO' o log do Audit; os numeros esperados saem do arquivo da medida do sandbox da v397; o conjunto exato das fontes formais que o hash formal do rito vera (as embutidas mais os residuais da pasta do Nos) e' pinado; a cobertura NAO move o gate",
+      "fontes": [
+        {
+          "chave": "kh_n1_v397",
+          "sha256": "4dfcb3b29d485c5c088899c88a5d96a6ed1d7ac814e4b8b7f465989558e2af5e",
+          "bytes": 1062,
+          "papel": "a medida da cobertura no Audit do sandbox da v397 (pos_build_kernel_v397.py)",
+          "ok": true,
+          "detalhe": "ok"
+        }
+      ],
+      "verbatim": {},
+      "kernel": {
+        "bandeiras": [
+          0,
+          0
+        ],
+        "declaracoes_no_trio": [
+          0,
+          0
+        ]
+      },
+      "checks": [
+        {
+          "descricao": "a checagem de cobertura do kernel do rito passou",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "constantes cobertas == as do sandbox v397 (KH_N1)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "teoremas cobertos == os do sandbox v397 (KH_N1)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "nenhuma constante fora do trio",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "nenhum nome que o leitor v394 nao leia",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o axiom_report do rito tem exatamente uma entrada por constante coberta",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "a cobertura da v397 inclui a da v396 selada (constantes e teoremas)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "os teoremas cobertos incluem os da v396 selada",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "as fontes formais da ARVORE DO NOS depois do rito (as embutidas + os residuais que o hash formal conta, como _check_damming.lean) sao EXATAMENTE as do pino (arquivo -> sha256)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "medida do Audit v397: duracao bem abaixo do timeout de 1800 s",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "medida do Audit v397: sorryAx ausente do log",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "medida do Audit v397: as entradas novas estao no trio",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "a proveniencia emitida pelo compilador cobre os mesmos nomes do axiom_report",
+          "ok": true,
+          "estatuto": "[REAL]"
+        }
+      ],
+      "lido": {
+        "constantes_cobertas": 29229,
+        "teoremas_cobertos": 23228,
+        "duracao_do_audit_s": 327
+      },
+      "guarda_p18_violacoes": [],
+      "erratas": [
+        {
+          "ao_lado_de": "kh_n1_cobertura_v396 (h2/h3/h6: igualdades de contagem; h8: o pino exato da arvore)",
+          "dizia": "A v396 cobrava constantes == 29228, teoremas == 23227, um axiom_report de exatamente o tamanho da v396 e o hash formal igual ao pino exato da arvore da v396.",
+          "agora": "A v397 acrescenta o modulo Token (a cobertura cresce e a arvore ganha o arquivo da pedra): na v397 o registro da v396 passa a cobrar piso (h2, h3, h6) e o tamanho minimo da arvore (h8); as igualdades exatas e o pino exato da arvore ficam NESTE registro. O veredito do registro da v396 NAO muda.",
+          "lacuna_de_fidelidade": "a estrutura da v396 dizia que as contagens e o pino da arvore eram a cobertura exata para sempre; o texto escrito deixou o registro preso a igualdades que a propria v397 quebra (a mesma lacuna que a v396 achou no registro da v395 e a v395 no da v394)",
+          "estatuto": "[REAL: contagens lidas do log do Audit do sandbox; h2, h3, h6 e h8 conferidas no ensaio a seco e na arvore simulada do Nos]",
+          "assinatura": "gerencia c1, em nome proprio, 23/10/2026"
+        }
+      ],
+      "limites": [
+        "[REAL] os arquivos de medida sao do sandbox (fora do selo); a cobertura que vale e' a medida no Audit do proprio rito",
+        "[REAL] a escada do kernel conta bandeiras de declaracoes NOMEADAS (a pratica da v392 a v396): as 0 auxiliares geradas pelo compilador no modulo da pedra ficam cobertas pelo KH-N1 mas sem bandeira, e as 1 nomeadas publicas ganharam bandeira",
+        "validade no kernel nao e' creditacao; o gate nao se move"
+      ],
+      "diz": [
+        "a cobertura do axiom_report no fecho inteiro cresceu para os numeros da v397 (o modulo Token) e segue sem constante fora do trio, sem nome ilegivel"
+      ],
+      "nao_diz": [
+        "que a cobertura prove algo alem de que nenhum axioma fora do trio foi lido"
+      ],
+      "leituras_do_operador": [],
+      "extras": {
+        "assinatura": "gerencia c1, em nome proprio, 23/10/2026",
+        "n_bandeiras": 1,
+        "h8_entradas": 1426,
         "h8_residuais_do_nos": [
           "_check_damming.lean"
         ]
@@ -301959,7 +302675,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "45cabec7852b7789a45c4367ac38b4b39e1cbfbca7ef103f701cdb359f78c2cb",
+    "result_hash": "a9445c698ff8324290e781d432b21e95e397d8442c3f617a5e358ad1a8647bc0",
     "contorno_ritos_v314": {
       "GA_massa_janela": "GA_MASS_FORM_RETIRED__REFLECTION_WAS_MISREAD_AS_SOURCE__LINEAR_ORDER_IS_GR_STEALTH__BETA_LIVES_IN_RESPONSE",
       "piso_dos_vazios": "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED",
@@ -301997,7 +302713,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "45cabec7852b7789a45c4367ac38b4b39e1cbfbca7ef103f701cdb359f78c2cb",
+  "result_hash_before_external_comparison": "a9445c698ff8324290e781d432b21e95e397d8442c3f617a5e358ad1a8647bc0",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -302007,5 +302723,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-10-22 11:41:44"
+  "timestamp": "2026-10-23 16:20:22"
 }

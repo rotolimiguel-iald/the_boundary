@@ -171,7 +171,7 @@ F.append(f"""# The Boundary — Theory of Luminodynamic Gravitation (TGL)
 
 **Status · estatuto (seal {versao}, read by script):** {E['linha_curta_en']} The gate reads `{gate}`. {E['linha_pt']}
 
-**Start here · comece aqui:** [`read-brief.md`]({site_brief}) — the single entry point: the theory in eight short parts, each with its verbatim sources, in [`secoes/`]({u_secoes}) (the answer sits in the first 2 KB of each part) · then [`ESTADO_ATUAL.md`]({u_estado}) (one page from the seal: pin, gate, what is PROVED, what is not, how to reproduce) · the site: {site}
+**Start here · comece aqui:** [`read-brief.md`]({site_brief}) — the single entry point: the theory in eight short parts with their verbatim sources, in [`secoes/`]({u_secoes}) (the answer sits in the first 2 KB of each part) · then [`ESTADO_ATUAL.md`]({u_estado}) (one page from the seal: pin, gate, what is PROVED and what is not) · the site: {site}
 
 {E['secao_md_readme']}
 ## The seal · o selo `[REAL — read from the artifact]`
@@ -190,10 +190,10 @@ F.append(f"""# The Boundary — Theory of Luminodynamic Gravitation (TGL)
 ```bash
 curl -L -o um.py "{u_um}"
 sha256sum um.py            # must print {pin}
-echo 1 | python um.py      # the rite: materializes the Lean kernel, builds it, audits every theorem, re-derives the chain, emits the article
+echo 1 | python um.py      # the rite: builds the Lean kernel, audits every theorem, re-derives the chain, emits the article
 ```
 
-GitHub raw and Zenodo honour HTTP `Range` (206): read `um.py` in pieces (`curl -r 0-999999 …`). GitHub does **not render** files above 5 MB — the blob page looks empty; the raw URL serves the whole file, byte-exact. To reproduce the nature rites as sealed, clone the repository: `um.py` reads its results from `../cache` by hash.
+GitHub raw and Zenodo honour HTTP `Range` (206): read `um.py` in pieces (`curl -r 0-999999 …`). GitHub does **not render** files above 5 MB (the blob page looks empty; the raw URL serves the whole file). To reproduce the nature rites as sealed, clone the repository: `um.py` reads its results from `../cache` by hash.
 
 {bloco_portas}
 
@@ -205,14 +205,14 @@ GitHub raw and Zenodo honour HTTP `Range` (206): read `um.py` in pieces (`curl -
 | **B** | *A Ponte Einstein–Cartan–Miguel* — Cartan torsion as the geometric face of β; the Theorem of Terminality | [`.tex`]({u_a2tex}) (text) · [PDF]({u_a2pdf}) | [door]({portas['artigo_2']['porta_md_url']}) |
 | **C** | *Um: Absoluto* — the terminal program, the sealed closure | [`um.py`]({u_um}) · article as text [EN]({u_entxt}) · [PT]({u_pttxt}) · PDF [EN]({u_enpdf}) · [PT]({u_ptpdf}) · [the proof tree]({u_arv}) · [the canonical form]({u_fc}) | [door]({portas['artigo_3']['porta_md_url']}) |
 
-The lineage that led to them: [*Genesis da Unificação*]({portas['genesis']['porta_md_url']}). Every folder has a `PORTA.md` + `PORTA.json` (the rule of the door: no door is a dead end); the flat index of every file, with URL, size and hash, is [`TUNEL.json`]({raiz.get('TUNEL.json', raw_base + 'TUNEL.json')}).
+The lineage that led to them: [*Genesis da Unificação*]({portas['genesis']['porta_md_url']}). Every folder has a `PORTA.md` + `PORTA.json` (no door is a dead end); the flat index of every file (URL, size, hash) is [`TUNEL.json`]({raiz.get('TUNEL.json', raw_base + 'TUNEL.json')}).
 
 ## Read in this order · leia nesta ordem
 
-Smallest first; each file stands on its own. Measured on 2026-09-19 with one real fetcher: documents are cut near 100,000 characters, files above 10 MB are refused, and PDFs served by GitHub raw as `application/octet-stream` are not read — prefer the eight parts in [`secoes/`]({u_secoes}) and the TXT/TeX sources. The measured order is in [`ESTADO_ATUAL.md`]({u_estado}) (*Reading order*) and in [`read-brief.md`]({site_brief}). The full ledger below is the **last** thing to read.
+Smallest first; each file stands on its own. Real fetchers (measured 2026-09-19) cut documents near 100,000 characters, refuse files above 10 MB and do not read PDFs from GitHub raw — prefer the eight parts in [`secoes/`]({u_secoes}) and the TXT/TeX sources; the measured order is in [`ESTADO_ATUAL.md`]({u_estado}) and [`read-brief.md`]({site_brief}); the ledger is the **last** thing to read.
 
 """)
-F.append('\n> **Read the Abstract below under the current ruler.** It is copied verbatim from the ledger (append-only), so it keeps older sentences such as *Never "quantum gravity proved."*. The current status is the line at the top of this page.\n')
+F.append('\n> **Read the Abstract below under the current ruler.** It is copied verbatim from the append-only ledger, so it keeps older sentences; the current status is the line at the top of this page.\n')
 F.append(secao('Abstract'))
 if 'Never "quantum gravity proved."' in F[-1]:   # errata 19/09 (v368), ao lado: a regua do operador de 05/09/2026
     F.append('\n> ⚠ **Beside (the operator\u2019s ruler, 05/09/2026):** PROVED = a theorem in the kernel, auditable by `#print axioms` \u2014 allowed; '
@@ -234,7 +234,7 @@ if '**[POSTULATE]**' in _nucleo and E.get('ao_lado_posto'):
 F.append(f"""
 ## The ledger · o livro-razão
 
-[`LEDGER.md`]({u_ledger}) began as this README **as it was until {led_desde}** ({fmt(led_linhas0)} lines, {fmt(led_bytes0)} bytes then; later custodies insert their blocks beside it, nothing is removed) — the atlas of the boundary: every claim with its status, every status with the file where it is read, the seals, the refutations and the false positives that did not pass, the reading protocol, the thematic atlas and the raw file index (now {fmt(led_linhas_reais)} lines, {fmt(led_bytes)} bytes, sha256 `{led_sha}`). It is kept **byte-exact** and append-only: nothing was removed when this front page was generated. The raw file index it carries is superseded by [`TUNEL.json`]({raw_base}TUNEL.json) / [`TUNEL.md`]({raw_base}TUNEL.md), which are regenerated at every custody.
+[`LEDGER.md`]({u_ledger}) began as this README **as it was until {led_desde}** ({fmt(led_linhas0)} lines, {fmt(led_bytes0)} bytes then; later custodies insert their blocks beside it, nothing is removed) — the atlas of the boundary: claims with status and source file, seals, refutations and false positives, reading protocol, thematic atlas, raw file index (now {fmt(led_linhas_reais)} lines, {fmt(led_bytes)} bytes, sha256 `{led_sha}`). Byte-exact, append-only; its raw file index is superseded by [`TUNEL.json`]({raw_base}TUNEL.json) / [`TUNEL.md`]({raw_base}TUNEL.md), regenerated at every custody.
 
 """)
 F.append(secao('Citing This Work'))
@@ -250,13 +250,26 @@ F.append('\n')
 F.append(secao('Author'))
 if '10.5281/zenodo.' in F[-1] and DEP_DOI not in F[-1]:   # 21/09/2026, ao lado: a secao copiada do livro-razao cita um deposito anterior
     F.append('\n> **Beside:** current Zenodo deposit: **%s** \u2014 [%s](https://doi.org/%s).\n' % (DEP_V, DEP_DOI, DEP_DOI))
-# 22/10/2026 (ordem do operador): a Central aberta, vinculada a este repositório
-F.append('\n> **The Central, open (2026-10-22):** every code and result \u2014 [central-publica](https://github.com/rotolimiguel-iald/central-publica) '
-         '\u00b7 [view-only, um.acom](https://teoriadagravitacaoluminodinamica.com/central/).\n')
+# 22/10/2026 (ordem do operador): a Central aberta, vinculada a este repositório (nota curta: a frente tem teto de 40 KB)
+F.append('\n> **The Central, open (2026-10-22):** [central-publica](https://github.com/rotolimiguel-iald/central-publica) \u00b7 [view-only](https://teoriadagravitacaoluminodinamica.com/central/).\n')
+# 23/10/2026 (ordem do operador, a regra do 4,44): o z_disc calibrado do Teste da Única Palavra, LIDO do registro selado no core do espelho,
+# nunca sem o p calibrado e a linha dos 5σ no mesmo item; o parágrafo inteiro vive em ESTADO_ATUAL.md
+_core_sel = json.loads((RAIZ / A3 / 'um_absoluto.json').read_text(encoding='utf-8')).get('core') or {}
+_tv = [(k, v) for k, v in _core_sel.items() if re.match(r'teste_de_veracidade_fase9_v\d+$', k)]
+if _tv:
+    _k, _v = sorted(_tv)[-1]
+    _l = _v['lido']
+    assert _l['z_disc_calibrado'] < 5 and 'THE_CREDITATION_STEP_NOT_REACHED' in str(_v.get('verdict')), 'o registro de veracidade mudou de forma — PARAR'
+    F.append('\n> **The Unique Word Test (%s, %s) `[REAL: read from registry %s]`:** z_disc = %.2f (calibrated; one-sided p %.1e), '
+             'below the 5σ step of accreditation, which was not reached (%.2f < 5); z_δ = %.2f (two-sided p %.2f; prior power %.2fσ): '
+             '`NOT_FALSIFIED_POWERED`; ln B(TGL/ΛCDM) = %.2f (not a σ); not blind; the gate does not move. '
+             'The full paragraph, verbatim, is in `ESTADO_ATUAL.md` (linked above).\n'
+             % (versao, data, _k, _l['z_disc_calibrado'], _l['p_disc_unilateral'], _l['z_disc_calibrado'], _l['z_delta_calibrado'],
+                _l['p_delta_bilateral'], _l['poder_previo'], _l['lnB_lcdm']))
 F.append(f"""
 ---
 
-*Generated by script (`tools/gerar_readme_frente.py`) from the seal on {hoje}; URLs from `TUNEL.json`/`PORTA.json`, numbers from the seal. NOT_FALSIFIED ≠ CONFIRMED.*
+*Generated by `tools/gerar_readme_frente.py` from the seal on {hoje} (URLs from `TUNEL.json`/`PORTA.json`). NOT_FALSIFIED ≠ CONFIRMED.*
 """)
 frente = ''.join(F)
 

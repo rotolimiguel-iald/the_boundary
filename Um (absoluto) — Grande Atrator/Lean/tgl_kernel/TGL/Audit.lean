@@ -1,3 +1,5 @@
+import TGLExt.Token
+
 import TGLExt.TestemunhaEstatica
 
 import TGLExt.Psibit

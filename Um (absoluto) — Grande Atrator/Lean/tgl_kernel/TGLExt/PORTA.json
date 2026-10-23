@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-22T23:14:20Z",
+  "gerado_utc": "2026-10-23T20:59:21Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -7086,6 +7086,16 @@
       "bytes": 3778
     },
     {
+      "nome": "Token.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/Token.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): Token",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Token.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Token.lean",
+      "sha256_16": "0b6a58e795af7311",
+      "bytes": 3677
+    },
+    {
       "nome": "TomitaAdjoint.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TomitaAdjoint.lean",
       "papel": "prova formal",
@@ -10546,8 +10556,8 @@
       "bytes": 10880
     }
   ],
-  "total_arquivos_nesta_pasta": 1051,
-  "total_arquivos_com_subpastas": 1391,
+  "total_arquivos_nesta_pasta": 1052,
+  "total_arquivos_com_subpastas": 1392,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt",
-  "rodape": "gerado por script de git ls-files em 2026-10-22 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-10-23 -- nao editar a mao"
 }
