@@ -126,8 +126,8 @@
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
    "o_que_e": "O atlas da fronteira",
-   "sha256_16": "ca4c76f7bc53f157",
-   "bytes": 40941
+   "sha256_16": "554ab27c16a42e91",
+   "bytes": 40951
   },
   "llms": {
    "path": "llms.txt",
@@ -1402,8 +1402,8 @@
   {
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-   "bytes": 40941,
-   "sha256_16": "ca4c76f7bc53f157",
+   "bytes": 40951,
+   "sha256_16": "554ab27c16a42e91",
    "papel": "documento"
   },
   {
@@ -22858,14 +22858,14 @@
    "path": "read-brief.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md",
    "bytes": 22188,
-   "sha256_16": "c0143673289afc91",
+   "sha256_16": "67fe36ad041177ee",
    "papel": "documento"
   },
   {
    "path": "secoes/01-o-um-absoluto.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/01-o-um-absoluto.md",
    "bytes": 11237,
-   "sha256_16": "fb95d1d55ffbcc23",
+   "sha256_16": "8dad4834075fb51f",
    "papel": "documento"
   },
   {
@@ -22900,21 +22900,21 @@
    "path": "secoes/06-o-estatuto-da-gravidade-quantica.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/06-o-estatuto-da-gravidade-quantica.md",
    "bytes": 15297,
-   "sha256_16": "cada94c76ef16734",
+   "sha256_16": "5455cfe2f0677fbd",
    "papel": "documento"
   },
   {
    "path": "secoes/07-o-programa-um-py.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/07-o-programa-um-py.md",
    "bytes": 11731,
-   "sha256_16": "7acf6988493b3f5f",
+   "sha256_16": "b2edc91ab4b6d2d9",
    "papel": "documento"
   },
   {
    "path": "secoes/08-os-artigos-e-os-instrumentos.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/08-os-artigos-e-os-instrumentos.md",
    "bytes": 13411,
-   "sha256_16": "215abde865ce1d41",
+   "sha256_16": "45bab936c1bb73b8",
    "papel": "documento"
   },
   {
@@ -22955,8 +22955,8 @@
   {
    "path": "tools/gerar_readme_frente.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_readme_frente.py",
-   "bytes": 21101,
-   "sha256_16": "cc3f68acaabb2209",
+   "bytes": 21420,
+   "sha256_16": "98ab74206ac20c08",
    "papel": "codigo"
   },
   {

@@ -99,7 +99,7 @@ Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para 
 ### 4. `README.md` — bytes 9.375–10.141
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `a64f09b5209a2f0e0a8e81d8f6618581399abcc5aa0df531c71a361e482766b3` (computed now; this file is not in the seal map) · of this excerpt: `76a122a3986b3c99e3fe030a7d3630098b7ae816589f0703fedfae399dadaf00`
+- sha256 of the file: `ca4c76f7bc53f157582fd41a7275a52f445dd4e14a54bca1ba2db3df60ff08b0` (computed now; this file is not in the seal map) · of this excerpt: `1a54c98162aa7bd727d260f20b649c92f96199e11bca1d5bed50959f7729a34b`
 - status · estatuto: [REAL — three commands] README do espelho
 - why · por quê: Os três comandos de reprodução (curl, sha256sum, echo 1 | python um.py), a leitura por Range, o limite de renderização do GitHub e a necessidade de clonar para os ritos lerem ../cache.
 
@@ -108,7 +108,7 @@ Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para 
 
 ```bash
 curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"
-sha256sum um.py            # must print 388cc3742323421cc3b2b712bdd2b9cb63e8726301b13f25872536f5a6ecdf33
+sha256sum um.py            # must print c632fa261ce3f53879374dde1199485283bd69bdfb7505edbeceefb7f9a49cf4
 echo 1 | python um.py      # the rite: builds the Lean kernel, audits every theorem, re-derives the chain, emits the article
 ```
 

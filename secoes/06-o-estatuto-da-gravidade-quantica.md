@@ -100,7 +100,7 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 ### 4. `README.md` — bytes 23.926–24.526
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `a64f09b5209a2f0e0a8e81d8f6618581399abcc5aa0df531c71a361e482766b3` (computed now; this file is not in the seal map) · of this excerpt: `41922580fe72207593dede413e3f1dc4647c4eeab3bf70118f5d9da55de54001`
+- sha256 of the file: `ca4c76f7bc53f157582fd41a7275a52f445dd4e14a54bca1ba2db3df60ff08b0` (computed now; this file is not in the seal map) · of this excerpt: `41922580fe72207593dede413e3f1dc4647c4eeab3bf70118f5d9da55de54001`
 - status · estatuto: [REAL — errata ao lado, append-only]
 - why · por quê: A errata ao lado que lê, sob a régua vigente, a frase de linhagem «Never quantum gravity proved»: PROVADA ≠ CONFIRMADA.
 

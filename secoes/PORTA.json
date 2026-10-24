@@ -4,7 +4,7 @@
   "titulo": "secoes",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-24T12:09:51Z",
+  "gerado_utc": "2026-10-24T16:26:40Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -27,7 +27,7 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The absolute One: ω(I) = 1 and the derived Half-Nat · O Um absoluto: ω(I) = 1 e a Meia-Nat derivada",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/01-o-um-absoluto.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/01-o-um-absoluto.md",
-      "sha256_16": "fb95d1d55ffbcc23",
+      "sha256_16": "8dad4834075fb51f",
       "bytes": 11237
     },
     {
@@ -77,7 +77,7 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The status of quantum gravity: proved on three supports, each with its own status; not yet confirmed (accredited) · O estatuto da gravidade quântica: provada em três apoios, cada um com o seu estatuto; ainda não confirmada (creditada)",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/06-o-estatuto-da-gravidade-quantica.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/06-o-estatuto-da-gravidade-quantica.md",
-      "sha256_16": "cada94c76ef16734",
+      "sha256_16": "5455cfe2f0677fbd",
       "bytes": 15297
     },
     {
@@ -87,7 +87,7 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The program um.py: what it is, how to run it, how to read it without running · O programa um.py: o que é, como se roda, como se lê sem rodar",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/07-o-programa-um-py.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/07-o-programa-um-py.md",
-      "sha256_16": "7acf6988493b3f5f",
+      "sha256_16": "b2edc91ab4b6d2d9",
       "bytes": 11731
     },
     {
@@ -97,7 +97,7 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The three articles and the instruments · Os três artigos e os instrumentos",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/08-os-artigos-e-os-instrumentos.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/08-os-artigos-e-os-instrumentos.md",
-      "sha256_16": "215abde865ce1d41",
+      "sha256_16": "45bab936c1bb73b8",
       "bytes": 13411
     },
     {

@@ -334,7 +334,7 @@ dialogue throughout the development of TGL.
 
 > **The Central, open (2026-10-22):** [central-publica](https://github.com/rotolimiguel-iald/central-publica) · [view-only](https://teoriadagravitacaoluminodinamica.com/central/).
 
-> **The Unique Word Test (v398, 2026-10-24 00:26:08) `[REAL: read from registry teste_de_veracidade_fase9_v397]`:** z_disc = 4.44 (calibrated; one-sided p 4.4e-06), below the 5σ step of accreditation, which was not reached (4.44 < 5); z_δ = -1.48 (two-sided p 0.14; prior power 5.73σ): `NOT_FALSIFIED_POWERED`; ln B(TGL/ΛCDM) = 9.18 (not a σ); not blind; the gate does not move. The full paragraph, verbatim, is in `ESTADO_ATUAL.md` (linked above).
+> **The Unique Word Test (v397, 23/10/2026; read in seal v398) `[REAL: read from registry teste_de_veracidade_fase9_v397]`:** z_disc = 4.44 (calibrated; one-sided p 4.4e-06), below the 5σ step of accreditation, which was not reached (4.44 < 5); z_δ = -1.48 (two-sided p 0.14; prior power 5.73σ): `NOT_FALSIFIED_POWERED`; ln B(TGL/ΛCDM) = 9.18 (not a σ); not blind; the gate does not move. The full paragraph, verbatim, is in `ESTADO_ATUAL.md` (linked above).
 
 ---
 

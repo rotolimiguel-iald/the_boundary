@@ -260,11 +260,13 @@ if _tv:
     _k, _v = sorted(_tv)[-1]
     _l = _v['lido']
     assert _l['z_disc_calibrado'] < 5 and 'THE_CREDITATION_STEP_NOT_REACHED' in str(_v.get('verdict')), 'o registro de veracidade mudou de forma — PARAR'
-    F.append('\n> **The Unique Word Test (%s, %s) `[REAL: read from registry %s]`:** z_disc = %.2f (calibrated; one-sided p %.1e), '
+    _mv = re.search(r'_v(\d{3,})$', _k); _vreg = ('v' + _mv.group(1)) if _mv else '?'          # a versão do REGISTRO, não a do selo corrente (errata 24/10)
+    _md = re.search(r'\d{2}/\d{2}/\d{4}', str((_v.get('extras') or {}).get('assinatura') or '')); _dreg = _md.group(0) if _md else '?'
+    F.append('\n> **The Unique Word Test (%s, %s; read in seal %s) `[REAL: read from registry %s]`:** z_disc = %.2f (calibrated; one-sided p %.1e), '
              'below the 5σ step of accreditation, which was not reached (%.2f < 5); z_δ = %.2f (two-sided p %.2f; prior power %.2fσ): '
              '`NOT_FALSIFIED_POWERED`; ln B(TGL/ΛCDM) = %.2f (not a σ); not blind; the gate does not move. '
              'The full paragraph, verbatim, is in `ESTADO_ATUAL.md` (linked above).\n'
-             % (versao, data, _k, _l['z_disc_calibrado'], _l['p_disc_unilateral'], _l['z_disc_calibrado'], _l['z_delta_calibrado'],
+             % (_vreg, _dreg, versao, _k, _l['z_disc_calibrado'], _l['p_disc_unilateral'], _l['z_disc_calibrado'], _l['z_delta_calibrado'],
                 _l['p_delta_bilateral'], _l['poder_previo'], _l['lnB_lcdm']))
 F.append(f"""
 ---

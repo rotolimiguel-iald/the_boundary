@@ -64,7 +64,7 @@ Verificado ao vivo: `input=1`, `S_∂=1/2`, `Vol_∂^min=√e=1.648721`, `β=√
 ### 3. `README.md` — bytes 31.641–32.197
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `a64f09b5209a2f0e0a8e81d8f6618581399abcc5aa0df531c71a361e482766b3` (computed now; this file is not in the seal map) · of this excerpt: `122e3de7f99bef580de0e11bbdd00e1a0efa7f256d1185977a791aabc471a5ce`
+- sha256 of the file: `ca4c76f7bc53f157582fd41a7275a52f445dd4e14a54bca1ba2db3df60ff08b0` (computed now; this file is not in the seal map) · of this excerpt: `122e3de7f99bef580de0e11bbdd00e1a0efa7f256d1185977a791aabc471a5ce`
 - status · estatuto: [POSTULATE] axioma; [REAL/DERIVED] Meia-Nat; [DERIVED] β, com α [INPUT]
 - why · por quê: Resumo vigente do núcleo em PT: o axioma único, a Meia-Nat derivada, β nunca literal, a identidade de Lagrange e o veredito binário.
 

@@ -21,7 +21,7 @@ O Artigo A, O Custo Geométrico do Zero Absoluto: haja luz, toma α CODATA [KNOW
 ### 1. `README.md` — bytes 17.785–21.219
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `a64f09b5209a2f0e0a8e81d8f6618581399abcc5aa0df531c71a361e482766b3` (computed now; this file is not in the seal map) · of this excerpt: `33b5efde809b037913067b39a2e530a7691d7e5657fc9e72a531fb5afb4149cb`
+- sha256 of the file: `ca4c76f7bc53f157582fd41a7275a52f445dd4e14a54bca1ba2db3df60ff08b0` (computed now; this file is not in the seal map) · of this excerpt: `33b5efde809b037913067b39a2e530a7691d7e5657fc9e72a531fb5afb4149cb`
 - status · estatuto: [REAL — index of the v368 mirror]
 - why · por quê: The canonical table of the three articles (A, B, C): for each, the canonical file, the PDF/TeX route and the door; current in v368.
 
@@ -72,7 +72,7 @@ POA com honestidade (inclusive nulos) e reconhece a abertura angular como
 ### 3. `README.md` — bytes 9.375–10.141
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `a64f09b5209a2f0e0a8e81d8f6618581399abcc5aa0df531c71a361e482766b3` (computed now; this file is not in the seal map) · of this excerpt: `76a122a3986b3c99e3fe030a7d3630098b7ae816589f0703fedfae399dadaf00`
+- sha256 of the file: `ca4c76f7bc53f157582fd41a7275a52f445dd4e14a54bca1ba2db3df60ff08b0` (computed now; this file is not in the seal map) · of this excerpt: `1a54c98162aa7bd727d260f20b649c92f96199e11bca1d5bed50959f7729a34b`
 - status · estatuto: [REAL — three commands, v368]
 - why · por quê: How Article C (um.py) is fetched, checked by hash and run; also covers HTTP Range and GitHub not rendering files above 5 MB (the raw URL serves the whole file).
 
@@ -81,7 +81,7 @@ POA com honestidade (inclusive nulos) e reconhece a abertura angular como
 
 ```bash
 curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"
-sha256sum um.py            # must print 388cc3742323421cc3b2b712bdd2b9cb63e8726301b13f25872536f5a6ecdf33
+sha256sum um.py            # must print c632fa261ce3f53879374dde1199485283bd69bdfb7505edbeceefb7f9a49cf4
 echo 1 | python um.py      # the rite: builds the Lean kernel, audits every theorem, re-derives the chain, emits the article
 ```
 
