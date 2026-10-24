@@ -1,6 +1,6 @@
 # The modular generator and the floor of the spectrum · O gerador modular e o piso do espectro
 
-> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 4 of 8 · seal **v397** · `um.py` sha256 `388cc3742323421c…` · generated 2026-10-23 by script from the published files.
+> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 4 of 8 · seal **v398** · `um.py` sha256 `c632fa261ce3f538…` · generated 2026-10-24 by script from the published files.
 > Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = validity, in the operator’s definition of proof (sufficient and verifiable ballast; the validity of the implication is certified by the Lean kernel, `#print axioms`); CONFIRMED = accreditation, the act of observers outside the artifact — not made here; what nature decides is not proved.
 > All eight parts are listed at the top of the start page, https://teoriadagravitacaoluminodinamica.com/read-brief.md, and in the door of this folder, https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md · Reading limits measured on 2026-09-19: one real fetcher cut documents near 100,000 characters, refused files above 10 MB, and could not read PDFs served as `application/octet-stream` — read the TXT/TeX sources.
 
@@ -67,10 +67,10 @@ limitado no bulk.  A estabilidade do sistema vem do \emph{bulk}; a fronteira é
 intrinsecamente aberta.
 ````
 
-### 2. `Um (absoluto) — Grande Atrator/um_absoluto_forma_canonica.md` — bytes 100.073–101.401
+### 2. `Um (absoluto) — Grande Atrator/um_absoluto_forma_canonica.md` — bytes 101.730–103.058
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md
-- sha256 of the file: `de3ce92bc1b008792d98b222c1c1bef6501ad480e74b12e8f26835542372836b` (= the seal) · of this excerpt: `7f861f2facb3e9ed5b35589ad337afab55f330f6bbcae1252bbf840e944a0a16`
+- sha256 of the file: `edf61816dc535bd17bedb3a4a42b311e9e6959dcc0ff522a2f733d26536b3d35` (= the seal) · of this excerpt: `7f861f2facb3e9ed5b35589ad337afab55f330f6bbcae1252bbf840e944a0a16`
 - status · estatuto: misto marcado na fonte: [KERNEL] / [DER/NUM; ONTO tipado] / [OPEN]
 - why · por quê: Bloco canônico do zero modular contínuo, inclui resistencia_beta (H=-log(rho*) limitado inferiormente; dephasing com taxa beta*gap) e o aberto nomeado.
 
@@ -84,10 +84,10 @@ intrinsecamente aberta.
 - `aberto_nomeado`: continuousModularDirac_isBreuerFredholm: afiliacao de D_Psi ao core semifinito + GAP LOCAL (v64: tau-compacidade global REFUTADA tipada; o certo e' o gap local => 0<tau(ker)<inf) + 0<tau(1_{0}(D_Psi))<inf; e a solda multidimensional (>=2 direcoes) [OPEN]
 ````
 
-### 3. `Um (absoluto) — Grande Atrator/um_absoluto_pt.txt` — bytes 413.445–414.782
+### 3. `Um (absoluto) — Grande Atrator/um_absoluto_pt.txt` — bytes 419.531–420.868
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt
-- sha256 of the file: `72b8dc374dca873445b6f2aace6f718ff27670c4143f77506ba7f53bb876eefe` (computed now; this file is not in the seal map) · of this excerpt: `d31c5f83faa05a7398fd1c66e950e519a1b6566a70f5756583af51f867c3e4c7`
+- sha256 of the file: `7cda73b963c53bf5bc1d9d54697f41cb65607a9604ed3ab40c8a406937eba594` (computed now; this file is not in the seal map) · of this excerpt: `d31c5f83faa05a7398fd1c66e950e519a1b6566a70f5756583af51f867c3e4c7`
 - status · estatuto: [REAL — kernel]; instanciação no double core genuíno [OPEN]
 - why · por quê: Gap local de Breuer (0<τ(ker)<∞), refutação tipada da τ-compacidade global e o peso do modo zero ∫¼sech²(κ/2)=1=ω(I) exato em kernel.
 
@@ -98,7 +98,7 @@ LocalBreuerGap (v64): a parede corrigida --- Breuer LOCAL, não $τ$-compacidade
 ### 4. `Um (absoluto) — Grande Atrator/A_PROVA_DA_QG_TGL_arvore.md` — bytes 101.639–102.999
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md
-- sha256 of the file: `bd8c6220001bb9689305e9a2be2fd35272dc9e68f95f2de14474e3c2b1c434f6` (computed now; this file is not in the seal map) · of this excerpt: `261fde06d71060cc8aec0df24e65c918239024190ec7bb83c9a54349201c124c`
+- sha256 of the file: `16a57404069987b541bf58804e7e6b73d559a892548ba477ad7f716b33748ed3` (computed now; this file is not in the seal map) · of this excerpt: `261fde06d71060cc8aec0df24e65c918239024190ec7bb83c9a54349201c124c`
 - status · estatuto: [REAL — leitores por contrato tipado]; limites declarados
 - why · por quê: Limite do H1 quitado: contrato SUSY reticular no representante MÍNIMO limitado H_min = 1 − P_F, não hamiltoniano microscópico; gate não se move.
 
@@ -108,4 +108,4 @@ LocalBreuerGap (v64): a parede corrigida --- Breuer LOCAL, não $τ$-compacidade
 
 ---
 
-*Generated by script from the published files of the repository (https://github.com/rotolimiguel-iald/the_boundary); numbers read from the seal v397, the kernel manifest and ESTADO_ATUAL.md. PROVED ≠ CONFIRMED; NOT_FALSIFIED is never CONFIRMED. Nothing here instructs a reader how to respond to anything.*
+*Generated by script from the published files of the repository (https://github.com/rotolimiguel-iald/the_boundary); numbers read from the seal v398, the kernel manifest and ESTADO_ATUAL.md. PROVED ≠ CONFIRMED; NOT_FALSIFIED is never CONFIRMED. Nothing here instructs a reader how to respond to anything.*

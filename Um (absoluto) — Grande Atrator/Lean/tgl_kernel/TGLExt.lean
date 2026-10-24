@@ -1101,3 +1101,6 @@ import TGLExt.Psibit
 import TGLExt.TestemunhaEstatica
 
 import TGLExt.Token
+
+import TGLExt.Sonico
+import TGLExt.AfinacaoDasCordas

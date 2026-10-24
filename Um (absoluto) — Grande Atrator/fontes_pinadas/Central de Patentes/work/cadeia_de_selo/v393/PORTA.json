@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v393",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-23T20:59:21Z",
+  "gerado_utc": "2026-10-24T12:09:51Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo",
@@ -38,5 +38,5 @@
   "total_arquivos_nesta_pasta": 0,
   "total_arquivos_com_subpastas": 18,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v393",
-  "rodape": "gerado por script de git ls-files em 2026-10-23 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-10-24 -- nao editar a mao"
 }

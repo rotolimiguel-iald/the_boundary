@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-23T20:59:21Z",
+  "gerado_utc": "2026-10-24T12:09:51Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
@@ -346,6 +346,16 @@
       "bytes": 9215
     },
     {
+      "nome": "ORDEM_021_ADENDO_A_rotina_e_idempotencia.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_021_ADENDO_A_rotina_e_idempotencia.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_021_ADENDO_A_rotina_e_idempotencia.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_021_ADENDO_A_rotina_e_idempotencia.md",
+      "sha256_16": "17c5fe6e3b4fbe5f",
+      "bytes": 2095
+    },
+    {
       "nome": "ORDEM_021_publicacao_diaria_no_X.md",
       "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_021_publicacao_diaria_no_X.md",
       "papel": "documento",
@@ -456,8 +466,8 @@
       "bytes": 3872
     }
   ],
-  "total_arquivos_nesta_pasta": 42,
-  "total_arquivos_com_subpastas": 63,
+  "total_arquivos_nesta_pasta": 43,
+  "total_arquivos_com_subpastas": 64,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT",
-  "rodape": "gerado por script de git ls-files em 2026-10-23 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-10-24 -- nao editar a mao"
 }

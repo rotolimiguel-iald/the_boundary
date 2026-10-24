@@ -1,3 +1,6 @@
+import TGLExt.Sonico
+import TGLExt.AfinacaoDasCordas
+
 import TGLExt.Token
 
 import TGLExt.TestemunhaEstatica
