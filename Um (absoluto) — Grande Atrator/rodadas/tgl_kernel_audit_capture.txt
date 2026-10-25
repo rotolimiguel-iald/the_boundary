@@ -1,7 +1,7 @@
 # stage: principal
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=6873079 len(stderr)=0
+# len(stdout)=6873455 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -46359,6 +46359,8 @@ TGL_DECL_SOURCE	ChatgptAudit.Wave029.matched_curvature_difference	TGLExt.PlaneWa
 'ChatgptAudit.Wave029.matched_curvature_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.levelRepresent	TGLExt.ExpectationBounded
 'ChatgptAudit.levelRepresent' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.Testemunho.the_testimony_of_two_is_true	TGLExt.Testemunho
+'TGLExt.Testemunho.the_testimony_of_two_is_true' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLV350.Regular.resolventPhaseFunction_reflection	TGLExt.V351AntiunitaryResolventPhase
 'TGLV350.Regular.resolventPhaseFunction_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLExt.Psibit.v_fst	TGLExt.Psibit
@@ -52595,6 +52597,8 @@ TGL_DECL_SOURCE	TGLV350.Regular.scalarRightAdjointPair_closed_pairing	TGLExt.V35
 'TGLV350.Regular.scalarRightAdjointPair_closed_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Collapse057.IdentityCollapse.identity	TGLExt.CollapseContract
 'ChatgptAudit.Collapse057.IdentityCollapse.identity' does not depend on any axioms
+TGL_DECL_SOURCE	TGLExt.Testemunho.no_face_alone_gives_the_one	TGLExt.Testemunho
+'TGLExt.Testemunho.no_face_alone_gives_the_one' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLExt.tof_add_same	TGLExt.TowerDefinite
 'TGLExt.tof_add_same' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.FiniteModular.finiteModularNormedAlgebraRat._proof_3	TGLExt.FiniteModularHamiltonian
@@ -60985,10 +60989,10 @@ TGL_DECL_SOURCE	ChatgptAudit.Screen013.NormalizedScreenAt.noConfusion	TGLExt.Scr
 'ChatgptAudit.Screen013.NormalizedScreenAt.noConfusion' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Continuous049.spectralWeightB	TGLExt.ContinuousModularMultipliers
 'ChatgptAudit.Continuous049.spectralWeightB' depends on axioms: [propext, Classical.choice, Quot.sound]
-TGL_DECL_SOURCE	TGLExt.IALDJones.jonesU	TGLExt.IALDJones
-'TGLExt.IALDJones.jonesU' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.LocalCentralizerInput.rec	TGLExt.LocalCentralizerExpectation
 'ChatgptAudit.LocalCentralizerInput.rec' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.IALDJones.jonesU	TGLExt.IALDJones
+'TGLExt.IALDJones.jonesU' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.lorentz_solder_boost_invariant	TGLExt.ModularSignatureObstruction
 'ChatgptAudit.lorentz_solder_boost_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Profile026.relative_weighted_square._simp_1_3	TGLExt.RelativeProfilePreparation
@@ -70065,10 +70069,10 @@ TGL_DECL_SOURCE	ChatgptAudit.Relative031.relative_delta_apply	TGLExt.RelativeMod
 'ChatgptAudit.Relative031.relative_delta_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	F1Rede.fubiniL2Equiv	TGLExt.F1Fecho394.FubiniL2
 'F1Rede.fubiniL2Equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
-TGL_DECL_SOURCE	TGLExt.tailSub_one_eq_firstAtom_orthogonal	TGLExt.TheDarkSplit
-'TGLExt.tailSub_one_eq_firstAtom_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLExt.lorentzGrp_one_val	TGLExt.PoincareGroup
 'TGLExt.lorentzGrp_one_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.tailSub_one_eq_firstAtom_orthogonal	TGLExt.TheDarkSplit
+'TGLExt.tailSub_one_eq_firstAtom_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGL.VerbInhabitant.VerbWitness.casesOn	TGL.VerbInhabitant
 'TGL.VerbInhabitant.VerbWitness.casesOn' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLV350.Regular.scalarGaussianVacuum_mem_image	TGLExt.V350ScalarGaussianImage
@@ -71499,7 +71503,7 @@ TGL_DECL_SOURCE	TGLV350.Regular.dualOrbitConjugation._proof_2	TGLExt.V350DualOrb
 'TGLV350.Regular.dualOrbitConjugation._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ORDEM016.D2prime.maxwell_null_flux	TGLExt.O16.MaxwellPolynomial_v2
 'ORDEM016.D2prime.maxwell_null_flux' depends on axioms: [propext, Classical.choice, Quot.sound]
-TGL_AXIOM_COVERAGE_TOTAL decl=29294 thm=23284 fora_do_trio=0
+TGL_AXIOM_COVERAGE_TOTAL decl=29296 thm=23286 fora_do_trio=0
 
 --- STDERR ---
 

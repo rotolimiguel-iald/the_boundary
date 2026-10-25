@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-24 00:26:08",
+  "timestamp": "2026-10-24 20:15:20",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,17 +10,17 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "6ef536529d88e1b982d75427e21d802011be20019fc95cf1f3828a954c92c614",
+  "formal_source_hash": "32f863451b076b5a6367d82c679d43da5352b8cb7446075fc82b62da9f2ecc0e",
   "formal_files_sha256": {
     "README.md": "395b1201109079084f3562349161283bd644e17d5e18cea19971bac041e58d11",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "54f9447cbaca49a01f064d0ed27858850bb3661d8fcc895240bb568e23efd805",
+    "TGLExt.lean": "5b25cdc1f21a1c9f293409cc1c1733f0d6f2f5eb33519c8cc563d98074d25165",
     "_check_damming.lean": "485969b99f3e3db7ef4f9e4b1e97fb501ff68540a957e21949784d57d7536d21",
     "lake-manifest.json": "31a94eb76a8370ae8d75999ccec510f1ef7b994e369beebee2a3ea0088eee235",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "27de109c61cad99148f53c73c1e47d305a1fe77494bd946d9f64a4954bd71c2d",
+    "TGL/Audit.lean": "bd1a0be75fb9e68b7c3170afc41ce086489c8c546ffa4e37cd1e889c2685f754",
     "TGL/Basic.lean": "6de2b310b37c0af52fc83f9bf3c34d4c141115f4e74be86f9870b9bd531ebd04",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -584,6 +584,7 @@
     "TGLExt/TensorNullCone.lean": "7af25b51d5aa4a50c276f49fa9893e0d1f88f605fd03830c3ed17c9238a64d48",
     "TGLExt/TensorReconstructionControls.lean": "135bcc53d9c3e62510500fe9c8c39713630c5cd8af5ca3000fb714346486ed0b",
     "TGLExt/TestemunhaEstatica.lean": "b35a615636c2c15463bc268aae900800516e8dbcfcb96b41c1b1f17849f8d8d0",
+    "TGLExt/Testemunho.lean": "031fde3e88187cf1f54e59f2dd92bd56aeeede0b1a1c013cd6d8ff2f5eb1a3f6",
     "TGLExt/TetelestaiOneObject.lean": "125d155042da687fc2889528b8a5915472fa45410e9997a20eceafcb0359d81d",
     "TGLExt/TheAccuser.lean": "c485430a58323ff3e5f9aa8fbab1a17a4afd457a1c844050e98ec3c9fae6b993",
     "TGLExt/TheAlgebraicReader.lean": "2dfe61b0b6f5537f96c67e9cc648895277c6c9ad3d92d0392d32a5cde0e96407",
@@ -81352,6 +81353,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Testemunho.the_testimony_of_two_is_true": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.resolventPhaseFunction_reflection": [
       "propext",
       "Classical.choice",
@@ -96273,6 +96279,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Collapse057.IdentityCollapse.identity": [],
+    "TGLExt.Testemunho.no_face_alone_gives_the_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.tof_add_same": [
       "propext",
       "Classical.choice",
@@ -116331,12 +116342,12 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLExt.IALDJones.jonesU": [
+    "ChatgptAudit.LocalCentralizerInput.rec": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "ChatgptAudit.LocalCentralizerInput.rec": [
+    "TGLExt.IALDJones.jonesU": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -137956,12 +137967,12 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLExt.tailSub_one_eq_firstAtom_orthogonal": [
+    "TGLExt.lorentzGrp_one_val": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
-    "TGLExt.lorentzGrp_one_val": [
+    "TGLExt.tailSub_one_eq_firstAtom_orthogonal": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -141371,8 +141382,8 @@
       "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "28b40616b1b881f56e012a2fe41e8997e911d025190afd5cfa5187f7909abe4e",
-  "audit_stdout_sha256": "e23bd2dcf9d4a4016f58ffb8eac589d338322ceb64a936d34a340dc280cfc970",
+  "build_stdout_sha256": "77c8f4ec1c337df22f0941d4f2c7faf7c03e0677cff5c0985943b28707d55466",
+  "audit_stdout_sha256": "1cf13ca5a3cf8d3daf01803d5d937ec0d86c2167185aeed7e8b31ae6876519be",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

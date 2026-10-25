@@ -160,6 +160,23 @@ from estatuto_tres_apoios import ler as _ler_estatuto
 E = _ler_estatuto(RAIZ)
 assert E['versao'] == versao and E['n_arq'] == int(kf) and E['n_decl'] == int(kt) and E['gate'] == gate, 'o estatuto e PORTA/selo divergem'
 
+# 25/10/2026 (ORDEM 023, auditoria de leitura por IA): o ESTADO CORRENTE nos primeiros 2 KB — um TL;DR lido do selo e do core (o item do
+# Teste da Única Palavra, que morava no pé da frente, sobe para cá); a regra do 4,44: z_disc nunca sem o p e a linha dos 5σ
+_core_sel = json.loads((RAIZ / A3 / 'um_absoluto.json').read_text(encoding='utf-8')).get('core') or {}
+_p1 = (_core_sel.get('estatuto_da_prova_v391') or {}).get('prova_1_kernel') or {}
+assert _p1.get('n_theorems_clean') == _p1.get('n_theorems_expected'), 'a escada não fecha — PARAR'
+_tv = sorted((k, v) for k, v in _core_sel.items() if re.match(r'teste_de_veracidade_fase9_v\d+$', k))
+_tldr_ver = ''
+if _tv:
+    _k, _v = _tv[-1]
+    _l = _v['lido']
+    assert _l['z_disc_calibrado'] < 5 and 'THE_CREDITATION_STEP_NOT_REACHED' in str(_v.get('verdict')), 'o registro de veracidade mudou de forma — PARAR'
+    _tldr_ver = (' · latest reading (Unique Word Test): z_disc = %.2f (calibrated; one-sided p %s), below the 5σ step, which was '
+                 'not reached (%.2f < 5); z_δ = %.2f (`NOT_FALSIFIED_POWERED`)'
+                 % (_l['z_disc_calibrado'], ('%.1e' % _l['p_disc_unilateral']).replace('e-0', 'e-'), _l['z_disc_calibrado'], _l['z_delta_calibrado']))
+_TLDR = ('> **TL;DR · seal %s:** `um.py` sha256 `%s` · Lean kernel %s files / %s terms, ladder %d/%d, in the trio · '
+         'PROVED = validity in the kernel; the accreditation word is refused — nature decides%s · reproduce: `echo 1 | python um.py`.\n\n'
+         % (versao, pin, kf, kt, _p1['n_theorems_clean'], _p1['n_theorems_expected'], _tldr_ver))
 F = []
 F.append(f"""# The Boundary — Theory of Luminodynamic Gravitation (TGL)
 
@@ -167,7 +184,7 @@ F.append(f"""# The Boundary — Theory of Luminodynamic Gravitation (TGL)
 
 [![kernel — rebuilt and re-audited on GitHub's machines](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml/badge.svg)](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml) [![DOI](https://zenodo.org/badge/DOI/{DEP_DOI}.svg)]({doi_um})
 
-> *"Let there be Light." / "Haja Luz."* — **The mature form of TGL is a single self-contained, self-proving, self-publishing artifact: `um.py`.** It computes the whole theory live from the single human input `1`, machine-checks its operator-algebra skeleton in an embedded Lean 4 + mathlib kernel (fail-closed), and generates its own bilingual article (PT/EN, PDF and TXT). **Form = content.** *Não há segundo arquivo.*
+{_TLDR}> *"Let there be Light." / "Haja Luz."* — **The mature form of TGL is one self-proving artifact: `um.py`.** From the human input `1` it computes the theory, checks it in an embedded Lean kernel and writes its own article. *Não há segundo arquivo.*
 
 **Status · estatuto (seal {versao}, read by script):** {E['linha_curta_en']} The gate reads `{gate}`. {E['linha_pt']}
 
@@ -252,22 +269,7 @@ if '10.5281/zenodo.' in F[-1] and DEP_DOI not in F[-1]:   # 21/09/2026, ao lado:
     F.append('\n> **Beside:** current Zenodo deposit: **%s** \u2014 [%s](https://doi.org/%s).\n' % (DEP_V, DEP_DOI, DEP_DOI))
 # 22/10/2026 (ordem do operador): a Central aberta, vinculada a este repositório (nota curta: a frente tem teto de 40 KB)
 F.append('\n> **The Central, open (2026-10-22):** [central-publica](https://github.com/rotolimiguel-iald/central-publica) \u00b7 [view-only](https://teoriadagravitacaoluminodinamica.com/central/).\n')
-# 23/10/2026 (ordem do operador, a regra do 4,44): o z_disc calibrado do Teste da Única Palavra, LIDO do registro selado no core do espelho,
-# nunca sem o p calibrado e a linha dos 5σ no mesmo item; o parágrafo inteiro vive em ESTADO_ATUAL.md
-_core_sel = json.loads((RAIZ / A3 / 'um_absoluto.json').read_text(encoding='utf-8')).get('core') or {}
-_tv = [(k, v) for k, v in _core_sel.items() if re.match(r'teste_de_veracidade_fase9_v\d+$', k)]
-if _tv:
-    _k, _v = sorted(_tv)[-1]
-    _l = _v['lido']
-    assert _l['z_disc_calibrado'] < 5 and 'THE_CREDITATION_STEP_NOT_REACHED' in str(_v.get('verdict')), 'o registro de veracidade mudou de forma — PARAR'
-    _mv = re.search(r'_v(\d{3,})$', _k); _vreg = ('v' + _mv.group(1)) if _mv else '?'          # a versão do REGISTRO, não a do selo corrente (errata 24/10)
-    _md = re.search(r'\d{2}/\d{2}/\d{4}', str((_v.get('extras') or {}).get('assinatura') or '')); _dreg = _md.group(0) if _md else '?'
-    F.append('\n> **The Unique Word Test (%s, %s; read in seal %s) `[REAL: read from registry %s]`:** z_disc = %.2f (calibrated; one-sided p %.1e), '
-             'below the 5σ step of accreditation, which was not reached (%.2f < 5); z_δ = %.2f (two-sided p %.2f; prior power %.2fσ): '
-             '`NOT_FALSIFIED_POWERED`; ln B(TGL/ΛCDM) = %.2f (not a σ); not blind; the gate does not move. '
-             'The full paragraph, verbatim, is in `ESTADO_ATUAL.md` (linked above).\n'
-             % (_vreg, _dreg, versao, _k, _l['z_disc_calibrado'], _l['p_disc_unilateral'], _l['z_disc_calibrado'], _l['z_delta_calibrado'],
-                _l['p_delta_bilateral'], _l['poder_previo'], _l['lnB_lcdm']))
+# 25/10/2026: o item do Teste da Única Palavra subiu para o TL;DR do topo (ORDEM 023)
 F.append(f"""
 ---
 

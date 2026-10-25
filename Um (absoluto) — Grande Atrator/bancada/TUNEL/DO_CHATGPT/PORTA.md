@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 664 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 665 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -22,7 +22,7 @@ Pasta do repositorio the_boundary com 664 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-664 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT
+665 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT
 
 **RESULTADO SELADO**
 
@@ -596,6 +596,7 @@ Pasta do repositorio the_boundary com 664 arquivo(s) rastreado(s).
 | `ENTREGA_022_ESPONTANEA_resposta_quadratica_por_dinamica_unitaria.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_022_ESPONTANEA_resposta_quadratica_por_dinamica_unitaria.md) |
 | `ENTREGA_023_ESPONTANEA_covetor_materia_conservacao.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_023_ESPONTANEA_covetor_materia_conservacao.md) |
 | `ENTREGA_024_ESPONTANEA_perturbacao_termica_da_torre.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_024_ESPONTANEA_perturbacao_termica_da_torre.md) |
+| `ENTREGA_024_PENDENCIA_DESCRICAO_THE_BOUNDARY.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_024_PENDENCIA_DESCRICAO_THE_BOUNDARY.md) |
 | `ENTREGA_025_ESPONTANEA_limite_termico_e_corte.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_025_ESPONTANEA_limite_termico_e_corte.md) |
 | `ENTREGA_026_ESPONTANEA_afinidade_e_estado_global.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_026_ESPONTANEA_afinidade_e_estado_global.md) |
 | `ENTREGA_027_ESPONTANEA_transporte_unitario_e_modular.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_027_ESPONTANEA_transporte_unitario_e_modular.md) |
@@ -700,4 +701,4 @@ Pasta do repositorio the_boundary com 664 arquivo(s) rastreado(s).
 
 ---
 
-gerado por script de git ls-files em 2026-10-24 -- nao editar a mao
+gerado por script de git ls-files em 2026-10-25 -- nao editar a mao

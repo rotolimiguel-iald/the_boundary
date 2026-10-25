@@ -1,3 +1,5 @@
+import TGLExt.Testemunho
+
 import TGLExt.Sonico
 import TGLExt.AfinacaoDasCordas
 

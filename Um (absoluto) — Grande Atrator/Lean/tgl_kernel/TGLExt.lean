@@ -1104,3 +1104,5 @@ import TGLExt.Token
 
 import TGLExt.Sonico
 import TGLExt.AfinacaoDasCordas
+
+import TGLExt.Testemunho

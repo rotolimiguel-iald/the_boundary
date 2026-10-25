@@ -239,6 +239,17 @@ def ler(raiz=RAIZ):
              eco_n=eco['n'], eco_ex=eco['excluded_by_data'], eco_inc=eco['inconclusive'], jz=jr['max_abs_z'], jthr=jr['z_max_threshold_INPUT'],
              gpu_modo=modo, gpu_reuso_de=reuso_de, jlim=jr['threshold_INPUT'], jcanais=jr['channels_needed_for_threshold_at_primary_quality'],
              registro=ep[0] if ep else None, ressalva=bool(rv), campo_curvo=bool(lc))
+    # 25/10/2026 (ORDEM 023, auditoria de leitura por IA): a leitura CORRENTE da Fase 9 é o Teste da Única Palavra (V2); a V1 (4,28) é a
+    # história. Lida do registro mais novo `teste_de_veracidade_fase9_vN`; a regra do 4,44: z_disc nunca sem o p e a linha dos 5σ.
+    _tvs = sorted(k for k in core if re.match(r'teste_de_veracidade_fase9_v\d+$', k))
+    v['v2'] = None
+    if _tvs:
+        _r = core[_tvs[-1]]
+        _l = _r.get('lido') or {}
+        _tok(_r['verdict'], 'THE_CREDITATION_STEP_NOT_REACHED', 'NOT_FALSIFIED_WITH_POWER')
+        _exige(_r.get('all_verified') is True and _l.get('z_disc_calibrado') is not None and _l['z_disc_calibrado'] < 5,
+               'o registro de veracidade mudou de forma — rever o texto')
+        v['v2'] = dict(reg=_tvs[-1], zd=_l['z_disc_calibrado'], pd=_l['p_disc_unilateral'], zdl=_l['z_delta_calibrado'])
     # v394 em diante: a errata da escada (kh_n1_cobertura_v394, gerência c1, 19/10/2026) — a escada conta BANDEIRAS de declarações
     # nomeadas (teoremas e definições); os números não mudam de significado, só a palavra. Lida do core, nunca digitada.
     kh4 = core.get('kh_n1_cobertura_v394')
@@ -387,13 +398,16 @@ def _textos(v):
         '| **2 · the rites against nature, with pre-registered falsifiers** | GR recovered as the classical limit in every rite row where '
         'GR is read (a per-row reading by the management). **The Hubble ratio** `K = E(z*)^{2β/3}`, β fixed by the axiom, zero '
         'parameters adjusted (use-novelty): local H₀ predicted %s against the readers %s ± %s km/s/Mpc as declared; the fitted '
-        'β̂ = %s ± %s sits at z_δ = %s from β_TGL; with the readers as declared, ln B(TGL/ΛCDM) = %s and z_disc = %s '
-        '(√Δχ²), below the %d at which the protocol discriminates. **The void floor**: the 5σ lower bound %s sits above '
+        'β̂ = %s ± %s sits at z_δ = %s from β_TGL; with the readers as declared (Phase 9 V1, the history), ln B(TGL/ΛCDM) = %s and z_disc = %s '
+        '(√Δχ²), below the %d at which the protocol discriminates%s. **The void floor**: the 5σ lower bound %s sits above '
         'β = %s (powered; one-sided — shallow ΛCDM also passes) | **%d of %d** GR rows; **%s**; Phase 9 pre-registered by hash '
         '(`%s`) | **0 of %d charges of the theory FALSIFIED** — the theory stood; %s. Phase 9’s frozen verdict reads '
         '`INCONCLUSIVE_SYSTEMATICS` until the readers’ sources are pinned by sha256; the article reads the resolution of the Hubble tension '
         'as a `[CONJECTURE]` of mechanism |'
-        % (H0p, H0r, sH0r, bhat, sbhat, zd, lnB, zdisc, v['limiar'], L5, beta, v['gr_ok'], v['gr_n'], led_en, v['spec9'], v['n_ch'], eco_en),
+        % (H0p, H0r, sH0r, bhat, sbhat, zd, lnB, zdisc, v['limiar'],
+           ('; **current: the Unique Word Test** (V2): z_disc = %.2f (calibrated; one-sided p %s), below the 5σ step, not reached (%.2f < 5)'
+            % (v['v2']['zd'], ('%.1e' % v['v2']['pd']).replace('e-0', 'e-'), v['v2']['zd'])) if v.get('v2') else '',
+           L5, beta, v['gr_ok'], v['gr_n'], led_en, v['spec9'], v['n_ch'], eco_en),
         '| **3 · the quantum pillar on the GPU** | the theory’s open system (H_LD + five GKLS/Lindblad jumps) computed in double '
         'precision on an %s under pre-registration: unique attractor over the whole grid; the blind instrument recovers the law the code '
         'injected; the controls fail as required | **%d/%d** grid points; **%s/%s** stress instances; %s blind injections, %d errors; CPU '

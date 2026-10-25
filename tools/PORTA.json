@@ -4,7 +4,7 @@
   "titulo": "tools",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-24T16:26:40Z",
+  "gerado_utc": "2026-10-25T07:31:03Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -27,8 +27,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/estatuto_tres_apoios.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/estatuto_tres_apoios.py",
-      "sha256_16": "e5c6a3c5c7b0ef95",
-      "bytes": 46367
+      "sha256_16": "58dc7668062fb9bb",
+      "bytes": 47529
     },
     {
       "nome": "gerar_estado_atual.py",
@@ -37,8 +37,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_estado_atual.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/gerar_estado_atual.py",
-      "sha256_16": "b0f2e2f8461f8d30",
-      "bytes": 119600
+      "sha256_16": "9a8b7da180823e69",
+      "bytes": 129332
     },
     {
       "nome": "gerar_portas.py",
@@ -57,8 +57,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_readme_frente.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/gerar_readme_frente.py",
-      "sha256_16": "98ab74206ac20c08",
-      "bytes": 21420
+      "sha256_16": "585987446d7a597d",
+      "bytes": 21287
     },
     {
       "nome": "guarda_do_selo.py",
@@ -104,5 +104,5 @@
   "total_arquivos_nesta_pasta": 8,
   "total_arquivos_com_subpastas": 8,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/tools",
-  "rodape": "gerado por script de git ls-files em 2026-10-24 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-10-25 -- nao editar a mao"
 }
