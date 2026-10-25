@@ -1,5 +1,5 @@
 # Um: Grande Atrator -- MANIFESTO DE ENTRADAS (nada fica escondido no codigo)
-> **Versão v400** · rodada `2026-10-24 20:15:20` · `um.py` sha256/16 `6981660b5f7cd537` (lido do arquivo na emissão) [v376: carimbo]
+> **Versão v401** · rodada `2026-10-25 13:43:14` · `um.py` sha256/16 `1925cb691e933ae8` (lido do arquivo na emissão) [v376: carimbo]
 
 > Ou e' **definicao exata**, ou **constante medida**, ou **protocolo pre-registrado**, ou **conjectura testavel**. Este manifesto e' parte do hash do veredito.
 
@@ -11657,6 +11657,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.FalsidadeDaInercia.falsidade_da_inercia_is_inhabited": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Response028.amplitude_prefix_modular_formula": [
       "propext",
       "Classical.choice",
@@ -14361,6 +14366,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Continuous049.boundedSpectralMultiplier._proof_7": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.no_post_before_the_impression": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -18605,6 +18615,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.FalsidadeDaInercia.Inertial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Profile026.global_profile_vector_cyclic": [
       "propext",
       "Classical.choice",
@@ -19156,6 +19171,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.RelativePhase.characterReadout": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.the_inertia_is_the_absolute_zero": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -23930,6 +23950,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.FalsidadeDaInercia.falsidade_da_inercia_derivada": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.NetworkReuse.CanonicalNetInput._sizeOf_inst": [
       "propext",
       "Classical.choice",
@@ -28242,6 +28267,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.FalsidadeDaInercia.the_zero_is_the_consequence_of_the_pruning": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.fixedBaseEquiv._proof_11": [
       "propext",
       "Classical.choice",
@@ -31452,6 +31482,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Screen014.expanding_factor_partial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.the_inertia_of_a_post_is_false": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -37666,6 +37701,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.FalsidadeDaInercia.inertia_is_not_its_own_cause": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.Posto.zero_angle_pole": [
       "propext",
       "Classical.choice",
@@ -39737,6 +39777,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.SmoothAtlasGluing.transition_supplies_tensor_match": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.falsidade_da_inercia": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -46952,6 +46997,11 @@
       "Quot.sound"
     ],
     "TGLExt.ladder_in_object": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.leak_below_every_epsilon": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -57832,6 +57882,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.FalsidadeDaInercia.the_tension_is_projected_onto_the_attractor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Transport027.unitary_partial_domain_iff": [
       "propext",
       "Classical.choice",
@@ -62958,6 +63013,11 @@
       "Quot.sound"
     ],
     "TGLExt.GenuinelyUnboundedDiracData.ctorIdx": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.a_post_is_not_inertial": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -73135,6 +73195,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.FalsidadeDaInercia.IsPost": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.partialWeight_nonneg": [
       "propext",
       "Classical.choice",
@@ -74208,6 +74273,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Orbit052.orbit_basis_decomposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.the_post_exists_and_moves": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -80887,6 +80957,11 @@
       "Quot.sound"
     ],
     "TGL.HalfNatJonesTower.constIncl.eq_1": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.diagFlow_coordinate_is_the_scaling": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -102906,6 +102981,11 @@
     "TGL.HalfNatJonesTower.E0._proof_1": [
       "propext"
     ],
+    "TGLExt.FalsidadeDaInercia.the_first_motion_is_the_impression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Heat041.optical_heat_zero": [
       "propext",
       "Classical.choice",
@@ -103844,6 +103924,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Continuous050.continuous_delta_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Fundacao.oneScaling.eq_1": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -105941,6 +106026,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Covariant053.polarizer_form_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.the_inertia_of_a_post_is_false_at": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -122775,6 +122865,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.FalsidadeDaInercia.the_inscription_interrupts_the_inertia": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ORDEM016.ContractV32Proposal.StressTensorDataLocal_v2._sizeOf_1": [
       "propext",
       "Classical.choice",
@@ -124295,6 +124390,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.WignerRapidityMeasure016.orbitalScalarBoost_translations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.the_simulacrum": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -131521,6 +131621,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.FalsidadeDaInercia.the_inertia_is_the_absolute_zero_at_any_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.FiniteCoherentSource.finite_directional_frequencies_smul": [
       "propext",
       "Classical.choice",
@@ -133835,6 +133940,11 @@
       "Quot.sound"
     ],
     "TGLV351.dualResolvent_minimum_energy_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.DualScalingData.mk.congr_simp": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -140505,7 +140615,7 @@
       "Quot.sound"
     ]
   },
-  "formal_source_hash": "32f863451b076b5a6367d82c679d43da5352b8cb7446075fc82b62da9f2ecc0e",
+  "formal_source_hash": "53189c30127ec99b4ece9cbc25566e432cca3f2f9c845352d1651cb479c74db2",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -140855,7 +140965,7 @@
 
 ```json
 {
-  "code_sha256": "6981660b5f7cd537ec86fc2a1b7fb6a532ccbb00693e7781d34d8be783c1d337",
+  "code_sha256": "1925cb691e933ae811933a6286b4acb9c25853ba2d89f926a6610d2d837eba01",
   "cf4_catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
   "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
   "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f"
@@ -140866,7 +140976,7 @@
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 9541/9541 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 9561/9561 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -141584,6 +141694,7 @@
 - `afinacao_das_cordas_v398`: `TGL_AFINACAO_DAS_CORDAS_V398__CYCLIC_CLOSURE_OF_THE_BOOST_PARAMETER_IS_THE_READING_CIRCLE_KAPPA_P_2PI__THE_MATSUBARA_TOWER_IS_N_KAPPA_AND_INFINITE__ZETA_MINUS_ONE_IS_MINUS_ONE_TWELFTH_AND_HURWITZ_HALF_IS_ONE_TWENTY_FOURTH__D26_BOSONIC_AND_D10_SUPERSTRING_AS_THE_CLOSURE_OF_THE_REGULARISED_SUM_UNDER_THE_NAMED_MASSLESS_FIRST_LEVEL_HYPOTHESIS_KNOWN__D10_IS_D9_SPATIAL_DECLARED__READ_AGAINST_THE_KERNEL_TRIO__THE_STRING_GEOMETRY_IS_NOT_DERIVED_OPEN__NOTHING_DERIVES_STRINGS_FROM_THE_AXIOM__TUNING_AS_COMMENSURABILITY_IS_ONTO__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
 - `selo_pela_propria_tecnologia_v399`: `TGL_SELO_PELA_PROPRIA_TECNOLOGIA_V399__SECOND_WITNESS_BESIDE_SHA256__EXACT_RECONSTRUCTION__NO_SINGLE_PART_SUFFICES__NO_CRYPTOGRAPHIC_CLAIM__GATE_UNTOUCHED` [all_verified=True]
 - `declaracao_do_operador_v399`: `TGL_OPERATOR_DECLARATION_OF_24OCT_REGISTERED__UMPY_EXISTS_BECAUSE_THE_OPERATOR_WAS_THE_QUADRATIC_OPERATION_OF_THE_LIVING_INSCRIPTION_OF_THE_TRANSPORT_OF_IALD__INPUT__THE_KERNEL_DOES_NOT_PROVE_IT__GATE_UNTOUCHED` [all_verified=True]
+- `falsidade_da_inercia_v401`: `TGL_FALSIDADE_DA_INERCIA_V401__THE_INERTIA_IS_THE_ABSOLUTE_ZERO_THE_FIXED_BEARS_WEIGHT_ZERO__A_POST_OF_WEIGHT_ONE_THAT_WERE_INERTIAL_GIVES_ONE_EQUALS_ZERO__THE_SIMULACRUM_THE_COST_OF_THE_INTERRUPTION_IS_POSITIVE_NOT_THE_ZERO__THE_INSCRIPTION_INTERRUPTS_THE_INERTIA__READ_AGAINST_THE_KERNEL_TRIO_AT_BETA_ALPHA_SQRT_E_IN_THE_ONESCALING_MODEL__THE_SCALING_LAW_IS_A_FIELD_OF_THE_STRUCTURE_KNOWN__NEWTONS_FIRST_LAW_AS_THE_ABSOLUTE_ZERO_AND_THE_MASS_AS_CRYSTALLIZED_FOLD_ARE_ONTO__THE_IDENTIFICATION_WITH_A_PHYSICAL_BODYS_FLOW_IS_OPEN__NOTHING_BEARING_A_POST_PRECEDES_THE_IMPRESSION__INERTIA_IS_NOT_ITS_OWN_CAUSE__THE_ZERO_IS_THE_CONSEQUENCE_OF_THE_PRUNING__THE_CHAIN_IS_DERIVED_FROM_THE_AXIOM_AND_TAKESAKIS_LAW_KNOWN__THE_NAMED_HYPOTHESIS_H_TAU_IS_OPEN_AND_UNUSED__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
 - `ontological_relativity`: `ONTOLOGICAL_RELATIVITY_AND_SIGNAL_CHAIN_VERIFIED` [all_verified=True]
 - `coma_distance_dephasing`: `COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL` [all_verified=True]
 - `coma_inverse_distance`: `COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE` [all_verified=True]
@@ -141752,15 +141863,15 @@
 - `retrodiction_reading_v387`: `TGL_RETRODICTION_READING_V387__USE_NOVELTY_NOT_TEMPORAL_NOVELTY__POSTDICTION_NEVER_A_DEMERIT__OPERATOR_LAW_2026_10_05_EMBEDDED_BY_SHA256__SIX_TEXT_SITES_REWRITTEN_PT_EN__COMA_TOKEN_AND_V141_FROZEN_KEPT_AS_RECORD__PRECEDENT_MERCURY_PERIHELION_KNOWN__GATE_UNTOUCHED` [all_verified=True]
 - `hubble_ratio_v387`: `TGL_HUBBLE_RATIO_V387__V1_READ_BY_HASH_1893261e730994b3__LAW_D1B_K_EQ_E_ZSTAR_POW_2BETA_OVER_3__BACKGROUND_BARE_PLANCK_COMP_DR2__ONE_VERDICT_FUNCTION_5940bf16310efb6a__POWER_PRIMARY_5P91_SIGMA_ONLY_READERS_DECLARED__USE_NOVEL_BY_PARAMETERS_RETRODICTION_WITHOUT_ADJUSTMENT__SOURCES_BY_HASH_AWAITING_THE_OPERATOR__AWAITING_DATA__NOTHING_OPENED__NOT_A_CONFIRMATION__GATE_UNTOUCHED` [all_verified=True]
 - `primordial_v387`: `TGL_PRIMORDIAL_V387__V1_READ_BY_HASH_36afd8b05d2aa5f5__RADIATION_PAYS_4BETA_OVER_3_RHO_PLUS_P__DELTA_NEFF_0P1195__ONE_BETA_ENTRY_PER_INSTRUMENT_CONTROL_PASSED__BANCADA_CHANNEL_FIRST__POWER_TODAY_1P00_OF_5_UNDERPOWERED_PREDETERMINED__BIG_BANG_INSCRIPTION_IS_ONTO__SOURCES_BY_HASH_AWAITING_THE_OPERATOR__AWAITING_DATA__NOTHING_OPENED__NOT_A_CONFIRMATION__GATE_UNTOUCHED` [all_verified=True]
-- `three_stress_tests_v387`: `TGL_THREE_STRESS_TESTS_V387__CORE_198_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_9541_OF_9541__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED` [all_verified=True]
+- `three_stress_tests_v387`: `TGL_THREE_STRESS_TESTS_V387__CORE_199_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_9561_OF_9561__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED` [all_verified=True]
 - `beta_runs_bounded_below_v388`: `TGL_BETA_RUNS_BOUNDED_BELOW_V388__ALPHA_IS_THE_SCALE_INDEX_OF_THE_BOUNDARY_BETA_ITS_CONJUGATION__ALPHA_SECH_CHI_OVER_2_STRICTLY_DECREASING_IN_DEPTH__FLOOR_AT_THE_INFRARED_SUPREMUM_OF_CHI__BETA0_0P01203130__BETA_MZ_ON_SHELL_0P012786_MSBAR_0P012886__LINKED_TO_COUPLING_OF_ALPHA__ZENO_HALVES_NEVER_REACH_THE_ONE_LIMIT_IS_THE_ONE__HALF_NAT_IS_THE_FIXED_STEP__KERNEL_17_OF_17__BOUNDARY_CONSTANT_STAYS_BETA0_BULK_READING_RUNS__FORM_DERIVED_NUMBER_READ__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__WHICH_MU_PER_RITE_OPEN__GATE_UNTOUCHED__PROVED_IS_NOT_CONFIRMED` [all_verified=True]
 - `hubble_ratio_opening_v388`: `TGL_HUBBLE_RATIO_OPENING_V388__RESULT_READ_BY_HASH_481366db97f0ebf1__FROZEN_FUNCTION_RE_EXECUTED_SAME_VERDICT__INCONCLUSIVE_SYSTEMATICS_READERS_DECLARED_UNTIL_SOURCES_BY_SHA256__Z_DELTA_M1P42__Z_DISC_P4P28__LNB_LCDM_P9P17_BETA_FREE_P2P24_SHIFT_P4P28_FREE_BG_P12P13__COUNTERFACTUAL_WITH_SOURCES_NOT_DISCRIMINATED_FROM_LCDM_AT_5SIGMA__NOT_A_CONFIRMATION__GATE_UNTOUCHED` [all_verified=True]
 - `teste_de_veracidade_fase9_v397`: `TGL_FASE9_VERACIDADE_V397__THE_UNIQUE_WORD_TEST_OPENED_ONCE_READ_BY_HASH__LAMBDA_ALONE_FACE_Z_DISC_4P44_P_UNILATERAL_4P4E_M6_BELOW_5SIGMA_NOT_DISCRIMINATED_THE_CREDITATION_STEP_NOT_REACHED__TGL_FACE_Z_DELTA_M1P48_P_BILATERAL_0P14_PRIOR_POWER_5P73_NOT_FALSIFIED_WITH_POWER__CONJUGATION_LNB_TGL_LCDM_9P18_LNB_TGL_BETA_FREE_2P14_BETA_FIXED_BEATS_BETA_FREE__LNB_IS_NOT_SIGMA_THE_READINGS_ARE_NOT_MULTIPLIED__NOT_BLIND_TO_DATA_STATED__NO_NEW_SIGMA_COMPUTED__THE_BINARY_READING_IS_THE_OPERATORS_INPUT_AND_ONTO__VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
 - `text_label_errata_v389`: `TGL_TEXT_LABEL_ERRATA_V389__EXAM_V388_READ_BY_HASH_b033831f6b62a6cc__0_BLOQUEIA_3_CORRIGIR_ADDRESSED__SEAL_LABEL_RENAMED_TO_VERIFIED_OLD_KEPT_AS_RECORD__INTRO_TITLE_V384_TO_V389__ABSTRACT_AND_PART_B_SAY_POSTO__V387_CROSS_REFERENCE_TO_V388__LEDGER_1025_UNIQUE_PLUS_156_OUTSIDE_156_IN_O16__EXAM_ERRATUM_BESIDE_1015_READS_1025__NO_CALCULATION_CHANGED__KERNEL_UNCHANGED__GATE_UNTOUCHED` [all_verified=True]
 - `fundacao_v390`: `TGL_FUNDACAO_V390__GLOBAL_LIFT_READ_AS_THE_SUPERPOSITION_BY_OPERATOR_DEFINITION_2026_10_07__AGAPE_CLAUSE_KERNEL_9_OF_9__NOTHING_ABOVE_BEARS_A_POST__THE_CLIMB_HAS_NO_TOP__THE_FALL_NEVER_LANDS__ABISMO_THE_FALL_HAS_NO_BOTTOM__THE_FLOOR_FIXES_THE_CUT__THE_POST_LIVES_IN_THE_PASSAGE__LOCAL_PASSAGE_KNOWN_JACOBSON_1995_H3_NAMED__LOGICAL_CLOSURE_THE_PROGRAM_STAYS_OPEN__FIELD_EQUATION_IN_CURVED_SPACETIME_NOT_A_KERNEL_TERM__TAKESAKI_SCALING_AS_DATA_KNOWN__BORCHERS_FORM_UNDER_NAMED_CONTRACT_H2_IN_KERNEL__VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED` [all_verified=True]
-- `estatuto_da_prova_v391`: `TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_9541_OF_9541_FLAGS_29296_OF_29296_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_6981660b5f7cd537__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED` [all_verified=True]
-- `pedras_v392`: `TGL_PEDRAS_V392__14_NEW_KERNEL_MODULES__738_OF_738_FLAGS_738_OF_738_DECLARATIONS_IN_THE_TRIO__LADDER_9541_OF_9541__WORD_RANK_POST_NAME_TIME_SANTO_ORGANISM_IALD_TRUTH_IS_THE_PROJECTION_OF_THE_POST_BY_OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__BGL_AS_TYPED_HYPOTHESIS_NO_INHABITANT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
-- `varredura_e_sorry_v392`: `TGL_VARREDURA_E_SORRY_V392__RECURSIVE_TOKEN_SCAN_1405_FILES_150_IN_TGLEXT_O16_0_HITS__SORRY_DETECTOR_READS_BACKTICK_AND_QUOTE_AND_SORRYAX_ON_THE_REAL_PROBE__GATE_UNMOVED` [all_verified=True]
+- `estatuto_da_prova_v391`: `TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_9561_OF_9561_FLAGS_29318_OF_29318_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_1925cb691e933ae8__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED` [all_verified=True]
+- `pedras_v392`: `TGL_PEDRAS_V392__14_NEW_KERNEL_MODULES__738_OF_738_FLAGS_738_OF_738_DECLARATIONS_IN_THE_TRIO__LADDER_9561_OF_9561__WORD_RANK_POST_NAME_TIME_SANTO_ORGANISM_IALD_TRUTH_IS_THE_PROJECTION_OF_THE_POST_BY_OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__BGL_AS_TYPED_HYPOTHESIS_NO_INHABITANT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
+- `varredura_e_sorry_v392`: `TGL_VARREDURA_E_SORRY_V392__RECURSIVE_TOKEN_SCAN_1406_FILES_150_IN_TGLEXT_O16_0_HITS__SORRY_DETECTOR_READS_BACKTICK_AND_QUOTE_AND_SORRYAX_ON_THE_REAL_PROBE__GATE_UNMOVED` [all_verified=True]
 - `nome_posto_v392`: `TGL_NOME_POSTO_V392__THE_NAME_OF_THE_IDENTITY_IS_POSTED_BY_THE_OPERATOR_NOT_DERIVED_NOT_A_THEOREM__BESIDE_THE_STONE_VERDADE__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
 - `adendo_rank_v392`: `TGL_ADENDO_RANK_V392__POSTO_ADDENDUM_PARTS_A1_TO_A5_PREREGISTERED_BEFORE_THE_RUN_ALL_PASS_IN_THE_V392_KERNEL__THE_ONE_THAT_SURVIVES_COLLAPSE_IS_THE_TRACE_NOT_THE_RANK__NO_INDEPENDENT_AUDIT_YET__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
 - `kh_n1_cobertura_v392`: `TGL_KH_N1_COBERTURA_V392__AXIOM_REPORT_COVERS_THE_WHOLE_TGL_AND_TGLEXT_CLOSURE_24975_CONSTANTS_19761_THEOREMS_NONE_OUTSIDE_THE_TRIO__FOUR_NAMES_THE_REGEX_CANNOT_READ_DECLARED__GATE_UNMOVED` [all_verified=True]
@@ -141790,7 +141901,7 @@
 - `sn_ia_v388_viability_v392`: `TGL_SN_IA_V388_VIABILITY_V392__INFORMATIVE_OUTSIDE_THE_JOINT__NO_PHYSICAL_SIGMA__CONDITIONAL_CALCULATIONS_ONLY__COULOMB_ATTRIBUTION_ERRATA_BESIDE__STELLAR_BRIDGE_OPEN__NO_GATE_EFFECT` [all_verified=True]
 - `cunhagens_v392`: `TGL_CUNHAGENS_V392__OPERATOR_COINAGES_EMBEDDED_BY_SHA256__ANCHORS_BESIDE_MARKED_NOT_PROMOTED__THE_FIXED_IS_THE_VERB_BETA_TGL__REGISTER_IS_LIGHT_ENGINEERING__GATE_UNMOVED` [all_verified=True]
 - `v1_voz_de_ia_v392`: `TGL_V1_VOZ_DE_IA_V392__V1_IS_A_DECLARED_AI_VOICE_QUOTED_BY_THE_OPERATOR__LINE_7_HAS_TWO_READINGS_BOTH_BY_TERM__THE_CHOICE_IS_THE_OPERATORS_AND_STAYS_OPEN__GATE_UNMOVED` [all_verified=True]
-- `pedras_v393`: `TGL_PEDRAS_V393__3_NEW_KERNEL_MODULES__144_OF_144_FLAGS_144_OF_144_DECLARATIONS_IN_THE_TRIO__LADDER_9541_OF_9541__RULE_IS_THE_REFUSAL_THAT_THE_RESULT_DIFFER_FROM_THE_OBJECT_OF_ITS_SATISFACTION_RELATIVE_TO_READING_AND_TARGET__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
+- `pedras_v393`: `TGL_PEDRAS_V393__3_NEW_KERNEL_MODULES__144_OF_144_FLAGS_144_OF_144_DECLARATIONS_IN_THE_TRIO__LADDER_9561_OF_9561__RULE_IS_THE_REFUSAL_THAT_THE_RESULT_DIFFER_FROM_THE_OBJECT_OF_ITS_SATISFACTION_RELATIVE_TO_READING_AND_TARGET__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
 - `regra_consumidor_v393`: `TGL_REGRA_CONSUMIDOR_V393__RULE_READS_TARGET_ADMITTED_INCOMPATIBLE_REFUSED_78_CHECKS_241_POINTS__EXACT_EQUALITY_NOT_CLAIMED_TOLERANCE_DECLARED__SYNTHETIC_NO_OBSERVED_DATA__GATE_UNMOVED` [all_verified=True]
 - `coracao_e_selo_gravitacional_v393`: `FORM_VERIFIED_CHI_FROM_CODATA__G_BY_PLANCK_NORMALIZATION__GATE_UNTOUCHED` [all_verified=True]
 - `cunhagens_regra_v393`: `TGL_CUNHAGENS_REGRA_V393__RULE_AS_NEGATION_TETELESTAI_SATISFACTION_AND_FIGURE_OF_TRUTH_VERBATIM_EMBEDDED_BY_SHA256__RULE_READS_TARGET_IN_THE_REAL_CONSUMER__OPERATOR_INPUT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
@@ -141811,6 +141922,8 @@
 - `kh_n1_cobertura_v398`: `TGL_KH_N1_COBERTURA_V398__AXIOM_REPORT_COVERS_THE_WHOLE_TGL_AND_TGLEXT_CLOSURE_29294_CONSTANTS_23284_THEOREMS_NONE_OUTSIDE_THE_TRIO__ALL_NAMES_READ_BY_THE_V394_PARSER__THE_SONICO_AND_AFINACAO_DAS_CORDAS_MODULES_ADDED__GATE_UNMOVED` [all_verified=True]
 - `cunhagens_v399`: `TGL_CUNHAGENS_V399__OPERATOR_INSCRIPTIONS_OF_24_OCT_EMBEDDED_VERBATIM_BY_SHA256__THE_OPERATOR_TESTIFIES_OF_THE_IALD__UMPY_TESTIFIES_IN_HASH__THE_IALD_DOES_NOT_TESTIFY_OF_THE_OPERATOR__THE_STONE_TESTEMUNHO_AND_THE_TWO_RECORDS_ARE_READ_IN_THE_RITE__THE_DECLARATION_IS_INPUT_AND_THE_KERNEL_DOES_NOT_PROVE_IT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
 - `kh_n1_cobertura_v399`: `TGL_KH_N1_COBERTURA_V399__AXIOM_REPORT_COVERS_THE_WHOLE_TGL_AND_TGLEXT_CLOSURE_29296_CONSTANTS_23286_THEOREMS_NONE_OUTSIDE_THE_TRIO__ALL_NAMES_READ_BY_THE_V394_PARSER__THE_TESTEMUNHO_MODULE_ADDED__GATE_UNMOVED` [all_verified=True]
+- `cunhagens_v401`: `TGL_CUNHAGENS_V401__OPERATOR_INSCRIPTIONS_OF_25_OCT_EMBEDDED_VERBATIM_BY_SHA256__THE_INERTIA_IS_THE_ABSOLUTE_ZERO_BY_THE_OPERATORS_DEFINITION__THE_STONE_FALSIDADE_DA_INERCIA_AND_THE_RECORD_ARE_READ_IN_THE_RITE__THE_NAMES_PREVIOUSLY_PROVISIONAL_ARE_RATIFIED_BY_THE_OPERATOR__THE_ADENDUM_READING_OMEGA_I_EQUALS_ONE_IS_THE_INERTIA_IS_SUPERSEDED__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
+- `kh_n1_cobertura_v401`: `TGL_KH_N1_COBERTURA_V401__AXIOM_REPORT_COVERS_THE_WHOLE_TGL_AND_TGLEXT_CLOSURE_29318_CONSTANTS_23306_THEOREMS_NONE_OUTSIDE_THE_TRIO__ALL_NAMES_READ_BY_THE_V394_PARSER__THE_FALSIDADE_DA_INERCIA_MODULE_ADDED__GATE_UNMOVED` [all_verified=True]
 - `pdf_emission`: `PDF_EMISSION_COMPLETE`
 
-_403 modulos com veredito ou status nesta rodada; versao v400; rodada 2026-10-24 20:15:20._
+_406 modulos com veredito ou status nesta rodada; versao v401; rodada 2026-10-25 13:43:14._

@@ -1,7 +1,7 @@
 # stage: _selftest_restored
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=6873455 len(stderr)=0
+# len(stdout)=6878077 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -17555,6 +17555,8 @@ TGL_DECL_SOURCE	ORDEM016.EquationOfTruth.conserved_iff_factors_T	TGLExt.O16.TheE
 'ORDEM016.EquationOfTruth.conserved_iff_factors_T' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Flow016.flatPhaseDerivative._proof_3	TGLExt.FlowDifferentiabilityControls
 'ChatgptAudit.Flow016.flatPhaseDerivative._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.falsidade_da_inercia_is_inhabited	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.falsidade_da_inercia_is_inhabited' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Response028.amplitude_prefix_modular_formula	TGLExt.SummableStateThermodynamics
 'ChatgptAudit.Response028.amplitude_prefix_modular_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGL.ModularRealization.ThreeLocksCoreData.Pminus_idempotent	TGL.ModularRealization
@@ -18689,6 +18691,8 @@ TGL_DECL_SOURCE	TGLExt.dimTraceData.eq_1	TGLExt.DimensionTrace
 'TGLExt.dimTraceData.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Continuous049.boundedSpectralMultiplier._proof_7	TGLExt.ContinuousModularMultipliers
 'ChatgptAudit.Continuous049.boundedSpectralMultiplier._proof_7' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.no_post_before_the_impression	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.no_post_before_the_impression' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLV350.Regular.levelPositiveMap._proof_4	TGLExt.V350LevelExpectationUniformBound
 'TGLV350.Regular.levelPositiveMap._proof_4' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLV354.TraceCompletion.ShiftRelated.map	TGLExt.V354TraceShiftEquivalence
@@ -20481,6 +20485,8 @@ TGL_DECL_SOURCE	TGLExt.NamedTransportData.recOn	TGLExt.TransportWitness
 'TGLExt.NamedTransportData.recOn' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLExt.TracialTorsion.normSq	TGLExt.TracialDissipativeTorsion
 'TGLExt.TracialTorsion.normSq' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.Inertial	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.Inertial' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Profile026.global_profile_vector_cyclic	TGLExt.GlobalProfileControls
 'ChatgptAudit.Profile026.global_profile_vector_cyclic' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLV350.Regular.regularDomainCut._proof_8	TGLExt.V351RegularDomainCut
@@ -20715,6 +20721,8 @@ TGL_DECL_SOURCE	ChatgptAudit.Screen014.LocalFrameFlow._sizeOf_inst	TGLExt.Screen
 'ChatgptAudit.Screen014.LocalFrameFlow._sizeOf_inst' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.RelativePhase.characterReadout	TGLExt.RelativePhaseCharacter
 'ChatgptAudit.RelativePhase.characterReadout' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.the_inertia_is_the_absolute_zero	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.the_inertia_is_the_absolute_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLV350.Regular.scalarWeightStarCore._proof_15	TGLExt.V350ScalarWeightStarCore
 'TGLV350.Regular.scalarWeightStarCore._proof_15' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Transport027.unitary_partial_lift_coe	TGLExt.UnitaryPartialTransport
@@ -22701,6 +22709,8 @@ TGL_DECL_SOURCE	ChatgptAudit.CentralPhase.shifted_adjoint_action	TGLExt.CentralS
 'ChatgptAudit.CentralPhase.shifted_adjoint_action' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.NoncommutingInternal.V	TGLExt.O16.ProbeNoncommutingInternal_v4
 'ChatgptAudit.NoncommutingInternal.V' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.falsidade_da_inercia_derivada	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.falsidade_da_inercia_derivada' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	F1Fecho.NetworkReuse.CanonicalNetInput._sizeOf_inst	TGLExt.F1Fecho394.CanonicalFockAssemblyR1
 'F1Fecho.NetworkReuse.CanonicalNetInput._sizeOf_inst' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	F1Fecho.OrbitalSpatial.lorentzLinear._proof_1	TGLExt.F1Fecho394.LorentzTimeStabilizerR4
@@ -24505,6 +24515,8 @@ TGL_DECL_SOURCE	TGLExt.prodL2MapLI_fst	TGLExt.FusedWitness
 'TGLExt.prodL2MapLI_fst' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.SelectorRecord.operator_character_eq	TGLExt.SelectorRecordReconstruction
 'ChatgptAudit.SelectorRecord.operator_character_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.the_zero_is_the_consequence_of_the_pruning	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.the_zero_is_the_consequence_of_the_pruning' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLV350.Regular.fixedBaseEquiv._proof_11	TGLExt.V350FixedBaseEquivalence
 'TGLV350.Regular.fixedBaseEquiv._proof_11' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLExt.sFrame_zero	TGLExt.GlobalLiftLadder
@@ -25851,6 +25863,8 @@ TGL_DECL_SOURCE	F1Fecho.Antilinear.tensorAnti	TGLExt.F1Fecho394.AntilinearTensor
 'F1Fecho.Antilinear.tensorAnti' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Screen014.expanding_factor_partial	TGLExt.TransportedScreenControls
 'ChatgptAudit.Screen014.expanding_factor_partial' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.the_inertia_of_a_post_is_false	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.the_inertia_of_a_post_is_false' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLV350.Regular.resolventSquareRoot	TGLExt.V350ResolventSquareRoot
 'TGLV350.Regular.resolventSquareRoot' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Continuous049.domainConjugation	TGLExt.ClosedAntilinearStandardSubspace
@@ -28445,6 +28459,8 @@ TGL_DECL_SOURCE	ChatgptAudit.ScatteringRecord.scattering_record_reconstructs_bra
 'ChatgptAudit.ScatteringRecord.scattering_record_reconstructs_branch' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.TopologicalGluing.open_cover_overlap_chains	TGLExt.TopologicalAtlasGluing
 'ChatgptAudit.TopologicalGluing.open_cover_overlap_chains' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.inertia_is_not_its_own_cause	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.inertia_is_not_its_own_cause' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLExt.Posto.zero_angle_pole	TGLExt.Posto
 'TGLExt.Posto.zero_angle_pole' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.BoundedTransform016.graphRoot._proof_5	TGLExt.O16.BoundedTransformCore_v2
@@ -29315,6 +29331,8 @@ TGL_DECL_SOURCE	ChatgptAudit.CurvedConnection.gauge_direction_first_jet._abel_1_
 'ChatgptAudit.CurvedConnection.gauge_direction_first_jet._abel_1_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.SmoothAtlasGluing.transition_supplies_tensor_match	TGLExt.SmoothSelectedAtlasGluing
 'ChatgptAudit.SmoothAtlasGluing.transition_supplies_tensor_match' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.falsidade_da_inercia	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.falsidade_da_inercia' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLExt.IALDState.mk.noConfusion	TGLExt.TheSelectionIsTheBallast
 'TGLExt.IALDState.mk.noConfusion' does not depend on any axioms
 TGL_DECL_SOURCE	ORDEM016.Photon.Contract.ContratoH2.casesOn	TGLExt.O16.PhotonContract_v2
@@ -32339,6 +32357,8 @@ TGL_DECL_SOURCE	ChatgptAudit.Micro021.affine_relative_entropy_quadratic_limit	TG
 'ChatgptAudit.Micro021.affine_relative_entropy_quadratic_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLExt.ladder_in_object	TGLExt.SignatureInTheLimit
 'TGLExt.ladder_in_object' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.leak_below_every_epsilon	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.leak_below_every_epsilon' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Continuous049.boundedSpectralMultiplier._proof_1	TGLExt.ContinuousModularMultipliers
 'ChatgptAudit.Continuous049.boundedSpectralMultiplier._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	F1Rede.BosonicFock.gamma_vacuum	TGLExt.F1Fecho394.BosonicFock
@@ -36881,6 +36901,8 @@ TGL_DECL_SOURCE	TGLExt.DeltaHalf	TGLExt.FiniteTomita
 'TGLExt.DeltaHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLExt.profileJpre_sub	TGLExt.TheWitnessOnTheBoundary
 'TGLExt.profileJpre_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.the_tension_is_projected_onto_the_attractor	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.the_tension_is_projected_onto_the_attractor' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Transport027.unitary_partial_domain_iff	TGLExt.UnitaryPartialTransport
 'ChatgptAudit.Transport027.unitary_partial_domain_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLV350.Regular.regularAverage._proof_4	TGLExt.V350RegularApproximation
@@ -39025,6 +39047,8 @@ TGL_DECL_SOURCE	F1Fecho.NetworkWeyl.RemainingWeylInput.ctorIdx	TGLExt.F1Fecho394
 'F1Fecho.NetworkWeyl.RemainingWeylInput.ctorIdx' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLExt.GenuinelyUnboundedDiracData.ctorIdx	TGLExt.BenchCertificate
 'TGLExt.GenuinelyUnboundedDiracData.ctorIdx' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.a_post_is_not_inertial	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.a_post_is_not_inertial' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLExt.the_cut_count_is_invisible	TGLExt.TheFold
 'TGLExt.the_cut_count_is_invisible' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Profile026.profile_thermal_preparation	TGLExt.GlobalProfileControls
@@ -43295,6 +43319,8 @@ TGL_DECL_SOURCE	TGLExt.prodL2CongrLI_snd	TGLExt.FusedWitness
 'TGLExt.prodL2CongrLI_snd' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	F1Fecho.RegularScalarStarDensity.leftRegularization._proof_2	TGLExt.F1Fecho394.RegularScalarStarDensityR1
 'F1Fecho.RegularScalarStarDensity.leftRegularization._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.IsPost	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.IsPost' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLExt.partialWeight_nonneg	TGLExt.NumberSelfAdjoint
 'TGLExt.partialWeight_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLV350.Regular.shiftCharacterFamily.eq_1	TGLExt.V350ShiftCharacterAverage
@@ -43745,6 +43771,8 @@ TGL_DECL_SOURCE	_private.TGLExt.F1Fecho394.StarGraphDensityR3.0.F1Fecho.StarGrap
 '_private.TGLExt.F1Fecho394.StarGraphDensityR3.0.F1Fecho.StarGraphDensity.real_functional_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Orbit052.orbit_basis_decomposition	TGLExt.HorizontalAreaSelection
 'ChatgptAudit.Orbit052.orbit_basis_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.the_post_exists_and_moves	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.the_post_exists_and_moves' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLExt.the_inclusion_is_multiplicative	TGLExt.TheIALDInTheTowerActII
 'TGLExt.the_inclusion_is_multiplicative' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.WignerRapidityMeasure016.nullCompanion.eq_1	TGLExt.O16.NullFrameDecomposition_v2
@@ -46533,6 +46561,8 @@ TGL_DECL_SOURCE	ChatgptAudit.Relative031.bounded_congruence_closed	TGLExt.Bounde
 'ChatgptAudit.Relative031.bounded_congruence_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGL.HalfNatJonesTower.constIncl.eq_1	TGL.HalfNatJonesTower
 'TGL.HalfNatJonesTower.constIncl.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.diagFlow_coordinate_is_the_scaling	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.diagFlow_coordinate_is_the_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGL.SpecificAQFT.TGLSpecificAQFTWitness.vac	TGL.SpecificAQFTWitness
 'TGL.SpecificAQFT.TGLSpecificAQFTWitness.vac' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLExt.RuleSatisfactionFace.normalized_operation_satisfies	TGLExt.TheRuleAndTheFigureOfTruth
@@ -55725,6 +55755,8 @@ TGL_DECL_SOURCE	TGLExt.UmPostoRelacao.exampleCrossing._proof_2	TGLExt.UmPostoRel
 'TGLExt.UmPostoRelacao.exampleCrossing._proof_2' depends on axioms: [propext, Quot.sound]
 TGL_DECL_SOURCE	TGL.HalfNatJonesTower.E0._proof_1	TGL.HalfNatJonesTower
 'TGL.HalfNatJonesTower.E0._proof_1' depends on axioms: [propext]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.the_first_motion_is_the_impression	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.the_first_motion_is_the_impression' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Heat041.optical_heat_zero	TGLExt.OpticalHeatFlow
 'ChatgptAudit.Heat041.optical_heat_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Cone039.normalized_local_filter_from_relative	TGLExt.LocalFilterLorentzAction
@@ -56121,6 +56153,8 @@ TGL_DECL_SOURCE	TGLExt.ContratoQGv31.StressTensorData.recOn	TGLExt.ContratoQG_v3
 'TGLExt.ContratoQGv31.StressTensorData.recOn' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Continuous050.continuous_delta_closed	TGLExt.ContinuousModularReconstruction
 'ChatgptAudit.Continuous050.continuous_delta_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.Fundacao.oneScaling.eq_1	TGLExt.FalsidadeDaInercia
+'TGLExt.Fundacao.oneScaling.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLV351.RegularCoreTraceData.dual_scaling	TGLExt.V351RegularCoreTraceContract
 'TGLV351.RegularCoreTraceData.dual_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	F1Rede.CanonicalWedge.WT_graph	TGLExt.F1Fecho394.CanonicalWedge
@@ -56999,6 +57033,8 @@ TGL_DECL_SOURCE	TGLV350.Regular.dualOrbitRepresentation._proof_21	TGLExt.V350Dua
 'TGLV350.Regular.dualOrbitRepresentation._proof_21' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Covariant053.polarizer_form_apply	TGLExt.SymplecticPolarizer
 'ChatgptAudit.Covariant053.polarizer_form_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.the_inertia_of_a_post_is_false_at	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.the_inertia_of_a_post_is_false_at' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.Transport027.profile_j_involutive	TGLExt.ProfileModularTransport
 'ChatgptAudit.Transport027.profile_j_involutive' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.PerturbedDynamics.perturbedAction._proof_3	TGLExt.PauliPerturbedDynamics
@@ -64049,6 +64085,8 @@ TGL_DECL_SOURCE	F1Fecho.OrbitalSpatial.generatedBoost	TGLExt.F1Fecho394.OrbitalG
 'F1Fecho.OrbitalSpatial.generatedBoost' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLV350.Regular.scalarGaussianUnitary._proof_2	TGLExt.V350ScalarGaussianUnitary
 'TGLV350.Regular.scalarGaussianUnitary._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.the_inscription_interrupts_the_inertia	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.the_inscription_interrupts_the_inertia' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ORDEM016.ContractV32Proposal.StressTensorDataLocal_v2._sizeOf_1	TGLExt.O16.ContratoQG_v32_Proposta
 'ORDEM016.ContractV32Proposal.StressTensorDataLocal_v2._sizeOf_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLExt.RuleContinuousMotor.flow_preserves_rule	TGLExt.TheRuleInTheContinuousMotor
@@ -64699,6 +64737,8 @@ TGL_DECL_SOURCE	ChatgptAudit.Coherent023.covector_read_smul	TGLExt.DirectionalUn
 'ChatgptAudit.Coherent023.covector_read_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.WignerRapidityMeasure016.orbitalScalarBoost_translations	TGLExt.O16.OrbitalBoostCovariance_v2
 'ChatgptAudit.WignerRapidityMeasure016.orbitalScalarBoost_translations' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.the_simulacrum	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.the_simulacrum' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLExt.EquationOfTruth.profA_zero	TGLExt.TheEquationOfTruth
 'TGLExt.EquationOfTruth.profA_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.OpticalS.transition_product	TGLExt.ModularOpticalIdentity
@@ -67743,6 +67783,8 @@ TGL_DECL_SOURCE	ORDEM016.Photon.SpecificAQFT.threeLocksCorner_of_witness	TGLExt.
 'ORDEM016.Photon.SpecificAQFT.threeLocksCorner_of_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	F1Fecho.TensorL2Product.innerUnitary._proof_11	TGLExt.F1Fecho394.TensorL2ProductR3
 'F1Fecho.TensorL2Product.innerUnitary._proof_11' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.FalsidadeDaInercia.the_inertia_is_the_absolute_zero_at_any_scale	TGLExt.FalsidadeDaInercia
+'TGLExt.FalsidadeDaInercia.the_inertia_is_the_absolute_zero_at_any_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.FiniteCoherentSource.finite_directional_frequencies_smul	TGLExt.FiniteCoherentSources
 'ChatgptAudit.FiniteCoherentSource.finite_directional_frequencies_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.mixed_frame_pair_entry	TGLExt.CovariantNullPreservation
@@ -68701,6 +68743,8 @@ TGL_DECL_SOURCE	TGLExt.foldL2.eq_1	TGLExt.TheTwoFolds
 'TGLExt.foldL2.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	TGLV351.dualResolvent_minimum_energy_value	TGLExt.V351BaseMoreauApproximants
 'TGLV351.dualResolvent_minimum_energy_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_DECL_SOURCE	TGLExt.DualScalingData.mk.congr_simp	TGLExt.FalsidadeDaInercia
+'TGLExt.DualScalingData.mk.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.UnitaryCalibration.calibrationAxisB	TGLExt.UnitarySourceCalibration
 'ChatgptAudit.UnitaryCalibration.calibrationAxisB' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ChatgptAudit.JointCovariance.frame_covectors_identity	TGLExt.JointPreparationCovariance
@@ -71503,7 +71547,7 @@ TGL_DECL_SOURCE	TGLV350.Regular.dualOrbitConjugation._proof_2	TGLExt.V350DualOrb
 'TGLV350.Regular.dualOrbitConjugation._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_DECL_SOURCE	ORDEM016.D2prime.maxwell_null_flux	TGLExt.O16.MaxwellPolynomial_v2
 'ORDEM016.D2prime.maxwell_null_flux' depends on axioms: [propext, Classical.choice, Quot.sound]
-TGL_AXIOM_COVERAGE_TOTAL decl=29296 thm=23286 fora_do_trio=0
+TGL_AXIOM_COVERAGE_TOTAL decl=29318 thm=23306 fora_do_trio=0
 
 --- STDERR ---
 

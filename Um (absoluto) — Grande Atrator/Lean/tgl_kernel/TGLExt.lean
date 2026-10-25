@@ -1106,3 +1106,5 @@ import TGLExt.Sonico
 import TGLExt.AfinacaoDasCordas
 
 import TGLExt.Testemunho
+
+import TGLExt.FalsidadeDaInercia

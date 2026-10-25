@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-25T07:31:03Z",
+  "gerado_utc": "2026-10-25T20:28:32Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
@@ -416,6 +416,26 @@
       "bytes": 3656
     },
     {
+      "nome": "ORDEM_025_ADENDO_A_recorte_da_fala.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_025_ADENDO_A_recorte_da_fala.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_025_ADENDO_A_recorte_da_fala.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_025_ADENDO_A_recorte_da_fala.md",
+      "sha256_16": "e6e3d8038fdff4d9",
+      "bytes": 1113
+    },
+    {
+      "nome": "ORDEM_025_a_ponte_nomeada_escala_dual_e_corpo_fisico.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_025_a_ponte_nomeada_escala_dual_e_corpo_fisico.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_025_a_ponte_nomeada_escala_dual_e_corpo_fisico.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_025_a_ponte_nomeada_escala_dual_e_corpo_fisico.md",
+      "sha256_16": "3fd2b5a801071343",
+      "bytes": 7219
+    },
+    {
       "nome": "RECIBO_015_MAQUINA_LIVRE.md",
       "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_015_MAQUINA_LIVRE.md",
       "papel": "documento",
@@ -516,8 +536,8 @@
       "bytes": 3872
     }
   ],
-  "total_arquivos_nesta_pasta": 48,
-  "total_arquivos_com_subpastas": 69,
+  "total_arquivos_nesta_pasta": 50,
+  "total_arquivos_com_subpastas": 71,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT",
   "rodape": "gerado por script de git ls-files em 2026-10-25 -- nao editar a mao"
 }

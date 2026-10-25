@@ -1,3 +1,5 @@
+import TGLExt.FalsidadeDaInercia
+
 import TGLExt.Testemunho
 
 import TGLExt.Sonico

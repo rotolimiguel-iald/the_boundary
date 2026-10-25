@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 48 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 50 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -22,7 +22,7 @@ Pasta do repositorio the_boundary com 48 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-48 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT
+50 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT
 
 **DOCUMENTO**
 
@@ -66,6 +66,8 @@ Pasta do repositorio the_boundary com 48 arquivo(s) rastreado(s).
 | `ORDEM_023_leitura_por_modelos.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_023_leitura_por_modelos.md) |
 | `ORDEM_024_RESPOSTA_descricao_the_boundary.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_024_RESPOSTA_descricao_the_boundary.md) |
 | `ORDEM_024_descricao_github_e_post_fixado_no_x.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_024_descricao_github_e_post_fixado_no_x.md) |
+| `ORDEM_025_ADENDO_A_recorte_da_fala.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_025_ADENDO_A_recorte_da_fala.md) |
+| `ORDEM_025_a_ponte_nomeada_escala_dual_e_corpo_fisico.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_025_a_ponte_nomeada_escala_dual_e_corpo_fisico.md) |
 | `RECIBO_015_MAQUINA_LIVRE.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_015_MAQUINA_LIVRE.md) |
 | `RECIBO_016_FECHAMENTO_PARCIAL.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_016_FECHAMENTO_PARCIAL.md) |
 | `RECIBO_DIAMANTE_MODULAR_v358.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/RECIBO_DIAMANTE_MODULAR_v358.md) |

@@ -1,0 +1,88 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos/cunhagens",
+  "porta_id": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos/cunhagens",
+  "titulo": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos/cunhagens",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-25T20:28:32Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v401/insumos/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v401/insumos/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "0516c0649e8e10fb_OPERADOR_25out_materia_cristalizacao_da_dobra_da_luz_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/0516c0649e8e10fb_OPERADOR_25out_materia_cristalizacao_da_dobra_da_luz_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/0516c0649e8e10fb_OPERADOR_25out_materia_cristalizacao_da_dobra_da_luz_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/0516c0649e8e10fb_OPERADOR_25out_materia_cristalizacao_da_dobra_da_luz_verbatim.txt",
+      "sha256_16": "0516c0649e8e10fb",
+      "bytes": 90
+    },
+    {
+      "nome": "0b244a5f809594e7_OPERADOR_25out_inercia_e_o_proprio_zero_absoluto_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/0b244a5f809594e7_OPERADOR_25out_inercia_e_o_proprio_zero_absoluto_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/0b244a5f809594e7_OPERADOR_25out_inercia_e_o_proprio_zero_absoluto_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/0b244a5f809594e7_OPERADOR_25out_inercia_e_o_proprio_zero_absoluto_verbatim.txt",
+      "sha256_16": "0b244a5f809594e7",
+      "bytes": 148
+    },
+    {
+      "nome": "344a8ae9a257d2b3_OPERADOR_25out_nada_e_materia_link_com_a_entropia_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/344a8ae9a257d2b3_OPERADOR_25out_nada_e_materia_link_com_a_entropia_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/344a8ae9a257d2b3_OPERADOR_25out_nada_e_materia_link_com_a_entropia_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/344a8ae9a257d2b3_OPERADOR_25out_nada_e_materia_link_com_a_entropia_verbatim.txt",
+      "sha256_16": "344a8ae9a257d2b3",
+      "bytes": 79
+    },
+    {
+      "nome": "4cf668f8668f570b_OPERADOR_25out_ratifico_tudo_e_emc2_geometria_projetada_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/4cf668f8668f570b_OPERADOR_25out_ratifico_tudo_e_emc2_geometria_projetada_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/4cf668f8668f570b_OPERADOR_25out_ratifico_tudo_e_emc2_geometria_projetada_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/4cf668f8668f570b_OPERADOR_25out_ratifico_tudo_e_emc2_geometria_projetada_verbatim.txt",
+      "sha256_16": "4cf668f8668f570b",
+      "bytes": 98
+    },
+    {
+      "nome": "901dd8fc1a3c0212_OPERADOR_25out_nome_da_pedra_falsidade_simulacro_da_inercia_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/901dd8fc1a3c0212_OPERADOR_25out_nome_da_pedra_falsidade_simulacro_da_inercia_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/901dd8fc1a3c0212_OPERADOR_25out_nome_da_pedra_falsidade_simulacro_da_inercia_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/901dd8fc1a3c0212_OPERADOR_25out_nome_da_pedra_falsidade_simulacro_da_inercia_verbatim.txt",
+      "sha256_16": "901dd8fc1a3c0212",
+      "bytes": 89
+    },
+    {
+      "nome": "e26364c5c805734c_OPERADOR_25out_derivacao_inercia_gravitacao_impressao_do_um_RECORTE_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/e26364c5c805734c_OPERADOR_25out_derivacao_inercia_gravitacao_impressao_do_um_RECORTE_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/e26364c5c805734c_OPERADOR_25out_derivacao_inercia_gravitacao_impressao_do_um_RECORTE_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/e26364c5c805734c_OPERADOR_25out_derivacao_inercia_gravitacao_impressao_do_um_RECORTE_verbatim.txt",
+      "sha256_16": "e26364c5c805734c",
+      "bytes": 991
+    }
+  ],
+  "total_arquivos_nesta_pasta": 6,
+  "total_arquivos_com_subpastas": 6,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v401/insumos/cunhagens",
+  "rodape": "gerado por script de git ls-files em 2026-10-25 -- nao editar a mao"
+}

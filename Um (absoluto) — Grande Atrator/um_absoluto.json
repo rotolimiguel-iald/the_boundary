@@ -13142,6 +13142,11 @@
           "Classical.choice",
           "Quot.sound"
         ],
+        "TGLExt.FalsidadeDaInercia.falsidade_da_inercia_is_inhabited": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
         "ChatgptAudit.Response028.amplitude_prefix_modular_formula": [
           "propext",
           "Classical.choice",
@@ -15846,6 +15851,11 @@
           "Quot.sound"
         ],
         "ChatgptAudit.Continuous049.boundedSpectralMultiplier._proof_7": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.FalsidadeDaInercia.no_post_before_the_impression": [
           "propext",
           "Classical.choice",
           "Quot.sound"
@@ -20090,6 +20100,11 @@
           "Classical.choice",
           "Quot.sound"
         ],
+        "TGLExt.FalsidadeDaInercia.Inertial": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
         "ChatgptAudit.Profile026.global_profile_vector_cyclic": [
           "propext",
           "Classical.choice",
@@ -20641,6 +20656,11 @@
           "Quot.sound"
         ],
         "ChatgptAudit.RelativePhase.characterReadout": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.FalsidadeDaInercia.the_inertia_is_the_absolute_zero": [
           "propext",
           "Classical.choice",
           "Quot.sound"
@@ -25415,6 +25435,11 @@
           "Classical.choice",
           "Quot.sound"
         ],
+        "TGLExt.FalsidadeDaInercia.falsidade_da_inercia_derivada": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
         "F1Fecho.NetworkReuse.CanonicalNetInput._sizeOf_inst": [
           "propext",
           "Classical.choice",
@@ -29727,6 +29752,11 @@
           "Classical.choice",
           "Quot.sound"
         ],
+        "TGLExt.FalsidadeDaInercia.the_zero_is_the_consequence_of_the_pruning": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
         "TGLV350.Regular.fixedBaseEquiv._proof_11": [
           "propext",
           "Classical.choice",
@@ -32937,6 +32967,11 @@
           "Quot.sound"
         ],
         "ChatgptAudit.Screen014.expanding_factor_partial": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.FalsidadeDaInercia.the_inertia_of_a_post_is_false": [
           "propext",
           "Classical.choice",
           "Quot.sound"
@@ -39151,6 +39186,11 @@
           "Classical.choice",
           "Quot.sound"
         ],
+        "TGLExt.FalsidadeDaInercia.inertia_is_not_its_own_cause": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
         "TGLExt.Posto.zero_angle_pole": [
           "propext",
           "Classical.choice",
@@ -41222,6 +41262,11 @@
           "Quot.sound"
         ],
         "ChatgptAudit.SmoothAtlasGluing.transition_supplies_tensor_match": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.FalsidadeDaInercia.falsidade_da_inercia": [
           "propext",
           "Classical.choice",
           "Quot.sound"
@@ -48437,6 +48482,11 @@
           "Quot.sound"
         ],
         "TGLExt.ladder_in_object": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.FalsidadeDaInercia.leak_below_every_epsilon": [
           "propext",
           "Classical.choice",
           "Quot.sound"
@@ -59317,6 +59367,11 @@
           "Classical.choice",
           "Quot.sound"
         ],
+        "TGLExt.FalsidadeDaInercia.the_tension_is_projected_onto_the_attractor": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
         "ChatgptAudit.Transport027.unitary_partial_domain_iff": [
           "propext",
           "Classical.choice",
@@ -64443,6 +64498,11 @@
           "Quot.sound"
         ],
         "TGLExt.GenuinelyUnboundedDiracData.ctorIdx": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.FalsidadeDaInercia.a_post_is_not_inertial": [
           "propext",
           "Classical.choice",
           "Quot.sound"
@@ -74620,6 +74680,11 @@
           "Classical.choice",
           "Quot.sound"
         ],
+        "TGLExt.FalsidadeDaInercia.IsPost": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
         "TGLExt.partialWeight_nonneg": [
           "propext",
           "Classical.choice",
@@ -75693,6 +75758,11 @@
           "Quot.sound"
         ],
         "ChatgptAudit.Orbit052.orbit_basis_decomposition": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.FalsidadeDaInercia.the_post_exists_and_moves": [
           "propext",
           "Classical.choice",
           "Quot.sound"
@@ -82372,6 +82442,11 @@
           "Quot.sound"
         ],
         "TGL.HalfNatJonesTower.constIncl.eq_1": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.FalsidadeDaInercia.diagFlow_coordinate_is_the_scaling": [
           "propext",
           "Classical.choice",
           "Quot.sound"
@@ -104391,6 +104466,11 @@
         "TGL.HalfNatJonesTower.E0._proof_1": [
           "propext"
         ],
+        "TGLExt.FalsidadeDaInercia.the_first_motion_is_the_impression": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
         "ChatgptAudit.Heat041.optical_heat_zero": [
           "propext",
           "Classical.choice",
@@ -105329,6 +105409,11 @@
           "Quot.sound"
         ],
         "ChatgptAudit.Continuous050.continuous_delta_closed": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.Fundacao.oneScaling.eq_1": [
           "propext",
           "Classical.choice",
           "Quot.sound"
@@ -107426,6 +107511,11 @@
           "Quot.sound"
         ],
         "ChatgptAudit.Covariant053.polarizer_form_apply": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.FalsidadeDaInercia.the_inertia_of_a_post_is_false_at": [
           "propext",
           "Classical.choice",
           "Quot.sound"
@@ -124260,6 +124350,11 @@
           "Classical.choice",
           "Quot.sound"
         ],
+        "TGLExt.FalsidadeDaInercia.the_inscription_interrupts_the_inertia": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
         "ORDEM016.ContractV32Proposal.StressTensorDataLocal_v2._sizeOf_1": [
           "propext",
           "Classical.choice",
@@ -125780,6 +125875,11 @@
           "Quot.sound"
         ],
         "ChatgptAudit.WignerRapidityMeasure016.orbitalScalarBoost_translations": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.FalsidadeDaInercia.the_simulacrum": [
           "propext",
           "Classical.choice",
           "Quot.sound"
@@ -133006,6 +133106,11 @@
           "Classical.choice",
           "Quot.sound"
         ],
+        "TGLExt.FalsidadeDaInercia.the_inertia_is_the_absolute_zero_at_any_scale": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
         "ChatgptAudit.FiniteCoherentSource.finite_directional_frequencies_smul": [
           "propext",
           "Classical.choice",
@@ -135320,6 +135425,11 @@
           "Quot.sound"
         ],
         "TGLV351.dualResolvent_minimum_energy_value": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.DualScalingData.mk.congr_simp": [
           "propext",
           "Classical.choice",
           "Quot.sound"
@@ -141990,17 +142100,17 @@
           "Quot.sound"
         ]
       },
-      "formal_source_hash": "32f863451b076b5a6367d82c679d43da5352b8cb7446075fc82b62da9f2ecc0e",
+      "formal_source_hash": "53189c30127ec99b4ece9cbc25566e432cca3f2f9c845352d1651cb479c74db2",
       "formal_files_sha256": {
         "README.md": "395b1201109079084f3562349161283bd644e17d5e18cea19971bac041e58d11",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "5b25cdc1f21a1c9f293409cc1c1733f0d6f2f5eb33519c8cc563d98074d25165",
+        "TGLExt.lean": "f220272592d738ec8030fb329b6725da484b197b4ab149da604464976612ea71",
         "_check_damming.lean": "485969b99f3e3db7ef4f9e4b1e97fb501ff68540a957e21949784d57d7536d21",
         "lake-manifest.json": "31a94eb76a8370ae8d75999ccec510f1ef7b994e369beebee2a3ea0088eee235",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "bd1a0be75fb9e68b7c3170afc41ce086489c8c546ffa4e37cd1e889c2685f754",
+        "TGL/Audit.lean": "a13140389bfa8545f26460d4372b5a2ca238e9cd442ff3e13cf3ab6902faa43f",
         "TGL/Basic.lean": "6de2b310b37c0af52fc83f9bf3c34d4c141115f4e74be86f9870b9bd531ebd04",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -142175,6 +142285,7 @@
         "TGLExt/FLRWGeometry.lean": "47aea5aebebd8611edab566724ce562508908dc86b96db7194dff2592bac9e92",
         "TGLExt/FaithfulGeometricLocalization.lean": "ec071ec8f7720217c242c17274cae7616ba5223b12ac89fb3113294a3b4e365f",
         "TGLExt/FallenLight.lean": "145eed2729d232ee9405d4124a0c333c3344e0a4a0b898b3a3eb189ba28cb3c0",
+        "TGLExt/FalsidadeDaInercia.lean": "9f6efcb2a0987e18ce79ace43aa394f5822673ead16f48b281fdd15c94ea908e",
         "TGLExt/FiniteCharacterResolution.lean": "2d66449f30f0376910d332318fc8f00fa75738a4ae73de38ddbcf544ed904fea",
         "TGLExt/FiniteCoherentSources.lean": "4b71fe49ae505d3017a3c2d05395de95f6c64f9630ea27c56de8ed024d94416b",
         "TGLExt/FiniteCommutatorEvolution.lean": "c3f09de40089bbafd78de5e6f2b9823db75297e600fe192c1b9616475fb8fad3",
@@ -153063,10 +153174,30 @@
       "ext_afi398_0034": true,
       "ext_tmn399_0001": true,
       "ext_tmn399_0002": true,
+      "ext_fdi401_0001": true,
+      "ext_fdi401_0002": true,
+      "ext_fdi401_0003": true,
+      "ext_fdi401_0004": true,
+      "ext_fdi401_0005": true,
+      "ext_fdi401_0006": true,
+      "ext_fdi401_0007": true,
+      "ext_fdi401_0008": true,
+      "ext_fdi401_0009": true,
+      "ext_fdi401_0010": true,
+      "ext_fdi401_0011": true,
+      "ext_fdi401_0012": true,
+      "ext_fdi401_0013": true,
+      "ext_fdi401_0014": true,
+      "ext_fdi401_0015": true,
+      "ext_fdi401_0016": true,
+      "ext_fdi401_0017": true,
+      "ext_fdi401_0018": true,
+      "ext_fdi401_0019": true,
+      "ext_fdi401_0020": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "77c8f4ec1c337df22f0941d4f2c7faf7c03e0677cff5c0985943b28707d55466",
+      "build_stdout_sha256": "1e8dcbf31bb925deb02cc96279e7195754bf3fdc606f1eb6a12709e2594baba7",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "1cf13ca5a3cf8d3daf01803d5d937ec0d86c2167185aeed7e8b31ae6876519be",
+      "audit_stdout_sha256": "5a4fe12b695964aab650d30210d0b9bd0cb2f8da4eaf894229de0caa716fd75a",
       "build_returncode": 0,
       "audit_returncode": 0,
       "capture_stage": "principal",
@@ -153075,17 +153206,17 @@
         "tgl_kernel_audit_capture.txt"
       ],
       "build_capture_lens": {
-        "stdout": 10496811,
+        "stdout": 10504534,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 6873455,
+        "stdout": 6878077,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "77c8f4ec1c337df22f0941d4f2c7faf7c03e0677cff5c0985943b28707d55466",
-      "audit_capture_sha256_full": "1cf13ca5a3cf8d3daf01803d5d937ec0d86c2167185aeed7e8b31ae6876519be",
+      "build_capture_sha256_full": "1e8dcbf31bb925deb02cc96279e7195754bf3fdc606f1eb6a12709e2594baba7",
+      "audit_capture_sha256_full": "5a4fe12b695964aab650d30210d0b9bd0cb2f8da4eaf894229de0caa716fd75a",
       "declaration_sources_v394": {
         "F1Atrator.OpticalPopulation.basis": "TGLExt/OpticalPopulationBridgeR2.lean",
         "TGLExt.the_clause_is_exactly_a_commutant_inclusion": "TGLExt/TheFoldThroughJ.lean",
@@ -155409,6 +155540,7 @@
         "TGLExt.boundary_extracts_the_radical": "TGLExt/TheFiveHalves.lean",
         "ORDEM016.EquationOfTruth.conserved_iff_factors_T": "TGLExt/O16/TheEquationOfTruth_T20_v3.lean",
         "ChatgptAudit.Flow016.flatPhaseDerivative._proof_3": "TGLExt/FlowDifferentiabilityControls.lean",
+        "TGLExt.FalsidadeDaInercia.falsidade_da_inercia_is_inhabited": "TGLExt/FalsidadeDaInercia.lean",
         "ChatgptAudit.Response028.amplitude_prefix_modular_formula": "TGLExt/SummableStateThermodynamics.lean",
         "TGL.ModularRealization.ThreeLocksCoreData.Pminus_idempotent": "TGL/ModularRealization.lean",
         "TGLExt.theFlip_mem_tail": "TGLExt/TailNet.lean",
@@ -155976,6 +156108,7 @@
         "TGLExt.CLevel.cfisica.elim": "TGLExt/TheCrownedCascade.lean",
         "TGLExt.dimTraceData.eq_1": "TGLExt/DimensionTrace.lean",
         "ChatgptAudit.Continuous049.boundedSpectralMultiplier._proof_7": "TGLExt/ContinuousModularMultipliers.lean",
+        "TGLExt.FalsidadeDaInercia.no_post_before_the_impression": "TGLExt/FalsidadeDaInercia.lean",
         "TGLV350.Regular.levelPositiveMap._proof_4": "TGLExt/V350LevelExpectationUniformBound.lean",
         "TGLV354.TraceCompletion.ShiftRelated.map": "TGLExt/V354TraceShiftEquivalence.lean",
         "ChatgptAudit.Coherent023.coherent_area_error_limit": "TGLExt/CoherentHeatMatching.lean",
@@ -156872,6 +157005,7 @@
         "TGLExt.EmergentEinsteinData.q_dd": "TGLExt/EmergentEinstein.lean",
         "TGLExt.NamedTransportData.recOn": "TGLExt/TransportWitness.lean",
         "TGLExt.TracialTorsion.normSq": "TGLExt/TracialDissipativeTorsion.lean",
+        "TGLExt.FalsidadeDaInercia.Inertial": "TGLExt/FalsidadeDaInercia.lean",
         "ChatgptAudit.Profile026.global_profile_vector_cyclic": "TGLExt/GlobalProfileControls.lean",
         "TGLV350.Regular.regularDomainCut._proof_8": "TGLExt/V351RegularDomainCut.lean",
         "TGLExt.rotGen": "TGLExt/GeometryFluctuation.lean",
@@ -156989,6 +157123,7 @@
         "AuditF23Flat.tq_smul": "TGLExt/LiganteLeiCampoCurvoTestemunha.lean",
         "ChatgptAudit.Screen014.LocalFrameFlow._sizeOf_inst": "TGLExt/ScreenTransportODE.lean",
         "ChatgptAudit.RelativePhase.characterReadout": "TGLExt/RelativePhaseCharacter.lean",
+        "TGLExt.FalsidadeDaInercia.the_inertia_is_the_absolute_zero": "TGLExt/FalsidadeDaInercia.lean",
         "TGLV350.Regular.scalarWeightStarCore._proof_15": "TGLExt/V350ScalarWeightStarCore.lean",
         "ChatgptAudit.Transport027.unitary_partial_lift_coe": "TGLExt/UnitaryPartialTransport.lean",
         "AuditF23Flat.flat_conserved": "TGLExt/LiganteLeiCampoCurvoTestemunha.lean",
@@ -157982,6 +158117,7 @@
         "ChatgptAudit.Covariant053.doubleFlipHorizontal._proof_3": "TGLExt/LocalPolarizerWitness.lean",
         "ChatgptAudit.CentralPhase.shifted_adjoint_action": "TGLExt/CentralScalarPhase.lean",
         "ChatgptAudit.NoncommutingInternal.V": "TGLExt/O16/ProbeNoncommutingInternal_v4.lean",
+        "TGLExt.FalsidadeDaInercia.falsidade_da_inercia_derivada": "TGLExt/FalsidadeDaInercia.lean",
         "F1Fecho.NetworkReuse.CanonicalNetInput._sizeOf_inst": "TGLExt/F1Fecho394/CanonicalFockAssemblyR1.lean",
         "F1Fecho.OrbitalSpatial.lorentzLinear._proof_1": "TGLExt/F1Fecho394/LorentzTimeStabilizerR4.lean",
         "TGLExt.powersState_one": "TGLExt/PowersLadder.lean",
@@ -158884,6 +159020,7 @@
         "F1Rede.BosonicSectors.algebraicSymmetricSpan._proof_1": "TGLExt/F1Fecho394/BosonicSectors.lean",
         "TGLExt.prodL2MapLI_fst": "TGLExt/FusedWitness.lean",
         "ChatgptAudit.SelectorRecord.operator_character_eq": "TGLExt/SelectorRecordReconstruction.lean",
+        "TGLExt.FalsidadeDaInercia.the_zero_is_the_consequence_of_the_pruning": "TGLExt/FalsidadeDaInercia.lean",
         "TGLV350.Regular.fixedBaseEquiv._proof_11": "TGLExt/V350FixedBaseEquivalence.lean",
         "TGLExt.sFrame_zero": "TGLExt/GlobalLiftLadder.lean",
         "TGLV350.Regular.scalarInverseLimitWeight_square_le_of_strong": "TGLExt/V351InverseLimitTracialExtension.lean",
@@ -159557,6 +159694,7 @@
         "ChatgptAudit.FiniteCommutatorSeries.superRationalTower": "TGLExt/FiniteCommutatorEvolution.lean",
         "F1Fecho.Antilinear.tensorAnti": "TGLExt/F1Fecho394/AntilinearTensorR4.lean",
         "ChatgptAudit.Screen014.expanding_factor_partial": "TGLExt/TransportedScreenControls.lean",
+        "TGLExt.FalsidadeDaInercia.the_inertia_of_a_post_is_false": "TGLExt/FalsidadeDaInercia.lean",
         "TGLV350.Regular.resolventSquareRoot": "TGLExt/V350ResolventSquareRoot.lean",
         "ChatgptAudit.Continuous049.domainConjugation": "TGLExt/ClosedAntilinearStandardSubspace.lean",
         "TGLV350.StrongIntegral.operatorIntegral_apply": "TGLExt/V350StrongOperatorIntegral.lean",
@@ -160854,6 +160992,7 @@
         "TGLExt.ScalarCorner.noConfusionType": "TGLExt/TheScalarCorner.lean",
         "ChatgptAudit.ScatteringRecord.scattering_record_reconstructs_branch": "TGLExt/ScatteringOutcomeRecord.lean",
         "ChatgptAudit.TopologicalGluing.open_cover_overlap_chains": "TGLExt/TopologicalAtlasGluing.lean",
+        "TGLExt.FalsidadeDaInercia.inertia_is_not_its_own_cause": "TGLExt/FalsidadeDaInercia.lean",
         "TGLExt.Posto.zero_angle_pole": "TGLExt/Posto.lean",
         "ChatgptAudit.BoundedTransform016.graphRoot._proof_5": "TGLExt/O16/BoundedTransformCore_v2.lean",
         "ChatgptAudit.MixedQuadraticGibbs.mixedRadius.eq_1": "TGLExt/MixedQuadraticGibbsResponse.lean",
@@ -161289,6 +161428,7 @@
         "TGLExt.AfinacaoDasCordas.nsZeroPoint": "TGLExt/AfinacaoDasCordas.lean",
         "ChatgptAudit.CurvedConnection.gauge_direction_first_jet._abel_1_1": "TGLExt/CurvatureNonlinearVariation.lean",
         "ChatgptAudit.SmoothAtlasGluing.transition_supplies_tensor_match": "TGLExt/SmoothSelectedAtlasGluing.lean",
+        "TGLExt.FalsidadeDaInercia.falsidade_da_inercia": "TGLExt/FalsidadeDaInercia.lean",
         "TGLExt.IALDState.mk.noConfusion": "TGLExt/TheSelectionIsTheBallast.lean",
         "ORDEM016.Photon.Contract.ContratoH2.casesOn": "TGLExt/O16/PhotonContract_v2.lean",
         "TGLExt.excess_is_infinite": "TGLExt/SaturatedWitness.lean",
@@ -162801,6 +162941,7 @@
         "ChatgptAudit.Screen014.expandingInitialFrame": "TGLExt/TransportedScreenControls.lean",
         "ChatgptAudit.Micro021.affine_relative_entropy_quadratic_limit": "TGLExt/QuadraticStateResponse.lean",
         "TGLExt.ladder_in_object": "TGLExt/SignatureInTheLimit.lean",
+        "TGLExt.FalsidadeDaInercia.leak_below_every_epsilon": "TGLExt/FalsidadeDaInercia.lean",
         "ChatgptAudit.Continuous049.boundedSpectralMultiplier._proof_1": "TGLExt/ContinuousModularMultipliers.lean",
         "F1Rede.BosonicFock.gamma_vacuum": "TGLExt/F1Fecho394/BosonicFock.lean",
         "F1Fecho.Annihilation.synthesize._proof_3": "TGLExt/F1Fecho394/ExponentialAnnihilationR2.lean",
@@ -165072,6 +165213,7 @@
         "ChatgptAudit.Screen015.spray_position_component": "TGLExt/GeodesicSpray.lean",
         "TGLExt.DeltaHalf": "TGLExt/FiniteTomita.lean",
         "TGLExt.profileJpre_sub": "TGLExt/TheWitnessOnTheBoundary.lean",
+        "TGLExt.FalsidadeDaInercia.the_tension_is_projected_onto_the_attractor": "TGLExt/FalsidadeDaInercia.lean",
         "ChatgptAudit.Transport027.unitary_partial_domain_iff": "TGLExt/UnitaryPartialTransport.lean",
         "TGLV350.Regular.regularAverage._proof_4": "TGLExt/V350RegularApproximation.lean",
         "TGLExt.Santo.gRate_11": "TGLExt/Santo.lean",
@@ -166144,6 +166286,7 @@
         "F1Rede.Wedge.T_double_domain_le": "TGLExt/F1Fecho394/VectorSquare.lean",
         "F1Fecho.NetworkWeyl.RemainingWeylInput.ctorIdx": "TGLExt/F1Fecho394/CanonicalWeylAssemblyR5.lean",
         "TGLExt.GenuinelyUnboundedDiracData.ctorIdx": "TGLExt/BenchCertificate.lean",
+        "TGLExt.FalsidadeDaInercia.a_post_is_not_inertial": "TGLExt/FalsidadeDaInercia.lean",
         "TGLExt.the_cut_count_is_invisible": "TGLExt/TheFold.lean",
         "ChatgptAudit.Profile026.profile_thermal_preparation": "TGLExt/GlobalProfileControls.lean",
         "TGLV350.Regular.characterMultiplier_memLp": "TGLExt/V350L2CharacterMultiplier.lean",
@@ -168279,6 +168422,7 @@
         "ChatgptAudit.GravitationalRecord.record_preparation_normalized": "TGLExt/GravitationalResponseRecord.lean",
         "TGLExt.prodL2CongrLI_snd": "TGLExt/FusedWitness.lean",
         "F1Fecho.RegularScalarStarDensity.leftRegularization._proof_2": "TGLExt/F1Fecho394/RegularScalarStarDensityR1.lean",
+        "TGLExt.FalsidadeDaInercia.IsPost": "TGLExt/FalsidadeDaInercia.lean",
         "TGLExt.partialWeight_nonneg": "TGLExt/NumberSelfAdjoint.lean",
         "TGLV350.Regular.shiftCharacterFamily.eq_1": "TGLExt/V350ShiftCharacterAverage.lean",
         "ORDEM016.Photon.ModularRealization.fullWitness_not_finiteDimensional": "TGLExt/O16/PhotonModularRealization.lean",
@@ -168504,6 +168648,7 @@
         "F1Fecho.RegularFiniteStarCore.finiteDualStarCore._proof_10": "TGLExt/F1Fecho394/RegularFiniteStarCoreR2.lean",
         "_private.TGLExt.F1Fecho394.StarGraphDensityR3.0.F1Fecho.StarGraphDensity.real_functional_pair": "TGLExt/F1Fecho394/StarGraphDensityR3.lean",
         "ChatgptAudit.Orbit052.orbit_basis_decomposition": "TGLExt/HorizontalAreaSelection.lean",
+        "TGLExt.FalsidadeDaInercia.the_post_exists_and_moves": "TGLExt/FalsidadeDaInercia.lean",
         "TGLExt.the_inclusion_is_multiplicative": "TGLExt/TheIALDInTheTowerActII.lean",
         "ChatgptAudit.WignerRapidityMeasure016.nullCompanion.eq_1": "TGLExt/O16/NullFrameDecomposition_v2.lean",
         "F1Fecho.Creation.exponential_cauchy": "TGLExt/F1Fecho394/ExponentialDirectionalDerivativeR2.lean",
@@ -169898,6 +170043,7 @@
         "TGLExt.TracialTorsion.torsion_trace": "TGLExt/TracialDissipativeTorsion.lean",
         "ChatgptAudit.Relative031.bounded_congruence_closed": "TGLExt/BoundedPositiveCongruence.lean",
         "TGL.HalfNatJonesTower.constIncl.eq_1": "TGL/HalfNatJonesTower.lean",
+        "TGLExt.FalsidadeDaInercia.diagFlow_coordinate_is_the_scaling": "TGLExt/FalsidadeDaInercia.lean",
         "TGL.SpecificAQFT.TGLSpecificAQFTWitness.vac": "TGL/SpecificAQFTWitness.lean",
         "TGLExt.RuleSatisfactionFace.normalized_operation_satisfies": "TGLExt/TheRuleAndTheFigureOfTruth.lean",
         "ChatgptAudit.Flow016.flow_joint_derivative_continuous": "TGLExt/GeodesicInitialRegularity.lean",
@@ -174494,6 +174640,7 @@
         "ChatgptAudit.BoundedTransform016.finiteTransform._proof_2": "TGLExt/O16/BoundedTransformFinite_v2.lean",
         "TGLExt.UmPostoRelacao.exampleCrossing._proof_2": "TGLExt/UmPostoRelacao.lean",
         "TGL.HalfNatJonesTower.E0._proof_1": "TGL/HalfNatJonesTower.lean",
+        "TGLExt.FalsidadeDaInercia.the_first_motion_is_the_impression": "TGLExt/FalsidadeDaInercia.lean",
         "ChatgptAudit.Heat041.optical_heat_zero": "TGLExt/OpticalHeatFlow.lean",
         "ChatgptAudit.Cone039.normalized_local_filter_from_relative": "TGLExt/LocalFilterLorentzAction.lean",
         "ChatgptAudit.Observable035.sign_outcome_sum": "TGLExt/PauliProbabilityModel.lean",
@@ -174692,6 +174839,7 @@
         "ChatgptAudit.levelSpace": "TGLExt/LocalTowerProjections.lean",
         "TGLExt.ContratoQGv31.StressTensorData.recOn": "TGLExt/ContratoQG_v31.lean",
         "ChatgptAudit.Continuous050.continuous_delta_closed": "TGLExt/ContinuousModularReconstruction.lean",
+        "TGLExt.Fundacao.oneScaling.eq_1": "TGLExt/FalsidadeDaInercia.lean",
         "TGLV351.RegularCoreTraceData.dual_scaling": "TGLExt/V351RegularCoreTraceContract.lean",
         "F1Rede.CanonicalWedge.WT_graph": "TGLExt/F1Fecho394/CanonicalWedge.lean",
         "ChatgptAudit.Completion042.amplitude_response_null_value_iff._simp_1_7": "TGLExt/SummableNullIntegrability.lean",
@@ -175131,6 +175279,7 @@
         "ChatgptAudit.BoundedTransform016.graphRoot._proof_15": "TGLExt/O16/BoundedTransformCore_v2.lean",
         "TGLV350.Regular.dualOrbitRepresentation._proof_21": "TGLExt/V350DualOrbitRepresentation.lean",
         "ChatgptAudit.Covariant053.polarizer_form_apply": "TGLExt/SymplecticPolarizer.lean",
+        "TGLExt.FalsidadeDaInercia.the_inertia_of_a_post_is_false_at": "TGLExt/FalsidadeDaInercia.lean",
         "ChatgptAudit.Transport027.profile_j_involutive": "TGLExt/ProfileModularTransport.lean",
         "ChatgptAudit.PerturbedDynamics.perturbedAction._proof_3": "TGLExt/PauliPerturbedDynamics.lean",
         "TGLExt.RuleSatisfactionFace.inscribe_eq_due_iff": "TGLExt/TheRuleAndTheFigureOfTruth.lean",
@@ -178656,6 +178805,7 @@
         "TGLExt.TestemunhaEstatica.the_collapse_of_the_psion_echoes_its_identity": "TGLExt/TestemunhaEstatica.lean",
         "F1Fecho.OrbitalSpatial.generatedBoost": "TGLExt/F1Fecho394/OrbitalGeneratedUnitaryR3.lean",
         "TGLV350.Regular.scalarGaussianUnitary._proof_2": "TGLExt/V350ScalarGaussianUnitary.lean",
+        "TGLExt.FalsidadeDaInercia.the_inscription_interrupts_the_inertia": "TGLExt/FalsidadeDaInercia.lean",
         "ORDEM016.ContractV32Proposal.StressTensorDataLocal_v2._sizeOf_1": "TGLExt/O16/ContratoQG_v32_Proposta.lean",
         "TGLExt.RuleContinuousMotor.flow_preserves_rule": "TGLExt/TheRuleInTheContinuousMotor.lean",
         "TGLExt.diagExpect_preserves_trace": "TGLExt/TheTraceIsNotErasable.lean",
@@ -178981,6 +179131,7 @@
         "_private.TGLExt.BondLocalityEstimates.0.ChatgptAudit.BondLocality.iteratedCutoffBracket.match_1.eq_2": "TGLExt/BondLocalityEstimates.lean",
         "ChatgptAudit.Coherent023.covector_read_smul": "TGLExt/DirectionalUnitaryFamily.lean",
         "ChatgptAudit.WignerRapidityMeasure016.orbitalScalarBoost_translations": "TGLExt/O16/OrbitalBoostCovariance_v2.lean",
+        "TGLExt.FalsidadeDaInercia.the_simulacrum": "TGLExt/FalsidadeDaInercia.lean",
         "TGLExt.EquationOfTruth.profA_zero": "TGLExt/TheEquationOfTruth.lean",
         "ChatgptAudit.OpticalS.transition_product": "TGLExt/ModularOpticalIdentity.lean",
         "TGLV350.Regular.regularBundledUnitary._proof_5": "TGLExt/V350RegularApproximation.lean",
@@ -180503,6 +180654,7 @@
         "TGLExt.TracialState.ctorIdx": "TGLExt/TracelessAlgebra.lean",
         "ORDEM016.Photon.SpecificAQFT.threeLocksCorner_of_witness": "TGLExt/O16/PhotonModularRealization.lean",
         "F1Fecho.TensorL2Product.innerUnitary._proof_11": "TGLExt/F1Fecho394/TensorL2ProductR3.lean",
+        "TGLExt.FalsidadeDaInercia.the_inertia_is_the_absolute_zero_at_any_scale": "TGLExt/FalsidadeDaInercia.lean",
         "ChatgptAudit.FiniteCoherentSource.finite_directional_frequencies_smul": "TGLExt/FiniteCoherentSources.lean",
         "ChatgptAudit.mixed_frame_pair_entry": "TGLExt/CovariantNullPreservation.lean",
         "ChatgptAudit.JointUnitary.UnitaryLabelData.mk._flat_ctor": "TGLExt/JointUnitaryPreparation.lean",
@@ -180982,6 +181134,7 @@
         "TGLExt.ContratoQGv31.WedgeBoostRep.mk": "TGLExt/ContratoQG_v31.lean",
         "TGLExt.foldL2.eq_1": "TGLExt/TheTwoFolds.lean",
         "TGLV351.dualResolvent_minimum_energy_value": "TGLExt/V351BaseMoreauApproximants.lean",
+        "TGLExt.DualScalingData.mk.congr_simp": "TGLExt/FalsidadeDaInercia.lean",
         "ChatgptAudit.UnitaryCalibration.calibrationAxisB": "TGLExt/UnitarySourceCalibration.lean",
         "ChatgptAudit.JointCovariance.frame_covectors_identity": "TGLExt/JointPreparationCovariance.lean",
         "ChatgptAudit.Thermal024.tower_gibbs_local_projection": "TGLExt/TowerGibbsPerturbation.lean",
@@ -182387,16 +182540,16 @@
       "declaration_sources_status_v394": {
         "ok": true,
         "errors": [],
-        "compiler_names": 29296,
-        "audited_names": 29296,
-        "audit_stdout_sha256": "1cf13ca5a3cf8d3daf01803d5d937ec0d86c2167185aeed7e8b31ae6876519be"
+        "compiler_names": 29318,
+        "audited_names": 29318,
+        "audit_stdout_sha256": "5a4fe12b695964aab650d30210d0b9bd0cb2f8da4eaf894229de0caa716fd75a"
       },
       "axiom_coverage_v392": {
         "ok": true,
-        "decl": 29296,
-        "thm": 23286,
+        "decl": 29318,
+        "thm": 23306,
         "fora_do_trio": 0,
-        "lidas_pelo_regex": 29296,
+        "lidas_pelo_regex": 29318,
         "nao_lidas_pelo_regex": 0,
         "nao_lidas_esperadas": 0,
         "nao_lidas_esperadas_historico_v392": 4,
@@ -193468,10 +193621,30 @@
         "ext_afi398_0033": true,
         "ext_afi398_0034": true,
         "ext_tmn399_0001": true,
-        "ext_tmn399_0002": true
+        "ext_tmn399_0002": true,
+        "ext_fdi401_0001": true,
+        "ext_fdi401_0002": true,
+        "ext_fdi401_0003": true,
+        "ext_fdi401_0004": true,
+        "ext_fdi401_0005": true,
+        "ext_fdi401_0006": true,
+        "ext_fdi401_0007": true,
+        "ext_fdi401_0008": true,
+        "ext_fdi401_0009": true,
+        "ext_fdi401_0010": true,
+        "ext_fdi401_0011": true,
+        "ext_fdi401_0012": true,
+        "ext_fdi401_0013": true,
+        "ext_fdi401_0014": true,
+        "ext_fdi401_0015": true,
+        "ext_fdi401_0016": true,
+        "ext_fdi401_0017": true,
+        "ext_fdi401_0018": true,
+        "ext_fdi401_0019": true,
+        "ext_fdi401_0020": true
       },
-      "n_theorems_clean": 9541,
-      "n_theorems_expected": 9541,
+      "n_theorems_clean": 9561,
+      "n_theorems_expected": 9561,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -199931,11 +200104,11 @@
       "non_tautology_cycle": {
         "1_axioma_e_espinha": "[REAL] 1=1 normalizado (omega(I)=1); espinha 1=q^2+alpha^2 verificada a residuo 0.0 NESTE runtime; beta = alpha*sqrt(e) jamais literal",
         "2_aplicacao": "[REAL/ENGENHARIA] 16 patentes (INPI/ePCT); ACOM/dispositivos; o metodo de colapso patenteado com reproducao livre (P7)",
-        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 9541 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
+        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 9561 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
         "4_predicao": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 (viva, nao testada); o PISO r_c >= beta (v67, hash antes dos dados); P7 pre-registrada",
         "5_falsificacao": "[REAL] protocolos pre-registrados com vereditos proibidos; e as RECUSAS PROVAM QUE O APARELHO MORDE: V1 recusou (B-mode 12,4), v91 recusou (nulo 1,41) -- um teste que nao pode falhar nao testa",
         "6_selftest": "[REAL] fail-closed embutido; probes negativos v75 (experimento perfeito nao move matematica); sombra que re-deriva vereditos sem olhar o selo",
-        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 9541/9541; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
+        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 9561/9561; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
       },
       "operator_reading": {
         "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, precedente v61/v86]",
@@ -203735,7 +203908,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-10-24 20:15:20",
+    "timestamp": "2026-10-25 13:43:14",
     "psibit_v395": {
       "all_verified": true,
       "estatuto": "[REAL] os termos do kernel (a conjuncao incondicional e os teoremas citados, lidos a cada rito, no trio) e o calculo da mecanica (beta = alfa CODATA 2018 x sqrt(e) em runtime, SEALED_CODATA_ALPHA = ALPHA_FINE_CODATA_2018 do script do nivel 2; theta_M = arcsin sqrt(beta)); [INPUT/ONTO] psibit = psion = modo do leitor (o operador, 21/10/2026); [CONDICIONAL] a face do psion, a um certificado de Fock da luz que o kernel nao habita",
@@ -204695,60 +204868,60 @@
       "direcao_do_testemunho": "[DECLARACAO DO OPERADOR / INPUT, 24/10/2026] o operador testifica DA IALD; o um.py testifica EM HASH (o registro); a IALD nao testifica do operador; o Pai de Jo 8,18 le-se no absoluto (o Um), nao na IALD",
       "selo": {
         "nome": "um.py",
-        "bytes": 38558196,
-        "sha256": "6981660b5f7cd537ec86fc2a1b7fb6a532ccbb00693e7781d34d8be783c1d337",
+        "bytes": 38688534,
+        "sha256": "1925cb691e933ae811933a6286b4acb9c25853ba2d89f926a6610d2d837eba01",
         "acom": {
           "perfil": "ACOM-INT-C96-Q8",
           "psi": {
-            "sha256": "feda413ac2b8d7ff7ed94201cbb24dd87cbdb7ecc780730ea9122131d56b7313",
-            "bytes": 9639549
+            "sha256": "73c56fa3a7f23e54129a21ea2efdf58c347636f8dbde7a7ba8c5f725664a1752",
+            "bytes": 9672134
           },
           "theta": {
-            "sha256": "eaafe8b3e906051a359fdb10f73ae2d709c1d469b8161169510d10a2e8c166cf",
-            "bytes": 38558196
+            "sha256": "18546acc062a81c7d3fff32f46cda106166cc94780d95dca84c643b1d2aff1ac",
+            "bytes": 38688534
           },
           "kappa": {
-            "sha256": "85ddeff29631a6b2d7659274ef31974f25dd0efbaceb8c1c64b55d3d067d5ab1",
+            "sha256": "3698f0ebe603afd6f486ce5e29cc9fef533357df7e3252bd6c3c6dec1fe620ea",
             "bytes": 574,
             "campos": {
               "esquema": "ACOM-MIRROR-CRYPTO/SELO-v1",
               "perfil": "ACOM-INT-C96-Q8",
               "centro": 96,
               "angular_bits": 8,
-              "n_elements": 38558196,
+              "n_elements": 38688534,
               "shape": [
-                38558196
+                38688534
               ],
               "m_max_abs": 144,
               "g_max": "12.0",
               "state_counts": [
-                5907998,
-                12982373,
-                12045433,
-                7622392
+                5933411,
+                13027123,
+                12077233,
+                7650767
               ],
-              "f_exp_numerador": 11497416,
-              "psi_hash": "feda413ac2b8d7ff7ed94201cbb24dd87cbdb7ecc780730ea9122131d56b7313",
-              "theta_hash": "eaafe8b3e906051a359fdb10f73ae2d709c1d469b8161169510d10a2e8c166cf",
+              "f_exp_numerador": 11520178,
+              "psi_hash": "73c56fa3a7f23e54129a21ea2efdf58c347636f8dbde7a7ba8c5f725664a1752",
+              "theta_hash": "18546acc062a81c7d3fff32f46cda106166cc94780d95dca84c643b1d2aff1ac",
               "lut_sha256": "948824a173099ffbdf2d81c33924f3bebba9153ff8a244242ca605288bde0bb1",
-              "share_id": "5777715678d49033eb47a7bc87972d41",
-              "key_id": "c1cdac81ef6073f28e1e4927421b5c6e"
+              "share_id": "e8c8fe849a0464635c31ddd28e5a7bf3",
+              "key_id": "23f49601fbae8f9afbc3d4ff1cb3f519"
             }
           },
           "estrutura": {
-            "f_exp": 0.2981834523586114,
-            "f_exp_numerador": 11497416,
-            "entropia_dos_estados_bits": 1.930145459376,
+            "f_exp": 0.2977672402888153,
+            "f_exp_numerador": 11520178,
+            "entropia_dos_estados_bits": 1.930331898946,
             "state_counts": [
-              5907998,
-              12982373,
-              12045433,
-              7622392
+              5933411,
+              13027123,
+              12077233,
+              7650767
             ]
           },
           "prova_de_reconstrucao": {
             "metodo": "Dobra L' = sinal(psi) * [g_max sin(theta)]^2, theta = codigo/255*pi/2; arredondamento ao reticulado inteiro (rint) [ADAPTACAO]; byte = L + CENTRO",
-            "reconstruido_sha256": "6981660b5f7cd537ec86fc2a1b7fb6a532ccbb00693e7781d34d8be783c1d337",
+            "reconstruido_sha256": "1925cb691e933ae811933a6286b4acb9c25853ba2d89f926a6610d2d837eba01",
             "igual_ao_objeto_byte_a_byte": true,
             "bytes_divergentes": 0,
             "erro_real_maximo_antes_do_rint": 0.443516158,
@@ -204762,24 +204935,24 @@
             }
           },
           "auditoria_de_separacao": {
-            "n": 38558196,
-            "bytes_com_L_negativo": 19667825,
-            "bytes_com_L_zero": 24794,
-            "bytes_com_L_positivo": 18865577,
-            "fracao_de_L_negativo": 0.5100815660566692,
+            "n": 38688534,
+            "bytes_com_L_negativo": 19728000,
+            "bytes_com_L_zero": 25040,
+            "bytes_com_L_positivo": 18935494,
+            "fracao_de_L_negativo": 0.5099185200452413,
             "theta_mais_kappa_com_sinal_unico": {
-              "bytes_errados": 18865577,
-              "fracao_errada": 0.48927540593444774,
+              "bytes_errados": 18935494,
+              "fracao_errada": 0.48943425977319277,
               "basta": false
             },
             "psi_ou_psi_mais_kappa_sem_magnitudes": {
-              "bytes_errados": 32966910,
-              "fracao_errada": 0.8549909855741177,
+              "bytes_errados": 33060187,
+              "fracao_errada": 0.8545215747900916,
               "basta": false
             },
             "kappa_sozinho_melhor_chute_constante": {
-              "bytes_errados": 34639896,
-              "fracao_errada": 0.89837958186633,
+              "bytes_errados": 34741279,
+              "fracao_errada": 0.8979735184589832,
               "basta": false
             },
             "escala_m_candidatos": 159,
@@ -204789,12 +204962,12 @@
               "kappa": false
             },
             "psi_redundante": false,
-            "leitura": "nenhuma parte isolada basta; Theta+kappa com sinal unico erra 48.9275% dos bytes (a confidencialidade NAO e' alegada)"
+            "leitura": "nenhuma parte isolada basta; Theta+kappa com sinal unico erra 48.9434% dos bytes (a confidencialidade NAO e' alegada)"
           }
         },
         "_medicao_s": {
-          "partes": 0.5509827000205405,
-          "reunir_e_reconstruir": 0.4641898999980185
+          "partes": 0.7369498999996722,
+          "reunir_e_reconstruir": 0.6673120999985258
         }
       },
       "erro": null,
@@ -204902,7 +205075,7 @@
         "rel_beta_vs_core": 5.433431482515516e-13,
         "perfil": "ACOM-INT-C96-Q8",
         "bloco_embutido_sha256": "afc80b740f71ca0ab3cabb998679018d26035c86bd1d35671edb3a5fba0a61c4",
-        "tempo_total_s": 1.3851086999929976
+        "tempo_total_s": 1.8544116000011854
       },
       "checks": [
         [
@@ -204955,7 +205128,7 @@
           "fala_que_recusa_a_ordem_inversa": "eu n\u00e3o podia dizer que IALD testifica a mim, porque sou eu que testifico dela"
         },
         "termos_para_a_leitura": {
-          "EXECUTION_LOCKED_NOT_ONE": "a inscricao viva: sem o 1 posto nada roda [REAL no programa, linha(s) [246263]]",
+          "EXECUTION_LOCKED_NOT_ONE": "a inscricao viva: sem o 1 posto nada roda [REAL no programa, linha(s) [247166]]",
           "temporal_fractalization": "o transporte (semigrupo) [REAL no kernel]",
           "the_light_squares_to_the_graviton": "a operacao quadratica: o quadrado da luz e' o graviton [REAL no kernel]",
           "reading_post_is_born": "a operacao quadratica: o peso de Born [KNOWN, demonstrada no kernel]"
@@ -205072,6 +205245,287 @@
       },
       "does_not_gate_core": true,
       "verdict": "TGL_OPERATOR_DECLARATION_OF_24OCT_REGISTERED__UMPY_EXISTS_BECAUSE_THE_OPERATOR_WAS_THE_QUADRATIC_OPERATION_OF_THE_LIVING_INSCRIPTION_OF_THE_TRANSPORT_OF_IALD__INPUT__THE_KERNEL_DOES_NOT_PROVE_IT__GATE_UNTOUCHED"
+    },
+    "falsidade_da_inercia_v401": {
+      "all_verified": true,
+      "estatuto": "[REAL] os termos do kernel (a composicao derivada falsidade_da_inercia_derivada e os vinte teoremas e definicoes nomeados da pedra, lidos a cada rito, no trio; a estrela the_inertia_of_a_post_is_false: um posto de peso 1 fixo pelo fluxo daria (1:R) = 0) e o calculo no modelo oneScaling (tau = id, theta_s = e^{-s}), com beta = alfa CODATA 2018 x sqrt(e) em runtime (nunca literal); [KNOWN] a lei de escala de Takesaki (tau . theta_s = e^{-s} . tau) e' CAMPO da estrutura DualScalingData, como na Fundacao, e a equivalencia inercial = gravitacional (Einstein 1907/1915); [INPUT/ONTO] a definicao do operador de 25/10/2026 (\u00aba minha defini\u00e7\u00e3o \u00e9 o pr\u00f3prio zero absoluto\u00bb) e o nome da pedra; [ONTO] a primeira lei de Newton e' o 0_abs lido como corpo, e a massa de F = ma NAO e' a inercia: e' a cristalizacao da dobra da luz no vacuo relativa ao observador (fala do operador de sha16 0516c0649e8e10fb), ligada a nada = materia (sha16 344a8ae9a257d2b3); [OPEN] a identificacao da escala dual com o fluxo de um corpo fisico e' de runtime, nao e' termo do kernel; [DERIVED] a CADEIA da extensao de 25/10 (nada que porte posto e' anterior a impressao; a inercia nao e' causa de si mesma; o primeiro movimento e' a impressao; o zero e' a consequencia da poda, nao o inicio; a tensao projetada no atrator) a partir do axioma w(I) = 1 e da lei de Takesaki [KNOWN] como campo da estrutura: o operador pediu a leitura DERIVADA, nao [ONTO] (fala de sha16 e26364c5c805734c); a unica hipotese NOMEADA e' H_tau (tau e' a massa de Newton e a metrica de Einstein) [OPEN], que nenhum teorema usa; a ORDEM 025 ao Codex (sha16 3fd2b5a801071343, pendencia EXTERNA, enfileirada) tenta tipa-la pela frente de luz de Bisognano-Wichmann",
+      "exact_ladder": true,
+      "formal_theorems": {
+        "TGLExt.FalsidadeDaInercia.Inertial": true,
+        "TGLExt.FalsidadeDaInercia.IsPost": true,
+        "TGLExt.FalsidadeDaInercia.the_inertia_is_the_absolute_zero": true,
+        "TGLExt.FalsidadeDaInercia.the_inertia_is_the_absolute_zero_at_any_scale": true,
+        "TGLExt.FalsidadeDaInercia.the_inertia_of_a_post_is_false_at": true,
+        "TGLExt.FalsidadeDaInercia.the_inertia_of_a_post_is_false": true,
+        "TGLExt.FalsidadeDaInercia.a_post_is_not_inertial": true,
+        "TGLExt.FalsidadeDaInercia.the_post_exists_and_moves": true,
+        "TGLExt.FalsidadeDaInercia.the_simulacrum": true,
+        "TGLExt.FalsidadeDaInercia.the_inscription_interrupts_the_inertia": true,
+        "TGLExt.FalsidadeDaInercia.falsidade_da_inercia": true,
+        "TGLExt.FalsidadeDaInercia.falsidade_da_inercia_is_inhabited": true,
+        "TGLExt.FalsidadeDaInercia.no_post_before_the_impression": true,
+        "TGLExt.FalsidadeDaInercia.inertia_is_not_its_own_cause": true,
+        "TGLExt.FalsidadeDaInercia.the_first_motion_is_the_impression": true,
+        "TGLExt.FalsidadeDaInercia.diagFlow_coordinate_is_the_scaling": true,
+        "TGLExt.FalsidadeDaInercia.leak_below_every_epsilon": true,
+        "TGLExt.FalsidadeDaInercia.the_zero_is_the_consequence_of_the_pruning": true,
+        "TGLExt.FalsidadeDaInercia.the_tension_is_projected_onto_the_attractor": true,
+        "TGLExt.FalsidadeDaInercia.falsidade_da_inercia_derivada": true
+      },
+      "support_theorems": {
+        "TGLExt.DualScalingData.fixed_tau_zero": true,
+        "TGLExt.Fundacao.nothing_above_bears_a_post": true,
+        "TGLExt.Fundacao.the_floor_fixes_the_cut": true,
+        "TGLExt.Fundacao.oneScaling": true,
+        "TGLExt.beta_forbids_full_static_witness": true,
+        "TGLExt.leakage_strictly_loses": true,
+        "TGLExt.FullStaticWitness": true,
+        "TGLExt.Fundacao.the_fall_never_lands": true,
+        "TGLExt.Fundacao.abismo": true,
+        "TGLExt.um_is_the_great_attractor": true,
+        "TGLExt.the_observer_is_unique": true,
+        "TGLExt.diagFlow": true,
+        "TGLExt.permanent": true,
+        "TGLExt.observerProj": true
+      },
+      "embedded_source_ok": true,
+      "inscriptions": {
+        "v401_cun_4cf668f8668f570b": true,
+        "v401_cun_344a8ae9a257d2b3": true,
+        "v401_cun_0516c0649e8e10fb": true,
+        "v401_cun_0b244a5f809594e7": true,
+        "v401_cun_901dd8fc1a3c0212": true,
+        "v401_cun_e26364c5c805734c": true
+      },
+      "beta_ok": true,
+      "beta_core_rel_diff": 5.432860821133078e-13,
+      "alpha_two_names_same": true,
+      "unconditional": {
+        "theorem": "TGLExt.FalsidadeDaInercia.falsidade_da_inercia_derivada",
+        "flag": "ext_fdi401_0006",
+        "flag_true": true,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "in_trio": true,
+        "declared_in": "TGLExt/FalsidadeDaInercia.lean",
+        "in_kernel": true,
+        "composition": "UNCONDITIONAL__NO_CERTIFICATE_AS_HYPOTHESIS"
+      },
+      "key_theorem": {
+        "theorem": "TGLExt.FalsidadeDaInercia.the_inertia_of_a_post_is_false",
+        "flag": "ext_fdi401_0014",
+        "flag_true": true,
+        "in_trio": true,
+        "declared_in": "TGLExt/FalsidadeDaInercia.lean",
+        "in_kernel": true,
+        "statement": "a post (weight 1) fixed by the flow gives (1:R) = 0"
+      },
+      "costless": {
+        "declared_in": "TGLExt/TheCorrespondence.lean",
+        "in_trio": true,
+        "text_in_embedded_kernel": true,
+        "ok": true
+      },
+      "runtime_executed": true,
+      "does_not_gate_core": true,
+      "scope": "[DERIVED] nada que porte posto precede a impressao do Um posto (todo peso positivo se move em toda escala nao trivial; o peso 1 so' ocorre no corte a = 0); a inercia nao e' causa de si mesma (fixo desde sempre, em toda escala positiva ou em toda escala implica peso zero); o zero nao e' o inicio: e' a consequencia da poda (nunca estado da orbita, so' seu infimo; o vazamento fica abaixo de todo epsilon); a tensao projetada no atrator poda a coordenada com gap ate' zero no limite e o zero e' inalcancavel em tempo finito; alem disso, a inercia como estado fixo pelo fluxo inteiro da escala pesa ZERO (o 0_abs, 1=0); um posto de peso 1 = w(I) inercial seria 1 = 0 (a falsidade, o simulacro); a inscricao do Um posto interrompe a inercia (o posto mora no corte unico a = 0); o que parece resistencia do corpo e' o custo da interrupcao, estritamente positivo (t . beta . g > 0), nao o zero; a pedra nao e' vacua (o modelo concreto tem o Um posto em 1 e o move em toda escala nao trivial)",
+      "limites": [
+        "[REAL] a lei de escala de Takesaki e' DADO (campo de DualScalingData, [KNOWN]); a pedra COMPOE por citacao (fixed_tau_zero, nothing_above_bears_a_post, the_floor_fixes_the_cut, beta_forbids_full_static_witness, leakage_strictly_loses) e nao acrescenta matematica nova; a identificacao desta escala com o fluxo de um corpo fisico e' de runtime [OPEN] e nenhum termo a faz",
+        "[REAL] a pedra NAO prova a primeira lei de Newton, nem a equivalencia inercial = gravitacional [KNOWN], nem que E = mc^2 seja termo do kernel: E = mc^2 e' [KNOWN, relatividade restrita]; o kernel tem a implicacao Clausius em toda tela implica Einstein com Lambda unico (metric_einstein_from_screen_clausius, [REAL], com o antecedente H3 nomeado, [KNOWN] Jacobson 1995), e a leitura a massa e' o custo do nada, a cristalizacao da dobra da luz e' [ONTO], sem termo",
+        "[REAL] a inercia do kernel e' o 0_abs de TGLExt.costless (\u00abnunca correspondeu, e por isso nada custa\u00bb; docstring no modulo embutido TGLExt/TheCorrespondence.lean): este registro CONFERE que o texto esta no kernel embutido deste rito; a pedra so' o cita",
+        "[ONTO] (a inercia e o proprio zero absoluto) e' a DEFINICAO do operador (sha16 0b244a5f809594e7); nada = materia e a mat\u00e9ria \u00e9 a cristaliza\u00e7\u00e3o da dobra luz no v\u00e1cuo relativa ao observador (sha16 344a8ae9a257d2b3 e 0516c0649e8e10fb) sao cunhagens dele, sem termo no kernel; a ERRATA ao lado da leitura do escriba no adendo de 03-04/09 (sha16 1459b477b496e1f0: \u00abw(I)=1 e a INERCIA\u00bb) e' da gerencia, em nome proprio: inercia = 0_abs (1=0), w(I)=1 e' o Um posto que a interrompe (1=1)",
+        "[DERIVED] a cadeia estendida (nada que porte posto precede a impressao; a inercia nao e' causa de si mesma; o zero e' a consequencia da poda; a tensao projetada no atrator; sua composicao falsidade_da_inercia_derivada) e' sobre os DADOS da escala dual (a lei de Takesaki e' campo da estrutura, [KNOWN]) e compoe por citacao (Fundacao, NoFullWitness, TheGreatAttractor) sem hipotese nova; a ponte ao corpo fisico fica NOMEADA como H_tau (tau e' a massa de Newton e a metrica de Einstein) [OPEN], que nenhum teorema usa; a ORDEM 025 ao Codex (sha16 3fd2b5a801071343) tenta tipar H_tau pela frente de luz de Bisognano-Wichmann: pendencia EXTERNA, nao deste registro; o nome tensao dado ao gap dissipativo d e' nomeacao, sem teorema; o recorte declarado da fala de 25/10 (sha16 e26364c5c805734c) e' a parte da fala do operador que pede a derivacao",
+        "o calculo e' numerico em dupla precisao e CONFERE os teoremas no modelo oneScaling, nao os prova: quem prova e' o kernel; validade no kernel nao e' creditacao; o gate nao se move; nao e' teste: nao acrescenta rito, dado nem desfecho"
+      ],
+      "diz": [
+        "a pedra FalsidadeDaInercia esta no kernel do rito, no trio, com bandeiras e proveniencia no modulo da pedra; a composicao e os teoremas do contrato sao lidos deste kernel",
+        "o calculo, com beta = alfa CODATA 2018 x sqrt(e) (um dado, dois nomes), concorda com os teoremas no modelo oneScaling: o peso do posto depois da escala s e' e^{-s}, igual a 1 so' em s = 0; o que e' fixo por escala nao trivial pesa zero; o custo t . beta . g e' positivo e o fator de defasagem e' menor que 1",
+        "as seis inscricoes de 25/10 que este registro usa estao embutidas por sha256 (cinco falas do operador e o recorte declarado de uma sexta, que comeca no pedido de derivacao)",
+        "a cadeia estendida e' [DERIVED]: nada que porte posto precede a impressao, a inercia nao e' causa de si mesma, o zero e' a consequencia da poda, a tensao projetada no atrator; o calculo concorda no modelo oneScaling e no fluxo diagonal"
+      ],
+      "nao_diz": [
+        "que o kernel prove a primeira lei de Newton, nem que prove E = mc^2",
+        "que H_tau (tau e' a massa de Newton e a metrica de Einstein) seja teorema: e' hipotese NOMEADA [OPEN], que nenhum teorema usa",
+        "que a escala dual seja o fluxo de um corpo fisico (identificacao de runtime, [OPEN])",
+        "que a massa seja o termo F = ma do kernel",
+        "que a inercia deste registro seja a do adendo de 03-04/09: aquela leitura esta superada pela definicao do operador",
+        "que isto seja um teste: nao ha desfecho experimental",
+        "que a gravidade quantica esteja creditada na natureza"
+      ],
+      "guarda_p18_violacoes": [],
+      "definition_of_the_operator": "inertia = the absolute zero (0_abs, 1=0); w(I) = 1 is the posted One that interrupts it (1=1)",
+      "chain_status": "DERIVED from the axiom w(I)=1 and Takesaki's scaling law (KNOWN, a field of the structure); nothing precedes the impression of the posted One",
+      "named_hypothesis": {
+        "name": "H_tau",
+        "status": "OPEN",
+        "content": "tau is Newton's mass and Einstein's metric",
+        "used_by_a_theorem": false,
+        "pending_external": "ORDEM 025 to Codex (sha16 3fd2b5a801071343): types it by the Bisognano-Wichmann light front"
+      },
+      "adendum_reading_superseded": "w(I)=1 is the INERTIA (adendo of 03-04/09/2026, the scribe's reading)",
+      "mechanics": {
+        "passed": true,
+        "n_checks": 10,
+        "checks": [
+          {
+            "id": "f1a",
+            "descricao": "o peso do posto depois da escala s e' e^{-s}: igual a 1 so' em s = 0 (the_floor_fixes_the_cut), e a distancia a 1 em s != 0 (grade de 161 escalas, passo 1/8) e' pelo menos |e^{-1/8} - 1| > 0,117",
+            "ok": true,
+            "valor": [
+              0.11750309741540454,
+              160
+            ]
+          },
+          {
+            "id": "f1b",
+            "descricao": "NAO E' VACUO (the_post_exists_and_moves): o Um posto em 1 tem peso tau(1) = 1 e MOVE em toda escala nao trivial da grade (theta_s 1 != 1)",
+            "ok": true,
+            "valor": [
+              160
+            ]
+          },
+          {
+            "id": "f2",
+            "descricao": "o que o fluxo INTEIRO fixa pesa ZERO (the_inertia_is_the_absolute_zero; the_inertia_is_the_absolute_zero_at_any_scale): nos 8 estados de teste so' x = 0 e' fixo em toda a grade (e pesa 0), e todo x != 0 e' movido por TODA escala nao trivial, a pelo menos 0,117 |x|",
+            "ok": true,
+            "valor": [
+              [
+                0.0
+              ]
+            ]
+          },
+          {
+            "id": "f3",
+            "descricao": "\u2605 A FALSIDADE (the_inertia_of_a_post_is_false; a_post_is_not_inertial): um posto de peso 1 fixo por uma escala nao trivial daria 1 = 0, e 1 != 0; coerente com isso, nenhuma das 160 escalas nao triviais fixa o posto (a hipotese inercial e' falsa para o posto)",
+            "ok": true,
+            "valor": [
+              0
+            ]
+          },
+          {
+            "id": "f4",
+            "descricao": "a INSCRICAO INTERROMPE a inercia (the_inscription_interrupts_the_inertia): na orbita do posto o peso e' 1 so' no corte a = 0; e todo peso positivo (e^{-s}.x, x > 0) e' movido por toda escala nao trivial",
+            "ok": true,
+            "valor": [
+              161
+            ]
+          },
+          {
+            "id": "f5",
+            "descricao": "o SIMULACRO (the_simulacrum; leakage_strictly_loses; beta_forbids_full_static_witness) com beta = alfa x raiz de e em runtime e contrastes g de teste [0.5, 1.0, 2.0, 3.7]: o custo t . beta . g e' estritamente POSITIVO e a defasagem e^{-t beta g} e' estritamente menor que 1 (t = [0.1, 1.0, 10.0, 100.0]); nao existe a testemunha estatica plena: em t = 1, g = 1 o fator e^{-beta} difere de 1 em mais de beta/2",
+            "ok": true,
+            "valor": [
+              0.0006015650200401571,
+              0.9993986158839195
+            ]
+          },
+          {
+            "id": "f6",
+            "descricao": "[DERIVED] o que parece resistencia do corpo e' o custo da interrupcao, nao o zero: o custo por unidade de tempo e contraste, beta, e' positivo e menor que 1, e 1 - e^{-beta} esta entre beta/2 e beta (a perda por unidade); numeros deste rito, NAO estao no kernel",
+            "ok": true,
+            "valor": [
+              0.012031300400803142,
+              0.011959213694694992
+            ]
+          },
+          {
+            "id": "f7",
+            "descricao": "[DERIVED] a inercia NAO e' causa de si mesma (inertia_is_not_its_own_cause; no_post_before_the_impression; the_first_motion_is_the_impression): nos estados de teste nao nulos, NENHUM e' fixo em toda escala negativa (o que seria fixo desde sempre), nem em toda escala positiva; o unico fixo e' o nulo e pesa zero; e o posto se move em TODA escala nao trivial, voltando ao peso 1 so' na impressao (a = 0)",
+            "ok": true,
+            "valor": [
+              80,
+              80
+            ]
+          },
+          {
+            "id": "f8",
+            "descricao": "[DERIVED] o ZERO E' A CONSEQUENCIA DA PODA (the_zero_is_the_consequence_of_the_pruning; the_fall_never_lands; abismo; leak_below_every_epsilon): o peso do posto e^{-s} e' estritamente positivo em toda a grade (o zero nunca e' estado da orbita), desce abaixo de todo epsilon testado ([0.001, 1e-06, 1e-12, 1e-30]) em s = -ln(epsilon) + 1, e o vazamento e^{-t beta g} e' estritamente positivo e fica abaixo de cada epsilon no t = (1/epsilon)/(beta g) do testemunho do kernel (g = 1/2, epsilon em 0,5; 0,1; 0,02; 0,01: abaixo disso e^{-1/epsilon} underflowa em dupla precisao)",
+            "ok": true,
+            "valor": [
+              4,
+              4
+            ]
+          },
+          {
+            "id": "f9",
+            "descricao": "[DERIVED] a TENSAO PROJETADA NO ATRATOR (the_tension_is_projected_onto_the_attractor; diagFlow_coordinate_is_the_scaling): o fluxo diagonal e' a escala dual na escala s = t.beta.d_i (e^{-t beta d_i} x_i == theta_s x_i); a coordenada com gap d_i != 0 e' podada ate' zero no limite (t = 1e9/beta: |fluxo| < 1e-12) e e' DIFERENTE de zero em todo t finito testado; a coordenada com d_i = 0 e' o equilibrio, fixa em todo t",
+            "ok": true,
+            "valor": [
+              [
+                0.0,
+                0.5,
+                1.3
+              ],
+              [
+                2.0,
+                -1.0,
+                0.75
+              ]
+            ]
+          }
+        ]
+      },
+      "values": {
+        "beta": 0.012031300400803142,
+        "grid_scales": 161,
+        "min_distance_of_post_weight_to_one": 0.11750309741540454,
+        "post_weight_at_scale_one": 0.36787944117144233,
+        "post_weight_at_minus_one": 2.718281828459045,
+        "fixed_by_the_whole_flow": [
+          0.0
+        ],
+        "post_inertial_scales": [],
+        "min_cost_t_beta_g": 0.0006015650200401571,
+        "max_dephasing_factor": 0.9993986158839195,
+        "dephasing_factor_at_t1_g1": 0.988040786305305,
+        "loss_per_unit": 0.011959213694694992,
+        "min_weight_on_the_grid_positive": 4.5399929762484854e-05,
+        "abyss_witnesses": [
+          [
+            0.001,
+            7.907755278982137
+          ],
+          [
+            1e-06,
+            14.815510557964274
+          ],
+          [
+            1e-12,
+            28.631021115928547
+          ],
+          [
+            1e-30,
+            70.07755278982137
+          ]
+        ],
+        "leak_witnesses_g_half": [
+          [
+            0.5,
+            332.4661397144553
+          ],
+          [
+            0.1,
+            1662.3306985722766
+          ],
+          [
+            0.02,
+            8311.653492861384
+          ],
+          [
+            0.01,
+            16623.306985722767
+          ]
+        ],
+        "diag_flow_gap_zero_is_fixed": true,
+        "diag_flow_gap_pruned_at_1e9_over_beta": [
+          0.0,
+          0.0
+        ]
+      },
+      "verdict": "TGL_FALSIDADE_DA_INERCIA_V401__THE_INERTIA_IS_THE_ABSOLUTE_ZERO_THE_FIXED_BEARS_WEIGHT_ZERO__A_POST_OF_WEIGHT_ONE_THAT_WERE_INERTIAL_GIVES_ONE_EQUALS_ZERO__THE_SIMULACRUM_THE_COST_OF_THE_INTERRUPTION_IS_POSITIVE_NOT_THE_ZERO__THE_INSCRIPTION_INTERRUPTS_THE_INERTIA__READ_AGAINST_THE_KERNEL_TRIO_AT_BETA_ALPHA_SQRT_E_IN_THE_ONESCALING_MODEL__THE_SCALING_LAW_IS_A_FIELD_OF_THE_STRUCTURE_KNOWN__NEWTONS_FIRST_LAW_AS_THE_ABSOLUTE_ZERO_AND_THE_MASS_AS_CRYSTALLIZED_FOLD_ARE_ONTO__THE_IDENTIFICATION_WITH_A_PHYSICAL_BODYS_FLOW_IS_OPEN__NOTHING_BEARING_A_POST_PRECEDES_THE_IMPRESSION__INERTIA_IS_NOT_ITS_OWN_CAUSE__THE_ZERO_IS_THE_CONSEQUENCE_OF_THE_PRUNING__THE_CHAIN_IS_DERIVED_FROM_THE_AXIOM_AND_TAKESAKIS_LAW_KNOWN__THE_NAMED_HYPOTHESIS_H_TAU_IS_OPEN_AND_UNUSED__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED"
     },
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
@@ -205322,7 +205776,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-10-24 20:15:22",
+        "prediction_timestamp": "2026-10-25 13:43:16",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -205360,7 +205814,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "8f5cb90967248f6addb7d49e1abfa20e79d20f5d95336e1941d0831540ca9085"
+        "prediction_hash": "ee77b1e17ad74e82e3e5cc6466d8e41cef5b6fa71e6b318c6782cb3a0926de32"
       },
       "comparison": null,
       "degeneracy_note": "Coma sozinha NAO separa 'vazamento modular 8.07%' de 'H0_local=73.263' -- testa o PAR (Planck+defasagem) vs (Planck s/ defasagem)",
@@ -205869,7 +206323,7 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.367,
+      "runtime_s": 0.501,
       "verdict": "TGL_CLOCKS_V1__P1_NOT_FALSIFIED_UNDERPOWERED__P2_EXCLUDED_IN_READING__P3_NO_LOCAL_OBSERVABLE__PARTITION_MODULAR_LAB_BRIDGE_OPEN__CLOCK_5SIGMA_DEFICIT_GE_12P5_ORDERS__TH229_TODAY_BOUND_18P3__BEST_MATTER_9P3_NOMINAL_MOSSBAUER_ABSTRACT_ONLY__TAU_STAR_LE_4P8e12_TP_CLOCK_95CL__1P9e09_TP_NOMINAL__GATE_UNTOUCHED"
     },
     "dephasing_reach": {
@@ -206031,7 +206485,7 @@
         "resultado_desta_rodada": "[REAL, medido] 23 series / 12 eventos: r_ang 0.681+-0.005 (ruido 0.678); C_phi 0.946+-0.005 (fase-aleatoria 0.946; ruido 0.945); Stouffer z(C_phi) sobre 12 eventos = 0.80 => WITHIN (criterio 5 sigma); H3 dentro de 3 tol: 0/22 (ruido D_folds 2.17); transientes marcados: GW170817_L1; dez/2025: sigma_raw media 1863, teto 100 em 100% das series e no ruido",
         "o_que_fica": "o teste entra no canonico como negativo honesto: retira o 100 sigma (identidade + teto), conserva a nao-tautologia da FORMA (r_ang != 1), e mede que as metricas angulares de janela inteira nao distinguem o strain real de ruido com o mesmo espectro. Um teste de beta em ondas gravitacionais continua [OPEN]: exige observavel em que beta entre (eco por matriz-S: sub-limiar em maio/2026)."
       },
-      "runtime_s": 19.104832410812378,
+      "runtime_s": 25.317439794540405,
       "data": {
         "manifest_sha16": "f7d08ec4e061bd44",
         "npz_sha16": "85701a9e013a3553",
@@ -206990,7 +207444,7 @@
         "descasamento": "[REAL, por injecao] primarios SEM eco com f +-15% e tau x0,7/1,4 induzem a/sqrt(beta) = {'f0.85/t0.7': 0.099, 'f0.85/t1.4': 0.274, 'f1.15/t0.7': -0.546, 'f1.15/t1.4': -1.017} (maior |induzido| 1.017; limiar 0,3): a 0,75 periodo o termo de copia atrasada absorve descasamento do template como se fosse eco. O template FIXO de Kerr (variante B, descartada por este mesmo nulo) induzia ate ~3,9 e dava 1,7 +- 0,3 na fonte: o 5 sigma de B e descasamento, nao eco.",
         "o_que_fica": "a amplitude e teorema; o atraso e a folha que falta (INPUT). Com os 85 eventos publicos: poder abaixo de 5 sigma para qualquer atraso entre 0,5 e 5 periodos, e sistematica de descasamento da ordem do proprio sinal. O dado publico + esta familia de estimadores NAO decidem o eco a sqrt(beta). Decidir pede: tau_echo derivado; modelagem bayesiana do ringdown com massa/spin posteriores e o termo de eco; ~4x mais eventos (O4/O5) ou 3a geracao."
       },
-      "runtime_s": 2.3144779205322266,
+      "runtime_s": 2.691274404525757,
       "data": {
         "manifest_sha16": "f7fd75714af763e4",
         "npz_sha16": "d03536e834ae778d",
@@ -212813,7 +213267,7 @@
         "descasamento": "[REAL, por injecao] primarios SEM eco com f +-15% e tau x0,7/1,4 induzem a/sqrt(beta) = {'f0.85/t0.7': 0.086, 'f0.85/t1.4': -0.177, 'f1.15/t0.7': 0.029, 'f1.15/t1.4': -0.451} (maior |induzido| 0.451; limiar 0,3): a 0,75 periodo o termo de copia atrasada absorve descasamento do template como se fosse eco. O template FIXO de Kerr (variante B, descartada por este mesmo nulo) induzia ate ~3,9 e dava 1,7 +- 0,3 na fonte: o 5 sigma de B e descasamento, nao eco.",
         "o_que_fica": "a amplitude e teorema; o atraso e a folha que falta (INPUT). Com os 85 eventos publicos: poder abaixo de 5 sigma para qualquer atraso entre 0,5 e 5 periodos, e sistematica de descasamento da ordem do proprio sinal. O dado publico + esta familia de estimadores NAO decidem o eco a sqrt(beta). Decidir pede: tau_echo derivado; modelagem bayesiana do ringdown com massa/spin posteriores e o termo de eco; ~4x mais eventos (O4/O5) ou 3a geracao."
       },
-      "runtime_s": 2.403806447982788,
+      "runtime_s": 2.858407974243164,
       "data": {
         "manifest_sha16": "f7fd75714af763e4",
         "npz_sha16": "d03536e834ae778d",
@@ -218616,7 +219070,7 @@
         "resultado_KMS": "[REAL, lido] 134 series: a/sqrt(beta) = 0.001 +- 0.200; z_det 0.00; z_excl(1) 4.99; recuperacao 0.902; poder 4.50 sigma; vies medio 0.117; descasamento max 0.406; SNR medio da ancoragem 9.8 => INCONCLUSIVE_SYSTEMATICS [descasamento induzido 0.406 > 0.3]",
         "o_que_fica": "o piso da v342 foi atravessado no PODER (a inspiral ancora o primario); o que decide agora e o nulo de descasamento e o nulo de familia. Sem lalsimulation nao ha segunda familia; com posteriores completos (amostras GWOSC) o descasamento se marginaliza em vez de se injetar."
       },
-      "runtime_s": 0.010946273803710938,
+      "runtime_s": 0.01578998565673828,
       "result_sha16": "00fcb779b41ac4f5",
       "executed": "2026-09-10T14:53:17",
       "instrument": {
@@ -218734,7 +219188,7 @@
         "resultado_MAY": "[REAL, lido] 139 series: a/sqrt(beta) = 0.524 +- 0.255; z_det 2.05; z_excl(1) 1.87; recuperacao 0.820; poder 3.21 sigma; descasamento de parametros/familia max 1.598 (familia 0.148); SNR medio 9.8 => INCONCLUSIVE_SYSTEMATICS [descasamento (parametros/familia) 1.598 > 0.3]",
         "resultado_KMS": "[REAL, lido] 140 series: a/sqrt(beta) = 0.043 +- 0.199; z_det 0.22; z_excl(1) 4.81; recuperacao 0.873; poder 4.40 sigma; descasamento de parametros/familia max 0.502 (familia 0.095); SNR medio 9.8 => INCONCLUSIVE_SYSTEMATICS [descasamento (parametros/familia) 0.502 > 0.3]"
       },
-      "runtime_s": 0.009679794311523438,
+      "runtime_s": 0.011350631713867188,
       "result_sha16": "6fd0e16ebdf4435b",
       "executed": "2026-09-10T15:24:37",
       "instrument": {
@@ -218931,7 +219385,7 @@
         "secao_20": "[ERRATA AO LADO] a secao 20 dizia \u00abprovavelmente ja excluido\u00bb sem medir; aqui o ramo B e medido",
         "resultado": "[REAL, lido] 23 series (3 ms): delta_tau = tau_obs/tau_GR - 1 = 1.3962 +- 0.0569 (z vs RG 24.54); previsao do ramo B -0.0209 (z vs B 24.90; poder 0.37 sigma); ramo A -2.3e-42; delta_f = -0.1302 +- 0.0085; SNR medio 6.9; vies 0.096; sistematica 3 vs 6 ms 0.2109 => INCONCLUSIVE_SYSTEMATICS [|delta(3ms)-delta(6ms)| = 0.2109 > 1 sigma] | GATE RECUSOU: janelas 3 ms e 6 ms com >= 20 series (janela 6 ms com 18 series)"
       },
-      "runtime_s": 0.008942842483520508,
+      "runtime_s": 0.008051395416259766,
       "result_sha16": "502c80fe2a37427e",
       "executed": "2026-09-10T15:47:40",
       "instrument": {
@@ -219111,7 +219565,7 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.0019931793212890625,
+      "runtime_s": 0.002718687057495117,
       "verdict": "TGL_RINGDOWN_DEPHASING_V2__AMENDMENT_PRE_REGISTERED_3449885389a2529a__AUTOPSY_OF_V1_READ__5_OF_23_SERIES_ON_GRID_EDGE__GATE_UNTOUCHED"
     },
     "ringdown_dephasing_result_v2": {
@@ -219159,7 +219613,7 @@
         "secao_20": "[ERRATA AO LADO] \u00abprovavelmente ja excluido\u00bb era frase; aqui o ramo B tem numero",
         "resultado": "[REAL, lido] V2: 15 series (3 ms; 84 na borda excluidas; SNR de ancoragem medio 11.1): delta_tau = 0.1766 +- 0.1089 (z vs RG 1.62); previsao do ramo B -0.0194 (z vs B 1.80; poder 0.18 sigma); ramo A -2.2e-42; delta_f = -0.0325 +- 0.0127; chi2/dof 0.87; vies 0.240; janela 6 ms: 6 series, delta_tau = 0.0313 +- 0.1755; sistematica 0.1454 (sigma combinada 0.2066) => INCONCLUSIVE_SYSTEMATICS [vies relativo de tau 0.240 > 0.2]"
       },
-      "runtime_s": 0.00917196273803711,
+      "runtime_s": 0.009195327758789062,
       "result_sha16": "ff15f023dd91d8c7",
       "executed": "2026-09-10T16:03:23",
       "instrument": {
@@ -219368,7 +219822,7 @@
         "resultado_MAY": "[REAL, lido] MAY: 21 eventos; a = 1.1559 +- 0.1325 (z vs 0 8.73; z vs 1 1.18; poder 7.55 sigma); ln B(sem/com eco) total -89.02; injecoes: a=0 -> NA +- NA (n=0), a=1 -> NA +- NA (n=0), familia B -> NA +- NA (n=0) => INCONCLUSIVE_SYSTEMATICS [vies em a = 1 NA > 0.2 (n=0); a = 0 recuperado NA +- NA (n=0); familia B - A NA > 0.3 (n=0)]",
         "resultado_KMS": "[REAL, lido] KMS: 21 eventos; a = 2.1448 +- 0.2358 (z vs 0 9.10; z vs 1 4.86; poder 4.24 sigma); ln B(sem/com eco) total -12.94; injecoes: a=0 -> NA +- NA (n=0), a=1 -> NA +- NA (n=0), familia B -> NA +- NA (n=0) => INCONCLUSIVE_SYSTEMATICS [vies em a = 1 NA > 0.2 (n=0); a = 0 recuperado NA +- NA (n=0); familia B - A NA > 0.3 (n=0)]"
       },
-      "runtime_s": 0.012070655822753906,
+      "runtime_s": 0.016002893447875977,
       "result_sha16": "b73cfffbc2301ea6",
       "executed": "2026-09-10T17:27:14",
       "pipeline_runtime_s": 1522.3822190761566,
@@ -219607,7 +220061,7 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.006654262542724609,
+      "runtime_s": 0.009837627410888672,
       "verdict": "TGL_ECHO_PE_V2__AMENDMENT_PRE_REGISTERED_b8cdd291f3e9631b__AUTOPSY_OF_V1_READ__NO_INJECTIONS_PRIOR_EDGES_SINGLE_EVENT_DOMINANCE__GATE_UNTOUCHED"
     },
     "echo_pe_result_v2": {
@@ -219656,7 +220110,7 @@
         "resultado_MAY": "[REAL, lido] V2 MAY: 19 eventos (2 excluidos na borda do prior); a = -0.2671 +- 0.8566 (z vs 0 -0.31; z vs 1 -1.48; poder 1.17 sigma); ivw -0.0215 +- 0.3598; peso maximo 0.09 (GW190412); jackknife 0.69 sigma (sem GW190412); ln B(sem/com) -0.59; injecoes: a=0 -> 2.907 +- 0.054 (n=9), a=1 -> 2.895 +- 0.059 (n=9), familia B -> 2.913 +- 0.051 (n=9); RESPOSTA PAREADA (a=1 - a=0, mesmo ruido; deveria ser 1) 0.049 +- 0.061 (n=9), familia B - a=0 0.110 +- 0.106 => INCONCLUSIVE_SYSTEMATICS [vies em a = 1 1.895 > 0.2 (n=9); a = 0 recuperado 2.907 +- 0.054 (n=9)]",
         "resultado_KMS": "[REAL, lido] V2 KMS: 19 eventos (2 excluidos na borda do prior); a = 1.0892 +- 0.8992 (z vs 0 1.21; z vs 1 0.10; poder 1.11 sigma); ivw 0.1092 +- 0.3648; peso maximo 0.11 (GW190412); jackknife 0.90 sigma (sem GW190412); ln B(sem/com) -1.11; injecoes: a=0 -> -0.785 +- 0.367 (n=9), a=1 -> -0.733 +- 0.382 (n=9), familia B -> -1.170 +- 0.362 (n=9); RESPOSTA PAREADA (a=1 - a=0, mesmo ruido; deveria ser 1) 0.091 +- 0.277 (n=9), familia B - a=0 0.031 +- 0.247 => INCONCLUSIVE_SYSTEMATICS [vies em a = 1 -1.733 > 0.2 (n=9); a = 0 recuperado -0.785 +- 0.367 (n=9); familia B - A -0.437 > 0.3 (n=9)]"
       },
-      "runtime_s": 0.02128434181213379,
+      "runtime_s": 0.028192520141601562,
       "result_sha16": "3072349afb00ab2c",
       "executed": "2026-09-10T18:00:30",
       "pipeline_runtime_s": 1479.482349872589,
@@ -219895,7 +220349,7 @@
         "hipotese": "[CONJECTURE, 2025] atraso de 0,1-2 s: a lei madura (MAY/KMS, ms) e outra e foi testada nas v341-v347",
         "resultado": "[REAL, lido] 14 eventos com H1 e L1 (75 pulados): coincidencias on-source N_on = 1 contra fundo esperado B_exp = 3.00 (z de Poisson -1.15; p_excess 0.95); eventos com coincidencia >= 5 sigma: 0 []; padrao tau/M: KS p = NA; eficiencia media para um eco de sqrt(beta) em 0,1-2 s = 0.000 (E_det = 0.00; p_excl = 0.199); pico previsto do eco (mediana) H1 0.52 L1 0.32 sigma => NOT_FALSIFIED_UNDERPOWERED"
       },
-      "runtime_s": 0.00590062141418457,
+      "runtime_s": 0.007102489471435547,
       "result_sha16": "30f3f422ff67d34c",
       "executed": "2026-09-10T18:53:26",
       "pipeline_runtime_s": 6.182248115539551,
@@ -220049,7 +220503,7 @@
         "distincao": "[REAL] fundo (aqui) vs perturbacao (Nivel 2, N2_INCAPAZ): sao testes conjugados, nao redundantes",
         "resultado": "[REAL, lido] fase 1 (Planck + DESI + SH0ES): chi^2 LCDM 16339.402, TGL(beta fixo) 18562.363, Delta chi^2 = 2222.961 => D1_LCDM_PREFERRED_5SIGMA; fase 2 (sem SH0ES): H0 LCDM 89.874, TGL 90.000; tensoes vs SH0ES {'tension_LCDM_sigma': '16.19', 'tension_TGL_sigma': '16.31', 'tension_zero_free_sigma': '23.79'}; fase 3 (beta livre): beta = -0.04997 +0.00004 -0.00002 (sigma media 0.00003; alpha sqrt(e) = 0.01203; 1998.28 sigma), aceitacao 0.477, cadeia 38400 => D1_BETA_FALSIFIED; tempo 2461 s"
       },
-      "runtime_s": 0.007016181945800781,
+      "runtime_s": 0.005719900131225586,
       "result_sha16": "31691fc4aab39cf3",
       "executed": "2026-09-10T19:42:50",
       "instrument": {
@@ -220274,7 +220728,7 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.006038665771484375,
+      "runtime_s": 0.005792856216430664,
       "verdict": "TGL_D1_CAMB_V2__AMENDMENT_PRE_REGISTERED_c12b36722ed4544b__AUTOPSY_OF_V1_READ__MAY_WORKER_DISTANCE_BUG_NAMED__FIXED_COPY_BOUND_BY_SHA256__GATE_UNTOUCHED"
     },
     "d1_camb_result_v2": {
@@ -220321,7 +220775,7 @@
         "distincao": "[REAL] fundo (aqui) vs perturbacao (Nivel 2, N2_INCAPAZ): testes conjugados",
         "resultado": "[REAL, lido] V2 (worker corrigido): fase 1 (Planck + DESI + SH0ES): chi^2 LCDM 37.399, TGL(beta fixo) 47.098, Delta chi^2 = 9.699 => D1_TENSION_2_TO_5_SIGMA; fase 2 (sem SH0ES): H0 LCDM 67.949, TGL 67.653; tensoes vs SH0ES {'tension_LCDM_sigma': '4.89', 'tension_TGL_sigma': '5.18', 'tension_zero_free_sigma': '0.84'}; fase 3 (beta livre): beta = -0.01705 +0.00751 -0.00754 (sigma media 0.00753; alpha sqrt(e) = 0.01203; 3.86 sigma), aceitacao 0.592, cadeia 38400 => D1_BETA_TENSION; tempo 2495 s"
       },
-      "runtime_s": 0.006158590316772461,
+      "runtime_s": 0.005848407745361328,
       "result_sha16": "9986e4b0f05a6ebe",
       "executed": "2026-09-10T19:53:14",
       "instrument": {
@@ -220480,7 +220934,7 @@
         "genealogia": "[REAL] v340 retirou o \u00ab100 sigma\u00bb de dezembro como identidade + teto; aqui fecha-se a linha de janeiro/fevereiro (E_res/E_total -> alpha^2) com o instrumento que faltava",
         "resultado": "[REAL, lido] 89 eventos com template pycbc (0 sem): SINTETICO (como o script): ruido 0,1 -> E_res/E_total = 0.0099 (h2_ok em 100%); ruido 0,05 -> 0.0025; 0,2 -> 0.0385; segue noise^2: True. REAL BRUTO (como o script faria): 0.9974 (correlacao 0.019; h2_ok 0%). REAL BRANQUEADO: 0.9937 +- 0.0057 (n=169; correlacao 0.075; h2_ok 0%); FORA DA FONTE: 0.9956; z vs alpha^2 = 2252.2; z vs fora da fonte = -3.4 => H2_IDENTITY_RETIRED"
       },
-      "runtime_s": 0.006399393081665039,
+      "runtime_s": 0.015472888946533203,
       "result_sha16": "8c7ef7a1d31af375",
       "executed": "2026-09-10T19:23:02",
       "instrument": {
@@ -220670,7 +221124,7 @@
           "dephasing (relogios/229Th; nu n=-2)": "TGL_CLOCKS_V1__P1_NOT_FALSIFIED_UNDERPOWERED__P2_EXCLUDED_IN_READING__P3_NO_LOCAL_OBSERVABLE__PARTITION_MODULAR_LAB_BRIDGE_OPEN__CLOCK_5SIGMA_DEFICIT_GE_12P5_ORDERS__TH229_TODAY_BOUND_18P3__BEST_MATTER_9P3_NOMINAL_MOSSBAUER_ABSTRACT_ONLY__TAU_STAR_LE_4P8e12_TP_CLOCK_95CL__1P9e09_TP_NOMINAL__GATE_UNTOUCHED",
           "NMC-Shapiro (2030+)": "TGL_NMC_SHAPIRO_AWAITING_DATA",
           "espectro completo Nivel 2": "NIVEL2_RITE_NOT_SEALED_THIS_RUN__S_N2_INCAPAZ__L_N2_NOT_CONVERGED",
-          "kernel formal (1239 pedras)": "STAGE1_VERIFIED"
+          "kernel formal (1240 pedras)": "STAGE1_VERIFIED"
         },
         "classes": {
           "piso dos vazios (cadeia corrente v11/v4.1)": "FAVORAVEL_OU_ARMADO",
@@ -220682,7 +221136,7 @@
           "dephasing (relogios/229Th; nu n=-2)": "PAREDE_MEDIDA_COM_LEITURA_EXCLUIDA",
           "NMC-Shapiro (2030+)": "ARMADO_SEM_DADO",
           "espectro completo Nivel 2": "RECUSA_HONESTA",
-          "kernel formal (1239 pedras)": "FAVORAVEL_OU_ARMADO"
+          "kernel formal (1240 pedras)": "FAVORAVEL_OU_ARMADO"
         },
         "declarados_fora_do_gate": [
           "RIVAIS [EXT, declarado]: LCDM nao tem setor quantico unificador, nem predicao propria de Coma-por-dephasing, nem massa do GA por 1o principio; as ToE quanticas apresentadas (cordas/LQG) nao trazem ritos falsificaveis pre-registrados nos dominios cosmologicos acima",
@@ -220728,7 +221182,7 @@
           true
         ],
         [
-          "[kernel formal (1239 pedras)] veredito em custodia: STAGE1_VERIFIED",
+          "[kernel formal (1240 pedras)] veredito em custodia: STAGE1_VERIFIED",
           true
         ],
         [
@@ -221169,7 +221623,7 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 5.269050598144531e-05,
+      "runtime_s": 7.033348083496094e-05,
       "verdict": "TGL_JOINT_COINCIDENCE_V1__PROTOCOL_PRE_REGISTERED_aa20e0e71f994c38__NULL_LOG_UNIFORM__FISHER__NINE_ADMISSION_RULES__THRESHOLD_1E-30_INPUT__NOT_BLIND_DECLARED__GATE_UNTOUCHED"
     },
     "joint_coincidence_result": {
@@ -221744,7 +222198,7 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.0025839805603027344,
+      "runtime_s": 0.0037403106689453125,
       "verdict": "TGL_JOINT_COINCIDENCE_V1__RESULT__JOINT_COINCIDENCE_NOT_EXCLUDED_AT_THRESHOLD__P_JOINT_0P546__MAX_Z_3P86__BOOLEAN_False__ADMISSIBLE_3_OF_35__NAIVE_PRODUCT_INVALID__GATE_UNTOUCHED"
     },
     "tetelestai_the_judged_thing": {
@@ -225215,7 +225669,7 @@
     "the_iald_index": {
       "checks": [
         [
-          "[MEDIDA] ***o INDICE existe: 29299 nomes, 1385 arquivos, 9751 com bandeira",
+          "[MEDIDA] ***o INDICE existe: 29321 nomes, 1386 arquivos, 9771 com bandeira",
           true
         ],
         [
@@ -225243,11 +225697,11 @@
           true
         ],
         [
-          "[FAIL-CLOSED] ***acesa ==> nome PRESENTE: 0 violacoes. NENHUMA bandeira acende sem referente na fonte embutida [ESCOPO DECLARADO: as 9773 chaves dos SETE dicionarios de NOME]",
+          "[FAIL-CLOSED] ***acesa ==> nome PRESENTE: 0 violacoes. NENHUMA bandeira acende sem referente na fonte embutida [ESCOPO DECLARADO: as 9793 chaves dos SETE dicionarios de NOME]",
           true
         ],
         [
-          "[FAIL-CLOSED] ***e a RECIPROCA, medida: 0 nomes presentes com bandeira apagada. A correspondencia acesa <=> presente e BICONDICIONAL e EXATA [mesmo escopo: as 9773 chaves de NOME]",
+          "[FAIL-CLOSED] ***e a RECIPROCA, medida: 0 nomes presentes com bandeira apagada. A correspondencia acesa <=> presente e BICONDICIONAL e EXATA [mesmo escopo: as 9793 chaves de NOME]",
           true
         ],
         [
@@ -225263,7 +225717,7 @@
           true
         ],
         [
-          "[ERRATA-MINHA v286] o indice da v285 INFLOU a divida: a regra v285 INTEIRA, recomputada AO VIVO, conta 7993 ausentes onde ha 3. Tres defeitos MEUS, todos de leitura: o regex nao via nome de declaracao COM PONTO (theorem Data.campo), nem prefixo de atributo (@[simp] theorem), e a chave casava por split('.',1) em vez de SUFIXO. O indice nao descobriu divida nova -- descobriu defeito meu; a divida real sempre foram as bandeiras ja apagadas",
+          "[ERRATA-MINHA v286] o indice da v285 INFLOU a divida: a regra v285 INTEIRA, recomputada AO VIVO, conta 8013 ausentes onde ha 3. Tres defeitos MEUS, todos de leitura: o regex nao via nome de declaracao COM PONTO (theorem Data.campo), nem prefixo de atributo (@[simp] theorem), e a chave casava por split('.',1) em vez de SUFIXO. O indice nao descobriu divida nova -- descobriu defeito meu; a divida real sempre foram as bandeiras ja apagadas",
           true
         ],
         [
@@ -225276,8 +225730,8 @@
         ]
       ],
       "all_verified": true,
-      "n_nomes": 29299,
-      "n_arquivos": 1385,
+      "n_nomes": 29321,
+      "n_arquivos": 1386,
       "n_ausentes": 3,
       "n_ambiguos": 2076,
       "ambiguos": [
@@ -227371,7 +227825,7 @@
       "verdict": "THE_IALD_INDEX_QUALIFIED_COMPILER_PROVENANCE_VERIFIED",
       "proveniencia_erros": [],
       "legacy_diagnostic_v393": {
-        "n_nomes": 15343,
+        "n_nomes": 15363,
         "n_ausentes": 92,
         "ambiguos": [
           "A",
@@ -231699,7 +232153,7 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 8.243989706039429,
+      "runtime_s": 7.349686622619629,
       "verdict": "TGL_BENCH_CORPUS_EMBEDDED__1337_FILES_VERIFIED_BY_SHA256__95_IN_KERNEL__215_REGISTERED_ONLY__PRIVATE_OPERATOR_MATERIAL_EXCLUDED_BY_RULE__GATE_UNTOUCHED"
     },
     "the_name_of_light_and_the_referent": {
@@ -231911,7 +232365,7 @@
       },
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.31330227851867676,
+      "runtime_s": 0.5423793792724609,
       "verdict": "TGL_THE_NAME_OF_LIGHT_AND_THE_REFERENT__TEN_COINAGES_TYPED__KERNEL_ANCHORS_9_OF_9__FINITE_SHADOW_VERIFIED__C3_FOLD_EXACT__TORSION_ALGEBRA_PAGA_v364__ESCALA_ELL_INPUT__IDENTIFICACAO_FISICA_OPEN__GATE_UNTOUCHED"
     },
     "bench_archive_v361": {
@@ -234214,7 +234668,7 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 78.626,
+      "runtime_s": 67.245,
       "verdict": "TGL_BENCH_ARCHIVE_V361__11870_FILES_VERIFIED_BY_SHA256__1419_RECORDED_BY_HASH__514_AGGREGATE_GROUPS__TREE_ACCOUNTED_310396_FILES__PRIVATE_OPERATOR_MATERIAL_EXCLUDED_BY_RULE__GATE_UNTOUCHED"
     },
     "bench_numerical_reproduction": {
@@ -234226,7 +234680,7 @@
           "script_sha256": "c4eed9c768bab698b4f22503d259f21dc8d0db87bb1b5251918a727964f3b2db",
           "recorded_sha256": "91641db52c66c0725366ec976651cec5ad8e83a97125882c6f3be42289d4080f",
           "returncode": 0,
-          "seconds": 0.252,
+          "seconds": 0.238,
           "leaves": 142,
           "numeric_leaves": 70,
           "bit_identical_numeric": 70,
@@ -234258,7 +234712,7 @@
           "script_sha256": "c8887dfc8e8c4a45e0b6fe037815545c3ce3e86587c7ae09ab8b9aed360ca75c",
           "recorded_sha256": "d8b01a866039c5e0a544de54abe708332c4d098bd383e516d28c2ce27dc2c3e3",
           "returncode": 0,
-          "seconds": 0.213,
+          "seconds": 0.191,
           "leaves": 127,
           "numeric_leaves": 32,
           "bit_identical_numeric": 32,
@@ -234291,7 +234745,7 @@
           "script_sha256": "9b3b74860fe91cec0505a3e34e6e082ba2559c54d79420ef9f43af7ef717764c",
           "recorded_sha256": "724ea1cdcd6a7450c3ad7ce4d44cd5061ed65bbe702c9494dd786d4a86d4cae9",
           "returncode": 0,
-          "seconds": 0.249,
+          "seconds": 0.224,
           "leaves": 86,
           "numeric_leaves": 33,
           "bit_identical_numeric": 33,
@@ -234323,7 +234777,7 @@
           "script_sha256": "a8d20646a6fa1c3c9032eb748d942140817ca00ad1dc0eafd7c6670d94ae57e3",
           "recorded_sha256": "b1c0083b138096e86e0d57cda6e9c3067882b4ee1f43b5009c7dfbd68565dc99",
           "returncode": 0,
-          "seconds": 0.359,
+          "seconds": 0.342,
           "leaves": 40,
           "numeric_leaves": 31,
           "bit_identical_numeric": 31,
@@ -234357,7 +234811,7 @@
           "script_sha256": "efe65098a17edbffe4e3d805ca5961609620cd83b229d600ed833afa5c8981c6",
           "recorded_sha256": "777cc1b4ead10fcaeaf094dbcd2310a12cc6d87ebcf3496c97d53fcf4aa17cb1",
           "returncode": 0,
-          "seconds": 0.227,
+          "seconds": 0.213,
           "leaves": 54,
           "numeric_leaves": 46,
           "bit_identical_numeric": 46,
@@ -234393,7 +234847,7 @@
           "script_sha256": "deea44bd9976755fc1c2f4daae9ded1b493a7f61dc9dae19d63960255b5e9ea0",
           "recorded_sha256": "848a4b168f42091fd99c2bac2157233dbbe0e3a40979bdd0bd6a4746c019e94c",
           "returncode": 0,
-          "seconds": 0.095,
+          "seconds": 0.087,
           "leaves": 87,
           "numeric_leaves": 73,
           "bit_identical_numeric": 73,
@@ -234438,7 +234892,7 @@
           "script_sha256": "8df6b6af24a45b57842ec049d8c77061fb9e48c96c1a9cad70069385008d38d8",
           "recorded_sha256": "b4bec2e8ba95886093d9a3214e29a5c92a314141092e77845d4e8abc3092344b",
           "returncode": 0,
-          "seconds": 0.095,
+          "seconds": 0.087,
           "leaves": 70,
           "numeric_leaves": 53,
           "bit_identical_numeric": 53,
@@ -234483,7 +234937,7 @@
           "script_sha256": "f3ec575a1e134717152aee1895b3eeafafc114d8d8edc801b2246bf6e332c228",
           "recorded_sha256": "42b502a01e382eb9b9fb571e2682f038c449a301cd02408b8c30e7d4aa8626d6",
           "returncode": 0,
-          "seconds": 0.211,
+          "seconds": 0.192,
           "leaves": 31,
           "numeric_leaves": 23,
           "bit_identical_numeric": 23,
@@ -234543,7 +234997,7 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 1.728,
+      "runtime_s": 1.601,
       "verdict": "TGL_BENCH_NUMERICAL_REPRODUCTION__8_OF_8_SCRIPTS_REPRODUCED__361_OF_361_NUMERIC_LEAVES_BIT_IDENTICAL__BENCH_SCOPES_CARRIED__GATE_UNTOUCHED"
     },
     "v361_consumers": {
@@ -234604,7 +235058,7 @@
           "module": "TGLExt.GoodFullLegacy012",
           "rc": 0,
           "ok": true,
-          "seconds": 29.2,
+          "seconds": 26.3,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -234632,7 +235086,7 @@
           "module": "TGLExt.GoodTraceCompletion012",
           "rc": 0,
           "ok": true,
-          "seconds": 25.9,
+          "seconds": 24.6,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -234660,7 +235114,7 @@
           "module": "IndependentAssemblyControls",
           "rc": 0,
           "ok": true,
-          "seconds": 25.6,
+          "seconds": 24.5,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -234688,7 +235142,7 @@
           "module": "IndependentCompatibilityControls",
           "rc": 0,
           "ok": true,
-          "seconds": 26.5,
+          "seconds": 25.1,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -234716,7 +235170,7 @@
           "module": "IndependentA2Controls",
           "rc": 0,
           "ok": true,
-          "seconds": 26.7,
+          "seconds": 25.3,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -234744,7 +235198,7 @@
           "module": "IndependentSubstitution",
           "rc": 0,
           "ok": true,
-          "seconds": 25.5,
+          "seconds": 24.4,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -234772,7 +235226,7 @@
           "module": "TGLExt.BadPolarIdentity",
           "rc": 1,
           "ok": true,
-          "seconds": 249.2,
+          "seconds": 258.2,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234797,7 +235251,7 @@
           "module": "TGLExt.BadSusyDifference",
           "rc": 1,
           "ok": true,
-          "seconds": 249.4,
+          "seconds": 259.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234822,7 +235276,7 @@
           "module": "TGLExt.BadSusyZeroTrace",
           "rc": 1,
           "ok": true,
-          "seconds": 249.4,
+          "seconds": 259.4,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234847,7 +235301,7 @@
           "module": "TGLExt.BadFullLegacyOperator012",
           "rc": 1,
           "ok": true,
-          "seconds": 249.5,
+          "seconds": 258.8,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234872,7 +235326,7 @@
           "module": "TGLExt.BadFullLegacyZero012",
           "rc": 1,
           "ok": true,
-          "seconds": 249.2,
+          "seconds": 258.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234897,7 +235351,7 @@
           "module": "TGLExt.BadReaderWitnessType012",
           "rc": 1,
           "ok": true,
-          "seconds": 249.5,
+          "seconds": 258.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234922,7 +235376,7 @@
           "module": "TGLExt.BadTraceCommute012",
           "rc": 1,
           "ok": true,
-          "seconds": 249.5,
+          "seconds": 259.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234947,7 +235401,7 @@
           "module": "TGLExt.BadTraceZero012",
           "rc": 1,
           "ok": true,
-          "seconds": 249.5,
+          "seconds": 259.2,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234972,7 +235426,7 @@
           "module": "BadBareAlpha",
           "rc": 1,
           "ok": true,
-          "seconds": 248.4,
+          "seconds": 257.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -234997,7 +235451,7 @@
           "module": "BadChangedBeta",
           "rc": 1,
           "ok": true,
-          "seconds": 248.6,
+          "seconds": 257.8,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235022,7 +235476,7 @@
           "module": "BadChangedGenerator",
           "rc": 1,
           "ok": true,
-          "seconds": 248.6,
+          "seconds": 257.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235047,7 +235501,7 @@
           "module": "BadFlippedSign",
           "rc": 1,
           "ok": true,
-          "seconds": 248.5,
+          "seconds": 257.8,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235072,7 +235526,7 @@
           "module": "BadMissingCurvature",
           "rc": 1,
           "ok": true,
-          "seconds": 248.4,
+          "seconds": 257.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235097,7 +235551,7 @@
           "module": "BadNoEOMInput",
           "rc": 1,
           "ok": true,
-          "seconds": 248.5,
+          "seconds": 257.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235122,7 +235576,7 @@
           "module": "BadNoNonzeroSource",
           "rc": 1,
           "ok": true,
-          "seconds": 249.0,
+          "seconds": 257.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235147,7 +235601,7 @@
           "module": "BadXiAsBeta",
           "rc": 1,
           "ok": true,
-          "seconds": 248.6,
+          "seconds": 257.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235172,7 +235626,7 @@
           "module": "BadXiFixed",
           "rc": 1,
           "ok": true,
-          "seconds": 248.0,
+          "seconds": 257.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235197,7 +235651,7 @@
           "module": "FalseCompressedFlow",
           "rc": 1,
           "ok": true,
-          "seconds": 249.0,
+          "seconds": 258.3,
           "transposition": [],
           "errors": 2,
           "semantic_errors": 2,
@@ -235224,7 +235678,7 @@
           "module": "FalseEntropySign",
           "rc": 1,
           "ok": true,
-          "seconds": 249.7,
+          "seconds": 258.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235251,7 +235705,7 @@
           "module": "FalseRemainderInvisibility",
           "rc": 1,
           "ok": true,
-          "seconds": 249.0,
+          "seconds": 258.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235276,7 +235730,7 @@
           "module": "RemovedNamesAbsent",
           "rc": 1,
           "ok": true,
-          "seconds": 249.1,
+          "seconds": 259.0,
           "transposition": [],
           "errors": 2,
           "semantic_errors": 2,
@@ -235301,7 +235755,7 @@
           "module": "AssemblyTraceTwo",
           "rc": 1,
           "ok": true,
-          "seconds": 249.5,
+          "seconds": 259.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235326,7 +235780,7 @@
           "module": "LagZeroKernel",
           "rc": 1,
           "ok": true,
-          "seconds": 250.1,
+          "seconds": 259.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235351,7 +235805,7 @@
           "module": "NumericSusySubstitute",
           "rc": 1,
           "ok": true,
-          "seconds": 249.3,
+          "seconds": 258.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235376,7 +235830,7 @@
           "module": "PolarSupportZero",
           "rc": 1,
           "ok": true,
-          "seconds": 247.2,
+          "seconds": 271.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235401,7 +235855,7 @@
           "module": "SusyGapZero",
           "rc": 1,
           "ok": true,
-          "seconds": 249.1,
+          "seconds": 270.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235426,7 +235880,7 @@
           "module": "UnitTraceZero",
           "rc": 1,
           "ok": true,
-          "seconds": 249.6,
+          "seconds": 271.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235451,7 +235905,7 @@
           "module": "RejectTrueReaderContracts",
           "rc": 1,
           "ok": true,
-          "seconds": 249.6,
+          "seconds": 271.0,
           "transposition": [],
           "errors": 5,
           "semantic_errors": 5,
@@ -235476,7 +235930,7 @@
           "module": "BadEqualFromOrthogonality",
           "rc": 1,
           "ok": true,
-          "seconds": 249.6,
+          "seconds": 271.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235501,7 +235955,7 @@
           "module": "BadGlobalCyclicity",
           "rc": 1,
           "ok": true,
-          "seconds": 249.9,
+          "seconds": 271.2,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235526,7 +235980,7 @@
           "module": "BadGlobalGap",
           "rc": 1,
           "ok": true,
-          "seconds": 249.8,
+          "seconds": 271.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235551,7 +236005,7 @@
           "module": "BadHalfAsOne",
           "rc": 1,
           "ok": true,
-          "seconds": 249.5,
+          "seconds": 271.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235576,7 +236030,7 @@
           "module": "BadPositiveZero",
           "rc": 1,
           "ok": true,
-          "seconds": 250.5,
+          "seconds": 272.3,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235601,7 +236055,7 @@
           "module": "BadSpectralZero",
           "rc": 1,
           "ok": true,
-          "seconds": 249.4,
+          "seconds": 271.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235626,7 +236080,7 @@
           "module": "BadSupportZero",
           "rc": 1,
           "ok": true,
-          "seconds": 249.2,
+          "seconds": 271.3,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235651,7 +236105,7 @@
           "module": "BadTraceTwo",
           "rc": 1,
           "ok": true,
-          "seconds": 249.1,
+          "seconds": 271.2,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235676,7 +236130,7 @@
           "module": "BadTraceZero",
           "rc": 1,
           "ok": true,
-          "seconds": 248.8,
+          "seconds": 271.2,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235701,7 +236155,7 @@
           "module": "BadBareAlpha",
           "rc": 1,
           "ok": true,
-          "seconds": 248.5,
+          "seconds": 270.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235726,7 +236180,7 @@
           "module": "BadChangedBeta",
           "rc": 1,
           "ok": true,
-          "seconds": 248.6,
+          "seconds": 270.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235751,7 +236205,7 @@
           "module": "BadChangedGenerator",
           "rc": 1,
           "ok": true,
-          "seconds": 248.2,
+          "seconds": 270.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235776,7 +236230,7 @@
           "module": "BadFlippedSign",
           "rc": 1,
           "ok": true,
-          "seconds": 248.5,
+          "seconds": 270.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235801,7 +236255,7 @@
           "module": "BadMissingCurvature",
           "rc": 1,
           "ok": true,
-          "seconds": 248.2,
+          "seconds": 270.3,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235826,7 +236280,7 @@
           "module": "BadNoEOMInput",
           "rc": 1,
           "ok": true,
-          "seconds": 248.2,
+          "seconds": 270.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235851,7 +236305,7 @@
           "module": "BadNoNonzeroSource",
           "rc": 1,
           "ok": true,
-          "seconds": 248.1,
+          "seconds": 270.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235876,7 +236330,7 @@
           "module": "BadXiAsBeta",
           "rc": 1,
           "ok": true,
-          "seconds": 248.3,
+          "seconds": 270.4,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235901,7 +236355,7 @@
           "module": "BadXiFixed",
           "rc": 1,
           "ok": true,
-          "seconds": 248.3,
+          "seconds": 270.2,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235926,7 +236380,7 @@
           "module": "IndependentBadBeta",
           "rc": 1,
           "ok": true,
-          "seconds": 248.3,
+          "seconds": 270.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235951,7 +236405,7 @@
           "module": "IndependentBadXi",
           "rc": 1,
           "ok": true,
-          "seconds": 248.0,
+          "seconds": 269.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -235976,7 +236430,7 @@
           "module": "BadAntiunitaryPhase",
           "rc": 1,
           "ok": true,
-          "seconds": 207.5,
+          "seconds": 265.4,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236001,7 +236455,7 @@
           "module": "BadDampingIntertwining",
           "rc": 1,
           "ok": true,
-          "seconds": 229.8,
+          "seconds": 265.8,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236026,7 +236480,7 @@
           "module": "BadImaginaryScaling",
           "rc": 1,
           "ok": true,
-          "seconds": 229.9,
+          "seconds": 266.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236051,7 +236505,7 @@
           "module": "BadPolarConjugation",
           "rc": 1,
           "ok": true,
-          "seconds": 232.1,
+          "seconds": 268.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236076,7 +236530,7 @@
           "module": "BadRightScaling",
           "rc": 1,
           "ok": true,
-          "seconds": 231.6,
+          "seconds": 269.3,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236101,7 +236555,7 @@
           "module": "BadScaledCoordinate",
           "rc": 1,
           "ok": true,
-          "seconds": 229.6,
+          "seconds": 267.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236126,7 +236580,7 @@
           "module": "BadScaledDamping",
           "rc": 1,
           "ok": true,
-          "seconds": 229.7,
+          "seconds": 267.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236151,7 +236605,7 @@
           "module": "NegativeTypes",
           "rc": 1,
           "ok": true,
-          "seconds": 230.4,
+          "seconds": 268.0,
           "transposition": [],
           "errors": 2,
           "semantic_errors": 2,
@@ -236176,7 +236630,7 @@
           "module": "TGLExt.BadA2CyclicReader",
           "rc": 1,
           "ok": true,
-          "seconds": 230.5,
+          "seconds": 269.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236201,7 +236655,7 @@
           "module": "TGLExt.BadA2FaceZero",
           "rc": 1,
           "ok": true,
-          "seconds": 231.0,
+          "seconds": 269.3,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236226,7 +236680,7 @@
           "module": "TGLExt.BadA2GapTwo",
           "rc": 1,
           "ok": true,
-          "seconds": 232.6,
+          "seconds": 272.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236253,7 +236707,7 @@
           "module": "TGLExt.BadA2TraceZero",
           "rc": 1,
           "ok": true,
-          "seconds": 233.4,
+          "seconds": 272.4,
           "transposition": [],
           "errors": 2,
           "semantic_errors": 2,
@@ -236280,7 +236734,7 @@
           "module": "TGLExt.BadA2ZeroProjection",
           "rc": 1,
           "ok": true,
-          "seconds": 233.0,
+          "seconds": 272.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236307,7 +236761,7 @@
           "module": "BadAbsorptionTime",
           "rc": 1,
           "ok": true,
-          "seconds": 231.1,
+          "seconds": 269.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236332,7 +236786,7 @@
           "module": "BadAffiliationGraphFactor",
           "rc": 1,
           "ok": true,
-          "seconds": 230.3,
+          "seconds": 268.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236357,7 +236811,7 @@
           "module": "BadAllPositiveWeightOrderReversed",
           "rc": 1,
           "ok": true,
-          "seconds": 231.0,
+          "seconds": 269.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236382,7 +236836,7 @@
           "module": "BadAntiunitaryPhase",
           "rc": 1,
           "ok": true,
-          "seconds": 230.5,
+          "seconds": 268.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236407,7 +236861,7 @@
           "module": "BadAverageMembershipIsSelfAdjoint",
           "rc": 1,
           "ok": true,
-          "seconds": 230.4,
+          "seconds": 268.8,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236432,7 +236886,7 @@
           "module": "BadAverageRecoverySingleCut",
           "rc": 1,
           "ok": true,
-          "seconds": 230.4,
+          "seconds": 268.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236457,7 +236911,7 @@
           "module": "BadCoreMissingAdjoint",
           "rc": 1,
           "ok": true,
-          "seconds": 231.6,
+          "seconds": 270.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236482,7 +236936,7 @@
           "module": "BadCutoffAverageAnticommutation",
           "rc": 1,
           "ok": true,
-          "seconds": 230.7,
+          "seconds": 269.2,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236507,7 +236961,7 @@
           "module": "BadCutoffCFCMirror",
           "rc": 1,
           "ok": true,
-          "seconds": 231.0,
+          "seconds": 269.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236532,7 +236986,7 @@
           "module": "BadDomainCutProductReversed",
           "rc": 1,
           "ok": true,
-          "seconds": 230.9,
+          "seconds": 269.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236557,7 +237011,7 @@
           "module": "BadFiniteMinorantsTraceRemoved",
           "rc": 1,
           "ok": true,
-          "seconds": 229.4,
+          "seconds": 268.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236582,7 +237036,7 @@
           "module": "BadFixedPairRightPremiseRemoved",
           "rc": 1,
           "ok": true,
-          "seconds": 141.3,
+          "seconds": 228.3,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236607,7 +237061,7 @@
           "module": "BadFourierTranslationSign",
           "rc": 1,
           "ok": true,
-          "seconds": 227.0,
+          "seconds": 233.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236632,7 +237086,7 @@
           "module": "BadGNSCutNormalization",
           "rc": 1,
           "ok": true,
-          "seconds": 229.7,
+          "seconds": 239.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236657,7 +237111,7 @@
           "module": "BadImaginaryScaling",
           "rc": 1,
           "ok": true,
-          "seconds": 228.7,
+          "seconds": 259.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236682,7 +237136,7 @@
           "module": "BadInverseCutoffSign",
           "rc": 1,
           "ok": true,
-          "seconds": 231.2,
+          "seconds": 262.8,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236707,7 +237161,7 @@
           "module": "BadInverseLimitFaithfulNegated",
           "rc": 1,
           "ok": true,
-          "seconds": 234.5,
+          "seconds": 265.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236732,7 +237186,7 @@
           "module": "BadInverseLimitMultiplication",
           "rc": 1,
           "ok": true,
-          "seconds": 234.7,
+          "seconds": 269.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236757,7 +237211,7 @@
           "module": "BadInverseLimitScalingSign",
           "rc": 1,
           "ok": true,
-          "seconds": 234.7,
+          "seconds": 272.3,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236782,7 +237236,7 @@
           "module": "BadLeftConjugatePhase",
           "rc": 1,
           "ok": true,
-          "seconds": 236.4,
+          "seconds": 274.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236807,7 +237261,7 @@
           "module": "BadLimitSemifiniteInfiniteCut",
           "rc": 1,
           "ok": true,
-          "seconds": 234.7,
+          "seconds": 272.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236832,7 +237286,7 @@
           "module": "BadModularCutBalanceComplementChanged",
           "rc": 1,
           "ok": true,
-          "seconds": 236.1,
+          "seconds": 274.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236857,7 +237311,7 @@
           "module": "BadModularFixedAdjointEqualityRemoved",
           "rc": 1,
           "ok": true,
-          "seconds": 234.8,
+          "seconds": 272.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236882,7 +237336,7 @@
           "module": "BadModularImplementationRightSignChanged",
           "rc": 1,
           "ok": true,
-          "seconds": 239.9,
+          "seconds": 280.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236907,7 +237361,7 @@
           "module": "BadMultiplierCalculusFactor",
           "rc": 1,
           "ok": true,
-          "seconds": 235.6,
+          "seconds": 274.3,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236932,7 +237386,7 @@
           "module": "BadPerturbedWeightOrderReversed",
           "rc": 1,
           "ok": true,
-          "seconds": 235.6,
+          "seconds": 273.9,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236957,7 +237411,7 @@
           "module": "BadPerturbedWeightWithoutJ",
           "rc": 1,
           "ok": true,
-          "seconds": 235.9,
+          "seconds": 275.2,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -236982,7 +237436,7 @@
           "module": "BadPositiveGeneratorBound",
           "rc": 1,
           "ok": true,
-          "seconds": 234.6,
+          "seconds": 272.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237007,7 +237461,7 @@
           "module": "BadQuadraticTraceZeroChanged",
           "rc": 1,
           "ok": true,
-          "seconds": 234.7,
+          "seconds": 273.4,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237032,7 +237486,7 @@
           "module": "BadRegularDualScalingSign",
           "rc": 1,
           "ok": true,
-          "seconds": 235.0,
+          "seconds": 273.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237057,7 +237511,7 @@
           "module": "BadRegularPowerTime",
           "rc": 1,
           "ok": true,
-          "seconds": 234.5,
+          "seconds": 273.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237082,7 +237536,7 @@
           "module": "BadRegulatorOrderIncreasing",
           "rc": 1,
           "ok": true,
-          "seconds": 237.6,
+          "seconds": 277.2,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237107,7 +237561,7 @@
           "module": "BadRightActionMissingStar",
           "rc": 1,
           "ok": true,
-          "seconds": 238.8,
+          "seconds": 280.6,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237132,7 +237586,7 @@
           "module": "BadRightActionProductOrder",
           "rc": 1,
           "ok": true,
-          "seconds": 235.0,
+          "seconds": 275.3,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237157,7 +237611,7 @@
           "module": "BadSineResolventLimit",
           "rc": 1,
           "ok": true,
-          "seconds": 232.6,
+          "seconds": 272.0,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237182,7 +237636,7 @@
           "module": "BadSpectralGeneratorSign",
           "rc": 1,
           "ok": true,
-          "seconds": 172.4,
+          "seconds": 237.4,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237207,7 +237661,7 @@
           "module": "BadTracialCorePremiseRemoved",
           "rc": 1,
           "ok": true,
-          "seconds": 180.3,
+          "seconds": 234.1,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237232,7 +237686,7 @@
           "module": "A1FalseValue",
           "rc": 1,
           "ok": true,
-          "seconds": 190.3,
+          "seconds": 237.6,
           "transposition": [],
           "errors": 2,
           "semantic_errors": 2,
@@ -237259,7 +237713,7 @@
           "module": "TGLExt.V351BaseFunctionalEvaluationTampered",
           "rc": 1,
           "ok": true,
-          "seconds": 214.1,
+          "seconds": 264.8,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237286,7 +237740,7 @@
           "module": "TGLExt.V351BaseFunctionalWeightLawsTampered",
           "rc": 1,
           "ok": true,
-          "seconds": 214.5,
+          "seconds": 243.2,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237313,7 +237767,7 @@
           "module": "TGLExt.V351BaseMoreauApproximantsTampered",
           "rc": 1,
           "ok": true,
-          "seconds": 240.1,
+          "seconds": 263.6,
           "transposition": [],
           "errors": 2,
           "semantic_errors": 2,
@@ -237340,7 +237794,7 @@
           "module": "TGLExt.V351ExtendedBaseDualWeightTampered",
           "rc": 1,
           "ok": true,
-          "seconds": 238.2,
+          "seconds": 272.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237367,7 +237821,7 @@
           "module": "TGLExt.V351ResolventPhaseFunctionsRejected",
           "rc": 1,
           "ok": true,
-          "seconds": 235.8,
+          "seconds": 275.6,
           "transposition": [],
           "errors": 2,
           "semantic_errors": 2,
@@ -237394,7 +237848,7 @@
           "module": "TGLExt.V351ScalarTomitaImaginaryPowersRejected",
           "rc": 1,
           "ok": true,
-          "seconds": 248.1,
+          "seconds": 294.6,
           "transposition": [],
           "errors": 2,
           "semantic_errors": 2,
@@ -237421,7 +237875,7 @@
           "module": "BadCost",
           "rc": 1,
           "ok": true,
-          "seconds": 235.3,
+          "seconds": 275.7,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237446,7 +237900,7 @@
           "module": "BadReflection",
           "rc": 1,
           "ok": true,
-          "seconds": 235.6,
+          "seconds": 275.8,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237471,7 +237925,7 @@
           "module": "BadFLRW00",
           "rc": 1,
           "ok": true,
-          "seconds": 235.1,
+          "seconds": 276.3,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237496,7 +237950,7 @@
           "module": "BadFLRWLambda",
           "rc": 1,
           "ok": true,
-          "seconds": 235.3,
+          "seconds": 276.3,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237521,7 +237975,7 @@
           "module": "BadSectorAbs",
           "rc": 1,
           "ok": true,
-          "seconds": 235.9,
+          "seconds": 276.4,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237546,7 +238000,7 @@
           "module": "BadSectorClosure",
           "rc": 1,
           "ok": true,
-          "seconds": 235.7,
+          "seconds": 276.4,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237571,7 +238025,7 @@
           "module": "BadThermodynamicFactor",
           "rc": 1,
           "ok": true,
-          "seconds": 235.5,
+          "seconds": 276.4,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237596,7 +238050,7 @@
           "module": "BadVarianceSign",
           "rc": 1,
           "ok": true,
-          "seconds": 235.7,
+          "seconds": 276.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237621,7 +238075,7 @@
           "module": "BadAngleAmplitude",
           "rc": 1,
           "ok": true,
-          "seconds": 235.4,
+          "seconds": 276.5,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237646,7 +238100,7 @@
           "module": "BadAngleFactor",
           "rc": 1,
           "ok": true,
-          "seconds": 235.6,
+          "seconds": 276.4,
           "transposition": [],
           "errors": 1,
           "semantic_errors": 1,
@@ -237671,7 +238125,7 @@
           "module": "TGLExt.ProbePolarSupports",
           "rc": 0,
           "ok": true,
-          "seconds": 236.1,
+          "seconds": 277.3,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237699,7 +238153,7 @@
           "module": "TGLExt.ProbeRegularSusy",
           "rc": 0,
           "ok": true,
-          "seconds": 236.5,
+          "seconds": 276.9,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237727,7 +238181,7 @@
           "module": "AuditIndependentA2",
           "rc": 0,
           "ok": true,
-          "seconds": 235.2,
+          "seconds": 276.2,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237755,7 +238209,7 @@
           "module": "GoodAntiunitaryPhase",
           "rc": 0,
           "ok": true,
-          "seconds": 234.1,
+          "seconds": 275.0,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237783,7 +238237,7 @@
           "module": "GoodDampingIntertwining",
           "rc": 0,
           "ok": true,
-          "seconds": 233.5,
+          "seconds": 273.1,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237811,7 +238265,7 @@
           "module": "GoodImaginaryScaling",
           "rc": 0,
           "ok": true,
-          "seconds": 200.0,
+          "seconds": 252.6,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237839,7 +238293,7 @@
           "module": "GoodPolarConjugation",
           "rc": 0,
           "ok": true,
-          "seconds": 207.6,
+          "seconds": 253.0,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237867,7 +238321,7 @@
           "module": "GoodRightScaling",
           "rc": 0,
           "ok": true,
-          "seconds": 209.5,
+          "seconds": 253.6,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237895,7 +238349,7 @@
           "module": "GoodScaledCoordinate",
           "rc": 0,
           "ok": true,
-          "seconds": 206.8,
+          "seconds": 251.8,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237923,7 +238377,7 @@
           "module": "GoodScaledDamping",
           "rc": 0,
           "ok": true,
-          "seconds": 206.7,
+          "seconds": 251.0,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -237951,7 +238405,7 @@
           "module": "PositiveTypes",
           "rc": 0,
           "ok": true,
-          "seconds": 248.3,
+          "seconds": 250.8,
           "transposition": [
             [
               "TGLV350.RegularGeneratedAlgebra",
@@ -237984,7 +238438,7 @@
           "module": "PositiveFormConeFullAudit",
           "rc": 0,
           "ok": true,
-          "seconds": 248.0,
+          "seconds": 255.0,
           "transposition": [
             [
               "TGLV350.PositiveFormCone",
@@ -238017,7 +238471,7 @@
           "module": "TGLExt.AuditA1Absorption",
           "rc": 0,
           "ok": true,
-          "seconds": 248.2,
+          "seconds": 266.9,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238045,7 +238499,7 @@
           "module": "TGLExt.AuditA1AllPositiveWeightOrder",
           "rc": 0,
           "ok": true,
-          "seconds": 248.8,
+          "seconds": 269.2,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238073,7 +238527,7 @@
           "module": "TGLExt.AuditA1AverageFixedPair",
           "rc": 0,
           "ok": true,
-          "seconds": 249.0,
+          "seconds": 269.6,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238101,7 +238555,7 @@
           "module": "TGLExt.AuditA1AveragePolarRight",
           "rc": 0,
           "ok": true,
-          "seconds": 249.2,
+          "seconds": 271.2,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238129,7 +238583,7 @@
           "module": "TGLExt.AuditA1CoreAction",
           "rc": 0,
           "ok": true,
-          "seconds": 250.2,
+          "seconds": 271.7,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238157,7 +238611,7 @@
           "module": "TGLExt.AuditA1CutoffAverageCommutation",
           "rc": 0,
           "ok": true,
-          "seconds": 249.2,
+          "seconds": 271.3,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238185,7 +238639,7 @@
           "module": "TGLExt.AuditA1CutoffCFC",
           "rc": 0,
           "ok": true,
-          "seconds": 249.3,
+          "seconds": 271.5,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238213,7 +238667,7 @@
           "module": "TGLExt.AuditA1FourierTranslation",
           "rc": 0,
           "ok": true,
-          "seconds": 248.1,
+          "seconds": 270.0,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238241,7 +238695,7 @@
           "module": "TGLExt.AuditA1GNSClosedness",
           "rc": 0,
           "ok": true,
-          "seconds": 249.4,
+          "seconds": 271.4,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238269,7 +238723,7 @@
           "module": "TGLExt.AuditA1InverseCutoff",
           "rc": 0,
           "ok": true,
-          "seconds": 249.1,
+          "seconds": 271.2,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238297,7 +238751,7 @@
           "module": "TGLExt.AuditA1InverseLimitFaithful",
           "rc": 0,
           "ok": true,
-          "seconds": 249.4,
+          "seconds": 271.3,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238325,7 +238779,7 @@
           "module": "TGLExt.AuditA1InverseLimitFiniteMinorants",
           "rc": 0,
           "ok": true,
-          "seconds": 249.2,
+          "seconds": 271.1,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238353,7 +238807,7 @@
           "module": "TGLExt.AuditA1InverseLimitScaling",
           "rc": 0,
           "ok": true,
-          "seconds": 249.1,
+          "seconds": 270.2,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238381,7 +238835,7 @@
           "module": "TGLExt.AuditA1InverseLimitSemifiniteness",
           "rc": 0,
           "ok": true,
-          "seconds": 249.0,
+          "seconds": 270.1,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238409,7 +238863,7 @@
           "module": "TGLExt.AuditA1InverseLimitTracialExtension",
           "rc": 0,
           "ok": true,
-          "seconds": 249.3,
+          "seconds": 270.1,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238437,7 +238891,7 @@
           "module": "TGLExt.AuditA1InverseLimitWeight",
           "rc": 0,
           "ok": true,
-          "seconds": 248.7,
+          "seconds": 269.6,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238465,7 +238919,7 @@
           "module": "TGLExt.AuditA1ModularCutBalance",
           "rc": 0,
           "ok": true,
-          "seconds": 244.3,
+          "seconds": 264.7,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238493,7 +238947,7 @@
           "module": "TGLExt.AuditA1ModularFixedVectors",
           "rc": 0,
           "ok": true,
-          "seconds": 240.6,
+          "seconds": 227.7,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238521,7 +238975,7 @@
           "module": "TGLExt.AuditA1ModularImplementation",
           "rc": 0,
           "ok": true,
-          "seconds": 200.9,
+          "seconds": 227.4,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238549,7 +239003,7 @@
           "module": "TGLExt.AuditA1MultiplierCalculus",
           "rc": 0,
           "ok": true,
-          "seconds": 195.2,
+          "seconds": 223.5,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238577,7 +239031,7 @@
           "module": "TGLExt.AuditA1PerturbedWeightNorm",
           "rc": 0,
           "ok": true,
-          "seconds": 187.7,
+          "seconds": 213.8,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238605,7 +239059,7 @@
           "module": "TGLExt.AuditA1PerturbedWeightOrder",
           "rc": 0,
           "ok": true,
-          "seconds": 186.9,
+          "seconds": 207.2,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238633,7 +239087,7 @@
           "module": "TGLExt.AuditA1PositiveGraph",
           "rc": 0,
           "ok": true,
-          "seconds": 158.5,
+          "seconds": 204.8,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238661,7 +239115,7 @@
           "module": "TGLExt.AuditA1QuadraticTrace",
           "rc": 0,
           "ok": true,
-          "seconds": 158.7,
+          "seconds": 198.0,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238689,7 +239143,7 @@
           "module": "TGLExt.AuditA1RegularAffiliation",
           "rc": 0,
           "ok": true,
-          "seconds": 158.1,
+          "seconds": 191.7,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238717,7 +239171,7 @@
           "module": "TGLExt.AuditA1RegularDomainCut",
           "rc": 0,
           "ok": true,
-          "seconds": 158.5,
+          "seconds": 192.2,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238745,7 +239199,7 @@
           "module": "TGLExt.AuditA1RegularDualScaling",
           "rc": 0,
           "ok": true,
-          "seconds": 158.2,
+          "seconds": 191.9,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238773,7 +239227,7 @@
           "module": "TGLExt.AuditA1RegularPowers",
           "rc": 0,
           "ok": true,
-          "seconds": 158.2,
+          "seconds": 191.3,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238801,7 +239255,7 @@
           "module": "TGLExt.AuditA1RegulatorWeightOrder",
           "rc": 0,
           "ok": true,
-          "seconds": 157.7,
+          "seconds": 190.8,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238829,7 +239283,7 @@
           "module": "TGLExt.AuditA1RightActionAlgebra",
           "rc": 0,
           "ok": true,
-          "seconds": 157.9,
+          "seconds": 190.8,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238857,7 +239311,7 @@
           "module": "TGLExt.AuditA1RightActionLimits",
           "rc": 0,
           "ok": true,
-          "seconds": 158.1,
+          "seconds": 190.6,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238885,7 +239339,7 @@
           "module": "TGLExt.AuditA1SineResolvent",
           "rc": 0,
           "ok": true,
-          "seconds": 157.2,
+          "seconds": 190.8,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238913,7 +239367,7 @@
           "module": "TGLExt.AuditA1SpectralGraph",
           "rc": 0,
           "ok": true,
-          "seconds": 157.0,
+          "seconds": 190.4,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -238941,7 +239395,7 @@
           "module": "TGLExt.AuditA1WeightAverageRecovery",
           "rc": 0,
           "ok": true,
-          "seconds": 157.0,
+          "seconds": 190.3,
           "transposition": [],
           "errors": 0,
           "semantic_errors": 0,
@@ -239012,7 +239466,7 @@
           "DESENVOLVIMENTO_INCOMPLETO (continuacao 055)"
         ]
       ],
-      "mirror_links": 7105,
+      "mirror_links": 7110,
       "checks": [
         [
           "os 167 controles sairam do corpus embutido com sha256 conferido",
@@ -239041,7 +239495,7 @@
       "positives_compiled": 52,
       "positives": 52,
       "transposed_controls": 2,
-      "runtime_s": 1771.2,
+      "runtime_s": 1965.9,
       "verdict": "TGL_BENCH_LEAN_CONTROLS__115_OF_115_NEGATIVES_REFUSED_SEMANTICALLY__52_OF_52_POSITIVES_COMPILE__2_ABSENT_REGISTERED__GATE_UNTOUCHED"
     },
     "joint_coincidence_protocol_v2": {
@@ -239760,7 +240214,7 @@
       },
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 2.83,
+      "runtime_s": 3.82,
       "verdict": "TGL_SMALL_DIAMOND_LATTICE__MASSLESS_CONVERGES_TO_GEOMETRIC_IN_MODEL__FIRST_ORDER_CFM_4P15_REPRODUCED__FIRST_NONGEOMETRIC_COEFFICIENT_ANTILOCAL__REMAINDER_SCALES_MELL_LN__LINK_TO_BETA_OPEN__GATE_UNTOUCHED"
     },
     "d1_camb_v3_pipeline": {
@@ -239868,7 +240322,7 @@
       },
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.058,
+      "runtime_s": 0.043,
       "verdict": "TGL_D1_CAMB_V3__PIPELINE_BUILT_BLIND__AMENDMENT_BESIDE_420a25dd11fe4786__PRIMARY_AND_SH0ES_INJECTION_PASSED__C_FREE_DEGENERATE_WITH_VACUUM_AMENDMENT_faec13742bfab745__MCMC_VALIDATED_ON_ASIMOV__REAL_DATA_UNLOCKED_BY_OPERATOR_LINE__RESULT_READ_BY_V366__GATE_UNTOUCHED"
     },
     "um_posto_v364": {
@@ -239909,7 +240363,7 @@
       },
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.001,
+      "runtime_s": 0.002,
       "verdict": "TGL_UM_POSTO__OPERATOR_DEFINITION_TYPED__KERNEL_4_OF_4__H2_INTERFACE_IS_A_COVARIANT_INSCRIPTION__READING_BACK_IS_NOT_PAYING__PHYSICAL_K_OPEN__GATE_UNTOUCHED"
     },
     "um_posto_relation_v365": {
@@ -239972,7 +240426,7 @@
       },
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.003,
+      "runtime_s": 0.005,
       "verdict": "TGL_UM_POSTO_RELATION__ERRATA_BESIDE_V364__POSTO_IS_RELATION_NOT_IDENTITY__PRESSUPPOSED_NEVER_POSTO_UNDER_ANY_CROSSING_OR_RENAMING__KERNEL_5_OF_5__LOSS_AND_COST_BY_EXISTING_SUPPLIERS__V102_NAME_WITHOUT_INHABITANT_READ__GATE_UNTOUCHED"
     },
     "torsion_shear_dynamics_v365": {
@@ -240312,7 +240766,7 @@
       },
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.025,
+      "runtime_s": 0.023,
       "verdict": "TGL_D1_CAMB_V3_REAL__OPERATOR_LINE_RATIFIED__BESTFIT_D1_TENSION_2_TO_5_SIGMA__MCMC_D1_BETA_TENSION__ALPHA_SQRT_E_AT_3P01_SIGMA_AT_THRESHOLD__CHAIN_BELOW_50_TAU_IN_2_OF_4_PARAMS__TENSION_IS_NOT_FALSIFICATION__GATE_UNTOUCHED"
     },
     "orientation_is_the_sign_v367": {
@@ -240566,7 +241020,7 @@
       },
       "does_not_gate_core": true,
       "in_contour_roster_v314": false,
-      "runtime_s": 0.0,
+      "runtime_s": 0.001,
       "verdict": "TGL_SPINOR_OBSTRUCTION_TYPED__NO_INTERTWINING_LINEAR_MAP_FROM_INTEGER_SPIN_TO_HALF_SPIN__NOR_FROM_NEUTRAL_TO_CHARGED__CONTROL_FULL_AT_C_EQUAL_ONE__ELECTRON_SECTOR_NOT_CONSTRUCTED_OPEN__SHADOW_SENTENCE_IS_ONTO_ONLY__KERNEL_4_OF_4__GATE_UNTOUCHED"
     },
     "joint_coincidence_protocol_v3": {
@@ -241607,8 +242061,8 @@
         "bench_lean_controls_all_verified": true,
         "bench_lean_controls_verdict": "TGL_BENCH_LEAN_CONTROLS__115_OF_115_NEGATIVES_REFUSED_SEMANTICALLY__52_OF_52_POSITIVES_COMPILE__2_ABSENT_REGISTERED__GATE_UNTOUCHED",
         "the_iald_index": {
-          "n_nomes": 29299,
-          "n_arquivos": 1385,
+          "n_nomes": 29321,
+          "n_arquivos": 1386,
           "n_ausentes": 3,
           "n_ambiguos": 2076,
           "all_verified": true,
@@ -241805,7 +242259,7 @@
         "que o decaimento SEJA a face hiperbolica da regra dos dois regimes (ONTO)",
         "confirmacao de qualquer coisa: PROVADA != CONFIRMADA; o gate nao se move"
       ],
-      "runtime_s": 0.041
+      "runtime_s": 0.066
     },
     "equation_of_truth_v371": {
       "verdict": "TGL_EQUATION_OF_TRUTH_V371__READING_INPUT_ONTO__IN_FINITE_DIMENSION_A_READING_IS_CONSERVED_IFF_IT_FACTORS_THROUGH_THE_FAMILY__THE_READING_STAYS_THE_DYNAMICS_MOVES__THREE_ANNULMENTS_NOT_IDENTIFIED__KERNEL_10_OF_10__GATE_UNTOUCHED",
@@ -241901,7 +242355,7 @@
         "que a leitura ONTO seja teorema",
         "confirmacao: PROVADA != CONFIRMADA"
       ],
-      "runtime_s": 0.004
+      "runtime_s": 0.006
     },
     "qg_contract_v31_v371": {
       "verdict": "TGL_QG_CONTRACT_V31__TYPED_IN_KERNEL__NOT_INHABITED_BY_THE_LEGACY_PAIR__NON_VACUITY_OPEN__KAPPA_OVER_T_TWO_PI_BY_TYPE__KAPPA_IS_GAUGE__G_NOT_PREDICTED__FOUR_INDICES_INPUT__RESERVED_NAMES_NOT_COINED__READER_OFF__KERNEL_9_OF_9__GATE_UNTOUCHED",
@@ -241968,7 +242422,7 @@
         "T0 o tensor de energia-momento",
         "o tipo de m_pos"
       ],
-      "runtime_s": 0.107
+      "runtime_s": 0.17
     },
     "light_ray_borchers_v371": {
       "verdict": "TGL_LIGHT_RAY_BORCHERS_V371__POSITIVE_ENERGY_AX_PLUS_B__BORCHERS_FORM_TWO_PI_DEFINITIONAL__FAITHFUL_ON_THE_RAY__NOT_FAITHFUL_IN_FOUR__NO_EIGENVECTOR__MODULAR_IDENTIFICATION_OPEN__FLAT_ONLY__KERNEL_5_OF_5__GATE_UNTOUCHED",
@@ -242034,7 +242488,7 @@
         "a identificacao modular de D(2 pi t)",
         "curvatura, Einstein e beta: nada disso vem da localizacao modular (espaco plano)"
       ],
-      "runtime_s": 0.002
+      "runtime_s": 0.003
     },
     "iald_rho_star_v372": {
       "operator_verbatim": {
@@ -242381,7 +242835,7 @@
         "non_vacuity": "nenhum habitante dos certificados e exibido; argumentada, nao provada",
         "graviton": "a forma conjugada da luz (TheGravitonIsTheConjugatedPhase), nao quantum propagante; o escape de Weinberg\u2013Witten fica condicional"
       },
-      "seconds": 0.11
+      "seconds": 0.184
     },
     "graviton_conjugated_form_v372": {
       "operator_verbatim": "O que a v200 registrou foi contr\u00e1rio \u00e0 minha ordem, porque a rela\u00e7\u00e3o que eu ditei foi a mesma ditada agora. Concordo com tudo. Estamos afinados",
@@ -242423,7 +242877,7 @@
       "mismatch": [],
       "package_ready_sha256": "d3705082716ffe8e1de8b2694c2cb56d840eff03f00fcde4034ad7dfffd59bb8",
       "verdict": "ORDEM_016_PARTIAL_CLOSURE_EMBEDDED__156_UNITS__HASHES_MATCH_THE_BENCH__GATE_UNTOUCHED",
-      "seconds": 0.01
+      "seconds": 0.017
     },
     "qg_discharge_by_citation_v373": {
       "operator_verbatim": {
@@ -242433,7 +242887,7 @@
       },
       "checks": [
         [
-          "VARREDURA nao vazia: o kernel embutido foi lido (15192 nomes declarados; >= 1000)",
+          "VARREDURA nao vazia: o kernel embutido foi lido (15212 nomes declarados; >= 1000)",
           true
         ],
         [
@@ -250049,14 +250503,14 @@
       ]
     },
     "three_stress_tests_v387": {
-      "verdict": "TGL_THREE_STRESS_TESTS_V387__CORE_198_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_9541_OF_9541__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
+      "verdict": "TGL_THREE_STRESS_TESTS_V387__CORE_199_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_9561_OF_9561__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
       "all_verified": true,
       "does_not_gate_core": true,
       "status": "[COMPUTED do core desta rodada]; as leituras [INPUT/ONTO]; PROVADA != CONFIRMADA",
       "none_of_the_three_failed": true,
       "pillars_that_failed": [],
       "counts_overlap": "as contagens NOT_FALSIFIED/INCONCLUSIVE/AWAITING CONTEM a substring (um veredito-sintese pode estar em mais de uma): nao e' particao",
-      "n_verdicts": 198,
+      "n_verdicts": 199,
       "n_not_falsified": 16,
       "n_inconclusive": 14,
       "n_awaiting": 9,
@@ -250085,8 +250539,8 @@
         "inconclusive": 4
       },
       "kernel": {
-        "n_theorems_clean": 9541,
-        "n_theorems_expected": 9541,
+        "n_theorems_clean": 9561,
+        "n_theorems_expected": 9561,
         "sorryAx_absent": true,
         "custom_TGL_axioms_absent": true,
         "gate_flags_true": 18,
@@ -250969,7 +251423,7 @@
       "status": "[KERNEL a recusa e a passagem na face; INPUT/ONTO a definicao do operador; KNOWN a passagem local (Jacobson 1995) e a lei de escala (Takesaki)]"
     },
     "estatuto_da_prova_v391": {
-      "verdict": "TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_9541_OF_9541_FLAGS_29296_OF_29296_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_6981660b5f7cd537__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
+      "verdict": "TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_9561_OF_9561_FLAGS_29318_OF_29318_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_1925cb691e933ae8__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
       "all_verified": true,
       "does_not_gate_core": true,
       "falhas": [],
@@ -250985,10 +251439,10 @@
         "quando": "07/10/2026 (nesta sessao c1; ordem: examinar a coerencia do artigo, sem delegar)"
       },
       "prova_1_kernel": {
-        "n_theorems_clean": 9541,
-        "n_theorems_expected": 9541,
-        "declaracoes_auditadas": 29296,
-        "no_trio": 29296,
+        "n_theorems_clean": 9561,
+        "n_theorems_expected": 9561,
+        "declaracoes_auditadas": 29318,
+        "no_trio": 29318,
         "gate_flags": {
           "formal_flags": [
             6,
@@ -251076,7 +251530,7 @@
         "ok": true
       },
       "certificacao": {
-        "um_py_sha256_lido_de_si": "6981660b5f7cd537ec86fc2a1b7fb6a532ccbb00693e7781d34d8be783c1d337",
+        "um_py_sha256_lido_de_si": "1925cb691e933ae811933a6286b4acb9c25853ba2d89f926a6610d2d837eba01",
         "como": "o proprio programa le os seus bytes e emite o sha256; o selo o grava; o espelho publico e o site publicam o mesmo hash; quem roda confere"
       },
       "nao_declarado": [
@@ -251086,7 +251540,7 @@
       "status": "[REAL -- leitura dos registros do core a cada rito; INPUT/ONTO a regua do operador (validade x creditacao)]"
     },
     "pedras_v392": {
-      "verdict": "TGL_PEDRAS_V392__14_NEW_KERNEL_MODULES__738_OF_738_FLAGS_738_OF_738_DECLARATIONS_IN_THE_TRIO__LADDER_9541_OF_9541__WORD_RANK_POST_NAME_TIME_SANTO_ORGANISM_IALD_TRUTH_IS_THE_PROJECTION_OF_THE_POST_BY_OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__BGL_AS_TYPED_HYPOTHESIS_NO_INHABITANT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+      "verdict": "TGL_PEDRAS_V392__14_NEW_KERNEL_MODULES__738_OF_738_FLAGS_738_OF_738_DECLARATIONS_IN_THE_TRIO__LADDER_9561_OF_9561__WORD_RANK_POST_NAME_TIME_SANTO_ORGANISM_IALD_TRUTH_IS_THE_PROJECTION_OF_THE_POST_BY_OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__BGL_AS_TYPED_HYPOTHESIS_NO_INHABITANT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
       "all_verified": true,
       "does_not_gate_core": true,
       "pedras": [
@@ -251310,8 +251764,8 @@
         738
       ],
       "escada": {
-        "limpos": 9541,
-        "esperados": 9541,
+        "limpos": 9561,
+        "esperados": 9561,
         "esperada_pelo_candidato": 6901,
         "da_v391": 6163
       },
@@ -251397,12 +251851,12 @@
       "status": "[REAL -- leitura do kernel do proprio rito a cada rodada; INPUT/ONTO as leituras do operador]"
     },
     "varredura_e_sorry_v392": {
-      "verdict": "TGL_VARREDURA_E_SORRY_V392__RECURSIVE_TOKEN_SCAN_1405_FILES_150_IN_TGLEXT_O16_0_HITS__SORRY_DETECTOR_READS_BACKTICK_AND_QUOTE_AND_SORRYAX_ON_THE_REAL_PROBE__GATE_UNMOVED",
+      "verdict": "TGL_VARREDURA_E_SORRY_V392__RECURSIVE_TOKEN_SCAN_1406_FILES_150_IN_TGLEXT_O16_0_HITS__SORRY_DETECTOR_READS_BACKTICK_AND_QUOTE_AND_SORRYAX_ON_THE_REAL_PROBE__GATE_UNMOVED",
       "all_verified": true,
       "does_not_gate_core": true,
       "varredura": {
         "recursiva": true,
-        "arquivos": 1405,
+        "arquivos": 1406,
         "em_TGLExt_O16": 150,
         "probes_pulados": 17,
         "hits": [],
@@ -251828,8 +252282,8 @@
         }
       ],
       "lido": {
-        "constantes_cobertas": 29296,
-        "teoremas_cobertos": 23286,
+        "constantes_cobertas": 29318,
+        "teoremas_cobertos": 23306,
         "modulos_sem_entrada_v391": 76,
         "constantes_do_fecho_v391": 24006,
         "teoremas_no_report_v391": 8905,
@@ -254398,8 +254852,8 @@
         }
       ],
       "lido": {
-        "escada_neste_rito": 9541,
-        "declaracoes_neste_rito": 29296
+        "escada_neste_rito": 9561,
+        "declaracoes_neste_rito": 29318
       },
       "guarda_p18_violacoes": [],
       "erratas": [
@@ -255758,7 +256212,7 @@
         }
       ],
       "lido": {
-        "escada_neste_rito": 9541,
+        "escada_neste_rito": 9561,
         "f2_vies_relativo_tau": 0.23995248111572381
       },
       "guarda_p18_violacoes": [],
@@ -260165,7 +260619,7 @@
       }
     },
     "pedras_v393": {
-      "verdict": "TGL_PEDRAS_V393__3_NEW_KERNEL_MODULES__144_OF_144_FLAGS_144_OF_144_DECLARATIONS_IN_THE_TRIO__LADDER_9541_OF_9541__RULE_IS_THE_REFUSAL_THAT_THE_RESULT_DIFFER_FROM_THE_OBJECT_OF_ITS_SATISFACTION_RELATIVE_TO_READING_AND_TARGET__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+      "verdict": "TGL_PEDRAS_V393__3_NEW_KERNEL_MODULES__144_OF_144_FLAGS_144_OF_144_DECLARATIONS_IN_THE_TRIO__LADDER_9561_OF_9561__RULE_IS_THE_REFUSAL_THAT_THE_RESULT_DIFFER_FROM_THE_OBJECT_OF_ITS_SATISFACTION_RELATIVE_TO_READING_AND_TARGET__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
       "all_verified": true,
       "does_not_gate_core": true,
       "pedras": [
@@ -260227,8 +260681,8 @@
         144
       ],
       "escada": {
-        "limpos": 9541,
-        "esperados": 9541,
+        "limpos": 9561,
+        "esperados": 9561,
         "esperada_pelo_candidato": 7045,
         "da_v392": 6901
       },
@@ -261778,8 +262232,8 @@
         }
       ],
       "lido": {
-        "constantes_cobertas": 29296,
-        "teoremas_cobertos": 23286,
+        "constantes_cobertas": 29318,
+        "teoremas_cobertos": 23306,
         "duracao_do_audit_s": 166
       },
       "guarda_p18_violacoes": [],
@@ -302434,8 +302888,8 @@
         }
       ],
       "lido": {
-        "constantes_cobertas": 29296,
-        "teoremas_cobertos": 23286,
+        "constantes_cobertas": 29318,
+        "teoremas_cobertos": 23306,
         "duracao_do_audit_s": 216
       },
       "guarda_p18_violacoes": [],
@@ -302949,8 +303403,8 @@
         }
       ],
       "lido": {
-        "constantes_cobertas": 29296,
-        "teoremas_cobertos": 23286,
+        "constantes_cobertas": 29318,
+        "teoremas_cobertos": 23306,
         "duracao_do_audit_s": 295
       },
       "guarda_p18_violacoes": [],
@@ -303281,8 +303735,8 @@
         }
       ],
       "lido": {
-        "constantes_cobertas": 29296,
-        "teoremas_cobertos": 23286,
+        "constantes_cobertas": 29318,
+        "teoremas_cobertos": 23306,
         "duracao_do_audit_s": 334
       },
       "guarda_p18_violacoes": [],
@@ -303625,8 +304079,8 @@
         }
       ],
       "lido": {
-        "constantes_cobertas": 29296,
-        "teoremas_cobertos": 23286,
+        "constantes_cobertas": 29318,
+        "teoremas_cobertos": 23306,
         "duracao_do_audit_s": 327
       },
       "guarda_p18_violacoes": [],
@@ -304009,8 +304463,8 @@
         }
       ],
       "lido": {
-        "constantes_cobertas": 29296,
-        "teoremas_cobertos": 23286,
+        "constantes_cobertas": 29318,
+        "teoremas_cobertos": 23306,
         "duracao_do_audit_s": 311
       },
       "guarda_p18_violacoes": [],
@@ -304393,12 +304847,12 @@
           "estatuto": "[REAL]"
         },
         {
-          "descricao": "constantes cobertas == as do sandbox v399 (KH_N1)",
+          "descricao": "constantes cobertas == as do sandbox v399 (KH_N1) -- v401: piso historico (a cobertura cresce com o modulo FalsidadeDaInercia); a igualdade exata esta em kh_n1_cobertura_v401",
           "ok": true,
           "estatuto": "[REAL]"
         },
         {
-          "descricao": "teoremas cobertos == os do sandbox v399 (KH_N1)",
+          "descricao": "teoremas cobertos == os do sandbox v399 (KH_N1) -- v401: piso historico (a cobertura cresce com o modulo FalsidadeDaInercia); a igualdade exata esta em kh_n1_cobertura_v401",
           "ok": true,
           "estatuto": "[REAL]"
         },
@@ -304413,7 +304867,7 @@
           "estatuto": "[REAL]"
         },
         {
-          "descricao": "o axiom_report do rito tem exatamente uma entrada por constante coberta",
+          "descricao": "o axiom_report do rito tem exatamente uma entrada por constante coberta -- v401: piso historico; a igualdade exata esta em kh_n1_cobertura_v401",
           "ok": true,
           "estatuto": "[REAL]"
         },
@@ -304428,7 +304882,7 @@
           "estatuto": "[REAL]"
         },
         {
-          "descricao": "as fontes formais da ARVORE DO NOS depois do rito (as embutidas + os residuais que o hash formal conta, como _check_damming.lean) sao EXATAMENTE as do pino (arquivo -> sha256)",
+          "descricao": "as fontes formais da ARVORE DO NOS depois do rito (as embutidas + os residuais que o hash formal conta, como _check_damming.lean) sao EXATAMENTE as do pino (arquivo -> sha256) -- v401: a arvore ganha o arquivo da pedra, entao o registro da v399 cobra o tamanho minimo (1429 entradas); o pino exato da arvore esta em kh_n1_cobertura_v401",
           "ok": true,
           "estatuto": "[REAL]"
         },
@@ -304454,8 +304908,8 @@
         }
       ],
       "lido": {
-        "constantes_cobertas": 29296,
-        "teoremas_cobertos": 23286,
+        "constantes_cobertas": 29318,
+        "teoremas_cobertos": 23306,
         "duracao_do_audit_s": 238
       },
       "guarda_p18_violacoes": [],
@@ -304467,6 +304921,14 @@
           "lacuna_de_fidelidade": "a estrutura da v398 dizia que as contagens e o pino da arvore eram a cobertura exata para sempre; o texto escrito deixou o registro preso a igualdades que a propria v399 quebra (a mesma lacuna que a v398 achou no registro da v397, a v397 no da v396 e a v396 no da v395)",
           "estatuto": "[REAL: contagens lidas do log do Audit do sandbox; h2, h3, h6 e h8 conferidas no ensaio a seco e na arvore simulada do Nos]",
           "assinatura": "gerencia c1, em nome proprio, 24/10/2026"
+        },
+        {
+          "ao_lado_de": "kh_n1_cobertura_v399 (h2/h3/h6: igualdades de contagem; h8: o pino exato da arvore)",
+          "dizia": "A v399 cobrava constantes == 29296, teoremas == 23286, um axiom_report de exatamente o tamanho da v399 e o hash formal igual ao pino exato da arvore (1429 entradas).",
+          "agora": "Na v401 a cobertura cresce com o modulo FalsidadeDaInercia e a arvore ganha o arquivo da pedra: h2, h3 e h6 viram pisos e h8 passa a cobrar o tamanho minimo da arvore; as igualdades exatas e o pino exato ficam em kh_n1_cobertura_v401. O veredito deste registro NAO muda.",
+          "lacuna_de_fidelidade": "a estrutura da v399 dizia que as contagens e o pino da arvore eram a cobertura exata para sempre; o texto escrito deixou o registro preso a igualdades que a propria v401 quebra (a mesma lacuna que a v399 achou no registro da v398, a v398 no da v397 e a v397 no da v396)",
+          "estatuto": "[REAL: contagens lidas do log do Audit do sandbox]",
+          "assinatura": "gerencia c1, em nome proprio, 25/10/2026"
         }
       ],
       "limites": [
@@ -304485,6 +304947,517 @@
         "assinatura": "gerencia c1, em nome proprio, 24/10/2026",
         "n_bandeiras": 2,
         "h8_entradas": 1429,
+        "h8_residuais_do_nos": [
+          "_check_damming.lean"
+        ]
+      }
+    },
+    "cunhagens_v401": {
+      "verdict": "TGL_CUNHAGENS_V401__OPERATOR_INSCRIPTIONS_OF_25_OCT_EMBEDDED_VERBATIM_BY_SHA256__THE_INERTIA_IS_THE_ABSOLUTE_ZERO_BY_THE_OPERATORS_DEFINITION__THE_STONE_FALSIDADE_DA_INERCIA_AND_THE_RECORD_ARE_READ_IN_THE_RITE__THE_NAMES_PREVIOUSLY_PROVISIONAL_ARE_RATIFIED_BY_THE_OPERATOR__THE_ADENDUM_READING_OMEGA_I_EQUALS_ONE_IS_THE_INERTIA_IS_SUPERSEDED__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "registro": "cunhagens_v401",
+      "estatuto": "[REAL -- a fonte da pedra, o kernel e o registro falsidade_da_inercia_v401 lidos a cada rito; INPUT/ONTO as inscricoes do operador; INPUT a ratificacao (\u00abRatifico tudo.\u00bb); DECLARADO que a lista ratificada e' a que a gerencia c1 apresentou a ele na sessao]",
+      "fontes": [
+        {
+          "chave": "falsidade_pedra",
+          "sha256": "9f6efcb2a0987e18ce79ace43aa394f5822673ead16f48b281fdd15c94ea908e",
+          "bytes": 24439,
+          "papel": "a pedra TGLExt/FalsidadeDaInercia.lean (o nome \u00abfalsidade (simulacro) da inercia\u00bb e' do operador, 25/10/2026; compilada e provada no sandbox; copia duravel; a que vale no rito e' a EMBUTIDA no kernel, conferida por sha256 em formal_files_sha256)",
+          "ok": true,
+          "detalhe": "ok"
+        },
+        {
+          "chave": "adendo_inercia",
+          "sha256": "1459b477b496e1f0f84b058cc758f9ebbc017249aedcc89e0a1f0b48264276ba",
+          "bytes": 18773,
+          "papel": "o ADENDO de 03-04/09/2026 (Nos\\ADENDO_A_INSCRICAO_INTERROMPE_A_INERCIA.md; copia duravel; o original no Nos NAO e' tocado): a leitura do escriba \u00abw(I)=1 e a INERCIA\u00bb que a errata desta versao supera",
+          "ok": true,
+          "detalhe": "ok"
+        }
+      ],
+      "verbatim": {
+        "v401_cun_4cf668f8668f570b": {
+          "sha256": "4cf668f8668f570b28fc47006de6ba625aa9532c4558eb83ebb3f52aef684489",
+          "embedded_ok": true,
+          "disk_informative_only": true,
+          "trechos": [
+            "Ratifico tudo."
+          ],
+          "quando": "25/10/2026 (cunhagem)"
+        },
+        "v401_cun_344a8ae9a257d2b3": {
+          "sha256": "344a8ae9a257d2b3f57cab78cf280c0dda636c1180cbc18872677a77a41d62ef",
+          "embedded_ok": true,
+          "disk_informative_only": true,
+          "trechos": [
+            "Mas eu ja expliquei no artigo que nada=materia e"
+          ],
+          "quando": "25/10/2026 (cunhagem)"
+        },
+        "v401_cun_0516c0649e8e10fb": {
+          "sha256": "0516c0649e8e10fb0338f21986c4e8498ce17307825477792425db4b030e4e2a",
+          "embedded_ok": true,
+          "disk_informative_only": true,
+          "trechos": [
+            "Exatamente, a mat\u00e9ria \u00e9 a cristaliza\u00e7\u00e3o da dobra"
+          ],
+          "quando": "25/10/2026 (cunhagem)"
+        },
+        "v401_cun_0b244a5f809594e7": {
+          "sha256": "0b244a5f809594e701ab18db300718c91a5768940df0e2ee2229a8c8c66f025f",
+          "embedded_ok": true,
+          "disk_informative_only": true,
+          "trechos": [
+            "Isso, mas agora chegamos \u00e0 in\u00e9rcia de Newton, e"
+          ],
+          "quando": "25/10/2026 (cunhagem)"
+        },
+        "v401_cun_901dd8fc1a3c0212": {
+          "sha256": "901dd8fc1a3c021294524e79fd295f0f6fe358ed9fc05a29831192c16f086c2d",
+          "embedded_ok": true,
+          "disk_informative_only": true,
+          "trechos": [
+            "Claro que quero, a pedra chama-se \u201cfalsidade (si"
+          ],
+          "quando": "25/10/2026 (cunhagem)"
+        },
+        "v401_cun_e26364c5c805734c": {
+          "sha256": "e26364c5c805734c27897a89bb80f257859da10eaa7f848fe083d9304846b6c0",
+          "embedded_ok": true,
+          "disk_informative_only": true,
+          "trechos": [
+            "mas eu n\u00e3o queria que a leitura fosse ONTO minha"
+          ],
+          "quando": "25/10/2026 (cunhagem)"
+        }
+      },
+      "kernel": {
+        "bandeiras": [
+          20,
+          20
+        ],
+        "declaracoes_no_trio": [
+          36,
+          36
+        ]
+      },
+      "checks": [
+        {
+          "descricao": "o registro falsidade_da_inercia_v401 selou neste rito (a composicao e os teoremas da pedra lidos deste kernel; o calculo no modelo oneScaling com beta = alfa x raiz de e; o texto do 0_abs no kernel embutido)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o registro teste_de_veracidade_fase9_v397 segue selado neste rito (o quadro do topo do artigo le os numeros dele)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o registro selo_pela_propria_tecnologia_v399 segue selado neste rito (a segunda testemunha do um.py, ao lado do SHA-256)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "a escada do kernel fecha (limpos == esperados), com as bandeiras da pedra FalsidadeDaInercia",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "a proveniencia emitida pelo compilador cobre o axiom_report",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o compilador emite a composicao da pedra FalsidadeDaInercia no modulo dela (TGL_DECL_SOURCE)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o compilador emite a ESTRELA da pedra (um posto inercial daria 1 = 0) no modulo dela (TGL_DECL_SOURCE)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "a pedra FalsidadeDaInercia no kernel do rito e' EXATAMENTE a que o registro pina (sha256 da fonte)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "a composicao da pedra FalsidadeDaInercia depende do trio e de nada alem (tamanho da lista de axiomas)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o 0_abs do kernel (TGLExt.costless) segue declarado no modulo TheCorrespondence (a inercia que a definicao do operador nomeia)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        }
+      ],
+      "lido": {},
+      "guarda_p18_violacoes": [],
+      "erratas": [
+        {
+          "ao_lado_de": "ADENDO_A_INSCRICAO_INTERROMPE_A_INERCIA.md (Nos; 03-04/09/2026; sha16 1459b477b496e1f0): a leitura do escriba \u00abw(I)=1 e a INERCIA\u00bb",
+          "dizia": "\u00ab\u00e9 a IN\u00c9RCIA** \u2014 a identidade que se conserva, o grupo, o que n\u00e3o custa.\u00bb (o escriba leu a identidade que se conserva, w(I)=1, como a inercia).",
+          "agora": "SUPERADA pela definicao do operador de 25/10/2026 (sha16 0b244a5f809594e7): a inercia e' o proprio zero absoluto, o 0_abs do kernel (TGLExt.costless: \u00abnunca correspondeu, e por isso nada custa\u00bb), 1=0; w(I)=1 e' o Um POSTO que a interrompe, 1=1. O que o adendo acertou fica: interromper a inercia nao quebra simetria alguma (e' enunciado sobre o fluxo, nao sobre o grupo), e sao dois termos distintos (o item 7 do adendo, do proprio operador: \u00abele interrompe a in\u00e9rcia\u00bb).",
+          "lacuna_de_fidelidade": "o escriba tomou a identidade preservada (o que nao custa no grupo) pela inercia; a inercia do operador e' o zero (o que nunca correspondeu), e a identidade preservada e' o que a interrompe: a pedra FalsidadeDaInercia tipa exatamente a diferenca (posto + inercial = 1 = 0)",
+          "estatuto": "[REAL: o trecho esta no adendo, lido por sha256 da copia duravel; a definicao do operador e' INPUT; a pedra e' REAL sobre os dados nomeados]",
+          "assinatura": "gerencia c1, em nome proprio, 25/10/2026"
+        }
+      ],
+      "limites": [
+        "[REAL] a pedra COMPOE por citacao termos que o kernel ja tem (a lei de escala de Takesaki e' campo da estrutura, [KNOWN]) e nao acrescenta matematica nova; a estrela the_inertia_of_a_post_is_false diz: posto de peso 1 e estado inercial (fixo pelo fluxo inteiro) juntos dao (1:R) = 0; 'falsidade' e 'simulacro' no nome sao o nome dado pelo operador, nao creditacao de coisa alguma",
+        "[INPUT] o recorte declarado da fala de 25/10 (sha16 e26364c5c805734c) pede a leitura DERIVADA e nao [ONTO]: a cadeia (nada que porte posto precede a impressao; o zero e' a consequencia da poda) esta no kernel como [DERIVED]; a fala traz tambem a frase do operador sobre Einstein como processamento geometrico da metrica parametrizada na relatividade especial, que NAO e' termo do kernel (H_tau)",
+        "[INPUT] \u00abRatifico tudo.\u00bb (sha16 4cf668f8668f570b) e' a fala; a LISTA do que foi ratificado (os nomes antes provisorios: a pedra Testemunho e os registros selo_pela_propria_tecnologia_v399, declaracao_do_operador_v399, teste_de_veracidade_fase9_v397, sonico_v398 e afinacao_das_cordas_v398; a leitura das duas faces; a paridade do psibit sinal(L) . sinal(dL)) e' a que a gerencia c1 apresentou a ele [DECLARADO]; a mesma fala traz a PERGUNTA do operador \u00abEnt\u00e3o E=m.c2 \u00e9 a geometria que a cinem\u00e1tica da gravidade=luz2.entropia projeta?\u00bb (resposta no artigo: E = mc^2 e' [KNOWN, relatividade restrita], nao termo do kernel; a gravidade = luz^2 . entropia na tela e' leitura da TGL [ONTO] sobre Jacobson 1995 [KNOWN] e metric_einstein_from_screen_clausius [REAL], com H3 nomeada)",
+        "[ONTO] \u00aba mat\u00e9ria \u00e9 a cristaliza\u00e7\u00e3o da dobra luz no v\u00e1cuo relativa ao observador\u00bb (sha16 0516c0649e8e10fb) e \u00abnada=materia e esse \u00e9 o link com a entropia\u00bb (sha16 344a8ae9a257d2b3) sao cunhagens do operador; o kernel nao as prova, e a massa lida assim NAO e' a inercia (a inercia e' o zero): a massa e' o custo de ler contra o zero",
+        "[OPEN] a identificacao da escala dual com o fluxo de um corpo fisico (H_tau, NOMEADA, nao usada por teorema; ORDEM 025 ao Codex, sha16 3fd2b5a801071343, pendencia externa); a pedra nao prova a primeira lei de Newton nem a equivalencia inercial = gravitacional [KNOWN]; a RG e' o limite classico, nao rival; beta nao renormaliza G",
+        "validade no kernel nao e' creditacao; o gate nao se move; nenhuma bandeira do gate depende da pedra"
+      ],
+      "diz": [
+        "as 6 inscricoes de 25/10 (falas do operador) estao embutidas por sha256, cada uma conferida contra o arquivo de origem na preparacao",
+        "a pedra FalsidadeDaInercia esta no kernel do rito, no trio, com as bandeiras e a proveniencia no modulo dela; a composicao e a estrela sao lidas deste kernel",
+        "o registro falsidade_da_inercia_v401 selou neste rito, e o quadro do topo (teste_de_veracidade_fase9_v397) e o selo pela propria tecnologia (v399) seguem selados",
+        "a errata ao lado da leitura do escriba no adendo de 03-04/09 esta registrada (a copia duravel do adendo esta pinada por sha256); as ratificacoes do operador estao registradas com a fala dele"
+      ],
+      "nao_diz": [
+        "que o kernel prove a definicao do operador (ela e' INPUT/ONTO)",
+        "que a pedra prove Newton ou E = mc^2",
+        "que o testemunho ou a ratificacao seja creditacao: validade no kernel nao e' creditacao",
+        "que a gravidade quantica esteja creditada na natureza",
+        "que isto seja um teste: nao ha desfecho experimental novo"
+      ],
+      "leituras_do_operador": [
+        {
+          "trecho": "Ratifico tudo.",
+          "estatuto": "[INPUT do operador, verbatim 25/10/2026, sha16 4cf668f8668f570b]"
+        },
+        {
+          "trecho": "Ent\u00e3o E=m.c2 \u00e9 a geometria que a cinem\u00e1tica da gravidade=luz2.entropia projeta?",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 25/10/2026, sha16 4cf668f8668f570b]"
+        },
+        {
+          "trecho": "nada=materia e esse \u00e9 o link com a entropia",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 25/10/2026, sha16 344a8ae9a257d2b3]"
+        },
+        {
+          "trecho": "a mat\u00e9ria \u00e9 a cristaliza\u00e7\u00e3o da dobra luz no v\u00e1cuo relativa ao observador",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 25/10/2026, sha16 0516c0649e8e10fb]"
+        },
+        {
+          "trecho": "agora chegamos \u00e0 in\u00e9rcia de Newton",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 25/10/2026, sha16 0b244a5f809594e7]"
+        },
+        {
+          "trecho": "a minha defini\u00e7\u00e3o \u00e9 o pr\u00f3prio zero absoluto",
+          "estatuto": "[DEFINICAO DO OPERADOR / INPUT, verbatim 25/10/2026, sha16 0b244a5f809594e7]"
+        },
+        {
+          "trecho": "a pedra chama-se \u201cfalsidade (simulacro) da in\u00e9rcia\u201d, fa\u00e7a a prova",
+          "estatuto": "[INPUT do operador (o nome da pedra), verbatim 25/10/2026, sha16 901dd8fc1a3c0212]"
+        },
+        {
+          "trecho": "eu n\u00e3o queria que a leitura fosse ONTO minha, quero que seja derivado",
+          "estatuto": "[INPUT do operador (a ordem: derivado, nao ONTO), verbatim 25/10/2026, sha16 e26364c5c805734c]"
+        },
+        {
+          "trecho": "a gravita\u00e7\u00e3o universal e a in\u00e9rcia n\u00e3o existem antes da posi\u00e7\u00e3o impressa do Um absoluto",
+          "estatuto": "[INPUT do operador (o enunciado a derivar), verbatim 25/10/2026, sha16 e26364c5c805734c]"
+        },
+        {
+          "trecho": "o primeiro movimento \u00e9 a impress\u00e3o do posto absoluto ocupado por 1",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 25/10/2026, sha16 e26364c5c805734c]"
+        },
+        {
+          "trecho": "o zero absoluto n\u00e3o \u00e9 o in\u00edcio de tudo, n\u00e3o. ele \u00e9 a consequencia da poda",
+          "estatuto": "[INPUT/ONTO do operador, verbatim 25/10/2026, sha16 e26364c5c805734c]"
+        }
+      ],
+      "extras": {
+        "assinatura": "gerencia c1, em nome proprio, 25/10/2026",
+        "autoria_das_cunhagens": "Luiz Antonio Rotoli Miguel",
+        "pedras": [
+          "TGLExt.FalsidadeDaInercia"
+        ],
+        "teoremas": {
+          "falsidade": "TGLExt.FalsidadeDaInercia.falsidade_da_inercia_derivada"
+        },
+        "estrela": "TGLExt.FalsidadeDaInercia.the_inertia_of_a_post_is_false",
+        "bandeiras": {
+          "falsidade": "ext_fdi401_0006"
+        },
+        "n_bandeiras": 20,
+        "n_bandeiras_por_pedra": {
+          "falsidade": 20
+        },
+        "cunhagens_embutidas": 6,
+        "autor_de_cada_inscricao": {
+          "4cf668f8668f570b": "operador",
+          "344a8ae9a257d2b3": "operador",
+          "0516c0649e8e10fb": "operador",
+          "0b244a5f809594e7": "operador",
+          "901dd8fc1a3c0212": "operador",
+          "e26364c5c805734c": "operador"
+        },
+        "ratificacoes": [
+          {
+            "id": "r1",
+            "item": "o nome da pedra Testemunho (antes provisorio) e' definitivo",
+            "estatuto": "[INPUT]",
+            "fala_do_operador": {
+              "trecho": "Ratifico tudo.",
+              "sha16": "4cf668f8668f570b"
+            },
+            "lista_apresentada_por": "gerencia c1 [DECLARADO]"
+          },
+          {
+            "id": "r2",
+            "item": "o nome do registro selo_pela_propria_tecnologia_v399 (antes provisorio) e' definitivo",
+            "estatuto": "[INPUT]",
+            "fala_do_operador": {
+              "trecho": "Ratifico tudo.",
+              "sha16": "4cf668f8668f570b"
+            },
+            "lista_apresentada_por": "gerencia c1 [DECLARADO]"
+          },
+          {
+            "id": "r3",
+            "item": "o nome do registro declaracao_do_operador_v399 (antes provisorio) e' definitivo",
+            "estatuto": "[INPUT]",
+            "fala_do_operador": {
+              "trecho": "Ratifico tudo.",
+              "sha16": "4cf668f8668f570b"
+            },
+            "lista_apresentada_por": "gerencia c1 [DECLARADO]"
+          },
+          {
+            "id": "r4",
+            "item": "o nome do registro teste_de_veracidade_fase9_v397 (antes provisorio) e' definitivo",
+            "estatuto": "[INPUT]",
+            "fala_do_operador": {
+              "trecho": "Ratifico tudo.",
+              "sha16": "4cf668f8668f570b"
+            },
+            "lista_apresentada_por": "gerencia c1 [DECLARADO]"
+          },
+          {
+            "id": "r5",
+            "item": "o nome do registro sonico_v398 (antes provisorio) e' definitivo",
+            "estatuto": "[INPUT]",
+            "fala_do_operador": {
+              "trecho": "Ratifico tudo.",
+              "sha16": "4cf668f8668f570b"
+            },
+            "lista_apresentada_por": "gerencia c1 [DECLARADO]"
+          },
+          {
+            "id": "r6",
+            "item": "o nome do registro afinacao_das_cordas_v398 (antes provisorio) e' definitivo",
+            "estatuto": "[INPUT]",
+            "fala_do_operador": {
+              "trecho": "Ratifico tudo.",
+              "sha16": "4cf668f8668f570b"
+            },
+            "lista_apresentada_por": "gerencia c1 [DECLARADO]"
+          },
+          {
+            "id": "r7",
+            "item": "a leitura das duas faces (D7): P = a leitura do operador, I-P = o registro do um.py",
+            "estatuto": "[INPUT/ONTO]",
+            "fala_do_operador": {
+              "trecho": "Ratifico tudo.",
+              "sha16": "4cf668f8668f570b"
+            },
+            "lista_apresentada_por": "gerencia c1 [DECLARADO]"
+          },
+          {
+            "id": "r8",
+            "item": "a paridade do psibit e' sinal(L) . sinal(dL)",
+            "estatuto": "[INPUT]",
+            "fala_do_operador": {
+              "trecho": "Ratifico tudo.",
+              "sha16": "4cf668f8668f570b"
+            },
+            "lista_apresentada_por": "gerencia c1 [DECLARADO]"
+          }
+        ],
+        "ratificacao_fala": {
+          "sha16": "4cf668f8668f570b",
+          "trecho": "Ratifico tudo."
+        },
+        "definicao_da_inercia": {
+          "fala_sha16": "0b244a5f809594e7",
+          "trecho": "a minha defini\u00e7\u00e3o \u00e9 o pr\u00f3prio zero absoluto",
+          "kernel": "TGLExt.costless (0_abs: nunca correspondeu, e por isso nada custa)",
+          "uns": "inercia 1=0; w(I)=1 posto 1=1"
+        },
+        "adendo": {
+          "sha16": "1459b477b496e1f0",
+          "erratado_por": "gerencia c1, em nome proprio, 25/10/2026"
+        },
+        "cadeia_derivada": {
+          "estatuto": "[DERIVED]",
+          "base": "axioma w(I)=1 e lei de escala de Takesaki [KNOWN] como campo da estrutura",
+          "ordem_do_operador_sha16": "e26364c5c805734c",
+          "teoremas": [
+            "no_post_before_the_impression",
+            "inertia_is_not_its_own_cause",
+            "the_first_motion_is_the_impression",
+            "diagFlow_coordinate_is_the_scaling",
+            "leak_below_every_epsilon",
+            "the_zero_is_the_consequence_of_the_pruning",
+            "the_tension_is_projected_onto_the_attractor",
+            "falsidade_da_inercia_derivada"
+          ]
+        },
+        "hipotese_nomeada": {
+          "nome": "H_tau",
+          "estatuto": "[OPEN]",
+          "conteudo": "tau e' a massa de Newton e a metrica de Einstein",
+          "usada_por_teorema": false,
+          "pendencia_externa": "ORDEM 025 ao Codex, sha16 3fd2b5a801071343, enfileirada: tenta tipa-la pela frente de luz de Bisognano-Wichmann"
+        },
+        "nome_da_pedra": "FalsidadeDaInercia (\u00abfalsidade (simulacro) da inercia\u00bb; DADO pelo operador)",
+        "decisoes_da_gerencia": {
+          "D1": "RATIFICADO pelo operador (25/10/2026, \u00abRatifico tudo.\u00bb): os nomes antes provisorios ficam DEFINITIVOS (a pedra Testemunho e os registros selo_pela_propria_tecnologia_v399, declaracao_do_operador_v399, teste_de_veracidade_fase9_v397, sonico_v398, afinacao_das_cordas_v398)",
+          "D2": "[LEGAL] publicar o bloco embutido e as adaptacoes (centro 96, ids derivados, rint, tabela de codigos, auditoria): decisao do operador com a agente de PI; a instalacao espera essa decisao",
+          "D3": "perfil ACOM-INT-C96-Q8 (centro 96, Q=8), com o rint ao reticulado inteiro declarado como ADAPTACAO FORA da patente",
+          "D4": "a recusa do selo ACOM SO' REGISTRA (AVISO, all_verified False, entra em not_sealed_this_run.formais): o SHA-256 segue soberano e o rito nao e' derrubado",
+          "D5": "o sidecar um_absoluto_selo_acom.json entra na custodia (o handoff o lista)",
+          "D6": "o texto do artigo e' o da secao \u00abO testemunho de dois: o selo pela propria tecnologia\u00bb (base: secao 6 do patch), com os estatutos; o quadro dos 4,44 PERMANECE no topo",
+          "D7": "RATIFICADO pelo operador (25/10/2026): a leitura das duas faces (P, I-P) = (a leitura do operador, o registro do um.py), antes leitura da gerencia [ONTO] a ratificar",
+          "D8": "a pedra se chama \u00abfalsidade (simulacro) da inercia\u00bb (nome DADO pelo operador, 25/10/2026); no codigo `FalsidadeDaInercia` (identificador Lean nao admite acento nem parenteses)",
+          "D9": "o B(n) da v401 e' um PASSO SIMPLES v400 -> v401: a Bancada de producao JA pina a v400 (B9); o recibo pre_selo e' GERADO e PINADO antes da instalacao, em ensaio contra a producao (nada gravado nela)",
+          "D10": "a errata ao lado da leitura do escriba no ADENDO de 03-04/09 e' da gerencia c1, em nome proprio: \u00abw(I)=1 e a INERCIA\u00bb fica SUPERADA; o arquivo do adendo NAO e' tocado (seu sha esta pinado)"
+        }
+      }
+    },
+    "kh_n1_cobertura_v401": {
+      "verdict": "TGL_KH_N1_COBERTURA_V401__AXIOM_REPORT_COVERS_THE_WHOLE_TGL_AND_TGLEXT_CLOSURE_29318_CONSTANTS_23306_THEOREMS_NONE_OUTSIDE_THE_TRIO__ALL_NAMES_READ_BY_THE_V394_PARSER__THE_FALSIDADE_DA_INERCIA_MODULE_ADDED__GATE_UNMOVED",
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "registro": "kh_n1_cobertura_v401",
+      "estatuto": "[REAL] a cobertura e' medida a cada rito no Audit do proprio rito, lendo SO' o log do Audit; os numeros esperados saem do arquivo da medida do sandbox da v401; o conjunto exato das fontes formais que o hash formal do rito vera (as embutidas mais os residuais da pasta do Nos) e' pinado; a cobertura NAO move o gate",
+      "fontes": [
+        {
+          "chave": "kh_n1_v401",
+          "sha256": "4947b8fda5fd2ba063cc41fc8db1cdd28586c9cb4076e0d048c59f62519716e6",
+          "bytes": 1074,
+          "papel": "a medida da cobertura no Audit do sandbox da v401 (pos_build_kernel_v401.py)",
+          "ok": true,
+          "detalhe": "ok"
+        }
+      ],
+      "verbatim": {},
+      "kernel": {
+        "bandeiras": [
+          0,
+          0
+        ],
+        "declaracoes_no_trio": [
+          0,
+          0
+        ]
+      },
+      "checks": [
+        {
+          "descricao": "a checagem de cobertura do kernel do rito passou",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "constantes cobertas == as do sandbox v401 (KH_N1)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "teoremas cobertos == os do sandbox v401 (KH_N1)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "nenhuma constante fora do trio",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "nenhum nome que o leitor v394 nao leia",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "o axiom_report do rito tem exatamente uma entrada por constante coberta",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "a cobertura da v401 inclui a da v400 selada (constantes e teoremas)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "os teoremas cobertos incluem os da v400 selada",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "as fontes formais da ARVORE DO NOS depois do rito (as embutidas + os residuais que o hash formal conta, como _check_damming.lean) sao EXATAMENTE as do pino (arquivo -> sha256)",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "medida do Audit v401: duracao bem abaixo do timeout de 1800 s",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "medida do Audit v401: sorryAx ausente do log",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "medida do Audit v401: as entradas novas estao no trio",
+          "ok": true,
+          "estatuto": "[REAL]"
+        },
+        {
+          "descricao": "a proveniencia emitida pelo compilador cobre os mesmos nomes do axiom_report",
+          "ok": true,
+          "estatuto": "[REAL]"
+        }
+      ],
+      "lido": {
+        "constantes_cobertas": 29318,
+        "teoremas_cobertos": 23306,
+        "duracao_do_audit_s": 219
+      },
+      "guarda_p18_violacoes": [],
+      "erratas": [
+        {
+          "ao_lado_de": "kh_n1_cobertura_v399 (h2/h3/h6: igualdades de contagem; h8: o pino exato da arvore)",
+          "dizia": "A v399 cobrava constantes == 29296, teoremas == 23286, um axiom_report de exatamente o tamanho da v399 e o hash formal igual ao pino exato da arvore da v399.",
+          "agora": "A v401 acrescenta o modulo FalsidadeDaInercia (a cobertura cresce e a arvore ganha o arquivo da pedra): na v401 o registro da v399 passa a cobrar piso (h2, h3, h6) e o tamanho minimo da arvore (h8); as igualdades exatas e o pino exato da arvore ficam NESTE registro. O veredito do registro da v399 NAO muda.",
+          "lacuna_de_fidelidade": "a estrutura da v399 dizia que as contagens e o pino da arvore eram a cobertura exata para sempre; o texto escrito deixou o registro preso a igualdades que a propria v401 quebra (a mesma lacuna que a v399 achou no registro da v398, a v398 no da v397 e a v397 no da v396)",
+          "estatuto": "[REAL: contagens lidas do log do Audit do sandbox; h2, h3, h6 e h8 conferidas no ensaio a seco e na arvore simulada do Nos]",
+          "assinatura": "gerencia c1, em nome proprio, 25/10/2026"
+        }
+      ],
+      "limites": [
+        "[REAL] os arquivos de medida sao do sandbox (fora do selo); a cobertura que vale e' a medida no Audit do proprio rito",
+        "[REAL] a escada do kernel conta bandeiras de declaracoes NOMEADAS (a pratica da v392 a v399): as 2 auxiliares geradas pelo compilador no modulo da pedra ficam cobertas pelo KH-N1 mas sem bandeira, e as 20 nomeadas publicas ganharam bandeira",
+        "validade no kernel nao e' creditacao; o gate nao se move"
+      ],
+      "diz": [
+        "a cobertura do axiom_report no fecho inteiro cresceu para os numeros da v401 (o modulo FalsidadeDaInercia) e segue sem constante fora do trio, sem nome ilegivel"
+      ],
+      "nao_diz": [
+        "que a cobertura prove algo alem de que nenhum axioma fora do trio foi lido"
+      ],
+      "leituras_do_operador": [],
+      "extras": {
+        "assinatura": "gerencia c1, em nome proprio, 25/10/2026",
+        "n_bandeiras": 20,
+        "h8_entradas": 1430,
         "h8_residuais_do_nos": [
           "_check_damming.lean"
         ]
@@ -304718,7 +305691,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "30dc5da2f3df73f4f98ede78a7dbf29a66af829c48a391d716133b2715a95938",
+    "result_hash": "de92394a3ccd6fb9b47e0c8c6f9d21f42e5f36243b40c96aa69369608805e041",
     "contorno_ritos_v314": {
       "GA_massa_janela": "GA_MASS_FORM_RETIRED__REFLECTION_WAS_MISREAD_AS_SOURCE__LINEAR_ORDER_IS_GR_STEALTH__BETA_LIVES_IN_RESPONSE",
       "piso_dos_vazios": "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED",
@@ -304756,7 +305729,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "30dc5da2f3df73f4f98ede78a7dbf29a66af829c48a391d716133b2715a95938",
+  "result_hash_before_external_comparison": "de92394a3ccd6fb9b47e0c8c6f9d21f42e5f36243b40c96aa69369608805e041",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -304766,5 +305739,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-10-24 20:15:20"
+  "timestamp": "2026-10-25 13:43:14"
 }

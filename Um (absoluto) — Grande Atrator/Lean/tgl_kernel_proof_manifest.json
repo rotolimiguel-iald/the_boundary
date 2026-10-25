@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-24 20:15:20",
+  "timestamp": "2026-10-25 13:43:14",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,17 +10,17 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "32f863451b076b5a6367d82c679d43da5352b8cb7446075fc82b62da9f2ecc0e",
+  "formal_source_hash": "53189c30127ec99b4ece9cbc25566e432cca3f2f9c845352d1651cb479c74db2",
   "formal_files_sha256": {
     "README.md": "395b1201109079084f3562349161283bd644e17d5e18cea19971bac041e58d11",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "5b25cdc1f21a1c9f293409cc1c1733f0d6f2f5eb33519c8cc563d98074d25165",
+    "TGLExt.lean": "f220272592d738ec8030fb329b6725da484b197b4ab149da604464976612ea71",
     "_check_damming.lean": "485969b99f3e3db7ef4f9e4b1e97fb501ff68540a957e21949784d57d7536d21",
     "lake-manifest.json": "31a94eb76a8370ae8d75999ccec510f1ef7b994e369beebee2a3ea0088eee235",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "bd1a0be75fb9e68b7c3170afc41ce086489c8c546ffa4e37cd1e889c2685f754",
+    "TGL/Audit.lean": "a13140389bfa8545f26460d4372b5a2ca238e9cd442ff3e13cf3ab6902faa43f",
     "TGL/Basic.lean": "6de2b310b37c0af52fc83f9bf3c34d4c141115f4e74be86f9870b9bd531ebd04",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -195,6 +195,7 @@
     "TGLExt/FLRWGeometry.lean": "47aea5aebebd8611edab566724ce562508908dc86b96db7194dff2592bac9e92",
     "TGLExt/FaithfulGeometricLocalization.lean": "ec071ec8f7720217c242c17274cae7616ba5223b12ac89fb3113294a3b4e365f",
     "TGLExt/FallenLight.lean": "145eed2729d232ee9405d4124a0c333c3344e0a4a0b898b3a3eb189ba28cb3c0",
+    "TGLExt/FalsidadeDaInercia.lean": "9f6efcb2a0987e18ce79ace43aa394f5822673ead16f48b281fdd15c94ea908e",
     "TGLExt/FiniteCharacterResolution.lean": "2d66449f30f0376910d332318fc8f00fa75738a4ae73de38ddbcf544ed904fea",
     "TGLExt/FiniteCoherentSources.lean": "4b71fe49ae505d3017a3c2d05395de95f6c64f9630ea27c56de8ed024d94416b",
     "TGLExt/FiniteCommutatorEvolution.lean": "c3f09de40089bbafd78de5e6f2b9823db75297e600fe192c1b9616475fb8fad3",
@@ -12534,6 +12535,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.FalsidadeDaInercia.falsidade_da_inercia_is_inhabited": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Response028.amplitude_prefix_modular_formula": [
       "propext",
       "Classical.choice",
@@ -15238,6 +15244,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Continuous049.boundedSpectralMultiplier._proof_7": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.no_post_before_the_impression": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -19482,6 +19493,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.FalsidadeDaInercia.Inertial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Profile026.global_profile_vector_cyclic": [
       "propext",
       "Classical.choice",
@@ -20033,6 +20049,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.RelativePhase.characterReadout": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.the_inertia_is_the_absolute_zero": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -24807,6 +24828,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.FalsidadeDaInercia.falsidade_da_inercia_derivada": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.NetworkReuse.CanonicalNetInput._sizeOf_inst": [
       "propext",
       "Classical.choice",
@@ -29119,6 +29145,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.FalsidadeDaInercia.the_zero_is_the_consequence_of_the_pruning": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.fixedBaseEquiv._proof_11": [
       "propext",
       "Classical.choice",
@@ -32329,6 +32360,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Screen014.expanding_factor_partial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.the_inertia_of_a_post_is_false": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -38543,6 +38579,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.FalsidadeDaInercia.inertia_is_not_its_own_cause": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.Posto.zero_angle_pole": [
       "propext",
       "Classical.choice",
@@ -40614,6 +40655,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.SmoothAtlasGluing.transition_supplies_tensor_match": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.falsidade_da_inercia": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -47829,6 +47875,11 @@
       "Quot.sound"
     ],
     "TGLExt.ladder_in_object": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.leak_below_every_epsilon": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -58709,6 +58760,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.FalsidadeDaInercia.the_tension_is_projected_onto_the_attractor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Transport027.unitary_partial_domain_iff": [
       "propext",
       "Classical.choice",
@@ -63835,6 +63891,11 @@
       "Quot.sound"
     ],
     "TGLExt.GenuinelyUnboundedDiracData.ctorIdx": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.a_post_is_not_inertial": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -74012,6 +74073,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.FalsidadeDaInercia.IsPost": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.partialWeight_nonneg": [
       "propext",
       "Classical.choice",
@@ -75085,6 +75151,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Orbit052.orbit_basis_decomposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.the_post_exists_and_moves": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -81764,6 +81835,11 @@
       "Quot.sound"
     ],
     "TGL.HalfNatJonesTower.constIncl.eq_1": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.diagFlow_coordinate_is_the_scaling": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -103783,6 +103859,11 @@
     "TGL.HalfNatJonesTower.E0._proof_1": [
       "propext"
     ],
+    "TGLExt.FalsidadeDaInercia.the_first_motion_is_the_impression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Heat041.optical_heat_zero": [
       "propext",
       "Classical.choice",
@@ -104721,6 +104802,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Continuous050.continuous_delta_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Fundacao.oneScaling.eq_1": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -106818,6 +106904,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Covariant053.polarizer_form_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.the_inertia_of_a_post_is_false_at": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -123652,6 +123743,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.FalsidadeDaInercia.the_inscription_interrupts_the_inertia": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ORDEM016.ContractV32Proposal.StressTensorDataLocal_v2._sizeOf_1": [
       "propext",
       "Classical.choice",
@@ -125172,6 +125268,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.WignerRapidityMeasure016.orbitalScalarBoost_translations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.FalsidadeDaInercia.the_simulacrum": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -132398,6 +132499,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.FalsidadeDaInercia.the_inertia_is_the_absolute_zero_at_any_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.FiniteCoherentSource.finite_directional_frequencies_smul": [
       "propext",
       "Classical.choice",
@@ -134712,6 +134818,11 @@
       "Quot.sound"
     ],
     "TGLV351.dualResolvent_minimum_energy_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.DualScalingData.mk.congr_simp": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -141382,8 +141493,8 @@
       "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "77c8f4ec1c337df22f0941d4f2c7faf7c03e0677cff5c0985943b28707d55466",
-  "audit_stdout_sha256": "1cf13ca5a3cf8d3daf01803d5d937ec0d86c2167185aeed7e8b31ae6876519be",
+  "build_stdout_sha256": "1e8dcbf31bb925deb02cc96279e7195754bf3fdc606f1eb6a12709e2594baba7",
+  "audit_stdout_sha256": "5a4fe12b695964aab650d30210d0b9bd0cb2f8da4eaf894229de0caa716fd75a",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

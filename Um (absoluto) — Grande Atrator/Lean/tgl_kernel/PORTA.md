@@ -9,8 +9,8 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 O KERNEL FORMAL: as fontes .lean exatamente como `um.py` as materializa a cada
 rodada -- nao ha segundo arquivo: o kernel mora DENTRO do canonico e sai dele.
 
-**1429 arquivos** nesta arvore; **1429** hasheados no manifesto formal (1425 `.lean`
-+ `README.md` + `lakefile.toml` + `lean-toolchain`); **29296 declaracoes (termos)** auditadas
+**1430 arquivos** nesta arvore; **1430** hasheados no manifesto formal (1426 `.lean`
++ `README.md` + `lakefile.toml` + `lean-toolchain`); **29318 declaracoes (termos)** auditadas
 por `#print axioms`, bases de axiomas subset de {`propext`, `Classical.choice`,
 `Quot.sound`}, zero `sorry`. Toolchain `leanprover/lean4:v4.31.0`, modo `strict`.
 
@@ -63,7 +63,7 @@ o gate nao se move por declaracao.
 | subpasta | arquivos | PORTA.md | PORTA.json |
 |---|---|---|---|
 | `TGL/` | 27 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/PORTA.json) |
-| `TGLExt/` | 1395 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.json) |
+| `TGLExt/` | 1396 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.json) |
 
 ---
 

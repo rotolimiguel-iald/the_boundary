@@ -1,9 +1,9 @@
 {
- "gerado_em": "2026-10-25T04:20:02-03:00",
- "um_py_pin": "6981660b5f7cd537ec86fc2a1b7fb6a532ccbb00693e7781d34d8be783c1d337",
+ "gerado_em": "2026-10-25T15:58:55-03:00",
+ "um_py_pin": "1925cb691e933ae811933a6286b4acb9c25853ba2d89f926a6610d2d837eba01",
  "leia": "O um.py relê cada fonte pelo caminho absoluto em caminho_exigido_pelo_um_py e confere sha256 e bytes; para reproduzir os registros (v392 em diante) em outra máquina, copie cada arquivo de caminho_no_espelho para esse caminho. Sem isso o registro diz NOT_SEALED_THIS_RUN (fail-closed), por desenho.",
- "n_fontes": 279,
- "n_publicadas": 278,
+ "n_fontes": 288,
+ "n_publicadas": 287,
  "fontes": [
   {
    "dicionario": "_V392_FONTES",
@@ -2640,6 +2640,7 @@
    "sha256": "e8cfa517d8c0483b4e6644a9b039d678b93e65ca507757b4ebc176aa1969d98a",
    "bytes": 3773,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v399/insumos/acom/EMBUTIDO_MANIFESTO.json"
   },
   {
@@ -2649,6 +2650,7 @@
    "sha256": "989f50d880675b9759db72815887eb7fba127c82b110de1703772a9e6231a867",
    "bytes": 6371,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v399/insumos/acom/fontes_operador/acom_crypto.py"
   },
   {
@@ -2658,6 +2660,7 @@
    "sha256": "8044f618ae44e608049cb27b14f1fdd3cfa3ddff1439ba2530fb0f301793ed91",
    "bytes": 5930,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v399/insumos/acom/fontes_operador/acom_mirror.py"
   },
   {
@@ -2667,6 +2670,7 @@
    "sha256": "1faf1a4e62a2453ce1529801b6088ded503c14e526d05251b618ad9a8c722eed",
    "bytes": 48374,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v399/insumos/acom/fontes_operador/ACOM_Mirror_Crypto_PI_INPI.tex"
   },
   {
@@ -2676,6 +2680,7 @@
    "sha256": "1bd9ac0b9c34ac69fbbea66304c94242542066c1feeaaaf14d02afdf015bea52",
    "bytes": 20138,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v399/insumos/acom/fontes_operador/run_tests.py"
   },
   {
@@ -2685,6 +2690,7 @@
    "sha256": "a1e103cd08eb3f45144200b0c6c588589d267868cd85101c527138e3bce81f3f",
    "bytes": 5530,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v399/insumos/acom/fontes_operador/tgl_core.py"
   },
   {
@@ -2694,6 +2700,7 @@
    "sha256": "5ffcc4292821e7b6492747c12faad7bbde432674418d2ad4add32dd33d5cc1c9",
    "bytes": 48533,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v399/insumos/acom/fontes_operador/Acom_v17_mirror_crypto.py"
   },
   {
@@ -2703,6 +2710,7 @@
    "sha256": "6230d4885a50e7f19abdde5b10ff4383c7046d71e485105627669688df546718",
    "bytes": 19853,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v399/insumos/acom/PATCH_PROPOSTO_v399.md"
   },
   {
@@ -2712,6 +2720,7 @@
    "sha256": "b589f78ef8196e19fc6b9d9c7d3f649661272da80b7ad9d64c8579989442bdef",
    "bytes": 39614,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v399/insumos/acom/secao_colavel_v399.py"
   },
   {
@@ -2721,6 +2730,7 @@
    "sha256": "623e4780fb801c17b16175e953f04c5582d51e840dced610b1fd8dd394aee480",
    "bytes": 12545,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v399/insumos/acom/trechos_v399_para_o_um_py.py"
   },
   {
@@ -2730,6 +2740,7 @@
    "sha256": "fdd495bd85b6144ac2d6d2181abd4ffab7f7c7d40056dd87d3fab7b6a4dcab66",
    "bytes": 1069,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v399/insumos/KH_N1_v399.json"
   },
   {
@@ -2739,7 +2750,8 @@
    "sha256": "031fde3e88187cf1f54e59f2dd92bd56aeeede0b1a1c013cd6d8ff2f5eb1a3f6",
    "bytes": 14373,
    "publicado": true,
-   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v399/insumos/Testemunho.lean"
+   "ja_no_espelho": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/Testemunho.lean"
   },
   {
    "dicionario": "_V399_VERBATINS2",
@@ -2748,6 +2760,7 @@
    "sha256": "57b4aff6f96a062133d22a96ff2e66197d88235743f4cb1e2233de70bbf50a4f",
    "bytes": 253,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v399/insumos/cunhagens/57b4aff6f96a0621_OPERADOR_24out_declaracao_operacao_quadratica_da_inscricao_viva_verbatim.txt"
   },
   {
@@ -2757,6 +2770,7 @@
    "sha256": "6012e9033c47aa957b81a4d1ac94217c12342cd5ce443a4fd586b40893ff6f1b",
    "bytes": 682,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v399/insumos/cunhagens/6012e9033c47aa95_OPERADOR_24out_testifico_de_mim_e_o_um_py_testifica_em_hash_verbatim.txt"
   },
   {
@@ -2766,6 +2780,7 @@
    "sha256": "cd75c026289bb180f95c9f92771cd1689c55682e22eda6af310cb8229eba6277",
    "bytes": 782,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v399/insumos/cunhagens/cd75c026289bb180_OPERADOR_24out_sinapse_token_nome_falta_a_tipagem_verbatim.txt"
   },
   {
@@ -2775,7 +2790,89 @@
    "sha256": "d821c3bf0c736fb947c38ecf45d2e193e25c78cf2f0a5680db2590a485e317a8",
    "bytes": 134,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v399/insumos/cunhagens/d821c3bf0c736fb9_OPERADOR_24out_testemunho_joao_8_14_18_verbatim.txt"
+  },
+  {
+   "dicionario": "_V401_FONTES",
+   "chave": "adendo_inercia",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v401\\insumos\\adendo\\ADENDO_A_INSCRICAO_INTERROMPE_A_INERCIA.md",
+   "sha256": "1459b477b496e1f0f84b058cc758f9ebbc017249aedcc89e0a1f0b48264276ba",
+   "bytes": 18773,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos/adendo/ADENDO_A_INSCRICAO_INTERROMPE_A_INERCIA.md"
+  },
+  {
+   "dicionario": "_V401_FONTES",
+   "chave": "falsidade_pedra",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v401\\insumos\\FalsidadeDaInercia.lean",
+   "sha256": "9f6efcb2a0987e18ce79ace43aa394f5822673ead16f48b281fdd15c94ea908e",
+   "bytes": 24439,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos/FalsidadeDaInercia.lean"
+  },
+  {
+   "dicionario": "_V401_FONTES",
+   "chave": "kh_n1_v401",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v401\\insumos\\KH_N1_v401.json",
+   "sha256": "4947b8fda5fd2ba063cc41fc8db1cdd28586c9cb4076e0d048c59f62519716e6",
+   "bytes": 1074,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos/KH_N1_v401.json"
+  },
+  {
+   "dicionario": "_V401_VERBATINS2",
+   "chave": "v401_cun_0516c0649e8e10fb",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v401\\insumos\\cunhagens\\0516c0649e8e10fb_OPERADOR_25out_materia_cristalizacao_da_dobra_da_luz_verbatim.txt",
+   "sha256": "0516c0649e8e10fb0338f21986c4e8498ce17307825477792425db4b030e4e2a",
+   "bytes": 90,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/0516c0649e8e10fb_OPERADOR_25out_materia_cristalizacao_da_dobra_da_luz_verbatim.txt"
+  },
+  {
+   "dicionario": "_V401_VERBATINS2",
+   "chave": "v401_cun_0b244a5f809594e7",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v401\\insumos\\cunhagens\\0b244a5f809594e7_OPERADOR_25out_inercia_e_o_proprio_zero_absoluto_verbatim.txt",
+   "sha256": "0b244a5f809594e701ab18db300718c91a5768940df0e2ee2229a8c8c66f025f",
+   "bytes": 148,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/0b244a5f809594e7_OPERADOR_25out_inercia_e_o_proprio_zero_absoluto_verbatim.txt"
+  },
+  {
+   "dicionario": "_V401_VERBATINS2",
+   "chave": "v401_cun_344a8ae9a257d2b3",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v401\\insumos\\cunhagens\\344a8ae9a257d2b3_OPERADOR_25out_nada_e_materia_link_com_a_entropia_verbatim.txt",
+   "sha256": "344a8ae9a257d2b3f57cab78cf280c0dda636c1180cbc18872677a77a41d62ef",
+   "bytes": 79,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/344a8ae9a257d2b3_OPERADOR_25out_nada_e_materia_link_com_a_entropia_verbatim.txt"
+  },
+  {
+   "dicionario": "_V401_VERBATINS2",
+   "chave": "v401_cun_4cf668f8668f570b",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v401\\insumos\\cunhagens\\4cf668f8668f570b_OPERADOR_25out_ratifico_tudo_e_emc2_geometria_projetada_verbatim.txt",
+   "sha256": "4cf668f8668f570b28fc47006de6ba625aa9532c4558eb83ebb3f52aef684489",
+   "bytes": 98,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/4cf668f8668f570b_OPERADOR_25out_ratifico_tudo_e_emc2_geometria_projetada_verbatim.txt"
+  },
+  {
+   "dicionario": "_V401_VERBATINS2",
+   "chave": "v401_cun_901dd8fc1a3c0212",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v401\\insumos\\cunhagens\\901dd8fc1a3c0212_OPERADOR_25out_nome_da_pedra_falsidade_simulacro_da_inercia_verbatim.txt",
+   "sha256": "901dd8fc1a3c021294524e79fd295f0f6fe358ed9fc05a29831192c16f086c2d",
+   "bytes": 89,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/901dd8fc1a3c0212_OPERADOR_25out_nome_da_pedra_falsidade_simulacro_da_inercia_verbatim.txt"
+  },
+  {
+   "dicionario": "_V401_VERBATINS2",
+   "chave": "v401_cun_e26364c5c805734c",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v401\\insumos\\cunhagens\\e26364c5c805734c_OPERADOR_25out_derivacao_inercia_gravitacao_impressao_do_um_RECORTE_verbatim.txt",
+   "sha256": "e26364c5c805734c27897a89bb80f257859da10eaa7f848fe083d9304846b6c0",
+   "bytes": 991,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v401/insumos/cunhagens/e26364c5c805734c_OPERADOR_25out_derivacao_inercia_gravitacao_impressao_do_um_RECORTE_verbatim.txt"
   }
  ]
 }
