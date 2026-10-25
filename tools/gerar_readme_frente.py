@@ -177,6 +177,16 @@ if _tv:
 _TLDR = ('> **TL;DR · seal %s:** `um.py` sha256 `%s` · Lean kernel %s files / %s terms, ladder %d/%d, in the trio · '
          'PROVED = validity in the kernel; the accreditation word is refused — nature decides%s · reproduce: `echo 1 | python um.py`.\n\n'
          % (versao, pin, kf, kt, _p1['n_theorems_clean'], _p1['n_theorems_expected'], _tldr_ver))
+# 25/10/2026 (custódia v401; G1 E08B, L01): a VAGA FIXA «última custódia» — o TÍTULO do parágrafo pronto mais novo do handoff, lido do
+# ESTADO_ATUAL.md (onde a custódia o embute verbatim, com os estatutos e a linha de máquina); o parágrafo inteiro fica lá e no site.
+_est_txt = (RAIZ / 'ESTADO_ATUAL.md').read_text(encoding='utf-8')
+_pars = [(int(m.group(2)), m.group(1)) for m in re.finditer(r'<!-- INICIO_PARAGRAFO_([A-Z0-9_]+?)_v(\d+) -->', _est_txt)]
+assert _pars, 'o ESTADO_ATUAL.md não traz parágrafo pronto — PARAR'
+_nv, _nid = max(_pars)
+_blc = _est_txt[_est_txt.index('<!-- INICIO_PARAGRAFO_%s_v%d -->' % (_nid, _nv)):]
+_mt = re.search(r'^###\s*(.+?)\s*(?:\u2014|-)\s*par', _blc, re.M)
+assert _mt, 'o parágrafo pronto mais novo não tem o título no molde «### <título> — parágrafo pronto» — PARAR'
+_ULT = _mt.group(1).strip()
 F = []
 F.append(f"""# The Boundary — Theory of Luminodynamic Gravitation (TGL)
 
@@ -224,9 +234,9 @@ GitHub raw and Zenodo honour HTTP `Range` (206): read `um.py` in pieces (`curl -
 
 The lineage that led to them: [*Genesis da Unificação*]({portas['genesis']['porta_md_url']}). Every folder has a `PORTA.md` + `PORTA.json` (no door is a dead end); the flat index of every file (URL, size, hash) is [`TUNEL.json`]({raiz.get('TUNEL.json', raw_base + 'TUNEL.json')}).
 
-## Read in this order · leia nesta ordem
+## Latest custody · última custódia
 
-Smallest first; each file stands on its own. Real fetchers (measured 2026-09-19) cut documents near 100,000 characters, refuse files above 10 MB and do not read PDFs from GitHub raw — prefer the eight parts in [`secoes/`]({u_secoes}) and the TXT/TeX sources; the measured order is in [`ESTADO_ATUAL.md`]({u_estado}) and [`read-brief.md`]({site_brief}); the ledger is the **last** thing to read.
+**{_ULT}** — the ready paragraph, with its statutes, quotes and machine line, is in [`ESTADO_ATUAL.md`]({u_estado}) and on the site; the Unique Word Test panel stays at the top. Read smallest first: [`secoes/`]({u_secoes}), then `ESTADO_ATUAL.md` and [`read-brief.md`]({site_brief}); the ledger last.
 
 """)
 F.append('\n> **Read the Abstract below under the current ruler.** It is copied verbatim from the append-only ledger, so it keeps older sentences; the current status is the line at the top of this page.\n')
