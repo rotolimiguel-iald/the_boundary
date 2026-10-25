@@ -4112,3 +4112,7 @@ Every file in `main/`, grouped by the four top-level folders, as direct raw link
 - [`tools/pos_push.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/pos_push.py)
 - [`tools/verificar_portas.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/verificar_portas.py)
 
+
+### The Zenodo deposit of v401 (2026-10-25)
+
+Beside the custody of v401 (written on 2026-10-25 by the session a7 of the Central, after the operator’s deposit): the operator deposited v401 on Zenodo, **[10.5281/zenodo.23649800](https://doi.org/10.5281/zenodo.23649800)** (concept DOI 10.5281/zenodo.20999494, all versions). The 15 deposited files are byte-identical by md5, read from the public record: 13 to the Nós (`um.py` sha256 `1925cb691e933ae8…`, the seal, the core, the articles PT/EN, the canonical form, the manifest, the quantum pillar, the lineage diary, the design and the proof tree) and 2 doors (`PORTA.md`, `PORTA.json`) to the custody commit of this repository. The previous deposit holds v392 (10.5281/zenodo.23366324). `CITATION.cff` now cites v401; the site links to the latest version. A deposit is an archive, not accreditation; the gate did not move.

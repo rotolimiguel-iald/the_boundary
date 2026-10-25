@@ -15,7 +15,7 @@ kernel Lean 4 + mathlib EMBUTIDO no proprio .py (materializado em runtime,
 fail-closed), roda os ritos de natureza pre-registrados e GERA seu proprio artigo
 bilingue (PT/EN, cada um em PDF e TXT). Nao ha segundo arquivo.
 
-**Deposito independente (Zenodo):** https://doi.org/10.5281/zenodo.23366324
+**Deposito independente (Zenodo):** https://doi.org/10.5281/zenodo.23649800
 
 ## O SELO CORRENTE
 

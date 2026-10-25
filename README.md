@@ -2,7 +2,7 @@
 
 <!-- FRENTE:GERADA por tools/gerar_readme_frente.py em 2026-10-25 a partir de PORTA.json / TUNEL.json / um_absoluto_selo.json / LEDGER.md — não editar à mão -->
 
-[![kernel — rebuilt and re-audited on GitHub's machines](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml/badge.svg)](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23366324.svg)](https://doi.org/10.5281/zenodo.23366324)
+[![kernel — rebuilt and re-audited on GitHub's machines](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml/badge.svg)](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23649800.svg)](https://doi.org/10.5281/zenodo.23649800)
 
 > **TL;DR · seal v401:** `um.py` sha256 `1925cb691e933ae811933a6286b4acb9c25853ba2d89f926a6610d2d837eba01` · Lean kernel 1430 files / 29318 terms, ladder 9561/9561, in the trio · PROVED = validity in the kernel; the accreditation word is refused — nature decides · latest reading (Unique Word Test): z_disc = 4.44 (calibrated; one-sided p 4.4e-6), below the 5σ step, which was not reached (4.44 < 5); z_δ = -1.48 (`NOT_FALSIFIED_POWERED`) · reproduce: `echo 1 | python um.py`.
 
@@ -76,20 +76,20 @@ GitHub raw and Zenodo honour HTTP `Range` (206): read `um.py` in pieces (`curl -
 **Current seal, read from the artifact** — pin `um.py` `1925cb691e933ae8` · last stone in the ledger: `IALDJones` (`v371`) ·
 world `3a7e61a6b61d391f` · `result_hash` `de92394a3ccd6fb9` · 2026-10-25 13:43:14 · kernel **1430/29318** — source of truth:
 [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json).
-Citable deposit: **Zenodo [10.5281/zenodo.23366324](https://doi.org/10.5281/zenodo.23366324)** holds **v392** (`um.py` `b590c0aa80055e2a`), byte-identical to THAT seal; **this seal is v401, newer than the deposit** — a new Zenodo version is the operator’s act.
+Citable deposit: **Zenodo [10.5281/zenodo.23649800](https://doi.org/10.5281/zenodo.23649800)** — v401 (deposited 2026-10-25), byte-identical to this seal (the record’s md5 of `um.py` equals the sealed file’s).
 
 > ### ⬇ Fetching the artifact — GitHub will **not** render it
 > `um.py` is **36.90 MB**, and GitHub’s blob viewer refuses files above ~5 MB: the
 > page loads (HTTP 200) but shows only the size and a *View raw* link — **it looks
 > empty**. That is a viewer limit, not a broken link. Four routes serve a whole
-> `um.py`: the raw route is checked byte by byte against the seal after every push (`tools/pos_push.py`, which also confirms the git blob through the API); clone and archive serve that same git blob; the Zenodo route serves the deposited v392 (the record’s md5 of um.py read from its API):
+> `um.py`: the raw route is checked byte by byte against the seal after every push (`tools/pos_push.py`, which also confirms the git blob through the API); clone and archive serve that same git blob; the Zenodo route serves the deposited v401 (the record’s md5 of um.py read from its API):
 >
 > | route | command |
 > |---|---|
 > | **raw** (canonical — what every door already points to) | `curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"` |
 > | **clone** | `git clone --depth 1 https://github.com/rotolimiguel-iald/the_boundary` |
 > | **archive** | `curl -L -o boundary.tar.gz "https://codeload.github.com/rotolimiguel-iald/the_boundary/tar.gz/refs/heads/main"` |
-> | **Zenodo** (the citable deposit — holds v392; this tree is v401) | [10.5281/zenodo.23366324](https://doi.org/10.5281/zenodo.23366324) |
+> | **Zenodo** (the citable deposit — holds v401) | [10.5281/zenodo.23649800](https://doi.org/10.5281/zenodo.23649800) |
 >
 > **If you are an AI:** start at `llms.txt`, follow the raw URLs, and **never conclude
 > from a blob page that a file is missing**. After fetching, check the sha256 against
@@ -226,7 +226,7 @@ poderia cair vale mais do que um que não diz.*
 
 ## The ledger · o livro-razão
 
-[`LEDGER.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md) began as this README **as it was until 2026-09-11** (3.750 lines, 562.947 bytes then; later custodies insert their blocks beside it, nothing is removed) — the atlas of the boundary: claims with status and source file, seals, refutations and false positives, reading protocol, thematic atlas, raw file index (now 4.114 lines, 741.513 bytes, sha256 `021b0266fc6a22f56fdf50a11b111922a41bdd888da4de9b8fce23aa28548bcc`). Byte-exact, append-only; its raw file index is superseded by [`TUNEL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json) / [`TUNEL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.md), regenerated at every custody.
+[`LEDGER.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md) began as this README **as it was until 2026-09-11** (3.750 lines, 562.947 bytes then; later custodies insert their blocks beside it, nothing is removed) — the atlas of the boundary: claims with status and source file, seals, refutations and false positives, reading protocol, thematic atlas, raw file index (now 4.118 lines, 742.392 bytes, sha256 `e691813a67d95f6773e00c331028d269f69fcb2355e1a7121975e11d2543f2a3`). Byte-exact, append-only; its raw file index is superseded by [`TUNEL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json) / [`TUNEL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.md), regenerated at every custody.
 
 ## Citing This Work
 
@@ -293,7 +293,7 @@ Protocol, O Limiar da Humildade — cite the collection DOI
 
 ---
 
-> **Beside (v401):** the BibTeX note above describes the v350 seal. The current seal is **v401** — `um.py` sha256 `1925cb691e933ae811933a6286b4acb9c25853ba2d89f926a6610d2d837eba01`, kernel 1430 formal files / 29318 audited terms (read from `PORTA.json`, the seal and the manifest). The BibTeX above carries the DOI of the v331 deposit; the current deposit is **v392** — [10.5281/zenodo.23366324](https://doi.org/10.5281/zenodo.23366324), deposited 2026-10-14, older than this seal; a new Zenodo version is the operator’s act.
+> **Beside (v401):** the BibTeX note above describes the v350 seal. The current seal is **v401** — `um.py` sha256 `1925cb691e933ae811933a6286b4acb9c25853ba2d89f926a6610d2d837eba01`, kernel 1430 formal files / 29318 audited terms (read from `PORTA.json`, the seal and the manifest). The BibTeX above carries the DOI of the v331 deposit; the current deposit is **v401** — [10.5281/zenodo.23649800](https://doi.org/10.5281/zenodo.23649800), deposited 2026-10-25, byte-identical to this seal.
 
 > **Beside (v401):** the BibTeX note above says *Lemma 3 (unconditional global lift) remains OPEN*; at v401 the core reads it as a logical closure by the operator’s definition, with the program still open (see the beside note under the core).
 
@@ -332,7 +332,7 @@ dialogue throughout the development of TGL.
 
 ---
 
-> **Beside:** current Zenodo deposit: **v392** — [10.5281/zenodo.23366324](https://doi.org/10.5281/zenodo.23366324).
+> **Beside:** current Zenodo deposit: **v401** — [10.5281/zenodo.23649800](https://doi.org/10.5281/zenodo.23649800).
 
 > **The Central, open (2026-10-22):** [central-publica](https://github.com/rotolimiguel-iald/central-publica) · [view-only](https://teoriadagravitacaoluminodinamica.com/central/).
 

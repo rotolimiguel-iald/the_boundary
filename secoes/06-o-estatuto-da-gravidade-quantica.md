@@ -77,10 +77,10 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 | termos com axioma FORA do trio | 0  |
 ````
 
-### 3. `ESTADO_ATUAL.md` — bytes 117.475–120.358
+### 3. `ESTADO_ATUAL.md` — bytes 117.617–120.500
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md
-- sha256 of the file: `2b644ddc31da4f13e2dfc2f982629f46e75eeabb9ae9fc5bf12744beac559f20` (computed now; this file is not in the seal map) · of this excerpt: `288102a6dc0807005229745bdfb9b007e1e71fdaad712747728014437c8c36e8` · line endings shown as LF
+- sha256 of the file: `37c3eb2ed57b789e41534105144178c5e4018ae9b5ada3cf11469c036032b044` (computed now; this file is not in the seal map) · of this excerpt: `288102a6dc0807005229745bdfb9b007e1e71fdaad712747728014437c8c36e8` · line endings shown as LF
 - status · estatuto: [OPEN / KNOWN / nature]
 - why · por quê: A lista canônica do que NÃO está provado: H1/H2 na natureza, a identificação física da tela, α, a matemática fora da mathlib, os negativos honestos e as seis folhas. Traz também a nota de linhagem H1–H3 → H1/H2.
 
@@ -97,10 +97,10 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 - **The six leaves of nature (v339, the close):** that the selection occurs; the physical identification of the founded screen; the signature; the 3+1 geometry and the scale of the area; the payment of the cost; α-free. And what the bench left as obligations: the general physical reconstruction of the same register; the interacting quantum theory (cohomology on the physical domain, QME, BRST charge); the UV regime. **The map is closed; the territory is nature’s** — the declaration of closure is the operator’s act, never CONFIRMED.
 ````
 
-### 4. `README.md` — bytes 24.368–24.968
+### 4. `README.md` — bytes 24.300–24.900
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `ee8fc7db1d3139c3587fe477faf8dfd515890547cd7c9480665f75e50f3412f5` (computed now; this file is not in the seal map) · of this excerpt: `41922580fe72207593dede413e3f1dc4647c4eeab3bf70118f5d9da55de54001`
+- sha256 of the file: `ecc5793ee69a30bc913eed4b9a3cfd2b8b9cd4c1f3dabc29c4ea7b30036f479e` (computed now; this file is not in the seal map) · of this excerpt: `41922580fe72207593dede413e3f1dc4647c4eeab3bf70118f5d9da55de54001`
 - status · estatuto: [REAL — errata ao lado, append-only]
 - why · por quê: A errata ao lado que lê, sob a régua vigente, a frase de linhagem «Never quantum gravity proved»: PROVADA ≠ CONFIRMADA.
 

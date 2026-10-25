@@ -6,7 +6,7 @@ porque as pastas canonicas tem acento, travessao e parenteses. O tunel entrega t
 uma vez: **[`TUNEL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json)** traz cada arquivo com a URL raw direta, o tamanho, o
 hash e o papel. **Uma requisicao, zero navegacao, zero adivinhacao.**
 
-**Deposito citavel do Um: Absoluto:** Zenodo [10.5281/zenodo.23366324](https://doi.org/10.5281/zenodo.23366324) guarda a **v392** (um.py b590c0aa80055e2a, depositada em 2026-10-14), byte-identica AQUELE selo. O selo corrente desta arvore e' **v401**, mais novo que o deposito (versao nova no Zenodo e' ato do operador).
+**Deposito citavel do Um: Absoluto:** Zenodo [10.5281/zenodo.23649800](https://doi.org/10.5281/zenodo.23649800) guarda a **v401** (um.py 1925cb691e933ae8, depositada em 2026-10-25), byte-identica AQUELE selo.
 
 ## Os atalhos (ASCII, sem acento)
 
