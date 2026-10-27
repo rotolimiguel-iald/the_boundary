@@ -236,7 +236,7 @@ The lineage that led to them: [*Genesis da Unificação*]({portas['genesis']['po
 
 ## Latest custody · última custódia
 
-**{_ULT}** — the ready paragraph, with its statutes, quotes and machine line, is in [`ESTADO_ATUAL.md`]({u_estado}) and, byte for byte, in the ledger; the Unique Word Test panel stays at the top. Read smallest first: [`secoes/`]({u_secoes}), then `ESTADO_ATUAL.md` and [`read-brief.md`]({site_brief}); the ledger last.
+**{_ULT}** — the ready paragraph (statutes, quotes, machine line) is in [`ESTADO_ATUAL.md`]({u_estado}) and, byte for byte, in the ledger; the Unique Word Test panel stays at the top.
 
 """)
 F.append('\n> **Read the Abstract below under the current ruler.** It is copied verbatim from the append-only ledger, so it keeps older sentences; the current status is the line at the top of this page.\n')

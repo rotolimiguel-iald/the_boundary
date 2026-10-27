@@ -1,3 +1,7 @@
+import TGLExt.PonteDaEscalaDual
+import TGLExt.QuedaSemGeometria
+import TGLExt.EsperancaCondicional
+
 import TGLExt.FalsidadeDaInercia
 
 import TGLExt.Testemunho

@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-25T20:50:32Z",
+  "gerado_utc": "2026-10-27T06:32:45Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -1354,6 +1354,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Ergodicity.lean",
       "sha256_16": "79bc3b939b6e4e59",
       "bytes": 13583
+    },
+    {
+      "nome": "EsperancaCondicional.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/EsperancaCondicional.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): EsperancaCondicional",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/EsperancaCondicional.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/EsperancaCondicional.lean",
+      "sha256_16": "8579115333f84428",
+      "bytes": 20666
     },
     {
       "nome": "EulerMetricPullback.lean",
@@ -4016,6 +4026,16 @@
       "bytes": 12356
     },
     {
+      "nome": "PonteDaEscalaDual.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/PonteDaEscalaDual.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): PonteDaEscalaDual",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PonteDaEscalaDual.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PonteDaEscalaDual.lean",
+      "sha256_16": "0e55b6e448adbd91",
+      "bytes": 13011
+    },
+    {
       "nome": "Posto.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/Posto.lean",
       "papel": "prova formal",
@@ -4304,6 +4324,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/QuarticMatchingClockControls.lean",
       "sha256_16": "f8780be9d3259997",
       "bytes": 11592
+    },
+    {
+      "nome": "QuedaSemGeometria.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/QuedaSemGeometria.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): QuedaSemGeometria",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/QuedaSemGeometria.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/QuedaSemGeometria.lean",
+      "sha256_16": "0ffce7f1d564d271",
+      "bytes": 38579
     },
     {
       "nome": "RGStability.lean",
@@ -10596,8 +10626,8 @@
       "bytes": 10880
     }
   ],
-  "total_arquivos_nesta_pasta": 1056,
-  "total_arquivos_com_subpastas": 1396,
+  "total_arquivos_nesta_pasta": 1059,
+  "total_arquivos_com_subpastas": 1399,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt",
-  "rodape": "gerado por script de git ls-files em 2026-10-25 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-10-27 -- nao editar a mao"
 }

@@ -1108,3 +1108,7 @@ import TGLExt.AfinacaoDasCordas
 import TGLExt.Testemunho
 
 import TGLExt.FalsidadeDaInercia
+
+import TGLExt.PonteDaEscalaDual
+import TGLExt.QuedaSemGeometria
+import TGLExt.EsperancaCondicional

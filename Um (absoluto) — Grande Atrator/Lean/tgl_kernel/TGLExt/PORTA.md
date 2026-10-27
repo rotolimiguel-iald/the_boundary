@@ -23,7 +23,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ## OS ARQUIVOS DESTA PASTA
 
-1056 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
+1059 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
 
 **PROVA FORMAL**
 
@@ -161,6 +161,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `EquivariantSection.lean` | Prova formal (Lean 4): EquivariantSection | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/EquivariantSection.lean) |
 | `ErgodicMeanSection.lean` | Prova formal (Lean 4): ErgodicMeanSection | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ErgodicMeanSection.lean) |
 | `Ergodicity.lean` | Prova formal (Lean 4): Ergodicity | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Ergodicity.lean) |
+| `EsperancaCondicional.lean` | Prova formal (Lean 4): EsperancaCondicional | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/EsperancaCondicional.lean) |
 | `EulerMetricPullback.lean` | Prova formal (Lean 4): EulerMetricPullback | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/EulerMetricPullback.lean) |
 | `ExactWitness.lean` | Prova formal (Lean 4): ExactWitness | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ExactWitness.lean) |
 | `ExistingTowerRealization.lean` | Prova formal (Lean 4): ExistingTowerRealization | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ExistingTowerRealization.lean) |
@@ -427,6 +428,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `PoincareWitness.lean` | Prova formal (Lean 4): PoincareWitness | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PoincareWitness.lean) |
 | `PolarizerCostSeries.lean` | Prova formal (Lean 4): PolarizerCostSeries | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PolarizerCostSeries.lean) |
 | `PolarizerModularCost.lean` | Prova formal (Lean 4): PolarizerModularCost | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PolarizerModularCost.lean) |
+| `PonteDaEscalaDual.lean` | Prova formal (Lean 4): PonteDaEscalaDual | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PonteDaEscalaDual.lean) |
 | `Posto.lean` | Prova formal (Lean 4): Posto | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Posto.lean) |
 | `PostoAdendo.lean` | Prova formal (Lean 4): PostoAdendo | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PostoAdendo.lean) |
 | `PowersLadder.lean` | Prova formal (Lean 4): PowersLadder | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PowersLadder.lean) |
@@ -456,6 +458,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `QuantumOrbitArea.lean` | Prova formal (Lean 4): QuantumOrbitArea | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/QuantumOrbitArea.lean) |
 | `QuarticClockTransport.lean` | Prova formal (Lean 4): QuarticClockTransport | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/QuarticClockTransport.lean) |
 | `QuarticMatchingClockControls.lean` | Prova formal (Lean 4): QuarticMatchingClockControls | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/QuarticMatchingClockControls.lean) |
+| `QuedaSemGeometria.lean` | Prova formal (Lean 4): QuedaSemGeometria | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/QuedaSemGeometria.lean) |
 | `RGStability.lean` | Prova formal (Lean 4): RGStability | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/RGStability.lean) |
 | `RecordCharacterMeshControl.lean` | Prova formal (Lean 4): RecordCharacterMeshControl | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/RecordCharacterMeshControl.lean) |
 | `ReducedEmergence.lean` | Prova formal (Lean 4): ReducedEmergence | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ReducedEmergence.lean) |
@@ -1095,4 +1098,4 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ---
 
-gerado por script de git ls-files em 2026-10-25 -- nao editar a mao
+gerado por script de git ls-files em 2026-10-27 -- nao editar a mao
