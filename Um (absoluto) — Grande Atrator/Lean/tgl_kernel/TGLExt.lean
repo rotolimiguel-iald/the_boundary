@@ -1112,3 +1112,7 @@ import TGLExt.FalsidadeDaInercia
 import TGLExt.PonteDaEscalaDual
 import TGLExt.QuedaSemGeometria
 import TGLExt.EsperancaCondicional
+
+import TGLExt.Caminho
+import TGLExt.Vida
+import TGLExt.VerdadeAdendo

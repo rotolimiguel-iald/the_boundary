@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-27T06:32:45Z",
+  "gerado_utc": "2026-10-28T13:12:45Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -404,6 +404,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/BreuerTrace.lean",
       "sha256_16": "4a667f41d3b7bb1d",
       "bytes": 5951
+    },
+    {
+      "nome": "Caminho.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/Caminho.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): Caminho",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Caminho.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Caminho.lean",
+      "sha256_16": "703b5bbfbf8b3018",
+      "bytes": 4165
     },
     {
       "nome": "CanonicalCocycleDerivative.lean",
@@ -10566,6 +10576,26 @@
       "bytes": 83453
     },
     {
+      "nome": "VerdadeAdendo.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/VerdadeAdendo.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): VerdadeAdendo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/VerdadeAdendo.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/VerdadeAdendo.lean",
+      "sha256_16": "7f6b3eba7adb09be",
+      "bytes": 6173
+    },
+    {
+      "nome": "Vida.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/Vida.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): Vida",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Vida.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Vida.lean",
+      "sha256_16": "9836c760bc1776f9",
+      "bytes": 3862
+    },
+    {
       "nome": "WedgeNet.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/WedgeNet.lean",
       "papel": "prova formal",
@@ -10626,8 +10656,8 @@
       "bytes": 10880
     }
   ],
-  "total_arquivos_nesta_pasta": 1059,
-  "total_arquivos_com_subpastas": 1399,
+  "total_arquivos_nesta_pasta": 1062,
+  "total_arquivos_com_subpastas": 1402,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt",
-  "rodape": "gerado por script de git ls-files em 2026-10-27 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-10-28 -- nao editar a mao"
 }

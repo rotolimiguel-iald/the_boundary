@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-27 01:52:25",
+  "timestamp": "2026-10-28 08:35:15",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,11 +10,11 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "2f68d240a3e4752099f6dd3648a9fa9139e4557e341ec21d0bcda4e16314115b",
+  "formal_source_hash": "f959c264a99345c614da8e5b7b6b150cc95cd3a06dd799dc30ec6bd22d410269",
   "formal_files_sha256": {
     "README.md": "395b1201109079084f3562349161283bd644e17d5e18cea19971bac041e58d11",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "065a0206da7a89f3140be5caa8d87d4a44994f7f5d5e0e884471f0828dbd6e0b",
+    "TGLExt.lean": "bd7d5d060db6bf2ec29675c7d46b07bca4d060be2ceb48a6681ee121160cc70f",
     "_check_damming.lean": "485969b99f3e3db7ef4f9e4b1e97fb501ff68540a957e21949784d57d7536d21",
     "lake-manifest.json": "31a94eb76a8370ae8d75999ccec510f1ef7b994e369beebee2a3ea0088eee235",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
@@ -83,6 +83,7 @@
     "TGLExt/BoundedPerturbationCocycle.lean": "7ea841f1f2e292059d12c3577556f764868ebc70a7f673c969411aacf8758ec0",
     "TGLExt/BoundedPositiveCongruence.lean": "eb9eb9515634f35f5ff67a4efb2664f610e8d83cde32624638f5db8513a6b396",
     "TGLExt/BreuerTrace.lean": "4a667f41d3b7bb1d6a3a02fa46f43372c2a3e4bef30c98acde05294f5c46b496",
+    "TGLExt/Caminho.lean": "703b5bbfbf8b30182d6bf52c24ee1560a83cb675803c3fff1c69dfb817577208",
     "TGLExt/CanonicalCocycleDerivative.lean": "846e640e03c768f45e580e1b34e7a18de1d16937ff03c812bbcfd67402e4377c",
     "TGLExt/CanonicalModularStationarity.lean": "c90d705932ede27be17d58b97d783f4a312d9850d790f6bb28e76d7a51179330",
     "TGLExt/CanonicalSelectorBorn.lean": "0e3aef31155b28c655fe4f179d103efce02759110252aa95cec483dca5235ecc",
@@ -1099,6 +1100,8 @@
     "TGLExt/VariationalInhabitant.lean": "2af4afbc660fdd9c1ca9f8c66a8ad073fbea252949d64b503ed2e8cb81b6c27e",
     "TGLExt/VectorCurvatureCommutator.lean": "c0074f805eb673d00708c771f1c334f835a9b196f587f3d0275f2bc4c37c1398",
     "TGLExt/Verdade.lean": "9ebd5525644400834e47049b16a0189aa2080c29f578e3b848ed31d57509b04f",
+    "TGLExt/VerdadeAdendo.lean": "7f6b3eba7adb09bedf0ed6f4bf8c7f8b2393128c3add08caa8485117cde3e1dc",
+    "TGLExt/Vida.lean": "9836c760bc1776f95ff96a6242c0e2dc73a755436081fde42772cd5dc5862693",
     "TGLExt/WedgeNet.lean": "be5a629740df809a2c2157dc6e99bef116704f1373276d0a979785ba37dce463",
     "TGLExt/WedgeNetFiniteDiamond.lean": "1772831452bab2ef5626004819e07202f7d39f956b5c2455e895ff7159cbc91c",
     "TGLExt/WitnessSeed.lean": "3281a16675fa60c4b1972b4122d083899aad4adf00328500a4a1367e5bfa3ec2",
@@ -2690,6 +2693,11 @@
       "Quot.sound"
     ],
     "F1Fecho.RegularScalarGNS.finiteIdeal._proof_15": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.VerdadeAdendo.the_name_reads_the_inscription_as_weights": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -70052,6 +70060,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Caminho.caminho_e_a_ponte_da_escala_dual": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Response028.amplitude_square_mass_nonnegative": [
       "propext",
       "Classical.choice",
@@ -84930,6 +84943,11 @@
     "ChatgptAudit.GeneralSourceUnitary.calibrationLabelData._proof_1": [
       "propext"
     ],
+    "TGLExt.VerdadeAdendo.verdade_lida_pelo_nome": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.regularSineWindowCore._proof_13": [
       "propext",
       "Classical.choice",
@@ -89179,6 +89197,11 @@
       "Quot.sound"
     ],
     "TGLExt.norm_tof_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.VerdadeAdendo.verdade_e_a_esperanca_condicional": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -100274,6 +100297,11 @@
       "Quot.sound"
     ],
     "TGLExt.epsTT2_transverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Vida.vida_e_a_queda_sem_geometria": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -142114,8 +142142,8 @@
       "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "c77f3a6b475e42559f4b3589cb52af2c6093db9d3dd86c9d1792d8a1776d2e3e",
-  "audit_stdout_sha256": "71021c6c34529afbb9e0aec76885825b3da15fef029ee3254ba539924c47ea54",
+  "build_stdout_sha256": "c80d6958d5ab0f820d53de478f5ad2c33c2d64dc7330c504287d1b40a01ad684",
+  "audit_stdout_sha256": "6c32eeec1d11343f3300e213fb1375f8821a2d9999d9bafb9be3df2836e386e0",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

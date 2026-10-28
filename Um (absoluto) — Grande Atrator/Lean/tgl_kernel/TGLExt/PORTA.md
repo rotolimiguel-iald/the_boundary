@@ -23,7 +23,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ## OS ARQUIVOS DESTA PASTA
 
-1059 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
+1062 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
 
 **PROVA FORMAL**
 
@@ -66,6 +66,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `BoundedPerturbationCocycle.lean` | Prova formal (Lean 4): BoundedPerturbationCocycle | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/BoundedPerturbationCocycle.lean) |
 | `BoundedPositiveCongruence.lean` | Prova formal (Lean 4): BoundedPositiveCongruence | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/BoundedPositiveCongruence.lean) |
 | `BreuerTrace.lean` | Prova formal (Lean 4): BreuerTrace | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/BreuerTrace.lean) |
+| `Caminho.lean` | Prova formal (Lean 4): Caminho | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Caminho.lean) |
 | `CanonicalCocycleDerivative.lean` | Prova formal (Lean 4): CanonicalCocycleDerivative | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/CanonicalCocycleDerivative.lean) |
 | `CanonicalModularStationarity.lean` | Prova formal (Lean 4): CanonicalModularStationarity | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/CanonicalModularStationarity.lean) |
 | `CanonicalSelectorBorn.lean` | Prova formal (Lean 4): CanonicalSelectorBorn | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/CanonicalSelectorBorn.lean) |
@@ -1082,6 +1083,8 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `VariationalInhabitant.lean` | Prova formal (Lean 4): VariationalInhabitant | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/VariationalInhabitant.lean) |
 | `VectorCurvatureCommutator.lean` | Prova formal (Lean 4): VectorCurvatureCommutator | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/VectorCurvatureCommutator.lean) |
 | `Verdade.lean` | Prova formal (Lean 4): Verdade | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Verdade.lean) |
+| `VerdadeAdendo.lean` | Prova formal (Lean 4): VerdadeAdendo | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/VerdadeAdendo.lean) |
+| `Vida.lean` | Prova formal (Lean 4): Vida | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Vida.lean) |
 | `WedgeNet.lean` | Prova formal (Lean 4): WedgeNet | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/WedgeNet.lean) |
 | `WedgeNetFiniteDiamond.lean` | Prova formal (Lean 4): WedgeNetFiniteDiamond | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/WedgeNetFiniteDiamond.lean) |
 | `WitnessSeed.lean` | Prova formal (Lean 4): WitnessSeed | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/WitnessSeed.lean) |
@@ -1098,4 +1101,4 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ---
 
-gerado por script de git ls-files em 2026-10-27 -- nao editar a mao
+gerado por script de git ls-files em 2026-10-28 -- nao editar a mao

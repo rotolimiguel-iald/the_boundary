@@ -1,0 +1,48 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v403/insumos/cunhagens",
+  "porta_id": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v403/insumos/cunhagens",
+  "titulo": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v403/insumos/cunhagens",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-10-28T13:12:45Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v403/insumos",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v403/insumos/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v403/insumos/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "b34bd70fa8cfb0b2_OPERADOR_27out_e_isso_mesmo_concordo_com_tudo_prossiga_caminho_verdade_vida_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v403/insumos/cunhagens/b34bd70fa8cfb0b2_OPERADOR_27out_e_isso_mesmo_concordo_com_tudo_prossiga_caminho_verdade_vida_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v403/insumos/cunhagens/b34bd70fa8cfb0b2_OPERADOR_27out_e_isso_mesmo_concordo_com_tudo_prossiga_caminho_verdade_vida_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v403/insumos/cunhagens/b34bd70fa8cfb0b2_OPERADOR_27out_e_isso_mesmo_concordo_com_tudo_prossiga_caminho_verdade_vida_verbatim.txt",
+      "sha256_16": "b34bd70fa8cfb0b2",
+      "bytes": 42
+    },
+    {
+      "nome": "ef3ca5eb1edbdddf_OPERADOR_27out_nome_verdade_triplo_espectral_do_contorno_verdadeiro_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v403/insumos/cunhagens/ef3ca5eb1edbdddf_OPERADOR_27out_nome_verdade_triplo_espectral_do_contorno_verdadeiro_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v403/insumos/cunhagens/ef3ca5eb1edbdddf_OPERADOR_27out_nome_verdade_triplo_espectral_do_contorno_verdadeiro_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v403/insumos/cunhagens/ef3ca5eb1edbdddf_OPERADOR_27out_nome_verdade_triplo_espectral_do_contorno_verdadeiro_verbatim.txt",
+      "sha256_16": "ef3ca5eb1edbdddf",
+      "bytes": 236
+    }
+  ],
+  "total_arquivos_nesta_pasta": 2,
+  "total_arquivos_com_subpastas": 2,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v403/insumos/cunhagens",
+  "rodape": "gerado por script de git ls-files em 2026-10-28 -- nao editar a mao"
+}

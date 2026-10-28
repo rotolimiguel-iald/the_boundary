@@ -5,31 +5,31 @@
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
   "doi_um_absoluto": "https://doi.org/10.5281/zenodo.23649800",
-  "gerado_utc": "2026-10-27T06:32:45Z",
+  "gerado_utc": "2026-10-28T13:12:45Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
     "versao": "v371",
     "versao_fonte": "um.py::_ESQUELETO_STONES[0]",
-    "versao_confirmada_por_transcricao": "v402",
-    "versao_do_selo": "v402",
+    "versao_confirmada_por_transcricao": "v403",
+    "versao_do_selo": "v403",
     "pedra_mais_recente": "IALDJones",
-    "pedras_no_esqueleto": 1233,
-    "pin_um_py": "6a5033dc3f29324ce1df7cb82538a28386cae2fd2dce81cd370e442fa29a95c5",
-    "pin_um_py_16": "6a5033dc3f29324c",
+    "pedras_no_esqueleto": 1236,
+    "pin_um_py": "2ffe9edc7d7545bd0cfa0572dae97d371acea37991172b884a5b461a233cdcb7",
+    "pin_um_py_16": "2ffe9edc7d7545bd",
     "pin_confere_com_disco": true,
-    "mundo": "7c51d46fc8ba783e640a6af97994b25090e985f98a838e99dd66888047c9f42e",
-    "mundo_16": "7c51d46fc8ba783e",
-    "result_hash": "d744e8e6a058c7804c25edb72d2ed292ad03b63f89120a7d1823be6678b8fb6c",
-    "result_hash_16": "d744e8e6a058c780",
-    "formal_source_hash": "2f68d240a3e4752099f6dd3648a9fa9139e4557e341ec21d0bcda4e16314115b",
-    "data": "2026-10-27 01:52:25",
+    "mundo": "fcc398db874236ee24483d92b7e5ddfa88fbe46081d2f81d0c5050e2765ece6e",
+    "mundo_16": "fcc398db874236ee",
+    "result_hash": "797ffd6abe83880541599eb104d45d82acd930bc67a4e7aae38b08e467b9361f",
+    "result_hash_16": "797ffd6abe838805",
+    "formal_source_hash": "f959c264a99345c614da8e5b7b6b150cc95cd3a06dd799dc30ec6bd22d410269",
+    "data": "2026-10-28 08:35:15",
     "identity": "1=1=VERDADEIRO=HAJA_LUZ",
     "qg_closure_verdict": "TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE",
     "void_floor_v11_verdict": "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED",
     "fail_closed_selftest": "FAIL_CLOSED_SELFTEST_PASSED",
-    "kernel_arquivos_formais": 1433,
-    "kernel_arquivos_lean": 1429,
-    "kernel_teoremas_auditados": 29464,
+    "kernel_arquivos_formais": 1436,
+    "kernel_arquivos_lean": 1432,
+    "kernel_teoremas_auditados": 29469,
     "kernel_axiomas_permitidos": [
       "propext",
       "Classical.choice",
@@ -84,7 +84,7 @@
         "echo 1 | python -u um.py       # sem buffer: o rito ao vivo",
         "TGL_COMA_REVEAL=1 echo 1 | python um.py   # com a abertura de Coma (Windows: set TGL_COMA_REVEAL=1)"
       ],
-      "total_arquivos": 2930
+      "total_arquivos": 2947
     },
     {
       "nome": "Genesis da Unificação",
@@ -181,7 +181,7 @@
       "papel": "outros",
       "descricao": "Como citar: DOI 10.5281/zenodo.23649800 (v401), autor, versao, e as URLs diretas do um.py e do selo",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff",
-      "sha256_16": "1364d253ebe57732",
+      "sha256_16": "be6669c3e941a5ca",
       "bytes": 3919
     },
     {
@@ -189,32 +189,32 @@
       "papel": "documento",
       "descricao": "UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- a segunda leitura, depois do read-brief",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md",
-      "sha256_16": "98ea1d1d6af68fd7",
-      "bytes": 143444
+      "sha256_16": "270b2587b9267a7d",
+      "bytes": 155392
     },
     {
       "nome": "LEDGER.md",
       "papel": "documento",
-      "descricao": "O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove) -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (744 KB; leia por ultimo)",
+      "descricao": "O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove) -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (760 KB; leia por ultimo)",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md",
-      "sha256_16": "381d5b174f1fcd12",
-      "bytes": 761487
+      "sha256_16": "631381fbba6a9080",
+      "bytes": 777912
     },
     {
       "nome": "README.md",
       "papel": "documento",
       "descricao": "A PAGINA DE FRENTE, gerada por script (tools/gerar_readme_frente.py, 11/09/2026): o selo, reproduzir em tres comandos, as portas, os tres artigos, a ordem de leitura, abstract, citar, licenca, autor -- <= 40 KB; o atlas completo esta em LEDGER.md",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-      "sha256_16": "d3e09db1c6e40fa6",
-      "bytes": 40709
+      "sha256_16": "3f64186eb106c07c",
+      "bytes": 40660
     },
     {
       "nome": "read-brief.md",
       "papel": "documento",
       "descricao": "O READ BRIEF (gerado por script pela sessao do site): a ENTRADA UNICA -- a teoria em oito partes curtas (secoes/), cada uma com a resposta nos primeiros 2 KB e as fontes citadas verbatim; a ordem de leitura por tamanho; o que ainda nao esta provado, ou ainda nao creditado",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md",
-      "sha256_16": "1b7fc3b662fe2255",
-      "bytes": 23092
+      "sha256_16": "ba7f755131f633fa",
+      "bytes": 23094
     }
   ],
   "portas_todas": [
@@ -360,13 +360,13 @@
       "pasta": "Um (absoluto) — Grande Atrator",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json",
-      "total_arquivos": 2930
+      "total_arquivos": 2947
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/Lean",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/PORTA.json",
-      "total_arquivos": 1498
+      "total_arquivos": 1501
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/Lean/kernel_bancada",
@@ -378,7 +378,7 @@
       "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.json",
-      "total_arquivos": 1433
+      "total_arquivos": 1436
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGL",
@@ -390,7 +390,7 @@
       "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.json",
-      "total_arquivos": 1399
+      "total_arquivos": 1402
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/F1Fecho394",
@@ -408,13 +408,13 @@
       "pasta": "Um (absoluto) — Grande Atrator/bancada",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.json",
-      "total_arquivos": 795
+      "total_arquivos": 797
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PORTA.json",
-      "total_arquivos": 745
+      "total_arquivos": 747
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT",
@@ -426,7 +426,7 @@
       "pasta": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/PORTA.json",
-      "total_arquivos": 79
+      "total_arquivos": 81
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_012_INSUMOS",
@@ -537,6 +537,12 @@
       "total_arquivos": 2
     },
     {
+      "pasta": "Um (absoluto) — Grande Atrator/diferencas_v403",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/diferencas_v403/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/diferencas_v403/PORTA.json",
+      "total_arquivos": 2
+    },
+    {
       "pasta": "Um (absoluto) — Grande Atrator/estatuto_da_prova_v391",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/estatuto_da_prova_v391/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/estatuto_da_prova_v391/PORTA.json",
@@ -558,7 +564,7 @@
       "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PORTA.json",
-      "total_arquivos": 256
+      "total_arquivos": 262
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Bancada_Um",
@@ -576,7 +582,7 @@
       "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/PORTA.json",
-      "total_arquivos": 228
+      "total_arquivos": 234
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/Chatgpt",
@@ -714,13 +720,13 @@
       "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/PORTA.json",
-      "total_arquivos": 209
+      "total_arquivos": 215
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/PORTA.json",
-      "total_arquivos": 185
+      "total_arquivos": 191
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v392",
@@ -997,6 +1003,24 @@
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v402/insumos/cunhagens/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v402/insumos/cunhagens/PORTA.json",
       "total_arquivos": 3
+    },
+    {
+      "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v403",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v403/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v403/PORTA.json",
+      "total_arquivos": 6
+    },
+    {
+      "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v403/insumos",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v403/insumos/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v403/insumos/PORTA.json",
+      "total_arquivos": 6
+    },
+    {
+      "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v403/insumos/cunhagens",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v403/insumos/cunhagens/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v403/insumos/cunhagens/PORTA.json",
+      "total_arquivos": 2
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cunhagens_10out",
@@ -1341,10 +1365,16 @@
       "total_arquivos": 4
     },
     {
+      "pasta": "Um (absoluto) — Grande Atrator/recibos_bancada_v403",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/recibos_bancada_v403/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/recibos_bancada_v403/PORTA.json",
+      "total_arquivos": 3
+    },
+    {
       "pasta": "Um (absoluto) — Grande Atrator/rodadas",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.json",
-      "total_arquivos": 213
+      "total_arquivos": 214
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/superposicao_passagem_v390",
@@ -1461,6 +1491,6 @@
       "total_arquivos": 8
     }
   ],
-  "total_arquivos": 3336,
-  "rodape": "gerado por script de git ls-files em 2026-10-27 -- nao editar a mao"
+  "total_arquivos": 3353,
+  "rodape": "gerado por script de git ls-files em 2026-10-28 -- nao editar a mao"
 }
