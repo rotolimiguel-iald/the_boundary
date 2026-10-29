@@ -126,8 +126,8 @@
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
    "o_que_e": "O atlas da fronteira",
-   "sha256_16": "a1524a93ad14c18e",
-   "bytes": 40683
+   "sha256_16": "23384c2c58baf7b7",
+   "bytes": 40871
   },
   "llms": {
    "path": "llms.txt",
@@ -457,8 +457,8 @@
   {
    "path": "ESTADO_ATUAL.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md",
-   "bytes": 166203,
-   "sha256_16": "2036bc52052377cd",
+   "bytes": 166574,
+   "sha256_16": "3ea260ac331fcaa6",
    "papel": "documento"
   },
   {
@@ -1402,8 +1402,8 @@
   {
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-   "bytes": 40683,
-   "sha256_16": "a1524a93ad14c18e",
+   "bytes": 40871,
+   "sha256_16": "23384c2c58baf7b7",
    "papel": "documento"
   },
   {
@@ -23641,71 +23641,71 @@
   {
    "path": "read-brief.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md",
-   "bytes": 23094,
-   "sha256_16": "39052a9c13132161",
+   "bytes": 23282,
+   "sha256_16": "54e64e69a841371a",
    "papel": "documento"
   },
   {
    "path": "secoes/01-o-um-absoluto.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/01-o-um-absoluto.md",
    "bytes": 11237,
-   "sha256_16": "5b3e465708f96497",
+   "sha256_16": "2636d24cff8e2599",
    "papel": "documento"
   },
   {
    "path": "secoes/02-beta-custo-geometrico.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/02-beta-custo-geometrico.md",
    "bytes": 12089,
-   "sha256_16": "3847c2ad2043b839",
+   "sha256_16": "1245fd75ef0ba809",
    "papel": "documento"
   },
   {
    "path": "secoes/03-a-acao-e-a-lagrangiana.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/03-a-acao-e-a-lagrangiana.md",
    "bytes": 15942,
-   "sha256_16": "d0529b04cd387019",
+   "sha256_16": "770c3d5c66dd3ff1",
    "papel": "documento"
   },
   {
    "path": "secoes/04-o-gerador-e-o-piso-do-espectro.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/04-o-gerador-e-o-piso-do-espectro.md",
    "bytes": 13429,
-   "sha256_16": "0c253342133b4ba3",
+   "sha256_16": "f8d8babcc3ff95ba",
    "papel": "documento"
   },
   {
    "path": "secoes/05-dinamica-aberta-gksl-e-dephasing.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/05-dinamica-aberta-gksl-e-dephasing.md",
    "bytes": 14378,
-   "sha256_16": "17fd228cdd14b597",
+   "sha256_16": "1631b1f1e7ce34b1",
    "papel": "documento"
   },
   {
    "path": "secoes/06-o-estatuto-da-gravidade-quantica.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/06-o-estatuto-da-gravidade-quantica.md",
    "bytes": 15299,
-   "sha256_16": "d791c0736af3a738",
+   "sha256_16": "e899c519b0fe3a66",
    "papel": "documento"
   },
   {
    "path": "secoes/07-o-programa-um-py.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/07-o-programa-um-py.md",
    "bytes": 11731,
-   "sha256_16": "883b299eef25c6ec",
+   "sha256_16": "e7a32d2391a2a6a2",
    "papel": "documento"
   },
   {
    "path": "secoes/08-os-artigos-e-os-instrumentos.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/08-os-artigos-e-os-instrumentos.md",
    "bytes": 13411,
-   "sha256_16": "f831f77d80c36bec",
+   "sha256_16": "7115fd317a45e6f0",
    "papel": "documento"
   },
   {
    "path": "secoes/selo-cartao.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/selo-cartao.md",
    "bytes": 6689,
-   "sha256_16": "d184ef359b2a9ef0",
+   "sha256_16": "cadd129bce00935d",
    "papel": "documento"
   },
   {
@@ -23718,8 +23718,8 @@
   {
    "path": "tools/estatuto_tres_apoios.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/estatuto_tres_apoios.py",
-   "bytes": 47529,
-   "sha256_16": "58dc7668062fb9bb",
+   "bytes": 50499,
+   "sha256_16": "e97b0e801d70cf36",
    "papel": "codigo"
   },
   {

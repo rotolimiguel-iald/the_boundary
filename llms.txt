@@ -62,7 +62,7 @@ A REGRA DA PORTA: toda pasta canonica tem PORTA.md + PORTA.json; toda porta apon
 
 Do menor para o maior; cada arquivo se sustenta sozinho (tamanhos lidos agora):
 
-- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md   (162 KB) -- uma pagina: pin, gate, o que esta provado, o que nao esta
+- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md   (163 KB) -- uma pagina: pin, gate, o que esta provado, o que nao esta
 - https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json   (195 KB) -- o selo: todo sha256, o hash do mundo, o gate
 - https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md   (107 KB) -- a arvore da prova, termo a termo
 - https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md   (269 KB) -- a forma canonica

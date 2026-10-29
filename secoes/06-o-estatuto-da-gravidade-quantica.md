@@ -1,6 +1,6 @@
 # The status of quantum gravity: proved on three supports, each with its own status; not yet confirmed (accredited) · O estatuto da gravidade quântica: provada em três apoios, cada um com o seu estatuto; ainda não confirmada (creditada)
 
-> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 6 of 8 · seal **v404** · `um.py` sha256 `3820476c83267f61…` · generated 2026-10-28 by script from the published files.
+> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 6 of 8 · seal **v404** · `um.py` sha256 `3820476c83267f61…` · generated 2026-10-29 by script from the published files.
 > Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = validity, in the operator’s definition of proof (sufficient and verifiable ballast; the validity of the implication is certified by the Lean kernel, `#print axioms`); CONFIRMED = accreditation, the act of observers outside the artifact — not made here; what nature decides is not proved.
 > All eight parts are listed at the top of the start page, https://teoriadagravitacaoluminodinamica.com/read-brief.md, and in the door of this folder, https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md · Reading limits measured on 2026-09-19: one real fetcher cut documents near 100,000 characters, refused files above 10 MB, and could not read PDFs served as `application/octet-stream` — read the TXT/TeX sources.
 
@@ -77,10 +77,10 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 | termos com axioma FORA do trio | 0  |
 ````
 
-### 3. `ESTADO_ATUAL.md` — bytes 155.411–158.294
+### 3. `ESTADO_ATUAL.md` — bytes 155.782–158.665
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md
-- sha256 of the file: `2036bc52052377cd939ddc1627f877af6da289fc90f952b5997040ac12767ab5` (computed now; this file is not in the seal map) · of this excerpt: `288102a6dc0807005229745bdfb9b007e1e71fdaad712747728014437c8c36e8` · line endings shown as LF
+- sha256 of the file: `3ea260ac331fcaa68644cf10b58cf6c71286ba0065f2e9cae110cdbed7e00082` (computed now; this file is not in the seal map) · of this excerpt: `288102a6dc0807005229745bdfb9b007e1e71fdaad712747728014437c8c36e8` · line endings shown as LF
 - status · estatuto: [OPEN / KNOWN / nature]
 - why · por quê: A lista canônica do que NÃO está provado: H1/H2 na natureza, a identificação física da tela, α, a matemática fora da mathlib, os negativos honestos e as seis folhas. Traz também a nota de linhagem H1–H3 → H1/H2.
 

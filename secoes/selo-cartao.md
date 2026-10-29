@@ -1,6 +1,6 @@
 # Verification card · cartão de verificação — seal v404
 
-> Read from `um_absoluto_selo.json` and from the published bytes by script, 2026-10-28. A chat reader can **compare** these values; **recomputing** a sha256 needs the bytes (the commands are below). PROVED in the operator’s definition of proof, on three supports, each with its own status (kernel [PROVED]: the implication · rites: 0 of 11 charges of the theory falsified, 1 reading excluded · GPU [COMPUTED]) ≠ CONFIRMED (accreditation); what nature decides is not proved.
+> Read from `um_absoluto_selo.json` and from the published bytes by script, 2026-10-29. A chat reader can **compare** these values; **recomputing** a sha256 needs the bytes (the commands are below). PROVED in the operator’s definition of proof, on three supports, each with its own status (kernel [PROVED]: the implication · rites: 0 of 11 charges of the theory falsified, 1 reading excluded · GPU [COMPUTED]) ≠ CONFIRMED (accreditation); what nature decides is not proved.
 
 - version: **v404** · sealed 2026-10-28 21:10:21 · self-test `FAIL_CLOSED_SELFTEST_PASSED`
 - identity: `1=1=VERDADEIRO=HAJA_LUZ`

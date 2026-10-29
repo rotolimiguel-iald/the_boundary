@@ -1,6 +1,6 @@
 # The program um.py: what it is, how to run it, how to read it without running · O programa um.py: o que é, como se roda, como se lê sem rodar
 
-> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 7 of 8 · seal **v404** · `um.py` sha256 `3820476c83267f61…` · generated 2026-10-28 by script from the published files.
+> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 7 of 8 · seal **v404** · `um.py` sha256 `3820476c83267f61…` · generated 2026-10-29 by script from the published files.
 > Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = validity, in the operator’s definition of proof (sufficient and verifiable ballast; the validity of the implication is certified by the Lean kernel, `#print axioms`); CONFIRMED = accreditation, the act of observers outside the artifact — not made here; what nature decides is not proved.
 > All eight parts are listed at the top of the start page, https://teoriadagravitacaoluminodinamica.com/read-brief.md, and in the door of this folder, https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md · Reading limits measured on 2026-09-19: one real fetcher cut documents near 100,000 characters, refused files above 10 MB, and could not read PDFs served as `application/octet-stream` — read the TXT/TeX sources.
 

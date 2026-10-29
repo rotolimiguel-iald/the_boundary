@@ -227,6 +227,16 @@ def ler(raiz=RAIZ):
     if lc:
         _exige(lc.get('all_verified') is True, 'lei_de_campo_curvo_v392 não está verificado')
         _tok(lc['verdict'], 'KERNEL_TERM_CONDITIONAL_ON_THE_NAMED_H3', 'NOT_GLOBAL_EXISTENCE', 'LEMA3_STATUS_UNCHANGED', 'GATE_UNMOVED')
+    # 29/10/2026 (gerência c1): v403 em diante, as 18 bandeiras são CALCULADAS (bandeiras_do_gate_v403); a ressalva da v392 fica como registro
+    bg = core.get('bandeiras_do_gate_v403')
+    if bg:
+        _exige(bg.get('all_verified') is True, 'bandeiras_do_gate_v403 não está verificado')
+        _tok(bg['verdict'], 'ALL_18_FLAGS_ARE_COMPUTED_NONE_IS_A_LITERAL', 'GATE_UNMOVED')
+        _bv = bg['values']
+        _exige(int(_bv['n_flags']) == k['gate_flags_total'] == 18 and int(_bv['n_true']) == k['gate_flags_true'] and int(_bv['n_calculated']) == 18
+               and int(_bv['n_literal']) == 0 and int(_bv['n_read_by_the_verdict']) == sum(int(x) for x in _bv['read_by_the_verdict'])
+               and len(_bv['informative']) == int(_bv['n_flags']) - int(_bv['n_read_by_the_verdict']) and _bv.get('feed_single_boolean') is True,
+               'bandeiras_do_gate_v403: contagens incoerentes com o gate')
     u_conf = RAW + quote(A3 + '/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean')
     v = dict(versao=versao, gate=gate, nk=nk, n_decl=n_decl, n_arq=n_arq, gf=k['gate_flags_true'], gt=k['gate_flags_total'],
              n_ch=n_ch, cont=cont, gr_ok=gr_ok, gr_n=gr_n,
@@ -238,7 +248,7 @@ def ler(raiz=RAIZ):
              posto=True, fecho_logico=True, nao_campo=True, agape='%s/%s' % agape.groups(), u_conf=u_conf,
              eco_n=eco['n'], eco_ex=eco['excluded_by_data'], eco_inc=eco['inconclusive'], jz=jr['max_abs_z'], jthr=jr['z_max_threshold_INPUT'],
              gpu_modo=modo, gpu_reuso_de=reuso_de, jlim=jr['threshold_INPUT'], jcanais=jr['channels_needed_for_threshold_at_primary_quality'],
-             registro=ep[0] if ep else None, ressalva=bool(rv), campo_curvo=bool(lc))
+             registro=ep[0] if ep else None, ressalva=bool(rv), campo_curvo=bool(lc), bandeiras_v403=(bg['values'] if bg else None))
     # 25/10/2026 (ORDEM 023, auditoria de leitura por IA): a leitura CORRENTE da Fase 9 é o Teste da Única Palavra (V2); a V1 (4,28) é a
     # história. Lida do registro mais novo `teste_de_veracidade_fase9_vN`; a regra do 4,44: z_disc nunca sem o p e a linha dos 5σ.
     _tvs = sorted(k for k in core if re.match(r'teste_de_veracidade_fase9_v\d+$', k))
@@ -313,7 +323,23 @@ def _textos(v):
     T['definicao_en'] += _reg
     _res_en = _res_pt = ''
     _campo = ('the field law in curved spacetime is a kernel term only CONDITIONAL on the named H3 (`lei_de_campo_curvo_v392`; the earlier tokens stay as record).' if v.get('campo_curvo') else 'the field equation in curved spacetime is not a kernel term (`fundacao_v390`).')
-    if v.get('ressalva'):   # v392: a ressalva do estatuto, AO LADO (o estatuto da v391 segue)
+    if v.get('bandeiras_v403'):   # v403 em diante (29/10/2026): as 18 bandeiras calculadas, lidas de bandeiras_do_gate_v403; a ressalva da v392 fica como registro
+        _b = v['bandeiras_v403']
+        _nf, _nc, _nlit, _nr = int(_b['n_flags']), int(_b['n_calculated']), int(_b['n_literal']), int(_b['n_read_by_the_verdict'])
+        _soma = ' + '.join(str(int(x)) for x in _b['read_by_the_verdict'])
+        _ninf = _nf - _nr
+        _res_en = (' **Reservation beside (v403 onward, `bandeiras_do_gate_v403`; the v392 reservation stays as record):** of the %d gate flags, all read '
+                   'True, %d are computed and %d literal (v403 recomputed from their sources the three that were literals); the verdict reads %d (%s) and '
+                   '%d are informative; the 4 experimental flags derive from ONE boolean (the verdict of the V11 void-floor rite) `[DECLARED by the audit of '
+                   '28/09/2026, not resolved]`, and the experimental step reads only the V11 void-floor feed, unilateral (the shallow ΛCDM also passes it); '
+                   'the independence of the feed stays `[OPEN]`. The statute above is unaltered.' % (_nf, _nc, _nlit, _nr, _soma, _ninf))
+        _res_pt = (' **Ressalva ao lado (v403 em diante, `bandeiras_do_gate_v403`; a ressalva da v392 fica como registro):** das %d bandeiras do gate, todas lidas '
+                   'True, as %d são calculadas e %d literais (a v403 recalculou das suas fontes as três que eram literais); o veredito lê %d (%s) e %d são '
+                   'informativas; as 4 experimentais derivam de UM só booleano (o veredito do rito V11 do piso dos vazios) `[DECLARADO pela auditoria de '
+                   '28/09/2026, não resolvido]`, e o degrau experimental lê só o feed V11 do piso dos vazios, unilateral (o ΛCDM raso também o passa); '
+                   'a independência do feed segue `[OPEN]`. O estatuto acima não muda.' % (_nf, _nc, _nlit, _nr, _soma, _ninf))
+        T['definicao_en'] += _res_en
+    elif v.get('ressalva'):   # v392: a ressalva do estatuto, AO LADO (o estatuto da v391 segue)
         _res_en = (' **Reservation beside (v392, `estatuto_da_prova_ressalva_v392`):** of the 18 gate flags, all read True, the audit reads 15 as computed '
                    'and 3 as literal, and the experimental step reads only the V11 void-floor feed, unilateral (the shallow ΛCDM also passes it) '
                    '`[DECLARED by the audit of 28/09/2026]`; recomputing the flags is unit F8.1, which v392 documents and does not close '

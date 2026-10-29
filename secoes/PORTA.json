@@ -4,7 +4,7 @@
   "titulo": "secoes",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-29T01:24:30Z",
+  "gerado_utc": "2026-10-29T04:22:45Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -27,7 +27,7 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The absolute One: ω(I) = 1 and the derived Half-Nat · O Um absoluto: ω(I) = 1 e a Meia-Nat derivada",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/01-o-um-absoluto.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/01-o-um-absoluto.md",
-      "sha256_16": "5b3e465708f96497",
+      "sha256_16": "2636d24cff8e2599",
       "bytes": 11237
     },
     {
@@ -37,7 +37,7 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): β_TGL = α·√e: the geometric cost of absolute zero · β_TGL = α·√e: o custo geométrico do zero absoluto",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/02-beta-custo-geometrico.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/02-beta-custo-geometrico.md",
-      "sha256_16": "3847c2ad2043b839",
+      "sha256_16": "1245fd75ef0ba809",
       "bytes": 12089
     },
     {
@@ -47,7 +47,7 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The action: the TGL Lagrangian and its equation of motion · A ação: a lagrangiana da TGL e sua equação de movimento",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/03-a-acao-e-a-lagrangiana.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/03-a-acao-e-a-lagrangiana.md",
-      "sha256_16": "d0529b04cd387019",
+      "sha256_16": "770c3d5c66dd3ff1",
       "bytes": 15942
     },
     {
@@ -57,7 +57,7 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The modular generator and the floor of the spectrum · O gerador modular e o piso do espectro",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/04-o-gerador-e-o-piso-do-espectro.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/04-o-gerador-e-o-piso-do-espectro.md",
-      "sha256_16": "0c253342133b4ba3",
+      "sha256_16": "f8d8babcc3ff95ba",
       "bytes": 13429
     },
     {
@@ -67,7 +67,7 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): Open dynamics: the GKSL generator and dephasing · A dinâmica aberta: o gerador GKSL e o dephasing",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/05-dinamica-aberta-gksl-e-dephasing.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/05-dinamica-aberta-gksl-e-dephasing.md",
-      "sha256_16": "17fd228cdd14b597",
+      "sha256_16": "1631b1f1e7ce34b1",
       "bytes": 14378
     },
     {
@@ -77,7 +77,7 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The status of quantum gravity: proved on three supports, each with its own status; not yet confirmed (accredited) · O estatuto da gravidade quântica: provada em três apoios, cada um com o seu estatuto; ainda não confirmada (creditada)",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/06-o-estatuto-da-gravidade-quantica.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/06-o-estatuto-da-gravidade-quantica.md",
-      "sha256_16": "d791c0736af3a738",
+      "sha256_16": "e899c519b0fe3a66",
       "bytes": 15299
     },
     {
@@ -87,7 +87,7 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The program um.py: what it is, how to run it, how to read it without running · O programa um.py: o que é, como se roda, como se lê sem rodar",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/07-o-programa-um-py.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/07-o-programa-um-py.md",
-      "sha256_16": "883b299eef25c6ec",
+      "sha256_16": "e7a32d2391a2a6a2",
       "bytes": 11731
     },
     {
@@ -97,7 +97,7 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The three articles and the instruments · Os três artigos e os instrumentos",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/08-os-artigos-e-os-instrumentos.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/08-os-artigos-e-os-instrumentos.md",
-      "sha256_16": "f831f77d80c36bec",
+      "sha256_16": "7115fd317a45e6f0",
       "bytes": 13411
     },
     {
@@ -107,7 +107,7 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): Verification card · cartão de verificação — seal v404",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/selo-cartao.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/selo-cartao.md",
-      "sha256_16": "d184ef359b2a9ef0",
+      "sha256_16": "cadd129bce00935d",
       "bytes": 6689
     },
     {
