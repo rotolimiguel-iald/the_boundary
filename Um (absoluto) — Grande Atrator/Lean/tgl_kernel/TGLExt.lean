@@ -1116,3 +1116,6 @@ import TGLExt.EsperancaCondicional
 import TGLExt.Caminho
 import TGLExt.Vida
 import TGLExt.VerdadeAdendo
+
+import TGLExt.ProjecaoTransversalDaMeiaNat
+import TGLExt.Jo8v32

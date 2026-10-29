@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-28T13:12:45Z",
+  "gerado_utc": "2026-10-29T01:24:30Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -2636,6 +2636,16 @@
       "bytes": 7255
     },
     {
+      "nome": "Jo8v32.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/Jo8v32.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): Jo8v32",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Jo8v32.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Jo8v32.lean",
+      "sha256_16": "18df8f686e524845",
+      "bytes": 2702
+    },
+    {
       "nome": "JointCoherentGravitation.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/JointCoherentGravitation.lean",
       "papel": "prova formal",
@@ -4224,6 +4234,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ProgrammerRule.lean",
       "sha256_16": "89e5e14bee9dc4aa",
       "bytes": 4521
+    },
+    {
+      "nome": "ProjecaoTransversalDaMeiaNat.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/ProjecaoTransversalDaMeiaNat.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): ProjecaoTransversalDaMeiaNat",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ProjecaoTransversalDaMeiaNat.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ProjecaoTransversalDaMeiaNat.lean",
+      "sha256_16": "1e53257273395c7c",
+      "bytes": 7856
     },
     {
       "nome": "PsiEmergence.lean",
@@ -10656,8 +10676,8 @@
       "bytes": 10880
     }
   ],
-  "total_arquivos_nesta_pasta": 1062,
-  "total_arquivos_com_subpastas": 1402,
+  "total_arquivos_nesta_pasta": 1064,
+  "total_arquivos_com_subpastas": 1404,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt",
-  "rodape": "gerado por script de git ls-files em 2026-10-28 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-10-29 -- nao editar a mao"
 }

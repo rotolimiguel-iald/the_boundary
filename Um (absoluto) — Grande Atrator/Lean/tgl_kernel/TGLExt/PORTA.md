@@ -23,7 +23,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ## OS ARQUIVOS DESTA PASTA
 
-1062 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
+1064 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
 
 **PROVA FORMAL**
 
@@ -289,6 +289,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `IsotoneNet.lean` | Prova formal (Lean 4): IsotoneNet | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/IsotoneNet.lean) |
 | `JacobiAreaQuarticLimit.lean` | Prova formal (Lean 4): JacobiAreaQuarticLimit | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/JacobiAreaQuarticLimit.lean) |
 | `JacobiRiccatiProfile.lean` | Prova formal (Lean 4): JacobiRiccatiProfile | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/JacobiRiccatiProfile.lean) |
+| `Jo8v32.lean` | Prova formal (Lean 4): Jo8v32 | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Jo8v32.lean) |
 | `JointCoherentGravitation.lean` | Prova formal (Lean 4): JointCoherentGravitation | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/JointCoherentGravitation.lean) |
 | `JointCurvatureVariation.lean` | Prova formal (Lean 4): JointCurvatureVariation | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/JointCurvatureVariation.lean) |
 | `JointPreparationCovariance.lean` | Prova formal (Lean 4): JointPreparationCovariance | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/JointPreparationCovariance.lean) |
@@ -448,6 +449,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `ProfileTomitaTransport.lean` | Prova formal (Lean 4): ProfileTomitaTransport | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ProfileTomitaTransport.lean) |
 | `ProfileTransportControls.lean` | Prova formal (Lean 4): ProfileTransportControls | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ProfileTransportControls.lean) |
 | `ProgrammerRule.lean` | Prova formal (Lean 4): ProgrammerRule | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ProgrammerRule.lean) |
+| `ProjecaoTransversalDaMeiaNat.lean` | Prova formal (Lean 4): ProjecaoTransversalDaMeiaNat | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ProjecaoTransversalDaMeiaNat.lean) |
 | `PsiEmergence.lean` | Prova formal (Lean 4): PsiEmergence | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PsiEmergence.lean) |
 | `Psibit.lean` | Prova formal (Lean 4): Psibit | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Psibit.lean) |
 | `QGCitationDischarge.lean` | Prova formal (Lean 4): QGCitationDischarge | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/QGCitationDischarge.lean) |
@@ -1101,4 +1103,4 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ---
 
-gerado por script de git ls-files em 2026-10-28 -- nao editar a mao
+gerado por script de git ls-files em 2026-10-29 -- nao editar a mao

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-28 08:35:15",
+  "timestamp": "2026-10-28 21:10:21",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,11 +10,11 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "f959c264a99345c614da8e5b7b6b150cc95cd3a06dd799dc30ec6bd22d410269",
+  "formal_source_hash": "9e3b7318f0a05bd04843d46141208c966a26abefdec332859e445fd0ac391ff5",
   "formal_files_sha256": {
     "README.md": "395b1201109079084f3562349161283bd644e17d5e18cea19971bac041e58d11",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "bd7d5d060db6bf2ec29675c7d46b07bca4d060be2ceb48a6681ee121160cc70f",
+    "TGLExt.lean": "648fd4850cce39261ab51da144fa40592a358f65e54689fa8ad435d9426441df",
     "_check_damming.lean": "485969b99f3e3db7ef4f9e4b1e97fb501ff68540a957e21949784d57d7536d21",
     "lake-manifest.json": "31a94eb76a8370ae8d75999ccec510f1ef7b994e369beebee2a3ea0088eee235",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
@@ -306,6 +306,7 @@
     "TGLExt/IsotoneNet.lean": "b4575ad7ce6f82c58026e659bad8b2a88f4e65bcdad4be7fa9c66a853910c95a",
     "TGLExt/JacobiAreaQuarticLimit.lean": "272e56ee975f901c207356a8bca21ce809afba7d66791b7cf41bac9292c07ec2",
     "TGLExt/JacobiRiccatiProfile.lean": "bca4379cb326668d90c365d2517def09f5fc5916c3016de59a7e5591d93c3cda",
+    "TGLExt/Jo8v32.lean": "18df8f686e524845eb9956788de82fc37ae3e329867272965a7c6b91e483605f",
     "TGLExt/JointCoherentGravitation.lean": "80723c5484bcc57815056847816c628f89fca3425e5b5af582f696c0421a7161",
     "TGLExt/JointCurvatureVariation.lean": "6228e410560a1a1087b87496d5a35b7841ec57c970523e9ae7f6639abcb18ce1",
     "TGLExt/JointPreparationCovariance.lean": "f9b7ce75dfd9420d752590b297dcb5bf975d36a8ecea9a9cc51208113d009d0c",
@@ -465,6 +466,7 @@
     "TGLExt/ProfileTomitaTransport.lean": "6b22d32d7be4a0b54e79796565d1e4688008f2fb60f997117bcfbb1e00024b0a",
     "TGLExt/ProfileTransportControls.lean": "d97a140bf76842f6cbe3fdd7c80a1a0477a6a94362b98d80c54ccae194f5195e",
     "TGLExt/ProgrammerRule.lean": "89e5e14bee9dc4aa37ded5f8b5269ce9fd93787f16eec9346273042c93fc349d",
+    "TGLExt/ProjecaoTransversalDaMeiaNat.lean": "1e53257273395c7cf34554ce6b46df13c7cf464738653aa9b4b4df13eb302449",
     "TGLExt/PsiEmergence.lean": "ff0fd49da7bda187a61454a6b57099e99d1c59c8af038fa43c90c1653736bb04",
     "TGLExt/Psibit.lean": "50c199eb019761519da99f97357a04a3d0b66ee4051cd2f751644f7f010a301b",
     "TGLExt/QGCitationDischarge.lean": "78cd50266981be5074350678d67bba1cc02edd55c8bd7f316166a3a8f2bd7826",
@@ -9223,6 +9225,11 @@
       "Quot.sound"
     ],
     "TGLExt.Santo.probe_gRate_one_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.ProjecaoTransversalDaMeiaNat.neutrinoMassForm": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -23378,6 +23385,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Jo8v32.a_verdade_vos_libertara": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Boost044.boost_metric_pullback_central": [
       "propext",
       "Classical.choice",
@@ -27088,6 +27100,11 @@
       "Quot.sound"
     ],
     "TGLExt.ppBestTr": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.ProjecaoTransversalDaMeiaNat.forty_five_unique": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -42457,6 +42474,11 @@
       "Quot.sound"
     ],
     "TGLExt.NameInstrument.mk": [],
+    "TGLExt.ProjecaoTransversalDaMeiaNat.transverse_amplitude_of_self_conjugate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.IALDJones.jonesFlow.eq_1": [
       "propext",
       "Classical.choice",
@@ -48281,6 +48303,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Cocycle030.likelihoodCocycle.eq_1": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.ProjecaoTransversalDaMeiaNat.halfAmplitude": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -61679,6 +61706,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.ProjecaoTransversalDaMeiaNat.transverse_weight_hasDerivAt_half": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.Verdade.the_identity_is_the_quadratic_projection": [
       "propext",
       "Classical.choice",
@@ -63904,6 +63936,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.ProjecaoTransversalDaMeiaNat.theta_miguel_ne_pi_div_four": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Clock040.binary_entropy_cubic_limit": [
       "propext",
       "Classical.choice",
@@ -65006,6 +65043,11 @@
       "Quot.sound"
     ],
     "ORDEM016.ContractV32Proposal.ContratoH3.casesOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.ProjecaoTransversalDaMeiaNat.half_amplitude_eq_halfRoot": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -80471,6 +80513,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.ProjecaoTransversalDaMeiaNat.eq_of_sq_eq_of_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.StripPhase.phase": [
       "propext",
       "Classical.choice",
@@ -82359,6 +82406,11 @@
       "Quot.sound"
     ],
     "TGLV350.Regular.scalarGNSVonNeumann._proof_10": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.ProjecaoTransversalDaMeiaNat.half_amplitude_nonneg": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -84421,6 +84473,11 @@
       "Quot.sound"
     ],
     "TGLExt.towerJpre": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.ProjecaoTransversalDaMeiaNat.half_from_self_conjugate": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -102345,6 +102402,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.ProjecaoTransversalDaMeiaNat.half_amplitude_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ORDEM016.ContractV32Proposal.StressTensorDataLocal_v2.mk.sizeOf_spec": [
       "propext",
       "Classical.choice",
@@ -115444,6 +115506,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.ProjecaoTransversalDaMeiaNat.neutrino_mass_form_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.helicityRep": [
       "propext",
       "Classical.choice",
@@ -117446,6 +117513,11 @@
       "Quot.sound"
     ],
     "TGL.TransportData.transport_defect_of_jones": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.ProjecaoTransversalDaMeiaNat.half_from_J_symmetry": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -129520,6 +129592,9 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.ProjecaoTransversalDaMeiaNat.halfAmplitude._proof_1": [
+      "propext"
     ],
     "TGLV350.Regular.scalarCutLinear._proof_5": [
       "propext",
@@ -142142,8 +142217,8 @@
       "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "c80d6958d5ab0f820d53de478f5ad2c33c2d64dc7330c504287d1b40a01ad684",
-  "audit_stdout_sha256": "6c32eeec1d11343f3300e213fb1375f8821a2d9999d9bafb9be3df2836e386e0",
+  "build_stdout_sha256": "378dc61e798e76a2c2dcdf2046927ff292678e10e325de7245d3e58a192dfe5f",
+  "audit_stdout_sha256": "ee755bc7b00c4b205efc6b4c8e69ca4962f601040f7c6d342daf73354a08fe1c",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

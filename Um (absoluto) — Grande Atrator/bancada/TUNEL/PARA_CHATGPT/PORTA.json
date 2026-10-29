@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-28T13:12:45Z",
+  "gerado_utc": "2026-10-29T01:24:30Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
@@ -416,6 +416,16 @@
       "bytes": 2727
     },
     {
+      "nome": "ORDEM_022_ADENDO_F_render_v403_autorizado.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_022_ADENDO_F_render_v403_autorizado.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_022_ADENDO_F_render_v403_autorizado.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_022_ADENDO_F_render_v403_autorizado.md",
+      "sha256_16": "b7a7626fa0c100b2",
+      "bytes": 3113
+    },
+    {
       "nome": "ORDEM_022_os_dois_filmes_v7.md",
       "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_022_os_dois_filmes_v7.md",
       "papel": "documento",
@@ -636,8 +646,8 @@
       "bytes": 3872
     }
   ],
-  "total_arquivos_nesta_pasta": 60,
-  "total_arquivos_com_subpastas": 81,
+  "total_arquivos_nesta_pasta": 61,
+  "total_arquivos_com_subpastas": 82,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT",
-  "rodape": "gerado por script de git ls-files em 2026-10-28 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-10-29 -- nao editar a mao"
 }
