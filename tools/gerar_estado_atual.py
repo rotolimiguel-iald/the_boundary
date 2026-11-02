@@ -56,9 +56,36 @@ def main() -> int:
     ultima = rodadas[-1] if rodadas else None
     versao = re.search(r"v(\d+)", ultima.name).group(1) if ultima else "?"
     std = ultima.read_text(encoding="utf-8", errors="replace") if ultima else ""
-    m = re.search(r"(\d+)/(\d+) teoremas", std) or re.search(r"\b(\d{3,4})/(\d{3,4})\b", std)
-    rito = m.group(0) if m else "?"
-    assert rito != "?", "contagem do rito nao localizada no stdout — PARAR (o numero corrige a frase)"
+    # 02/11/2026 — A GUARDA DO NUMERO (correcao ao lado; o texto antigo fica no .bak desta data).
+    # O padrao antigo pedia «N/N teoremas», e a linha do stdout selado e' «teoremas limpos: N/N» —
+    # nunca casava. Caia-se entao no fallback «\b(\d{3,4})/(\d{3,4})\b», que pegava o PRIMEIRO par de
+    # quatro digitos do arquivo: na v405 isso devolveu 3248/3470, que sao os CENTROS DE VAZIO na pegada
+    # do rito V11, publicados como se fossem a escada do kernel em cinco arquivos e nos dois espelhos.
+    # (O fallback tambem nao alcancava cinco digitos, logo jamais acharia 10066.) Tres guardas agora:
+    #   1. a linha e' lida ancorada pelo nome, sem fallback cego;
+    #   2. a escada e' sempre N/N — numerador diferente do denominador PARA;
+    #   3. o numero tem de existir no SELO (procedencia), nao so no stdout.
+    m = re.search(r"teoremas limpos:\s*(\d+)\s*/\s*(\d+)", std)
+    assert m, "linha «teoremas limpos: N/N» nao localizada no stdout selado — PARAR (o numero corrige a frase)"
+    assert m.group(1) == m.group(2), (
+        "a escada do rito nao e N/N: %s/%s — PARAR (isto nao e uma escada)" % (m.group(1), m.group(2)))
+    rito = "%s/%s" % (m.group(1), m.group(2))
+
+    def _colher(o, chave, acc):
+        if isinstance(o, dict):
+            for k, v in o.items():
+                if k == chave and isinstance(v, int):
+                    acc.append(v)
+                else:
+                    _colher(v, chave, acc)
+        elif isinstance(o, list):
+            for v in o:
+                _colher(v, chave, acc)
+        return acc
+
+    _nk = sorted(set(_colher(selo, "n_theorems_clean", [])))
+    assert not _nk or _nk == [int(m.group(1))], (
+        "a escada do stdout (%s) nao confere com o selo (%s) — PARAR" % (m.group(1), _nk))
     raiz_ax = ar.get("TGLExt.the_root_of_the_proof_tree")
     raiz_f = d / "Lean" / "tgl_kernel" / "TGLExt" / "TheRootOfTheProofTree.lean"
     raiz_sha = sha16(raiz_f) if raiz_f.is_file() else None

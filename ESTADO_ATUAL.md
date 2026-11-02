@@ -31,7 +31,7 @@
 | `result_hash` (the world) | `312380a55d3b8fb537cb0c5250ce05c501b17531b5d88f5f46dccdae9b83ee6a` |
 | size | 263,227 lines · 40,175,869 bytes · **one self-contained file** (Lean kernel + PT/EN articles embedded) |
 | Lean kernel | **1446 formal files** · **29965 audited terms**, axioms ⊆ `{propext, Classical.choice, Quot.sound}` · 0 outside the trio · 852 axiom-free · zero `sorry` |
-| the rite | **3248/3470 clean** (`rodadas/rodada_v405_stdout.txt`) · complete round: yes |
+| the rite | **10066/10066 clean** (`rodadas/rodada_v405_stdout.txt`) · complete round: yes |
 | gate | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | selftest | `FAIL_CLOSED_SELFTEST_PASSED` |
 | citable deposit | Zenodo **[10.5281/zenodo.23649800](https://doi.org/10.5281/zenodo.23649800)** holds **v401** (2026-10-25; `um.py` `1925cb691e933ae8`), byte-identical to THAT seal. **This seal is v405, newer than the deposit** — a new Zenodo version is the operator’s act. Cite: *MIGUEL, L. (2026). Um: Absoluto [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.23649800* |

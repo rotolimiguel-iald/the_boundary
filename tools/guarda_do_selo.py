@@ -26,6 +26,7 @@ Uso:  python tools/guarda_do_selo.py
 """
 import hashlib
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -136,7 +137,58 @@ def main() -> int:
         versao = selo.get("timestamp", "?")
         print(f"[selo {versao}] {rel}: {conferidos}/{len(mapa)} artefatos conferem (disco E blob do git)")
 
+    # ------------------------------------------------------------------
+    # v4 (02/11/2026) — a quarta licao (custodia v405): PROCEDENCIA DE NUMERO.
+    # A guarda conferia hash, blob e pino, e passou 13/13 enquanto o espelho publicava
+    # «the rite 3248/3470 clean» — os CENTROS DE VAZIO da pegada do rito V11 — no lugar da
+    # escada do kernel (10066/10066), em cinco arquivos e nos dois espelhos. Hash nenhum pega
+    # isso: o arquivo errado estava integro. Agora, todo par N/M publicado como a escada do
+    # rito e' recomputado contra o SELO, e a escada tem de ser N/N.
     print()
+    escada = None
+    for s in selos:
+        try:
+            _s = json.loads(s.read_text(encoding="utf-8"))
+        except Exception:  # noqa: BLE001
+            continue
+        pilha, achados = [_s], []
+        while pilha:
+            o = pilha.pop()
+            if isinstance(o, dict):
+                for k, v in o.items():
+                    if k == "n_theorems_clean" and isinstance(v, int):
+                        achados.append(v)
+                    else:
+                        pilha.append(v)
+            elif isinstance(o, list):
+                pilha.extend(o)
+        if achados:
+            escada = max(set(achados), key=achados.count)
+            break
+    PADROES = (r"the rite \| \*\*(\d+)/(\d+) clean", r"the rite (\d+)/(\d+) clean",
+               r"(\d+)/(\d+) (?:flags|theorems) of the rite")
+    superficies = [RAIZ / n for n in ("ESTADO_ATUAL.md", "README.md", "read-brief.md", "llms.txt")]
+    superficies += sorted((RAIZ / "secoes").glob("*.md")) if (RAIZ / "secoes").is_dir() else []
+    conferidas, pares = 0, 0
+    for p in superficies:
+        if not p.is_file():
+            continue
+        txt = p.read_text(encoding="utf-8", errors="replace")
+        achou = False
+        for pad in PADROES:
+            for m in re.finditer(pad, txt):
+                achou, pares = True, pares + 1
+                n, d2 = int(m.group(1)), int(m.group(2))
+                if n != d2:
+                    erros += 1
+                    print(f"  ! A ESCADA DO RITO NAO E N/N em {p.name}: {n}/{d2} — isto nao e uma escada")
+                elif escada is not None and n != escada:
+                    erros += 1
+                    print(f"  ! NUMERO SEM PROCEDENCIA em {p.name}: publica {n}/{d2}, o selo diz {escada}")
+        if achou:
+            conferidas += 1
+    print(f"[procedencia do numero] escada do selo {escada} · {pares} pares conferidos em {conferidas} superficies")
+
     print(f"selos verificados ............ {len(selos)}")
     print(f"ERROS ........................ {erros}")
     print("VEREDITO:", "O QUE SE PUBLICA E O QUE O SELO DESCREVE" if erros == 0

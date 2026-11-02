@@ -457,8 +457,8 @@
   {
    "path": "ESTADO_ATUAL.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md",
-   "bytes": 179655,
-   "sha256_16": "a06d874fd679a8e8",
+   "bytes": 179657,
+   "sha256_16": "d82d6dbd775de9e1",
    "papel": "documento"
   },
   {
@@ -24292,8 +24292,8 @@
   {
    "path": "read-brief.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md",
-   "bytes": 23288,
-   "sha256_16": "4bdbed1c078ee781",
+   "bytes": 23290,
+   "sha256_16": "8cf8f6d5c2277463",
    "papel": "documento"
   },
   {
@@ -24334,22 +24334,22 @@
   {
    "path": "secoes/06-o-estatuto-da-gravidade-quantica.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/06-o-estatuto-da-gravidade-quantica.md",
-   "bytes": 15301,
-   "sha256_16": "cf708790282158eb",
+   "bytes": 15305,
+   "sha256_16": "89b3680b2efffc9d",
    "papel": "documento"
   },
   {
    "path": "secoes/07-o-programa-um-py.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/07-o-programa-um-py.md",
-   "bytes": 11732,
-   "sha256_16": "b693969086158220",
+   "bytes": 11736,
+   "sha256_16": "83a39ff630062282",
    "papel": "documento"
   },
   {
    "path": "secoes/08-os-artigos-e-os-instrumentos.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/08-os-artigos-e-os-instrumentos.md",
-   "bytes": 13412,
-   "sha256_16": "83671b8e95071088",
+   "bytes": 13416,
+   "sha256_16": "fe27b3a869e70791",
    "papel": "documento"
   },
   {
@@ -24376,8 +24376,8 @@
   {
    "path": "tools/gerar_estado_atual.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_estado_atual.py",
-   "bytes": 196741,
-   "sha256_16": "48578ce9af26c821",
+   "bytes": 198321,
+   "sha256_16": "b4230359c77a29aa",
    "papel": "codigo"
   },
   {
@@ -24397,8 +24397,8 @@
   {
    "path": "tools/guarda_do_selo.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/guarda_do_selo.py",
-   "bytes": 6959,
-   "sha256_16": "adad9c022dde75dd",
+   "bytes": 9524,
+   "sha256_16": "04ff1a6b0b577e83",
    "papel": "codigo"
   },
   {
