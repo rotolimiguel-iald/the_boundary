@@ -1119,3 +1119,12 @@ import TGLExt.VerdadeAdendo
 
 import TGLExt.ProjecaoTransversalDaMeiaNat
 import TGLExt.Jo8v32
+
+import TGLExt.PonteDaMassa
+import TGLExt.MassaTensaoPura
+import TGLExt.Identidade
+import TGLExt.ObservadorTerminal
+import TGLExt.LeiDoDiminuto
+import TGLExt.TonicaDoHamiltoniano
+import TGLExt.DiscoDeEuler
+import TGLExt.PontoZeroDoPsion

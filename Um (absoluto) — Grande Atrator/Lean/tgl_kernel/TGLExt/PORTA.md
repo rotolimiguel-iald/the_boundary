@@ -23,7 +23,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ## OS ARQUIVOS DESTA PASTA
 
-1064 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
+1072 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
 
 **PROVA FORMAL**
 
@@ -152,6 +152,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `DifferentialFlowExistence.lean` | Prova formal (Lean 4): DifferentialFlowExistence | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/DifferentialFlowExistence.lean) |
 | `DimensionTrace.lean` | Prova formal (Lean 4): DimensionTrace | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/DimensionTrace.lean) |
 | `DirectionalUnitaryFamily.lean` | Prova formal (Lean 4): DirectionalUnitaryFamily | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/DirectionalUnitaryFamily.lean) |
+| `DiscoDeEuler.lean` | Prova formal (Lean 4): DiscoDeEuler | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/DiscoDeEuler.lean) |
 | `EmergenceTriad.lean` | Prova formal (Lean 4): EmergenceTriad | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/EmergenceTriad.lean) |
 | `EmergentEinstein.lean` | Prova formal (Lean 4): EmergentEinstein | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/EmergentEinstein.lean) |
 | `EntropyGeometryControls.lean` | Prova formal (Lean 4): EntropyGeometryControls | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/EntropyGeometryControls.lean) |
@@ -281,6 +282,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `IALDJones.lean` | Prova formal (Lean 4): IALDJones | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/IALDJones.lean) |
 | `IALDRhoStar.lean` | Prova formal (Lean 4): IALDRhoStar | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/IALDRhoStar.lean) |
 | `IdealLimit.lean` | Prova formal (Lean 4): IdealLimit | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/IdealLimit.lean) |
+| `Identidade.lean` | Prova formal (Lean 4): Identidade | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Identidade.lean) |
 | `InfiniteCocycleDecoding.lean` | Prova formal (Lean 4): InfiniteCocycleDecoding | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/InfiniteCocycleDecoding.lean) |
 | `InfiniteFisherGeometry.lean` | Prova formal (Lean 4): InfiniteFisherGeometry | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/InfiniteFisherGeometry.lean) |
 | `InfiniteWord.lean` | Prova formal (Lean 4): InfiniteWord | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/InfiniteWord.lean) |
@@ -295,6 +297,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `JointPreparationCovariance.lean` | Prova formal (Lean 4): JointPreparationCovariance | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/JointPreparationCovariance.lean) |
 | `JointUnitaryPreparation.lean` | Prova formal (Lean 4): JointUnitaryPreparation | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/JointUnitaryPreparation.lean) |
 | `LeftRight.lean` | Prova formal (Lean 4): LeftRight | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/LeftRight.lean) |
+| `LeiDoDiminuto.lean` | Prova formal (Lean 4): LeiDoDiminuto | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/LeiDoDiminuto.lean) |
 | `LevelExpectationFamily.lean` | Prova formal (Lean 4): LevelExpectationFamily | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/LevelExpectationFamily.lean) |
 | `LeviCivitaLieVariation.lean` | Prova formal (Lean 4): LeviCivitaLieVariation | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/LeviCivitaLieVariation.lean) |
 | `LeviCivitaMetricVariation.lean` | Prova formal (Lean 4): LeviCivitaMetricVariation | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/LeviCivitaMetricVariation.lean) |
@@ -327,6 +330,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `LocalTowerProjections.lean` | Prova formal (Lean 4): LocalTowerProjections | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/LocalTowerProjections.lean) |
 | `LorentzMetricField.lean` | Prova formal (Lean 4): LorentzMetricField | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/LorentzMetricField.lean) |
 | `MarkovTower.lean` | Prova formal (Lean 4): MarkovTower | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/MarkovTower.lean) |
+| `MassaTensaoPura.lean` | Prova formal (Lean 4): MassaTensaoPura | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/MassaTensaoPura.lean) |
 | `MaxwellLiteratureBridge.lean` | Prova formal (Lean 4): MaxwellLiteratureBridge | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/MaxwellLiteratureBridge.lean) |
 | `MetricCompatibleJet.lean` | Prova formal (Lean 4): MetricCompatibleJet | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/MetricCompatibleJet.lean) |
 | `MetricCurvatureSymmetries.lean` | Prova formal (Lean 4): MetricCurvatureSymmetries | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/MetricCurvatureSymmetries.lean) |
@@ -383,6 +387,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `NumberOperator.lean` | Prova formal (Lean 4): NumberOperator | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/NumberOperator.lean) |
 | `NumberSelfAdjoint.lean` | Prova formal (Lean 4): NumberSelfAdjoint | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/NumberSelfAdjoint.lean) |
 | `O16.lean` | Prova formal (Lean 4): O16 | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/O16.lean) |
+| `ObservadorTerminal.lean` | Prova formal (Lean 4): ObservadorTerminal | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ObservadorTerminal.lean) |
 | `ObserverInside.lean` | Prova formal (Lean 4): ObserverInside | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ObserverInside.lean) |
 | `OperatorBlockRepresentation.lean` | Prova formal (Lean 4): OperatorBlockRepresentation | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/OperatorBlockRepresentation.lean) |
 | `OpticalAreaFreedom.lean` | Prova formal (Lean 4): OpticalAreaFreedom | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/OpticalAreaFreedom.lean) |
@@ -431,6 +436,8 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `PolarizerCostSeries.lean` | Prova formal (Lean 4): PolarizerCostSeries | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PolarizerCostSeries.lean) |
 | `PolarizerModularCost.lean` | Prova formal (Lean 4): PolarizerModularCost | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PolarizerModularCost.lean) |
 | `PonteDaEscalaDual.lean` | Prova formal (Lean 4): PonteDaEscalaDual | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PonteDaEscalaDual.lean) |
+| `PonteDaMassa.lean` | Prova formal (Lean 4): PonteDaMassa | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PonteDaMassa.lean) |
+| `PontoZeroDoPsion.lean` | Prova formal (Lean 4): PontoZeroDoPsion | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PontoZeroDoPsion.lean) |
 | `Posto.lean` | Prova formal (Lean 4): Posto | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Posto.lean) |
 | `PostoAdendo.lean` | Prova formal (Lean 4): PostoAdendo | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PostoAdendo.lean) |
 | `PowersLadder.lean` | Prova formal (Lean 4): PowersLadder | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PowersLadder.lean) |
@@ -747,6 +754,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `Token.lean` | Prova formal (Lean 4): Token | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Token.lean) |
 | `TomitaAdjoint.lean` | Prova formal (Lean 4): TomitaAdjoint | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TomitaAdjoint.lean) |
 | `TomitaClosability.lean` | Prova formal (Lean 4): TomitaClosability | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TomitaClosability.lean) |
+| `TonicaDoHamiltoniano.lean` | Prova formal (Lean 4): TonicaDoHamiltoniano | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TonicaDoHamiltoniano.lean) |
 | `TopologicalAtlasGluing.lean` | Prova formal (Lean 4): TopologicalAtlasGluing | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TopologicalAtlasGluing.lean) |
 | `TorsionShearDecay.lean` | Prova formal (Lean 4): TorsionShearDecay | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TorsionShearDecay.lean) |
 | `TowerAction.lean` | Prova formal (Lean 4): TowerAction | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TowerAction.lean) |
@@ -1103,4 +1111,4 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ---
 
-gerado por script de git ls-files em 2026-10-29 -- nao editar a mao
+gerado por script de git ls-files em 2026-11-02 -- nao editar a mao

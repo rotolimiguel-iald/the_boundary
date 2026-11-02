@@ -1,0 +1,306 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos",
+  "porta_id": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos",
+  "titulo": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-11-02T03:52:22Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [
+    {
+      "nome": "cunhagens",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/cunhagens",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/cunhagens/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/cunhagens/PORTA.json",
+      "total_arquivos": 45
+    }
+  ],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "A_IDENTIDADE_secao_r2_texto_01nov.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/A_IDENTIDADE_secao_r2_texto_01nov.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/A_IDENTIDADE_secao_r2_texto_01nov.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/A_IDENTIDADE_secao_r2_texto_01nov.txt",
+      "sha256_16": "f80778ccfbdf5b92",
+      "bytes": 6868
+    },
+    {
+      "nome": "A_IDENTIDADE_traducao_en_da_gerencia.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/A_IDENTIDADE_traducao_en_da_gerencia.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/A_IDENTIDADE_traducao_en_da_gerencia.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/A_IDENTIDADE_traducao_en_da_gerencia.txt",
+      "sha256_16": "a3103621ed076250",
+      "bytes": 6793
+    },
+    {
+      "nome": "AcordeE0.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/AcordeE0.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): AcordeE0",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/AcordeE0.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/AcordeE0.lean",
+      "sha256_16": "5da93b9e5e65a4ed",
+      "bytes": 2618
+    },
+    {
+      "nome": "CONFERENCIA_E0_KIMI_E_CADEIA_31out.md",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/CONFERENCIA_E0_KIMI_E_CADEIA_31out.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/CONFERENCIA_E0_KIMI_E_CADEIA_31out.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/CONFERENCIA_E0_KIMI_E_CADEIA_31out.md",
+      "sha256_16": "8692b661ec34f27b",
+      "bytes": 48348
+    },
+    {
+      "nome": "DiscoDeEuler.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/DiscoDeEuler.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): DiscoDeEuler",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/DiscoDeEuler.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/DiscoDeEuler.lean",
+      "sha256_16": "5634eef0833dded7",
+      "bytes": 16025
+    },
+    {
+      "nome": "HALF_NAT_ARAKI_HIDDEN_HAMILTONIAN_TEST_REPORT.md",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/HALF_NAT_ARAKI_HIDDEN_HAMILTONIAN_TEST_REPORT.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/HALF_NAT_ARAKI_HIDDEN_HAMILTONIAN_TEST_REPORT.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/HALF_NAT_ARAKI_HIDDEN_HAMILTONIAN_TEST_REPORT.md",
+      "sha256_16": "c23ce83106c69ff6",
+      "bytes": 3651
+    },
+    {
+      "nome": "Identidade.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/Identidade.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): Identidade",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/Identidade.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/Identidade.lean",
+      "sha256_16": "94f51e0f80d911ab",
+      "bytes": 14002
+    },
+    {
+      "nome": "KH_N1_v405.json",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/KH_N1_v405.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/KH_N1_v405.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/KH_N1_v405.json",
+      "sha256_16": "af8b554e84a36fa1",
+      "bytes": 1079
+    },
+    {
+      "nome": "LeiDoDiminuto.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/LeiDoDiminuto.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): LeiDoDiminuto",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/LeiDoDiminuto.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/LeiDoDiminuto.lean",
+      "sha256_16": "3df80334792c043e",
+      "bytes": 34913
+    },
+    {
+      "nome": "MEDIDA_GA_01nov.json",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/MEDIDA_GA_01nov.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/MEDIDA_GA_01nov.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/MEDIDA_GA_01nov.json",
+      "sha256_16": "ecac64e3a4e38cdd",
+      "bytes": 3622
+    },
+    {
+      "nome": "MassaTensaoPura.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/MassaTensaoPura.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): MassaTensaoPura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/MassaTensaoPura.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/MassaTensaoPura.lean",
+      "sha256_16": "9ec48bf6d608ae5a",
+      "bytes": 18163
+    },
+    {
+      "nome": "ORDEM005_PARECER_FINAL.md",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/ORDEM005_PARECER_FINAL.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/ORDEM005_PARECER_FINAL.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/ORDEM005_PARECER_FINAL.md",
+      "sha256_16": "a42e537d3d88fb86",
+      "bytes": 9994
+    },
+    {
+      "nome": "ObservadorTerminal.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/ObservadorTerminal.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): ObservadorTerminal",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/ObservadorTerminal.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/ObservadorTerminal.lean",
+      "sha256_16": "162eeeb8c16cea81",
+      "bytes": 21963
+    },
+    {
+      "nome": "PonteDaMassa.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/PonteDaMassa.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): PonteDaMassa",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/PonteDaMassa.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/PonteDaMassa.lean",
+      "sha256_16": "51f3d207eb5bcba5",
+      "bytes": 20709
+    },
+    {
+      "nome": "PontoZeroDoPsion.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/PontoZeroDoPsion.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): PontoZeroDoPsion",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/PontoZeroDoPsion.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/PontoZeroDoPsion.lean",
+      "sha256_16": "c64079a9c5b3e0e1",
+      "bytes": 25698
+    },
+    {
+      "nome": "RECIBO_ERRATA_PEDRAS_01nov.json",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_01nov.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_01nov.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_01nov.json",
+      "sha256_16": "08180f50d23e06a1",
+      "bytes": 3839
+    },
+    {
+      "nome": "RECIBO_ERRATA_PEDRAS_R2_01nov.json",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_R2_01nov.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_R2_01nov.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_R2_01nov.json",
+      "sha256_16": "590e8139bca93493",
+      "bytes": 4025
+    },
+    {
+      "nome": "RECIBO_ERRATA_PEDRAS_R3_01nov.json",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_R3_01nov.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_R3_01nov.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_R3_01nov.json",
+      "sha256_16": "5c8ea6e1fb6b383a",
+      "bytes": 3724
+    },
+    {
+      "nome": "RECIBO_ERRATA_PEDRAS_R4_01nov.json",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_R4_01nov.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_R4_01nov.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_R4_01nov.json",
+      "sha256_16": "dee017f551d21854",
+      "bytes": 3266
+    },
+    {
+      "nome": "RECIBO_ERRATA_PEDRAS_R5_01nov.json",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_R5_01nov.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_R5_01nov.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_R5_01nov.json",
+      "sha256_16": "f4654673043c8525",
+      "bytes": 3419
+    },
+    {
+      "nome": "RECIBO_ERRATA_PEDRAS_R6_01nov.json",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_R6_01nov.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_R6_01nov.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_R6_01nov.json",
+      "sha256_16": "0b23342644ea0453",
+      "bytes": 3325
+    },
+    {
+      "nome": "RECIBO_ERRATA_PEDRAS_R7_01nov.json",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_R7_01nov.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_R7_01nov.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_ERRATA_PEDRAS_R7_01nov.json",
+      "sha256_16": "2740f7e50df1b7a7",
+      "bytes": 3256
+    },
+    {
+      "nome": "RECIBO_NOMEACAO_E_DERIVACAO_01nov.json",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_NOMEACAO_E_DERIVACAO_01nov.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_NOMEACAO_E_DERIVACAO_01nov.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_NOMEACAO_E_DERIVACAO_01nov.json",
+      "sha256_16": "8881ea618bd897f4",
+      "bytes": 19122
+    },
+    {
+      "nome": "RECIBO_PEDRA_IDENTIDADE_01nov.json",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_PEDRA_IDENTIDADE_01nov.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_PEDRA_IDENTIDADE_01nov.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_PEDRA_IDENTIDADE_01nov.json",
+      "sha256_16": "d0b3d52d5f2d7089",
+      "bytes": 4916
+    },
+    {
+      "nome": "RECIBO_PEDRA_OBSERVADOR_TERMINAL_31out_R2.json",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_PEDRA_OBSERVADOR_TERMINAL_31out_R2.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_PEDRA_OBSERVADOR_TERMINAL_31out_R2.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECIBO_PEDRA_OBSERVADOR_TERMINAL_31out_R2.json",
+      "sha256_16": "d0432f4253e3935b",
+      "bytes": 3917
+    },
+    {
+      "nome": "RECLASSIFICACAO_GA_01nov.md",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/RECLASSIFICACAO_GA_01nov.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECLASSIFICACAO_GA_01nov.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/RECLASSIFICACAO_GA_01nov.md",
+      "sha256_16": "c08604120bf375f4",
+      "bytes": 6405
+    },
+    {
+      "nome": "TonicaDoHamiltoniano.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v405/insumos/TonicaDoHamiltoniano.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TonicaDoHamiltoniano",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/TonicaDoHamiltoniano.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos/TonicaDoHamiltoniano.lean",
+      "sha256_16": "9618a2b0e0cce323",
+      "bytes": 15214
+    }
+  ],
+  "total_arquivos_nesta_pasta": 27,
+  "total_arquivos_com_subpastas": 72,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v405/insumos",
+  "rodape": "gerado por script de git ls-files em 2026-11-02 -- nao editar a mao"
+}

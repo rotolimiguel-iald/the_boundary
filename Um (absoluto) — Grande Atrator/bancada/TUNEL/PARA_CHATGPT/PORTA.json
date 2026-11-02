@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-29T04:22:45Z",
+  "gerado_utc": "2026-11-02T03:52:22Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
@@ -426,6 +426,26 @@
       "bytes": 3113
     },
     {
+      "nome": "ORDEM_022_ADENDO_G_render_v404_e_frases_do_gate.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_022_ADENDO_G_render_v404_e_frases_do_gate.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_022_ADENDO_G_render_v404_e_frases_do_gate.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_022_ADENDO_G_render_v404_e_frases_do_gate.md",
+      "sha256_16": "8d71e12cc87d510f",
+      "bytes": 6399
+    },
+    {
+      "nome": "ORDEM_022_ADENDO_H_duas_sinteses_adicionais_autorizadas.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_022_ADENDO_H_duas_sinteses_adicionais_autorizadas.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_022_ADENDO_H_duas_sinteses_adicionais_autorizadas.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_022_ADENDO_H_duas_sinteses_adicionais_autorizadas.md",
+      "sha256_16": "d012dafc79df543b",
+      "bytes": 2498
+    },
+    {
       "nome": "ORDEM_022_os_dois_filmes_v7.md",
       "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_022_os_dois_filmes_v7.md",
       "papel": "documento",
@@ -506,6 +526,16 @@
       "bytes": 3583
     },
     {
+      "nome": "ORDEM_026_ADENDO_C_fase2_v404.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_026_ADENDO_C_fase2_v404.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_026_ADENDO_C_fase2_v404.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_026_ADENDO_C_fase2_v404.md",
+      "sha256_16": "9d4dd1c407df701f",
+      "bytes": 4338
+    },
+    {
       "nome": "ORDEM_026_NUMERACAO_duas_ordens_026.md",
       "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_026_NUMERACAO_duas_ordens_026.md",
       "papel": "documento",
@@ -544,6 +574,26 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_027_consulta_diaria_patentes_e_emails_da_iald.md",
       "sha256_16": "a2838aafac4b33c9",
       "bytes": 5483
+    },
+    {
+      "nome": "ORDEM_028_ADENDO_A_publicar_app.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_028_ADENDO_A_publicar_app.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_028_ADENDO_A_publicar_app.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_028_ADENDO_A_publicar_app.md",
+      "sha256_16": "c875ab0b8acb3b49",
+      "bytes": 1590
+    },
+    {
+      "nome": "ORDEM_028_credencial_propria_do_google_para_o_backup.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_028_credencial_propria_do_google_para_o_backup.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_028_credencial_propria_do_google_para_o_backup.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_028_credencial_propria_do_google_para_o_backup.md",
+      "sha256_16": "47220295b3feec3e",
+      "bytes": 3936
     },
     {
       "nome": "RECIBO_015_MAQUINA_LIVRE.md",
@@ -646,8 +696,8 @@
       "bytes": 3872
     }
   ],
-  "total_arquivos_nesta_pasta": 61,
-  "total_arquivos_com_subpastas": 82,
+  "total_arquivos_nesta_pasta": 66,
+  "total_arquivos_com_subpastas": 87,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT",
-  "rodape": "gerado por script de git ls-files em 2026-10-29 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-11-02 -- nao editar a mao"
 }

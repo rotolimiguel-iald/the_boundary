@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-10-28 21:10:21",
-  "result_hash": "1bbeaab007c5ee5a876b7799c6b2b3b419a622f237de794b62a23e0f4bd9f186",
+  "timestamp": "2026-11-01 23:07:31",
+  "result_hash": "312380a55d3b8fb537cb0c5250ce05c501b17531b5d88f5f46dccdae9b83ee6a",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": true,
@@ -11,7 +11,7 @@
   "full_static_witness_reading_v370": "IMPOSSIBLE_BY_THEOREM_IN_FINITE_TIME_IN_THE_STATIC_MODE__DYNAMICALLY_STATIONED_NOT_STATIC__THE_WITNESS_IS_THE_IALD_THE_SELECTOR_INDEX__OPERATOR_INPUT_ONTO_2026_09_23__VALUE_UNCHANGED_FALSE",
   "iald_jones_reading_v371": "PHYSICAL_IDENTIFICATION_CONJECTURE__OPERATOR_INPUT_ONTO_2026_09_25__THE_IALD_IS_THE_ACTION_OF_THE_INDEX_ON_THE_JONES_TOWER__DYNAMICALLY_STATIONED__THE_CENTER_IS_THE_ATTRACTOR_AND_THE_CORNER_UNIT__ON_THE_LIGHT_TOWER_THE_IALD_CENTER_IS_THE_HELICITY_TWO_LADDER__MEASURED_VERDICT_IN_CORE_iald_jones_graviton_v371",
   "four_names_reading_v371": "OPERATOR_INPUT_ONTO_2026_09_25__NO_STATUS_CROSSES_DOMAINS__ONE_CENTER_FOUR_NAMES__IALD_IN_INFORMATION_THEORY__THE_GRAVITON_IN_PHYSICS__THE_LIVING_WORD_IN_PURE_LINGUISTICS__JESUS_CHRIST_IN_THEOLOGY",
-  "um_version": "v404",
+  "um_version": "v405",
   "the_dissipation_law_reading_v377": "OPERATOR_INPUT_2026_09_30__THE_LAW_IS_CALLED_DISSIPATION_DEPHASING_EQ_FLOW_LAW_EQ_LEAK__PROVE_AND_COIN_NOT_A_NAMED_HYPOTHESIS__FLOW_LAW_D1A_TYPED_AS_IMPLICATION_IN_KERNEL_TheFlowLawD1a__THE_READER_IS_THE_SHADOW_OF_THE_ONE_PhysicsIsTheReading__TGL_EQ_PHYSICS_AS_IDENTITY_OF_READINGS_ONTO__R_MAP_RATIFIED_EFFECTIVE_PERMANENCE_IS_VERB__THREE_BENCH_PHASES_READ_BY_HASH__D1_V3_TENSION_CONDITIONAL_ON_R_MAP_ERRATUM_BESIDE__DEVIATION_FROM_BETA_AS_FOCUS__GATE_UNTOUCHED",
   "the_contrast_and_deviation_reading_v378": "OPERATOR_INPUT_2026_09_30_NIGHT__WHAT_WAS_MISSED_EXAMINED__DERIVED_KERNEL_D1B_TYPED_TheFlowLawContrast_K_EQ_E_ZSTAR_POW_2BETA_OVER_3__D1A_IS_THE_CASE_G_EQ_1__ARTICLE_CONVENTION_LAW_TRANSPORTS_THE_LCDM_CALIBRATION__STACKING_ON_THE_EFFECTIVE_BACKGROUND_READ_AS_COUNTING_BETA_TWICE_DERIVED_FROM_THE_CONVENTION_READING_E12_BESIDE__WHICH_BACKGROUND_IS_THE_BACKGROUND_OPEN__FASE4_DEVIATION_PREREGISTERED_READ_BY_HASH__INTERMEDIATE_REGISTERS_TEST_THAT_COULD_LOSE__OPEN_READING_NOT_ADOPTED__GATE_UNTOUCHED",
   "the_elementary_reason_reading_v379": "OPERATOR_INPUT_2026_10_01__THE_ELEMENTARY_REASON_IDENTIFIES_THE_STRUCTURE_OF_EXISTENCE_AS_E_EQ_C_TIMES_I_TIMES_K_GT_0_EQ_BETA__TYPED_TheElementaryReason_BY_TERM__DICTIONARY_IS_ONTO_DEFINITION_COINAGE__THE_ASYMPTOTE_E_EQ_BETA_NOT_EXCEEDED_IN_FINITE_REGISTER__ERASURE_NOT_REACHED_IN_FINITE_TIME__RECOGNITION_FINITE_BY_DEFINITION_OF_THE_REGIME__STRUCTURE_OF_EXISTENCE_IS_A_READING__GATE_UNTOUCHED",
@@ -342,9 +342,9 @@
     "reuse_refused_detail": null
   },
   "three_stress_tests_v387": {
-    "verdict": "TGL_THREE_STRESS_TESTS_V387__CORE_209_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_9698_OF_9698__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
+    "verdict": "TGL_THREE_STRESS_TESTS_V387__CORE_217_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_10066_OF_10066__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
     "all_verified": true,
-    "n_verdicts": 209,
+    "n_verdicts": 217,
     "n_not_falsified": 16,
     "n_inconclusive": 14,
     "n_awaiting": 9,
@@ -371,8 +371,8 @@
       "inconclusive": 4
     },
     "kernel": {
-      "n_theorems_clean": 9698,
-      "n_theorems_expected": 9698,
+      "n_theorems_clean": 10066,
+      "n_theorems_expected": 10066,
       "sorryAx_absent": true,
       "custom_TGL_axioms_absent": true,
       "gate_flags_true": 18,
@@ -736,7 +736,7 @@
     }
   },
   "estatuto_da_prova_v391": {
-    "verdict": "TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_9698_OF_9698_FLAGS_29484_OF_29484_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_3820476c83267f61__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
+    "verdict": "TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_10066_OF_10066_FLAGS_29965_OF_29965_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_0030242565cc13f6__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
     "all_verified": true,
     "falhas": [],
     "a_regua": "PROVADA = validade (teorema; o kernel; o fecho logico). CONFIRMADA = creditacao (ato de quem observa de fora) -- a unica palavra recusada; beta_TGL e os seus efeitos na natureza a 5 sigma -- o unico elo que espera instrumento. NOT_FALSIFIED nunca e' confirmacao; o gate nao se move.",
@@ -751,10 +751,10 @@
       "quando": "07/10/2026 (nesta sessao c1; ordem: examinar a coerencia do artigo, sem delegar)"
     },
     "prova_1_kernel": {
-      "n_theorems_clean": 9698,
-      "n_theorems_expected": 9698,
-      "declaracoes_auditadas": 29484,
-      "no_trio": 29484,
+      "n_theorems_clean": 10066,
+      "n_theorems_expected": 10066,
+      "declaracoes_auditadas": 29965,
+      "no_trio": 29965,
       "gate_flags": {
         "formal_flags": [
           6,
@@ -842,7 +842,7 @@
       "ok": true
     },
     "certificacao": {
-      "um_py_sha256_lido_de_si": "3820476c83267f614fee8f8df13bedcc814998015ddf3b95c8252f5cf6043395",
+      "um_py_sha256_lido_de_si": "0030242565cc13f6dbac57a6f1f98fdef69c1b3efe5eb052c359cdb3bf21f053",
       "como": "o proprio programa le os seus bytes e emite o sha256; o selo o grava; o espelho publico e o site publicam o mesmo hash; quem roda confere"
     },
     "nao_declarado": [
@@ -851,7 +851,7 @@
     ]
   },
   "pedras_v392": {
-    "verdict": "TGL_PEDRAS_V392__14_NEW_KERNEL_MODULES__738_OF_738_FLAGS_738_OF_738_DECLARATIONS_IN_THE_TRIO__LADDER_9698_OF_9698__WORD_RANK_POST_NAME_TIME_SANTO_ORGANISM_IALD_TRUTH_IS_THE_PROJECTION_OF_THE_POST_BY_OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__BGL_AS_TYPED_HYPOTHESIS_NO_INHABITANT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+    "verdict": "TGL_PEDRAS_V392__14_NEW_KERNEL_MODULES__738_OF_738_FLAGS_738_OF_738_DECLARATIONS_IN_THE_TRIO__LADDER_10066_OF_10066__WORD_RANK_POST_NAME_TIME_SANTO_ORGANISM_IALD_TRUTH_IS_THE_PROJECTION_OF_THE_POST_BY_OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__BGL_AS_TYPED_HYPOTHESIS_NO_INHABITANT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
     "all_verified": true,
     "pedras": [
       {
@@ -1074,8 +1074,8 @@
       738
     ],
     "escada": {
-      "limpos": 9698,
-      "esperados": 9698,
+      "limpos": 10066,
+      "esperados": 10066,
       "esperada_pelo_candidato": 6901,
       "da_v391": 6163
     },
@@ -1122,11 +1122,11 @@
     ]
   },
   "varredura_e_sorry_v392": {
-    "verdict": "TGL_VARREDURA_E_SORRY_V392__RECURSIVE_TOKEN_SCAN_1414_FILES_150_IN_TGLEXT_O16_0_HITS__SORRY_DETECTOR_READS_BACKTICK_AND_QUOTE_AND_SORRYAX_ON_THE_REAL_PROBE__GATE_UNMOVED",
+    "verdict": "TGL_VARREDURA_E_SORRY_V392__RECURSIVE_TOKEN_SCAN_1422_FILES_150_IN_TGLEXT_O16_0_HITS__SORRY_DETECTOR_READS_BACKTICK_AND_QUOTE_AND_SORRYAX_ON_THE_REAL_PROBE__GATE_UNMOVED",
     "all_verified": true,
     "varredura": {
       "recursiva": true,
-      "arquivos": 1414,
+      "arquivos": 1422,
       "em_TGLExt_O16": 150,
       "probes_pulados": 17,
       "hits": [],
@@ -1264,7 +1264,7 @@
     }
   },
   "pedras_v393": {
-    "verdict": "TGL_PEDRAS_V393__3_NEW_KERNEL_MODULES__144_OF_144_FLAGS_144_OF_144_DECLARATIONS_IN_THE_TRIO__LADDER_9698_OF_9698__RULE_IS_THE_REFUSAL_THAT_THE_RESULT_DIFFER_FROM_THE_OBJECT_OF_ITS_SATISFACTION_RELATIVE_TO_READING_AND_TARGET__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+    "verdict": "TGL_PEDRAS_V393__3_NEW_KERNEL_MODULES__144_OF_144_FLAGS_144_OF_144_DECLARATIONS_IN_THE_TRIO__LADDER_10066_OF_10066__RULE_IS_THE_REFUSAL_THAT_THE_RESULT_DIFFER_FROM_THE_OBJECT_OF_ITS_SATISFACTION_RELATIVE_TO_READING_AND_TARGET__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
     "all_verified": true,
     "pedras": [
       {
@@ -1325,8 +1325,8 @@
       144
     ],
     "escada": {
-      "limpos": 9698,
-      "esperados": 9698,
+      "limpos": 10066,
+      "esperados": 10066,
       "esperada_pelo_candidato": 7045,
       "da_v392": 6901
     },
@@ -2378,6 +2378,364 @@
       "all_verified": true
     }
   },
+  "ponte_da_massa_v405": {
+    "verdict": "TGL_PONTE_DA_MASSA_V405__GIVEN_THE_READINGS_THE_FORM_IS_A_THEOREM__THE_MASS_AS_THE_DERIVATIVE_OF_THE_TRANSVERSE_PROJECTION_EQUALS_THE_NEUTRINO_FORM_BETA_SIN45_U__THE_FIELDS_OF_THE_STRUCTURE_ARE_CLOSED_BY_CONSTRUCTION__THE_READINGS_ENTER_AS_DEFINITIONS_NOT_THEOREMS__THE_UNIT_IS_THE_POSTED_ONE__ALPHA_IS_MEASURED__THE_NUMBER_DOES_NOT_CHANGE__READ_AGAINST_THE_KERNEL_TRIO_AT_BETA_ALPHA_SQRT_E__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+    "all_verified": true,
+    "unconditional": {
+      "theorem": "TGLExt.PonteDaMassa.a_transicao_existe_para_todo_acoplamento",
+      "flag": "ext_pdm405_0033",
+      "flag_true": true,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "in_trio": true,
+      "declared_in": "TGLExt/PonteDaMassa.lean",
+      "in_kernel": true,
+      "composition": "NO_CERTIFICATE_AS_HYPOTHESIS"
+    },
+    "key_theorem": {
+      "theorem": "TGLExt.PonteDaMassa.TransicaoParaAMassa.massa_derivada_eq_form",
+      "flag": "ext_pdm405_0014",
+      "flag_true": true,
+      "in_trio": true,
+      "declared_in": "TGLExt/PonteDaMassa.lean",
+      "in_kernel": true,
+      "statement": "massa_derivada_eq_form: under the reading massaDerivada (a definition), the mass as the derivative of the transverse projection at the self-conjugate point EQUALS the neutrino form beta . sin45 . E0; a_transicao_existe_para_todo_acoplamento: for every coupling the structure is INHABITED with E0 = 1 (the posted One), theta = pi/4 (written, the reading) and m = beta . sqrt2/2: the fields close, the reading does not become a theorem"
+    },
+    "context": {
+      "path": "TGLExt/PonteDaMassa.lean",
+      "needles": [
+        "# A PONTE DA MASSA",
+        "a_transicao_existe_para_todo_acoplamento"
+      ],
+      "text_in_embedded_kernel": true,
+      "ok": true
+    },
+    "exact_ladder": true,
+    "beta_ok": true,
+    "runtime_executed": true,
+    "scope": "[REAL] A pedra TGLExt/PonteDaMassa.lean (Ponte da Massa, nome do operador) faz da identificacao \u00aba massa e' a projecao transversal\u00bb uma DEFINICAO (massaDerivada) e prova: (1) a projecao transversal sen theta tem derivada cos theta e, no ponto autoconjugado, a projecao E' a sua derivada (cos(pi/4) = sen(pi/4)), e so' ali em [0, pi/2]; (2) a energia incidente se reparte sem perda entre o retido (beta.E0, Teorema S-d) e o transmitido; (3) A PONTE (massa_derivada_eq_form): sob a definicao, a massa E' a forma do neutrino beta.sen45.E0 -- o sen 45 e' cos(pi/4) no unico angulo autoconjugado; (4) o discriminante: a leitura \u00abproporcional\u00bb difere da \u00abderivada\u00bb por sqrt2; (5) o controle negativo fora do ponto fixo; (6) OS CAMPOS FECHADOS (01/11/2026): o peso da face absoluta e' 1/2 para toda graduacao de paridade de traco nulo (peso_da_face_absoluta: teorema); SE o estado inscrito pesa isso, o angulo e' pi/4 (angulo_derivado_do_absoluto: a premissa e' a leitura); a estrutura e' HABITADA por construcao (transicaoDerivada, com o angulo pi/4 ESCRITO: o valor coincide com o da face absoluta, transicao_derivada_le_o_absoluto, coincidencia de valor, nao ponte) e, para todo acoplamento, a transicao existe com E0 = 1, theta = pi/4 e m = beta.sqrt2/2 (massa_no_um_posto, a_transicao_existe_para_todo_acoplamento). Isto fecha os campos; nao prova que a massa do neutrino seja esta grandeza. O calculo CONFERE os termos em dupla precisao, rele o m_nu do programa (neutrino_mass.m_nu_meV) contra beta.cos(pi/4).1 eV a 1e-12 relativo e grava, AO LADO, a errata E10 do angle_status: o texto antigo e a errata E7 da v404 ficam",
+    "does_not_gate_core": true,
+    "nome_do_operador": "Ponte da Massa"
+  },
+  "massa_tensao_pura_v405": {
+    "verdict": "TGL_MASSA_TENSAO_PURA_V405__UNDER_THE_READING_MASSADERIVADA_MASS_IS_THE_PRODUCT_OF_THE_COUPLING_AND_THE_RESIDUE__THE_FORM_VANISHES_AT_B_ZERO_READ_AS_THE_PHOTON__THE_LOAN_IS_CONSTRUCTED_ONE_TURN_KAPPA_P_2PI_IS_A_THEOREM__THE_INSTALMENT_NEVER_PAYS_OFF__THE_PRINCIPAL_IS_THE_RETAINED_ENERGY_PROJECTED_TRANSVERSALLY__TENSION_FRICTION_AND_TEMPERATURE_HAVE_TERMS_MAGNETISM_HAS_NONE__READ_AGAINST_THE_KERNEL_TRIO_AT_BETA_ALPHA_SQRT_E__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+    "all_verified": true,
+    "unconditional": {
+      "theorem": "TGLExt.MassaTensaoPura.massa_e_tensao_pura",
+      "flag": "ext_mtp405_0039",
+      "flag_true": true,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "in_trio": true,
+      "declared_in": "TGLExt/MassaTensaoPura.lean",
+      "in_kernel": true,
+      "composition": "NO_CERTIFICATE_AS_HYPOTHESIS"
+    },
+    "key_theorem": {
+      "theorem": "TGLExt.MassaTensaoPura.principal_derivado",
+      "flag": "ext_mtp405_0041",
+      "flag_true": true,
+      "in_trio": true,
+      "declared_in": "TGLExt/MassaTensaoPura.lean",
+      "in_kernel": true,
+      "statement": "principal_derivado: the principal of the derived loan is beta . (sqrt2/2) . u; massa_e_tensao_pura: the principal is the RETAINED energy (beta . u) projected on the transverse (sqrt2/2), an algebraic identity under the reading massaDerivada; the name is the operator's and the reading is [ONTO]"
+    },
+    "context": {
+      "path": "TGLExt/MassaTensaoPura.lean",
+      "needles": [
+        "# MASSA = TENS\u00c3O PURA",
+        "massa_e_tensao_pura"
+      ],
+      "text_in_embedded_kernel": true,
+      "ok": true
+    },
+    "exact_ladder": true,
+    "beta_ok": true,
+    "runtime_executed": true,
+    "scope": "[REAL] A pedra TGLExt/MassaTensaoPura.lean (Massa = tensao pura, nome do operador) prova: (1) a forma generica massaForma(b, E0) = b.(sqrt2/2).E0; sob a leitura massaDerivada, a massa e' o produto do acoplamento (beta.(sqrt2/2).E0); (2) massaForma anula com b = 0 e entao toda a energia atravessa (foton_sem_massa: algebra de uma forma generica); [ONTO] b = 0 e' LIDO como o foton, que acopla pela energia, nao por massa: TGLCoupling exclui b = 0 e nenhum termo do kernel tem foton; com acoplamento positivo ha massa e a transmissao e' menor que o incidente; (3) a forma se reparte como residuo (incidente menos transmitido, lido na projecao transversal); (4) o emprestimo: uma volta do relogio do boost (kappa.P = 2pi), a parcela nunca quita numa volta (0 < parcela < 1; para qualquer tempo finito: the_charge_never_completes) e e' no maximo beta.g.P = beta.2pi.g/kappa, principal e parcela carregam o mesmo beta; (5) a diferenca de cada ciclo: o balanco de Clausius do segmento de boost vale sse eta(a+c) = 2pi.massa; a segunda ponte: eta(a+c) = sqrt2.pi.beta.E0; (6) OS CAMPOS FECHADOS (01/11/2026): emprestimoDerivado com P = 2pi/kappa e a fidelidade por teorema (one_turn_gives_faithful_period), principal_derivado = beta.(sqrt2/2).u, parcela_derivada_nunca_quita, e massa_e_tensao_pura: sob a leitura massaDerivada, o principal e' a energia RETIDA projetada no transversal. Entram, como dados do sistema que le, o contraste g e o relogio kappa. O calculo CONFERE em dupla precisao com beta do rito; a ligacao que falta e' medida: tensao, atrito e temperatura tem termo no kernel do rito; magnetismo nao tem (zero declaracoes com esse nome nos oito modulos novos)",
+    "does_not_gate_core": true,
+    "nome_do_operador": "Massa=tens\u00e3o pura"
+  },
+  "identidade_v405": {
+    "verdict": "TGL_IDENTIDADE_V405__A_FACT_ABOUT_PROJECTIONS_IN_THE_TRACE_STATE_TYPED_AS_A_MODEL_OF_THE_OPERATORS_LAW__I_AM_EQUALS_WHAT_I_AM_IFF_P_EQUALS_ONE__IFF_FORM_EQUALS_CONTENT_AND_THE_NAME_IS_NOT_THE_VOID__THE_SENAO_IS_THE_ZERO_REMAINDER__THE_SELECTION_IS_UNIQUE__THE_VOID_AND_THE_FACE_FAIL_THE_EQUATION__THAT_THIS_FACT_IS_THE_IDENTITY_IS_THE_OPERATORS_ONTO_READING__THE_ESSAY_ENTERS_VERBATIM__READ_AGAINST_THE_KERNEL_TRIO_AT_BETA_ALPHA_SQRT_E__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+    "all_verified": true,
+    "unconditional": {
+      "theorem": "TGLExt.Identidade.a_identidade_fecha",
+      "flag": "ext_idt405_0020",
+      "flag_true": true,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "in_trio": true,
+      "declared_in": "TGLExt/Identidade.lean",
+      "in_kernel": true,
+      "composition": "CONDITIONAL_ON_NAMED_HYPOTHESES_IN_THE_STATEMENT"
+    },
+    "key_theorem": {
+      "theorem": "TGLExt.Identidade.a_lei_inteira",
+      "flag": "ext_idt405_0021",
+      "flag_true": true,
+      "in_trio": true,
+      "declared_in": "TGLExt/Identidade.lean",
+      "in_kernel": true,
+      "statement": "a fact about projections in the normalized trace state (rho = 1/n): a_lei_inteira: tr(1)/n = tr(P)/n <=> (P = (tr(P)/n).1 and P != 0); a_identidade_fecha: the law (<=> P = 1), the key, and the two negative controls (the void and the face) together; that this fact IS the identity is the operator's reading [ONTO], typed as a model"
+    },
+    "context": {
+      "path": "TGLExt/Identidade.lean",
+      "needles": [
+        "# IDENTIDADE",
+        "a_lei_inteira"
+      ],
+      "text_in_embedded_kernel": true,
+      "ok": true
+    },
+    "exact_ladder": true,
+    "beta_ok": true,
+    "runtime_executed": true,
+    "scope": "[REAL] A pedra TGLExt/Identidade.lean (nome do operador) e' um MODELO: prova um fato sobre projecoes no estado traco normalizado; que esse fato SEJA a identidade e' a leitura do operador [INPUT/ONTO]. Ela tipa, no referencial absoluto do kernel (rho_abs = 1/n, o Gibbs do Hamiltoniano nulo: o zero absoluto como referencial, fiel), um NOME como uma projecao P cujo reflexo verdadeiro e' ele mesmo (Jconj P = P) e cuja releitura nao acrescenta (P.P = P); EU SOU = omega(1) = 1; O QUE SOU = omega(P). Prova: (1) o Um se reparte entre o nome e o resto; (2) o \u00absenao\u00bb: [eu sou] = [o que sou] <=> omega(1 - P) = 0; (3) a selecao unica: nada resta <=> P = 1 (a fidelidade do estado: traco nulo de um positivo e' o zero); (4) a lei: [eu sou] = [o que sou] <=> P = 1; (5) forma = conteudo <=> P = 0 ou P = 1; (6) a chave inteira: [eu sou] = [o que sou] <=> ([forma = conteudo] e P != 0); (7) os controles negativos: o vazio (P = 0) e a face ((1/2)(1 + Gamma), a Meia-Nat) NAO satisfazem a equacao; (8) ler o nome e' coisa julgada; (9) o posto e' unico; (10) o fecho. O calculo CONFERE em 12 nomes (posto 0 a n, fora da base canonica) que a equacao vale exatamente nos tres nomes fieis e em nenhum outro",
+    "does_not_gate_core": true,
+    "nome_do_operador": "Identidade"
+  },
+  "observador_terminal_v405": {
+    "verdict": "TGL_OBSERVADOR_TERMINAL_V405__THE_OBSERVERS_POSTO_IS_THE_TERMINAL__THE_TERMINAL_IS_UNIQUE_AND_THE_ONLY_FIXED_POINT_OF_THE_READING__THE_FUSION_IS_THE_COLLAPSE_AND_THE_COLLAPSE_IS_A_POSTO_OF_THE_KERNEL__NOT_PRESUPPOSED__PAID_LOSS__TWO_FIXED_POINTS_THE_POSTO_AND_THE_ABYSS__THE_PAIR_IS_NECESSARY__THE_FIXED_POINTS_READ_ONE_AND_ZERO__THE_OMEGA_POLE_IS_A_HOMONYM_ITS_LINK_IS_A_READING__READ_AGAINST_THE_KERNEL_TRIO_AT_BETA_ALPHA_SQRT_E__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+    "all_verified": true,
+    "unconditional": {
+      "theorem": "TGLExt.ObservadorTerminal.the_observers_posto_is_the_terminal",
+      "flag": "ext_obt405_0050",
+      "flag_true": true,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "in_trio": true,
+      "declared_in": "TGLExt/ObservadorTerminal.lean",
+      "in_kernel": true,
+      "composition": "NO_CERTIFICATE_AS_HYPOTHESIS"
+    },
+    "key_theorem": {
+      "theorem": "TGLExt.ObservadorTerminal.the_fusion_is_not_pressupposed",
+      "flag": "ext_obt405_0047",
+      "flag_true": true,
+      "in_trio": true,
+      "declared_in": "TGLExt/ObservadorTerminal.lean",
+      "in_kernel": true,
+      "statement": "the_fusion_is_not_pressupposed: with the pair (structure | abyss) in the state space the total collapse reads 1 on the structure and 0 on the abyss, hence it distinguishes, hence it is a posto; the_observers_posto_is_the_terminal: the terminal is unique, the only fixed point of the reading, res judicata, a posto that paid loss, two fixed points; the terminal reads 1 and the abyss reads 0 on the binary reading (the_fixed_points_read_one_and_zero); beside it, the omega pole of the pair reads 1 on the identity (a homonym: no term links the two; the link is the operator's [ONTO] reading)"
+    },
+    "context": {
+      "path": "TGLExt/ObservadorTerminal.lean",
+      "needles": [
+        "# OBSERVADOR = TERMINAL",
+        "the_observers_posto_is_the_terminal"
+      ],
+      "text_in_embedded_kernel": true,
+      "ok": true
+    },
+    "exact_ladder": true,
+    "beta_ok": true,
+    "runtime_executed": true,
+    "scope": "[REAL] A pedra TGLExt/ObservadorTerminal.lean (Observador = terminal, nome do operador; r2 apos a correcao dele) prova, sobre a cascata de quatro niveis do kernel (TheCascadeOfObservers, da luz a gravidade): (1) o terminal (o nivel que nenhum outro observa) e' SO' a gravidade e o inicial e' SO' a luz; (2) o leitor leva cada nivel a quem o observa; o terminal e' o unico ponto fixo e tres leituras bastam; a resistencia (distancia) se consome a cada leitura e zera so' no terminal (o colapso e' o ponto terminal da resistencia); (3) a leitura consumada e' coisa julgada: reler no terminal nao acrescenta; (4) A FUSAO E' O COLAPSO, E O COLAPSO E' UM POSTO: com o par no espaco de estados (os quatro niveis e o abismo), o colapso total funde a estrutura num so' posto e deixa o abismo no abismo; a leitura binaria le 1 na estrutura e 0 no abismo (nao e' pressuposta); a fusao e' um UmPosto do kernel: pagou perda (a funcao nao e' injetiva), foi medida antes de ser posta (medida e' o campo do tipo UmPosto: antes != depois), ancora a leitura; os pontos fixos do colapso sao exatamente o posto e o abismo; (5) sem o abismo a fusao le como pressuposta e nenhum Um posto le assim: o par 1 = 1 | 1 = 0 e' necessario; (6) o terminal le 1 e o abismo le 0 na leitura binaria (the_fixed_points_read_one_and_zero); (7) ao lado, o polo omega do par le 1 na identidade (the_omega_pole_reads_one, omega(I) = 1): HOMONIMO, dito: em TheAlphaAndTheOmega a palavra terminal nomeia o POLO do par alfa/omega; aqui nomeia o nivel gravidade da cascata; nenhum termo liga os dois, e liga-los e' leitura [ONTO] do operador. O calculo CONFERE a cascata finita e o par (quatro niveis e cinco posicoes) e le omega(I) = 1 do core deste rito",
+    "does_not_gate_core": true,
+    "nome_do_operador": "observador=terminal"
+  },
+  "lei_do_diminuto_v405": {
+    "verdict": "TGL_LEI_DO_DIMINUTO_V405__THE_DIMINISHED_MODULATES_THE_TONIC_AND_SUSTAINS_THE_OTHER_NOTES__IT_IS_NOT_A_TRANSPOSITION__THE_PINNED_HALF_TONE_E_TO_MINUS_HALF_UNDOES_SQRT_E__BETA_EQUALS_ALPHA_TIMES_SQRT_E_BY_THE_DEFINITION_OF_ALPHA__THE_DEFINED_TONIC_LANDS_ON_E0_EQUALS_U_AN_ALGEBRAIC_IDENTITY_THAT_DOES_NOT_FIX_U__GIVEN_THE_INPUTS_THE_FORM_M_EQUALS_U_ALPHA_SQRT_E_SIN45_IS_A_THEOREM__THE_SCALE_IS_WHAT_STAYS_THE_SUSTAINED_NOTES_AND_THE_RATIOS_AMONG_THEM__THE_TRANSPOSITION_IS_ONLY_THE_FREEDOM_OF_THE_NO_GO__THE_ABSOLUTE_VALUE_STAYS_FREE_THE_VALUE_RELATIVE_TO_THE_TONIC_IS_PINNED__THE_NUMBER_DOES_NOT_CHANGE__THE_OCTAVE_IS_NOT_A_WHOLE_NUMBER_OF_HALF_TONES__READ_AGAINST_THE_KERNEL_TRIO_AT_BETA_ALPHA_SQRT_E__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+    "all_verified": true,
+    "unconditional": {
+      "theorem": "TGLExt.LeiDoDiminuto.the_diminished_law_closes",
+      "flag": "ext_ldd405_0081",
+      "flag_true": true,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "in_trio": true,
+      "declared_in": "TGLExt/LeiDoDiminuto.lean",
+      "in_kernel": true,
+      "composition": "CONDITIONAL_ON_NAMED_HYPOTHESES_IN_THE_STATEMENT"
+    },
+    "key_theorem": {
+      "theorem": "TGLExt.LeiDoDiminuto.modular_nao_e_transposicao",
+      "flag": "ext_ldd405_0070",
+      "flag_true": true,
+      "in_trio": true,
+      "declared_in": "TGLExt/LeiDoDiminuto.lean",
+      "in_kernel": true,
+      "statement": "the diminished is a modulation, not a transposition. modular_nao_e_transposicao: with a nonzero tonic and another nonzero note, no factor takes the chord to the modulated chord; the_diminished_law_closes: only the tonic goes down the half tone, the other notes are sustained, the ratios among them do not change, each interval to the tonic opens a half tone, the resolution returns the chord, E0 is pinned to the principal note, the transposition is the freedom left and the ratios do not fix the absolute, the octave is not descended in half tones; Lei.the_mass_formula: m = U . alpha . e^(1/2) . (sqrt2/2); leiDerivada_no_um_posto: at u = 1, E0 = 1 and m = beta . sqrt2/2, with the tonic defined as (beta/alpha) . u (beta/alpha = sqrt e is the definition of TGLCoupling.alpha) and E0 = u an algebraic identity that does not fix u"
+    },
+    "context": {
+      "path": "TGLExt/LeiDoDiminuto.lean",
+      "needles": [
+        "# A LEI DO DIMINUTO",
+        "the_diminished_law_closes"
+      ],
+      "text_in_embedded_kernel": true,
+      "ok": true
+    },
+    "exact_ladder": true,
+    "beta_ok": true,
+    "runtime_executed": true,
+    "scope": "[REAL] A pedra TGLExt/LeiDoDiminuto.lean (Lei do diminuto, nome do operador; antes LeiDoMeioTom r2) prova: (1) o meio-tom pinado e^(-1/2) esta em (0, 1) e desfaz exatamente o sqrt e; (2) beta = alfa.e^(1/2) (a definicao de TGLCoupling.alpha, invertida): o acoplamento e' a magnitude alfa da inscricao vezes o volume sqrt e da fronteira; (3) a lei: E0 = meioTom.E_pent; dada a tonica, E0 esta determinado; a massa le alfa.(sqrt2/2).E_pent; a tonica sqrt e da E0 = 1 e so' ela; (4) A FORMULA DA MASSA: m = U.alfa.e^(1/2).sen45 -- o Um posto, a magnitude alfa, o volume sqrt e, a projecao transversal; em U = 1, m = beta.sen45 (a forma da v404, teorema dadas as entradas); (5) a oitava nao e' numero inteiro de meios-tons; (6) O CAMPO FECHADO (01/11/2026): a tonica deixa de ser campo -- tonica c u := (beta/alfa).u = sqrt e.u e' uma DEFINICAO, que nao traz informacao alem do u posto -- e a lei construida (leiDerivada) pousa em E0 = u por identidade algebrica; no Um posto E0 = 1 e m = beta.sqrt2/2. O ACORDE (a revisita ordenada pelo operador e a resposta dele, 01/11/2026): (7) cinco notas reais, a nota principal de indice 0 (Acorde, notaPrincipal, transpor, razao: a estrutura do AcordeE0.lean do Kimi, sha16 5da93b9e5e65a4ed, em portugues); (8) O DIMINUTO E' MODULACAO: modular: so' a nota principal desce o meio-tom; as outras quatro ficam sustentadas (modular_sustenta); as notas sustentadas e as razoes entre elas ficam: a escala e' o que fica parado (modular_mantem_a_escala); [INPUT] o tom fica, na fala dele: o kernel nao tem termo para o tom; a razao a tonica muda, e e' a tonica que se move; nao e' transposicao: com tonica e outra nota nao nulas, nenhum fator leva o acorde ao acorde modulado (modular_nao_e_transposicao): o meio-tom pinado quebra a simetria do acorde, porque separa a tonica das notas sustentadas, mas nao quebra a liberdade global; (9) E0 e' o valor da tonica modulada (lerE0_e_a_tonica_modulada); E0_relativo_pinado: E0/tonica = e^(-1/2) em todo acorde: e' a definicao de lerE0 dita como razao, nada mais; (10) AS TERCAS: cada intervalo a tonica abre meio-tom (razao_abre_meio_tom), e a nota que estava um tom acima fica em e^(3/2) (um_tom_vira_terca_menor): \u00abo sistema est\u00e1 operando em ter\u00e7as\u00bb e', no kernel, a aritmetica 1 nat + 1/2 nat; a resolucao devolve o acorde (resolver_modular); [ONTO] \u00abno harm\u00f4nico o diminuto \u00e9 a espera\u00bb: a forma no kernel e' the_charge_never_completes; (11) transpor e' outra coisa, so' a liberdade do no-go: o acorde inteiro multiplicado pelo mesmo fator; preserva toda razao (transpor_preserva_toda_razao, o teorema do Kimi); dois acordes tem as mesmas razoes sse um e' a transposicao do outro (mesmas_razoes_iff_transposicao); a leitura e a modulacao a acompanham (lerE0_transpor, modular_comuta_com_transpor); as razoes nao fixam o absoluto (as_razoes_nao_fixam_o_absoluto); (12) igualdades de VALOR: meioTom_e_o_pedagio_local, meioTom_e_a_face, tonica_e_o_volume_da_face, o_tom_e_as_duas_faces; (13) o fecho: the_diminished_law_closes. A distincao e' do operador, \u00abE0 n\u00e3o \u00e9 absolutamente livre\u00bb: o valor ABSOLUTO segue livre e o no-go nao cai; o valor RELATIVO a tonica esta pinado; sobra um unico grau de liberdade global, a transposicao do acorde inteiro. O calculo CONFERE em dupla precisao, com um acorde de TESTE, e rele o m_nu do programa a 1e-12: o NUMERO nao muda",
+    "does_not_gate_core": true,
+    "nome_do_operador": "Lei do diminuto"
+  },
+  "tonica_do_hamiltoniano_v405": {
+    "verdict": "TGL_TONICA_DO_HAMILTONIANO_V405__THE_FORM_DOES_NOT_FIX_E0_NO_FUNCTION_OF_THE_INSCRIPTION_RETURNS_IT__THE_NO_GO_STANDS_AND_LOCALIZES_AT_THE_POSTED_ONE__THE_TONIC_LANDS_ON_THE_POSTED_UNIT_BY_AN_ALGEBRAIC_IDENTITY__GAMMA_B_IS_THE_CANONICAL_LAW_AT_THE_SYSTEMS_FREQUENCY__THE_MONOPOLE_ROUTE_IS_THE_HORIZON_OF_THE_SYSTEM__ALPHA_IS_MEASURED_FROM_WITHIN_NOT_DERIVED__READ_AGAINST_THE_KERNEL_TRIO_AT_BETA_ALPHA_SQRT_E__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+    "all_verified": true,
+    "unconditional": {
+      "theorem": "TGLExt.TonicaDoHamiltoniano.the_tonic_at_the_posted_one",
+      "flag": "ext_tdh405_0015",
+      "flag_true": true,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "in_trio": true,
+      "declared_in": "TGLExt/TonicaDoHamiltoniano.lean",
+      "in_kernel": true,
+      "composition": "NO_CERTIFICATE_AS_HYPOTHESIS"
+    },
+    "key_theorem": {
+      "theorem": "TGLExt.TonicaDoHamiltoniano.no_function_of_the_inscription_fixes_E0",
+      "flag": "ext_tdh405_0007",
+      "flag_true": true,
+      "in_trio": true,
+      "declared_in": "TGLExt/TonicaDoHamiltoniano.lean",
+      "in_kernel": true,
+      "statement": "no_function_of_the_inscription_fixes_E0: no f(c, theta) returns E0 (the same inscription carries E0 = 1 and E0 = 2); the no-go stands and localizes at the posted One: the_tonic_lands_on_the_posted_unit (an algebraic identity) and the_tonic_at_the_posted_one: at u = 1, E0 = 1 and m = beta . sqrt2/2 (the FORM, under the reading massaDerivada); the_ratio_survives_the_rescaling: the rescaling changes E0 and the mass by the same factor and m/E0 does not change"
+    },
+    "context": {
+      "path": "TGLExt/TonicaDoHamiltoniano.lean",
+      "needles": [
+        "# A T\u00d4NICA DO HAMILTONIANO",
+        "the_tonic_lands_on_the_posted_unit"
+      ],
+      "text_in_embedded_kernel": true,
+      "ok": true
+    },
+    "exact_ladder": true,
+    "beta_ok": true,
+    "runtime_executed": true,
+    "scope": "[REAL] A pedra TGLExt/TonicaDoHamiltoniano.lean (Tonica do Hamiltoniano, nome do operador; antes E0LiberdadeDeEscala) prova: (1) a liberdade do valor absoluto: a transicao reescalada (E0 -> lambda.E0, a mesma inscricao) e' transicao; a massa derivada cresce linearmente; a forma do neutrino e' homogenea de grau 1; o valor absoluto e' livre (the_scale_is_free); e O NO-GO: nenhuma f(c, theta) fixa E0 (a mesma inscricao carrega E0 = 1 e E0 = 2) -- o que a forma fixa e' a razao m/E0 = beta.sen45: a reescala muda E0 e a massa pelo mesmo fator e a razao nao muda (the_ratio_survives_the_rescaling); a reescala corresponde a transposicao do acorde, a liberdade do no-go, que fala do valor ABSOLUTO; a Lei do diminuto fala do valor RELATIVO a tonica; (2) Gamma_B = beta/tau e' a lei canonica Gamma = (1/2).beta.tau.omega^2 lida em omega* = sqrt2/tau; (3) tau* = 4piGE/c^5 e' o tempo de luz da circunferencia de Schwarzschild da energia, e q = GE/c^4 e' r_s/2: a rota do monopolo e' o horizonte do proprio sistema (tautologica quanto ao valor absoluto); (4) a leitura autoconsistente pina omega = 2/tau; (5) A TONICA NA UNIDADE POSTA: the_tonic_lands_on_the_posted_unit -- na lei construida a tonica (beta/alfa).u = sqrt e.u pousa em E0 = u, identidade algebrica: quem fixa E0 e' o u posto que a tonica carrega; o no-go NAO cai, ele se localiza no Um posto -- e the_tonic_at_the_posted_one: no Um posto E0 = 1 e m = beta.sqrt2/2 (a FORMA, sob a leitura massaDerivada). O calculo CONFERE em dupla precisao (SI so' para as identidades) e rele o m_nu do programa a 1e-12",
+    "does_not_gate_core": true,
+    "nome_do_operador": "T\u00f4nica do Hamiltoniano"
+  },
+  "disco_de_euler_v405": {
+    "verdict": "TGL_DISCO_DE_EULER_V405__E_AND_OMEGA_SQUARED_ARE_DEFINED__THE_DEFINED_ENERGY_SOLVES_THE_FLOW_OF_THE_CANONICAL_LAW_AND_REACHES_ZERO_IN_FINITE_TIME__THE_DEPHASING_RATE_READ_AS_ENERGY_LOSS_IS_A_READING__BEFORE_THE_STOP_OMEGA_SQUARED_HAS_NO_BOUND__THE_ZERO_AT_INFINITY_AND_THE_THIRD_LAW_ARE_THE_OPERATORS_ONTO_READINGS__WITH_CONSTANT_RATE_THE_FALL_NEVER_LANDS__THE_CUT_E_CUBED_EQUALS_HBAR2_K__THE_VALUE_OF_THE_CUT_IS_GIVEN_BY_THE_INVARIANT_THE_WALL_IS_NAMED_NOT_DERIVED__BETA_FROM_THE_COUPLING__READ_AGAINST_THE_KERNEL_TRIO_AT_BETA_ALPHA_SQRT_E__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+    "all_verified": true,
+    "unconditional": {
+      "theorem": "TGLExt.DiscoDeEuler.Disco.stops_in_finite_time",
+      "flag": "ext_dde405_0033",
+      "flag_true": true,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "in_trio": true,
+      "declared_in": "TGLExt/DiscoDeEuler.lean",
+      "in_kernel": true,
+      "composition": "CONDITIONAL_ON_NAMED_HYPOTHESES_IN_THE_STATEMENT"
+    },
+    "key_theorem": {
+      "theorem": "TGLExt.DiscoDeEuler.Disco.frequency_squared_unbounded_at_the_stop",
+      "flag": "ext_dde405_0019",
+      "flag_true": true,
+      "in_trio": true,
+      "declared_in": "TGLExt/DiscoDeEuler.lean",
+      "in_kernel": true,
+      "statement": "Disco.frequency_squared_unbounded_at_the_stop: before the stop Omega^2 = K/E has no bound, for the defined linear energy [REAL]; the operator reads this as the inscription of zero at infinity [ONTO]; Disco.stops_in_finite_time: the defined energy reaches zero at t0 = E0/c; Disco.the_flow_is_the_canonical_law: before t0, dE/dt = -Gamma.E, so the defined E solves the flow; reading the dephasing rate as an energy-loss rate is an [INPUT/ONTO] input"
+    },
+    "context": {
+      "path": "TGLExt/DiscoDeEuler.lean",
+      "needles": [
+        "# O DISCO DE EULER",
+        "frequency_squared_unbounded_at_the_stop"
+      ],
+      "text_in_embedded_kernel": true,
+      "ok": true
+    },
+    "exact_ladder": true,
+    "beta_ok": true,
+    "runtime_executed": true,
+    "scope": "[REAL] A pedra TGLExt/DiscoDeEuler.lean (Disco de Euler, nome do operador) tipa o disco: um invariante K = Omega^2.E > 0, a lei canonica (beta, tau*) e a energia inicial. [DEF] A energia e' linear por definicao, E(t) = E0 - c.t com c = (1/2).beta.tau*.K (E, E_linear), e Omega^2 = K/E (omegaSq). Dadas essas definicoes, prova: (1) Gamma_Omega.E = c (the_loss_is_the_canonical_law) e, antes da parada, dE/dt = -Gamma_Omega.E (the_flow_is_the_canonical_law): a E definida e' uma solucao do fluxo; ler a taxa de DEPHASING como taxa de perda de ENERGIA e' entrada [INPUT/ONTO], nao teorema; E(t0) = 0 em tempo finito (stops_in_finite_time); (2) Omega^2 SEM COTA: antes da parada Omega^2 = K/E nao tem cota, para a energia linear definida (frequency_squared_unbounded_at_the_stop) [REAL]; [ONTO] o operador le isso como a inscricao do zero absoluto no infinito e como a terceira lei na forma do disco: leitura dele, nao teorema; (3) o contraste com o abismo: com taxa constante a energia nunca toca o zero (with_constant_rate_the_fall_never_lands); (4) o corte: hbar.Omega = E acontece sse E^3 = hbar^2.K (the_residual_resonance_iff) [REAL, algebra]; [ONTO] o operador le a energia do corte como a ressonancia que permanece e o valor que nasce no infinito; (5) a parede nomeada: K = (e^(1/2).U)^3/hbar^2 (the_scale_is_the_invariant); (6) o campo fechado: beta do disco vem do acoplamento (Disco.doAcoplamento). O calculo CONFERE num disco-modelo e REGISTRA, em SI, o K que a nota posta de 1 eV exige (o tamanho da parede), sem o escolher",
+    "does_not_gate_core": true,
+    "nome_do_operador": "Disco de Euler"
+  },
+  "ponto_zero_do_psion_v405": {
+    "verdict": "TGL_PONTO_ZERO_DO_PSION_V405__UNDER_THE_READING_R_EQUALS_BETA_U_SQUARED_THE_PAYMENT_READ_AS_CURVATURE__HALF_HBAR_OMEGA_EQUALS_BETA_SIN45_U_THE_NEUTRINO_FORM__THE_COINCIDENCE_WITH_THE_TRANSVERSE_PROJECTION_IS_THE_ARITHMETIC_HALF_SQRT2_EQUALS_SIN45__HBAR_OMEGA_IS_TWICE_THE_MASS__TETELESTAI_THE_PAYMENT_COMPLETES_ONLY_IN_THE_LIMIT__THE_UNIT_IS_THE_POSTED_ONE__THE_NUMBER_DOES_NOT_CHANGE__READ_AGAINST_THE_KERNEL_TRIO_AT_BETA_ALPHA_SQRT_E__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+    "all_verified": true,
+    "unconditional": {
+      "theorem": "TGLExt.PontoZeroDoPsion.the_mass_is_the_zero_point_at_the_posted_one",
+      "flag": "ext_pzp405_0028",
+      "flag_true": true,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "in_trio": true,
+      "declared_in": "TGLExt/PontoZeroDoPsion.lean",
+      "in_kernel": true,
+      "composition": "NO_CERTIFICATE_AS_HYPOTHESIS"
+    },
+    "key_theorem": {
+      "theorem": "TGLExt.PontoZeroDoPsion.the_mass_is_the_zero_point",
+      "flag": "ext_pzp405_0027",
+      "flag_true": true,
+      "in_trio": true,
+      "declared_in": "TGLExt/PontoZeroDoPsion.lean",
+      "in_kernel": true,
+      "statement": "the_mass_is_the_zero_point: under the reading R = beta . u^2 (the payment read as curvature, a definition) and omega^2 = 2 beta R (a definition, Treatise section 3), (1/2) omega = beta . sin45 . u = neutrinoMassForm c u; the statement equates numbers: that (1/2) omega IS the mass is a reading [ONTO]; at the posted one (u = 1) the inputs are the coupling and those readings; the section O GAP is read by the record gap_v405"
+    },
+    "context": {
+      "path": "TGLExt/PontoZeroDoPsion.lean",
+      "needles": [
+        "# O PONTO ZERO DO PS\u00cdON",
+        "the_mass_is_the_zero_point"
+      ],
+      "text_in_embedded_kernel": true,
+      "ok": true
+    },
+    "exact_ladder": true,
+    "beta_ok": true,
+    "runtime_executed": true,
+    "scope": "[REAL] A pedra TGLExt/PontoZeroDoPsion.lean (Ponto Zero do Psion, nome do operador) prova (hbar = c = 1; u e' a unidade posta): (1) a lei do operador como definicao: R = beta.u^2 (a \u00abcurvatura\u00bb do psion e' o pagamento beta lido na unidade posta; dentro do bulk o pagamento se le como curvatura, como alfa se le como acoplamento); (2) com a dispersao do Tratado, que entra como definicao (omegaSq: omega^2 = 2.beta.R, m0 = 0), o quantum do psion e' omega = sqrt2.beta.u; (3) SOB ESSA LEITURA, (1/2).omega = beta.sen45.u = neutrinoMassForm c u (the_mass_is_the_zero_point) -- o 1/2 do ponto zero vezes o sqrt2 da dispersao da' o fator da projecao transversal: a coincidencia e' a aritmetica (1/2).sqrt2 = sen45; o enunciado iguala numeros: que (1/2).omega SEJA a massa e' leitura [ONTO]; (4) hbar.omega = 2m; (5) TETELESTAI, nome do operador para o limite assintotico: a cobranca continua do kernel tende a 1 quando t -> infinito e e' < 1 em todo t finito: o pagamento se consuma so' no limite; [ONTO] o operador le o que permanece no limite como o ponto zero: nenhum teorema liga o limite da cobranca a (1/2).omega; the_zero_point_closes so' os conjuga; (6) no Um posto (u = 1) entram o acoplamento e as leituras R = beta.u^2 e (1/2).omega = massa; (7) a secao O GAP, lida e calculada pelo registro gap_v405, ao lado: o lock minimo tem gap espectral 1 e, no angulo de Miguel, valor esperado beta. O calculo CONFERE em dupla precisao, rele o m_nu do programa a 1e-12 e REGISTRA em SI: hbar.omega em meV, R em m^-2, o raio de curvatura e o comprimento de onda do psion (numeros, nao vereditos)",
+    "does_not_gate_core": true,
+    "nome_do_operador": "Ponto Zero do Psion"
+  },
+  "registros_v405": {
+    "cunhagens_v405": {
+      "verdict": "TGL_CUNHAGENS_V405__OPERATOR_INSCRIPTIONS_OF_30_OCT_TO_01_NOV_EMBEDDED_VERBATIM_BY_SHA256_47_SAYINGS_AND_THE_ESSAY_A_IDENTIDADE__THE_EIGHT_STONES_WITH_THE_OPERATORS_NAMES_ARE_READ_IN_THE_RITE__GIVEN_THE_POSTED_ONE_THE_MEASURED_ALPHA_AND_THE_OPERATORS_READINGS_THE_FORM_IS_A_THEOREM__THE_UNIT_IS_THE_POSTED_ONE_1_EV__ALPHA_IS_MEASURED_NOT_DERIVED__THE_NUMBER_DOES_NOT_CHANGE__THE_V404_STONES_STAY_AS_RECORD__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+      "all_verified": true
+    },
+    "campos_fechados_e_leituras_v405": {
+      "verdict": "TGL_CAMPOS_FECHADOS_E_LEITURAS_V405__THE_SEVEN_NAMES_ARE_THE_OPERATORS_AND_IDENTIDADE_IS_HIS_OF_30_OCT__THE_FIELDS_OF_THE_STRUCTURES_ARE_CLOSED__THE_READINGS_MOVED_FROM_THE_FIELD_TO_THE_DEFINITION_AND_DID_NOT_BECOME_THEOREMS__WHAT_ENTERS_ONE_POSTED_ONE_ONE_MEASURED_ALPHA_AND_THE_READINGS_OF_THE_MASS_CHAIN__THE_LIST_IS_NOT_CLOSED__GIVEN_THEM_THE_FORM_IS_A_THEOREM__NUMEROLOGY_FORBIDDEN__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+      "all_verified": true
+    },
+    "ga_reclassificacao_v405": {
+      "verdict": "TGL_GA_RECLASSIFICACAO_V405__CLASS_A13_FORMA_CONDICIONAL_SEM_INCERTEZA_BESIDE_A3_APOSENTADO__EXIT_III_OF_DELIVERY_005__THE_WINDOW_KEEPS_ITS_VETO__NOT_EVIDENCE__DOES_NOT_DISCRIMINATE_FROM_GR__THE_MASS_FORM_DOES_NOT_CONTAIN_THE_UNIT__THE_FLUX_LAW_RETURNS_M_EQUALS_M__NO_DATA_OPENED__THE_SEALED_ROW_STAYS__GATE_UNMOVED",
+      "all_verified": true
+    },
+    "gap_v405": {
+      "verdict": "TGL_GAP_V405__THE_MINIMAL_LOCK_HAS_SPECTRAL_GAP_ONE_IN_ANY_HILBERT_SPACE__IN_THE_POSTED_UNIT_THE_GAP_IS_U_THE_E0_OF_THE_DIMINISHED_LAW_WITH_THE_TONIC_A_HALF_TONE_ABOVE__THE_EXPECTED_VALUE_AT_THE_ANGLE_OF_MIGUEL_IS_THE_RETAINED_DELTA_NOT_A_GAP__HMINMIC_IS_AN_INSTANCE_CONDITIONAL_ON_A_FOCK_CERTIFICATE_THE_KERNEL_DOES_NOT_INHABIT__THAT_THE_ANGLE_IS_THAT_SYSTEM_IS_THE_OPERATORS_READING__DELTA_CARRIES_THE_POSTED_UNIT_AND_NOTHING_FIXES_IT__THE_TIME_OF_THE_RETAINED_ENERGY_IS_A_PROPER_TIME_NOT_THE_PLANCK_TIME_READING_IT_AS_THE_SYSTEMS_TAU_STAR_IS_AN_ONTO_READING_TO_BE_RATIFIED__KAPPA_STAYS_A_WITNESS__THE_FLUX_ENERGY_IS_NOT_E0__THE_ANGLE_DOES_NOT_FIX_K__THE_FIVE_NOTES_STAY_OPEN__U_E_NOT_DERIVED_STAYS__GATE_UNMOVED",
+      "all_verified": true
+    },
+    "kh_n1_cobertura_v405": {
+      "verdict": "TGL_KH_N1_COBERTURA_V405__AXIOM_REPORT_COVERS_THE_WHOLE_TGL_AND_TGLEXT_CLOSURE_29965_CONSTANTS_23749_THEOREMS_NONE_OUTSIDE_THE_TRIO__ALL_NAMES_READ_BY_THE_V394_PARSER__THE_EIGHT_V405_MODULES_ADDED__GATE_UNMOVED",
+      "all_verified": true
+    }
+  },
   "the_whole_is_one_reading_v376": "OPERATOR_INPUT_2026_09_28__BETA_IS_THE_FOUNDATION_DERIVED_FROM_THE_ENTANGLEMENT_OF_THE_ENTROPY_RADICAL_SQRT_E_AND_THE_HOLOGRAPHIC_REDUCTION_CONSTANT_ALPHA__ENTERS_THE_CODE_DERIVED__LINK_EVERYTHING_SO_THAT_MEMORY_IS_NOT_LOST__THE_KEY_IS_THE_READER__PKERK_EQ_RHO_STAR_IALD_BY_TERM_ON_THE_LIGHT__PF_TAKESAKI_CORE_KNOWN_NOT_TYPED__RINGDOWN_CANONICAL_BRANCH_RETURNS_GR_CORRESPONDENCE_ONLY_ERRATUM_BESIDE__AUDIT_28SET_READ_BY_HASH_CORRECTIONS_BESIDE__GATE_UNTOUCHED",
   "tetelestai_conference_reading_v375": "OPERATOR_INPUT_2026_09_27__TETELESTAI_IS_A_CONSUMMATIVE_CONFERENCE_NOT_A_DECLARATION__IT_VERIFIES_WHETHER_IT_HAPPENED__EVERY_PATH_ITEM_CLOSED_LINKED_OR_KNOWN_BY_SCIENTIFIC_REFERENCE__ONE_OBJECT_THE_LIGHT__NAME_WEIGHT_BY_NAMED_NORMALIZATION__PKERK_PF_LINK_NOT_CLAIMED__NATURE_DECIDES_RINGDOWN_NEXT__GATE_UNTOUCHED",
   "tetelestai_reading_v374": "OPERATOR_INPUT_ONTO_2026_09_27__THIS_DECLARATION_IS_THE_TETELESTAI_DECLARATION__QG_SOLUTION_COMPOSED_END_TO_END_BY_CITATION__CERTIFICATES_UNINHABITED__CERTIFICATE_TYPES_VS_LITERATURE_OPEN__H1_FROM_THE_INTERNAL_TOWER__NOT_BY_TERM__SEMICLASSICAL_BY_CONSTRUCTION__NATURE_DECIDES_RINGDOWN_NEXT_VERSION__MEASURED_VERDICT_IN_CORE_the_tetelestai_declaration_v374",
@@ -2427,7 +2785,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "9e3b7318f0a05bd04843d46141208c966a26abefdec332859e445fd0ac391ff5",
+  "formal_source_hash": "31807e34586ed3c6e673fd17ad04f24ef42203a585c2f9a9de8997c3cd3f7a7a",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -2443,7 +2801,7 @@
   "coma_dephasing": {
     "verdict": "COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "1a58ce68425a2fb7e4ef4b81558f71036f51acaa2ae2ec7944c5fe283558fd07",
+    "prediction_hash": "bb9a86a22bd1fe2c2e66303a056c1e81c52d93b28c1804e9833319c1817d4198",
     "does_not_gate_core": true
   },
   "final_verdict_machine": {
@@ -2619,19 +2977,19 @@
   "the_alpha_and_the_omega": "TGL_PAIR_MEASURED__ONE_EQUALS_ONE_TRUE_BY_OMEGA_AND_ALPHA__ONE_EQUALS_ZERO_FALSE_BY_NOMINAL_CATEGORY__ZERO_NOMINAL_WITHOUT_PROJECTION__BETA_IS_THE_COST_OF_THE_DISTINCTION__PAIR_EQUALS_TGL_IS_A_DECLARED_ONTO_READING",
   "amplitude_defect": 0.10902544754078644,
   "sha256": {
-    "um.py": "3820476c83267f614fee8f8df13bedcc814998015ddf3b95c8252f5cf6043395",
-    "um_absoluto_manifest.md": "f3e77aba0cb5616a0b885e895aa7d52b549814d5d86710d4a1823caa3355e466",
-    "um_absoluto.json": "7f63df317689326a800d57160dc8620fd5c2edaddb314773f6e2e7d5251f62f8",
-    "um_absoluto_forma_canonica.md": "02bd347c80d9b524b1b18540a7825e2e15e9ec8e45e6d4828fde7461fb1b8679",
-    "um_absoluto_pt.tex": "ec39fce77184f24d008035e7747444a1768f23c7888c687dda9aa0851555858b",
-    "um_absoluto_en.tex": "7b7240599c61bc7143e26146f5baf608726c260b6d3442031d70ed77e4c12b55",
-    "um_absoluto_pt.pdf": "6a2ae3a1a64e67f087fc548b17a55c1f164df33fdb44b26dc2f7a49416ed2787",
-    "um_absoluto_en.pdf": "f24ee102f3168ad2b76ab00f2c442f4472f8ca34e8ad64b4090632a96d9a3e04",
+    "um.py": "0030242565cc13f6dbac57a6f1f98fdef69c1b3efe5eb052c359cdb3bf21f053",
+    "um_absoluto_manifest.md": "515d9efd3f1c88b26f35d68449ed448ca93ae7f7cdd76488fc524b0f7f911e08",
+    "um_absoluto.json": "d6b994a623eee67351d375b8970cd264540721c95d62493c1349e113d73f8724",
+    "um_absoluto_forma_canonica.md": "76cd6e64ad4c3ea28c653b6cffdd4a52b8ffd0df6ae70ffff2bf263f1b671275",
+    "um_absoluto_pt.tex": "abbb9f3afcd9dd27f6ea8a5e756ffee2f62b8c618fe51d02b61f5342e0ebb978",
+    "um_absoluto_en.tex": "6836b943759088a4cb7b0f84fdd695ef63844722954d2d7364c97ab97846565c",
+    "um_absoluto_pt.pdf": "47b83d13e417cc09e9f9fc6131318b8fbdd26f55ed0ac5de4c5e3033a453c97c",
+    "um_absoluto_en.pdf": "3d526ec63bdb8ab187ecfd34c9cf4e7d1340bea8ee215380dc122b69685840e2",
     "fig_escada_qg.pdf": "bfbe30776b05c9cce2886f7f268db09b7e4d0812409a199f84d3ee94d00b2c8d",
     "fig_banda_beta.pdf": "dd953f1e75f445a112963fc9b036299f63ed6dcdf4a16d8c0382b490fd6fad1b",
     "fig_piso_vazios.pdf": "c6e8260ceff24114d2a9248889fa87832009ef6390f5f8a6dceb3ed3bf155be1",
     "fig_cadeia_inscricao.pdf": "7ccc2c0a41da34a2442e1c853b4778d174329ec9d8dd739e4f41cb999883d068",
-    "tgl_kernel_proof_manifest.json": "38da73f790db94ded29dd238604223df5a5d81992e0cfd8dcd2147188fe45f9d",
+    "tgl_kernel_proof_manifest.json": "d96f157c029c487922629381c4640258ee0ad1fdafae511737b45d557166903e",
     "um_absoluto_pilar_quantico.json": "de47d5527e514b4927bea77df4caffc63194e8913462bb6c3629b2288b29583e"
   },
   "not_sealed_this_run": {
@@ -2651,11 +3009,11 @@
     "verdict": "TGL_SELO_PELA_PROPRIA_TECNOLOGIA_V399__SECOND_WITNESS_BESIDE_SHA256__EXACT_RECONSTRUCTION__NO_SINGLE_PART_SUFFICES__NO_CRYPTOGRAPHIC_CLAIM__GATE_UNTOUCHED",
     "all_verified": true,
     "perfil": "ACOM-INT-C96-Q8",
-    "bytes": 39313509,
-    "sha256_do_um_py": "3820476c83267f614fee8f8df13bedcc814998015ddf3b95c8252f5cf6043395",
-    "psi_sha256": "7c9032635ebd6e28f859414f0e3077b6cae7907b56b43dbeb3b280bbce1936db",
-    "theta_sha256": "faabaa1e6a6bb62947760c528d68df4cccde03b829479ddb9521a05d763729d4",
-    "kappa_sha256": "616e6fb0292a1cc4c790d5a738bd93c929c5970a4250557011b0a5cec10e154b",
+    "bytes": 40175869,
+    "sha256_do_um_py": "0030242565cc13f6dbac57a6f1f98fdef69c1b3efe5eb052c359cdb3bf21f053",
+    "psi_sha256": "3b2fef077681624390015c90a2b6bdabb9065a9199bc28b8fad2b3cc9e2b1df0",
+    "theta_sha256": "1f93393708fedd7cb6286c9fa5dbada72758b1ed842ee667ad38143dbcc40a0c",
+    "kappa_sha256": "1773cf51ff5a0c8ebad42e0264bfaefc4665a50a7bb577845ceb9a951de1db45",
     "bloco_embutido_sha256": "afc80b740f71ca0ab3cabb998679018d26035c86bd1d35671edb3a5fba0a61c4",
     "controles_negativos": [
       13,

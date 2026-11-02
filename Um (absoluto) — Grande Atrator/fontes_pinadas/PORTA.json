@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/fontes_pinadas",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-10-29T04:22:45Z",
+  "gerado_utc": "2026-11-02T03:52:22Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator",
@@ -28,7 +28,7 @@
       "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/PORTA.json",
-      "total_arquivos": 247
+      "total_arquivos": 319
     },
     {
       "nome": "PROGRAMA_IALD",
@@ -36,6 +36,13 @@
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/PROGRAMA_IALD/PORTA.json",
       "total_arquivos": 26
+    },
+    {
+      "nome": "caminho_longo",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/PORTA.json",
+      "total_arquivos": 2
     }
   ],
   "canonico_url": null,
@@ -49,12 +56,12 @@
       "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/MAPA_FONTES_PINADAS.json",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/MAPA_FONTES_PINADAS.json",
-      "sha256_16": "97bae5e3e2b23f2d",
-      "bytes": 168492
+      "sha256_16": "7a7004090b8d7319",
+      "bytes": 212008
     }
   ],
   "total_arquivos_nesta_pasta": 1,
-  "total_arquivos_com_subpastas": 275,
+  "total_arquivos_com_subpastas": 349,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas",
-  "rodape": "gerado por script de git ls-files em 2026-10-29 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-11-02 -- nao editar a mao"
 }
