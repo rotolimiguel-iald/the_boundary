@@ -1,0 +1,46 @@
+{
+  "porta": "tools/readme_pinado",
+  "porta_id": "tools/readme_pinado",
+  "titulo": "tools/readme_pinado",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-11-03T11:37:33Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "tools",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [
+    {
+      "nome": "readme_partes",
+      "caminho": "tools/readme_pinado/readme_partes",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_partes/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_partes/PORTA.json",
+      "total_arquivos": 5
+    }
+  ],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "readme_template.md",
+      "caminho": "tools/readme_pinado/readme_template.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_template.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/readme_pinado/readme_template.md",
+      "sha256_16": "e68d73d6ab13e738",
+      "bytes": 3772
+    }
+  ],
+  "total_arquivos_nesta_pasta": 1,
+  "total_arquivos_com_subpastas": 6,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/tools/readme_pinado",
+  "rodape": "gerado por script de git ls-files em 2026-11-03 -- nao editar a mao"
+}

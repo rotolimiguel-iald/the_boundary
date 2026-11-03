@@ -36,6 +36,12 @@ Pasta do repositorio the_boundary com 8 arquivo(s) rastreado(s).
 | `pos_push.py` | Codigo executavel | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/pos_push.py) |
 | `verificar_portas.py` | Codigo executavel | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/verificar_portas.py) |
 
+## AS PORTAS ABAIXO
+
+| subpasta | arquivos | PORTA.md | PORTA.json |
+|---|---|---|---|
+| `readme_pinado/` | 6 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/PORTA.json) |
+
 ---
 
 gerado por script de git ls-files em 2026-11-03 -- nao editar a mao

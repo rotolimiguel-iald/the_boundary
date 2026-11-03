@@ -96,10 +96,10 @@ TGL_COMA_REVEAL=1 echo 1 | python um.py   # com a abertura de Coma (Windows: set
 Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para o selo formal; sem eles: FORMAL_CHECKER_UNAVAILABLE, fail-closed) | pdflatex (opcional).
 ````
 
-### 4. `README.md` — bytes 10.040–10.806
+### 4. `README.md` — bytes 10.036–10.694
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `20d165f83fdcef88f6e3b7e6879f197878517915655aef421760d6771a2e70ab` (computed now; this file is not in the seal map) · of this excerpt: `88baad4dea66c4d5e8b60bf589d0e340ce1904f43400aa554624d9513780e3fd`
+- sha256 of the file: `058a383427642592d0739e9ed733a7a7b5ffaf3b6940ac00915e81390d980bdf` (computed now; this file is not in the seal map) · of this excerpt: `6a2e457d8b2f8807cba7bc314592ab9a24bb78bc7b6378d2ac8a2764051e411b`
 - status · estatuto: [REAL — three commands] README do espelho
 - why · por quê: Os três comandos de reprodução (curl, sha256sum, echo 1 | python um.py), a leitura por Range, o limite de renderização do GitHub e a necessidade de clonar para os ritos lerem ../cache.
 
@@ -112,7 +112,7 @@ sha256sum um.py            # must print ddcb91930982d6143f47127d43020ab97cb9f527
 echo 1 | python um.py      # the rite: builds the Lean kernel, audits every theorem, re-derives the chain, emits the article
 ```
 
-GitHub raw and Zenodo honour HTTP `Range` (206): read `um.py` in pieces (`curl -r 0-999999 …`). GitHub does **not render** files above 5 MB (the blob page looks empty; the raw URL serves the whole file). To reproduce the nature rites as sealed, clone the repository: `um.py` reads its results from `../cache` by hash.
+GitHub raw and Zenodo honour HTTP `Range` (206): read `um.py` in pieces (`curl -r 0-999999 …`). To reproduce the nature rites as sealed, clone the repository: `um.py` reads its results from `../cache` by hash.
 ````
 
 ---

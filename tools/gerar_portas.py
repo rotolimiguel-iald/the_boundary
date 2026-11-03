@@ -258,9 +258,11 @@ def papel(f):
 
 DESC = {
     # ----- raiz
-    "README.md": "A PAGINA DE FRENTE, gerada por script (tools/gerar_readme_frente.py, 11/09/2026): o selo, reproduzir em tres comandos, as portas, os tres artigos, a ordem de leitura, abstract, citar, licenca, autor -- <= 40 KB; o atlas completo esta em LEDGER.md",
+    "README.md": "A PAGINA DE FRENTE, gerada por script (tools/custodia_g1/readme_pinado.py a partir de PRIMORDIAL.json, pinado por PINO_README.json; antes tools/gerar_readme_frente.py, 11/09/2026): o selo, reproduzir em tres comandos, as portas, os tres artigos, a ordem de leitura, abstract, citar, licenca, autor -- <= 40 KB; o atlas completo esta em LEDGER.md",
     "LEDGER.md": "O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove) -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (" + str(round(os.path.getsize(os.path.join(REPO, "LEDGER.md")) / 1024)) + " KB; leia por ultimo)",
     "llms.txt": "A porta de entrada para IA (convencao llmstxt.org): as URLs raw diretas de tudo que importa",
+    "PRIMORDIAL.json": "A FONTE UNICA das informacoes primordiais (README pinado e site): cada numero com a chave de origem, o arquivo e o sha256 da fonte -- gerada por tools/custodia_g1/primordial.py, nunca a mao",
+    "PINO_README.json": "O PINO do README: sha256 do README gerado, do PRIMORDIAL.json, do template, das partes e do selo de que nasceu -- o README so' se edita pelo gerador",
     "ESTADO_ATUAL.md": "UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- a segunda leitura, depois do read-brief",
     "read-brief.md": "O READ BRIEF (gerado por script pela sessao do site): a ENTRADA UNICA -- a teoria em oito partes curtas (secoes/), cada uma com a resposta nos primeiros 2 KB e as fontes citadas verbatim; a ordem de leitura por tamanho; o que ainda nao esta provado, ou ainda nao creditado",
     "CITATION.cff": "Como citar: DOI " + DEP_DOI + " (" + DEP_V + "), autor, versao, e as URLs diretas do um.py e do selo",
@@ -1072,6 +1074,8 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("- [PORTA.json (raiz)](%s): o manifesto de maquina -- selo corrente, as portas abaixo e o mapa completo de todas as portas do repositorio." % registra(porta_json_url("")))
     T.append("- [PORTA.md (raiz)](%s): a mesma porta em leitura humana, com o selo e o mapa." % registra(porta_md_url("")))
     T.append("- [README.md](%s): a PAGINA DE FRENTE (<= 40 KB, gerada por script): o selo, reproduzir, as portas, os tres artigos, a ordem de leitura, abstract, citar." % registra(url_raw("README.md")))
+    T.append("- [PRIMORDIAL.json](%s): a FONTE UNICA das informacoes primordiais -- cada numero do README e do site com a chave de origem, o arquivo e o sha256 da fonte (gerada por script)." % registra(url_raw("PRIMORDIAL.json")))
+    T.append("- [PINO_README.json](%s): o PINO do README -- sha256 do README, do PRIMORDIAL.json, do template, das partes e do selo; o README so' se edita pelo gerador." % registra(url_raw("PINO_README.json")))
     if os.path.isfile(os.path.join(REPO, "LEDGER.md")):
         T.append(("- [LEDGER.md](%s): o LIVRO-RAZAO -- o atlas da fronteira como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove): toda afirmacao com seu status e o link direto do arquivo onde se le (" + str(round(os.path.getsize(os.path.join(REPO, "LEDGER.md")) / 1024)) + " KB; leia por ultimo).") % registra(url_raw("LEDGER.md")))
     T.append("- [site oficial](%s): a face publica da teoria; a porta acima da raiz." % SITE)

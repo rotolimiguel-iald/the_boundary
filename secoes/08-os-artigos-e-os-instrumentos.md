@@ -18,10 +18,10 @@ O Artigo A, O Custo Geométrico do Zero Absoluto: haja luz, toma α CODATA [KNOW
 
 ## Sources, verbatim · fontes, verbatim
 
-### 1. `README.md` — bytes 18.450–21.884
+### 1. `README.md` — bytes 18.338–21.631
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `20d165f83fdcef88f6e3b7e6879f197878517915655aef421760d6771a2e70ab` (computed now; this file is not in the seal map) · of this excerpt: `33b5efde809b037913067b39a2e530a7691d7e5657fc9e72a531fb5afb4149cb`
+- sha256 of the file: `058a383427642592d0739e9ed733a7a7b5ffaf3b6940ac00915e81390d980bdf` (computed now; this file is not in the seal map) · of this excerpt: `64a8f73a3ce17cf7440dad5b43d42165762859da6fefacc964f50995b35235a3`
 - status · estatuto: [REAL — index of the v368 mirror]
 - why · por quê: The canonical table of the three articles (A, B, C): for each, the canonical file, the PDF/TeX route and the door; current in v368.
 
@@ -32,7 +32,7 @@ O Artigo A, O Custo Geométrico do Zero Absoluto: haja luz, toma α CODATA [KNOW
 |---|---|---|---|
 | **A** | *O Custo Geométrico do Zero Absoluto: haja luz* — the cost, β = α·√e, the Lagrangian ([erratum beside, 19/09/2026](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/ERRATA_20260919_sinal_do_acoplamento_nao_minimo.md)) | [`paper_PT.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/paper_PT.tex) (text) · [`tgl_paper_unified.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/tgl_paper_unified.py) · [PDF](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/paper_PT.pdf) | [door](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/PORTA.md) |
 | **B** | *A Ponte Einstein–Cartan–Miguel* — Cartan torsion as the geometric face of β; the Theorem of Terminality | [`.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/A%20Ponte%20Einstein%20Cartan%20Miguel.tex) (text) · [PDF](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/A%20Ponte%20Einstein%20Cartan%20Miguel.pdf) | [door](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/PORTA.md) |
-| **C** | *Um: Absoluto* — the terminal program, the sealed closure | [`um.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py) · article as text [EN](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.txt) · [PT](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt) · PDF [EN](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.pdf) · [PT](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.pdf) · [the proof tree](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md) · [the canonical form](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md) | [door](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md) |
+| **C** | *Um: Absoluto* — the terminal program, the sealed closure | article as text [EN](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.txt) · [PT](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt) · PDF [EN](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.pdf) · [PT](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.pdf) · [the proof tree](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md) · [the canonical form](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md) | [door](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md) |
 
 The lineage that led to them: [*Genesis da Unificação*](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md). Every folder has a `PORTA.md` + `PORTA.json` (no door is a dead end); the flat index of every file (URL, size, hash) is [`TUNEL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json).
 ````
@@ -69,10 +69,10 @@ POA com honestidade (inclusive nulos) e reconhece a abertura angular como
 \emph{conceito fundador} da geometria modular --- nunca por declarar identidade.
 ````
 
-### 3. `README.md` — bytes 10.040–10.806
+### 3. `README.md` — bytes 10.036–10.694
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `20d165f83fdcef88f6e3b7e6879f197878517915655aef421760d6771a2e70ab` (computed now; this file is not in the seal map) · of this excerpt: `88baad4dea66c4d5e8b60bf589d0e340ce1904f43400aa554624d9513780e3fd`
+- sha256 of the file: `058a383427642592d0739e9ed733a7a7b5ffaf3b6940ac00915e81390d980bdf` (computed now; this file is not in the seal map) · of this excerpt: `6a2e457d8b2f8807cba7bc314592ab9a24bb78bc7b6378d2ac8a2764051e411b`
 - status · estatuto: [REAL — three commands, v368]
 - why · por quê: How Article C (um.py) is fetched, checked by hash and run; also covers HTTP Range and GitHub not rendering files above 5 MB (the raw URL serves the whole file).
 
@@ -85,7 +85,7 @@ sha256sum um.py            # must print ddcb91930982d6143f47127d43020ab97cb9f527
 echo 1 | python um.py      # the rite: builds the Lean kernel, audits every theorem, re-derives the chain, emits the article
 ```
 
-GitHub raw and Zenodo honour HTTP `Range` (206): read `um.py` in pieces (`curl -r 0-999999 …`). GitHub does **not render** files above 5 MB (the blob page looks empty; the raw URL serves the whole file). To reproduce the nature rites as sealed, clone the repository: `um.py` reads its results from `../cache` by hash.
+GitHub raw and Zenodo honour HTTP `Range` (206): read `um.py` in pieces (`curl -r 0-999999 …`). To reproduce the nature rites as sealed, clone the repository: `um.py` reads its results from `../cache` by hash.
 ````
 
 ---

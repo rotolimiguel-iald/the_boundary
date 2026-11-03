@@ -13,6 +13,8 @@ A REGRA DA PORTA: toda pasta canonica tem PORTA.md + PORTA.json; toda porta apon
 - [PORTA.json (raiz)](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.json): o manifesto de maquina -- selo corrente, as portas abaixo e o mapa completo de todas as portas do repositorio.
 - [PORTA.md (raiz)](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md): a mesma porta em leitura humana, com o selo e o mapa.
 - [README.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md): a PAGINA DE FRENTE (<= 40 KB, gerada por script): o selo, reproduzir, as portas, os tres artigos, a ordem de leitura, abstract, citar.
+- [PRIMORDIAL.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PRIMORDIAL.json): a FONTE UNICA das informacoes primordiais -- cada numero do README e do site com a chave de origem, o arquivo e o sha256 da fonte (gerada por script).
+- [PINO_README.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PINO_README.json): o PINO do README -- sha256 do README, do PRIMORDIAL.json, do template, das partes e do selo; o README so' se edita pelo gerador.
 - [LEDGER.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md): o LIVRO-RAZAO -- o atlas da fronteira como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove): toda afirmacao com seu status e o link direto do arquivo onde se le (821 KB; leia por ultimo).
 - [site oficial](https://teoriadagravitacaoluminodinamica.com): a face publica da teoria; a porta acima da raiz.
 - [repositorio](https://github.com/rotolimiguel-iald/the_boundary): a arvore no GitHub.
@@ -74,7 +76,7 @@ Do menor para o maior; cada arquivo se sustenta sozinho (tamanhos lidos agora):
 Download em pedacos: o raw do GitHub e o Zenodo honram HTTP Range (206 Partial Content, byte-exato):
   curl -L -r 0-999999 -o um.py.part1 "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"   (depois -r 1000000-1999999, e assim por diante)
 
-## O TUNEL -- o mapa plano inteiro (1452 KB: para baixar inteiro, nao para janela de chat)
+## O TUNEL -- o mapa plano inteiro (1454 KB: para baixar inteiro, nao para janela de chat)
 
 As PORTAS sao hierarquicas (raiz -> pasta -> arquivo) e voce pode errar o nome no
 caminho. O TUNEL e plano: um GET e voce tem TODOS os arquivos com URL raw direta,
