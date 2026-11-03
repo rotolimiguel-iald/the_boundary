@@ -4,7 +4,7 @@
   "titulo": "tools/readme_pinado/readme_partes",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-11-03T11:37:33Z",
+  "gerado_utc": "2026-11-03T21:57:38Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "tools/readme_pinado",
@@ -47,7 +47,7 @@
       "descricao": "Documento em Markdown",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_partes/citar.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/readme_pinado/readme_partes/citar.md",
-      "sha256_16": "182aa1dc32059988",
+      "sha256_16": "87dd461b5fc71324",
       "bytes": 3284
     },
     {

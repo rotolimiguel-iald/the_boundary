@@ -15,7 +15,7 @@ Face C resolvida como FECHAMENTO CONDICIONAL (Teorema da Terminalidade descarreg
 a Hipotese U, herdada de Takesaki); nenhuma alegacao incondicional e' feita.
 Acompanham 12 modulos de sombra finita: cada .py recomputa seu .json datado.
 
-**Deposito independente (Zenodo):** https://doi.org/10.5281/zenodo.20999495
+**Deposito independente (Zenodo):** https://doi.org/10.5281/zenodo.20630106
 
 ## COMO EXECUTAR O CANONICO
 

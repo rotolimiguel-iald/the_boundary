@@ -5,7 +5,7 @@
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
   "doi_um_absoluto": "https://doi.org/10.5281/zenodo.23649800",
-  "gerado_utc": "2026-11-03T11:37:33Z",
+  "gerado_utc": "2026-11-03T21:57:38Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
     "versao": "v371",
@@ -195,17 +195,17 @@
     {
       "nome": "LEDGER.md",
       "papel": "documento",
-      "descricao": "O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove) -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (821 KB; leia por ultimo)",
+      "descricao": "O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove) -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (822 KB; leia por ultimo)",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md",
-      "sha256_16": "0f730fe45975996f",
-      "bytes": 840560
+      "sha256_16": "fc6dd610ab627f63",
+      "bytes": 841807
     },
     {
       "nome": "PINO_README.json",
       "papel": "resultado selado",
       "descricao": "O PINO do README: sha256 do README gerado, do PRIMORDIAL.json, do template, das partes e do selo de que nasceu -- o README so' se edita pelo gerador",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PINO_README.json",
-      "sha256_16": "b4dc12200bb00e0a",
+      "sha256_16": "e5010226f8a066db",
       "bytes": 1798
     },
     {
@@ -221,7 +221,7 @@
       "papel": "documento",
       "descricao": "A PAGINA DE FRENTE, gerada por script (tools/custodia_g1/readme_pinado.py a partir de PRIMORDIAL.json, pinado por PINO_README.json; antes tools/gerar_readme_frente.py, 11/09/2026): o selo, reproduzir em tres comandos, as portas, os tres artigos, a ordem de leitura, abstract, citar, licenca, autor -- <= 40 KB; o atlas completo esta em LEDGER.md",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-      "sha256_16": "058a383427642592",
+      "sha256_16": "cc3b5b1c7396af15",
       "bytes": 40802
     },
     {

@@ -126,7 +126,7 @@
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
    "o_que_e": "O atlas da fronteira",
-   "sha256_16": "058a383427642592",
+   "sha256_16": "cc3b5b1c7396af15",
    "bytes": 40802
   },
   "llms": {
@@ -1353,8 +1353,8 @@
   {
    "path": "LEDGER.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md",
-   "bytes": 840560,
-   "sha256_16": "0f730fe45975996f",
+   "bytes": 841807,
+   "sha256_16": "fc6dd610ab627f63",
    "papel": "documento"
   },
   {
@@ -1403,7 +1403,7 @@
    "path": "PINO_README.json",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PINO_README.json",
    "bytes": 1798,
-   "sha256_16": "b4dc12200bb00e0a",
+   "sha256_16": "e5010226f8a066db",
    "papel": "resultado selado"
   },
   {
@@ -1417,7 +1417,7 @@
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
    "bytes": 40802,
-   "sha256_16": "058a383427642592",
+   "sha256_16": "cc3b5b1c7396af15",
    "papel": "documento"
   },
   {
@@ -26848,7 +26848,7 @@
    "path": "tools/gerar_portas.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_portas.py",
    "bytes": 101347,
-   "sha256_16": "26603eb715db458e",
+   "sha256_16": "d91339afb5e54336",
    "papel": "codigo"
   },
   {
@@ -26897,7 +26897,7 @@
    "path": "tools/readme_pinado/readme_partes/citar.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_partes/citar.md",
    "bytes": 3284,
-   "sha256_16": "182aa1dc32059988",
+   "sha256_16": "87dd461b5fc71324",
    "papel": "documento"
   },
   {

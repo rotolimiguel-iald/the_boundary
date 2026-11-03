@@ -457,7 +457,7 @@ PASTAS = {
         titulo="Artigo 2 -- A Ponte Einstein-Cartan-Miguel",
         subtitulo="The operator-algebra Bridge from the modular boundary to Einstein's equations",
         canonico=A2 + "/A Ponte Einstein Cartan Miguel.tex",
-        doi="https://doi.org/10.5281/zenodo.20999495",
+        doi="https://doi.org/10.5281/zenodo.20630106",
         comando=[
             'cd "A Ponte-Einstein_Cartan_Miguel"',
             'python "tgl krein signature v1.py"    # um por modulo; recomputa o JSON datado',

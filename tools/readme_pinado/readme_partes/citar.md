@@ -17,7 +17,7 @@
              from the modular boundary to Einstein's equations},
   year    = {2026},
   journal = {Zenodo},
-  doi     = {10.5281/zenodo.20999495},
+  doi     = {10.5281/zenodo.20630106},
   note    = {Quantum gravity from the type-III$_1$ boundary cocycle: a CONDITIONAL
              closure. Lemma 3 (unconditional global lift) remains OPEN.}
 }
