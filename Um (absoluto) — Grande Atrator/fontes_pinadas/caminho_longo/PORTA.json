@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-11-02T14:13:19Z",
+  "gerado_utc": "2026-11-03T05:24:28Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas",
@@ -21,6 +21,56 @@
   "dependencias": null,
   "arquivos": [
     {
+      "nome": "25010b04c17e8ce1.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/25010b04c17e8ce1.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/25010b04c17e8ce1.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/25010b04c17e8ce1.txt",
+      "sha256_16": "25010b04c17e8ce1",
+      "bytes": 377
+    },
+    {
+      "nome": "3a52cc836c5e87a9.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/3a52cc836c5e87a9.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/3a52cc836c5e87a9.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/3a52cc836c5e87a9.txt",
+      "sha256_16": "3a52cc836c5e87a9",
+      "bytes": 143
+    },
+    {
+      "nome": "3fa8a6a986b61ee7.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/3fa8a6a986b61ee7.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/3fa8a6a986b61ee7.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/3fa8a6a986b61ee7.txt",
+      "sha256_16": "3fa8a6a986b61ee7",
+      "bytes": 469
+    },
+    {
+      "nome": "43c3ce378221371a.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/43c3ce378221371a.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/43c3ce378221371a.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/43c3ce378221371a.txt",
+      "sha256_16": "43c3ce378221371a",
+      "bytes": 156
+    },
+    {
+      "nome": "69e60a8c72fa305f.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/69e60a8c72fa305f.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/69e60a8c72fa305f.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/69e60a8c72fa305f.txt",
+      "sha256_16": "69e60a8c72fa305f",
+      "bytes": 243
+    },
+    {
       "nome": "7c2caaa87b0cdb01.txt",
       "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/7c2caaa87b0cdb01.txt",
       "papel": "dados",
@@ -31,6 +81,56 @@
       "bytes": 1166
     },
     {
+      "nome": "87a9ca65a5d63d1b.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/87a9ca65a5d63d1b.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/87a9ca65a5d63d1b.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/87a9ca65a5d63d1b.txt",
+      "sha256_16": "87a9ca65a5d63d1b",
+      "bytes": 594
+    },
+    {
+      "nome": "8f36777c1006be82.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/8f36777c1006be82.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/8f36777c1006be82.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/8f36777c1006be82.txt",
+      "sha256_16": "8f36777c1006be82",
+      "bytes": 265
+    },
+    {
+      "nome": "9978862f60cfbf29.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/9978862f60cfbf29.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/9978862f60cfbf29.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/9978862f60cfbf29.txt",
+      "sha256_16": "9978862f60cfbf29",
+      "bytes": 390
+    },
+    {
+      "nome": "a3593ac8763f2d19.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/a3593ac8763f2d19.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/a3593ac8763f2d19.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/a3593ac8763f2d19.txt",
+      "sha256_16": "a3593ac8763f2d19",
+      "bytes": 1844
+    },
+    {
+      "nome": "b5717ff445a883cd.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/b5717ff445a883cd.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/b5717ff445a883cd.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/b5717ff445a883cd.txt",
+      "sha256_16": "b5717ff445a883cd",
+      "bytes": 1062
+    },
+    {
       "nome": "dc150f9bbc5b1a4a.txt",
       "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/dc150f9bbc5b1a4a.txt",
       "papel": "dados",
@@ -39,10 +139,30 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/dc150f9bbc5b1a4a.txt",
       "sha256_16": "dc150f9bbc5b1a4a",
       "bytes": 284
+    },
+    {
+      "nome": "e36df7f1245c7f16.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/e36df7f1245c7f16.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/e36df7f1245c7f16.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/e36df7f1245c7f16.txt",
+      "sha256_16": "e36df7f1245c7f16",
+      "bytes": 511
+    },
+    {
+      "nome": "f54641bfd9e46e42.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/f54641bfd9e46e42.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/f54641bfd9e46e42.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/f54641bfd9e46e42.txt",
+      "sha256_16": "f54641bfd9e46e42",
+      "bytes": 466
     }
   ],
-  "total_arquivos_nesta_pasta": 2,
-  "total_arquivos_com_subpastas": 2,
+  "total_arquivos_nesta_pasta": 14,
+  "total_arquivos_com_subpastas": 14,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo",
-  "rodape": "gerado por script de git ls-files em 2026-11-02 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-11-03 -- nao editar a mao"
 }

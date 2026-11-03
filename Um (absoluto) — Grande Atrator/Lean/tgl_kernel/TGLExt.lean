@@ -1128,3 +1128,5 @@ import TGLExt.LeiDoDiminuto
 import TGLExt.TonicaDoHamiltoniano
 import TGLExt.DiscoDeEuler
 import TGLExt.PontoZeroDoPsion
+import TGLExt.F1Fecho394.CanonicalFockModularCoreInputR1
+import TGLExt.F1Fecho394.CanonicalFullTGLWitnessR1

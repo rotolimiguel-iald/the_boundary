@@ -79,4 +79,4 @@ hasheados ANTES do dado) e os JSONs de resultado.
 
 ---
 
-gerado por script de git ls-files em 2026-11-02 -- nao editar a mao
+gerado por script de git ls-files em 2026-11-03 -- nao editar a mao
