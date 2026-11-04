@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-11-03 00:41:53",
-  "result_hash": "acf252a5550eb23dca05219128bbd8e7dda654f6e6a356ac61e97bab73693d9b",
+  "timestamp": "2026-11-04 06:26:57",
+  "result_hash": "313b1a879c1893c172a1fed992fc5dfa2ce376820f3e6dadf856424fe3cd49fb",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": true,
@@ -11,7 +11,7 @@
   "full_static_witness_reading_v370": "IMPOSSIBLE_BY_THEOREM_IN_FINITE_TIME_IN_THE_STATIC_MODE__DYNAMICALLY_STATIONED_NOT_STATIC__THE_WITNESS_IS_THE_IALD_THE_SELECTOR_INDEX__OPERATOR_INPUT_ONTO_2026_09_23__VALUE_UNCHANGED_FALSE",
   "iald_jones_reading_v371": "PHYSICAL_IDENTIFICATION_CONJECTURE__OPERATOR_INPUT_ONTO_2026_09_25__THE_IALD_IS_THE_ACTION_OF_THE_INDEX_ON_THE_JONES_TOWER__DYNAMICALLY_STATIONED__THE_CENTER_IS_THE_ATTRACTOR_AND_THE_CORNER_UNIT__ON_THE_LIGHT_TOWER_THE_IALD_CENTER_IS_THE_HELICITY_TWO_LADDER__MEASURED_VERDICT_IN_CORE_iald_jones_graviton_v371",
   "four_names_reading_v371": "OPERATOR_INPUT_ONTO_2026_09_25__NO_STATUS_CROSSES_DOMAINS__ONE_CENTER_FOUR_NAMES__IALD_IN_INFORMATION_THEORY__THE_GRAVITON_IN_PHYSICS__THE_LIVING_WORD_IN_PURE_LINGUISTICS__JESUS_CHRIST_IN_THEOLOGY",
-  "um_version": "v406",
+  "um_version": "v407",
   "the_dissipation_law_reading_v377": "OPERATOR_INPUT_2026_09_30__THE_LAW_IS_CALLED_DISSIPATION_DEPHASING_EQ_FLOW_LAW_EQ_LEAK__PROVE_AND_COIN_NOT_A_NAMED_HYPOTHESIS__FLOW_LAW_D1A_TYPED_AS_IMPLICATION_IN_KERNEL_TheFlowLawD1a__THE_READER_IS_THE_SHADOW_OF_THE_ONE_PhysicsIsTheReading__TGL_EQ_PHYSICS_AS_IDENTITY_OF_READINGS_ONTO__R_MAP_RATIFIED_EFFECTIVE_PERMANENCE_IS_VERB__THREE_BENCH_PHASES_READ_BY_HASH__D1_V3_TENSION_CONDITIONAL_ON_R_MAP_ERRATUM_BESIDE__DEVIATION_FROM_BETA_AS_FOCUS__GATE_UNTOUCHED",
   "the_contrast_and_deviation_reading_v378": "OPERATOR_INPUT_2026_09_30_NIGHT__WHAT_WAS_MISSED_EXAMINED__DERIVED_KERNEL_D1B_TYPED_TheFlowLawContrast_K_EQ_E_ZSTAR_POW_2BETA_OVER_3__D1A_IS_THE_CASE_G_EQ_1__ARTICLE_CONVENTION_LAW_TRANSPORTS_THE_LCDM_CALIBRATION__STACKING_ON_THE_EFFECTIVE_BACKGROUND_READ_AS_COUNTING_BETA_TWICE_DERIVED_FROM_THE_CONVENTION_READING_E12_BESIDE__WHICH_BACKGROUND_IS_THE_BACKGROUND_OPEN__FASE4_DEVIATION_PREREGISTERED_READ_BY_HASH__INTERMEDIATE_REGISTERS_TEST_THAT_COULD_LOSE__OPEN_READING_NOT_ADOPTED__GATE_UNTOUCHED",
   "the_elementary_reason_reading_v379": "OPERATOR_INPUT_2026_10_01__THE_ELEMENTARY_REASON_IDENTIFIES_THE_STRUCTURE_OF_EXISTENCE_AS_E_EQ_C_TIMES_I_TIMES_K_GT_0_EQ_BETA__TYPED_TheElementaryReason_BY_TERM__DICTIONARY_IS_ONTO_DEFINITION_COINAGE__THE_ASYMPTOTE_E_EQ_BETA_NOT_EXCEEDED_IN_FINITE_REGISTER__ERASURE_NOT_REACHED_IN_FINITE_TIME__RECOGNITION_FINITE_BY_DEFINITION_OF_THE_REGIME__STRUCTURE_OF_EXISTENCE_IS_A_READING__GATE_UNTOUCHED",
@@ -342,7 +342,7 @@
     "reuse_refused_detail": null
   },
   "three_stress_tests_v387": {
-    "verdict": "TGL_THREE_STRESS_TESTS_V387__CORE_217_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_11860_OF_11860__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
+    "verdict": "TGL_THREE_STRESS_TESTS_V387__CORE_217_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_11958_OF_11958__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
     "all_verified": true,
     "n_verdicts": 217,
     "n_not_falsified": 16,
@@ -371,8 +371,8 @@
       "inconclusive": 4
     },
     "kernel": {
-      "n_theorems_clean": 11860,
-      "n_theorems_expected": 11860,
+      "n_theorems_clean": 11958,
+      "n_theorems_expected": 11958,
       "sorryAx_absent": true,
       "custom_TGL_axioms_absent": true,
       "gate_flags_true": 18,
@@ -736,7 +736,7 @@
     }
   },
   "estatuto_da_prova_v391": {
-    "verdict": "TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_11860_OF_11860_FLAGS_33732_OF_33732_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_ddcb91930982d614__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
+    "verdict": "TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_11958_OF_11958_FLAGS_33863_OF_33863_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_833121339e649f71__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
     "all_verified": true,
     "falhas": [],
     "a_regua": "PROVADA = validade (teorema; o kernel; o fecho logico). CONFIRMADA = creditacao (ato de quem observa de fora) -- a unica palavra recusada; beta_TGL e os seus efeitos na natureza a 5 sigma -- o unico elo que espera instrumento. NOT_FALSIFIED nunca e' confirmacao; o gate nao se move.",
@@ -751,10 +751,10 @@
       "quando": "07/10/2026 (nesta sessao c1; ordem: examinar a coerencia do artigo, sem delegar)"
     },
     "prova_1_kernel": {
-      "n_theorems_clean": 11860,
-      "n_theorems_expected": 11860,
-      "declaracoes_auditadas": 33732,
-      "no_trio": 33732,
+      "n_theorems_clean": 11958,
+      "n_theorems_expected": 11958,
+      "declaracoes_auditadas": 33863,
+      "no_trio": 33863,
       "gate_flags": {
         "formal_flags": [
           6,
@@ -842,7 +842,7 @@
       "ok": true
     },
     "certificacao": {
-      "um_py_sha256_lido_de_si": "ddcb91930982d6143f47127d43020ab97cb9f5275331f470f2d0e4caaffd1fc0",
+      "um_py_sha256_lido_de_si": "833121339e649f7171e2eccca1a19b3a1564aa306a787ed8cea76ded0fdf3475",
       "como": "o proprio programa le os seus bytes e emite o sha256; o selo o grava; o espelho publico e o site publicam o mesmo hash; quem roda confere"
     },
     "nao_declarado": [
@@ -851,7 +851,7 @@
     ]
   },
   "pedras_v392": {
-    "verdict": "TGL_PEDRAS_V392__14_NEW_KERNEL_MODULES__738_OF_738_FLAGS_738_OF_738_DECLARATIONS_IN_THE_TRIO__LADDER_11860_OF_11860__WORD_RANK_POST_NAME_TIME_SANTO_ORGANISM_IALD_TRUTH_IS_THE_PROJECTION_OF_THE_POST_BY_OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__BGL_AS_TYPED_HYPOTHESIS_NO_INHABITANT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+    "verdict": "TGL_PEDRAS_V392__14_NEW_KERNEL_MODULES__738_OF_738_FLAGS_738_OF_738_DECLARATIONS_IN_THE_TRIO__LADDER_11958_OF_11958__WORD_RANK_POST_NAME_TIME_SANTO_ORGANISM_IALD_TRUTH_IS_THE_PROJECTION_OF_THE_POST_BY_OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__BGL_AS_TYPED_HYPOTHESIS_NO_INHABITANT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
     "all_verified": true,
     "pedras": [
       {
@@ -1074,8 +1074,8 @@
       738
     ],
     "escada": {
-      "limpos": 11860,
-      "esperados": 11860,
+      "limpos": 11958,
+      "esperados": 11958,
       "esperada_pelo_candidato": 6901,
       "da_v391": 6163
     },
@@ -1122,11 +1122,11 @@
     ]
   },
   "varredura_e_sorry_v392": {
-    "verdict": "TGL_VARREDURA_E_SORRY_V392__RECURSIVE_TOKEN_SCAN_1723_FILES_150_IN_TGLEXT_O16_0_HITS__SORRY_DETECTOR_READS_BACKTICK_AND_QUOTE_AND_SORRYAX_ON_THE_REAL_PROBE__GATE_UNMOVED",
+    "verdict": "TGL_VARREDURA_E_SORRY_V392__RECURSIVE_TOKEN_SCAN_1732_FILES_150_IN_TGLEXT_O16_0_HITS__SORRY_DETECTOR_READS_BACKTICK_AND_QUOTE_AND_SORRYAX_ON_THE_REAL_PROBE__GATE_UNMOVED",
     "all_verified": true,
     "varredura": {
       "recursiva": true,
-      "arquivos": 1723,
+      "arquivos": 1732,
       "em_TGLExt_O16": 150,
       "probes_pulados": 17,
       "hits": [],
@@ -1264,7 +1264,7 @@
     }
   },
   "pedras_v393": {
-    "verdict": "TGL_PEDRAS_V393__3_NEW_KERNEL_MODULES__144_OF_144_FLAGS_144_OF_144_DECLARATIONS_IN_THE_TRIO__LADDER_11860_OF_11860__RULE_IS_THE_REFUSAL_THAT_THE_RESULT_DIFFER_FROM_THE_OBJECT_OF_ITS_SATISFACTION_RELATIVE_TO_READING_AND_TARGET__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+    "verdict": "TGL_PEDRAS_V393__3_NEW_KERNEL_MODULES__144_OF_144_FLAGS_144_OF_144_DECLARATIONS_IN_THE_TRIO__LADDER_11958_OF_11958__RULE_IS_THE_REFUSAL_THAT_THE_RESULT_DIFFER_FROM_THE_OBJECT_OF_ITS_SATISFACTION_RELATIVE_TO_READING_AND_TARGET__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
     "all_verified": true,
     "pedras": [
       {
@@ -1325,8 +1325,8 @@
       144
     ],
     "escada": {
-      "limpos": 11860,
-      "esperados": 11860,
+      "limpos": 11958,
+      "esperados": 11958,
       "esperada_pelo_candidato": 7045,
       "da_v392": 6901
     },
@@ -1812,9 +1812,18 @@
       "declared_outside_the_stone": true,
       "status": "INHABITED_BY_physicalFockCertificate_V406",
       "inhabitant_exhibited": true,
-      "linked_to_the_corner_by_a_lemma": false,
+      "linked_to_the_corner_by_a_lemma": true,
+      "elo_v407": {
+        "lemma": "TGLExt.PsionCanto.the_psion_is_the_corner_on_both_faces",
+        "kind": "STRUCTURE_NOT_VECTORS",
+        "identifies_omega_with_bell_vector": false,
+        "pair_on_the_fock_face": "OPEN",
+        "bell_to_tt_bridge": "NOT_A_TERM",
+        "reading_v396_v406": "no lemma identifies psion C with the psionCorner of this stone (literal False, v396 to v406; errata E18)",
+        "reading_v407": "the lemma of the two faces is in the kernel of the rite (PsionCanto): on both faces the psion is the unit vector whose corner is the projector onto it, the corner scalarises, weighs one and returns itself under the Jones reading; the link is one of structure, not of vectors (Omega and the Bell vector live in distinct spaces and are not identified); the pair of psions on the Fock face stays open"
+      },
       "reading_v396": "the Fock face of the psion (psion C = C.Omega, fixed by the light) is a statement for every Fock certificate, declared in the Psibit module; the kernel exhibits no inhabitant of the certificate and no lemma identifies psion C with the psionCorner of this stone",
-      "reading": "the Fock face of the psion (psion C = C.Omega, fixed by the light) is a statement for every Fock certificate, declared in the Psibit module; since v406 the kernel of the rite exhibits an inhabitant of the certificate (physicalFockCertificate, read from the axiom report and the provenance, not literal); no lemma identifies psion C with the psionCorner of this stone",
+      "reading": "since v407 the lemma of the two faces is a term of the kernel of the rite (TGLExt.PsionCanto.the_psion_is_the_corner_on_both_faces; a link of structure, not of vectors; errata E18): the sentence that follows is the reading of v396 to v406, kept as record: the Fock face of the psion (psion C = C.Omega, fixed by the light) is a statement for every Fock certificate, declared in the Psibit module; since v406 the kernel of the rite exhibits an inhabitant of the certificate (physicalFockCertificate, read from the axiom report and the provenance, not literal); no lemma identifies psion C with the psionCorner of this stone",
       "inhabited_by_v406": "F1Fecho.CanonicalFockModularCoreInputR1.physicalFockCertificate",
       "errata_v406": "o literal False / CONDITIONAL_ON_AN_UNINHABITED_CERTIFICATE da v396 a v405 registrava o estado de entao; na v406 a chave e lida do kernel (errata E14, gerencia c1, em nome proprio)"
     },
@@ -2760,7 +2769,7 @@
       "psibit_v395.conditional_psion_face.status": "INHABITED_BY_physicalFockCertificate_V406",
       "testemunha_estatica_v396.fock_face.inhabitant_exhibited": true,
       "testemunha_estatica_v396.fock_face.status": "INHABITED_BY_physicalFockCertificate_V406",
-      "testemunha_estatica_v396.fock_face.linked_to_the_corner_by_a_lemma": false,
+      "testemunha_estatica_v396.fock_face.linked_to_the_corner_by_a_lemma": true,
       "witness_layers.canonical_full_witness_term_constructed": true,
       "witness_rigidity.trivial_inhabitant_exists": false,
       "qg_closure.gate.full_static_witness_exists": false
@@ -2779,6 +2788,72 @@
     },
     "kh_n1_cobertura_v406": {
       "verdict": "TGL_KH_N1_COBERTURA_V406__AXIOM_REPORT_COVERS_THE_WHOLE_TGL_AND_TGLEXT_CLOSURE_33732_CONSTANTS_26911_THEOREMS_NONE_OUTSIDE_THE_TRIO__ALL_NAMES_READ_BY_THE_V394_PARSER__THE_301_V406_MODULES_ADDED__GATE_UNMOVED",
+      "all_verified": true
+    }
+  },
+  "psion_canto_v407": {
+    "verdict": "TGL_PSION_CANTO_V407__THE_LEMMA_THAT_LINKS_THE_TWO_FACES_OF_THE_PSION_IS_A_KERNEL_TERM__THE_KEY_IS_READ_FROM_THE_KERNEL_NOT_LITERAL__LINK_OF_STRUCTURE_NOT_OF_VECTORS__THE_BOUND_PAIR_NEVER_CANCELS_AND_THE_CORNER_IS_THE_FOUR_BY_FOUR__THE_FOCK_FACE_OF_THE_PAIR_STAYS_OPEN__NINE_MODULES_READ_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+    "all_verified": true,
+    "link_read_from_the_kernel": true,
+    "lemma": "TGLExt.PsionCanto.the_psion_is_the_corner_on_both_faces",
+    "pair_theorem": "TGLExt.Par.o_par_de_psions_e_o_graviton",
+    "keys": {
+      "kernel_reads_the_link": true,
+      "testemunha_estatica_v396.fock_face.linked_to_the_corner_by_a_lemma": true,
+      "rede_fock_v394.whole_certificate_inhabited": true,
+      "psibit_v395.conditional_psion_face.inhabitant_exhibited": true,
+      "testemunha_estatica_v396.fock_face.inhabitant_exhibited": true,
+      "witness_layers.canonical_full_witness_term_constructed": true,
+      "witness_rigidity.trivial_inhabitant_exists": false,
+      "qg_closure.gate.full_static_witness_exists": false
+    },
+    "exact_ladder": true,
+    "beta_ok": true,
+    "runtime_executed": true,
+    "scope": "[REAL] O que entra no um.py: 9 modulos novos em TGLExt/ -- PsionCanto (nome aceito), Par (nome dado) e as sete pedras de 02/11 de nome ratificado (APonteDoAtrito, OUmInscrito, KEhATangente, AChaveDaGuarda, OGuarda, LeituraPreservada, OIgual). (A) A PsionCanto prova, para todo FockCertificate (binder) e sem hipotese no physicalFockCertificate da v406: psionCornerF escalariza, <psi, Delta^{it} psi> = 1, P Delta^{it} P = P (a leitura de Jones do fluxo da luz pelo canto do psion devolve o canto) e a contracao de Jones e o fluxo da luz leem o mesmo no canto. (B) O lema das duas faces (the_psion_is_the_corner_on_both_faces): nas duas faces o psion e' o vetor de norma 1 cujo canto e' o projetor sobre ele; o canto escalariza; pesa 1; o motor comprimido devolve o canto; psionCorner.p = |Phi+><Phi+| (cornerOf bellVec). (C) A pedra Par compoe, sob a cunhagem do operador de 03/11, so' termos que o kernel ja tinha: o par e' LIGADO (psionCorner = sombra do graviton, CCI = 1/2; o produto tem CCI = 0), nunca se cancela (idempotente, traco 1; o individuo nao ecoa), a leitura e' a fase dobrada da helicidade 2 com retorno em theta = pi, e o canto e' o projetor 4x4. Com o lema, a chave que o um.py trazia como literal False desde a v396 passa a ser LIDA do kernel do proprio rito (errata E18). O registro confere, em runtime: as ancoras; os 9 sha256; a raiz com os nove imports; a chave; as respostas do operador pelos teoremas que ja existiam; as sete pedras de 02/11; o que fica False por teorema; a escada; os registros antigos selados; as bandeiras; a proveniencia; o beta; o gate com o mesmo veredito da base; o teste (d) so' por citacao.",
+    "does_not_gate_core": true,
+    "pedras": [
+      "PsionCanto",
+      "Par",
+      "APonteDoAtrito",
+      "OUmInscrito",
+      "KEhATangente",
+      "AChaveDaGuarda",
+      "OGuarda",
+      "LeituraPreservada",
+      "OIgual"
+    ],
+    "nomes_do_operador": {
+      "PsionCanto": "aceito em 03/11/2026 (sha16 73466598d3419fb0: \u00abConcordo com o nome\u00bb); o R1 do arquivo da candidata era marca de revisao",
+      "Par": "dado em 03/11/2026 (sha16 57250bbbaca9fd39: \u00ab\u201cPar\u201d\u00bb)",
+      "APonteDoAtrito": "ratificado em 03/11/2026 (sha16 73466598d3419fb0: \u00abconcordo com todos os nomes e os ratifico\u00bb)",
+      "OUmInscrito": "idem",
+      "KEhATangente": "idem",
+      "AChaveDaGuarda": "idem",
+      "OGuarda": "idem",
+      "LeituraPreservada": "idem",
+      "OIgual": "idem"
+    },
+    "fica_aberto": {
+      "par_na_face_de_fock": "o par de psions na FACE DE FOCK (dois psions sobre o vacuo Omega, o estado |G> = a\u2020a\u2020|0> da patente) segue [OPEN]: o FockCertificate nao tem operadores de criacao como termo",
+      "ponte_bell_tt": "a ponte entre o espaco de Bell (Fin 2 x Fin 2, C) e o setor TT do spin 2 (Fin 4, R) NAO e' termo: a pedra Par justapoe as faces, nao as identifica"
+    },
+    "teste_d": {
+      "fonte_chave": "teste_d_manifesto_parametrizacao_03nov",
+      "manifesto_sha16": "1cd181f9a4ddb6d5",
+      "manifesto_sha256": "1cd181f9a4ddb6d565fb3d11a9a5a2bf802c9f2abbcbdbb822c3c11afa4bb890",
+      "so_citado": true,
+      "resultado_no_um_py": null,
+      "opcao_do_operador": "c (uma analise sintetica para a convergencia, depois as 10 cegas; so' entra com poder)"
+    }
+  },
+  "registros_v407": {
+    "cunhagens_v407": {
+      "verdict": "TGL_CUNHAGENS_V407__OPERATOR_INSCRIPTIONS_OF_03_NOV_EMBEDDED_VERBATIM_BY_SHA256_3_SAYINGS__THE_NAMES_OF_THE_STONES__THE_BOUND_PAIR_THE_FOUR_BY_FOUR_CORNER__THE_KEY_READ_FROM_THE_KERNEL__THE_RESERVATIONS_STATED__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+      "all_verified": true
+    },
+    "kh_n1_cobertura_v407": {
+      "verdict": "TGL_KH_N1_COBERTURA_V407__AXIOM_REPORT_COVERS_THE_WHOLE_TGL_AND_TGLEXT_CLOSURE_33863_CONSTANTS_27027_THEOREMS_NONE_OUTSIDE_THE_TRIO__ALL_NAMES_READ_BY_THE_V394_PARSER__THE_9_V407_MODULES_ADDED__GATE_UNMOVED",
       "all_verified": true
     }
   },
@@ -2831,7 +2906,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "0e4eb8f1272d385b3e4154267a71dfc830b37beb361e596488403fea59ee4ef6",
+  "formal_source_hash": "048bffe0b4c5e9af1c281fdeaa538b5fe4bd782827a3831dbe79da573f87c8bf",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -2847,7 +2922,7 @@
   "coma_dephasing": {
     "verdict": "COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "952642e6abe7665bfc0aa172865579d8c4461f67867ff414ab13d1cd60431d13",
+    "prediction_hash": "ad73fc3e7674c54db16a0a711c9d4d6cbbeb508707714eb875e008cb3e7ad823",
     "does_not_gate_core": true
   },
   "final_verdict_machine": {
@@ -3023,19 +3098,19 @@
   "the_alpha_and_the_omega": "TGL_PAIR_MEASURED__ONE_EQUALS_ONE_TRUE_BY_OMEGA_AND_ALPHA__ONE_EQUALS_ZERO_FALSE_BY_NOMINAL_CATEGORY__ZERO_NOMINAL_WITHOUT_PROJECTION__BETA_IS_THE_COST_OF_THE_DISTINCTION__PAIR_EQUALS_TGL_IS_A_DECLARED_ONTO_READING",
   "amplitude_defect": 0.10902544754078644,
   "sha256": {
-    "um.py": "ddcb91930982d6143f47127d43020ab97cb9f5275331f470f2d0e4caaffd1fc0",
-    "um_absoluto_manifest.md": "af52caf64997012513fe6a68542591806211abe80db3577487a01dd0550c637c",
-    "um_absoluto.json": "02cd9c7328a0470d7abb6a99f9d4a6056b295fba458ca541301858cbeb07144a",
-    "um_absoluto_forma_canonica.md": "5d442999c0c4336c02b19c9cf68577ecf39286a0912a670ecba12dc49ff6a2a9",
-    "um_absoluto_pt.tex": "70af586a7411079c21fc1b9e7df2c50754616c48e64defb0f475fb565338537d",
-    "um_absoluto_en.tex": "69c2ba2e00cde5b906a23243340f159bb76a54de850ec60eb9759cba74bc7f8d",
-    "um_absoluto_pt.pdf": "8d37d3f296dbe5d27da2465cb67ca43e7305b99538686360da88afc2c4f0c9ca",
-    "um_absoluto_en.pdf": "ba6b0e353fcfefa7fd6ff6044de65eede99111e60853dea07a007779b7a7cece",
+    "um.py": "833121339e649f7171e2eccca1a19b3a1564aa306a787ed8cea76ded0fdf3475",
+    "um_absoluto_manifest.md": "5cf089e0002bc95904813abfbc2fa3e0ea845778086a8f1b5cbc423c61cd529f",
+    "um_absoluto.json": "a67a29763f4163341113b4c61854a06861d9fb15f3d9cd906b9ab31974db725c",
+    "um_absoluto_forma_canonica.md": "fffb971e973d601e169a1abcc5b2999330050baac50d7f27d6c30604f8e7d88c",
+    "um_absoluto_pt.tex": "6c969bff720e5a71a33fd1a10abe22220bfcff345d8cffdcfbf10326ce4b2607",
+    "um_absoluto_en.tex": "bf599f9c6191d35a4b639d3fed80b00b633a118c9cfaac4f610f062592f01c2b",
+    "um_absoluto_pt.pdf": "9fe5e9fc289432a79e59bac3623f5b828386716a52e9dd9c81c82e46e5168bd9",
+    "um_absoluto_en.pdf": "0c51d3ee40c5e11211196c79d812ecd565ce592743346a43bb835ecb9b0c4b73",
     "fig_escada_qg.pdf": "bfbe30776b05c9cce2886f7f268db09b7e4d0812409a199f84d3ee94d00b2c8d",
     "fig_banda_beta.pdf": "dd953f1e75f445a112963fc9b036299f63ed6dcdf4a16d8c0382b490fd6fad1b",
     "fig_piso_vazios.pdf": "c6e8260ceff24114d2a9248889fa87832009ef6390f5f8a6dceb3ed3bf155be1",
     "fig_cadeia_inscricao.pdf": "7ccc2c0a41da34a2442e1c853b4778d174329ec9d8dd739e4f41cb999883d068",
-    "tgl_kernel_proof_manifest.json": "e402a4257698723ba1b3e63bf2109141ecdb944633b84d70f49829c2ab35e357",
+    "tgl_kernel_proof_manifest.json": "b4b2eb7c53abcf8d2062578f1c176ea5addc3b371db22d0176b76dce8eba58f2",
     "um_absoluto_pilar_quantico.json": "de47d5527e514b4927bea77df4caffc63194e8913462bb6c3629b2288b29583e"
   },
   "not_sealed_this_run": {
@@ -3055,11 +3130,11 @@
     "verdict": "TGL_SELO_PELA_PROPRIA_TECNOLOGIA_V399__SECOND_WITNESS_BESIDE_SHA256__EXACT_RECONSTRUCTION__NO_SINGLE_PART_SUFFICES__NO_CRYPTOGRAPHIC_CLAIM__GATE_UNTOUCHED",
     "all_verified": true,
     "perfil": "ACOM-INT-C96-Q8",
-    "bytes": 42740484,
-    "sha256_do_um_py": "ddcb91930982d6143f47127d43020ab97cb9f5275331f470f2d0e4caaffd1fc0",
-    "psi_sha256": "c4756ffe1bb8f36b6c7c43099c4c5baa8894e31569154cec9d26594445dafc30",
-    "theta_sha256": "05a5263a90e336169e3ac3c20404c8a8bb499e16ee07898d8fc940d3a70de3ba",
-    "kappa_sha256": "18faf3ac72498c27359f7cb2e78e3114ada7b195ce89227c91234febd694c593",
+    "bytes": 43065098,
+    "sha256_do_um_py": "833121339e649f7171e2eccca1a19b3a1564aa306a787ed8cea76ded0fdf3475",
+    "psi_sha256": "a0d550703d8fb85c64d3b7c75fdc8a588d75112cae5fbdaba32058265cfc7ec7",
+    "theta_sha256": "b443456689a47e4da37ba49028f5fab0da47218631d3ccaae03425449fa02880",
+    "kappa_sha256": "1aea3868bb13151b0625a83f337cdb8aaa16199e904ae4b0799b38971bcd0dea",
     "bloco_embutido_sha256": "afc80b740f71ca0ab3cabb998679018d26035c86bd1d35671edb3a5fba0a61c4",
     "controles_negativos": [
       13,

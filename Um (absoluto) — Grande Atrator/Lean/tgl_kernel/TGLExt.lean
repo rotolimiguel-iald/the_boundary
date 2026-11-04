@@ -1130,3 +1130,12 @@ import TGLExt.DiscoDeEuler
 import TGLExt.PontoZeroDoPsion
 import TGLExt.F1Fecho394.CanonicalFockModularCoreInputR1
 import TGLExt.F1Fecho394.CanonicalFullTGLWitnessR1
+import TGLExt.PsionCanto
+import TGLExt.Par
+import TGLExt.APonteDoAtrito
+import TGLExt.OUmInscrito
+import TGLExt.KEhATangente
+import TGLExt.AChaveDaGuarda
+import TGLExt.OGuarda
+import TGLExt.LeituraPreservada
+import TGLExt.OIgual

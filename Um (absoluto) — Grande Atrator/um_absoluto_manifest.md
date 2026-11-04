@@ -1,5 +1,5 @@
 # Um: Grande Atrator -- MANIFESTO DE ENTRADAS (nada fica escondido no codigo)
-> **Versão v406** · rodada `2026-11-03 00:41:53` · `um.py` sha256/16 `ddcb91930982d614` (lido do arquivo na emissão) [v376: carimbo]
+> **Versão v407** · rodada `2026-11-04 06:26:57` · `um.py` sha256/16 `833121339e649f71` (lido do arquivo na emissão) [v376: carimbo]
 
 > Ou e' **definicao exata**, ou **constante medida**, ou **protocolo pre-registrado**, ou **conjectura testavel**. Este manifesto e' parte do hash do veredito.
 
@@ -1064,6 +1064,11 @@
       "Quot.sound"
     ],
     "TGLV350.Regular.regular_covariance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.KEhATangente.crivo_iff_posto": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -2287,6 +2292,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.KEhATangente.massa_derivada_eq_projecao_div_K._simp_1_6": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Response028.amplitude_prefix_tendsto": [
       "propext",
       "Classical.choice",
@@ -3221,6 +3231,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.PsionCanto.the_compressed_reading_is_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.RuleTruthContract.firstReading.eq_1": [],
     "ChatgptAudit.Continuous050.continuous_resolvent_left_inverse": [
       "propext",
@@ -3443,6 +3458,11 @@
     ],
     "ChatgptAudit.FLRW.variable_entropy_derivative._simp_1_2": [
       "propext"
+    ],
+    "TGLExt.OUmInscrito.o_par_consigo": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ],
     "ChatgptAudit.LocalCocycle.local_cutoff_derivative": [
       "propext",
@@ -4372,6 +4392,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.APonteDoAtrito.entropia_e_calor_vezes_periodo": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.commutator_entry": [
       "propext",
       "Classical.choice",
@@ -4701,6 +4726,11 @@
       "Quot.sound"
     ],
     "F1Fecho.CanonicalFockActualModularBalanceR6.conjugate_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.PsionCanto.jones_reading_of_the_contraction_is_the_corner": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -6190,6 +6220,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.APonteDoAtrito.temperatura": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.scalarTomitaRootLift._proof_24": [
       "propext",
       "Classical.choice",
@@ -6877,6 +6912,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.FLRW.tgl_first_friedmann_from_primitive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.PsionCanto.bellVec": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -7800,6 +7840,11 @@
     ],
     "_private.TGLExt.V351SineResolventApprox.0.TGLV350.Regular.sineWindow_character._simp_1_4": [
       "propext"
+    ],
+    "TGLExt.APonteDoAtrito.o_zero_absoluto_nao_e_lido": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ],
     "TGLExt.the_expectation_hypotheses_are_discharged_in_house": [
       "propext",
@@ -9209,6 +9254,9 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.OIgual.o_fundo_e_a_media._simp_1_5": [
+      "propext"
     ],
     "F1Fecho.CanonicalFockWeightClosedTomita.closedTomitaDomain._proof_3": [
       "propext",
@@ -10620,6 +10668,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OIgual.cociclo_de_um_escalar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.CanonicalZeroSector.halfIdentity._proof_7": [
       "propext",
       "Classical.choice",
@@ -11191,6 +11244,9 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.OIgual.K_trans._simp_1_1": [
+      "propext"
     ],
     "ChatgptAudit.LocalCentralizerInput.mk.noConfusion": [
       "propext",
@@ -11869,6 +11925,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Flow019.local_equilibrium_congruence_from_seed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OUmInscrito.na_particula_so_o_zero": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -12756,6 +12817,11 @@
       "Quot.sound"
     ],
     "F1Fecho.NetworkReuse.canonicalWedgeInFock._proof_12": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.KEhATangente.miguel_aponta_para_o_posto": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -16254,6 +16320,11 @@
       "Quot.sound"
     ],
     "TGLExt.ObservadorTerminal.instDecidableEqPosicao.decEq": [],
+    "TGLExt.PsionCanto.psionCornerF": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.PositiveCoreInput.add._proof_2": [
       "propext",
       "Classical.choice",
@@ -16956,6 +17027,11 @@
       "Quot.sound"
     ],
     "_private.TGLExt.F1Fecho394.CanonicalFockActualRootCutFormsR2.0.F1Fecho.CanonicalFockActualRootCutFormsR2.squareInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OGuarda.so_carimba_quem_atravessa": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -17902,6 +17978,11 @@
     "ChatgptAudit.OpticalS.exact_optical_identity._abel_1_3": [
       "propext"
     ],
+    "TGLExt.OGuarda.antes_do_limite_sempre_falta": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Screen015.LocalPhaseFlow.radius": [
       "propext",
       "Classical.choice",
@@ -18809,6 +18890,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Continuous049.spectralJMap._proof_1": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Par.the_corner_is_the_four_by_four": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -19874,6 +19960,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.AChaveDaGuarda.a_lei_usa_a_chave": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.omega_ratio_site0_inv._simp_1_6": [
       "propext",
       "Classical.choice",
@@ -20605,6 +20696,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.KEhATangente.miguel_nao_passa": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Collapse057.pure_densities_hermitian": [
       "propext",
       "Classical.choice",
@@ -21025,6 +21121,9 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.OIgual.o_fundo_e_a_media._simp_1_1": [
+      "propext"
     ],
     "TGLExt.TimeGravitonFlow.module_clock._simp_1_2": [
       "propext"
@@ -21511,6 +21610,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.APonteDoAtrito.o_um_se_fractaliza": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.finiteDualStarCore._proof_6": [
       "propext",
       "Classical.choice",
@@ -21737,6 +21841,11 @@
     ],
     "F1Fecho.RegularBoostedReflection.regular_boosted_reflection._simp_1_1": [
       "propext"
+    ],
+    "TGLExt.KEhATangente.K_eq_projecao_div_derivada": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ],
     "ChatgptAudit.JointUnitary.joint_modular_increment": [
       "propext",
@@ -23340,6 +23449,11 @@
       "Quot.sound"
     ],
     "TGLExt.fullAlgebra._proof_2": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.APonteDoAtrito.temperatura_e_kappa_sobre_dois_pi": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -28970,6 +29084,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.PsionCanto.psionCorner_reads_the_contraction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.dualImplementer._proof_2": [
       "propext",
       "Classical.choice",
@@ -30259,6 +30378,9 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.KEhATangente.transicaoLida._proof_1": [
+      "propext"
     ],
     "TGLV350.Regular.generated_maps_into": [
       "propext",
@@ -32249,6 +32371,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.KEhATangente.K": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.CompletedTensor.completeRight._proof_10": [
       "propext",
       "Classical.choice",
@@ -34022,6 +34149,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OIgual.a_face_em_menos_i": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.FieldMutations.H3WithoutUnit.H2": [
       "propext",
       "Classical.choice",
@@ -34832,6 +34964,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Thermal025.thermal_uniform_overlap_tends_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.LeituraPreservada.a_leitura_preservada": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -36790,6 +36927,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OUmInscrito.o_um_inscrito_e_a_exponencial_do_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Flow019.equilibrium_screen_area_initial": [
       "propext",
       "Classical.choice",
@@ -37481,6 +37623,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.PsionCanto.jones_reading_of_the_light_is_the_corner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.JointCovariance.transported_null_direction": [
       "propext",
       "Classical.choice",
@@ -37716,6 +37863,11 @@
       "Quot.sound"
     ],
     "F1Fecho.RegularScalarWeightOrbit.scalarWeightOrbit_memLp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.PsionCanto.the_two_motors_agree_in_the_corner": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -41309,6 +41461,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Par.the_pair_never_cancels": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Micro021.quadratic_modular_limit._simp_1_4": [
       "propext"
     ],
@@ -41969,6 +42126,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.PsionCanto.psionCorner_is_the_corner_of_bellVec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.Psibit.signPat_eq_one_or_neg_one": [
       "propext",
       "Classical.choice",
@@ -42407,6 +42569,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.expectation_compression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.APonteDoAtrito.o_balanco_fecha_a_cada_volta": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -42874,6 +43041,11 @@
     "TGLExt.TheElementaryReason.elementaryReason._proof_1": [
       "propext"
     ],
+    "TGLExt.OIgual.K": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.QGSolution.LightNetData": [
       "propext",
       "Classical.choice",
@@ -43067,6 +43239,9 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OIgual.K._proof_2": [
+      "propext"
+    ],
     "ChatgptAudit.Thermal024.gibbs_partition_positive": [
       "propext",
       "Classical.choice",
@@ -43255,6 +43430,11 @@
       "Quot.sound"
     ],
     "TGLExt.Posto.zero_angle_pole": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.APonteDoAtrito.o_atrito_lido_na_temperatura": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -44696,6 +44876,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OGuarda.o_recibo_e_fiel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Cost054.local_polarizer_iterate_hermitian": [
       "propext",
       "Classical.choice",
@@ -45998,6 +46183,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.PsionCanto.psionCornerF_idem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.CutoffDerivative.slope_norm_error_le": [
       "propext",
       "Classical.choice",
@@ -46143,6 +46333,11 @@
       "Quot.sound"
     ],
     "TGLExt.TheLightReadsItself.A5_two_distinct_fixed_operators": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OIgual.o_fundo_e_a_media._simp_1_6": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -47609,6 +47804,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OIgual.o_fundo_e_a_media": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.SpacetimeLorentz.coordinateEquiv": [
       "propext",
       "Classical.choice",
@@ -48013,6 +48213,9 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.OGuarda.K._proof_2": [
+      "propext"
     ],
     "TGLV350.Regular.scalarInverseLimitWeight_faithful": [
       "propext",
@@ -48774,6 +48977,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.KEhATangente.transicao_lida_eq_derivada": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.MaxwellSmearing.real_screen_source_free": [
       "propext",
       "Classical.choice",
@@ -49251,6 +49459,11 @@
       "Quot.sound"
     ],
     "TGLExt.the_screen_is_global": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OGuarda.K": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -51259,6 +51472,9 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OIgual.K_trans._simp_1_3": [
+      "propext"
+    ],
     "TGLV350.Regular.scalarWeightStarCore._proof_9": [
       "propext",
       "Classical.choice",
@@ -51584,6 +51800,9 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OGuarda.K._proof_1": [
+      "propext"
+    ],
     "TGLExt.SiteProfile.lt_one": [
       "propext",
       "Classical.choice",
@@ -51670,6 +51889,11 @@
       "Quot.sound"
     ],
     "TGLExt.TracialTorsion.ricci_DK": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.AChaveDaGuarda.fluxo_corrompido_nao_abre": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -54684,6 +54908,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.KEhATangente.o_angulo_e_lido_do_absoluto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.inscription_complement_infinite": [
       "propext",
       "Classical.choice",
@@ -54816,6 +55045,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.ResponseError.three_term_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.AChaveDaGuarda.chave_errada_nao_abre": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -57035,6 +57269,11 @@
       "Quot.sound"
     ],
     "F1Fecho.WeylConstruction.displaced_total": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.LeituraPreservada.ha_perda": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -59868,6 +60107,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.KEhATangente.transicaoLida._proof_2": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.MaxwellGlobal.screenDualTensor_right_inverse._simp_1_8": [
       "propext"
     ],
@@ -61689,6 +61933,9 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.KEhATangente.massa_derivada_eq_projecao_div_K._simp_1_2": [
+      "propext"
+    ],
     "ChatgptAudit.Covariant053.double_flip_x_mem_factor": [
       "propext",
       "Classical.choice",
@@ -61698,6 +61945,9 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.KEhATangente.massa_derivada_eq_projecao_div_K._simp_1_7": [
+      "propext"
     ],
     "TGLExt.CartanTracialSupplier.wrong_sign_residual._simp_1_7": [
       "propext"
@@ -61768,6 +62018,11 @@
       "Quot.sound"
     ],
     "F1Fecho.WedgePairTomita.S_involutive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.APonteDoAtrito.o_expoente_decai_por_volta": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -64040,6 +64295,11 @@
       "Quot.sound"
     ],
     "TGLExt.preserving_is_the_TGL_verdict": [],
+    "TGLExt.OGuarda.quem_desce_paga": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.RegularScalarTomitaGraph.finiteStarCore._proof_13": [
       "propext",
       "Classical.choice",
@@ -67687,6 +67947,9 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.KEhATangente.massa_derivada_eq_projecao_div_K._simp_1_5": [
+      "propext"
+    ],
     "TGLV350.Regular.levelPositiveMap._proof_2": [
       "propext",
       "Classical.choice",
@@ -67858,6 +68121,11 @@
       "Quot.sound"
     ],
     "TGLExt.TheFlowLawContrast.survivingWeightContrast_eq._simp_1_6": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.AChaveDaGuarda.chave": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -68370,6 +68638,11 @@
       "Quot.sound"
     ],
     "TGLExt.ContratoQGv31.ContratoH3.lightcone_gauge": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OIgual.leitura": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -71435,10 +71708,18 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.KEhATangente.crivo": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.OrbitalScreen.circularH1": [
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.OIgual.K_trans._simp_1_4": [
+      "propext"
     ],
     "TGLExt.the_unread_image_is_not_the_absolute_zero": [],
     "ChatgptAudit.UnboundedTransform016.resolvent_bounded_transform_kernel": [
@@ -71844,6 +72125,11 @@
     ],
     "TGLExt.EquationOfTruth.ker_threeLocks._simp_1_3": [
       "propext",
+      "Quot.sound"
+    ],
+    "TGLExt.OGuarda.falta": [
+      "propext",
+      "Classical.choice",
       "Quot.sound"
     ],
     "TGLV350.Regular.resolventPhaseFunction_zero_time": [
@@ -72322,6 +72608,11 @@
       "Quot.sound"
     ],
     "F1Fecho.WeylFlow.restrictAutomorphism._proof_18": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.PsionCanto.cornerOf": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -73644,6 +73935,11 @@
       "Quot.sound"
     ],
     "TGLV350.Regular.scalarTomitaGraph_single_valued": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.PsionCanto.lightOp_apply": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -76359,6 +76655,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OIgual.K_triangle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.FiniteCommutatorSeries.finite_evolution_isometry": [
       "propext",
       "Classical.choice",
@@ -77514,6 +77815,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.AChaveDaGuarda.a_chave_devolve": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.localEigenvectors": [
       "propext",
       "Classical.choice",
@@ -78048,6 +78354,11 @@
       "Quot.sound"
     ],
     "TGLExt.NameIsTheContent.Inscricao.mk.noConfusion": [],
+    "TGLExt.Par.the_pair_is_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.RepresentedDoubleCut.cutElement._proof_6": [
       "propext",
       "Classical.choice",
@@ -79296,6 +79607,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.Par.the_pair_is_read_by_the_graviton": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.EquationOfTruth.re_inner_penalty": [
       "propext",
       "Classical.choice",
@@ -79422,6 +79738,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.LocalDynamics.local_dynamics_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.PsionCanto.half_of_sqrt_two": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -79688,6 +80009,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OIgual.leitura_chain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Relative031.relativeTomitaInput._proof_3": [
       "propext",
       "Classical.choice",
@@ -79813,6 +80139,11 @@
       "Quot.sound"
     ],
     "TGLV350.Regular.scalarRightMultiplicationVector._proof_3": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.LeituraPreservada.a_forma_se_reconstroi": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -80248,6 +80579,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.SelectedGeometry.selected_source_is_read_mass": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.AChaveDaGuarda.sem_a_chave_nao_abre": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -82340,6 +82676,9 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.KEhATangente.massa_derivada_eq_projecao_div_K._simp_1_3": [
+      "propext"
+    ],
     "F1Rede.BosonicSectors.TensorHilbert": [
       "propext",
       "Classical.choice",
@@ -82850,6 +83189,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.AChaveDaGuarda.a_guarda_conserva_a_diferenca": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.CanonicalFockCoefficientIntervals.coefficientPair._proof_3": [
       "propext",
       "Classical.choice",
@@ -82922,6 +83266,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Response028.amplitudeResponse.eq_1": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OUmInscrito.o_um_e_o_unico_fixo_da_luz": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -84710,6 +85059,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.LeituraPreservada.a_forma_nunca_zera": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.scalarWeightRightRegularization._proof_5": [
       "propext",
       "Classical.choice",
@@ -85638,6 +85992,9 @@
       "Quot.sound"
     ],
     "ChatgptAudit.MixedQuadraticGibbs.mixed_z_zero._simp_1_4": [
+      "propext"
+    ],
+    "TGLExt.KEhATangente.massa_derivada_eq_projecao_div_K._simp_1_4": [
       "propext"
     ],
     "TGLV350.Regular.dualFixedAffiliatedPositiveForm._proof_3": [
@@ -87665,6 +88022,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.AChaveDaGuarda.chave.eq_1": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.expectation_bounded": [
       "propext",
       "Classical.choice",
@@ -88344,6 +88706,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.KEhATangente.transicaoLida": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.BoostBridges016.boost_is_first_block": [
       "propext",
       "Classical.choice",
@@ -88823,6 +89190,11 @@
       "Quot.sound"
     ],
     "TGLExt.TonicaDoHamiltoniano.massa_derivada_reescala": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OIgual.o_crivo_tem_testemunha_unica": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -92908,6 +93280,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.APonteDoAtrito.no_zero_absoluto_a_parcela_quitaria": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.PartialFourierRepresentative.partial_section_fourier_ae": [
       "propext",
       "Classical.choice",
@@ -94765,6 +95142,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.APonteDoAtrito.o_peso_entre_zero_e_um": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.CanonicalFockFaithfulWeight.fixed_core_is_base": [
       "propext",
       "Classical.choice",
@@ -95041,6 +95423,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Orbit052.orbitSymplectic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.KEhATangente.K_sq_no_angulo_de_miguel": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -97071,6 +97458,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OIgual.K_refl": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.log_half_realized": [
       "propext",
       "Classical.choice",
@@ -97222,6 +97614,9 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.PsionCanto.bellVec._proof_1": [
+      "propext"
     ],
     "ORDEM016.D6.PairTomitaAnalyticRealizationMeasured._proof_7": [
       "propext",
@@ -97449,6 +97844,11 @@
     ],
     "ChatgptAudit.UVScope016.Problem.rec": [],
     "ChatgptAudit.Observable035.pauliMeasurementFisher": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.APonteDoAtrito.a_parcela_e_um_menos_o_peso": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -98146,6 +98546,9 @@
       "Quot.sound"
     ],
     "TGLExt.PonteDaEscalaDual.lift_mass._simp_1_5": [
+      "propext"
+    ],
+    "TGLExt.KEhATangente.massa_derivada_eq_projecao_div_K._simp_1_1": [
       "propext"
     ],
     "ChatgptAudit.UnifiedRecorded.unified_weights_normalized": [
@@ -98931,6 +99334,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.APonteDoAtrito.a_parcela_nao_excede_a_entropia": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.EulerPullback.eulerJacobian": [
       "propext",
       "Classical.choice",
@@ -99299,6 +99707,9 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.OIgual.K_trans._simp_1_5": [
+      "propext"
     ],
     "ORDEM016.D3prime.finite_center_is_projection": [
       "propext",
@@ -100833,6 +101244,11 @@
       "Quot.sound"
     ],
     "F1Fecho.WedgeLaplace.supportedRight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.KEhATangente.transicaoLida._proof_3": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -102698,6 +103114,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.PsionCanto.psionCornerF_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.homogeneousRightGraphMap._proof_10": [
       "propext",
       "Classical.choice",
@@ -104414,6 +104835,11 @@
       "Quot.sound"
     ],
     "_private.TGLExt.V351InverseLimitFaithful.0.TGLV350.Regular.hilbertPositiveSqrt_conjugation_faithful": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.APonteDoAtrito.calorDaVolta": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -108437,6 +108863,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OIgual.escalar_entre_normalizados_e_um": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.WeylVacuumCoefficient.rotate_unitary": [
       "propext",
       "Classical.choice",
@@ -109017,6 +109448,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.KEhATangente.miguel_e_a_mesma_regra_de_leitura": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.inducedArea": [
       "propext",
       "Classical.choice",
@@ -109207,6 +109643,11 @@
       "Quot.sound"
     ],
     "F1Fecho.RegularFiniteStarCore.finiteDualStarCore._proof_6": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.AChaveDaGuarda.ler_nao_gasta": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -110205,6 +110646,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.PsionCanto.cornerOf.eq_1": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.CanonicalGammaNoFixed.positive_sector_fixed_zero": [
       "propext",
       "Classical.choice",
@@ -111078,6 +111524,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.KEhATangente.a_selecao_justa_passa": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Rede.BosonicFockGroupActions.VF_zero": [
       "propext",
       "Classical.choice",
@@ -111886,6 +112337,9 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.OIgual.o_fundo_e_a_media._simp_1_2": [
+      "propext"
     ],
     "F1Fecho.OrbitalSpatial.spatialEmbed": [
       "propext",
@@ -116160,6 +116614,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.PsionCanto.psionCornerF_scalarises": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.TensorContraction.contraction._proof_2": [
       "propext",
       "Classical.choice",
@@ -116891,6 +117350,16 @@
     ],
     "TGLExt.chainDownUp_eq.match_1_1": [],
     "TGLV350.Regular.hilbertPositiveSqrt._proof_4": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OIgual.leitura_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Par.o_par_de_psions_e_o_graviton": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -118743,6 +119212,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OGuarda.o_recibo_le_so_as_bordas": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.truncation._proof_1": [
       "propext",
       "Classical.choice",
@@ -119971,6 +120445,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Thermal024.quadraticGibbsCurve": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.PsionCanto.the_physical_psion_passes_under_compression": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -124361,6 +124840,9 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OIgual.K._proof_1": [
+      "propext"
+    ],
     "ChatgptAudit.LevelExpectationFamily.rec": [
       "propext",
       "Classical.choice",
@@ -124781,6 +125263,9 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OIgual.K_trans._simp_1_2": [
+      "propext"
+    ],
     "TGLV350.Regular.levelPositiveMap._proof_6": [
       "propext",
       "Classical.choice",
@@ -124868,6 +125353,11 @@
       "Quot.sound"
     ],
     "TGLExt.HilbertHomeData.casesOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OIgual.K_e_a_lei": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -125074,6 +125564,11 @@
       "Quot.sound"
     ],
     "TGLV350.Regular.scalarSelfadjointRightPairMultiplier._proof_2": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OIgual.K_pos": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -125599,6 +126094,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Flow019.tensor_pair_smooth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.PsionCanto.lightOp": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -126491,6 +126991,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OGuarda.a_cobranca_tende_a_um": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "_private.TGLExt.F1Fecho394.CanonicalFockModularCoreInputR1.0.F1Fecho.CanonicalFockModularCoreInputR1.ambientStar._proof_1": [
       "propext",
       "Classical.choice",
@@ -126935,6 +127440,9 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.OIgual.K_trans._simp_1_7": [
+      "propext"
     ],
     "F1Fecho.TensorCoordinates.first_pure": [
       "propext",
@@ -127537,6 +128045,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.PsionCanto.bellVec.eq_1": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.ansatzG22_eq._simp_1_2": [
       "propext"
     ],
@@ -127888,6 +128401,11 @@
     ],
     "TGLExt.Being": [],
     "ChatgptAudit.Optical043.opticalScreenCertificate._proof_2": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OUmInscrito.a_luz_fixa_o_um": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -129768,6 +130286,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.APonteDoAtrito.entropia_e_dois_pi_calor_sobre_kappa": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.thePoincareNet._proof_7": [
       "propext",
       "Classical.choice",
@@ -130022,6 +130545,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.KEhATangente.transicaoLida._proof_4": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.RegularScalarGNS.scalarGNSOrbit._proof_2": [
       "propext",
       "Classical.choice",
@@ -130188,6 +130716,9 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.OIgual.o_fundo_e_a_media._simp_1_3": [
+      "propext"
     ],
     "TGLV350.Regular.scalarRightProjectionElement_positive": [
       "propext",
@@ -131339,6 +131870,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OIgual.K_trans": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.Thermal025.diagonal_affinity_product._simp_1_3": [
       "propext",
       "Quot.sound"
@@ -131937,6 +132473,11 @@
       "Quot.sound"
     ],
     "F1Fecho.CanonicalFockModularCoreInputR1.modularCoreInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.APonteDoAtrito.entropiaDaVolta": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -133173,6 +133714,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OUmInscrito.a_luz_tem_autovetor_o_um_inscrito": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.FLRW.HubbleHorizonInput.H_diff": [
       "propext",
       "Classical.choice",
@@ -133740,6 +134286,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OUmInscrito.o_um_nao_e_o_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "ChatgptAudit.NoncommutingLocal.second_times_first._proof_1_2": [
       "propext",
       "Quot.sound"
@@ -134013,6 +134564,11 @@
       "Quot.sound"
     ],
     "TGLExt.Posto.sin_two_mul_eq_zero_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OGuarda.a_conta_fecha": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -136073,6 +136629,11 @@
       "Quot.sound"
     ],
     "TGLV350.Regular.denseLinearEquiv_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.KEhATangente.massa_derivada_eq_projecao_div_K": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -142323,6 +142884,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.PsionCanto.the_psion_is_the_corner_on_both_faces": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "F1Fecho.TensorCoordinates.coordinates._proof_4": [
       "propext",
       "Classical.choice",
@@ -142536,6 +143102,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.GeneralLinearized.gaugeField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OIgual.K_trans._simp_1_6": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -143007,6 +143578,9 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.OIgual.o_fundo_e_a_media._simp_1_7": [
+      "propext"
     ],
     "TGLExt.EmergentEinsteinData._sizeOf_1": [
       "propext",
@@ -145326,6 +145900,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.PsionCanto.the_physical_psion_is_linked_to_the_corner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLV350.Regular.scalarRightProjectionPair._proof_13": [
       "propext",
       "Classical.choice",
@@ -147242,6 +147821,9 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OIgual.o_fundo_e_a_media._simp_1_4": [
+      "propext"
+    ],
     "ChatgptAudit.Collapse057.ReflectionProtocol._sizeOf_inst": [],
     "ChatgptAudit.PauliCocycle.site_x_mem_level": [
       "propext",
@@ -148820,6 +149402,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Flow016.LipschitzLocalFlow.derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.KEhATangente.K_sq_eq_custo_div_pagamento": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -152103,6 +152690,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OGuarda.a_cobranca_nunca_completa": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "_private.TGLExt.InfiniteWord.0.TGLExt.fhat_continuous": [
       "propext",
       "Classical.choice",
@@ -155062,6 +155654,11 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.OIgual.K_symm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.every_state_splits._abel_1_1": [
       "propext",
       "Classical.choice",
@@ -155678,6 +156275,11 @@
       "Quot.sound"
     ],
     "ChatgptAudit.Coherent023.coherentFlatMatter": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.OGuarda.o_que_falta_tende_a_um": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -157162,6 +157764,11 @@
       "Quot.sound"
     ],
     "F1Fecho.Antilinear.RemainingAnalyticInput.R_cov": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.KEhATangente.no_posto_o_acorde_e_a_projecao": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -161830,7 +162437,7 @@
       "Quot.sound"
     ]
   },
-  "formal_source_hash": "0e4eb8f1272d385b3e4154267a71dfc830b37beb361e596488403fea59ee4ef6",
+  "formal_source_hash": "048bffe0b4c5e9af1c281fdeaa538b5fe4bd782827a3831dbe79da573f87c8bf",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -162180,7 +162787,7 @@
 
 ```json
 {
-  "code_sha256": "ddcb91930982d6143f47127d43020ab97cb9f5275331f470f2d0e4caaffd1fc0",
+  "code_sha256": "833121339e649f7171e2eccca1a19b3a1564aa306a787ed8cea76ded0fdf3475",
   "cf4_catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
   "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
   "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f"
@@ -162191,7 +162798,7 @@
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 11860/11860 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 11958/11958 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -163097,15 +163704,15 @@
 - `retrodiction_reading_v387`: `TGL_RETRODICTION_READING_V387__USE_NOVELTY_NOT_TEMPORAL_NOVELTY__POSTDICTION_NEVER_A_DEMERIT__OPERATOR_LAW_2026_10_05_EMBEDDED_BY_SHA256__SIX_TEXT_SITES_REWRITTEN_PT_EN__COMA_TOKEN_AND_V141_FROZEN_KEPT_AS_RECORD__PRECEDENT_MERCURY_PERIHELION_KNOWN__GATE_UNTOUCHED` [all_verified=True]
 - `hubble_ratio_v387`: `TGL_HUBBLE_RATIO_V387__V1_READ_BY_HASH_1893261e730994b3__LAW_D1B_K_EQ_E_ZSTAR_POW_2BETA_OVER_3__BACKGROUND_BARE_PLANCK_COMP_DR2__ONE_VERDICT_FUNCTION_5940bf16310efb6a__POWER_PRIMARY_5P91_SIGMA_ONLY_READERS_DECLARED__USE_NOVEL_BY_PARAMETERS_RETRODICTION_WITHOUT_ADJUSTMENT__SOURCES_BY_HASH_AWAITING_THE_OPERATOR__AWAITING_DATA__NOTHING_OPENED__NOT_A_CONFIRMATION__GATE_UNTOUCHED` [all_verified=True]
 - `primordial_v387`: `TGL_PRIMORDIAL_V387__V1_READ_BY_HASH_36afd8b05d2aa5f5__RADIATION_PAYS_4BETA_OVER_3_RHO_PLUS_P__DELTA_NEFF_0P1195__ONE_BETA_ENTRY_PER_INSTRUMENT_CONTROL_PASSED__BANCADA_CHANNEL_FIRST__POWER_TODAY_1P00_OF_5_UNDERPOWERED_PREDETERMINED__BIG_BANG_INSCRIPTION_IS_ONTO__SOURCES_BY_HASH_AWAITING_THE_OPERATOR__AWAITING_DATA__NOTHING_OPENED__NOT_A_CONFIRMATION__GATE_UNTOUCHED` [all_verified=True]
-- `three_stress_tests_v387`: `TGL_THREE_STRESS_TESTS_V387__CORE_217_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_11860_OF_11860__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED` [all_verified=True]
+- `three_stress_tests_v387`: `TGL_THREE_STRESS_TESTS_V387__CORE_217_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_11958_OF_11958__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED` [all_verified=True]
 - `beta_runs_bounded_below_v388`: `TGL_BETA_RUNS_BOUNDED_BELOW_V388__ALPHA_IS_THE_SCALE_INDEX_OF_THE_BOUNDARY_BETA_ITS_CONJUGATION__ALPHA_SECH_CHI_OVER_2_STRICTLY_DECREASING_IN_DEPTH__FLOOR_AT_THE_INFRARED_SUPREMUM_OF_CHI__BETA0_0P01203130__BETA_MZ_ON_SHELL_0P012786_MSBAR_0P012886__LINKED_TO_COUPLING_OF_ALPHA__ZENO_HALVES_NEVER_REACH_THE_ONE_LIMIT_IS_THE_ONE__HALF_NAT_IS_THE_FIXED_STEP__KERNEL_17_OF_17__BOUNDARY_CONSTANT_STAYS_BETA0_BULK_READING_RUNS__FORM_DERIVED_NUMBER_READ__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__WHICH_MU_PER_RITE_OPEN__GATE_UNTOUCHED__PROVED_IS_NOT_CONFIRMED` [all_verified=True]
 - `hubble_ratio_opening_v388`: `TGL_HUBBLE_RATIO_OPENING_V388__RESULT_READ_BY_HASH_481366db97f0ebf1__FROZEN_FUNCTION_RE_EXECUTED_SAME_VERDICT__INCONCLUSIVE_SYSTEMATICS_READERS_DECLARED_UNTIL_SOURCES_BY_SHA256__Z_DELTA_M1P42__Z_DISC_P4P28__LNB_LCDM_P9P17_BETA_FREE_P2P24_SHIFT_P4P28_FREE_BG_P12P13__COUNTERFACTUAL_WITH_SOURCES_NOT_DISCRIMINATED_FROM_LCDM_AT_5SIGMA__NOT_A_CONFIRMATION__GATE_UNTOUCHED` [all_verified=True]
 - `teste_de_veracidade_fase9_v397`: `TGL_FASE9_VERACIDADE_V397__THE_UNIQUE_WORD_TEST_OPENED_ONCE_READ_BY_HASH__LAMBDA_ALONE_FACE_Z_DISC_4P44_P_UNILATERAL_4P4E_M6_BELOW_5SIGMA_NOT_DISCRIMINATED_THE_CREDITATION_STEP_NOT_REACHED__TGL_FACE_Z_DELTA_M1P48_P_BILATERAL_0P14_PRIOR_POWER_5P73_NOT_FALSIFIED_WITH_POWER__CONJUGATION_LNB_TGL_LCDM_9P18_LNB_TGL_BETA_FREE_2P14_BETA_FIXED_BEATS_BETA_FREE__LNB_IS_NOT_SIGMA_THE_READINGS_ARE_NOT_MULTIPLIED__NOT_BLIND_TO_DATA_STATED__NO_NEW_SIGMA_COMPUTED__THE_BINARY_READING_IS_THE_OPERATORS_INPUT_AND_ONTO__VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
 - `text_label_errata_v389`: `TGL_TEXT_LABEL_ERRATA_V389__EXAM_V388_READ_BY_HASH_b033831f6b62a6cc__0_BLOQUEIA_3_CORRIGIR_ADDRESSED__SEAL_LABEL_RENAMED_TO_VERIFIED_OLD_KEPT_AS_RECORD__INTRO_TITLE_V384_TO_V389__ABSTRACT_AND_PART_B_SAY_POSTO__V387_CROSS_REFERENCE_TO_V388__LEDGER_1025_UNIQUE_PLUS_156_OUTSIDE_156_IN_O16__EXAM_ERRATUM_BESIDE_1015_READS_1025__NO_CALCULATION_CHANGED__KERNEL_UNCHANGED__GATE_UNTOUCHED` [all_verified=True]
 - `fundacao_v390`: `TGL_FUNDACAO_V390__GLOBAL_LIFT_READ_AS_THE_SUPERPOSITION_BY_OPERATOR_DEFINITION_2026_10_07__AGAPE_CLAUSE_KERNEL_9_OF_9__NOTHING_ABOVE_BEARS_A_POST__THE_CLIMB_HAS_NO_TOP__THE_FALL_NEVER_LANDS__ABISMO_THE_FALL_HAS_NO_BOTTOM__THE_FLOOR_FIXES_THE_CUT__THE_POST_LIVES_IN_THE_PASSAGE__LOCAL_PASSAGE_KNOWN_JACOBSON_1995_H3_NAMED__LOGICAL_CLOSURE_THE_PROGRAM_STAYS_OPEN__FIELD_EQUATION_IN_CURVED_SPACETIME_NOT_A_KERNEL_TERM__TAKESAKI_SCALING_AS_DATA_KNOWN__BORCHERS_FORM_UNDER_NAMED_CONTRACT_H2_IN_KERNEL__VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED` [all_verified=True]
-- `estatuto_da_prova_v391`: `TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_11860_OF_11860_FLAGS_33732_OF_33732_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_ddcb91930982d614__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED` [all_verified=True]
-- `pedras_v392`: `TGL_PEDRAS_V392__14_NEW_KERNEL_MODULES__738_OF_738_FLAGS_738_OF_738_DECLARATIONS_IN_THE_TRIO__LADDER_11860_OF_11860__WORD_RANK_POST_NAME_TIME_SANTO_ORGANISM_IALD_TRUTH_IS_THE_PROJECTION_OF_THE_POST_BY_OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__BGL_AS_TYPED_HYPOTHESIS_NO_INHABITANT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
-- `varredura_e_sorry_v392`: `TGL_VARREDURA_E_SORRY_V392__RECURSIVE_TOKEN_SCAN_1723_FILES_150_IN_TGLEXT_O16_0_HITS__SORRY_DETECTOR_READS_BACKTICK_AND_QUOTE_AND_SORRYAX_ON_THE_REAL_PROBE__GATE_UNMOVED` [all_verified=True]
+- `estatuto_da_prova_v391`: `TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_11958_OF_11958_FLAGS_33863_OF_33863_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_833121339e649f71__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED` [all_verified=True]
+- `pedras_v392`: `TGL_PEDRAS_V392__14_NEW_KERNEL_MODULES__738_OF_738_FLAGS_738_OF_738_DECLARATIONS_IN_THE_TRIO__LADDER_11958_OF_11958__WORD_RANK_POST_NAME_TIME_SANTO_ORGANISM_IALD_TRUTH_IS_THE_PROJECTION_OF_THE_POST_BY_OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__BGL_AS_TYPED_HYPOTHESIS_NO_INHABITANT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
+- `varredura_e_sorry_v392`: `TGL_VARREDURA_E_SORRY_V392__RECURSIVE_TOKEN_SCAN_1732_FILES_150_IN_TGLEXT_O16_0_HITS__SORRY_DETECTOR_READS_BACKTICK_AND_QUOTE_AND_SORRYAX_ON_THE_REAL_PROBE__GATE_UNMOVED` [all_verified=True]
 - `nome_posto_v392`: `TGL_NOME_POSTO_V392__THE_NAME_OF_THE_IDENTITY_IS_POSTED_BY_THE_OPERATOR_NOT_DERIVED_NOT_A_THEOREM__BESIDE_THE_STONE_VERDADE__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
 - `adendo_rank_v392`: `TGL_ADENDO_RANK_V392__POSTO_ADDENDUM_PARTS_A1_TO_A5_PREREGISTERED_BEFORE_THE_RUN_ALL_PASS_IN_THE_V392_KERNEL__THE_ONE_THAT_SURVIVES_COLLAPSE_IS_THE_TRACE_NOT_THE_RANK__NO_INDEPENDENT_AUDIT_YET__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
 - `kh_n1_cobertura_v392`: `TGL_KH_N1_COBERTURA_V392__AXIOM_REPORT_COVERS_THE_WHOLE_TGL_AND_TGLEXT_CLOSURE_24975_CONSTANTS_19761_THEOREMS_NONE_OUTSIDE_THE_TRIO__FOUR_NAMES_THE_REGEX_CANNOT_READ_DECLARED__GATE_UNMOVED` [all_verified=True]
@@ -163135,7 +163742,7 @@
 - `sn_ia_v388_viability_v392`: `TGL_SN_IA_V388_VIABILITY_V392__INFORMATIVE_OUTSIDE_THE_JOINT__NO_PHYSICAL_SIGMA__CONDITIONAL_CALCULATIONS_ONLY__COULOMB_ATTRIBUTION_ERRATA_BESIDE__STELLAR_BRIDGE_OPEN__NO_GATE_EFFECT` [all_verified=True]
 - `cunhagens_v392`: `TGL_CUNHAGENS_V392__OPERATOR_COINAGES_EMBEDDED_BY_SHA256__ANCHORS_BESIDE_MARKED_NOT_PROMOTED__THE_FIXED_IS_THE_VERB_BETA_TGL__REGISTER_IS_LIGHT_ENGINEERING__GATE_UNMOVED` [all_verified=True]
 - `v1_voz_de_ia_v392`: `TGL_V1_VOZ_DE_IA_V392__V1_IS_A_DECLARED_AI_VOICE_QUOTED_BY_THE_OPERATOR__LINE_7_HAS_TWO_READINGS_BOTH_BY_TERM__THE_CHOICE_IS_THE_OPERATORS_AND_STAYS_OPEN__GATE_UNMOVED` [all_verified=True]
-- `pedras_v393`: `TGL_PEDRAS_V393__3_NEW_KERNEL_MODULES__144_OF_144_FLAGS_144_OF_144_DECLARATIONS_IN_THE_TRIO__LADDER_11860_OF_11860__RULE_IS_THE_REFUSAL_THAT_THE_RESULT_DIFFER_FROM_THE_OBJECT_OF_ITS_SATISFACTION_RELATIVE_TO_READING_AND_TARGET__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
+- `pedras_v393`: `TGL_PEDRAS_V393__3_NEW_KERNEL_MODULES__144_OF_144_FLAGS_144_OF_144_DECLARATIONS_IN_THE_TRIO__LADDER_11958_OF_11958__RULE_IS_THE_REFUSAL_THAT_THE_RESULT_DIFFER_FROM_THE_OBJECT_OF_ITS_SATISFACTION_RELATIVE_TO_READING_AND_TARGET__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
 - `regra_consumidor_v393`: `TGL_REGRA_CONSUMIDOR_V393__RULE_READS_TARGET_ADMITTED_INCOMPATIBLE_REFUSED_78_CHECKS_241_POINTS__EXACT_EQUALITY_NOT_CLAIMED_TOLERANCE_DECLARED__SYNTHETIC_NO_OBSERVED_DATA__GATE_UNMOVED` [all_verified=True]
 - `coracao_e_selo_gravitacional_v393`: `FORM_VERIFIED_CHI_FROM_CODATA__G_BY_PLANCK_NORMALIZATION__GATE_UNTOUCHED` [all_verified=True]
 - `cunhagens_regra_v393`: `TGL_CUNHAGENS_REGRA_V393__RULE_AS_NEGATION_TETELESTAI_SATISFACTION_AND_FIGURE_OF_TRUTH_VERBATIM_EMBEDDED_BY_SHA256__RULE_READS_TARGET_IN_THE_REAL_CONSUMER__OPERATOR_INPUT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
@@ -163172,6 +163779,9 @@
 - `fechamento_v406`: `TGL_FECHAMENTO_V406__THE_FOCK_CERTIFICATE_IS_INHABITED_BY_CONSTRUCTION_physicalFockCertificate__THE_PASSAGE_TO_THE_CONTINUUM_modularCoreInput_IS_A_TERM_FOR_EVERY_CANONICAL_NET_INPUT__THE_FOUR_WITNESS_KEYS_ARE_READ_FROM_THE_KERNEL_NOT_LITERAL__THE_CANONICAL_FULL_WITNESS_TERM_canonicalFullTGLWitness_EXISTS__NONTRIVIALITY_ONLY_ON_THE_WEDGE__TWO_KEYS_STAY_FALSE_BY_THEOREM__301_MODULES_READ_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
 - `cunhagens_v406`: `TGL_CUNHAGENS_V406__OPERATOR_INSCRIPTIONS_OF_02_NOV_EMBEDDED_VERBATIM_BY_SHA256_23_SAYINGS__THE_ORDER_BUILD_EVERYTHING_THE_PRIORITY_THE_PASSAGE_TO_THE_CONTINUUM__THE_FOUR_WITNESS_KEYS_READ_FROM_THE_KERNEL__THE_RESERVATIONS_STATED__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
 - `kh_n1_cobertura_v406`: `TGL_KH_N1_COBERTURA_V406__AXIOM_REPORT_COVERS_THE_WHOLE_TGL_AND_TGLEXT_CLOSURE_33732_CONSTANTS_26911_THEOREMS_NONE_OUTSIDE_THE_TRIO__ALL_NAMES_READ_BY_THE_V394_PARSER__THE_301_V406_MODULES_ADDED__GATE_UNMOVED` [all_verified=True]
+- `psion_canto_v407`: `TGL_PSION_CANTO_V407__THE_LEMMA_THAT_LINKS_THE_TWO_FACES_OF_THE_PSION_IS_A_KERNEL_TERM__THE_KEY_IS_READ_FROM_THE_KERNEL_NOT_LITERAL__LINK_OF_STRUCTURE_NOT_OF_VECTORS__THE_BOUND_PAIR_NEVER_CANCELS_AND_THE_CORNER_IS_THE_FOUR_BY_FOUR__THE_FOCK_FACE_OF_THE_PAIR_STAYS_OPEN__NINE_MODULES_READ_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
+- `cunhagens_v407`: `TGL_CUNHAGENS_V407__OPERATOR_INSCRIPTIONS_OF_03_NOV_EMBEDDED_VERBATIM_BY_SHA256_3_SAYINGS__THE_NAMES_OF_THE_STONES__THE_BOUND_PAIR_THE_FOUR_BY_FOUR_CORNER__THE_KEY_READ_FROM_THE_KERNEL__THE_RESERVATIONS_STATED__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED` [all_verified=True]
+- `kh_n1_cobertura_v407`: `TGL_KH_N1_COBERTURA_V407__AXIOM_REPORT_COVERS_THE_WHOLE_TGL_AND_TGLEXT_CLOSURE_33863_CONSTANTS_27027_THEOREMS_NONE_OUTSIDE_THE_TRIO__ALL_NAMES_READ_BY_THE_V394_PARSER__THE_9_V407_MODULES_ADDED__GATE_UNMOVED` [all_verified=True]
 - `pdf_emission`: `PDF_EMISSION_COMPLETE`
 
-_438 modulos com veredito ou status nesta rodada; versao v406; rodada 2026-11-03 00:41:53._
+_441 modulos com veredito ou status nesta rodada; versao v407; rodada 2026-11-04 06:26:57._

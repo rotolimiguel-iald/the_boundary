@@ -55,4 +55,4 @@ nao prova; o bake foi aplicado porem computacionalmente inerte.
 
 ---
 
-gerado por script de git ls-files em 2026-11-03 -- nao editar a mao
+gerado por script de git ls-files em 2026-11-04 -- nao editar a mao
