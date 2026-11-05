@@ -1139,3 +1139,7 @@ import TGLExt.AChaveDaGuarda
 import TGLExt.OGuarda
 import TGLExt.LeituraPreservada
 import TGLExt.OIgual
+import TGLExt.TetelestaiTerminal
+import TGLExt.TempoIgualMoeda
+import TGLExt.PontoDeContradicao
+import TGLExt.PIgualNP

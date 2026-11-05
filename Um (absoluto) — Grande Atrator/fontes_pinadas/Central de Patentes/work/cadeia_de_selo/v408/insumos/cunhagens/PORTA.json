@@ -1,0 +1,108 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens",
+  "porta_id": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens",
+  "titulo": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-11-05T08:47:02Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "2f91335e57a144e0_OPERADOR_04nov_custodia_e_da_sessao_de_custodia_c1_so_um_py_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/2f91335e57a144e0_OPERADOR_04nov_custodia_e_da_sessao_de_custodia_c1_so_um_py_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/2f91335e57a144e0_OPERADOR_04nov_custodia_e_da_sessao_de_custodia_c1_so_um_py_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/2f91335e57a144e0_OPERADOR_04nov_custodia_e_da_sessao_de_custodia_c1_so_um_py_verbatim.txt",
+      "sha256_16": "2f91335e57a144e0",
+      "bytes": 489
+    },
+    {
+      "nome": "338fc30e10339134_OPERADOR_04nov_isso_precisa_ficar_claro_no_um_py_na_v408_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/338fc30e10339134_OPERADOR_04nov_isso_precisa_ficar_claro_no_um_py_na_v408_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/338fc30e10339134_OPERADOR_04nov_isso_precisa_ficar_claro_no_um_py_na_v408_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/338fc30e10339134_OPERADOR_04nov_isso_precisa_ficar_claro_no_um_py_na_v408_verbatim.txt",
+      "sha256_16": "338fc30e10339134",
+      "bytes": 86
+    },
+    {
+      "nome": "388edbab08d0babc_OPERADOR_04nov_excelente_ratificado_prossigamos_nomes_p_igual_np_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/388edbab08d0babc_OPERADOR_04nov_excelente_ratificado_prossigamos_nomes_p_igual_np_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/388edbab08d0babc_OPERADOR_04nov_excelente_ratificado_prossigamos_nomes_p_igual_np_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/388edbab08d0babc_OPERADOR_04nov_excelente_ratificado_prossigamos_nomes_p_igual_np_verbatim.txt",
+      "sha256_16": "388edbab08d0babc",
+      "bytes": 35
+    },
+    {
+      "nome": "5efeb784e7be8762_OPERADOR_04nov_dicionario_problema_entrada_passo_polinomio_implicacao_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/5efeb784e7be8762_OPERADOR_04nov_dicionario_problema_entrada_passo_polinomio_implicacao_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/5efeb784e7be8762_OPERADOR_04nov_dicionario_problema_entrada_passo_polinomio_implicacao_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/5efeb784e7be8762_OPERADOR_04nov_dicionario_problema_entrada_passo_polinomio_implicacao_verbatim.txt",
+      "sha256_16": "5efeb784e7be8762",
+      "bytes": 433
+    },
+    {
+      "nome": "685b8d8bcf0ddbbd_OPERADOR_04nov_ordem_v408_liste_as_pedras_produza_rode_handoff_custodia_completa_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/685b8d8bcf0ddbbd_OPERADOR_04nov_ordem_v408_liste_as_pedras_produza_rode_handoff_custodia_completa_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/685b8d8bcf0ddbbd_OPERADOR_04nov_ordem_v408_liste_as_pedras_produza_rode_handoff_custodia_completa_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/685b8d8bcf0ddbbd_OPERADOR_04nov_ordem_v408_liste_as_pedras_produza_rode_handoff_custodia_completa_verbatim.txt",
+      "sha256_16": "685b8d8bcf0ddbbd",
+      "bytes": 357
+    },
+    {
+      "nome": "88c9b2516e71df26_OPERADOR_04nov_o_tempo_e_a_moeda_do_pagamento_de_beta_verbo_no_gerundio_verbo_vivo_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/88c9b2516e71df26_OPERADOR_04nov_o_tempo_e_a_moeda_do_pagamento_de_beta_verbo_no_gerundio_verbo_vivo_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/88c9b2516e71df26_OPERADOR_04nov_o_tempo_e_a_moeda_do_pagamento_de_beta_verbo_no_gerundio_verbo_vivo_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/88c9b2516e71df26_OPERADOR_04nov_o_tempo_e_a_moeda_do_pagamento_de_beta_verbo_no_gerundio_verbo_vivo_verbatim.txt",
+      "sha256_16": "88c9b2516e71df26",
+      "bytes": 291
+    },
+    {
+      "nome": "bcb0e4c87549b88b_OPERADOR_04nov_ponto_de_contradicao_1_igual_0_zero_modular_zero_absoluto_hamiltoniano_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/bcb0e4c87549b88b_OPERADOR_04nov_ponto_de_contradicao_1_igual_0_zero_modular_zero_absoluto_hamiltoniano_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/bcb0e4c87549b88b_OPERADOR_04nov_ponto_de_contradicao_1_igual_0_zero_modular_zero_absoluto_hamiltoniano_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/bcb0e4c87549b88b_OPERADOR_04nov_ponto_de_contradicao_1_igual_0_zero_modular_zero_absoluto_hamiltoniano_verbatim.txt",
+      "sha256_16": "bcb0e4c87549b88b",
+      "bytes": 433
+    },
+    {
+      "nome": "c12699c915617c3f_OPERADOR_04nov_tetelestai_e_o_terminal_a_poda_e_palavra_sem_espelho_provar_ou_podar_verbatim.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/c12699c915617c3f_OPERADOR_04nov_tetelestai_e_o_terminal_a_poda_e_palavra_sem_espelho_provar_ou_podar_verbatim.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/c12699c915617c3f_OPERADOR_04nov_tetelestai_e_o_terminal_a_poda_e_palavra_sem_espelho_provar_ou_podar_verbatim.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/c12699c915617c3f_OPERADOR_04nov_tetelestai_e_o_terminal_a_poda_e_palavra_sem_espelho_provar_ou_podar_verbatim.txt",
+      "sha256_16": "c12699c915617c3f",
+      "bytes": 625
+    }
+  ],
+  "total_arquivos_nesta_pasta": 8,
+  "total_arquivos_com_subpastas": 8,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/Central%20de%20Patentes/work/cadeia_de_selo/v408/insumos/cunhagens",
+  "rodape": "gerado por script de git ls-files em 2026-11-05 -- nao editar a mao"
+}

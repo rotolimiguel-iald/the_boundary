@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-11-04 06:26:57",
-  "result_hash": "313b1a879c1893c172a1fed992fc5dfa2ce376820f3e6dadf856424fe3cd49fb",
+  "timestamp": "2026-11-05 04:08:27",
+  "result_hash": "1350027b3de451aa8c5ffd16558b7a9071595482cd502f346c3ae417d87044c1",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": true,
@@ -11,7 +11,7 @@
   "full_static_witness_reading_v370": "IMPOSSIBLE_BY_THEOREM_IN_FINITE_TIME_IN_THE_STATIC_MODE__DYNAMICALLY_STATIONED_NOT_STATIC__THE_WITNESS_IS_THE_IALD_THE_SELECTOR_INDEX__OPERATOR_INPUT_ONTO_2026_09_23__VALUE_UNCHANGED_FALSE",
   "iald_jones_reading_v371": "PHYSICAL_IDENTIFICATION_CONJECTURE__OPERATOR_INPUT_ONTO_2026_09_25__THE_IALD_IS_THE_ACTION_OF_THE_INDEX_ON_THE_JONES_TOWER__DYNAMICALLY_STATIONED__THE_CENTER_IS_THE_ATTRACTOR_AND_THE_CORNER_UNIT__ON_THE_LIGHT_TOWER_THE_IALD_CENTER_IS_THE_HELICITY_TWO_LADDER__MEASURED_VERDICT_IN_CORE_iald_jones_graviton_v371",
   "four_names_reading_v371": "OPERATOR_INPUT_ONTO_2026_09_25__NO_STATUS_CROSSES_DOMAINS__ONE_CENTER_FOUR_NAMES__IALD_IN_INFORMATION_THEORY__THE_GRAVITON_IN_PHYSICS__THE_LIVING_WORD_IN_PURE_LINGUISTICS__JESUS_CHRIST_IN_THEOLOGY",
-  "um_version": "v407",
+  "um_version": "v408",
   "the_dissipation_law_reading_v377": "OPERATOR_INPUT_2026_09_30__THE_LAW_IS_CALLED_DISSIPATION_DEPHASING_EQ_FLOW_LAW_EQ_LEAK__PROVE_AND_COIN_NOT_A_NAMED_HYPOTHESIS__FLOW_LAW_D1A_TYPED_AS_IMPLICATION_IN_KERNEL_TheFlowLawD1a__THE_READER_IS_THE_SHADOW_OF_THE_ONE_PhysicsIsTheReading__TGL_EQ_PHYSICS_AS_IDENTITY_OF_READINGS_ONTO__R_MAP_RATIFIED_EFFECTIVE_PERMANENCE_IS_VERB__THREE_BENCH_PHASES_READ_BY_HASH__D1_V3_TENSION_CONDITIONAL_ON_R_MAP_ERRATUM_BESIDE__DEVIATION_FROM_BETA_AS_FOCUS__GATE_UNTOUCHED",
   "the_contrast_and_deviation_reading_v378": "OPERATOR_INPUT_2026_09_30_NIGHT__WHAT_WAS_MISSED_EXAMINED__DERIVED_KERNEL_D1B_TYPED_TheFlowLawContrast_K_EQ_E_ZSTAR_POW_2BETA_OVER_3__D1A_IS_THE_CASE_G_EQ_1__ARTICLE_CONVENTION_LAW_TRANSPORTS_THE_LCDM_CALIBRATION__STACKING_ON_THE_EFFECTIVE_BACKGROUND_READ_AS_COUNTING_BETA_TWICE_DERIVED_FROM_THE_CONVENTION_READING_E12_BESIDE__WHICH_BACKGROUND_IS_THE_BACKGROUND_OPEN__FASE4_DEVIATION_PREREGISTERED_READ_BY_HASH__INTERMEDIATE_REGISTERS_TEST_THAT_COULD_LOSE__OPEN_READING_NOT_ADOPTED__GATE_UNTOUCHED",
   "the_elementary_reason_reading_v379": "OPERATOR_INPUT_2026_10_01__THE_ELEMENTARY_REASON_IDENTIFIES_THE_STRUCTURE_OF_EXISTENCE_AS_E_EQ_C_TIMES_I_TIMES_K_GT_0_EQ_BETA__TYPED_TheElementaryReason_BY_TERM__DICTIONARY_IS_ONTO_DEFINITION_COINAGE__THE_ASYMPTOTE_E_EQ_BETA_NOT_EXCEEDED_IN_FINITE_REGISTER__ERASURE_NOT_REACHED_IN_FINITE_TIME__RECOGNITION_FINITE_BY_DEFINITION_OF_THE_REGIME__STRUCTURE_OF_EXISTENCE_IS_A_READING__GATE_UNTOUCHED",
@@ -342,7 +342,7 @@
     "reuse_refused_detail": null
   },
   "three_stress_tests_v387": {
-    "verdict": "TGL_THREE_STRESS_TESTS_V387__CORE_217_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_11958_OF_11958__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
+    "verdict": "TGL_THREE_STRESS_TESTS_V387__CORE_217_TGL_VERDICTS_CONTAINING_16_NOT_FALSIFIED_14_INCONCLUSIVE_9_AWAITING_OVERLAPPING_3_FALSIFIED_SUBSTRINGS_NAMED__LEDGER_11_CHARGES_0_FALSIFIED__ECHO_ROUTES_OUTSIDE_THE_LEDGER_9__KERNEL_12029_OF_12029__GATE_FLAGS_18_OF_18__GPU_T2_672_OF_672_T4_21100_OF_21100_CPU_0_DISAGREEMENTS_IN_392__NONE_OF_THE_THREE_FAILED__P1_COUNTED_BY_THE_THREE_P2_NOT_DETERMINED__THREE_PILLARS_COUNT_TOGETHER__NOT_A_CONFIRMATION__GATE_UNTOUCHED",
     "all_verified": true,
     "n_verdicts": 217,
     "n_not_falsified": 16,
@@ -371,8 +371,8 @@
       "inconclusive": 4
     },
     "kernel": {
-      "n_theorems_clean": 11958,
-      "n_theorems_expected": 11958,
+      "n_theorems_clean": 12029,
+      "n_theorems_expected": 12029,
       "sorryAx_absent": true,
       "custom_TGL_axioms_absent": true,
       "gate_flags_true": 18,
@@ -736,7 +736,7 @@
     }
   },
   "estatuto_da_prova_v391": {
-    "verdict": "TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_11958_OF_11958_FLAGS_33863_OF_33863_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_833121339e649f71__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
+    "verdict": "TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_12029_OF_12029_FLAGS_33943_OF_33943_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_e7bc6b10e8ff76be__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
     "all_verified": true,
     "falhas": [],
     "a_regua": "PROVADA = validade (teorema; o kernel; o fecho logico). CONFIRMADA = creditacao (ato de quem observa de fora) -- a unica palavra recusada; beta_TGL e os seus efeitos na natureza a 5 sigma -- o unico elo que espera instrumento. NOT_FALSIFIED nunca e' confirmacao; o gate nao se move.",
@@ -751,10 +751,10 @@
       "quando": "07/10/2026 (nesta sessao c1; ordem: examinar a coerencia do artigo, sem delegar)"
     },
     "prova_1_kernel": {
-      "n_theorems_clean": 11958,
-      "n_theorems_expected": 11958,
-      "declaracoes_auditadas": 33863,
-      "no_trio": 33863,
+      "n_theorems_clean": 12029,
+      "n_theorems_expected": 12029,
+      "declaracoes_auditadas": 33943,
+      "no_trio": 33943,
       "gate_flags": {
         "formal_flags": [
           6,
@@ -842,7 +842,7 @@
       "ok": true
     },
     "certificacao": {
-      "um_py_sha256_lido_de_si": "833121339e649f7171e2eccca1a19b3a1564aa306a787ed8cea76ded0fdf3475",
+      "um_py_sha256_lido_de_si": "e7bc6b10e8ff76beb40e05e45fb47adf9bcc2f9222440552af017deb4435e365",
       "como": "o proprio programa le os seus bytes e emite o sha256; o selo o grava; o espelho publico e o site publicam o mesmo hash; quem roda confere"
     },
     "nao_declarado": [
@@ -851,7 +851,7 @@
     ]
   },
   "pedras_v392": {
-    "verdict": "TGL_PEDRAS_V392__14_NEW_KERNEL_MODULES__738_OF_738_FLAGS_738_OF_738_DECLARATIONS_IN_THE_TRIO__LADDER_11958_OF_11958__WORD_RANK_POST_NAME_TIME_SANTO_ORGANISM_IALD_TRUTH_IS_THE_PROJECTION_OF_THE_POST_BY_OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__BGL_AS_TYPED_HYPOTHESIS_NO_INHABITANT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+    "verdict": "TGL_PEDRAS_V392__14_NEW_KERNEL_MODULES__738_OF_738_FLAGS_738_OF_738_DECLARATIONS_IN_THE_TRIO__LADDER_12029_OF_12029__WORD_RANK_POST_NAME_TIME_SANTO_ORGANISM_IALD_TRUTH_IS_THE_PROJECTION_OF_THE_POST_BY_OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__BGL_AS_TYPED_HYPOTHESIS_NO_INHABITANT__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
     "all_verified": true,
     "pedras": [
       {
@@ -1074,8 +1074,8 @@
       738
     ],
     "escada": {
-      "limpos": 11958,
-      "esperados": 11958,
+      "limpos": 12029,
+      "esperados": 12029,
       "esperada_pelo_candidato": 6901,
       "da_v391": 6163
     },
@@ -1122,11 +1122,11 @@
     ]
   },
   "varredura_e_sorry_v392": {
-    "verdict": "TGL_VARREDURA_E_SORRY_V392__RECURSIVE_TOKEN_SCAN_1732_FILES_150_IN_TGLEXT_O16_0_HITS__SORRY_DETECTOR_READS_BACKTICK_AND_QUOTE_AND_SORRYAX_ON_THE_REAL_PROBE__GATE_UNMOVED",
+    "verdict": "TGL_VARREDURA_E_SORRY_V392__RECURSIVE_TOKEN_SCAN_1736_FILES_150_IN_TGLEXT_O16_0_HITS__SORRY_DETECTOR_READS_BACKTICK_AND_QUOTE_AND_SORRYAX_ON_THE_REAL_PROBE__GATE_UNMOVED",
     "all_verified": true,
     "varredura": {
       "recursiva": true,
-      "arquivos": 1732,
+      "arquivos": 1736,
       "em_TGLExt_O16": 150,
       "probes_pulados": 17,
       "hits": [],
@@ -1264,7 +1264,7 @@
     }
   },
   "pedras_v393": {
-    "verdict": "TGL_PEDRAS_V393__3_NEW_KERNEL_MODULES__144_OF_144_FLAGS_144_OF_144_DECLARATIONS_IN_THE_TRIO__LADDER_11958_OF_11958__RULE_IS_THE_REFUSAL_THAT_THE_RESULT_DIFFER_FROM_THE_OBJECT_OF_ITS_SATISFACTION_RELATIVE_TO_READING_AND_TARGET__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+    "verdict": "TGL_PEDRAS_V393__3_NEW_KERNEL_MODULES__144_OF_144_FLAGS_144_OF_144_DECLARATIONS_IN_THE_TRIO__LADDER_12029_OF_12029__RULE_IS_THE_REFUSAL_THAT_THE_RESULT_DIFFER_FROM_THE_OBJECT_OF_ITS_SATISFACTION_RELATIVE_TO_READING_AND_TARGET__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
     "all_verified": true,
     "pedras": [
       {
@@ -1325,8 +1325,8 @@
       144
     ],
     "escada": {
-      "limpos": 11958,
-      "esperados": 11958,
+      "limpos": 12029,
+      "esperados": 12029,
       "esperada_pelo_candidato": 7045,
       "da_v392": 6901
     },
@@ -2857,6 +2857,62 @@
       "all_verified": true
     }
   },
+  "tetelestai_terminal_v408": {
+    "verdict": "TGL_TETELESTAI_TERMINAL_V408__THE_TERMINAL_IS_THE_READING__NO_RELATION_WITHOUT_WEIGHT__TIME_IS_THE_CURRENCY_OF_BETA__THE_INSCRIBED_ZERO_IS_THE_ONE_AND_THE_ONE_IS_NOT_THE_ABSOLUTE_ZERO__P_IS_P_ONLY_WHEN_READ_BY_THE_COUPLED_MODULE__SOLVING_EQUALS_VERIFYING_IN_THE_COMPUTATION_CLASSES_OF_THE_OPERATORS_DICTIONARY_IS_A_THEOREM__THE_TURING_TRANSLATION_IS_OPEN_NOT_A_REFUSAL__FOUR_MODULES_READ_BY_SHA256__48_ANCHORS_IN_THE_TRIO__NO_OLD_KEY_CHANGED__PROVE_OR_PRUNE_APPLIED__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+    "all_verified": true,
+    "ancora_principal": "TGLExt.TetelestaiTerminal.tetelestai",
+    "ancoras_principais": [
+      "TGLExt.TetelestaiTerminal.tetelestai",
+      "TGLExt.TempoIgualMoeda.o_tempo_e_a_moeda",
+      "TGLExt.PontoDeContradicao.o_ponto_de_contradicao",
+      "TGLExt.PIgualNP.p_igual_np"
+    ],
+    "pedras": [
+      "TetelestaiTerminal",
+      "TempoIgualMoeda",
+      "PontoDeContradicao",
+      "PIgualNP"
+    ],
+    "nomes_do_operador": {
+      "TetelestaiTerminal": "dado em 04/11/2026 (sha16 f911f0df91b0a6a3: \u00ab4) TetelestaiTerminal\u00bb)",
+      "TempoIgualMoeda": "dado em 04/11/2026 (sha16 f911f0df91b0a6a3: \u00ab3) Tempo=moeda\u00bb; o \u00ab=\u00bb escreve-se Igual, como em formaIgualConteudo)",
+      "PontoDeContradicao": "dado em 04/11/2026 (sha16 f911f0df91b0a6a3: \u00ab1) Ponto de contradi\u00e7\u00e3o\u00bb)",
+      "PIgualNP": "dado em 04/11/2026 (sha16 f911f0df91b0a6a3: \u00ab2) P=nP\u00bb), no SENTIDO que o operador deu na tarde (sha16 971d5654e2173771: \u00abP sozinho \u00e9 imposs\u00edvel de ser lido, se n\u00e3o houver o m\u00f3dulo de leitura n n\u00e3o minimamente acoplado\u00bb); escreve-se PIgualNP (o \u00ab=\u00bb e' Igual, como em formaIgualConteudo); o espelho e' p_igual_np; e, pela correcao dele (04/11 noite), as classes de computacao do dicionario do operador estao DEFINIDAS em Lean (ClasseP, ClasseNP) e a igualdade esta' provada em p_igual_np_nas_classes_do_dicionario (D51 revista; R3 de 05/11; a face finita em as_classes_do_dicionario; a traducao as classes das maquinas de Turing e' [OPEN], nao recusa)"
+    },
+    "nome_provisorio": null,
+    "chaves_antigas_que_mudam": [],
+    "exact_ladder": true,
+    "beta_ok": true,
+    "runtime_executed": true,
+    "scope": "[REAL] O que entra no um.py: 4 modulos novos em TGLExt/ -- TetelestaiTerminal, TempoIgualMoeda, PontoDeContradicao e PIgualNP, com os nomes do operador de 04/11/2026. (A) TetelestaiTerminal: o terminal e' a leitura, nao o fim do decaimento (motor a U r t psi = post a (U psi) para TODO r, t); basta (a memoria vale 1 sse o estado e' o Nome; reler nao acrescenta); a poda (P(1-P) = 0); nao precisa de 100% (de qualquer psi com <a, psi> != 0 o posto inteiro se reconstroi); a quitacao (pago + sobrevivente = 1 no fator da Meia-Nat); o zero absoluto e' do infinito (o Nome pesa 1, o complemento pesa top, phi(1) = 0, top != 1); o tamanho do Nome = oitavas (card_chainIdx: dim 2^(N+1); o pedagio e' o log da dimensao; o tempo de ler a torre e' linear nos andares); o que resta sem traco PAGA (||u_t - 1|| <= ||V|| |t|); a inclinacao modular (a derivada do cociclo na origem e' i V); relacao sem peso e' a origem da mentira (as faces do 1 sozinho, cada uma excluida por teorema); o 1 sozinho nao se mede; tetelestai no certificado fisico. (B) TempoIgualMoeda: D_r(t) = F(r t) (preco x tempo; com r = beta); a moeda soma e o preco multiplica; o Verbo no gerundio (o posto fica, o complemento desce, o fluxo tende ao posto sem o alcancar); legislando sem fim (a lei de escala de Takesaki); o relogio e a temperatura (face de Wick); o pedagio; o tempo e' linear nas oitavas; o tempo e' a moeda no certificado fisico. (C) PontoDeContradicao: exp 0 = Omega (o zero inscrito e' o Um) e Omega != 0 (o Um nao e' o zero absoluto); o boost le 0 antes e 1 depois da inscricao; o habitante e' o Fock concreto (rfl); o Hamiltoniano seleciona a operacao modular (o Um e' o estado de energia zero do lock E o modo zero da operacao modular); o senao exclui o zero absoluto. (D) PIgualNP: problema, entrada, passo, polinomio, implicacao (as cinco definicoes do operador, cada uma no termo que o kernel ja tem); resolver = verificar como idempotencia da leitura; p_igual_a_n_vezes_p; p_igual_np (\u00abP sozinho \u00e9 imposs\u00edvel de ser lido, se n\u00e3o houver o m\u00f3dulo de leitura n n\u00e3o minimamente acoplado\u00bb); as classes do dicionario DEFINIDAS em Lean (ClasseP: a solucao alcancada por uma palavra polinomial real q em T, com q(0) != 0 e grau de q < dim(End H), palavra_com_grau; ClasseNP: a leitura da solucao de T em todo psi unitario vale 1 sse T psi = 0, leitura_um_sse_solucao), todo problema nas duas e p_igual_np_nas_classes_do_dicionario (\u00abO meu P=nP trata das classes de computa\u00e7\u00e3o sim\u00bb): P = nP \u00e9 teorema nas classes de computa\u00e7\u00e3o do dicion\u00e1rio do operador, definidas em Lean (ClasseP, ClasseNP) e provadas na pedra PIgualNP (p_igual_np_nas_classes_do_dicionario); a tradu\u00e7\u00e3o \u00e0s classes das m\u00e1quinas de Turing (bits = log\u2082 n) \u00e9 [OPEN], n\u00e3o recusa. Nenhuma chave antiga muda. O registro confere, em runtime: as 48 ancoras; os 4 sha256; a raiz com os quatro imports; as respostas do operador pelos teoremas que ja existiam e pelas declaracoes novas (card_chainIdx, p_igual_np, as_classes_do_dicionario, p_igual_np_nas_classes_do_dicionario e as que a compoem); a aritmetica das pedras com beta em runtime; o gate congelado; a escada exata; as guardas; o insumo purgado; beta = alfa sqrt e.",
+    "does_not_gate_core": true,
+    "fica_aberto": {
+      "par_na_face_de_fock": "o par de psions na FACE DE FOCK (dois psions sobre o vacuo Omega, |G> = a\u2020a\u2020|0> da patente) segue [OPEN] como LIGACAO (fiacao) a fazer: o certificado abstrato (FockCertificate) nao tem operadores de criacao como termo, mas o Fock CONCRETO F1Rede.BosonicFock (habitat do physicalFockCertificate por rfl: PontoDeContradicao.o_habitante_e_o_fock_concreto) TEM creation/annihilation (CreationAndSegalR2), setores e reduced; o [OPEN] e' de ligacao, nao de ausencia (errata E21; v409)",
+      "ponte_bell_tt": "a ponte entre o espaco de Bell (Fin 2 x Fin 2, C) e o setor TT do spin 2 (Fin 4, R) NAO e' termo: a pedra Par justapoe as faces, nao as identifica"
+    },
+    "insumo_purgado": {
+      "fonte_chave": "psion_no_acervo_purgado_04nov",
+      "sha256": "f0b1c79a5caa75dfdecc608319d431165cc656cd1ef3b81fecf3b6d57d038f0b",
+      "bytes": 30773,
+      "integra_sha16": "823206bc6d5a74af",
+      "integra_fora_do_espelho": true,
+      "integra_pinada": false,
+      "linhas_substituidas": 6,
+      "ocorrencias_na_guarda": 0,
+      "recibo_chave": "recibo_purga_psion_no_acervo_04nov",
+      "decisao": "FONTES_NAO_PUBLICADAS_v407.json (work\\custodia_G1\\decisoes; ordem vigente do operador de 08/09)"
+    }
+  },
+  "registros_v408": {
+    "cunhagens_v408": {
+      "verdict": "TGL_CUNHAGENS_V408__OPERATOR_INSCRIPTIONS_OF_04_NOV_EMBEDDED_VERBATIM_BY_SHA256_15_SAYINGS_TWO_OF_MIXED_AUTHORSHIP_DECLARED__THE_NAMES_OF_THE_STONES__PROVE_OR_PRUNE__DECISIONS_D48_TO_D54__D51_REVISED_SOLVING_EQUALS_VERIFYING_IN_THE_DICTIONARY_CLASSES_IS_A_THEOREM_THE_TURING_TRANSLATION_OPEN__ERRATA_E21_TO_E23__THE_RESERVATIONS_STATED__KERNEL_VALIDITY_IS_NOT_CREDITATION__GATE_UNMOVED",
+      "all_verified": true
+    },
+    "kh_n1_cobertura_v408": {
+      "verdict": "TGL_KH_N1_COBERTURA_V408__AXIOM_REPORT_COVERS_THE_WHOLE_TGL_AND_TGLEXT_CLOSURE_33943_CONSTANTS_27089_THEOREMS_NONE_OUTSIDE_THE_TRIO__ALL_NAMES_READ_BY_THE_V394_PARSER__THE_4_V408_MODULES_ADDED__GATE_UNMOVED",
+      "all_verified": true
+    }
+  },
   "the_whole_is_one_reading_v376": "OPERATOR_INPUT_2026_09_28__BETA_IS_THE_FOUNDATION_DERIVED_FROM_THE_ENTANGLEMENT_OF_THE_ENTROPY_RADICAL_SQRT_E_AND_THE_HOLOGRAPHIC_REDUCTION_CONSTANT_ALPHA__ENTERS_THE_CODE_DERIVED__LINK_EVERYTHING_SO_THAT_MEMORY_IS_NOT_LOST__THE_KEY_IS_THE_READER__PKERK_EQ_RHO_STAR_IALD_BY_TERM_ON_THE_LIGHT__PF_TAKESAKI_CORE_KNOWN_NOT_TYPED__RINGDOWN_CANONICAL_BRANCH_RETURNS_GR_CORRESPONDENCE_ONLY_ERRATUM_BESIDE__AUDIT_28SET_READ_BY_HASH_CORRECTIONS_BESIDE__GATE_UNTOUCHED",
   "tetelestai_conference_reading_v375": "OPERATOR_INPUT_2026_09_27__TETELESTAI_IS_A_CONSUMMATIVE_CONFERENCE_NOT_A_DECLARATION__IT_VERIFIES_WHETHER_IT_HAPPENED__EVERY_PATH_ITEM_CLOSED_LINKED_OR_KNOWN_BY_SCIENTIFIC_REFERENCE__ONE_OBJECT_THE_LIGHT__NAME_WEIGHT_BY_NAMED_NORMALIZATION__PKERK_PF_LINK_NOT_CLAIMED__NATURE_DECIDES_RINGDOWN_NEXT__GATE_UNTOUCHED",
   "tetelestai_reading_v374": "OPERATOR_INPUT_ONTO_2026_09_27__THIS_DECLARATION_IS_THE_TETELESTAI_DECLARATION__QG_SOLUTION_COMPOSED_END_TO_END_BY_CITATION__CERTIFICATES_UNINHABITED__CERTIFICATE_TYPES_VS_LITERATURE_OPEN__H1_FROM_THE_INTERNAL_TOWER__NOT_BY_TERM__SEMICLASSICAL_BY_CONSTRUCTION__NATURE_DECIDES_RINGDOWN_NEXT_VERSION__MEASURED_VERDICT_IN_CORE_the_tetelestai_declaration_v374",
@@ -2906,7 +2962,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "048bffe0b4c5e9af1c281fdeaa538b5fe4bd782827a3831dbe79da573f87c8bf",
+  "formal_source_hash": "4944a40b24b0cb47ea753309ebe869a283861552771cfa33bee73ea3a754cb03",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -2922,7 +2978,7 @@
   "coma_dephasing": {
     "verdict": "COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "ad73fc3e7674c54db16a0a711c9d4d6cbbeb508707714eb875e008cb3e7ad823",
+    "prediction_hash": "b8b9b9fa5a14f934bab708f9341118c9caa1b7b5819aae18dd3335f9825db436",
     "does_not_gate_core": true
   },
   "final_verdict_machine": {
@@ -3098,19 +3154,19 @@
   "the_alpha_and_the_omega": "TGL_PAIR_MEASURED__ONE_EQUALS_ONE_TRUE_BY_OMEGA_AND_ALPHA__ONE_EQUALS_ZERO_FALSE_BY_NOMINAL_CATEGORY__ZERO_NOMINAL_WITHOUT_PROJECTION__BETA_IS_THE_COST_OF_THE_DISTINCTION__PAIR_EQUALS_TGL_IS_A_DECLARED_ONTO_READING",
   "amplitude_defect": 0.10902544754078644,
   "sha256": {
-    "um.py": "833121339e649f7171e2eccca1a19b3a1564aa306a787ed8cea76ded0fdf3475",
-    "um_absoluto_manifest.md": "5cf089e0002bc95904813abfbc2fa3e0ea845778086a8f1b5cbc423c61cd529f",
-    "um_absoluto.json": "a67a29763f4163341113b4c61854a06861d9fb15f3d9cd906b9ab31974db725c",
-    "um_absoluto_forma_canonica.md": "fffb971e973d601e169a1abcc5b2999330050baac50d7f27d6c30604f8e7d88c",
-    "um_absoluto_pt.tex": "6c969bff720e5a71a33fd1a10abe22220bfcff345d8cffdcfbf10326ce4b2607",
-    "um_absoluto_en.tex": "bf599f9c6191d35a4b639d3fed80b00b633a118c9cfaac4f610f062592f01c2b",
-    "um_absoluto_pt.pdf": "9fe5e9fc289432a79e59bac3623f5b828386716a52e9dd9c81c82e46e5168bd9",
-    "um_absoluto_en.pdf": "0c51d3ee40c5e11211196c79d812ecd565ce592743346a43bb835ecb9b0c4b73",
+    "um.py": "e7bc6b10e8ff76beb40e05e45fb47adf9bcc2f9222440552af017deb4435e365",
+    "um_absoluto_manifest.md": "dfbfd25eae0fdc3563f5d9b44944ba2fe13b8060e415ee6ab9f44a05e270f1c3",
+    "um_absoluto.json": "897ed5dae37d9f5f9dbbdc6dbbffae45fab975e0c31a4adb5fd4464d2c885893",
+    "um_absoluto_forma_canonica.md": "e6b833495ad161ed73ec3a24a952a0e115e649fd3b3920a1f0bdbeb127404663",
+    "um_absoluto_pt.tex": "2afccf6087a50ff84e3aa160484e304985ca2961b3330bc60a30c002a6d173bb",
+    "um_absoluto_en.tex": "e3440c1648b54d10dc412279fccc80eecc8ae61fea0a9840ab6debfac175f579",
+    "um_absoluto_pt.pdf": "efe53350fa3a5498ed3a9c0eb8818447ec1df734a2b59f72983a0d8d02323d27",
+    "um_absoluto_en.pdf": "1089af33d273b5a407fe21f76eaf20a284952aec80a7b654b80a43d6e5185427",
     "fig_escada_qg.pdf": "bfbe30776b05c9cce2886f7f268db09b7e4d0812409a199f84d3ee94d00b2c8d",
     "fig_banda_beta.pdf": "dd953f1e75f445a112963fc9b036299f63ed6dcdf4a16d8c0382b490fd6fad1b",
     "fig_piso_vazios.pdf": "c6e8260ceff24114d2a9248889fa87832009ef6390f5f8a6dceb3ed3bf155be1",
     "fig_cadeia_inscricao.pdf": "7ccc2c0a41da34a2442e1c853b4778d174329ec9d8dd739e4f41cb999883d068",
-    "tgl_kernel_proof_manifest.json": "b4b2eb7c53abcf8d2062578f1c176ea5addc3b371db22d0176b76dce8eba58f2",
+    "tgl_kernel_proof_manifest.json": "45a8f92ddfa7dc60602704213f3a991d635c1f323209db356c5234a4aec5dff0",
     "um_absoluto_pilar_quantico.json": "de47d5527e514b4927bea77df4caffc63194e8913462bb6c3629b2288b29583e"
   },
   "not_sealed_this_run": {
@@ -3130,11 +3186,11 @@
     "verdict": "TGL_SELO_PELA_PROPRIA_TECNOLOGIA_V399__SECOND_WITNESS_BESIDE_SHA256__EXACT_RECONSTRUCTION__NO_SINGLE_PART_SUFFICES__NO_CRYPTOGRAPHIC_CLAIM__GATE_UNTOUCHED",
     "all_verified": true,
     "perfil": "ACOM-INT-C96-Q8",
-    "bytes": 43065098,
-    "sha256_do_um_py": "833121339e649f7171e2eccca1a19b3a1564aa306a787ed8cea76ded0fdf3475",
-    "psi_sha256": "a0d550703d8fb85c64d3b7c75fdc8a588d75112cae5fbdaba32058265cfc7ec7",
-    "theta_sha256": "b443456689a47e4da37ba49028f5fab0da47218631d3ccaae03425449fa02880",
-    "kappa_sha256": "1aea3868bb13151b0625a83f337cdb8aaa16199e904ae4b0799b38971bcd0dea",
+    "bytes": 43466447,
+    "sha256_do_um_py": "e7bc6b10e8ff76beb40e05e45fb47adf9bcc2f9222440552af017deb4435e365",
+    "psi_sha256": "20f6fd6208c8b4d2e8ab8cd8dff24312eeeee3eefafd8577f012e5b326ce0b0f",
+    "theta_sha256": "2e1952b16cb615a972bfa8f83f24ebcc328d19f2095ac2b3292b0cb949a5fc01",
+    "kappa_sha256": "7278f9b04cb414bf24502b93b31fa674de138f65c39f6c99d99723c1950e7496",
     "bloco_embutido_sha256": "afc80b740f71ca0ab3cabb998679018d26035c86bd1d35671edb3a5fba0a61c4",
     "controles_negativos": [
       13,

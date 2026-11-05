@@ -1,27 +1,27 @@
 {
  "schema": "PRIMORDIAL_V1",
  "aviso": "gerado por tools/custodia_g1/primordial.py; nenhum numero digitado: cada item traz fonte e chave; NOT_FALSIFIED nunca e CONFIRMED",
- "versao": "v407",
+ "versao": "v408",
  "fontes": {
   "selo": {
    "arquivo": "um_absoluto_selo.json",
-   "bytes": 247049,
-   "sha256": "d84834f41ec3d87c1d54ec05126fa0f52a1c9e61ae62f13521ed508449dbc54b",
-   "sha16": "d84834f41ec3d87c",
+   "bytes": 254775,
+   "sha256": "3ad4be10599155c1a476eff1622b02c29b254ffcd5030d251643337aea325709",
+   "sha16": "3ad4be10599155c1",
    "papel": "o selo do rito (identidade, pin, gate)"
   },
   "core": {
    "arquivo": "um_absoluto.json",
-   "bytes": 15361561,
-   "sha256": "a67a29763f4163341113b4c61854a06861d9fb15f3d9cd906b9ab31974db725c",
-   "sha16": "a67a29763f416334",
+   "bytes": 15541313,
+   "sha256": "897ed5dae37d9f5f9dbbdc6dbbffae45fab975e0c31a4adb5fd4464d2c885893",
+   "sha16": "897ed5dae37d9f5f",
    "papel": "o mundo selado (core com os registros)"
   },
   "manifesto_kernel": {
    "arquivo": "tgl_kernel_proof_manifest.json",
-   "bytes": 4485115,
-   "sha256": "b4b2eb7c53abcf8d2062578f1c176ea5addc3b371db22d0176b76dce8eba58f2",
-   "sha16": "b4b2eb7c53abcf8d",
+   "bytes": 4495337,
+   "sha256": "45a8f92ddfa7dc60602704213f3a991d635c1f323209db356c5234a4aec5dff0",
+   "sha16": "45a8f92ddfa7dc60",
    "papel": "o manifesto do kernel Lean"
   },
   "resultado_fase9_v2": {
@@ -40,37 +40,37 @@
   },
   "um_py": {
    "arquivo": "um.py",
-   "bytes": 43065098,
-   "sha256": "833121339e649f7171e2eccca1a19b3a1564aa306a787ed8cea76ded0fdf3475",
-   "sha16": "833121339e649f71",
+   "bytes": 43466447,
+   "sha256": "e7bc6b10e8ff76beb40e05e45fb47adf9bcc2f9222440552af017deb4435e365",
+   "sha16": "e7bc6b10e8ff76be",
    "papel": "o artefato único"
   },
   "artigo_en": {
    "arquivo": "um_absoluto_en.txt",
-   "bytes": 1096179,
-   "sha256": "9aee1ac10e3b75176083c5af1ce695a19d66c79ebb883d1cc9707968b8d9e932",
-   "sha16": "9aee1ac10e3b7517",
+   "bytes": 1109404,
+   "sha256": "1fe15fa909744472ee04fb642a8fcd08cef4842b2bde2b54911c1b38df8d3eff",
+   "sha16": "1fe15fa909744472",
    "papel": "o artigo emitido pelo próprio um.py (EN)"
   },
   "citation": {
    "arquivo": "CITATION.cff",
    "bytes": 3919,
-   "sha256": "316c37771357c519bc82e5782ac29fb287ebdcbee87e25aa1d69a305b65d380f",
-   "sha16": "316c37771357c519",
+   "sha256": "f164903493ccc5aaae5bdd70f307759ed4dceb30693831eca2bcda0283a4a306",
+   "sha16": "f164903493ccc5aa",
    "papel": "o depósito citável no Zenodo"
   },
   "ledger": {
    "arquivo": "LEDGER.md",
-   "bytes": 860985,
-   "sha256": "7c4895144c1ee2f1c9f3ccd10598432b9d4ecbef08b016127cd14bc25374887b",
-   "sha16": "7c4895144c1ee2f1",
+   "bytes": 881986,
+   "sha256": "1c655752a4f88ed931bf01bf6428706b14d6e79fa966fd268b4c7d2defd158ef",
+   "sha16": "1c655752a4f88ed9",
    "papel": "o livro-razão (append-only)"
   },
   "handoff": {
-   "arquivo": "HANDOFF_v407_CUSTODIA.md",
-   "bytes": 66564,
-   "sha256": "f5858827b15c717c488e778625bd8d55f710e65b182be9ef5f7b3fb1a3ed020e",
-   "sha16": "f5858827b15c717c",
+   "arquivo": "HANDOFF_v408_CUSTODIA.md",
+   "bytes": 79614,
+   "sha256": "94ae7975c6e4817643936678b1ddc1f06525cc17a3b197d0c94ae53a57d8764d",
+   "sha16": "94ae7975c6e48176",
    "papel": "o handoff da custódia (de onde vem «o que mudou»)"
   },
   "git_espelho": {
@@ -104,27 +104,27 @@
  },
  "itens": {
   "selo.versao": {
-   "valor": "v407",
+   "valor": "v408",
    "fonte": "selo",
    "chave": "um_version"
   },
   "selo.timestamp": {
-   "valor": "2026-11-04 06:26:57",
+   "valor": "2026-11-05 04:08:27",
    "fonte": "selo",
    "chave": "timestamp"
   },
   "selo.pin_um_py": {
-   "valor": "833121339e649f7171e2eccca1a19b3a1564aa306a787ed8cea76ded0fdf3475",
+   "valor": "e7bc6b10e8ff76beb40e05e45fb47adf9bcc2f9222440552af017deb4435e365",
    "fonte": "selo",
    "chave": "sha256/um.py"
   },
   "selo.mundo": {
-   "valor": "a67a29763f4163341113b4c61854a06861d9fb15f3d9cd906b9ab31974db725c",
+   "valor": "897ed5dae37d9f5f9dbbdc6dbbffae45fab975e0c31a4adb5fd4464d2c885893",
    "fonte": "selo",
    "chave": "sha256/um_absoluto.json"
   },
   "selo.result_hash": {
-   "valor": "313b1a879c1893c172a1fed992fc5dfa2ce376820f3e6dadf856424fe3cd49fb",
+   "valor": "1350027b3de451aa8c5ffd16558b7a9071595482cd502f346c3ae417d87044c1",
    "fonte": "selo",
    "chave": "result_hash"
   },
@@ -144,19 +144,19 @@
    "chave": "fail_closed_selftest"
   },
   "selo.um_py_bytes": {
-   "valor": 43065098,
+   "valor": 43466447,
    "fonte": "um_py",
    "chave": "tamanho do arquivo",
    "como": "stat"
   },
   "kernel.declaracoes": {
-   "valor": 33863,
+   "valor": 33943,
    "fonte": "core",
    "chave": "len(kernel_formalization/axiom_report)",
    "como": "len"
   },
   "kernel.arquivos_formais": {
-   "valor": 1756,
+   "valor": 1760,
    "fonte": "core",
    "chave": "len(kernel_formalization/formal_files_sha256)",
    "como": "len"
@@ -168,7 +168,7 @@
    "como": "all"
   },
   "kernel.arquivos_lean": {
-   "valor": 1752,
+   "valor": 1756,
    "fonte": "core",
    "chave": "kernel_formalization/formal_files_sha256 (sufixo .lean)",
    "como": "contagem"
@@ -185,12 +185,12 @@
    "chave": "kernel_formalization/mode"
   },
   "kernel.escada_limpa": {
-   "valor": 11958,
+   "valor": 12029,
    "fonte": "core",
    "chave": "three_stress_tests_v387/kernel/n_theorems_clean"
   },
   "kernel.escada_esperada": {
-   "valor": 11958,
+   "valor": 12029,
    "fonte": "core",
    "chave": "three_stress_tests_v387/kernel/n_theorems_expected"
   },
@@ -263,7 +263,7 @@
    "chave": "bandeiras_do_gate_v403/values/feed_single_boolean"
   },
   "estatuto.verdict": {
-   "valor": "TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_11958_OF_11958_FLAGS_33863_OF_33863_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_833121339e649f71__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
+   "valor": "TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_12029_OF_12029_FLAGS_33943_OF_33943_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_e7bc6b10e8ff76be__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
    "fonte": "core",
    "chave": "estatuto_da_prova_v391/verdict"
   },
@@ -683,27 +683,27 @@
    "como": "regex"
   },
   "mudou.titulo_en": {
-   "valor": "The psion, the corner and the pair",
+   "valor": "Tetelestai is the terminal",
    "fonte": "handoff",
-   "chave": "marcador INICIO_TITULO_EN_v407",
+   "chave": "marcador INICIO_TITULO_EN_v408",
    "como": "marcador"
   },
   "mudou.arco_en": {
-   "valor": "The custody of v407 (complete round): the psion, the corner and the pair. 9 new kernel modules (PsionCanto, Par and seven stones of 02/11 with names given or ratified by the operator), 98 new flags, ladder 11860 to 11958, none outside the trio. The lemma that links the two faces of the psion is in the kernel of the rite and the key that said it was missing is read from the kernel instead of a literal False, with the errata beside; the link is one of structure, not of vectors. The bound pair never cancels and its corner is the 4x4 projector; the pair on the Fock face stays open. Validity in the kernel is not accreditation; the gate did not move. Not falsified is not the word of accreditation.",
+   "valor": "The custody of v408 (complete round): Tetelestai is the terminal. 4 new kernel modules (TetelestaiTerminal, TempoIgualMoeda, PontoDeContradicao, PIgualNP, with the names the operator gave), 71 new flags, ladder 11958 to 12029, none outside the trio. The terminal is the reading, not the end of the decay; there is no relation without weight; time is the currency of beta; the point of contradiction reads 1 = 0 on both faces; P = nP is a theorem in the computation classes of the operator’s dictionary, defined in Lean (ClasseP, ClasseNP) and proved in the stone PIgualNP (kernel validity, not creditation) (p_igual_np_nas_classes_do_dicionario); the translation to the classes of Turing machines (bits = log2 n) is [OPEN], not a refusal. No old key changes. Validity in the kernel is not accreditation; the gate did not move. Not falsified is not the word of accreditation.",
    "fonte": "handoff",
-   "chave": "marcador INICIO_ARCO_EN_v407",
+   "chave": "marcador INICIO_ARCO_EN_v408",
    "como": "marcador"
   },
   "mudou.arco_pt": {
-   "valor": "A custódia da v407 (rodada completa): o psíon, o canto e o par. 9 módulos novos no kernel (PsionCanto, Par e sete pedras de 02/11, com nomes dados ou ratificados pelo operador), 98 bandeiras novas, escada 11860 para 11958, nada fora do trio. O lema que liga as duas faces do psíon está no kernel do rito e a chave que o dava por ausente é lida do kernel em vez de literal False, com a errata ao lado; o elo é de estrutura, não de vetores. O par ligado nunca se cancela e o canto dele é o projetor 4x4; o par na face de Fock segue em aberto. Validade no kernel não é creditação; o gate não se moveu. NOT_FALSIFIED nunca é a palavra da creditação.",
+   "valor": "A custódia da v408 (rodada completa): Tetelestai é o terminal. 4 módulos novos no kernel (TetelestaiTerminal, TempoIgualMoeda, PontoDeContradicao, PIgualNP, com os nomes que o operador deu), 71 bandeiras novas, escada 11958 para 12029, nada fora do trio. O terminal é a leitura, não o fim do decaimento; não há relação sem peso; o tempo é a moeda de β; o ponto de contradição lê 1 = 0 nas duas faces; P = nP é teorema nas classes de computação do dicionário do operador, definidas em Lean (ClasseP, ClasseNP) e provadas na pedra PIgualNP (p_igual_np_nas_classes_do_dicionario); a tradução às classes das máquinas de Turing (bits = log2 n) é [OPEN], não recusa. Nenhuma chave antiga muda. Validade no kernel não é creditação; o gate não se moveu. NOT_FALSIFIED nunca é a palavra da creditação.",
    "fonte": "handoff",
-   "chave": "marcador INICIO_ARCO_PT_v407",
+   "chave": "marcador INICIO_ARCO_PT_v408",
    "como": "marcador"
   },
   "mudou.paragrafo_pronto_titulo": {
-   "valor": "O psíon, o canto e o par: o lema das duas faces e o par ligado (v407, 03/11/2026)",
+   "valor": "Tetelestai é o terminal: a leitura, a poda e a quitação; o tempo é a moeda de β; o ponto de contradição; as classes do dicionário do operador (v408, 04/11/2026)",
    "fonte": "handoff",
-   "chave": "título do marcador INICIO_PARAGRAFO_O_PSION_v407",
+   "chave": "título do marcador INICIO_PARAGRAFO_TETELESTAI_v408",
    "como": "regex"
   },
   "zenodo.versao": {
@@ -737,13 +737,13 @@
    "como": "comparação"
   },
   "ledger.bytes": {
-   "valor": 860985,
+   "valor": 881986,
    "fonte": "ledger",
    "chave": "tamanho do arquivo",
    "como": "stat"
   },
   "ledger.linhas": {
-   "valor": 4378,
+   "valor": 4421,
    "fonte": "ledger",
    "chave": "linhas",
    "como": "contagem"
@@ -767,19 +767,19 @@
    "como": "git"
   },
   "custodia.commit_espelho": {
-   "valor": "a381c4d147099b04dfceecf9c7db4a8cea47fb42",
+   "valor": "bf9017157406afa6b4dc05c6a9d566129e6a6ee4",
    "fonte": "git_espelho",
    "chave": "git log -1 --grep='^custodia(vNNN)'",
    "como": "git"
   },
   "custodia.versao_do_commit": {
-   "valor": "v406",
+   "valor": "v407",
    "fonte": "git_espelho",
    "chave": "assunto do commit",
    "como": "regex"
   },
   "custodia.data_do_commit": {
-   "valor": "2026-11-03",
+   "valor": "2026-11-04",
    "fonte": "git_espelho",
    "chave": "data do commit",
    "como": "git"
@@ -863,17 +863,17 @@
   },
   "um_py": {
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py",
-   "bytes": 43065098,
+   "bytes": 43466447,
    "caminho": "Um (absoluto) — Grande Atrator/um.py"
   },
   "selo": {
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json",
-   "bytes": 247049,
+   "bytes": 254775,
    "caminho": "Um (absoluto) — Grande Atrator/um_absoluto_selo.json"
   },
   "mundo": {
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json",
-   "bytes": 15361561,
+   "bytes": 15541313,
    "caminho": "Um (absoluto) — Grande Atrator/um_absoluto.json"
   },
   "manifesto": {
@@ -986,7 +986,7 @@
   {
    "descricao": "a versão tem a forma vNNN",
    "ok": true,
-   "detalhe": "v407"
+   "detalhe": "v408"
   },
   {
    "descricao": "o pin do selo é o sha256 do um.py do Nós",
