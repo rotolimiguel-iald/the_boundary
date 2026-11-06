@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 23 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 24 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -22,7 +22,7 @@ Pasta do repositorio the_boundary com 23 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-23 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo
+24 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo
 
 **DADOS**
 
@@ -45,6 +45,7 @@ Pasta do repositorio the_boundary com 23 arquivo(s) rastreado(s).
 | `b19b8a68d0639968.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/b19b8a68d0639968.txt) |
 | `b5717ff445a883cd.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/b5717ff445a883cd.txt) |
 | `b89e4c909f37e163.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/b89e4c909f37e163.txt) |
+| `c7ee4106eb7f2c83.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/c7ee4106eb7f2c83.txt) |
 | `dc150f9bbc5b1a4a.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/dc150f9bbc5b1a4a.txt) |
 | `e36df7f1245c7f16.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/e36df7f1245c7f16.txt) |
 | `e7e560ec4a00e801.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/caminho_longo/e7e560ec4a00e801.txt) |
@@ -54,4 +55,4 @@ Pasta do repositorio the_boundary com 23 arquivo(s) rastreado(s).
 
 ---
 
-gerado por script de git ls-files em 2026-11-05 -- nao editar a mao
+gerado por script de git ls-files em 2026-11-06 -- nao editar a mao

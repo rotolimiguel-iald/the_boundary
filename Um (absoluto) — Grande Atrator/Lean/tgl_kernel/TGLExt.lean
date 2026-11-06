@@ -1143,3 +1143,5 @@ import TGLExt.TetelestaiTerminal
 import TGLExt.TempoIgualMoeda
 import TGLExt.PontoDeContradicao
 import TGLExt.PIgualNP
+import TGLExt.TraducaoTuring
+import TGLExt.ParNaFaceDeFock

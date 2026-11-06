@@ -23,7 +23,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ## OS ARQUIVOS DESTA PASTA
 
-1085 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
+1087 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
 
 **PROVA FORMAL**
 
@@ -419,6 +419,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `PageInformation.lean` | Prova formal (Lean 4): PageInformation | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PageInformation.lean) |
 | `Palavra.lean` | Prova formal (Lean 4): Palavra | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Palavra.lean) |
 | `Par.lean` | Prova formal (Lean 4): Par | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/Par.lean) |
+| `ParNaFaceDeFock.lean` | Prova formal (Lean 4): ParNaFaceDeFock | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ParNaFaceDeFock.lean) |
 | `PastContinuousExtension.lean` | Prova formal (Lean 4): PastContinuousExtension | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PastContinuousExtension.lean) |
 | `PauliCocycleGenerator.lean` | Prova formal (Lean 4): PauliCocycleGenerator | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PauliCocycleGenerator.lean) |
 | `PauliInteractionCocycle.lean` | Prova formal (Lean 4): PauliInteractionCocycle | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PauliInteractionCocycle.lean) |
@@ -788,6 +789,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `TracelessAlgebra.lean` | Prova formal (Lean 4): TracelessAlgebra | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TracelessAlgebra.lean) |
 | `TracialCentralizerExpectation.lean` | Prova formal (Lean 4): TracialCentralizerExpectation | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TracialCentralizerExpectation.lean) |
 | `TracialDissipativeTorsion.lean` | Prova formal (Lean 4): TracialDissipativeTorsion | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TracialDissipativeTorsion.lean) |
+| `TraducaoTuring.lean` | Prova formal (Lean 4): TraducaoTuring | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TraducaoTuring.lean) |
 | `TransportWitness.lean` | Prova formal (Lean 4): TransportWitness | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TransportWitness.lean) |
 | `TransportedBorchersObstruction.lean` | Prova formal (Lean 4): TransportedBorchersObstruction | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TransportedBorchersObstruction.lean) |
 | `TransportedScreenControls.lean` | Prova formal (Lean 4): TransportedScreenControls | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TransportedScreenControls.lean) |
@@ -1124,4 +1126,4 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ---
 
-gerado por script de git ls-files em 2026-11-05 -- nao editar a mao
+gerado por script de git ls-files em 2026-11-06 -- nao editar a mao

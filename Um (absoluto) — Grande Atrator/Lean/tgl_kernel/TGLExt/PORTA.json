@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-11-05T08:47:02Z",
+  "gerado_utc": "2026-11-06T05:02:24Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -3936,6 +3936,16 @@
       "bytes": 7229
     },
     {
+      "nome": "ParNaFaceDeFock.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/ParNaFaceDeFock.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): ParNaFaceDeFock",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ParNaFaceDeFock.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ParNaFaceDeFock.lean",
+      "sha256_16": "4b7ed028ebf5855d",
+      "bytes": 25214
+    },
+    {
       "nome": "PastContinuousExtension.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/PastContinuousExtension.lean",
       "papel": "prova formal",
@@ -7626,6 +7636,16 @@
       "bytes": 28236
     },
     {
+      "nome": "TraducaoTuring.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TraducaoTuring.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TraducaoTuring",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TraducaoTuring.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TraducaoTuring.lean",
+      "sha256_16": "4fe1c5ba2bc28300",
+      "bytes": 72462
+    },
+    {
       "nome": "TransportWitness.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TransportWitness.lean",
       "papel": "prova formal",
@@ -10886,8 +10906,8 @@
       "bytes": 10880
     }
   ],
-  "total_arquivos_nesta_pasta": 1085,
-  "total_arquivos_com_subpastas": 1726,
+  "total_arquivos_nesta_pasta": 1087,
+  "total_arquivos_com_subpastas": 1728,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt",
-  "rodape": "gerado por script de git ls-files em 2026-11-05 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-11-06 -- nao editar a mao"
 }

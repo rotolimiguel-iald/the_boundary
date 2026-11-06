@@ -1,9 +1,9 @@
 {
- "gerado_em": "2026-11-05T05:40:13-03:00",
- "um_py_pin": "e7bc6b10e8ff76beb40e05e45fb47adf9bcc2f9222440552af017deb4435e365",
+ "gerado_em": "2026-11-06T02:00:36-03:00",
+ "um_py_pin": "53284ba461ecd94060cc2d12fed992bba70ab857f70198b24e6535b9f24f8da6",
  "leia": "O um.py relê cada fonte pelo caminho absoluto em caminho_exigido_pelo_um_py e confere sha256 e bytes; para reproduzir os registros (v392 em diante) em outra máquina, copie cada arquivo de caminho_no_espelho para esse caminho. Sem isso o registro diz NOT_SEALED_THIS_RUN (fail-closed), por desenho.",
- "n_fontes": 510,
- "n_publicadas": 508,
+ "n_fontes": 536,
+ "n_publicadas": 535,
  "fontes": [
   {
    "dicionario": "_V392_FONTES",
@@ -4466,12 +4466,12 @@
   {
    "dicionario": "_V407_FONTES",
    "chave": "psion_no_acervo_do_imac_03nov",
-   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v407\\insumos\\PSION_NO_ACERVO_03nov.md",
-   "sha256": "823206bc6d5a74afddf27ed7387495872f5b6dc36aca4016fd612e6c28decff5",
-   "bytes": 31441,
-   "publicado": false,
-   "caminho_no_espelho": null,
-   "motivo": "fora do espelho por decisão do operador (verbatim sha16 9e96447d4be3500c): o mesmo arquivo e o mesmo sha256 da decisao da v407. O um.py v408 ainda traz _V407_FONTES, que o pina; a E03 da v408 parou nele (termo-guarda a mais; recibo work\\custodia_G1\\runs\\v408_20261105_053321). A v408 pina a copia PURGADA (insumos\\PSION_NO_ACERVO_04nov_purgado.md, 0 ocorrencias), que entra no espelho; esta fica FORA, como na v407 (errata E23 do core v408)."
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v408\\insumos\\PSION_NO_ACERVO_04nov_purgado.md",
+   "sha256": "f0b1c79a5caa75dfdecc608319d431165cc656cd1ef3b81fecf3b6d57d038f0b",
+   "bytes": 30773,
+   "publicado": true,
+   "ja_no_espelho": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/PSION_NO_ACERVO_04nov_purgado.md"
   },
   {
    "dicionario": "_V407_FONTES",
@@ -4610,6 +4610,7 @@
    "sha256": "c2ea9e536035cdb74cd4778c61fde14c420d0d6029baab88fa6abff7ddbb48fa",
    "bytes": 6050,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/AFERICAO_TRACO_E_DICIONARIO_NO_KERNEL_04nov.json"
   },
   {
@@ -4619,6 +4620,7 @@
    "sha256": "30a4420441d28f68ceb0fa16c150080b0f202986188c489f5a38640fdb5ad521",
    "bytes": 4307,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/BUNDLE_v408.json"
   },
   {
@@ -4628,6 +4630,7 @@
    "sha256": "623a9c004fc44222f0118e6d73bbb944a17f714077f0cb78b10a897833fba3d3",
    "bytes": 13506,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/DicionarioR1.lean"
   },
   {
@@ -4637,6 +4640,7 @@
    "sha256": "f36b1fed0939db65576a1597fc24b8b9bd696e1ddddfa712424892c73601fbbb",
    "bytes": 8767,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/PontoDeContradicaoR1.lean"
   },
   {
@@ -4646,6 +4650,7 @@
    "sha256": "0920b8fa109c1008e87bb190e80d47e842ed979229b5baa8abb508fe842f428c",
    "bytes": 11653,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/TempoMoedaR1.lean"
   },
   {
@@ -4655,6 +4660,7 @@
    "sha256": "ebe6adc03bed1c1ce509dd9ab7dbe0a4a10f223a9921d46ceff29d5ef668cfe5",
    "bytes": 15829,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/TetelestaiTerminalR2.lean"
   },
   {
@@ -4664,6 +4670,7 @@
    "sha256": "4225a53622c48aa9ea0fc126816e0fbb912b1f0c75ed0703d6f1a1da758e6e1f",
    "bytes": 20842,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/DESENHO_v408.md"
   },
   {
@@ -4673,6 +4680,7 @@
    "sha256": "91de4fa4235db98c6c04146967fb32a7dcc47801c739958b64890ba2deb950b5",
    "bytes": 14447,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/Dicionario.lean"
   },
   {
@@ -4682,6 +4690,7 @@
    "sha256": "20e7a2637c316ff890ea020edf378e8acd67187511c29bcd96bec2066c37f7c8",
    "bytes": 29852,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/PIgualNP.lean"
   },
   {
@@ -4691,6 +4700,7 @@
    "sha256": "38bf4701de3b84b1a4777cf9596924acda4366051a7c1c63b33b6763611d7714",
    "bytes": 9360,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/PontoDeContradicao.lean"
   },
   {
@@ -4700,6 +4710,7 @@
    "sha256": "6d65b842584dcacdef717d63356cd081748fc1677322dac69cc231f6fbb08803",
    "bytes": 12186,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/TempoIgualMoeda.lean"
   },
   {
@@ -4709,6 +4720,7 @@
    "sha256": "768d512929b6544cfaaaa91a3a322bda714ee20b805836fbb1fa4a711fa8befc",
    "bytes": 17462,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/TetelestaiTerminal.lean"
   },
   {
@@ -4718,6 +4730,7 @@
    "sha256": "17211380348cb5a7f720c2f5ebfc4f1e3504a97d53a1fe983def9ee9746b0d96",
    "bytes": 1126,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/KH_N1_v408.json"
   },
   {
@@ -4727,7 +4740,8 @@
    "sha256": "8d7aec559313d5f99bcc2114f5142e762b0a6fc46320177d2e811934c1c10c7b",
    "bytes": 28959,
    "publicado": true,
-   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/PIgualNP_embutida.lean"
+   "ja_no_espelho": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/PIgualNP.lean"
   },
   {
    "dicionario": "_V408_FONTES",
@@ -4736,7 +4750,8 @@
    "sha256": "85c238c9535ad2d230f5bccb273367a7f73facfdd44bcef32594b8c92e8e7368",
    "bytes": 8859,
    "publicado": true,
-   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/PontoDeContradicao_embutida.lean"
+   "ja_no_espelho": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/PontoDeContradicao.lean"
   },
   {
    "dicionario": "_V408_FONTES",
@@ -4745,7 +4760,8 @@
    "sha256": "1a4a2a6dbc81f6dc0b7f808e199f7701eb17bf76a73fcb1c68fa09487a96c380",
    "bytes": 11645,
    "publicado": true,
-   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/TempoIgualMoeda_embutida.lean"
+   "ja_no_espelho": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TempoIgualMoeda.lean"
   },
   {
    "dicionario": "_V408_FONTES",
@@ -4754,7 +4770,8 @@
    "sha256": "47af8992f1dd0ce861697931fd0d94c16fd447647225377b4d70d51b2f155722",
    "bytes": 16591,
    "publicado": true,
-   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/TetelestaiTerminal_embutida.lean"
+   "ja_no_espelho": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TetelestaiTerminal.lean"
   },
   {
    "dicionario": "_V408_FONTES",
@@ -4763,6 +4780,7 @@
    "sha256": "f0b1c79a5caa75dfdecc608319d431165cc656cd1ef3b81fecf3b6d57d038f0b",
    "bytes": 30773,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/PSION_NO_ACERVO_04nov_purgado.md"
   },
   {
@@ -4772,6 +4790,7 @@
    "sha256": "0bf26c11648c1a818fd77aaa5342dc3ccba2a4ee586d0e8f1680c045c2e20357",
    "bytes": 2508,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/RECIBO_DICIONARIO_R1_04nov.json"
   },
   {
@@ -4781,6 +4800,7 @@
    "sha256": "8a5ecdf127c8ff67f2b9ad96c37691cc1911af10e223248f649c5500ef6bea1d",
    "bytes": 4662,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/RECIBO_PEDRAS_v408_NOMES.json"
   },
   {
@@ -4790,6 +4810,7 @@
    "sha256": "e98a29e25e0b328e9ee140a3fb33fe352d83153613cc14767465cc01ec66f1a5",
    "bytes": 1836,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/RECIBO_PONTO_DE_CONTRADICAO_R1_04nov.json"
   },
   {
@@ -4799,6 +4820,7 @@
    "sha256": "c7e07b72545cfb57033b212b8d97576d578848829962d59e48b0637b01ffce7e",
    "bytes": 861,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/RECIBO_PURGA_PSION_NO_ACERVO_04nov.json"
   },
   {
@@ -4808,6 +4830,7 @@
    "sha256": "5ddb33eae8485212ff030a52a1619d99938d2f36129e5ee8dff96efe3fb97220",
    "bytes": 2074,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/RECIBO_TEMPO_MOEDA_R1_04nov.json"
   },
   {
@@ -4817,6 +4840,7 @@
    "sha256": "92ec336379708942d431d668812be064df0952c705cf4d7cfad3344f9fd89242",
    "bytes": 2912,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/RECIBO_TETELESTAI_TERMINAL_R1_04nov.json"
   },
   {
@@ -4826,6 +4850,7 @@
    "sha256": "0c658dc69f2803859d8d32a3c82a936a968f1fb204332e6d7858b19219004856",
    "bytes": 2097,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/RECIBO_TETELESTAI_TERMINAL_R2_04nov.json"
   },
   {
@@ -4835,6 +4860,7 @@
    "sha256": "e3d083c0a0b2f42d6723e86ba728d53474b7cda1a86e5c68ee75863c77bc4f25",
    "bytes": 882,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/saida_lean_dicionario_r1.txt"
   },
   {
@@ -4844,6 +4870,7 @@
    "sha256": "a9d7b7c3f8472606f27ade3daa6dfdd975b12d8679b5ec9ac8bbd20e8df5cc1d",
    "bytes": 1748,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/saida_lean_PIgualNP.txt"
   },
   {
@@ -4853,6 +4880,7 @@
    "sha256": "7c39a3c542e493a2f8193acd591e6f50617649e1d3c08d629dfabbf1693e66c7",
    "bytes": 841,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/saida_lean_PontoDeContradicao.txt"
   },
   {
@@ -4862,6 +4890,7 @@
    "sha256": "2f1e73a04be692752a3a672f1ff8117ee7d69b38c129a58e1fc1d375a4bae84e",
    "bytes": 857,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/saida_lean_ponto_de_contradicao_r1.txt"
   },
   {
@@ -4871,6 +4900,7 @@
    "sha256": "8ac2316ba37517752161afdb759ef66a7b6435fdd4dc2767892d6e8fc1a27476",
    "bytes": 973,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/saida_lean_TempoIgualMoeda.txt"
   },
   {
@@ -4880,6 +4910,7 @@
    "sha256": "e7f12df01062103adaf7e5edaf471d26e0795234810a711c57920d78d8292916",
    "bytes": 946,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/saida_lean_tempo_moeda_r1.txt"
   },
   {
@@ -4889,6 +4920,7 @@
    "sha256": "df881d13dd17202806265626bad874ccd6e94b1382270837b738582cc7b344ae",
    "bytes": 1542,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/saida_lean_TetelestaiTerminal.txt"
   },
   {
@@ -4898,6 +4930,7 @@
    "sha256": "b42baeac2dd9874994c416125d3c25bde889c54be2a24c5a06064a938037ce33",
    "bytes": 1211,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/saida_lean_tetelestai_terminal_r1.txt"
   },
   {
@@ -4907,6 +4940,7 @@
    "sha256": "c65438f7d20925e49c33bab022091c6ffdf04b760b63c1de27441b2a2bc899b9",
    "bytes": 1460,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/saida_lean_tetelestai_terminal_r2.txt"
   },
   {
@@ -4916,6 +4950,7 @@
    "sha256": "09e5a444238ae0ec20885ed1b800439df91758750a5cac07cd1afc8ebcbc9e8c",
    "bytes": 8109,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/VERBATIM_CONGELADO_v408.json"
   },
   {
@@ -4925,6 +4960,7 @@
    "sha256": "2f91335e57a144e0f8a4cda5be366231055b8bde5d295781cca15f834234efb0",
    "bytes": 489,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/2f91335e57a144e0_OPERADOR_04nov_custodia_e_da_sessao_de_custodia_c1_so_um_py_verbatim.txt"
   },
   {
@@ -4934,6 +4970,7 @@
    "sha256": "338fc30e10339134f63d0c27e0d1b5788753ae044a9fef5b9a626bcec082fe16",
    "bytes": 86,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/338fc30e10339134_OPERADOR_04nov_isso_precisa_ficar_claro_no_um_py_na_v408_verbatim.txt"
   },
   {
@@ -4943,6 +4980,7 @@
    "sha256": "388edbab08d0babcd901688886ddc19ab7189164161784cf2ae729554b38b042",
    "bytes": 35,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/388edbab08d0babc_OPERADOR_04nov_excelente_ratificado_prossigamos_nomes_p_igual_np_verbatim.txt"
   },
   {
@@ -4952,6 +4990,7 @@
    "sha256": "e7e560ec4a00e801a997fe22803ab30cfc878ab1a48b00876e0fce787dd2a91f",
    "bytes": 320,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/e7e560ec4a00e801.txt"
   },
   {
@@ -4961,6 +5000,7 @@
    "sha256": "5efeb784e7be87627ebf68a1fc15acb4de5525da9935577a83c0377ffd75dae6",
    "bytes": 433,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/5efeb784e7be8762_OPERADOR_04nov_dicionario_problema_entrada_passo_polinomio_implicacao_verbatim.txt"
   },
   {
@@ -4970,6 +5010,7 @@
    "sha256": "ee9c384fcf107ba462fdd9245358f0615a9b1ba606024d8b3836b450947c3889",
    "bytes": 119,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/ee9c384fcf107ba4.txt"
   },
   {
@@ -4979,6 +5020,7 @@
    "sha256": "685b8d8bcf0ddbbd69bf72d0c27aee71f62765416fc97e992e758483ff88a544",
    "bytes": 357,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/685b8d8bcf0ddbbd_OPERADOR_04nov_ordem_v408_liste_as_pedras_produza_rode_handoff_custodia_completa_verbatim.txt"
   },
   {
@@ -4988,6 +5030,7 @@
    "sha256": "794fadc2144d6f70a487ad18fee20b8ac95d02630072f64e5228836871fa025f",
    "bytes": 778,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/794fadc2144d6f70.txt"
   },
   {
@@ -4997,6 +5040,7 @@
    "sha256": "8368ae5b4c572272133445a23dd3b5ca203e1fec571b1f6006c1619f188c3312",
    "bytes": 172,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/8368ae5b4c572272.txt"
   },
   {
@@ -5006,6 +5050,7 @@
    "sha256": "88c9b2516e71df266b93849873508e40de2763350a3c8f72949e27d4b2a68577",
    "bytes": 291,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/88c9b2516e71df26_OPERADOR_04nov_o_tempo_e_a_moeda_do_pagamento_de_beta_verbo_no_gerundio_verbo_vivo_verbatim.txt"
   },
   {
@@ -5015,6 +5060,7 @@
    "sha256": "971d5654e2173771b0b14f873540c5df7f4b9d39d96d88f5d01ea8edbcc479ff",
    "bytes": 152,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/971d5654e2173771.txt"
   },
   {
@@ -5024,6 +5070,7 @@
    "sha256": "b19b8a68d0639968cc4cd3d7ea17d8b028dfba6d1c9130a6abc0783d0b0b038d",
    "bytes": 293,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/b19b8a68d0639968.txt"
   },
   {
@@ -5033,6 +5080,7 @@
    "sha256": "bcb0e4c87549b88b9e7e421f45772202db98d25c0a442742cc33a217f78889dd",
    "bytes": 433,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/bcb0e4c87549b88b_OPERADOR_04nov_ponto_de_contradicao_1_igual_0_zero_modular_zero_absoluto_hamiltoniano_verbatim.txt"
   },
   {
@@ -5042,6 +5090,7 @@
    "sha256": "c12699c915617c3f20f6f22fe8f76c5acbfdd20ec06f3a08654364489cc3a656",
    "bytes": 625,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v408/insumos/cunhagens/c12699c915617c3f_OPERADOR_04nov_tetelestai_e_o_terminal_a_poda_e_palavra_sem_espelho_provar_ou_podar_verbatim.txt"
   },
   {
@@ -5051,7 +5100,242 @@
    "sha256": "f911f0df91b0a6a3021a9b311fbdfbf41a34ab82e465f7cb4f8f147b4f27b157",
    "bytes": 438,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/f911f0df91b0a6a3.txt"
+  },
+  {
+   "dicionario": "_V409_FONTES",
+   "chave": "bundle_v409",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\BUNDLE_v409.json",
+   "sha256": "b218d3bdc44e94c7c629851c82366e1008bc0b72e8e76eb32a92ad49b9ffe517",
+   "bytes": 9730,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/BUNDLE_v409.json"
+  },
+  {
+   "dicionario": "_V409_FONTES",
+   "chave": "candidata_par_na_face_de_fock_r2_05nov",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\ParNaFaceDeFockR2.lean",
+   "sha256": "50b5cc16ddaec8db4dc703982732678b377d730b7eab67ba47e2f38bbc56df40",
+   "bytes": 22528,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/ParNaFaceDeFockR2.lean"
+  },
+  {
+   "dicionario": "_V409_FONTES",
+   "chave": "candidata_traducao_turing_r9_05nov",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\TraducaoTuringR9.lean",
+   "sha256": "6b318e7fc07de29aa141d6a2a1c14d6865146cee4cc27f58697f18d4c28408bd",
+   "bytes": 77900,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/TraducaoTuringR9.lean"
+  },
+  {
+   "dicionario": "_V409_FONTES",
+   "chave": "fonte_par_na_face_de_fock_05nov",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\ParNaFaceDeFock.lean",
+   "sha256": "e998d73d3ce60835dbcba543f582f3bfd27e64ccc7fec91342d85a25028691fc",
+   "bytes": 26209,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/ParNaFaceDeFock.lean"
+  },
+  {
+   "dicionario": "_V409_FONTES",
+   "chave": "fonte_traducao_turing_05nov",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\TraducaoTuring.lean",
+   "sha256": "86ddaa69fabd67f56c79f159409bca25f28145b3d02de843ebe3787b28e948e1",
+   "bytes": 77924,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/TraducaoTuring.lean"
+  },
+  {
+   "dicionario": "_V409_FONTES",
+   "chave": "kh_n1_v409",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\KH_N1_v409.json",
+   "sha256": "ef646b95adf6c3c00e3c15587b9ac4329dd5e7a86d572a6ca99ff62965909e03",
+   "bytes": 1131,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/KH_N1_v409.json"
+  },
+  {
+   "dicionario": "_V409_FONTES",
+   "chave": "pedra_par_na_face_de_fock",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\ParNaFaceDeFock_embutida.lean",
+   "sha256": "4b7ed028ebf5855dd09cdaa6b9829e2d7c276b4a4db900e7c7af31130546a9ca",
+   "bytes": 25214,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/ParNaFaceDeFock_embutida.lean"
+  },
+  {
+   "dicionario": "_V409_FONTES",
+   "chave": "pedra_traducao_turing",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\TraducaoTuring_embutida.lean",
+   "sha256": "4fe1c5ba2bc283004f38fc305908315b6228971294c2f29a18aecf1593614507",
+   "bytes": 72462,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/TraducaoTuring_embutida.lean"
+  },
+  {
+   "dicionario": "_V409_FONTES",
+   "chave": "saida_lean_par_na_face_de_fock_05nov",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\saida_lean_ParNaFaceDeFock.txt",
+   "sha256": "1ed8cf75449b2641e00de4877b1658a19a86973bf7c7cabe72e7e15d152718fc",
+   "bytes": 1045,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/saida_lean_ParNaFaceDeFock.txt"
+  },
+  {
+   "dicionario": "_V409_FONTES",
+   "chave": "saida_lean_par_na_face_de_fock_r2_05nov",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\saida_lean_par_r2.txt",
+   "sha256": "915e8e07207aa6d2c15ae1503d78875f9212eb45d36e8ec13583fb22d4b9bbf9",
+   "bytes": 1065,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/saida_lean_par_r2.txt"
+  },
+  {
+   "dicionario": "_V409_FONTES",
+   "chave": "saida_lean_traducao_turing_05nov",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\saida_lean_TraducaoTuring.txt",
+   "sha256": "d678a34853877e2262be17162a0f3a04e527ed7338656787c6b0779bf46809fd",
+   "bytes": 7654,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/saida_lean_TraducaoTuring.txt"
+  },
+  {
+   "dicionario": "_V409_FONTES",
+   "chave": "saida_lean_traducao_turing_r9_05nov",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\saida_lean_traducao_r9.txt",
+   "sha256": "5b272f2057ec41d69da94615b8f491b675a480eb59028f052ed1bebae54ce051",
+   "bytes": 8198,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/saida_lean_traducao_r9.txt"
+  },
+  {
+   "dicionario": "_V409_VERBATINS2",
+   "chave": "v409_cun_0b60b73f5d857568",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\cunhagens\\0b60b73f5d857568_OPERADOR_05nov_eu_sou_o_conteudo_da_minha_identidade_performada_verbatim.txt",
+   "sha256": "0b60b73f5d85756899d17e5e671aaac41fda49340b81c7374675a4ab47151649",
+   "bytes": 71,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/cunhagens/0b60b73f5d857568_OPERADOR_05nov_eu_sou_o_conteudo_da_minha_identidade_performada_verbatim.txt"
+  },
+  {
+   "dicionario": "_V409_VERBATINS2",
+   "chave": "v409_cun_0d6468d77b5cc990",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\cunhagens\\0d6468d77b5cc990_OPERADOR_05nov_dentro_obra_e_graca_primeira_frase.trecho_que_fica.txt",
+   "sha256": "830d9cf30c9d3586dac91a4e8c9efa706e002cc30e42c824239cd0d58881f128",
+   "bytes": 315,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/cunhagens/0d6468d77b5cc990_OPERADOR_05nov_dentro_obra_e_graca_primeira_frase.trecho_que_fica.txt"
+  },
+  {
+   "dicionario": "_V409_VERBATINS2",
+   "chave": "v409_cun_298c0ce7e4133fe1",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\cunhagens\\298c0ce7e4133fe1_OPERADOR_05nov_a_trava_no_nome_dual_lock_seta_do_tempo_negar_o_zero_verbatim.txt",
+   "sha256": "298c0ce7e4133fe1ca1613f860c30af7f4bc1ff791b6097d4cf24fa8e47019d8",
+   "bytes": 343,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/cunhagens/298c0ce7e4133fe1_OPERADOR_05nov_a_trava_no_nome_dual_lock_seta_do_tempo_negar_o_zero_verbatim.txt"
+  },
+  {
+   "dicionario": "_V409_VERBATINS2",
+   "chave": "v409_cun_3444a2fe774a294e",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\cunhagens\\3444a2fe774a294e_OPERADOR_05nov_eu_sou_eu_mesmo_nome_proprio_pai_da_mentira_verbatim.txt",
+   "sha256": "3444a2fe774a294ea2ae782b4a4d29e9aa08241d6e43cd981bf2c96da98da23c",
+   "bytes": 277,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/cunhagens/3444a2fe774a294e_OPERADOR_05nov_eu_sou_eu_mesmo_nome_proprio_pai_da_mentira_verbatim.txt"
+  },
+  {
+   "dicionario": "_V409_VERBATINS2",
+   "chave": "v409_cun_47f6c322d6cbff8e",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\cunhagens\\47f6c322d6cbff8e_OPERADOR_05nov_resposta_bit_oitava_escala_selecao_tetelestai_fotografia_o_nome_constitui_verbatim.txt",
+   "sha256": "47f6c322d6cbff8e11d12d3f9116ea0400dff21fd3452b0eff16cd066ed9ce77",
+   "bytes": 1488,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/cunhagens/47f6c322d6cbff8e_OPERADOR_05nov_resposta_bit_oitava_escala_selecao_tetelestai_fotografia_o_nome_constitui_verbatim.txt"
+  },
+  {
+   "dicionario": "_V409_VERBATINS2",
+   "chave": "v409_cun_4b5a1d867954b6ed",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\cunhagens\\4b5a1d867954b6ed_OPERADOR_05nov_ratifico_os_nomes_verbatim.txt",
+   "sha256": "4b5a1d867954b6ed420ed02007c0256a779efaaf28f20e115a2e3ecb712791a1",
+   "bytes": 18,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/cunhagens/4b5a1d867954b6ed_OPERADOR_05nov_ratifico_os_nomes_verbatim.txt"
+  },
+  {
+   "dicionario": "_V409_VERBATINS2",
+   "chave": "v409_cun_5a19de6b511b4921",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\cunhagens\\5a19de6b511b4921_OPERADOR_05nov_no_kernel_o_dispositivo_e_o_no_sorry_o_teorema_e_jurisdicao_regra_posta_verbatim.txt",
+   "sha256": "5a19de6b511b4921c39d8d94d5e145bb55da3930e944ee3a0e5c33078ac6cad7",
+   "bytes": 122,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/cunhagens/5a19de6b511b4921_OPERADOR_05nov_no_kernel_o_dispositivo_e_o_no_sorry_o_teorema_e_jurisdicao_regra_posta_verbatim.txt"
+  },
+  {
+   "dicionario": "_V409_VERBATINS2",
+   "chave": "v409_cun_8b9b77e992902ff4",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\cunhagens\\8b9b77e992902ff4_OPERADOR_05nov_prossigamos_v409_concordo_com_os_nomes_verbatim.txt",
+   "sha256": "8b9b77e992902ff489ce4f108a28ba69d4e623e03702863733b4374154950f9a",
+   "bytes": 108,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/cunhagens/8b9b77e992902ff4_OPERADOR_05nov_prossigamos_v409_concordo_com_os_nomes_verbatim.txt"
+  },
+  {
+   "dicionario": "_V409_VERBATINS2",
+   "chave": "v409_cun_9ee7d5a1b161437f",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\cunhagens\\9ee7d5a1b161437f_OPERADOR_05nov_exatamente_isso_mesmo_d61_ratificada_energia_caiu_verbatim.trecho_que_fica.txt",
+   "sha256": "99af57002baed74c39a69860cfeffb06cfcff40c7615b747f87cda4f587d8edf",
+   "bytes": 23,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/cunhagens/9ee7d5a1b161437f_OPERADOR_05nov_exatamente_isso_mesmo_d61_ratificada_energia_caiu_verbatim.trecho_que_fica.txt"
+  },
+  {
+   "dicionario": "_V409_VERBATINS2",
+   "chave": "v409_cun_a63f2aa66f64de20",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\cunhagens\\a63f2aa66f64de20_OPERADOR_05nov_a_fita_de_turing_e_o_hamiltoniano_oculto_verbatim.txt",
+   "sha256": "a63f2aa66f64de20754817de0a87955373a124316c3fcf4da7225b574f34fd97",
+   "bytes": 109,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/cunhagens/a63f2aa66f64de20_OPERADOR_05nov_a_fita_de_turing_e_o_hamiltoniano_oculto_verbatim.txt"
+  },
+  {
+   "dicionario": "_V409_VERBATINS2",
+   "chave": "v409_cun_ac0eb0bcf4fc009b",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\cunhagens\\ac0eb0bcf4fc009b_OPERADOR_05nov_clay_eu_sou_eu_mesmo_fita_sem_escala_verbatim.txt",
+   "sha256": "ac0eb0bcf4fc009be17d310aa1ccb4dc8ac52008f8e312d9d5a22a80aa72aef5",
+   "bytes": 326,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/cunhagens/ac0eb0bcf4fc009b_OPERADOR_05nov_clay_eu_sou_eu_mesmo_fita_sem_escala_verbatim.txt"
+  },
+  {
+   "dicionario": "_V409_VERBATINS2",
+   "chave": "v409_cun_c7ee4106eb7f2c83",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\cunhagens\\c7ee4106eb7f2c83_OPERADOR_05nov_fechar_a_identificacao_das_classes_de_turing_no_dicionario_perguntas_nas_quatro_linguas_verbatim.txt",
+   "sha256": "c7ee4106eb7f2c830d865a8da0dc878d132d36028837a3f703482318a06a7546",
+   "bytes": 387,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/caminho_longo/c7ee4106eb7f2c83.txt"
+  },
+  {
+   "dicionario": "_V409_VERBATINS2",
+   "chave": "v409_cun_d63c0a91a5271fcb",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\cunhagens\\d63c0a91a5271fcb_OPERADOR_05nov_z_e_o_modo_leitor_le_os_pixels_e_o_psion_verbatim.trecho_que_fica.txt",
+   "sha256": "0e96a077c2760e567a4077270800fcb51c08e432475161eb45a96cec386f7447",
+   "bytes": 50,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/cunhagens/d63c0a91a5271fcb_OPERADOR_05nov_z_e_o_modo_leitor_le_os_pixels_e_o_psion_verbatim.trecho_que_fica.txt"
+  },
+  {
+   "dicionario": "_V409_VERBATINS2",
+   "chave": "v409_cun_fb3dc69e3c9b5516",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v409\\insumos\\cunhagens\\fb3dc69e3c9b5516_OPERADOR_05nov_tudo_na_v409_nada_para_a_v410_verbatim.txt",
+   "sha256": "fb3dc69e3c9b5516fe7539ad8be56bb70d1c0da091d7e0cf7b25789b287c226b",
+   "bytes": 162,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v409/insumos/cunhagens/fb3dc69e3c9b5516_OPERADOR_05nov_tudo_na_v409_nada_para_a_v410_verbatim.txt"
   }
  ]
 }
