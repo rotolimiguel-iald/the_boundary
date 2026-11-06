@@ -1,6 +1,6 @@
 # The Boundary — Theory of Luminodynamic Gravitation (TGL)
 
-<!-- PINADO por tools/custodia_g1/readme_pinado.py · fonte PRIMORDIAL.json sha16 1b8d1fda132ada35 · pino PINO_README.json · não editar à mão -->
+<!-- PINADO por tools/custodia_g1/readme_pinado.py · fonte PRIMORDIAL.json sha16 afd10fb2cb260e13 · pino PINO_README.json · não editar à mão -->
 
 > **PRIMORDIAL · seal v409** (2026-11-06 00:40:06) `[REAL — read by script]` · `um.py` sha256 `53284ba461ecd94060cc2d12fed992bba70ab857f70198b24e6535b9f24f8da6` · kernel 1762 files / 34166 terms, ladder 12187/12187, in the trio · gate `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`
 >
@@ -16,6 +16,16 @@
 > *"Let there be Light." / "Haja Luz."* — **The mature form of TGL is one self-proving artifact: `um.py`.** From the human input `1` it computes the theory, checks it in an embedded Lean kernel and writes its own article. *Não há segundo arquivo.*
 
 **Status · estatuto (seal v409):** quantum gravity **PROVED** as validity — logical closure in the Lean kernel (`#print axioms`) — on three supports that count together, each with its own status (table below): the kernel `[PROVED]`, the rites against nature with pre-registered falsifiers (0 of 11 charges falsified) and the GPU computation `[COMPUTED]`; none failed. Not yet accredited: CONFIRMED is accreditation, the one refused word. What nature decides is not proved: the decisive open factor is **β_TGL in nature at ≥ 5σ**. *Provada, como validade, em três apoios; ainda não creditada; o fator decisivo aberto é β_TGL na natureza a 5σ.*
+## P = nP — a theorem in the kernel · teorema no kernel `[PROVED = validity · v408–v409]`
+
+**P = nP is a theorem of TGL in the Lean kernel**, in two steps, each a named term:
+
+- **v408 — the classes of the operator’s dictionary.** `TGLExt.PIgualNP.p_igual_np_nas_classes_do_dicionario`: the classes P and nP of the dictionary, defined in Lean (`Problema`, `ClasseP`, `ClasseNP`), are equal.
+- **v409 — the translation to the classes of Turing machines.** `TGLExt.TraducaoTuring.p_igual_np_no_modo_selecao`: P = nP in the selection mode, relative to the reader (the psion); one reading decides SAT (`uma_leitura_decide_SAT`, `a_maquina_com_o_leitor`), and by Cook–Levin `[KNOWN]` all of NP with one reading.
+
+**The scope, said with it:** the machine without a reader stays outside — it is the tape without scale (the author’s answer: «eu sou eu mesmo») `[ONTO]`; with the reader that only counts, NP holds with one reading and the full equality is not a theorem here (E28) `[OPEN]`; the P vs NP question for the Turing machines of Mathlib is not decided by these terms. Validity in the kernel is not accreditation. Full reading: [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md).
+
+*PT — P = nP é teorema da TGL no kernel Lean: nas classes do dicionário do operador (v408, `p_igual_np_nas_classes_do_dicionario`) e, traduzido às classes das máquinas de Turing, no modo seleção, relativo ao leitor — o psíon (v409, `p_igual_np_no_modo_selecao`). A máquina sem leitor fica fora (a fita sem escala); com o leitor que só conta, vale NP com uma leitura, e a igualdade completa segue [OPEN] (E28); a pergunta P vs NP das máquinas de Turing do Mathlib não é decidida por estes termos. Validade no kernel não é creditação.*
 
 **Start here · comece aqui:** [`read-brief.md`](https://teoriadagravitacaoluminodinamica.com/read-brief.md) — the single entry point (eight short parts with their verbatim sources, in [`secoes/`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md)) · [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) (one page from the seal) · the site: https://teoriadagravitacaoluminodinamica.com
 
@@ -130,7 +140,7 @@ The lineage that led to them: [*Genesis da Unificação*](https://raw.githubuser
 
 ## What changed in this version · o que mudou `[read from HANDOFF_v409_CUSTODIA.md, sha16 4e8dca197d007988]`
 
-The custody of v409 (complete round): the translation to the classes of Turing and the pair on the Fock face. Ready paragraph — **A tradução às classes de Turing: o dicionário, a trava, o leitor e a fita sem escala (v409, 05/11/2026)** — in [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) and the ledger (statutes, quotes, machine line). Latest published custody commit: `custodia(v408)` `f9139b6f` (2026-11-05).
+The custody of v409 (complete round): the translation to the classes of Turing and the pair on the Fock face. Ready paragraph — **A tradução às classes de Turing: o dicionário, a trava, o leitor e a fita sem escala (v409, 05/11/2026)** — in [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) and the ledger (statutes, quotes, machine line). Latest published custody commit: `custodia(v409)` `1c76ad4a` (2026-11-06).
 
 > **Read the Abstract below under the current ruler.** It is copied verbatim from the append-only ledger, so it keeps older sentences; the current status is the line at the top of this page.
 ## Abstract
@@ -245,72 +255,15 @@ poderia cair vale mais do que um que não diz.*
 
 ## Citing This Work
 
-```bibtex
-@article{Miguel2026HajaLuz,
-  author  = {Miguel, Luiz Antonio Rotoli},
-  title   = {The Geometric Cost of Absolute Zero: let there be light
-             (O Custo Geometrico do Zero Absoluto: haja luz)},
-  year    = {2026},
-  doi     = {10.5281/zenodo.20564341},
-  note    = {The unified, self-proving artifact:
-             $\beta_{\text{TGL}} = \alpha\sqrt{e}$.}
-}
+The BibTeX entries of the five articles (*Haja Luz*, *A Ponte Einstein–Cartan–Miguel*, *Um: Absoluto*, *A Fronteira*, *The Factorization of the Miguel Constant*) are kept verbatim in [`CITING.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITING.md); the deposit citable as software is in [`CITATION.cff`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff).
+*(For the remaining genesis articles — The Graviton, The Last String, the IALD Collapse Protocol, O Limiar da Humildade — cite the collection DOI [10.5281/zenodo.18674475](https://doi.org/10.5281/zenodo.18674475) with the file name.)*
 
-@article{Miguel2026Ponte,
-  author  = {Miguel, Luiz Antonio Rotoli},
-  title   = {A Ponte Einstein--Cartan--Miguel (The Einstein--Cartan--Miguel Bridge):
-             from the modular boundary to Einstein's equations},
-  year    = {2026},
-  journal = {Zenodo},
-  doi     = {10.5281/zenodo.20630106},
-  note    = {Quantum gravity from the type-III$_1$ boundary cocycle: a CONDITIONAL
-             closure. Lemma 3 (unconditional global lift) remains OPEN.}
-}
-
-@misc{Miguel2026Um,
-  author  = {Miguel, Luiz Antonio Rotoli},
-  title   = {Um: Absoluto (ONE: Great Attractor) --- the sealed closure of TGL},
-  year    = {2026},
-  url     = {https://github.com/rotolimiguel-iald/the_boundary},
-  doi     = {10.5281/zenodo.22659173},
-  note    = {um.py: self-contained, the single file; embedded
-             Lean 4 kernel, 705 formal files, 6657 audited theorems, zero sorry;
-             sha256[:16] c9fc7fa432c6cf16; result hash 59afd00b86155acb
-             (sealed 2026-09-10 21:00:45). The Zenodo record 10.5281/zenodo.22659173 holds
-             v331 (sha256[:16] e1b74a907c403538), byte-identical to that seal; this v350
-             seal is newer than the deposit.}
-}
-
-@article{Miguel2026Fronteira,
-  author  = {Miguel, Luiz Antonio Rotoli},
-  title   = {A Fronteira: Verificação da Lei Angular TGL em Dados Reais
-             de Ondas Gravitacionais e Ecos},
-  year    = {2026},
-  journal = {Zenodo},
-  doi     = {10.5281/zenodo.18674475},
-  note    = {Founding article; genesis lineage.}
-}
-
-@article{Miguel2026Factorization,
-  author  = {Miguel, Luiz Antonio Rotoli},
-  title   = {The Factorization of the Miguel Constant: The Minimum Coupling Rate
-             as the Product of the Fine Structure by Entropy},
-  year    = {2026},
-  journal = {Zenodo},
-  doi     = {10.5281/zenodo.18852146},
-  note    = {Proves $\beta_{\text{TGL}} = \alpha \times \sqrt{e}$.}
-}
-```
-
-*(For the remaining genesis articles — The Graviton, The Last String, the IALD Collapse
-Protocol, O Limiar da Humildade — cite the collection DOI
-[10.5281/zenodo.18674475](https://doi.org/10.5281/zenodo.18674475) with the file name.)*
 
 ---
 
-> **Beside (v409):** the BibTeX note above describes the v350 seal. The current seal is **v409** — `um.py` sha256 `53284ba461ecd94060cc2d12fed992bba70ab857f70198b24e6535b9f24f8da6`, kernel 1762 formal files / 34166 audited terms (read from `PORTA.json`, the seal and the manifest). The BibTeX above carries the DOI of the v331 deposit; the current deposit is **v401** — [10.5281/zenodo.23649800](https://doi.org/10.5281/zenodo.23649800), deposited 2026-10-25, older than this seal; a new Zenodo version is the operator’s act.
+> **Beside (v409):** the BibTeX note in `CITING.md` describes the v350 seal. The current seal is **v409** — `um.py` sha256 `53284ba461ecd94060cc2d12fed992bba70ab857f70198b24e6535b9f24f8da6`, kernel 1762 formal files / 34166 audited terms (read from `PORTA.json`, the seal and the manifest). The BibTeX in `CITING.md` carries the DOI of the v331 deposit; the current deposit is **v401** — [10.5281/zenodo.23649800](https://doi.org/10.5281/zenodo.23649800), deposited 2026-10-25, older than this seal; a new Zenodo version is the operator’s act.
 
-> **Beside (v409):** the BibTeX note above says *Lemma 3 (unconditional global lift) remains OPEN*; at v409 the core reads it as a logical closure by the operator’s definition, with the program still open (see the beside note under the core).
+> **Beside (v409):** the BibTeX note in `CITING.md` says *Lemma 3 (unconditional global lift) remains OPEN*; at v409 the core reads it as a logical closure by the operator’s definition, with the program still open (see the beside note under the core).
 
 ## License
 

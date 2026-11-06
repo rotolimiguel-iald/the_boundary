@@ -4,7 +4,7 @@
 {{bloco:hubble_pt}}
 > *"Let there be Light." / "Haja Luz."* — **The mature form of TGL is one self-proving artifact: `um.py`.** From the human input `1` it computes the theory, checks it in an embedded Lean kernel and writes its own article. *Não há segundo arquivo.*
 
-{{bloco:status}}
+{{bloco:status}}{{parte:p_igual_np}}
 **Start here · comece aqui:** [`read-brief.md`]({{portas.site_brief}}) — the single entry point (eight short parts with their verbatim sources, in [`secoes/`]({{url:porta_secoes}})) · [`ESTADO_ATUAL.md`]({{url:estado}}) (one page from the seal) · the site: {{portas.site}}
 
 {{bloco:apoios}}

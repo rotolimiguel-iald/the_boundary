@@ -21,7 +21,7 @@
   "versao_da_pedra": "v371"
  },
  "regra": "NOT_FALSIFIED nunca e CONFIRMED. Fechar a arquitetura matematica interna nao e gravidade quantica confirmada. beta_TGL = alpha*sqrt(e) e CONSTANTE, nunca literal no codigo: e computada em runtime.",
- "n_arquivos": 3963,
+ "n_arquivos": 3965,
  "aliases_ausentes": [],
  "aliases": {
   "um.py": {
@@ -126,8 +126,8 @@
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
    "o_que_e": "O atlas da fronteira",
-   "sha256_16": "a324683e0b6a1180",
-   "bytes": 40823
+   "sha256_16": "9043cdb31c2bbb3a",
+   "bytes": 40834
   },
   "llms": {
    "path": "llms.txt",
@@ -453,6 +453,13 @@
    "bytes": 3919,
    "sha256_16": "acf30654724f8af5",
    "papel": "outros"
+  },
+  {
+   "path": "CITING.md",
+   "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITING.md",
+   "bytes": 2742,
+   "sha256_16": "9066c522f9ce543e",
+   "papel": "documento"
   },
   {
    "path": "ESTADO_ATUAL.md",
@@ -1402,22 +1409,22 @@
   {
    "path": "PINO_README.json",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PINO_README.json",
-   "bytes": 1798,
-   "sha256_16": "4ef6c15ce25abd0b",
+   "bytes": 1885,
+   "sha256_16": "46bee0b48fcb3ffc",
    "papel": "resultado selado"
   },
   {
    "path": "PRIMORDIAL.json",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PRIMORDIAL.json",
-   "bytes": 42802,
-   "sha256_16": "1b8d1fda132ada35",
+   "bytes": 42958,
+   "sha256_16": "afd10fb2cb260e13",
    "papel": "resultado selado"
   },
   {
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-   "bytes": 40823,
-   "sha256_16": "a324683e0b6a1180",
+   "bytes": 40834,
+   "sha256_16": "9043cdb31c2bbb3a",
    "papel": "documento"
   },
   {
@@ -27716,14 +27723,14 @@
    "path": "read-brief.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md",
    "bytes": 23290,
-   "sha256_16": "396216bb3ef40668",
+   "sha256_16": "8a68e0fbe68605b2",
    "papel": "documento"
   },
   {
    "path": "secoes/01-o-um-absoluto.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/01-o-um-absoluto.md",
    "bytes": 11237,
-   "sha256_16": "896ef2658cb47c1e",
+   "sha256_16": "bbe52fc9db289e9c",
    "papel": "documento"
   },
   {
@@ -27758,21 +27765,21 @@
    "path": "secoes/06-o-estatuto-da-gravidade-quantica.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/06-o-estatuto-da-gravidade-quantica.md",
    "bytes": 15305,
-   "sha256_16": "b520882c4bb8dac9",
+   "sha256_16": "c72509b3328af61e",
    "papel": "documento"
   },
   {
    "path": "secoes/07-o-programa-um-py.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/07-o-programa-um-py.md",
    "bytes": 11628,
-   "sha256_16": "7ae8cc61c200e15c",
+   "sha256_16": "18aed8ab7bdcd13f",
    "papel": "documento"
   },
   {
    "path": "secoes/08-os-artigos-e-os-instrumentos.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/08-os-artigos-e-os-instrumentos.md",
    "bytes": 13167,
-   "sha256_16": "0669356062f72d17",
+   "sha256_16": "a3ea386334cc4837",
    "papel": "documento"
   },
   {
@@ -27855,8 +27862,8 @@
   {
    "path": "tools/readme_pinado/readme_partes/citar.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_partes/citar.md",
-   "bytes": 3284,
-   "sha256_16": "87dd461b5fc71324",
+   "bytes": 1353,
+   "sha256_16": "ec088ddc9097cfbc",
    "papel": "documento"
   },
   {
@@ -27874,10 +27881,17 @@
    "papel": "documento"
   },
   {
+   "path": "tools/readme_pinado/readme_partes/p_igual_np.md",
+   "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_partes/p_igual_np.md",
+   "bytes": 1740,
+   "sha256_16": "46489bade1964501",
+   "papel": "documento"
+  },
+  {
    "path": "tools/readme_pinado/readme_template.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_template.md",
-   "bytes": 3772,
-   "sha256_16": "e68d73d6ab13e738",
+   "bytes": 3792,
+   "sha256_16": "de7aad5110c7be26",
    "papel": "documento"
   },
   {

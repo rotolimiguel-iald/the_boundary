@@ -767,19 +767,19 @@
    "como": "git"
   },
   "custodia.commit_espelho": {
-   "valor": "f9139b6f6fe83e770740f43cae0cfe0c2d0a7a8e",
+   "valor": "1c76ad4a6ed74d73a19d440e77acd1bda65944f8",
    "fonte": "git_espelho",
    "chave": "git log -1 --grep='^custodia(vNNN)'",
    "como": "git"
   },
   "custodia.versao_do_commit": {
-   "valor": "v408",
+   "valor": "v409",
    "fonte": "git_espelho",
    "chave": "assunto do commit",
    "como": "regex"
   },
   "custodia.data_do_commit": {
-   "valor": "2026-11-05",
+   "valor": "2026-11-06",
    "fonte": "git_espelho",
    "chave": "data do commit",
    "como": "git"
@@ -860,6 +860,11 @@
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff",
    "bytes": null,
    "caminho": "CITATION.cff"
+  },
+  "citing": {
+   "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITING.md",
+   "bytes": null,
+   "caminho": "CITING.md"
   },
   "um_py": {
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py",

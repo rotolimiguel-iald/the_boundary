@@ -96,10 +96,10 @@ TGL_COMA_REVEAL=1 echo 1 | python um.py   # com a abertura de Coma (Windows: set
 Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para o selo formal; sem eles: FORMAL_CHECKER_UNAVAILABLE, fail-closed) | pdflatex (opcional).
 ````
 
-### 4. `README.md` — bytes 10.036–10.694
+### 4. `README.md` — bytes 11.847–12.505
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `a324683e0b6a1180b5312eafc905073b567592911aa991e2f6d81384197d5039` (computed now; this file is not in the seal map) · of this excerpt: `9cb72b7ddd02c9815bb96e599f27ca7758551f1bd927dfe65c1dd45bccf31e1a`
+- sha256 of the file: `9043cdb31c2bbb3a07d272f156f5caa02fb2914148b596f9972d7240df39601d` (computed now; this file is not in the seal map) · of this excerpt: `9cb72b7ddd02c9815bb96e599f27ca7758551f1bd927dfe65c1dd45bccf31e1a`
 - status · estatuto: [REAL — three commands] README do espelho
 - why · por quê: Os três comandos de reprodução (curl, sha256sum, echo 1 | python um.py), a leitura por Range, o limite de renderização do GitHub e a necessidade de clonar para os ritos lerem ../cache.
 

@@ -52,7 +52,7 @@ Sizes read from `TUNEL.json` now. The measured cut is near 100,000 characters pe
 | 9 | `um_absoluto.json` | the world: every computed number | 15.778.699 | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json |
 | 10 | `um.py` | the artifact itself (Lean kernel and both articles embedded) | 43.970.027 | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py |
 
-The front page of the repository is `README.md` (40.823 bytes, generated from the seal): https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md · The full ledger — the atlas of the boundary as it was until 2026-09-11, every claim with its status — is `LEDGER.md` (904.349 bytes): https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md. It is the **last** thing to read, not the first.
+The front page of the repository is `README.md` (40.834 bytes, generated from the seal): https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md · The full ledger — the atlas of the boundary as it was until 2026-09-11, every claim with its status — is `LEDGER.md` (904.349 bytes): https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md. It is the **last** thing to read, not the first.
 
 ## 2. Download in chunks (HTTP `Range`)
 
