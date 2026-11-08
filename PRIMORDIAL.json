@@ -54,16 +54,16 @@
   },
   "citation": {
    "arquivo": "CITATION.cff",
-   "bytes": 3919,
-   "sha256": "acf30654724f8af5576b3f7ec0a492db81e01e45c3f2100deae2c5cd1e6a988d",
-   "sha16": "acf30654724f8af5",
+   "bytes": 4219,
+   "sha256": "de6d70d7d13f9211e7ba125fe36d67ad57341557889ea776a9b647ad92535de5",
+   "sha16": "de6d70d7d13f9211",
    "papel": "o depósito citável no Zenodo"
   },
   "ledger": {
    "arquivo": "LEDGER.md",
-   "bytes": 904349,
-   "sha256": "f161289c7c7f5db3621d72c910da428bb8301dee59626c15503c04c3a6972263",
-   "sha16": "f161289c7c7f5db3",
+   "bytes": 905504,
+   "sha256": "fb3f608fd0d7ded10dc332152b9180d1eeb8ebbaa8872a31dd432b718be62628",
+   "sha16": "fb3f608fd0d7ded1",
    "papel": "o livro-razão (append-only)"
   },
   "handoff": {
@@ -707,43 +707,43 @@
    "como": "regex"
   },
   "zenodo.versao": {
-   "valor": "v401",
+   "valor": "v409",
    "fonte": "citation",
    "chave": "Zenodo deposit of vNNN",
    "como": "regex"
   },
   "zenodo.data": {
-   "valor": "2026-10-25",
+   "valor": "2026-11-08",
    "fonte": "citation",
    "chave": "deposited AAAA-MM-DD",
    "como": "regex"
   },
   "zenodo.pin16": {
-   "valor": "1925cb691e933ae8",
+   "valor": "53284ba461ecd940",
    "fonte": "citation",
    "chave": "um.py sha256 (16)",
    "como": "regex"
   },
   "zenodo.doi": {
-   "valor": "10.5281/zenodo.23649800",
+   "valor": "10.5281/zenodo.24053883",
    "fonte": "citation",
    "chave": "doi",
    "como": "regex"
   },
   "zenodo.mesmo_selo": {
-   "valor": false,
+   "valor": true,
    "fonte": "citation",
    "chave": "zenodo.versao == selo.versao",
    "como": "comparação"
   },
   "ledger.bytes": {
-   "valor": 904349,
+   "valor": 905504,
    "fonte": "ledger",
    "chave": "tamanho do arquivo",
    "como": "stat"
   },
   "ledger.linhas": {
-   "valor": 4468,
+   "valor": 4471,
    "fonte": "ledger",
    "chave": "linhas",
    "como": "contagem"
@@ -767,7 +767,7 @@
    "como": "git"
   },
   "custodia.commit_espelho": {
-   "valor": "1c76ad4a6ed74d73a19d440e77acd1bda65944f8",
+   "valor": "9036b439aa8a835e90147fa0d506b6dbbf3a253d",
    "fonte": "git_espelho",
    "chave": "git log -1 --grep='^custodia(vNNN)'",
    "como": "git"
@@ -797,7 +797,7 @@
    "como": "PORTA.json"
   },
   "portas.doi_um_absoluto": {
-   "valor": "https://doi.org/10.5281/zenodo.23649800",
+   "valor": "https://doi.org/10.5281/zenodo.24053883",
    "fonte": "porta",
    "chave": "doi_um_absoluto",
    "como": "PORTA.json"

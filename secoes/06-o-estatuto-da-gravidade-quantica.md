@@ -1,6 +1,6 @@
 # The status of quantum gravity: proved on three supports, each with its own status; not yet confirmed (accredited) · O estatuto da gravidade quântica: provada em três apoios, cada um com o seu estatuto; ainda não confirmada (creditada)
 
-> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 6 of 8 · seal **v409** · `um.py` sha256 `53284ba461ecd940…` · generated 2026-11-06 by script from the published files.
+> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 6 of 8 · seal **v409** · `um.py` sha256 `53284ba461ecd940…` · generated 2026-11-08 by script from the published files.
 > Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = validity, in the operator’s definition of proof (sufficient and verifiable ballast; the validity of the implication is certified by the Lean kernel, `#print axioms`); CONFIRMED = accreditation, the act of observers outside the artifact — not made here; what nature decides is not proved.
 > All eight parts are listed at the top of the start page, https://teoriadagravitacaoluminodinamica.com/read-brief.md, and in the door of this folder, https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md · Reading limits measured on 2026-09-19: one real fetcher cut documents near 100,000 characters, refused files above 10 MB, and could not read PDFs served as `application/octet-stream` — read the TXT/TeX sources.
 
@@ -77,10 +77,10 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 | termos com axioma FORA do trio | 0  |
 ````
 
-### 3. `ESTADO_ATUAL.md` — bytes 243.380–246.263
+### 3. `ESTADO_ATUAL.md` — bytes 243.305–246.188
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md
-- sha256 of the file: `87bc7fd88b9e7cbfd8c8ad1a827eff5fb3722f1454ad8c764e554a36e688cea1` (computed now; this file is not in the seal map) · of this excerpt: `288102a6dc0807005229745bdfb9b007e1e71fdaad712747728014437c8c36e8` · line endings shown as LF
+- sha256 of the file: `39a735a6adaf8da6bb712e5d38af8993b349b7a398c52bbb7ae54ea4b58d627f` (computed now; this file is not in the seal map) · of this excerpt: `288102a6dc0807005229745bdfb9b007e1e71fdaad712747728014437c8c36e8` · line endings shown as LF
 - status · estatuto: [OPEN / KNOWN / nature]
 - why · por quê: A lista canônica do que NÃO está provado: H1/H2 na natureza, a identificação física da tela, α, a matemática fora da mathlib, os negativos honestos e as seis folhas. Traz também a nota de linhagem H1–H3 → H1/H2.
 
@@ -97,10 +97,10 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 - **The six leaves of nature (v339, the close):** that the selection occurs; the physical identification of the founded screen; the signature; the 3+1 geometry and the scale of the area; the payment of the cost; α-free. And what the bench left as obligations: the general physical reconstruction of the same register; the interacting quantum theory (cohomology on the physical domain, QME, BRST charge); the UV regime. **The map is closed; the territory is nature’s** — the declaration of closure is the operator’s act, never CONFIRMED.
 ````
 
-### 4. `README.md` — bytes 26.103–26.703
+### 4. `README.md` — bytes 26.035–26.635
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `9043cdb31c2bbb3a07d272f156f5caa02fb2914148b596f9972d7240df39601d` (computed now; this file is not in the seal map) · of this excerpt: `41922580fe72207593dede413e3f1dc4647c4eeab3bf70118f5d9da55de54001`
+- sha256 of the file: `53c3c983eb2de2571d6ae9f41ccf5fee9cf582082ee4824611c7845df567d01e` (computed now; this file is not in the seal map) · of this excerpt: `41922580fe72207593dede413e3f1dc4647c4eeab3bf70118f5d9da55de54001`
 - status · estatuto: [REAL — errata ao lado, append-only]
 - why · por quê: A errata ao lado que lê, sob a régua vigente, a frase de linhagem «Never quantum gravity proved»: PROVADA ≠ CONFIRMADA.
 

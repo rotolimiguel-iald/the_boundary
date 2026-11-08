@@ -53,13 +53,13 @@ auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela n
 | arquivo | papel | link raw direto |
 |---|---|---|
 | `llms.txt` | A porta de entrada para IA (convencao llmstxt.org): as URLs raw diretas de tudo que importa | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt) |
-| **DOI — Um: Absoluto** | o deposito citavel no Zenodo: guarda a **v401** (um.py 1925cb691e933ae8, depositada em 2026-10-25), byte-identico AQUELE selo (md5 conferido pela API); o selo corrente desta arvore esta no ESTADO_ATUAL.md e pode ser mais novo | [doi](https://doi.org/10.5281/zenodo.23649800) |
+| **DOI — Um: Absoluto** | o deposito citavel no Zenodo: guarda a **v409** (um.py 53284ba461ecd940, depositada em 2026-11-08), byte-identico AQUELE selo (md5 conferido pela API); o selo corrente desta arvore esta no ESTADO_ATUAL.md e pode ser mais novo | [doi](https://doi.org/10.5281/zenodo.24053883) |
 | `.gitattributes` | Arquivo de infraestrutura | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitattributes) |
 | `.gitignore` | Arquivo de infraestrutura | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitignore) |
-| `CITATION.cff` | Como citar: DOI 10.5281/zenodo.23649800 (v401), autor, versao, e as URLs diretas do um.py e do selo | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff) |
+| `CITATION.cff` | Como citar: DOI 10.5281/zenodo.24053883 (v409), autor, versao, e as URLs diretas do um.py e do selo | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff) |
 | `CITING.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITING.md) |
 | `ESTADO_ATUAL.md` | UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- a segunda leitura, depois do read-brief | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) |
-| `LEDGER.md` | O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove) -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (883 KB; leia por ultimo) | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md) |
+| `LEDGER.md` | O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove) -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (884 KB; leia por ultimo) | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md) |
 | `PINO_README.json` | O PINO do README: sha256 do README gerado, do PRIMORDIAL.json, do template, das partes e do selo de que nasceu -- o README so' se edita pelo gerador | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PINO_README.json) |
 | `PRIMORDIAL.json` | A FONTE UNICA das informacoes primordiais (README pinado e site): cada numero com a chave de origem, o arquivo e o sha256 da fonte -- gerada por tools/custodia_g1/primordial.py, nunca a mao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PRIMORDIAL.json) |
 | `README.md` | A PAGINA DE FRENTE, gerada por script (tools/custodia_g1/readme_pinado.py a partir de PRIMORDIAL.json, pinado por PINO_README.json; antes tools/gerar_readme_frente.py, 11/09/2026): o selo, reproduzir em tres comandos, as portas, os tres artigos, a ordem de leitura, abstract, citar, licenca, autor -- <= 40 KB; o atlas completo esta em LEDGER.md | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md) |
@@ -330,4 +330,4 @@ auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela n
 
 ---
 
-Total rastreado por `git ls-files`: **3965 arquivos** (antes das portas). gerado por script de git ls-files em 2026-11-06 -- nao editar a mao
+Total rastreado por `git ls-files`: **3965 arquivos** (antes das portas). gerado por script de git ls-files em 2026-11-08 -- nao editar a mao

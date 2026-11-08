@@ -15,10 +15,10 @@ A REGRA DA PORTA: toda pasta canonica tem PORTA.md + PORTA.json; toda porta apon
 - [README.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md): a PAGINA DE FRENTE (<= 40 KB, gerada por script): o selo, reproduzir, as portas, os tres artigos, a ordem de leitura, abstract, citar.
 - [PRIMORDIAL.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PRIMORDIAL.json): a FONTE UNICA das informacoes primordiais -- cada numero do README e do site com a chave de origem, o arquivo e o sha256 da fonte (gerada por script).
 - [PINO_README.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PINO_README.json): o PINO do README -- sha256 do README, do PRIMORDIAL.json, do template, das partes e do selo; o README so' se edita pelo gerador.
-- [LEDGER.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md): o LIVRO-RAZAO -- o atlas da fronteira como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove): toda afirmacao com seu status e o link direto do arquivo onde se le (883 KB; leia por ultimo).
+- [LEDGER.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md): o LIVRO-RAZAO -- o atlas da fronteira como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove): toda afirmacao com seu status e o link direto do arquivo onde se le (884 KB; leia por ultimo).
 - [site oficial](https://teoriadagravitacaoluminodinamica.com): a face publica da teoria; a porta acima da raiz.
 - [repositorio](https://github.com/rotolimiguel-iald/the_boundary): a arvore no GitHub.
-- [Zenodo DOI 10.5281/zenodo.23649800](https://doi.org/10.5281/zenodo.23649800): o deposito CITAVEL do Um: Absoluto -- guarda a v401 (2026-10-25; um.py 1925cb691e933ae8, md5 conferido pela API). ATENCAO: o selo corrente deste repositorio e' v409, MAIS NOVO que o deposito; versao nova no Zenodo e' ato do operador.
+- [Zenodo DOI 10.5281/zenodo.24053883](https://doi.org/10.5281/zenodo.24053883): o deposito CITAVEL do Um: Absoluto -- guarda a v409 (2026-11-08; um.py 53284ba461ecd940, md5 conferido pela API).
 - cache/ e pipelines/ (v340-v350, A NATUREZA RESPONDEU): os RESULTADOS dos cinco testes pre-registrados (JSON lidos POR HASH pelo um.py em ../cache; sem eles o rito emite AWAITING_RESULT_FILE e o selo muda) e os pipelines que os produziram (WSL + lalsuite/bilby/camb/pycbc). Nenhum falsificou, nenhum confirmou, todos ganharam numero; nenhum move o gate. Exemplo: [ECHO_ANCHORED_V2_RESULT.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/gw/ECHO_ANCHORED_V2_RESULT.json) e [rite_h2_v350.py](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/pipelines/eco_ancorado_v1/rite_h2_v350.py).
 
 ## A teoria em oito partes (secoes/) -- texto puro, a resposta no topo de cada parte
@@ -180,4 +180,4 @@ resultado conveniente. Um teste que nao pode falhar nao testa.
 - [um_absoluto_forma_canonica.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md): a forma canonica emitida pela rodada.
 - [T6_protocol_prompts.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/T6_protocol_prompts.txt): o protocolo T6-S pre-registrado, com grupo de controle.
 
-gerado por script de git ls-files em 2026-11-06 -- nao editar a mao
+gerado por script de git ls-files em 2026-11-08 -- nao editar a mao
