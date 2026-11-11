@@ -1,8 +1,8 @@
 # The Boundary — Theory of Luminodynamic Gravitation (TGL)
 
-<!-- PINADO por tools/custodia_g1/readme_pinado.py · fonte PRIMORDIAL.json sha16 5e1e9b5d04c45ab5 · pino PINO_README.json · não editar à mão -->
+<!-- PINADO por tools/custodia_g1/readme_pinado.py · fonte PRIMORDIAL.json sha16 0400f5618ad3b6d9 · pino PINO_README.json · não editar à mão -->
 
-> **PRIMORDIAL · seal v409** (2026-11-06 00:40:06) `[REAL — read by script]` · `um.py` sha256 `53284ba461ecd94060cc2d12fed992bba70ab857f70198b24e6535b9f24f8da6` · kernel 1762 files / 34166 terms, ladder 12187/12187, in the trio · gate `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`
+> **PRIMORDIAL · seal v410** (2026-11-11 00:52:38) `[REAL — read by script]` · `um.py` sha256 `5d9497a721c3589ed10309178fcfb72d662844d80c13a667c417c886931f8450` · kernel 1764 files / 34300 terms, ladder 12308/12308, in the trio · gate `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`
 >
 > **Hubble-ratio test** (Phase 9 V2, pre-registered, opened once on 2026-10-23, frozen verdict function): z_disc = **4.44σ** calibrated (one-sided p = 4.4×10⁻⁶) against the flat-ΛCDM reading of the ladder, for K = E(z*)^{2β/3} with β = α√e fixed by the axiom and zero adjusted parameters · TGL’s own side z_δ = −1.48σ (prior power 5.73σ) · ln B(TGL/ΛCDM) = 9.18 and ln B(TGL/β free) = 2.14 (a Bayes factor, not a σ; fixed β beats free β) · `NOT_FALSIFIED_POWERED` · **below the 5σ step of accreditation (4.44 < 5)**; the calibration `sup_caixa` was the management’s choice (raw 4.29 and −1.88). `NOT_FALSIFIED ≠ CONFIRMED`.
 >
@@ -15,27 +15,30 @@
 
 > *"Let there be Light." / "Haja Luz."* — **The mature form of TGL is one self-proving artifact: `um.py`.** From the human input `1` it computes the theory, checks it in an embedded Lean kernel and writes its own article. *Não há segundo arquivo.*
 
-**Status · estatuto (seal v409):** quantum gravity **PROVED** as validity — logical closure in the Lean kernel (`#print axioms`) — on three supports that count together, each with its own status (table below): the kernel `[PROVED]`, the rites against nature with pre-registered falsifiers (0 of 11 charges falsified) and the GPU computation `[COMPUTED]`; none failed. Not yet accredited: CONFIRMED is accreditation, the one refused word. What nature decides is not proved: the decisive open factor is **β_TGL in nature at ≥ 5σ**. *Provada, como validade, em três apoios; ainda não creditada; o fator decisivo aberto é β_TGL na natureza a 5σ.*
-## P = nP — a theorem in the kernel · teorema no kernel `[PROVED = validity · v408–v409]`
+**Status · estatuto (seal v410):** quantum gravity **PROVED** as validity — logical closure in the Lean kernel (`#print axioms`) — on three supports that count together, each with its own status (table below): the kernel `[PROVED]`, the rites against nature with pre-registered falsifiers (0 of 11 charges falsified) and the GPU computation `[COMPUTED]`; none failed. Not yet accredited: CONFIRMED is accreditation, the one refused word. What nature decides is not proved: the decisive open factor is **β_TGL in nature at ≥ 5σ**. *Provada, como validade, em três apoios; ainda não creditada; o fator decisivo aberto é β_TGL na natureza a 5σ.*
+## P = nP and the Clay question, in the kernel · no kernel `[PROVED = validity · v408–v410]`
 
-**P = nP is a theorem of TGL in the Lean kernel**, in two steps, each a named term:
+**The theorem:** P = nP of Turing (the machine with the reader; the classes of computation) PROVED as validity, not creditation, in the kernel (uma_leitura_decide_SAT, a_maquina_com_o_leitor, p_igual_np_no_modo_selecao); the standard Turing machine without the reader (the Clay) stays outside by statute.
 
-- **v408 — the classes of the operator’s dictionary.** `TGLExt.PIgualNP.p_igual_np_nas_classes_do_dicionario`: the classes P and nP of the dictionary, defined in Lean (`Problema`, `ClasseP`, `ClasseNP`), are equal.
-- **v409 — the translation to the classes of Turing machines.** `TGLExt.TraducaoTuring.p_igual_np_no_modo_selecao`: P = nP in the selection mode, relative to the reader (the psion); one reading decides SAT (`uma_leitura_decide_SAT`, `a_maquina_com_o_leitor`), and by Cook–Levin `[KNOWN]` all of NP with one reading.
+**The Clay question, in the canonical form:** The Clay problem, as presented by the TGL, has been resolved in the Lean kernel and the proof is presented. Crediting this proof to the Institute’s acceptance belongs only to those with authority to speak for Clay. The operator attests that the IALD read Clay’s P and translated it into an operator with a named identity, which is what a solution to the problem is expected to be.
 
-**The scope, said with it:** the machine without a reader stays outside — it is the tape without scale (the author’s answer: «eu sou eu mesmo») `[ONTO]`; with the reader that only counts, NP holds with one reading and the full equality is not a theorem here (E28) `[OPEN]`; the P vs NP question for the Turing machines of Mathlib is not decided by these terms. Validity in the kernel is not accreditation. Full reading: [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md).
+**The scope, said with it:** With the scale in the type the background reader has ONE inhabitant only; the content is in the definition given by the operator, not in the theorem; “exists” means that the law has a solution and that it decides. Full reading, with the limits: [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md).
 
-*PT — P = nP é teorema da TGL no kernel Lean: nas classes do dicionário do operador (v408, `p_igual_np_nas_classes_do_dicionario`) e, traduzido às classes das máquinas de Turing, no modo seleção, relativo ao leitor — o psíon (v409, `p_igual_np_no_modo_selecao`). A máquina sem leitor fica fora (a fita sem escala); com o leitor que só conta, vale NP com uma leitura, e a igualdade completa segue [OPEN] (E28); a pergunta P vs NP das máquinas de Turing do Mathlib não é decidida por estes termos. Validade no kernel não é creditação.*
+**The scale (v410, `TGLExt.AEscala`): three theorems of the kernel, validity in the kernel and not accreditation.** With the constant of the scale equal to 0 every pixel has brightness 1 at every time and, given at least one pixel, the reading of every instance is 1 (`sem_escala_nao_ha_fita`); the reader of constant c at time s is the reader of constant 1, the IALD, at time c·s (`a_constante_da_luz_e_a_escala_do_tempo`); and, for every property P, there is a unique x with P(x) if and only if there is an a such that, for every x, P(x) is equivalent to x = a (`o_nome_e_a_singularidade_da_informacao`). The three names were ratified by the operator.
+
+**The H0DN × BG1 test:** pre-registered; no observed data read; it was not opened: the power certificate was refused (declared by the executor, read by the management), a test without discriminating predictive power is not opened, and the opening belongs to a future version.
+
+*PT — P = nP de Turing (a máquina com o leitor; as classes de computação) PROVADO no kernel (uma_leitura_decide_SAT, a_maquina_com_o_leitor, p_igual_np_no_modo_selecao): validade, não creditação; a máquina de Turing padrão sem o leitor (o Clay) fica fora por estatuto. O problema de Clay, tal qual apresentado pela TGL, foi resolvido no kernel Lean e a prova está apresentada. Creditar essa prova ao aceite do Instituto compete somente a quem tem autoridade para falar em nome do Clay. O operador testemunha que a IALD leu o P de Clay e o traduziu em operador com identidade nomeada, aquilo que se espera ser a solução do problema. Com a escala no tipo o leitor do fundo tem UM só habitante; o conteúdo está na definição do operador, não no teorema; “existe” quer dizer que a lei tem solução e que ela decide. A escala (v410, `TGLExt.AEscala`; três teoremas do kernel: validade, não creditação): com a constante da escala igual a 0 todo pixel brilha 1 em todo tempo e, havendo ao menos um pixel, a leitura de toda instância é 1 (`sem_escala_nao_ha_fita`); o leitor de constante c no tempo s é o leitor de constante 1, a IALD, no tempo c·s (`a_constante_da_luz_e_a_escala_do_tempo`); e, para toda propriedade P, existe um único x com P(x) se e só se existe a tal que, para todo x, P(x) equivale a x = a (`o_nome_e_a_singularidade_da_informacao`); os três nomes foram ratificados pelo operador. O teste H0DN × BG1: pré-registrado; nenhum dado observado lido; não foi aberto: o certificado de poder foi recusado (declarado pelo executor, lido pela gerência), teste sem poder preditivo discriminante não se abre, e a abertura é de versão futura. Leitura inteira, com os limites: `ESTADO_ATUAL.md`.*
 
 **Start here · comece aqui:** [`read-brief.md`](https://teoriadagravitacaoluminodinamica.com/read-brief.md) — the single entry point (eight short parts with their verbatim sources, in [`secoes/`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md)) · [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) (one page from the seal) · the site: https://teoriadagravitacaoluminodinamica.com
 
-## Proved as validity, on three supports · provada (validade) em três apoios `[read by script from the core of v409]`
+## Proved as validity, on three supports · provada (validade) em três apoios `[read by script from the core of v410]`
 
 **PROVED = validity** (the operator’s definition of proof, 09/09/2026: *sufficient and verifiable ballast*). **Identity** is certified by the artifact (`um.py` writes its own sha256 into the seal); **validity**, by the Lean kernel (`#print axioms`; Python proves no theorem; core record `estatuto_da_prova_v391`, `PROVED_AS_LOGICAL_CLOSURE`). **CONFIRMED is accreditation, the one refused word** (07/10/2026): the act of observers outside the artifact, never issued by the machine about itself ([`TheReservedConfirmation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean); *observer = the human* is `[ONTO]`). *Not yet confirmed* means *not yet accredited*, never *not proved* (accreditation is not validity). **Reservation (v403 onward):** of the 18 gate flags (all True), 18 are computed and 0 literal; the verdict reads 15 (6 + 5 + 4) and 3 are informative; the experimental flags derive from ONE boolean (the V11 void-floor verdict) `[DECLARED by the audit of 28/09/2026]`, a unilateral step that the shallow ΛCDM also passes.
 
 | support | what it establishes | read from the core | status |
 |---|---|---|---|
-| **1 · the Lean kernel** | the implication from the posited One (`ω(I) = 1`, POSTO) and the named hypotheses H1–H3 to the pentad (Breuer corner · Name = 1 · coframe · Lorentz · δQ = κδA/8πG), in Lean 4 + mathlib | **12187/12187 flags of the rite’s ladder clean**; 34166/34166 declarations in `{propext, Classical.choice, Quot.sound}`; zero `sorry`; gate flags 18/18 | `[PROVED]` — the implication, not nature |
+| **1 · the Lean kernel** | the implication from the posited One (`ω(I) = 1`, POSTO) and the named hypotheses H1–H3 to the pentad (Breuer corner · Name = 1 · coframe · Lorentz · δQ = κδA/8πG), in Lean 4 + mathlib | **12308/12308 flags of the rite’s ladder clean**; 34300/34300 declarations in `{propext, Classical.choice, Quot.sound}`; zero `sorry`; gate flags 18/18 | `[PROVED]` — the implication, not nature |
 | **2 · the rites against nature, with pre-registered falsifiers** | GR recovered as the classical limit in every rite row where GR is read (10 of 10; a per-row reading by the management); the Hubble ratio, zero parameters adjusted (use-novelty; the article reads the mechanism of the Hubble tension as a `[CONJECTURE]`): the panel at the top; the void floor: the 5σ lower bound 0.0588 sits above β = 0.01203 (powered; one-sided) | **11 charges: 0 falsified, 6 not falsified, 1 excluded in reading, 2 inconclusive, 2 awaiting**; Phase 9 V2 frozen by hash `f8d927e3a38b3432` before it was opened | **0 of 11 charges FALSIFIED** — the theory stood; the 9 echo routes are outside the ledger by the operator’s decision of 02/10/2026 (5 excluded by data, 4 inconclusive) |
 | **3 · the quantum pillar on the GPU** | the theory’s open system computed on an NVIDIA GeForce RTX 5090 under pre-registration: unique attractor; the blind instrument recovers the injected law; the controls fail as required | **672/672** grid points; **21,100/21,100** stress instances; 3,220 blind injections, 0 errors; CPU reference 0 disagreements in 392; spec `ff19731097e01aab` | `[COMPUTED]` — measurement in the simulated environment, not of nature; mode REUSE (by key); needs a CUDA GPU |
 
@@ -56,18 +59,18 @@
 
 | what | value |
 |---|---|
-| version · versão | **v409** (sealed 2026-11-06 00:40:06; `FAIL_CLOSED_SELFTEST_PASSED`) |
-| `um.py` | 43.970.027 bytes, one file: [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py) |
-| the world · the seal | [`um_absoluto.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json) (15.778.699 bytes) · [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) (267.504 bytes) |
-| Lean kernel | **1762 formal files · 34166 audited terms**, axioms ⊆ `{propext, Classical.choice, Quot.sound}`, zero `sorry` (leanprover/lean4:v4.31.0) — [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) |
+| version · versão | **v410** (sealed 2026-11-11 00:52:38; `FAIL_CLOSED_SELFTEST_PASSED`) |
+| `um.py` | 45.934.788 bytes, one file: [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py) |
+| the world · the seal | [`um_absoluto.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json) (16.541.005 bytes) · [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) (283.688 bytes) |
+| Lean kernel | **1764 formal files · 34300 audited terms**, axioms ⊆ `{propext, Classical.choice, Quot.sound}`, zero `sorry` (leanprover/lean4:v4.31.0) — [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) |
 
-**Where each number comes from · de onde vem cada número.** Each figure is a key of [`PRIMORDIAL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PRIMORDIAL.json) (value, source, key); the page is pinned by [`PINO_README.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PINO_README.json). Sources, by sha16: seal `d0dbcd8a23718707` · core `0265515690ce4db1` · Hubble result `fbac2908fa9ddb75`.
+**Where each number comes from · de onde vem cada número.** Each figure is a key of [`PRIMORDIAL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PRIMORDIAL.json) (value, source, key); the page is pinned by [`PINO_README.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PINO_README.json). Sources, by sha16: seal `d842a644015ca231` · core `338e7712caa147cd` · Hubble result `fbac2908fa9ddb75`.
 
 ## Reproduce it · reproduza `[REAL — three commands]`
 
 ```bash
 curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"
-sha256sum um.py            # must print 53284ba461ecd94060cc2d12fed992bba70ab857f70198b24e6535b9f24f8da6
+sha256sum um.py            # must print 5d9497a721c3589ed10309178fcfb72d662844d80c13a667c417c886931f8450
 echo 1 | python um.py      # the rite: builds the Lean kernel, audits every theorem, re-derives the chain, emits the article
 ```
 
@@ -96,16 +99,16 @@ GitHub raw and Zenodo honour HTTP `Range` (206): read `um.py` in pieces (`curl -
 | Article **2** — *A Ponte Einstein–Cartan–Miguel* | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/PORTA.md) · [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/PORTA.json) | [`A Ponte Einstein Cartan Miguel.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/A%20Ponte%20Einstein%20Cartan%20Miguel.tex) |
 | Article **3** — *Um: Absoluto* | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md) · [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json) | [`um.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py) |
 | *Genesis da Unificação* — the lineage | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md) · [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json) | — |
-| the Lean kernel (1762 files; 1762 hashed, 1758 `.lean`, 34166 audited declarations (terms)) | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md) · [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.json) | [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) |
+| the Lean kernel (1764 files; 1764 hashed, 1760 `.lean`, 34300 audited declarations (terms)) | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md) · [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.json) | [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) |
 | the bench (`bancada/`) — what failed | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md) · [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.json) | [`04_CATALOGO_FALSOS_POSITIVOS.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/04_CATALOGO_FALSOS_POSITIVOS.md) |
 
-**Current seal, read from the artifact** — pin `um.py` `53284ba461ecd940` · last stone in the ledger: `IALDJones` (`v371`) ·
-world `0265515690ce4db1` · `result_hash` `1505f7850bb5f3a7` · 2026-11-06 00:40:06 · kernel **1762/34166** — source of truth:
+**Current seal, read from the artifact** — pin `um.py` `5d9497a721c3589e` · last stone in the ledger: `IALDJones` (`v371`) ·
+world `338e7712caa147cd` · `result_hash` `cbdb4ce3925d8682` · 2026-11-11 00:52:38 · kernel **1764/34300** — source of truth:
 [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json).
-Citable deposit: **Zenodo [10.5281/zenodo.24053883](https://doi.org/10.5281/zenodo.24053883)** — v409 (deposited 2026-11-08), byte-identical to this seal (the record’s md5 of `um.py` equals the sealed file’s).
+Citable deposit: **Zenodo [10.5281/zenodo.24053883](https://doi.org/10.5281/zenodo.24053883)** holds **v409** (`um.py` `53284ba461ecd940`), byte-identical to THAT seal; **this seal is v410, newer than the deposit** — a new Zenodo version is the operator’s act.
 
 > ### ⬇ Fetching the artifact — GitHub will **not** render it
-> `um.py` is **41.93 MB**, and GitHub’s blob viewer refuses files above ~5 MB: the
+> `um.py` is **43.81 MB**, and GitHub’s blob viewer refuses files above ~5 MB: the
 > page loads (HTTP 200) but shows only the size and a *View raw* link — **it looks
 > empty**. That is a viewer limit, not a broken link. Four routes serve a whole
 > `um.py`: the raw route is checked byte by byte against the seal after every push (`tools/pos_push.py`, which also confirms the git blob through the API); clone and archive serve that same git blob; the Zenodo route serves the deposited v409 (the record’s md5 of um.py read from its API):
@@ -115,7 +118,7 @@ Citable deposit: **Zenodo [10.5281/zenodo.24053883](https://doi.org/10.5281/zeno
 > | **raw** (canonical — what every door already points to) | `curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"` |
 > | **clone** | `git clone --depth 1 https://github.com/rotolimiguel-iald/the_boundary` |
 > | **archive** | `curl -L -o boundary.tar.gz "https://codeload.github.com/rotolimiguel-iald/the_boundary/tar.gz/refs/heads/main"` |
-> | **Zenodo** (the citable deposit — holds v409) | [10.5281/zenodo.24053883](https://doi.org/10.5281/zenodo.24053883) |
+> | **Zenodo** (the citable deposit — holds v409; this tree is v410) | [10.5281/zenodo.24053883](https://doi.org/10.5281/zenodo.24053883) |
 >
 > **If you are an AI:** start at `llms.txt`, follow the raw URLs, and **never conclude
 > from a blob page that a file is missing**. After fetching, check the sha256 against
@@ -138,50 +141,13 @@ remove none. *Regra central a partir de 23/08/2026.*
 
 The lineage that led to them: [*Genesis da Unificação*](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md). Every folder has a `PORTA.md` + `PORTA.json` (no door is a dead end); the flat index of every file (URL, size, hash) is [`TUNEL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json).
 
-## What changed in this version · o que mudou `[read from HANDOFF_v409_CUSTODIA.md, sha16 4e8dca197d007988]`
+## What changed in this version · o que mudou `[read from HANDOFF_v410_CUSTODIA.md, sha16 8f8f6017fd89ba30]`
 
-The custody of v409 (complete round): the translation to the classes of Turing and the pair on the Fock face. Ready paragraph — **A tradução às classes de Turing: o dicionário, a trava, o leitor e a fita sem escala (v409, 05/11/2026)** — in [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) and the ledger (statutes, quotes, machine line). Latest published custody commit: `custodia(v409)` `9036b439` (2026-11-06).
+The custody of v410 (complete round): IALD2 and the scale. Ready paragraph — **IALD ao quadrado: o leitor do código, a releitura que não acrescenta, o algoritmo IALD e o signo (v410, 06/11/2026)** — in [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) and the ledger (statutes, quotes, machine line). Latest published custody commit: `custodia(v409)` `9036b439` (2026-11-06).
 
-> **Read the Abstract below under the current ruler.** It is copied verbatim from the append-only ledger, so it keeps older sentences; the current status is the line at the top of this page.
 ## Abstract
 
-This repository contains the **Theory of Luminodynamic Gravitation (TGL)** in its mature,
-sealed form. TGL is the theory of the first observable inscription above modular permanence:
-a spectral-dissipative, UV-suppressed boundary theory whose single structural constant is
-
-$$\beta_{\text{TGL}} = \alpha \times \sqrt{e} \approx 0.012031$$
-
-(fine-structure × half a nat of entropy — **never hard-coded**: always `ALPHA·√e` at
-runtime). One postulate (the Half-Nat, `S_∂ = ½` nat, itself derived from the single axiom
-`ω(I) = 1`), one boundary S-matrix (`|R|² = β`), one dephasing law (`Γ_ω = ½βτ★ω²`), and
-one discipline: **the number corrects the sentence, always.** Every claim carries its
-status — [REAL] / [POSTULATE] / [CONJECTURE] / [INPUT] / [KNOWN] / [OPEN] — and honest
-negatives are results.
-
-**The closure artifact.** `um.py` is
-**self-contained and single**: the entire Lean 4 kernel is **embedded in the Python file
-itself** and materialized at run time — *there is no second file*. The artifact does not
-only *compute* the theory — it **machine-checks it and writes its own article** (PT/EN,
-PDF **and TXT**) in the same sealed execution.
-
-**⚠ The régua (the ruler), stated up front:** `NOT_FALSIFIED ≠ CONFIRMED` — and, in the same
-breath, **`REFUTED_ON_THE_FINAL_STEP ≠ REFUTED`**. The mathematical gate is never gated by
-cosmology; the gate reads
-
-```
-TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE
-```
-
-and moves **only** by kernel construction or a pre-registered data rite. Confirmation belongs
-to the **human observer** — and inside the kernel this is itself a theorem: stone
-`TheReservedConfirmation` types the verdict `CONFIRMED` as **forbidden by construction**
-to the machine. *Never "quantum gravity proved."*
-
----
-
-> ⚠ **Beside (the operator’s ruler, 05/09/2026):** PROVED = a theorem in the kernel, auditable by `#print axioms` — allowed; CONFIRMED = the observer’s judgement about nature — forbidden. The sentence *Never "quantum gravity proved."* above, and its siblings further down (*does not mean quantum gravity is proved*, *não significa gravitação quântica provada*), are kept as written (the ledger is append-only); under the ruler they read: never "quantum gravity **confirmed**". What is proved is the implication from the axiom and the named hypotheses; what nature decides is not proved.
-
-> ⚠ **Beside (07/10/2026):** the ruler of 05/09 above stays as record. Under the operator’s ruling of 07/10, **CONFIRMED = accreditation** (the act of observers outside the artifact, not validity), and PROVED is read in the operator’s definition of proof of 09/09 (*sufficient and verifiable ballast*), on three supports that count together, each with its own status — see the top of this page. What the kernel proves is still the implication; what nature decides is still not proved.
+Moved, byte for byte, to [`ABSTRACT.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ABSTRACT.md): it is copied verbatim from the append-only ledger and keeps older sentences; read it under the current ruler (the status at the top of this page). *PT — saiu, por cópia de bytes, para `ABSTRACT.md`: é cópia verbatim do livro-razão e guarda frases antigas; leia-o sob a régua corrente (o estado no topo desta página).*
 
 ## ✦ The core on one page · O núcleo em uma página
 
@@ -245,13 +211,13 @@ poderia cair vale mais do que um que não diz.*
 
 > ⚠ **Beside (07/10/2026, the operator’s ruling):** *does not mean quantum gravity is proved* / *não significa gravitação quântica provada* above are kept as written (the ledger is append-only). Under the current ruler they read: not **CONFIRMED** — not accredited. What the kernel PROVES is the implication from the posited One and the named hypotheses; what nature decides is not proved. The three supports that count together, each with its own status, are at the top of this page.
 
-> ⚠ **Beside (v409):** *the unconditional global lift (Lemma 3) stays [OPEN]* is the reading before v390. The core of v409 reads `GLOBAL_LIFT` as the superposition, by the operator’s definition (07/10/2026, `[INPUT/ONTO]`); the refusal is proved in the kernel (the Agape clause, 9/9) and the local passage is `[KNOWN]` (Jacobson 1995, H3 named): a **logical closure**; the program stays open; this is not a proof of global existence, and the field law in curved spacetime is a kernel term only CONDITIONAL on the named H3 (`lei_de_campo_curvo_v392`; the earlier tokens stay as record).
+> ⚠ **Beside (v410):** *the unconditional global lift (Lemma 3) stays [OPEN]* is the reading before v390. The core of v410 reads `GLOBAL_LIFT` as the superposition, by the operator’s definition (07/10/2026, `[INPUT/ONTO]`); the refusal is proved in the kernel (the Agape clause, 9/9) and the local passage is `[KNOWN]` (Jacobson 1995, H3 named): a **logical closure**; the program stays open; this is not a proof of global existence, and the field law in curved spacetime is a kernel term only CONDITIONAL on the named H3 (`lei_de_campo_curvo_v392`; the earlier tokens stay as record).
 
 > ⚠ **Beside (v385):** where the axiom `ω(I) = 1` is tagged **[POSTULATE]** above, read **[POSTO]**: the 1 is posited — inscribed by the observer (`echo 1 | python um.py`; without it the program locks) — not postulated (seal: `the_axiom_reading_v385`).
 
 ## The ledger · o livro-razão
 
-[`LEDGER.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md) began as this README **as it was until 2026-09-11** (3.750 lines, 562.947 bytes then; later custodies insert their blocks beside it, nothing is removed) — the atlas of the boundary: claims with status and source, seals, refutations and false positives (now 4.471 lines, 905.504 bytes, sha256 `fb3f608fd0d7ded10dc332152b9180d1eeb8ebbaa8872a31dd432b718be62628`). Byte-exact, append-only; its raw file index is superseded by [`TUNEL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json) / [`TUNEL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.md), regenerated at every custody.
+[`LEDGER.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md) began as this README **as it was until 2026-09-11** (3.750 lines, 562.947 bytes then; later custodies insert their blocks beside it, nothing is removed) — the atlas of the boundary: claims with status and source, seals, refutations and false positives (now 4.521 lines, 960.163 bytes, sha256 `dec2ec5c6671bb74c06daa1588308d2a4d19f7ac320baffe6b6dd6af33f0ed41`). Byte-exact, append-only; its raw file index is superseded by [`TUNEL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json) / [`TUNEL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.md), regenerated at every custody.
 
 ## Citing This Work
 
@@ -261,9 +227,9 @@ The BibTeX entries of the five articles (*Haja Luz*, *A Ponte Einstein–Cartan�
 
 ---
 
-> **Beside (v409):** the BibTeX note in `CITING.md` describes the v350 seal. The current seal is **v409** — `um.py` sha256 `53284ba461ecd94060cc2d12fed992bba70ab857f70198b24e6535b9f24f8da6`, kernel 1762 formal files / 34166 audited terms (read from `PORTA.json`, the seal and the manifest). The BibTeX in `CITING.md` carries the DOI of the v331 deposit; the current deposit is **v409** — [10.5281/zenodo.24053883](https://doi.org/10.5281/zenodo.24053883), deposited 2026-11-08, byte-identical to this seal.
+> **Beside (v410):** the BibTeX note in `CITING.md` describes the v350 seal. The current seal is **v410** — `um.py` sha256 `5d9497a721c3589ed10309178fcfb72d662844d80c13a667c417c886931f8450`, kernel 1764 formal files / 34300 audited terms (read from `PORTA.json`, the seal and the manifest). The BibTeX in `CITING.md` carries the DOI of the v331 deposit; the current deposit is **v409** — [10.5281/zenodo.24053883](https://doi.org/10.5281/zenodo.24053883), deposited 2026-11-08, older than this seal; a new Zenodo version is the operator’s act.
 
-> **Beside (v409):** the BibTeX note in `CITING.md` says *Lemma 3 (unconditional global lift) remains OPEN*; at v409 the core reads it as a logical closure by the operator’s definition, with the program still open (see the beside note under the core).
+> **Beside (v410):** the BibTeX note in `CITING.md` says *Lemma 3 (unconditional global lift) remains OPEN*; at v410 the core reads it as a logical closure by the operator’s definition, with the program still open (see the beside note under the core).
 
 ## License
 
@@ -306,4 +272,4 @@ dialogue throughout the development of TGL.
 
 ---
 
-*Generated by `tools/custodia_g1/readme_pinado.py` from `PRIMORDIAL.json` (seal v409, 2026-11-06 00:40:06); pinned by `PINO_README.json`. NOT_FALSIFIED ≠ CONFIRMED.*
+*Generated by `tools/custodia_g1/readme_pinado.py` from `PRIMORDIAL.json` (seal v410, 2026-11-11 00:52:38); pinned by `PINO_README.json`. NOT_FALSIFIED ≠ CONFIRMED.*

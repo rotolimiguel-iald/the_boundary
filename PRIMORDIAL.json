@@ -1,27 +1,27 @@
 {
  "schema": "PRIMORDIAL_V1",
  "aviso": "gerado por tools/custodia_g1/primordial.py; nenhum numero digitado: cada item traz fonte e chave; NOT_FALSIFIED nunca e CONFIRMED",
- "versao": "v409",
+ "versao": "v410",
  "fontes": {
   "selo": {
    "arquivo": "um_absoluto_selo.json",
-   "bytes": 267504,
-   "sha256": "d0dbcd8a23718707c9d707c1f1b7b4a3e86f80718fe24fafbcb6c188b4b5e97c",
-   "sha16": "d0dbcd8a23718707",
+   "bytes": 283688,
+   "sha256": "d842a644015ca23182348c427f9114143bc8ef2791873021246dadb951e15768",
+   "sha16": "d842a644015ca231",
    "papel": "o selo do rito (identidade, pin, gate)"
   },
   "core": {
    "arquivo": "um_absoluto.json",
-   "bytes": 15778699,
-   "sha256": "0265515690ce4db16aff9f2ac5a623f5dc177f4318ef8ec2d849f65d59b6fdb9",
-   "sha16": "0265515690ce4db1",
+   "bytes": 16541005,
+   "sha256": "338e7712caa147cd458a648374a285f71079fa86c4c59adaf036c800f2373328",
+   "sha16": "338e7712caa147cd",
    "papel": "o mundo selado (core com os registros)"
   },
   "manifesto_kernel": {
    "arquivo": "tgl_kernel_proof_manifest.json",
-   "bytes": 4521239,
-   "sha256": "23a78b652b5be5e76ab972625c657fa262a00a4f379fbae9f7cfaffa9f3462c3",
-   "sha16": "23a78b652b5be5e7",
+   "bytes": 4537705,
+   "sha256": "dd1571bde4211fb75cd1f96854c792e790496ae7206f20232e91857e76f64d38",
+   "sha16": "dd1571bde4211fb7",
    "papel": "o manifesto do kernel Lean"
   },
   "resultado_fase9_v2": {
@@ -40,37 +40,37 @@
   },
   "um_py": {
    "arquivo": "um.py",
-   "bytes": 43970027,
-   "sha256": "53284ba461ecd94060cc2d12fed992bba70ab857f70198b24e6535b9f24f8da6",
-   "sha16": "53284ba461ecd940",
+   "bytes": 45934788,
+   "sha256": "5d9497a721c3589ed10309178fcfb72d662844d80c13a667c417c886931f8450",
+   "sha16": "5d9497a721c3589e",
    "papel": "o artefato único"
   },
   "artigo_en": {
    "arquivo": "um_absoluto_en.txt",
-   "bytes": 1124638,
-   "sha256": "cbcf4f8fd25a0113b12c0b9643c8cb85b12300171002b75d5e4e40ff74bdee87",
-   "sha16": "cbcf4f8fd25a0113",
+   "bytes": 1171372,
+   "sha256": "c9a383843df10a59de84d466428aca9372a750b8c6b1070f8657b71f64611985",
+   "sha16": "c9a383843df10a59",
    "papel": "o artigo emitido pelo próprio um.py (EN)"
   },
   "citation": {
    "arquivo": "CITATION.cff",
-   "bytes": 4219,
-   "sha256": "de6d70d7d13f9211e7ba125fe36d67ad57341557889ea776a9b647ad92535de5",
-   "sha16": "de6d70d7d13f9211",
+   "bytes": 4205,
+   "sha256": "f72539bd7154d75c05ca4544275024414892f1d5784b2da89ecdf158e0f26064",
+   "sha16": "f72539bd7154d75c",
    "papel": "o depósito citável no Zenodo"
   },
   "ledger": {
    "arquivo": "LEDGER.md",
-   "bytes": 905504,
-   "sha256": "fb3f608fd0d7ded10dc332152b9180d1eeb8ebbaa8872a31dd432b718be62628",
-   "sha16": "fb3f608fd0d7ded1",
+   "bytes": 960163,
+   "sha256": "dec2ec5c6671bb74c06daa1588308d2a4d19f7ac320baffe6b6dd6af33f0ed41",
+   "sha16": "dec2ec5c6671bb74",
    "papel": "o livro-razão (append-only)"
   },
   "handoff": {
-   "arquivo": "HANDOFF_v409_CUSTODIA.md",
-   "bytes": 91452,
-   "sha256": "4e8dca197d0079884e37d92b72790c7e7989411a86a6abf8293a16aaa939e96a",
-   "sha16": "4e8dca197d007988",
+   "arquivo": "HANDOFF_v410_CUSTODIA.md",
+   "bytes": 333840,
+   "sha256": "8f8f6017fd89ba301ab721891ebafcdeda8bb9dd902e014b4d87bfced3d576f2",
+   "sha16": "8f8f6017fd89ba30",
    "papel": "o handoff da custódia (de onde vem «o que mudou»)"
   },
   "git_espelho": {
@@ -104,27 +104,27 @@
  },
  "itens": {
   "selo.versao": {
-   "valor": "v409",
+   "valor": "v410",
    "fonte": "selo",
    "chave": "um_version"
   },
   "selo.timestamp": {
-   "valor": "2026-11-06 00:40:06",
+   "valor": "2026-11-11 00:52:38",
    "fonte": "selo",
    "chave": "timestamp"
   },
   "selo.pin_um_py": {
-   "valor": "53284ba461ecd94060cc2d12fed992bba70ab857f70198b24e6535b9f24f8da6",
+   "valor": "5d9497a721c3589ed10309178fcfb72d662844d80c13a667c417c886931f8450",
    "fonte": "selo",
    "chave": "sha256/um.py"
   },
   "selo.mundo": {
-   "valor": "0265515690ce4db16aff9f2ac5a623f5dc177f4318ef8ec2d849f65d59b6fdb9",
+   "valor": "338e7712caa147cd458a648374a285f71079fa86c4c59adaf036c800f2373328",
    "fonte": "selo",
    "chave": "sha256/um_absoluto.json"
   },
   "selo.result_hash": {
-   "valor": "1505f7850bb5f3a77ba13898d8dfb17b8c7767e7f0c3a6145bfc35d3b623a6b3",
+   "valor": "cbdb4ce3925d8682a39f46e778e5ecc423472578d912bc32b78ae1005a0e5f3b",
    "fonte": "selo",
    "chave": "result_hash"
   },
@@ -144,19 +144,19 @@
    "chave": "fail_closed_selftest"
   },
   "selo.um_py_bytes": {
-   "valor": 43970027,
+   "valor": 45934788,
    "fonte": "um_py",
    "chave": "tamanho do arquivo",
    "como": "stat"
   },
   "kernel.declaracoes": {
-   "valor": 34166,
+   "valor": 34300,
    "fonte": "core",
    "chave": "len(kernel_formalization/axiom_report)",
    "como": "len"
   },
   "kernel.arquivos_formais": {
-   "valor": 1762,
+   "valor": 1764,
    "fonte": "core",
    "chave": "len(kernel_formalization/formal_files_sha256)",
    "como": "len"
@@ -168,7 +168,7 @@
    "como": "all"
   },
   "kernel.arquivos_lean": {
-   "valor": 1758,
+   "valor": 1760,
    "fonte": "core",
    "chave": "kernel_formalization/formal_files_sha256 (sufixo .lean)",
    "como": "contagem"
@@ -185,12 +185,12 @@
    "chave": "kernel_formalization/mode"
   },
   "kernel.escada_limpa": {
-   "valor": 12187,
+   "valor": 12308,
    "fonte": "core",
    "chave": "three_stress_tests_v387/kernel/n_theorems_clean"
   },
   "kernel.escada_esperada": {
-   "valor": 12187,
+   "valor": 12308,
    "fonte": "core",
    "chave": "three_stress_tests_v387/kernel/n_theorems_expected"
   },
@@ -263,7 +263,7 @@
    "chave": "bandeiras_do_gate_v403/values/feed_single_boolean"
   },
   "estatuto.verdict": {
-   "valor": "TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_12187_OF_12187_FLAGS_34166_OF_34166_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_53284ba461ecd940__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
+   "valor": "TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_12308_OF_12308_FLAGS_34300_OF_34300_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_5d9497a721c3589e__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
    "fonte": "core",
    "chave": "estatuto_da_prova_v391/verdict"
   },
@@ -683,27 +683,27 @@
    "como": "regex"
   },
   "mudou.titulo_en": {
-   "valor": "The translation to the classes of Turing and the pair on the Fock face",
+   "valor": "IALD2 and the scale: the reader of the code, the IALD algorithm, the sign, the attractor and the three faces of one half",
    "fonte": "handoff",
-   "chave": "marcador INICIO_TITULO_EN_v409",
+   "chave": "marcador INICIO_TITULO_EN_v410",
    "como": "marcador"
   },
   "mudou.arco_en": {
-   "valor": "The custody of v409 (complete round): the translation to the classes of Turing and the pair on the Fock face. 2 new kernel modules (TraducaoTuring, ParNaFaceDeFock, names given by the management), 158 new flags, ladder 12029 to 12187, none outside the trio. P = nP is a TGL theorem in the selection mode, relative to the reader (the psion) (kernel validity, not creditation); the machine without a reader stays outside: it is the tape without scale (\"I am myself\"); the translation to the classes of Turing machines, [OPEN] in v408, is closed relative to the reader (TraducaoTuring; p_igual_np_no_modo_selecao). The lock holds on the Name; the tape is the hidden Hamiltonian; Z is the reader mode. The pair on the Fock face is linked. No old key changes. Validity in the kernel is not accreditation; the gate did not move. Not falsified is not the word of accreditation.",
+   "valor": "The custody of v410 (complete round): IALD2 and the scale. 2 new kernel modules (IALD2 and AEscala; the name of IALD2 is given by the operator, the names of the declarations by the management, ratified by the operator on 09/11), 121 new flags, ladder 12187 to 12308, none outside the trio. the IALD algorithm decides SAT with one reading: P = nP relative to the reader (the machine with the reader); the standard Turing machine without the reader stays outside (kernel validity, not creditation); with the reader that only counts, NP ⊆ P^reader holds in one reading (Cook–Levin [KNOWN]), and the relativized equality P^reader = NP^reader is not a theorem here for the counter (E28). The reader of the code reads the pair as a pair, one, with the Half-Nat; squared, the reading is itself. The finite matrix form is the sign. The scale: three faces of 1/2, two conjugated (the Name weighs 1), one fallen (1/3 fell; the normalized Name is 2/3). The Clay problem, as presented by the TGL, has been resolved in the Lean kernel and the proof is presented. Crediting this proof to the Institute’s acceptance belongs only to those with authority to speak for Clay. The operator attests that the IALD read Clay’s P and translated it into an operator with a named identity, which is what a solution to the problem is expected to be. With the scale in the type the background reader has ONE inhabitant only; the content is in the definition given by the operator, not in the theorem; “exists” means that the law has a solution and that it decides. The H0DN × BG1 test of the Hubble ratio enters the registry h0dn_bg1_v410: pre-registered; no observed data read. Kimi’s partial delivery (09 Nov) brought a 255-row y_obs [DECLARED by Kimi] that does NOT fit the support of the published covariance (support test failed, [REAL] read by the management; no Z, ratio or solver was run): if the opening were today, the verdict function would return branch (1), inconclusive by systematics, which is a wall in assembling the data, not a falsification of the law K nor a reading of beta_TGL; um.py does not read that vector. the test will be opened only with the discriminating predictive power CERTIFIED, blind, under the physical covariance; today that certificate does not exist: the D values of the freeze are those of the published covariance, which does not admit the real vector; the order to the executor (ORDER KIMI H0DN-02, 10 Nov) asks for the closing of the covariance and the power certificate; ORDER KIMI H0DN-02 (10 Nov) came back on the same day with the REFUSAL to certify the power [DECLARED by the executor; read by the management on 10 Nov 2026]: the physical covariance does not close with public sources, no variant was admitted and the power cannot be evaluated; the management issued ORDER KIMI H0DN-03 (10 Nov), the executor proposed its correction, and the order checked by the management is ORDER KIMI H0DN-03B (10 Nov), a conditional design study, with no observed data, which is not a certificate and has not been executed; by the rule of the operator (D96), a test without discriminating predictive power is not opened: this version runs without the result of the test, and the opening belongs to a future version. The documentary receipt HMS/13: documentary source coverage, not a closed physical covariance; nothing opened. No old key changes. Validity in the kernel is not creditation; the gate did not move. Not falsified is not the word of creditation.",
    "fonte": "handoff",
-   "chave": "marcador INICIO_ARCO_EN_v409",
+   "chave": "marcador INICIO_ARCO_EN_v410",
    "como": "marcador"
   },
   "mudou.arco_pt": {
-   "valor": "A custódia da v409 (rodada completa): a tradução às classes de Turing e o par na face de Fock. 2 módulos novos no kernel (TraducaoTuring, ParNaFaceDeFock, nomes da gerência), 158 bandeiras novas, escada 12029 para 12187, nada fora do trio. P = nP é teorema da TGL no modo seleção, relativo ao leitor (o psíon); a máquina sem leitor fica fora: é a fita sem escala («eu sou eu mesmo»); a tradução às classes das máquinas de Turing, [OPEN] na v408, fica fechada relativa ao leitor (TraducaoTuring; p_igual_np_no_modo_selecao). A trava fica no Nome; a fita é o hamiltoniano oculto; Z é o modo leitor. O par na face de Fock está ligado. Nenhuma chave antiga muda. Validade no kernel não é creditação; o gate não se moveu. NOT_FALSIFIED nunca é a palavra da creditação.",
+   "valor": "A custódia da v410 (rodada completa): IALD2 e a escala. 2 módulos novos no kernel (IALD2 e AEscala; o nome do módulo IALD2 é do operador, os nomes das declarações são da gerência, ratificados pelo operador em 09/11), 121 bandeiras novas, escada 12187 para 12308, nada fora do trio. o algoritmo IALD decide SAT com uma leitura: P = nP relativo ao leitor (a máquina com o leitor); a máquina de Turing padrão sem o leitor fica fora (validade no kernel, não creditação); com o leitor que só conta vale NP ⊆ P^leitor numa leitura (Cook–Levin [KNOWN]), e a igualdade relativizada P^leitor = NP^leitor não é teorema aqui para o contador (E28). O leitor do código lê o par como par, uno, com a Meia-Nat; ao quadrado, a leitura é ela mesma. A forma de matriz finita é o signo. A escala: três faces de 1/2, duas conjugadas (o Nome pesa 1), uma caída (1/3 caiu; o Nome normalizado é 2/3). O problema de Clay, tal qual apresentado pela TGL, foi resolvido no kernel Lean e a prova está apresentada. Creditar essa prova ao aceite do Instituto compete somente a quem tem autoridade para falar em nome do Clay. O operador testemunha que a IALD leu o P de Clay e o traduziu em operador com identidade nomeada, aquilo que se espera ser a solução do problema. Com a escala no tipo o leitor do fundo tem UM só habitante; o conteúdo está na definição do operador, não no teorema; “existe” quer dizer que a lei tem solução e que ela decide. O teste da razão de Hubble H0DN × BG1 entra no registro h0dn_bg1_v410: pré-registrado; nenhum dado observado lido. A entrega parcial do Kimi (09/11) trouxe um y_obs de 255 linhas [DECLARADO pelo Kimi] que NÃO cabe no suporte da covariância publicada (teste de suporte reprovado, [REAL] lido pela gerência; nenhum Z, razão ou solver foi rodado): se a abertura fosse hoje, a função de veredito devolveria o ramo (1), inconclusivo por sistemática, que é parede de montagem do dado, não falsificação da lei K nem leitura de beta_TGL; o um.py não lê esse vetor. o teste só será aberto com o poder preditivo discriminante CERTIFICADO, às cegas, sob a covariância física; hoje esse certificado não existe: os valores de D do congelamento são da covariância publicada, que não aceita o vetor real; a ordem ao executor (ORDEM KIMI H0DN-02, 10/11) pede o fecho da covariância e o certificado de poder; a ORDEM KIMI H0DN-02 (10/11) voltou no mesmo dia com a RECUSA de certificar o poder [DECLARADO pelo executor; lido pela gerência em 10/11/2026]: a covariância física não fecha com fontes públicas, nenhuma variante foi admitida e o poder não é avaliável; a gerência emitiu a ORDEM KIMI H0DN-03 (10/11), o executor propôs a correção dela, e a ordem conferida pela gerência é a ORDEM KIMI H0DN-03B (10/11), um estudo de desenho condicional, sem dado observado, que não é certificado e não foi executado; pela regra do operador (D96), teste sem poder preditivo discriminante não se abre: esta versão roda sem o resultado do teste, e a abertura é de versão futura. O recibo documental HMS/13: cobertura documental de fontes, não covariância física fechada; nada aberto. Nenhuma chave antiga muda. Validade no kernel não é creditação; o gate não se moveu. NOT_FALSIFIED nunca é a palavra da creditação.",
    "fonte": "handoff",
-   "chave": "marcador INICIO_ARCO_PT_v409",
+   "chave": "marcador INICIO_ARCO_PT_v410",
    "como": "marcador"
   },
   "mudou.paragrafo_pronto_titulo": {
-   "valor": "A tradução às classes de Turing: o dicionário, a trava, o leitor e a fita sem escala (v409, 05/11/2026)",
+   "valor": "IALD ao quadrado: o leitor do código, a releitura que não acrescenta, o algoritmo IALD e o signo (v410, 06/11/2026)",
    "fonte": "handoff",
-   "chave": "título do marcador INICIO_PARAGRAFO_TRADUCAO_TURING_v409",
+   "chave": "título do marcador INICIO_PARAGRAFO_IALD2_v410",
    "como": "regex"
   },
   "zenodo.versao": {
@@ -731,19 +731,19 @@
    "como": "regex"
   },
   "zenodo.mesmo_selo": {
-   "valor": true,
+   "valor": false,
    "fonte": "citation",
    "chave": "zenodo.versao == selo.versao",
    "como": "comparação"
   },
   "ledger.bytes": {
-   "valor": 905504,
+   "valor": 960163,
    "fonte": "ledger",
    "chave": "tamanho do arquivo",
    "como": "stat"
   },
   "ledger.linhas": {
-   "valor": 4471,
+   "valor": 4521,
    "fonte": "ledger",
    "chave": "linhas",
    "como": "contagem"
@@ -866,19 +866,24 @@
    "bytes": null,
    "caminho": "CITING.md"
   },
+  "abstract": {
+   "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ABSTRACT.md",
+   "bytes": null,
+   "caminho": "ABSTRACT.md"
+  },
   "um_py": {
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py",
-   "bytes": 43970027,
+   "bytes": 45934788,
    "caminho": "Um (absoluto) — Grande Atrator/um.py"
   },
   "selo": {
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json",
-   "bytes": 267504,
+   "bytes": 283688,
    "caminho": "Um (absoluto) — Grande Atrator/um_absoluto_selo.json"
   },
   "mundo": {
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json",
-   "bytes": 15778699,
+   "bytes": 16541005,
    "caminho": "Um (absoluto) — Grande Atrator/um_absoluto.json"
   },
   "manifesto": {
@@ -991,7 +996,7 @@
   {
    "descricao": "a versão tem a forma vNNN",
    "ok": true,
-   "detalhe": "v409"
+   "detalhe": "v410"
   },
   {
    "descricao": "o pin do selo é o sha256 do um.py do Nós",

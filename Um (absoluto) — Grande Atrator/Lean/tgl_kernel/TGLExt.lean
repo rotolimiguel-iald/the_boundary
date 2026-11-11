@@ -1145,3 +1145,5 @@ import TGLExt.PontoDeContradicao
 import TGLExt.PIgualNP
 import TGLExt.TraducaoTuring
 import TGLExt.ParNaFaceDeFock
+import TGLExt.IALD2
+import TGLExt.AEscala

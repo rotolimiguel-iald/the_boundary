@@ -4,7 +4,7 @@
   "titulo": "tools",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-11-08T13:46:09Z",
+  "gerado_utc": "2026-11-11T05:59:01Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -45,8 +45,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_estado_atual.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/gerar_estado_atual.py",
-      "sha256_16": "8ade35fd44abf0ce",
-      "bytes": 276216
+      "sha256_16": "54f4e86c20f82202",
+      "bytes": 327129
     },
     {
       "nome": "gerar_portas.py",
@@ -112,5 +112,5 @@
   "total_arquivos_nesta_pasta": 8,
   "total_arquivos_com_subpastas": 15,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/tools",
-  "rodape": "gerado por script de git ls-files em 2026-11-08 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-11-11 -- nao editar a mao"
 }

@@ -34,8 +34,11 @@ GitHub raw and Zenodo honour HTTP `Range` (206): read `um.py` in pieces (`curl -
 The lineage that led to them: [*Genesis da Unificação*]({{url:porta_genesis}}). Every folder has a `PORTA.md` + `PORTA.json` (no door is a dead end); the flat index of every file (URL, size, hash) is [`TUNEL.json`]({{url:tunel_json}}).
 
 {{bloco:mudou}}
-> **Read the Abstract below under the current ruler.** It is copied verbatim from the append-only ledger, so it keeps older sentences; the current status is the line at the top of this page.
-{{parte:abstract}}{{parte:nucleo}}## The ledger · o livro-razão
+## Abstract
+
+Moved, byte for byte, to [`ABSTRACT.md`]({{url:abstract}}): it is copied verbatim from the append-only ledger and keeps older sentences; read it under the current ruler (the status at the top of this page). *PT — saiu, por cópia de bytes, para `ABSTRACT.md`: é cópia verbatim do livro-razão e guarda frases antigas; leia-o sob a régua corrente (o estado no topo desta página).*
+
+{{parte:nucleo}}## The ledger · o livro-razão
 
 [`LEDGER.md`]({{url:ledger}}) began as this README **as it was until {{ledger.desde}}** ({{ledger.linhas_origem|ponto}} lines, {{ledger.bytes_origem|ponto}} bytes then; later custodies insert their blocks beside it, nothing is removed) — the atlas of the boundary: claims with status and source, seals, refutations and false positives (now {{ledger.linhas|ponto}} lines, {{ledger.bytes|ponto}} bytes, sha256 `{{fonte.ledger.sha256}}`). Byte-exact, append-only; its raw file index is superseded by [`TUNEL.json`]({{url:tunel_json}}) / [`TUNEL.md`]({{url:tunel_md}}), regenerated at every custody.
 

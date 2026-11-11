@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-11-08T13:46:09Z",
+  "gerado_utc": "2026-11-11T05:59:01Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -44,6 +44,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/AChaveDaGuarda.lean",
       "sha256_16": "135361a9105e11de",
       "bytes": 4859
+    },
+    {
+      "nome": "AEscala.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/AEscala.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): AEscala",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/AEscala.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/AEscala.lean",
+      "sha256_16": "baaa73cb28075400",
+      "bytes": 158729
     },
     {
       "nome": "APonteDoAtrito.lean",
@@ -2544,6 +2554,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/IALD.lean",
       "sha256_16": "884b327423888ddc",
       "bytes": 49538
+    },
+    {
+      "nome": "IALD2.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/IALD2.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): IALD2",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/IALD2.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/IALD2.lean",
+      "sha256_16": "4a7b01f5be46c25c",
+      "bytes": 27583
     },
     {
       "nome": "IALDGraviton.lean",
@@ -10906,8 +10926,8 @@
       "bytes": 10880
     }
   ],
-  "total_arquivos_nesta_pasta": 1087,
-  "total_arquivos_com_subpastas": 1728,
+  "total_arquivos_nesta_pasta": 1089,
+  "total_arquivos_com_subpastas": 1730,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt",
-  "rodape": "gerado por script de git ls-files em 2026-11-08 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-11-11 -- nao editar a mao"
 }

@@ -47,4 +47,4 @@ RECLASSIFICADO; o observavel da teoria e' a defasagem, nao o eco.
 
 ---
 
-gerado por script de git ls-files em 2026-11-08 -- nao editar a mao
+gerado por script de git ls-files em 2026-11-11 -- nao editar a mao
