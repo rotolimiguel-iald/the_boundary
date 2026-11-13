@@ -81,10 +81,10 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 | termos com axioma FORA do trio | 0  |
 ````
 
-### 3. `ESTADO_ATUAL.md` — bytes 308.182–310.473
+### 3. `ESTADO_ATUAL.md` — bytes 308.107–310.398
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md
-- sha256 of the file: `306069e41b9fdc953816da01c1a92b0f074a347c31bd50397b819ad12aa177ec` (computed now; this file is not in the seal map) · of this excerpt: `81c41aceaf723ba4b5b3ffac15360bd0a75fb6b02564b6cc889fa16102cee3f0` · line endings shown as LF
+- sha256 of the file: `bbcf49657106b19e48a75cd2a633266f46ef5fea8f54773b55b68af47b2946b0` (computed now; this file is not in the seal map) · of this excerpt: `81c41aceaf723ba4b5b3ffac15360bd0a75fb6b02564b6cc889fa16102cee3f0` · line endings shown as LF
 - status · estatuto: [OPEN / KNOWN / nature]
 - why · por quê: O começo da lista canônica do que NÃO está provado: a leitura com a régua e o P2, que traz o resultado do teste H0DN × BG1 com as suas obrigações, inteiro neste trecho. (13/11/2026: o trecho 3 de antes, acima de 4000 B, dividido em dois contíguos; decisão da gerência c1.)
 
@@ -95,10 +95,10 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 *Em português: o que segue é o que ainda não está provado — o que a natureza decide e a matemática que a mathlib ainda não tem. P1 (a teoria é consistente e recupera a física conhecida) é contado pelos três apoios juntos, e nenhum falhou; P2 (β_TGL na natureza a 5σ) lê-se, ao lado do `P2_NOT_DETERMINED` selado de `three_stress_tests_v387`: o que a natureza decide: β_TGL foi lido na natureza acima de 5σ num canal, a razão de Hubble (H0DN × BG1, 12/11/2026), sob o modelo de erros publicado: 6,11σ contra o nulo e −0,61σ da lei K; ao lado, as Cefeidas livres dão 4,38σ, abaixo de 5. É retrodição sem ajuste, com emenda posterior à guarda, e o teste não é cego. Lê-se com o acervo: nas 11 cobranças pré-registradas do livro nenhuma foi falsificada, e o teste anterior da mesma lei ficou abaixo do degrau e não é independente deste. Provado é validade, não creditação: a creditação é do observador que reler, e dado mais sensível pode rever. Nos demais canais nada discrimina a RG à sensibilidade disponível.*
 ````
 
-### 4. `ESTADO_ATUAL.md` — bytes 310.473–312.607
+### 4. `ESTADO_ATUAL.md` — bytes 310.398–312.532
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md
-- sha256 of the file: `306069e41b9fdc953816da01c1a92b0f074a347c31bd50397b819ad12aa177ec` (computed now; this file is not in the seal map) · of this excerpt: `d325232b1a413099a226dfbc20c0e34156147586493f8a9f6798251fbcfe25df` · line endings shown as LF
+- sha256 of the file: `bbcf49657106b19e48a75cd2a633266f46ef5fea8f54773b55b68af47b2946b0` (computed now; this file is not in the seal map) · of this excerpt: `d325232b1a413099a226dfbc20c0e34156147586493f8a9f6798251fbcfe25df` · line endings shown as LF
 - status · estatuto: [OPEN / KNOWN / nature]
 - why · por quê: A continuação da lista canônica do que NÃO está provado: H1/H2 na natureza, a identificação física da tela, α, a matemática fora da mathlib, os negativos honestos e as seis folhas, com a nota de linhagem H1–H3 → H1/H2. (13/11/2026: a segunda metade do trecho 3 de antes, contígua à primeira.)
 

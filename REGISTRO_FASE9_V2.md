@@ -1,6 +1,6 @@
 # Record · registro: the Phase 9 V2 panel (Hubble ratio, opened once on 2026-10-23)
 
-<!-- PINADO por tools/custodia_g1/readme_pinado.py · fonte PRIMORDIAL.json sha16 96105fa72a9a09ed · pino PINO_README.json · não editar à mão -->
+<!-- PINADO por tools/custodia_g1/readme_pinado.py · fonte PRIMORDIAL.json sha16 b88628387ac68bca · pino PINO_README.json · não editar à mão -->
 
 *This panel stood at the top of the README until the custody of v411, when the H0DN × BG1 test, opened once (registry `h0dn_bg1_v411`), took the top; it moved here from the same generator and the same PRIMORDIAL items, unchanged except for the author’s sentence of 02/11/2026, which is now cited by date and sha256 instead of transcribed, under the author’s rule of 12/11/2026 (verbatim file sha16 `93d812a00da1c8a6`). It stays true about that test.*
 

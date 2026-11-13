@@ -79,7 +79,7 @@ FORMALIZACAO POR KERNEL [v22 -- o Python NAO prova; o kernel do Lean prova]:
 ### 3. `Um (absoluto) — Grande Atrator/PORTA.md` — bytes 2.578–3.061
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md
-- sha256 of the file: `5e2560e2d83eace70059a0278ed537c50443d7dcb3031a2ec1cc1fa378635b4b` (computed now; this file is not in the seal map) · of this excerpt: `ac10e0507fa4704f6f4ac2a7711968dd82a15d54ade45f6558e67dd3fe156320`
+- sha256 of the file: `291670b9fc3497580a2034986b805eb6ca3ecf1e232144d1fa2677ae1ebce680` (computed now; this file is not in the seal map) · of this excerpt: `ac10e0507fa4704f6f4ac2a7711968dd82a15d54ade45f6558e67dd3fe156320`
 - status · estatuto: [REAL] porta do Artigo C gerada por script
 - why · por quê: Os comandos de execução e as dependências: Python 3 + numpy; elan/Lean 4 v4.31.0 + lake (sem eles, FORMAL_CHECKER_UNAVAILABLE, fail-closed); pdflatex opcional.
 
@@ -99,7 +99,7 @@ Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para 
 ### 4. `README.md` — bytes 14.670–15.328
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `919872d67b7c6448fdd978e8750093518328c8c1377e871890c2353149f60300` (computed now; this file is not in the seal map) · of this excerpt: `13c1926b0cb35641ecad381d4e1b5855f38b37bfc261b1f1cdc504eb8f412775`
+- sha256 of the file: `7473c300ede6bae481d774b4f6963faa7000ccf0a915516cf0f58da89baac7af` (computed now; this file is not in the seal map) · of this excerpt: `13c1926b0cb35641ecad381d4e1b5855f38b37bfc261b1f1cdc504eb8f412775`
 - status · estatuto: [REAL — three commands] README do espelho
 - why · por quê: Os três comandos de reprodução (curl, sha256sum, echo 1 | python um.py), a leitura por Range, o limite de renderização do GitHub e a necessidade de clonar para os ritos lerem ../cache.
 

@@ -61,10 +61,10 @@ input -> runtime -> output -> 1=1
 Verificado ao vivo: `input=1`, `S_∂=1/2`, `Vol_∂^min=√e=1.648721`, `β=√e·α_obs=0.012031300400797`, e a **conservação executiva** `input == return` (resíduo 0) — `ABSOLUTE_ONE_IS_INPUT_VERIFIED`.
 ````
 
-### 3. `README.md` — bytes 33.905–34.461
+### 3. `README.md` — bytes 33.837–34.393
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `919872d67b7c6448fdd978e8750093518328c8c1377e871890c2353149f60300` (computed now; this file is not in the seal map) · of this excerpt: `122e3de7f99bef580de0e11bbdd00e1a0efa7f256d1185977a791aabc471a5ce`
+- sha256 of the file: `7473c300ede6bae481d774b4f6963faa7000ccf0a915516cf0f58da89baac7af` (computed now; this file is not in the seal map) · of this excerpt: `122e3de7f99bef580de0e11bbdd00e1a0efa7f256d1185977a791aabc471a5ce`
 - status · estatuto: [POSTULATE] axioma; [REAL/DERIVED] Meia-Nat; [DERIVED] β, com α [INPUT]
 - why · por quê: Resumo vigente do núcleo em PT: o axioma único, a Meia-Nat derivada, β nunca literal, a identidade de Lagrange e o veredito binário.
 

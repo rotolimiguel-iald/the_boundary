@@ -4,8 +4,8 @@
   "repo_raw_base": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/",
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
-  "doi_um_absoluto": "https://doi.org/10.5281/zenodo.24053883",
-  "gerado_utc": "2026-11-13T07:53:34Z",
+  "doi_um_absoluto": "https://doi.org/10.5281/zenodo.24196546",
+  "gerado_utc": "2026-11-13T13:03:22Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
     "versao": "v371",
@@ -187,10 +187,10 @@
     {
       "nome": "CITATION.cff",
       "papel": "outros",
-      "descricao": "Como citar: DOI 10.5281/zenodo.24053883 (v409), autor, versao, e as URLs diretas do um.py e do selo",
+      "descricao": "Como citar: DOI 10.5281/zenodo.24196546 (v411), autor, versao, e as URLs diretas do um.py e do selo",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff",
-      "sha256_16": "2937cdff92ef2c8e",
-      "bytes": 4205
+      "sha256_16": "706d562130ed4db8",
+      "bytes": 4804
     },
     {
       "nome": "CITING.md",
@@ -205,23 +205,23 @@
       "papel": "documento",
       "descricao": "UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- a segunda leitura, depois do read-brief",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md",
-      "sha256_16": "306069e41b9fdc95",
-      "bytes": 320518
+      "sha256_16": "bbcf49657106b19e",
+      "bytes": 320443
     },
     {
       "nome": "LEDGER.md",
       "papel": "documento",
-      "descricao": "O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove) -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (952 KB; leia por ultimo)",
+      "descricao": "O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove) -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (953 KB; leia por ultimo)",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md",
-      "sha256_16": "47c4e4af95cf43a8",
-      "bytes": 974853
+      "sha256_16": "1a7d9a0ca58f274e",
+      "bytes": 975978
     },
     {
       "nome": "PINO_README.json",
       "papel": "resultado selado",
       "descricao": "O PINO do README: sha256 do README gerado, do PRIMORDIAL.json, do template, das partes e do selo de que nasceu -- o README so' se edita pelo gerador",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PINO_README.json",
-      "sha256_16": "fdcb1dcd0976196c",
+      "sha256_16": "b07ba34c143b4e93",
       "bytes": 2046
     },
     {
@@ -229,23 +229,23 @@
       "papel": "resultado selado",
       "descricao": "A FONTE UNICA das informacoes primordiais (README pinado e site): cada numero com a chave de origem, o arquivo e o sha256 da fonte -- gerada por tools/custodia_g1/primordial.py, nunca a mao",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PRIMORDIAL.json",
-      "sha256_16": "96105fa72a9a09ed",
-      "bytes": 49907
+      "sha256_16": "b88628387ac68bca",
+      "bytes": 49906
     },
     {
       "nome": "README.md",
       "papel": "documento",
       "descricao": "A PAGINA DE FRENTE, gerada por script (tools/custodia_g1/readme_pinado.py a partir de PRIMORDIAL.json, pinado por PINO_README.json; antes tools/gerar_readme_frente.py, 11/09/2026): o selo, reproduzir em tres comandos, as portas, os tres artigos, a ordem de leitura, abstract, citar, licenca, autor -- <= 40 KB; o atlas completo esta em LEDGER.md",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-      "sha256_16": "919872d67b7c6448",
-      "bytes": 40921
+      "sha256_16": "7473c300ede6bae4",
+      "bytes": 40814
     },
     {
       "nome": "REGISTRO_FASE9_V2.md",
       "papel": "documento",
       "descricao": "Documento em Markdown",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/REGISTRO_FASE9_V2.md",
-      "sha256_16": "82af0ea823bc9c24",
+      "sha256_16": "1eefc380f63989a0",
       "bytes": 2206
     },
     {
@@ -253,8 +253,8 @@
       "papel": "documento",
       "descricao": "O READ BRIEF (gerado por script pela sessao do site): a ENTRADA UNICA -- a teoria em oito partes curtas (secoes/), cada uma com a resposta nos primeiros 2 KB e as fontes citadas verbatim; a ordem de leitura por tamanho; o que ainda nao esta provado, ou ainda nao creditado",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md",
-      "sha256_16": "5879447228a81c34",
-      "bytes": 23941
+      "sha256_16": "bd1a249a3804f6c9",
+      "bytes": 23896
     }
   ],
   "portas_todas": [

@@ -9,7 +9,7 @@
   "5. O um.py tem mais de 5 MB e o GitHub NAO o renderiza na pagina do blob: a pagina abre e parece vazia. Isso e limite de visualizador, nao arquivo faltando -- baixe pelo raw.",
   "6. Depois de baixar, confira o sha256 contra o alias 'selo'."
  ],
- "doi_um_absoluto": "https://doi.org/10.5281/zenodo.24053883",
+ "doi_um_absoluto": "https://doi.org/10.5281/zenodo.24196546",
  "selo": {
   "pin_um_py": "1203b1f9202020d602a7fa8a6bea56d4b48e27ed8baffe98bcbd16e94f97a8e0",
   "pin_um_py_16": "1203b1f9202020d6",
@@ -126,8 +126,8 @@
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
    "o_que_e": "O atlas da fronteira",
-   "sha256_16": "919872d67b7c6448",
-   "bytes": 40921
+   "sha256_16": "7473c300ede6bae4",
+   "bytes": 40814
   },
   "llms": {
    "path": "llms.txt",
@@ -457,8 +457,8 @@
   {
    "path": "CITATION.cff",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff",
-   "bytes": 4205,
-   "sha256_16": "2937cdff92ef2c8e",
+   "bytes": 4804,
+   "sha256_16": "706d562130ed4db8",
    "papel": "outros"
   },
   {
@@ -471,8 +471,8 @@
   {
    "path": "ESTADO_ATUAL.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md",
-   "bytes": 320518,
-   "sha256_16": "306069e41b9fdc95",
+   "bytes": 320443,
+   "sha256_16": "bbcf49657106b19e",
    "papel": "documento"
   },
   {
@@ -1367,8 +1367,8 @@
   {
    "path": "LEDGER.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md",
-   "bytes": 974853,
-   "sha256_16": "47c4e4af95cf43a8",
+   "bytes": 975978,
+   "sha256_16": "1a7d9a0ca58f274e",
    "papel": "documento"
   },
   {
@@ -1417,28 +1417,28 @@
    "path": "PINO_README.json",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PINO_README.json",
    "bytes": 2046,
-   "sha256_16": "fdcb1dcd0976196c",
+   "sha256_16": "b07ba34c143b4e93",
    "papel": "resultado selado"
   },
   {
    "path": "PRIMORDIAL.json",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PRIMORDIAL.json",
-   "bytes": 49907,
-   "sha256_16": "96105fa72a9a09ed",
+   "bytes": 49906,
+   "sha256_16": "b88628387ac68bca",
    "papel": "resultado selado"
   },
   {
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-   "bytes": 40921,
-   "sha256_16": "919872d67b7c6448",
+   "bytes": 40814,
+   "sha256_16": "7473c300ede6bae4",
    "papel": "documento"
   },
   {
    "path": "REGISTRO_FASE9_V2.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/REGISTRO_FASE9_V2.md",
    "bytes": 2206,
-   "sha256_16": "82af0ea823bc9c24",
+   "sha256_16": "1eefc380f63989a0",
    "papel": "documento"
   },
   {
@@ -28443,15 +28443,15 @@
   {
    "path": "read-brief.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md",
-   "bytes": 23941,
-   "sha256_16": "5879447228a81c34",
+   "bytes": 23896,
+   "sha256_16": "bd1a249a3804f6c9",
    "papel": "documento"
   },
   {
    "path": "secoes/01-o-um-absoluto.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/01-o-um-absoluto.md",
    "bytes": 11241,
-   "sha256_16": "2f752f8bc9f8da4c",
+   "sha256_16": "3cf125ca20a2d885",
    "papel": "documento"
   },
   {
@@ -28486,21 +28486,21 @@
    "path": "secoes/06-o-estatuto-da-gravidade-quantica.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/06-o-estatuto-da-gravidade-quantica.md",
    "bytes": 19326,
-   "sha256_16": "cc69e4392c544860",
+   "sha256_16": "1a09e35ce281ce1f",
    "papel": "documento"
   },
   {
    "path": "secoes/07-o-programa-um-py.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/07-o-programa-um-py.md",
    "bytes": 11628,
-   "sha256_16": "747658c251e09f89",
+   "sha256_16": "2078c67aed493d43",
    "papel": "documento"
   },
   {
    "path": "secoes/08-os-artigos-e-os-instrumentos.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/08-os-artigos-e-os-instrumentos.md",
-   "bytes": 13167,
-   "sha256_16": "de58446938766474",
+   "bytes": 13187,
+   "sha256_16": "79ac65141b12b54d",
    "papel": "documento"
   },
   {
