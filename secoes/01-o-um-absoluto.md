@@ -64,7 +64,7 @@ Verificado ao vivo: `input=1`, `S_∂=1/2`, `Vol_∂^min=√e=1.648721`, `β=√
 ### 3. `README.md` — bytes 29.496–31.490
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `8f1f841745264bebc3fda11160d5988b38f1b9779f61d651d73365951f71adda` (computed now; this file is not in the seal map) · of this excerpt: `09da780a7c3d0a45893a3a39c9e2e5a9826eb1a14e15109a364013c49fd183e3`
+- sha256 of the file: `d741c9933c05a23f1fbb8070d2a44ac7d9bc224bfcf7abe62eb5ca8d2a12f98c` (computed now; this file is not in the seal map) · of this excerpt: `09da780a7c3d0a45893a3a39c9e2e5a9826eb1a14e15109a364013c49fd183e3`
 - status · estatuto: [POSTO] axioma; [REAL/DERIVED] Meia-Nat; [DERIVED] β, com α [INPUT]
 - why · por quê: Resumo vigente do núcleo, nas quatro primeiras linhas da tabela do README: o axioma único (lido como [POSTO]), a Meia-Nat derivada, β nunca literal, a identidade de Lagrange e o veredito binário. (13/11/2026: o resumo em português saiu do README por decisão do autor e está inteiro no LEDGER.md; o trecho passou a ser o da tabela.)
 

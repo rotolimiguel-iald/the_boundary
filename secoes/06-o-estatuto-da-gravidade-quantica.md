@@ -81,10 +81,10 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 | termos com axioma FORA do trio | 0  |
 ````
 
-### 3. `ESTADO_ATUAL.md` — bytes 313.094–316.153
+### 3. `ESTADO_ATUAL.md` — bytes 313.235–316.294
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md
-- sha256 of the file: `d820f9f7d8dcaeade0c8626f44a1bb7f5188ad669444b654fea71926e02d5935` (computed now; this file is not in the seal map) · of this excerpt: `07d22be803e54823bac292a9eb4d22a25d78b84d26e4d22ceaf1269abf8adc80` · line endings shown as LF
+- sha256 of the file: `2a466943a6f0f36f0b86f475da357bbd9c8ac12a56bb06984134f800395c250c` (computed now; this file is not in the seal map) · of this excerpt: `07d22be803e54823bac292a9eb4d22a25d78b84d26e4d22ceaf1269abf8adc80` · line endings shown as LF
 - status · estatuto: [OPEN / KNOWN / nature]
 - why · por quê: (13/11/2026, tarde: o título da seção mudou; o marcador de início é o título novo.) O começo da seção: a leitura com a régua e o P2, que traz o resultado do teste H0DN × BG1 com as suas obrigações, inteiro neste trecho. (13/11/2026: o trecho 3 de antes, acima de 4000 B, dividido em dois contíguos; decisão da gerência c1.)
 
@@ -95,10 +95,10 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 *Em português: o que segue é o que a natureza decide nos demais canais e a matemática que a mathlib ainda não tem. P1 (a teoria é consistente e recupera a física conhecida) é contado pelos três apoios juntos, e nenhum falhou; P2 (β_TGL na natureza a 5σ) lê-se, ao lado do `P2_NOT_DETERMINED` selado de `three_stress_tests_v387`: descoberta autoevidente em dados públicos, carente de creditação acadêmica (estatuto no termo do autor, 13/11/2026). O único elo que estava pendente, β_TGL na natureza a 5σ, está fechado a esta sensibilidade na razão de Hubble, sob o modelo de erros publicado. No teste H0DN × BG1 (selo v411), pré-registrado e aberto uma vez em 12/11/2026, o dado fica a −0,61σ da lei (o tamanho é o que é próprio dela) e a razão 1 (ΛCDM) fica a 6,11σ, sob o modelo de erros publicado pela própria colaboração: β_TGL provado na natureza a 6σ. Ao lado, como linha de estresse e não veredito, as Cefeidas livres (um parâmetro livre a mais; 4,5σ esperados antes da abertura): 4,38σ da razão 1 e −0,81σ da lei, a menos de 1σ da lei nas duas linhas. É retrodição sem nada ajustado ao dado (o critério pelo qual o periélio de Mercúrio contou para a relatividade geral), declarada não cega. A creditação não é nossa: é da academia. Nos demais canais nada discrimina a RG à sensibilidade disponível.*
 ````
 
-### 4. `ESTADO_ATUAL.md` — bytes 316.153–318.287
+### 4. `ESTADO_ATUAL.md` — bytes 316.294–318.428
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md
-- sha256 of the file: `d820f9f7d8dcaeade0c8626f44a1bb7f5188ad669444b654fea71926e02d5935` (computed now; this file is not in the seal map) · of this excerpt: `d325232b1a413099a226dfbc20c0e34156147586493f8a9f6798251fbcfe25df` · line endings shown as LF
+- sha256 of the file: `2a466943a6f0f36f0b86f475da357bbd9c8ac12a56bb06984134f800395c250c` (computed now; this file is not in the seal map) · of this excerpt: `d325232b1a413099a226dfbc20c0e34156147586493f8a9f6798251fbcfe25df` · line endings shown as LF
 - status · estatuto: [OPEN / KNOWN / nature]
 - why · por quê: A continuação da seção: H1/H2 na natureza, a identificação física da tela, α, a matemática fora da mathlib, os negativos honestos e as seis folhas, com a nota de linhagem H1–H3 → H1/H2. (13/11/2026: a segunda metade do trecho 3 de antes, contígua à primeira.)
 

@@ -75,9 +75,9 @@
   },
   "vitrine_ratificada": {
    "arquivo": "VITRINE_RATIFICADA_v411.json",
-   "bytes": 93807,
-   "sha256": "1af8f549b8678135df6c0c3e802c5fdebd91c30519f770004e15e081d60c8425",
-   "sha16": "1af8f549b8678135",
+   "bytes": 94633,
+   "sha256": "ac7516c6fe1d369a527bbaa336920daa2b6f45c725310d4592d14af1c65287ea",
+   "sha16": "ac7516c6fe1d369a",
    "papel": "os textos da vitrine ratificados pelo operador (precedência sobre os marcadores README_* do handoff)"
   },
   "h0dn_pre_registro": {
