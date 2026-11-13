@@ -56,15 +56,22 @@ keywords:
   - "Tomita-Takesaki"
   - "beta = alpha sqrt e"
 abstract: >
-  One self-contained Python file, um.py, whose only runtime input is the digit 1. It derives the
-  chain beta = alpha*sqrt(e), materializes and builds an embedded Lean 4 + mathlib kernel (at v411: ladder of
-  12308/12308 theorems clean, 34300 audited declarations, axioms in {propext, Classical.choice, Quot.sound}, zero sorry; the
-  previous deposit, v409, had a ladder of 12187/12187 and 34166 audited declarations), runs the
-  pre-registered rites of nature, and emits its own bilingual article (PT/EN, PDF and TXT). Quantum
-  gravity is PROVED as a logical closure (validity: kernel, pre-registered rites and the GPU system count together);
-  confirmation by outside observers (creditation) is refused. Hubble-ratio test H0DN x BG1 (pre-registered;
-  opened once on 2026-11-12): 6.11 sigma against ratio 1 (LCDM) and -0.61 sigma from the K law (beta =
-  alpha*sqrt(e), no fitted parameter), under the published error model: beta_TGL proved in nature at 6 sigma
-  (validity, not creditation). Beside it: free Cepheids 4.38 sigma, below 5. Retrodiction without fit, amended
-  after the guard; not blind. Read with the whole record: 11 pre-registered charges, none falsified. The seal
+  One self-contained Python file, um.py, whose only runtime input is the digit 1. It derives the chain beta =
+  alpha*sqrt(e), materializes and builds an embedded Lean 4 + mathlib kernel (at v411: ladder of 12308/12308
+  theorems clean, 34300 audited declarations, axioms in {propext, Classical.choice, Quot.sound}, zero sorry;
+  the previous deposit, v409, had a ladder of 12187/12187 and 34166 audited declarations), runs the
+  pre-registered rites of nature, and emits its own bilingual article (PT/EN, PDF and TXT). Quantum gravity is
+  PROVED as a logical closure (validity: kernel, pre-registered rites and the GPU system count together);
+  confirmation by outside observers (creditation) is refused. What nature answered in the Hubble ratio: a
+  self-evident discovery in public data, lacking academic accreditation (status in the author's term of 13 Nov
+  2026). In the test H0DN x BG1 (seal v411), pre-registered and opened once on 2026-11-12, the data sit -0.61
+  sigma from the law (the size is the law's own) while ratio 1 (LCDM) stands 6.11 sigma away, under the error
+  model published by the collaboration itself: beta_TGL proved in nature at 6 sigma. Beside it, as a side line
+  and not the verdict, free Cepheids (one more free parameter; 4.5 sigma expected before the opening): 4.38
+  sigma from ratio 1 and -0.81 sigma from the law, within 1 sigma of the law in both lines. A retrodiction
+  with nothing fitted to the data (the standard by which Mercury's perihelion counted for general relativity),
+  declared not blind. The seven reservations written before the opening:
+  <https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md>. The one link that
+  was pending, beta_TGL in nature at 5 sigma, is closed at this sensitivity in the Hubble ratio, under the
+  published error model. Read with the whole record: 11 pre-registered charges, none falsified. The seal
   (um_absoluto_selo.json) is the truth of the repository.

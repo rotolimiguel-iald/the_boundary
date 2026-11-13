@@ -104,6 +104,9 @@ def ao_lado_h0dn(raiz=RAIZ, core=None, versao=None):
            % (d.get('versao'), d.get('registro'), versao, reg))
     falta = [k for k in list(H0DN_TRECHOS) + ['p2_en_estado', 'p2_pt_estado'] if not isinstance((d.get('textos') or {}).get(k), str)]
     _exige(not falta, 'tools/estatuto_h0dn.json sem: ' + ', '.join(falta))
+    # estatuto_h0dn.json v2 (AO LADO 13/11/2026, claude-site-custodia): o JSON traz tambem as trocas de chave e as superficies
+    _exige(isinstance(d.get('trocas'), list) and isinstance(d.get('superficies'), dict),
+           'tools/estatuto_h0dn.json nao e v2 (sem trocas/superficies): rodar o E04 da custodia')
     return d
 
 
@@ -130,6 +133,37 @@ def _h0dn_ao_lado(v, core, versao, raiz):
                 novo = next(iter(ns))
                 _exige(novo.isascii() or not v[k2].isascii(), 'H0DN aberto: o texto que entra em %s perde o ASCII da chave' % k2)
                 v[k2] = v[k2].replace(velho, novo)
+    # estatuto_h0dn.json v2 (AO LADO 13/11/2026, claude-site-custodia): as trocas de chave (trechos sem encaixe proprio); cada uma diz as chaves em que entra, uma vez em cada
+    for t in d['trocas']:
+        _exige('\n' not in t['novo'], 'H0DN aberto: a troca de %s quebra a linha' % t['chaves'])
+        for k in t['chaves']:
+            _exige(isinstance(v.get(k), str) and v[k].count(t['velho']) == 1, 'H0DN aberto: o trecho %r nao esta uma vez em %s' % (t['velho'][:50], k))
+            _exige(t['novo'].isascii() or not v[k].isascii(), 'H0DN aberto: a troca em %s perde o ASCII da chave' % k)
+            v[k] = v[k].replace(t['velho'], t['novo'])
+
+
+def h0dn_superficie(nome, texto, raiz=RAIZ):
+    """Com o H0DN aberto, troca na superficie gerada `nome` cada trecho listado em tools/estatuto_h0dn.json (superficies[nome]), o numero
+    de vezes dito; trecho ausente, ou superficie sem lista, FALHA. Sem registro aberto, devolve o texto como veio."""
+    d = ao_lado_h0dn(raiz)
+    if not d:
+        return texto
+    _exige(nome in d['superficies'], 'H0DN aberto: tools/estatuto_h0dn.json nao traz a superficie %s' % nome)
+    for t in d['superficies'][nome]:
+        n = texto.count(t['velho'])
+        _exige(n == t.get('vezes', 1), 'H0DN aberto: em %s o trecho %r aparece %d vez(es), esperado %d' % (nome, t['velho'][:50], n, t.get('vezes', 1)))
+        _exige(t['novo'].isascii() or not texto.isascii(), 'H0DN aberto: o texto que entra em %s tira o ASCII da superficie' % nome)
+        texto = texto.replace(t['velho'], t['novo'])
+    return texto
+
+
+def h0dn_texto(ident, raiz=RAIZ):
+    """O texto `ident` de tools/estatuto_h0dn.json (None sem registro aberto); texto ausente FALHA."""
+    d = ao_lado_h0dn(raiz)
+    if not d:
+        return None
+    _exige(isinstance(d['textos'].get(ident), str) and d['textos'][ident].strip() != '', 'H0DN aberto: tools/estatuto_h0dn.json sem o texto %s (ou vazio)' % ident)
+    return d['textos'][ident]
 
 
 def h0dn_secao_estado(nome, r):

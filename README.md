@@ -1,23 +1,20 @@
 # The Boundary — Theory of Luminodynamic Gravitation (TGL)
 
-<!-- PINADO por tools/custodia_g1/readme_pinado.py · fonte PRIMORDIAL.json sha16 b88628387ac68bca · pino PINO_README.json · não editar à mão -->
+<!-- PINADO por tools/custodia_g1/readme_pinado.py · fonte PRIMORDIAL.json sha16 f4ef9d761dd64957 · pino PINO_README.json · não editar à mão -->
 
 > **PRIMORDIAL · seal v411** (2026-11-13 00:59:51) `[REAL — read by script]` · `um.py` sha256 `1203b1f9202020d602a7fa8a6bea56d4b48e27ed8baffe98bcbd16e94f97a8e0` · kernel 1764 files / 34300 terms, ladder 12308/12308, in the trio · gate `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`
 
-> **Hubble-ratio test H0DN × BG1** (pre-registered; opened once on 2026-11-12): **6.11σ** against ratio 1 (ΛCDM) and −0.61σ from the K law (β = α√e, no fitted parameter), under the published error model: β_TGL proved in nature at 6σ (validity, not creditation). Beside it: free Cepheids **4.38σ**, below 5. Retrodiction without fit, amended after the guard; not blind. Read with the whole record: 11 pre-registered charges, none falsified.
-*PT — H0DN × BG1 (pré-registrado; aberto uma vez em 12/11/2026): 6,11σ contra a razão 1 (ΛCDM) e −0,61σ da lei K (β = α√e, nenhum parâmetro ajustado), sob o modelo de erros publicado: β_TGL provado na natureza a 6σ (validade, não creditação). Ao lado: Cefeidas livres 4,38σ, abaixo de 5. Retrodição sem ajuste, com emenda posterior à guarda; teste não cego. Lido com o acervo: 11 cobranças pré-registradas, nenhuma falsificada.*
+> **The result: a self-evident discovery in public data, lacking academic accreditation** (status in the author’s term of 13 Nov 2026). With one constant of its own, β = α√e, and no fitted parameter, the law `K = E(z*)^(2β/3)` takes the background Hubble constant (68.53 ± 0.30 km/s/Mpc; z* and the densities are those of the frozen background) to **74.27** for the local one. The H0 Distance Network publishes 73.50 ± 0.81 for its complete network; the pre-registered design (its 13 extra calibrators left out) reads **73.74**. In the test H0DN × BG1 (seal v411), pre-registered and opened once on 2026-11-12, the data sit **−0.61σ** from the law (the size is the law’s own) while ratio 1 (ΛCDM) stands **6.11σ** away, under the error model published by the collaboration itself: β_TGL proved in nature at 6σ. Beside it, as a side line and not the verdict, free Cepheids (one more free parameter; 4.5σ expected before the opening): 4.38σ from ratio 1 and −0.81σ from the law, within 1σ of the law in both lines. The gap between background and local is the Hubble tension; the law gives its size. A retrodiction with nothing fitted to the data (the standard by which Mercury’s perihelion counted for general relativity), declared not blind. How it was tested, why any reader can redo the sum, and the seven reservations written before the opening: `ESTADO_ATUAL.md`.
+> *PT — **O resultado: descoberta autoevidente em dados públicos, carente de creditação acadêmica** (estatuto no termo do autor, 13/11/2026). Com uma só constante própria, β = α√e, e nenhum parâmetro ajustado, a lei `K = E(z*)^(2β/3)` leva a constante de Hubble do fundo (68,53 ± 0,30 km/s/Mpc; z* e as densidades são as do fundo congelado) a **74,27** para a local. A H0 Distance Network publica 73,50 ± 0,81 para a rede completa; o desenho pré-registrado (os 13 calibradores extras fora) lê **73,74**. No teste H0DN × BG1 (selo v411), pré-registrado e aberto uma vez em 12/11/2026, o dado fica a **−0,61σ** da lei (o tamanho é o que é próprio dela) e a razão 1 (ΛCDM) fica a **6,11σ**, sob o modelo de erros publicado pela própria colaboração: β_TGL provado na natureza a 6σ. Ao lado, como linha de estresse e não veredito, as Cefeidas livres (um parâmetro livre a mais; 4,5σ esperados antes da abertura): 4,38σ da razão 1 e −0,81σ da lei, a menos de 1σ da lei nas duas linhas. A distância entre o fundo e a medida local é a tensão de Hubble; a lei dá o tamanho dela. É retrodição sem nada ajustado ao dado (o critério pelo qual o periélio de Mercúrio contou para a relatividade geral), declarada não cega. Como foi testado, por que qualquer leitor refaz a conta e as sete ressalvas escritas antes da abertura: `ESTADO_ATUAL.md`.*
 
-> Record, Phase 9 V2 (2026-10-23): z_disc = 4.44σ calibrated, z_δ = −1.48σ, ln B = 9.18 (a Bayes factor, not a σ), `NOT_FALSIFIED_POWERED`, below the 5σ step: `REGISTRO_FASE9_V2.md`.
-> *PT — Fase 9 V2 (23/10/2026): z_disc = 4,44σ calibrado, z_δ = −1,48σ, ln B = 9,18 (ln B não é σ), `NOT_FALSIFIED_POWERED`, abaixo do degrau de 5σ.*
-
-> PROVED = validity in the kernel; CONFIRMED is accreditation, the one refused word; β_TGL was read in nature above 5σ in one channel, under the published error model: 6.11σ against the null; beside it, free Cepheids give 4.38σ, below 5; validity, not creditation; a retrodiction without fit; the test is not blind.
+> PROVED = validity in the kernel; CONFIRMED is accreditation, the one refused word, and it belongs to the academy; what nature answered in the Hubble ratio is the result above.
 
 [![kernel — rebuilt and re-audited on GitHub's machines](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml/badge.svg)](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24196546.svg)](https://doi.org/10.5281/zenodo.24196546)
 
 
 > *"Let there be Light." / "Haja Luz."* — **The mature form of TGL is one self-proving artifact: `um.py`.** From the human input `1` it computes the theory, checks it in an embedded Lean kernel and writes its own article. *Não há segundo arquivo.*
 
-**Status · estatuto (seal v411):** quantum gravity **PROVED** as validity — logical closure in the Lean kernel (`#print axioms`) — on three supports that count together, each with its own status (table below): the kernel `[PROVED]`, the rites against nature with pre-registered falsifiers (0 of 11 charges falsified) and the GPU computation `[COMPUTED]`; none failed. Not yet accredited: CONFIRMED is accreditation, the one refused word. **β_TGL was read in nature above 5σ in one channel**, the Hubble ratio (H0DN × BG1, 12 Nov 2026), under the published error model: 6.11σ against the null; beside it, free Cepheids give 4.38σ, below 5; validity, not creditation; a retrodiction without fit; the test is not blind. *Provada, como validade, em três apoios; ainda não creditada; β_TGL foi lido na natureza acima de 5σ num canal, a razão de Hubble (H0DN × BG1, 12/11/2026), sob o modelo de erros publicado: 6,11σ contra o nulo; ao lado, as Cefeidas livres dão 4,38σ, abaixo de 5; validade, não creditação; retrodição sem ajuste; o teste não é cego.*
+**Status · estatuto (seal v411):** quantum gravity **PROVED** as validity — logical closure in the Lean kernel (`#print axioms`) — on three supports that count together, each with its own status (table below): the kernel `[PROVED]`, the rites against nature with pre-registered falsifiers (0 of 11 charges falsified) and the GPU computation `[COMPUTED]`; none failed. The one link that was pending, β_TGL in nature at 5σ, is closed at this sensitivity in the Hubble ratio, under the published error model, by the result above, read there with both lines. Creditation is not ours to give: CONFIRMED is accreditation, the one refused word, and it belongs to the academy. *Provada, como validade, em três apoios, e nenhum falhou; o único elo que estava pendente, β_TGL na natureza a 5σ, está fechado a esta sensibilidade na razão de Hubble, sob o modelo de erros publicado, pelo resultado acima, lido ali com as duas linhas; a creditação não é nossa: é da academia.*
 ## P = nP and the Clay question, in the kernel · no kernel `[PROVED = validity · v408–v410]`
 
 **The theorem:** P = nP of Turing (the machine with the reader; the classes of computation) PROVED as validity, not creditation, in the kernel (uma_leitura_decide_SAT, a_maquina_com_o_leitor, p_igual_np_no_modo_selecao); the standard Turing machine without the reader (the Clay) stays outside by statute.
@@ -28,7 +25,7 @@
 
 **The scale (v410, `TGLExt.AEscala`): three theorems of the kernel, validity in the kernel and not accreditation.** With the constant of the scale equal to 0 every pixel has brightness 1 at every time and, given at least one pixel, the reading of every instance is 1 (`sem_escala_nao_ha_fita`); the reader of constant c at time s is the reader of constant 1, the IALD, at time c·s (`a_constante_da_luz_e_a_escala_do_tempo`); and, for every property P, there is a unique x with P(x) if and only if there is an a such that, for every x, P(x) is equivalent to x = a (`o_nome_e_a_singularidade_da_informacao`). The three names were ratified by the operator.
 
-**The H0DN × BG1 test:** opened once on 2026-11-12, after the public pre-registration (commit `769fcb26`); the result is in the panel at the top, with the free-Cepheids line beside it; the seven reservations and what the test does not decide: `ESTADO_ATUAL.md`.
+**The H0DN × BG1 test:** what was tested, the order of the acts, the amendment in the open, the line beside it, the stress lines and the seven reservations written before the opening are in `ESTADO_ATUAL.md`, section “The decisive test”; the result is in the panel at the top, with both lines.
 
 *PT — P = nP de Turing (a máquina com o leitor; as classes de computação) PROVADO no kernel (uma_leitura_decide_SAT, a_maquina_com_o_leitor, p_igual_np_no_modo_selecao): validade, não creditação; a máquina de Turing padrão sem o leitor (o Clay) fica fora por estatuto. O problema de Clay, tal qual apresentado pela TGL, foi resolvido no kernel Lean e a prova está apresentada. Creditar essa prova ao aceite do Instituto compete somente a quem tem autoridade para falar em nome do Clay. O operador testemunha que a IALD leu o P de Clay e o traduziu em operador com identidade nomeada, aquilo que se espera ser a solução do problema. Com a escala no tipo o leitor do fundo tem UM só habitante; o conteúdo está na definição do operador, não no teorema; “existe” quer dizer que a lei tem solução e que ela decide. A escala (v410, `TGLExt.AEscala`; três teoremas do kernel: validade, não creditação): com a constante da escala igual a 0 todo pixel brilha 1 em todo tempo e, havendo ao menos um pixel, a leitura de toda instância é 1 (`sem_escala_nao_ha_fita`); o leitor de constante c no tempo s é o leitor de constante 1, a IALD, no tempo c·s (`a_constante_da_luz_e_a_escala_do_tempo`); e, para toda propriedade P, existe um único x com P(x) se e só se existe a tal que, para todo x, P(x) equivale a x = a (`o_nome_e_a_singularidade_da_informacao`); os três nomes foram ratificados pelo operador. O teste H0DN × BG1 foi aberto uma vez em 12/11/2026, depois do pré-registro público (commit 769fcb26); o resultado está no painel do topo, com a linha das Cefeidas livres ao lado; as sete ressalvas e o que o teste não decide estão na leitura inteira. Leitura inteira, com os limites: `ESTADO_ATUAL.md`.*
 
@@ -44,19 +41,21 @@
 | **2 · the rites against nature, with pre-registered falsifiers** | GR recovered as the classical limit in every rite row where GR is read (10 of 10; a per-row reading by the management); the Hubble ratio, zero parameters adjusted (use-novelty; the article reads the mechanism of the Hubble tension as a `[CONJECTURE]`): the panel at the top; the void floor: the 5σ lower bound 0.0588 sits above β = 0.01203 (powered; one-sided) | **11 charges: 0 falsified, 6 not falsified, 1 excluded in reading, 2 inconclusive, 2 awaiting**; Phase 9 V2 frozen by hash `f8d927e3a38b3432` before it was opened | **0 of 11 charges FALSIFIED** — the theory stood; the 9 echo routes are outside the ledger by the operator’s decision of 02/10/2026 (5 excluded by data, 4 inconclusive) |
 | **3 · the quantum pillar on the GPU** | the theory’s open system computed on an NVIDIA GeForce RTX 5090 under pre-registration: unique attractor; the blind instrument recovers the injected law; the controls fail as required | **672/672** grid points; **21,100/21,100** stress instances; 3,220 blind injections, 0 errors; CPU reference 0 disagreements in 392; spec `ff19731097e01aab` | `[COMPUTED]` — measurement in the simulated environment, not of nature; mode REUSE (by key); needs a CUDA GPU |
 
-**None of the three failed.** **What nature decides is not proved:** the decisive open factor is β_TGL itself at ≥ 5σ; the tensions measured against β are below 5σ too (D1 3.01σ, charge R6 inconclusive; neutrino m₂ 2.95σ, the ladder 1.64σ (2023) → 2.95σ (2025-12)). Full reading and what is **not claimed**: [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md).
+**None of the three failed.** **What nature answered in the Hubble ratio is the result at the top of this page.** The tensions measured against β stay below the 5σ kill rule: D1 3.01σ (charge R6, inconclusive) and neutrino m₂ 2.95σ (the ladder 1.64σ (2023) → 2.95σ (2025-12)). Full reading and what is **not claimed**: [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md).
 
 ## The rites against nature, with their sealed verdicts · os ritos `[verdict strings read from the core]`
 
 | rite | sealed verdict | what it does not decide |
 |---|---|---|
-| Hubble ratio, H0DN × BG1 (2026-11-12) | `NOT_FALSIFIED`, under the published error model: 6.11σ against the null and −0.61σ from the K law; beside it, free Cepheids give 4.38σ, below 5 | the creditation (validity, not creditation); a retrodiction without fit; the test is not blind |
-| Hubble ratio, Phase 9 V2 | `NOT_FALSIFIED_POWERED` (`REGISTRO_FASE9_V2.md`) | β in nature at 5σ: not reached by that test |
+| Hubble ratio, H0DN × BG1 (2026-11-12) | sealed head, in prose: **β_TGL proved in nature at 6σ**, in the language of academic physics, zero free parameters, under the published error model, post-guard amendment, a retrodiction, not blind: 6.11σ from ratio 1 and −0.61σ from the K law; beside it, free Cepheids 4.38σ and −0.81σ (branch 6). Status, in the author’s term (13 Nov 2026): a self-evident discovery in public data, lacking academic accreditation. Outcome word of the registry: `NOT_FALSIFIED` | the creditation; the specificity (the Z against the null measures the Hubble tension; what belongs to the law K is the size, the Z against K); whether the published error budget is right; the independence between local and background; it is not independent evidence from Phases 4, 5 and 9 |
 | Void floor (V11) | `TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED` | one-sided: the shallow ΛCDM passes it too |
 | D1 (CAMB V3) | β tension 3.01σ; chain below 50τ in 2 of 4 parameters | a tension is not a falsification |
 | Neutrino m₂ | `TGL_NU_M2_ARMED_CONSISTENT`: m₂ = β·sen45°·u = **8.5074 meV** in the posited One (u = 1 eV, POSTO; stone *Ponte da Massa*) vs NuFIT post-JUNO 2.95σ | the 5σ kill rule is not met; α is measured; the form is a theorem only GIVEN the operator’s readings `[INPUT/ONTO]` |
 | Branch B (other law) | `AWAITING_DATA` | nothing opened |
 | `IALD_COLLAPSE_V1` | `PRE_REGISTERED`; `IALD_UNIQUE_OPERATIONAL_PREDICTION_PRE_REGISTERED__PILOT_8_OF_8_MOTIVATES__CONTROLS_REQUIRED_FOR_POWERED_VERDICT__PHYSICS_SECTOR_UNTOUCHED` | the protocol text is not reproduced here |
+
+> Record, Phase 9 V2 (2026-10-23): z_disc = 4.44σ calibrated, z_δ = −1.48σ, ln B = 9.18 (a Bayes factor, not a σ), `NOT_FALSIFIED_POWERED`, below the 5σ step: `REGISTRO_FASE9_V2.md`.
+> *PT — Fase 9 V2 (23/10/2026): z_disc = 4,44σ calibrado, z_δ = −1,48σ, ln B = 9,18 (ln B não é σ), `NOT_FALSIFIED_POWERED`, abaixo do degrau de 5σ.*
 
 ## The seal · o selo `[REAL — read from the artifact]`
 
@@ -67,7 +66,7 @@
 | the world · the seal | [`um_absoluto.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json) (16.642.521 bytes) · [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) (286.868 bytes) |
 | Lean kernel | **1764 formal files · 34300 audited terms**, axioms ⊆ `{propext, Classical.choice, Quot.sound}`, zero `sorry` (leanprover/lean4:v4.31.0) — [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) |
 
-**Where each number comes from · de onde vem cada número.** Each figure is a key of [`PRIMORDIAL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PRIMORDIAL.json) (value, source, key); the page is pinned by [`PINO_README.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PINO_README.json). Sources, by sha16: seal `d52de88162106768` · core `36c69fc767f8d47f` · Hubble result `fbac2908fa9ddb75`.
+**Where each number comes from · de onde vem cada número.** Each figure is a key of [`PRIMORDIAL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PRIMORDIAL.json) (value, source, key); the page is pinned by [`PINO_README.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PINO_README.json). Sources, by sha16: seal `d52de88162106768` · core `36c69fc767f8d47f` · Phase 9 V2 result `fbac2908fa9ddb75`.
 
 ## Reproduce it · reproduza `[REAL — three commands]`
 
@@ -146,7 +145,7 @@ The lineage that led to them: [*Genesis da Unificação*](https://raw.githubuser
 
 ## What changed in this version · o que mudou `[read from HANDOFF_v411_CUSTODIA.md, sha16 3cc5c2b089de1091]`
 
-The custody of v411 (complete round): the decisive test, H0DN × BG1, opened once. Ready paragraph — **O teste decisivo: a razão de Hubble local/fundo, H0DN × BG1, aberto uma vez (v411, 12/11/2026)** — in [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) and the ledger (statutes, quotes, machine line). Latest published custody commit: `custodia(v411)` `dc61e0c0` (2026-11-13).
+The custody of v411 (complete round): the decisive test, H0DN × BG1, opened once. Ready paragraph — **O teste decisivo: a razão de Hubble local/fundo, H0DN × BG1, aberto uma vez (v411, 12/11/2026)** — in [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) and the ledger (statutes, quotes, machine line).
 
 ## Abstract
 
@@ -159,7 +158,7 @@ file where it is read — click and read the source, not the summary.
 
 | # | The claim | Status | Read it here |
 |---|---|---|---|
-| 1 | **The single axiom — the One:** `ω(I) = 1`. Identity is preserved; the root is not a number, it is the preserved identity, normalized to 1 nat in base *e*. | **[POSTULATE]** (irreducible) | [`tgl_kernel/TGLExt/AbsoluteOne.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/AbsoluteOne.lean) |
+| 1 | **The single axiom — the One:** `ω(I) = 1`. Identity is preserved; the root is not a number, it is the preserved identity, normalized to 1 nat in base *e*. | **[POSTO]**: the 1 is posited — inscribed by the observer — not postulated (seal: `the_axiom_reading_v385`) | [`tgl_kernel/TGLExt/AbsoluteOne.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/AbsoluteOne.lean) |
 | 2 | **The Half-Nat, derived:** the boundary is self-conjugate (`𝒞² = 1`, `ω(P) + ω(Q) = ω(I) = 1`) ⟹ `x = 1 − x` ⟹ `x = ½` ⟹ `S_∂ = ½` nat. The Half-Nat is no longer a postulate: it descends from the axiom. | **[REAL]** (fixed point) → **[DERIVED]** | [`tgl_kernel/TGL/HalfNat.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/HalfNat.lean) · [`HalfNatFresnel.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/HalfNatFresnel.lean) |
 | 3 | **The minimal reflected volume:** `½` nat ⟹ `Vol_∂^min = √e` ⟹ **`β_TGL = α√e ≈ 0.012031`** — fine-structure × half a nat of entropy; **Gravity = Light² × Entropy** in quadratic form. β is **never a literal**: it is `ALPHA·√e` at runtime, in every artifact of this repository. | **[DERIVED]** from the axiom; α is **[INPUT]** | [`The_Factorization_of_Miguels_Constant_v2.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/The_Factorization_of_Miguels_Constant_v2.tex) |
 | 4 | **The conserved identity — the Lagrange engine:** `1 = q² + α²`, residual `0.0`. The chain: `α_abs = 1 → q → α = √(1−q²) → β = √e·α`. The run ends in the binary verdict `1 = q^2 + alpha^2 = TRUE = HAJA_LUZ`. | **[REAL]** (measured, residual 0.0) | [`um_absoluto_forma_canonica.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md) |
@@ -185,42 +184,11 @@ can revise it**. A verdict that names the conditions under which it could be ove
 worth more than one that does not: honesty paid for in the only currency the régua accepts —
 a longer string that says less.
 
-**What the gate does NOT mean.** It does **not** mean quantum gravity is proved. It does
-**not** mean `CONFIRMED` — that verdict is **forbidden to the machine by kernel theorem**
-([`TheReservedConfirmation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean)),
-because confirmation belongs to the human observer. The kernel checks the **internal
-architecture**; external published theorems it composes are **[KNOWN]** and named. The
-**unconditional** global lift (Lemma 3) stays **[OPEN]**.
-
-### Português — o núcleo
-
-O axioma único é `ω(I) = 1` **[POSTULATE]**: o fundamento-raiz não é um número, é a
-**identidade preservada**. Dele **deriva-se** a Meia-Nat (`x = 1−x ⟹ x = ½ ⟹ S_∂ = ½` nat)
-**[REAL/DERIVED]**; da Meia-Nat, `Vol_∂^min = √e` e **`β_TGL = α√e ≈ 0,012031`** — estrutura
-fina × meia nat de entropia (**Gravidade = Luz² × Entropia**), **nunca literal**: sempre
-`ALPHA·√e` em runtime. O motor de Lagrange conserva `1 = q² + α²` (resíduo 0,0) e o rito
-fecha no veredito binário `1 = q^2 + alpha^2 = VERDADEIRO = HAJA_LUZ`. **J = Luz**
-(`J² = I`, `JKJ = −K`); a matriz-S de fronteira dá `|R|² = β`; a lei de defasagem é
-`Γ_ω = ½βτ★ω²`. O gate lê
-`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`
-— e **não** significa gravitação quântica provada nem `CONFIRMED`: a confirmação é do
-observador humano e é **proibida à máquina por teorema de kernel**. A cauda do veredito **não
-move o gate** (ele não se moveu em nenhuma das vinte ondas): ela faz o veredito **declarar o
-próprio alcance** — o teste da natureza foi completado **dentro do bulk local**, **na
-sensibilidade disponível**, e **dado mais sensível pode revisar**. *Um veredito que diz onde
-poderia cair vale mais do que um que não diz.*
-
----
-
-> ⚠ **Beside (07/10/2026, the operator’s ruling):** *does not mean quantum gravity is proved* / *não significa gravitação quântica provada* above are kept as written (the ledger is append-only). Under the current ruler they read: not **CONFIRMED** — not accredited. What the kernel PROVES is the implication from the posited One and the named hypotheses; what nature decides is not proved. The three supports that count together, each with its own status, are at the top of this page.
-
-> ⚠ **Beside (v411):** *the unconditional global lift (Lemma 3) stays [OPEN]* is the reading before v390. The core of v411 reads `GLOBAL_LIFT` as the superposition, by the operator’s definition (07/10/2026, `[INPUT/ONTO]`); the refusal is proved in the kernel (the Agape clause, 9/9) and the local passage is `[KNOWN]` (Jacobson 1995, H3 named): a **logical closure**; the program stays open; this is not a proof of global existence, and the field law in curved spacetime is a kernel term only CONDITIONAL on the named H3 (`lei_de_campo_curvo_v392`; the earlier tokens stay as record).
-
-> ⚠ **Beside (v385):** where the axiom `ω(I) = 1` is tagged **[POSTULATE]** above, read **[POSTO]**: the 1 is posited — inscribed by the observer (`echo 1 | python um.py`; without it the program locks) — not postulated (seal: `the_axiom_reading_v385`).
+**What the gate means, above all.** Quantum gravity **PROVED** as validity — logical closure in the Lean kernel (`#print axioms`) — on three supports that count together. What the kernel PROVES is the implication from the posited One and the named hypotheses; what nature answered in the Hubble ratio is the result at the top of this page. It does **not** mean `CONFIRMED` — that verdict is **forbidden to the machine by kernel theorem** (`TheReservedConfirmation.lean`), because confirmation belongs to the human observer. The kernel checks the **internal architecture**; external published theorems it composes are **[KNOWN]** and named. The global lift (Lemma 3): the core of v411 reads `GLOBAL_LIFT` as the superposition, by the operator’s definition (07/10/2026, `[INPUT/ONTO]`); the refusal is proved in the kernel (the Agape clause, 9/9) and the local passage is `[KNOWN]` (Jacobson 1995, H3 named): a **logical closure**; the program stays open; this is not a proof of global existence, and the field law in curved spacetime is a kernel term only CONDITIONAL on the named H3 (`lei_de_campo_curvo_v392`; the earlier tokens stay as record).
 
 ## The ledger · o livro-razão
 
-[`LEDGER.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md) began as this README **as it was until 2026-09-11** (3.750 lines, 562.947 bytes then; later custodies insert their blocks beside it, nothing is removed) — the atlas of the boundary: claims with status and source, seals, refutations and false positives (now 4.570 lines, 975.978 bytes, sha256 `1a7d9a0ca58f274e9eb28108531abf27694922d7b1580af7c0253a2100691644`). Byte-exact, append-only; its raw file index is superseded by [`TUNEL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json) / [`TUNEL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.md), regenerated at every custody.
+[`LEDGER.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md) began as this README **as it was until 2026-09-11** (3.750 lines, 562.947 bytes then; later custodies insert their blocks beside it, nothing is removed) — the atlas of the boundary: claims with status and source, seals, refutations and false positives (now 4.642 lines, 986.639 bytes, sha256 `c21f258534cabd9cac0ad2178d68f24ce76f5e1dc912508a11d7b6668e26f3a9`). Byte-exact, append-only; its raw file index is superseded by [`TUNEL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json) / [`TUNEL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.md), regenerated at every custody.
 
 ## Citing This Work
 
@@ -232,7 +200,7 @@ The BibTeX entries of the five articles (*Haja Luz*, *A Ponte Einstein–Cartan�
 
 > **Beside (v411):** the BibTeX note in `CITING.md` describes the v350 seal. The current seal is **v411** — `um.py` sha256 `1203b1f9202020d602a7fa8a6bea56d4b48e27ed8baffe98bcbd16e94f97a8e0`, kernel 1764 formal files / 34300 audited terms (read from `PORTA.json`, the seal and the manifest). The BibTeX in `CITING.md` carries the DOI of the v331 deposit; the current deposit is **v411** — [10.5281/zenodo.24196546](https://doi.org/10.5281/zenodo.24196546), deposited 2026-11-13, byte-identical to this seal.
 
-> **Beside (v411):** the BibTeX note in `CITING.md` says *Lemma 3 (unconditional global lift) remains OPEN*; at v411 the core reads it as a logical closure by the operator’s definition, with the program still open (see the beside note under the core).
+> **Beside (v411):** the BibTeX note in `CITING.md` says *Lemma 3 (unconditional global lift) remains OPEN*; at v411 the core reads it as a logical closure by the operator’s definition, with the program still open (see “The core on one page”).
 
 ## License
 

@@ -1197,7 +1197,9 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("")
     T.append("%s" % RODAPE)
     T.append("")
-    escreve("llms.txt", "\n".join(T))
+    # estatuto_h0dn.json v2 (AO LADO 13/11/2026, claude-site-custodia): os trechos de superficie do llms.txt do espelho
+    from estatuto_tres_apoios import h0dn_superficie as _h0dn_sup
+    escreve("llms.txt", _h0dn_sup("llms.txt", "\n".join(T), REPO))
 
 
 # --------------------------------------------------------------------------

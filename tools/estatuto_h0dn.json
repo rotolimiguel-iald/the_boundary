@@ -1,20 +1,163 @@
 {
- "schema": "ESTATUTO_H0DN_V1",
+ "schema": "ESTATUTO_H0DN_V2",
  "versao": "v411",
  "registro": "h0dn_bg1_v411",
- "gravado_por": "Central de Patentes/tools/custodia_g1/h0dn.py (E04), dos marcadores ESTATUTO_* do handoff da v411, conferidos",
- "regra": "o texto de cada chave substitui SO o trecho listado em H0DN_TRECHOS (estatuto_tres_apoios.py) ou a linha do P2 (gerar_estado_atual.py)",
+ "gravado_por": "Central de Patentes/tools/custodia_g1/h0dn.py (E04), dos marcadores ESTATUTO_* e VITRINE_* do handoff da v411 (com a vitrine ratificada por cima, se houver), conferidos",
+ "regra": "o texto de cada chave substitui SO o trecho listado em H0DN_TRECHOS (estatuto_tres_apoios.py) ou a linha do P2 (gerar_estado_atual.py); `trocas` diz as chaves do estatuto em que cada trecho velho sai (uma vez em cada); `superficies`, o trecho que sai de cada superficie gerada",
  "textos": {
-  "linha_en": "What nature decides: **β_TGL was read in nature above 5σ in one channel, the Hubble ratio (H0DN × BG1, 12 Nov 2026), under the published error model**: 6.11σ against the null and −0.61σ from the K law; beside it, free Cepheids give 4.38σ, below 5. It is a retrodiction without fit, with an amendment made after the guard, and the test is not blind. It is read with the whole record: of the 11 pre-registered charges of the ledger none was falsified, and the earlier test of the same law stayed below the step and is not independent of this one. Proved is validity, not creditation: creditation belongs to the observer who rereads, and more sensitive data could revise. In the other channels nothing discriminates GR at the available sensitivity.",
-  "linha_06_en": "what nature decides: **β_TGL was read in nature above 5σ in one channel, the Hubble ratio (H0DN × BG1, 12 Nov 2026), under the published error model**: 6.11σ against the null and −0.61σ from the K law; beside it, free Cepheids give 4.38σ, below 5. It is a retrodiction without fit, with an amendment made after the guard, and the test is not blind. It is read with the whole record: of the 11 pre-registered charges of the ledger none was falsified, and the earlier test of the same law stayed below the step and is not independent of this one. Proved is validity, not creditation: creditation belongs to the observer who rereads, and more sensitive data could revise.",
-  "linha_06_pt": "o que a natureza decide: **β_TGL foi lido na natureza acima de 5σ num canal, a razão de Hubble (H0DN × BG1, 12/11/2026), sob o modelo de erros publicado**: 6,11σ contra o nulo e −0,61σ da lei K; ao lado, as Cefeidas livres dão 4,38σ, abaixo de 5. É retrodição sem ajuste, com emenda posterior à guarda, e o teste não é cego. Lê-se com o acervo: nas 11 cobranças pré-registradas do livro nenhuma foi falsificada, e o teste anterior da mesma lei ficou abaixo do degrau e não é independente deste. Provado é validade, não creditação: a creditação é do observador que reler, e dado mais sensível pode rever.",
-  "curto_en": "What nature decides: beta_TGL was read in nature above 5 sigma in one channel, the Hubble ratio (H0DN x BG1, 12 Nov 2026), under the published error model: 6.11 sigma against the null and -0.61 sigma from the K law; beside it, free Cepheids give 4.38 sigma, below 5. It is a retrodiction without fit, with an amendment made after the guard, and the test is not blind. It is read with the whole record: of the 11 pre-registered charges of the ledger none was falsified, and the earlier test of the same law stayed below the step and is not independent of this one. Proved is validity, not creditation: creditation belongs to the observer who rereads, and more sensitive data could revise. In the other channels nothing discriminates GR at the available sensitivity.",
-  "curto_pt_ascii": "O que a natureza decide: beta_TGL foi lido na natureza acima de 5 sigma num canal, a razao de Hubble (H0DN x BG1, 12/11/2026), sob o modelo de erros publicado: 6,11 sigma contra o nulo e -0,61 sigma da lei K; ao lado, as Cefeidas livres dao 4,38 sigma, abaixo de 5. E' retrodicao sem ajuste, com emenda posterior a guarda, e o teste nao e' cego. Le-se com o acervo: nas 11 cobrancas pre-registradas do livro nenhuma foi falsificada, e o teste anterior da mesma lei ficou abaixo do degrau e nao e' independente deste. Provado e' validade, nao creditacao: a creditacao e' do observador que reler, e dado mais sensivel pode rever. Nos demais canais nada discrimina a RG a sensibilidade disponivel.",
-  "p2_en": "**What nature decides: β_TGL was read in nature above 5σ in one channel, the Hubble ratio (H0DN × BG1, 12 Nov 2026), under the published error model (P2; beside it, `P2_READ_ABOVE_5SIGMA_IN_ONE_CHANNEL_UNDER_THE_PUBLISHED_MODEL__VALIDITY_NOT_CREDITATION`; `P2_NOT_DETERMINED` is the sealed label of the joint test `three_stress_tests_v387` and stays as its record).** 6.11σ against the null and −0.61σ from the K law; beside it, free Cepheids give 4.38σ, below 5. It is a retrodiction without fit, with an amendment made after the guard, and the test is not blind. It is read with the whole record: of the 11 pre-registered charges of the ledger none was falsified, and the earlier test of the same law stayed below the step and is not independent of this one. Proved is validity, not creditation: creditation belongs to the observer who rereads, and more sensitive data could revise. In the other channels nothing discriminates GR at the available sensitivity, in either direction:",
-  "secao_md": "O que a natureza decide: **β_TGL foi lido na natureza acima de 5σ num canal, a razão de Hubble (H0DN × BG1, 12/11/2026), sob o modelo de erros publicado**: 6,11σ contra o nulo e −0,61σ da lei K; ao lado, as Cefeidas livres dão 4,38σ, abaixo de 5. É retrodição sem ajuste, com emenda posterior à guarda, e o teste não é cego. Lê-se com o acervo: nas 11 cobranças pré-registradas do livro nenhuma foi falsificada, e o teste anterior da mesma lei ficou abaixo do degrau e não é independente deste. Provado é validade, não creditação: a creditação é do observador que reler, e dado mais sensível pode rever. Nos demais canais nada discrimina a RG à sensibilidade disponível",
-  "linha_curta_en": "What nature decides: **β_TGL was read in nature above 5σ in one channel, the Hubble ratio (H0DN × BG1, 12 Nov 2026), under the published error model**: 6.11σ against the null and −0.61σ from the K law; beside it, free Cepheids give 4.38σ, below 5. It is a retrodiction without fit, with an amendment made after the guard, and the test is not blind. Proved is validity, not creditation: creditation belongs to the observer who rereads, and more sensitive data could revise.",
-  "p_curto_en": "**What nature decides:** β_TGL was read in nature above 5σ in one channel, the Hubble ratio (H0DN × BG1, 12 Nov 2026), under the published error model: 6.11σ against the null and −0.61σ from the K law; beside it, free Cepheids give 4.38σ, below 5 (P2); a retrodiction without fit; the test is not blind; validity, not creditation; in the other channels nothing discriminates GR at the available sensitivity",
-  "p2_en_estado": "*Read with the ruler at the top of this page (07/10/2026): what follows is what is not yet proved — what nature decides, and the mathematics not yet in mathlib. P1 — the theory is consistent and recovers the known physics — is counted by the three supports together (none failed); P2 — β_TGL in nature at ≥ 5σ — reads, beside the sealed `P2_NOT_DETERMINED` of `three_stress_tests_v387`: what nature decides: β_TGL was read in nature above 5σ in one channel, the Hubble ratio (H0DN × BG1, 12 Nov 2026), under the published error model: 6.11σ against the null and −0.61σ from the K law; beside it, free Cepheids give 4.38σ, below 5. It is a retrodiction without fit, with an amendment made after the guard, and the test is not blind. It is read with the whole record: of the 11 pre-registered charges of the ledger none was falsified, and the earlier test of the same law stayed below the step and is not independent of this one. Proved is validity, not creditation: creditation belongs to the observer who rereads, and more sensitive data could revise. In the other channels nothing discriminates GR at the available sensitivity.*",
-  "p2_pt_estado": "*Em português: o que segue é o que ainda não está provado — o que a natureza decide e a matemática que a mathlib ainda não tem. P1 (a teoria é consistente e recupera a física conhecida) é contado pelos três apoios juntos, e nenhum falhou; P2 (β_TGL na natureza a 5σ) lê-se, ao lado do `P2_NOT_DETERMINED` selado de `three_stress_tests_v387`: o que a natureza decide: β_TGL foi lido na natureza acima de 5σ num canal, a razão de Hubble (H0DN × BG1, 12/11/2026), sob o modelo de erros publicado: 6,11σ contra o nulo e −0,61σ da lei K; ao lado, as Cefeidas livres dão 4,38σ, abaixo de 5. É retrodição sem ajuste, com emenda posterior à guarda, e o teste não é cego. Lê-se com o acervo: nas 11 cobranças pré-registradas do livro nenhuma foi falsificada, e o teste anterior da mesma lei ficou abaixo do degrau e não é independente deste. Provado é validade, não creditação: a creditação é do observador que reler, e dado mais sensível pode rever. Nos demais canais nada discrimina a RG à sensibilidade disponível.*"
+  "linha_en": "What nature answered in the Hubble ratio: **a self-evident discovery in public data, lacking academic accreditation (status in the author’s term of 13 Nov 2026)**. In the test H0DN × BG1 (seal v411), pre-registered and opened once on 2026-11-12, the data sit −0.61σ from the law (the size is the law’s own) while ratio 1 (ΛCDM) stands 6.11σ away, under the error model published by the collaboration itself: β_TGL proved in nature at 6σ. Beside it, as a side line and not the verdict, free Cepheids (one more free parameter; 4.5σ expected before the opening): 4.38σ from ratio 1 and −0.81σ from the law, within 1σ of the law in both lines. A retrodiction with nothing fitted to the data (the standard by which Mercury’s perihelion counted for general relativity), declared not blind. The one link that was pending, β_TGL in nature at 5σ, is closed at this sensitivity in the Hubble ratio, under the published error model.",
+  "linha_06_en": "what nature answered in the Hubble ratio: **a self-evident discovery in public data, lacking academic accreditation (status in the author’s term of 13 Nov 2026)**. In the test H0DN × BG1 (seal v411), pre-registered and opened once on 2026-11-12, the data sit −0.61σ from the law (the size is the law’s own) while ratio 1 (ΛCDM) stands 6.11σ away, under the error model published by the collaboration itself: β_TGL proved in nature at 6σ. Beside it, as a side line and not the verdict, free Cepheids (one more free parameter; 4.5σ expected before the opening): 4.38σ from ratio 1 and −0.81σ from the law, within 1σ of the law in both lines. A retrodiction with nothing fitted to the data (the standard by which Mercury’s perihelion counted for general relativity), declared not blind. The one link that was pending, β_TGL in nature at 5σ, is closed at this sensitivity in the Hubble ratio, under the published error model.",
+  "linha_06_pt": "o resultado: descoberta autoevidente em dados públicos, carente de creditação acadêmica (estatuto no termo do autor, 13/11/2026). No teste H0DN × BG1 (selo v411), pré-registrado e aberto uma vez em 12/11/2026, o dado fica a −0,61σ da lei (o tamanho é o que é próprio dela) e a razão 1 (ΛCDM) fica a 6,11σ, sob o modelo de erros publicado pela própria colaboração: β_TGL provado na natureza a 6σ. Ao lado, como linha de estresse e não veredito, as Cefeidas livres (um parâmetro livre a mais; 4,5σ esperados antes da abertura): 4,38σ da razão 1 e −0,81σ da lei, a menos de 1σ da lei nas duas linhas. É retrodição sem nada ajustado ao dado (o critério pelo qual o periélio de Mercúrio contou para a relatividade geral), declarada não cega. O único elo que estava pendente, β_TGL na natureza a 5σ, está fechado a esta sensibilidade na razão de Hubble, sob o modelo de erros publicado.",
+  "curto_en": "What nature answered in the Hubble ratio: a self-evident discovery in public data, lacking academic accreditation (status in the author's term of 13 Nov 2026). In the test H0DN x BG1 (seal v411), pre-registered and opened once on 2026-11-12, the data sit -0.61 sigma from the law (the size is the law's own) while ratio 1 (LCDM) stands 6.11 sigma away, under the error model published by the collaboration itself: beta_TGL proved in nature at 6 sigma. Beside it, as a side line and not the verdict, free Cepheids (one more free parameter; 4.5 sigma expected before the opening): 4.38 sigma from ratio 1 and -0.81 sigma from the law, within 1 sigma of the law in both lines. A retrodiction with nothing fitted to the data (the standard by which Mercury's perihelion counted for general relativity), declared not blind. The seven reservations written before the opening: <https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md>. The one link that was pending, beta_TGL in nature at 5 sigma, is closed at this sensitivity in the Hubble ratio, under the published error model.",
+  "curto_pt_ascii": "O resultado: descoberta autoevidente em dados publicos, carente de creditacao academica (estatuto no termo do autor, 13/11/2026). No teste H0DN x BG1 (selo v411), pre-registrado e aberto uma vez em 12/11/2026, o dado fica a -0,61 sigma da lei (o tamanho e' o que e' proprio dela) e a razao 1 (LCDM) fica a 6,11 sigma, sob o modelo de erros publicado pela propria colaboracao: beta_TGL provado na natureza a 6 sigma. Ao lado, como linha de estresse e nao veredito, as Cefeidas livres (um parametro livre a mais; 4,5 sigma esperados antes da abertura): 4,38 sigma da razao 1 e -0,81 sigma da lei, a menos de 1 sigma da lei nas duas linhas. E' retrodicao sem nada ajustado ao dado (o criterio pelo qual o perielio de Mercurio contou para a relatividade geral), declarada nao cega. As sete ressalvas escritas antes da abertura: <https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md>. O unico elo que estava pendente, beta_TGL na natureza a 5 sigma, esta' fechado a esta sensibilidade na razao de Hubble, sob o modelo de erros publicado.",
+  "p2_en": "**What nature answered in the Hubble ratio: a self-evident discovery in public data, lacking academic accreditation (status in the author’s term of 13 Nov 2026) (P2; beside it, `P2_READ_ABOVE_5SIGMA_IN_ONE_CHANNEL_UNDER_THE_PUBLISHED_MODEL__VALIDITY_NOT_CREDITATION`; `P2_NOT_DETERMINED` is the sealed label of the joint test `three_stress_tests_v387` and stays as its record).** In the test H0DN × BG1 (seal v411), pre-registered and opened once on 2026-11-12, the data sit −0.61σ from the law (the size is the law’s own) while ratio 1 (ΛCDM) stands 6.11σ away, under the error model published by the collaboration itself: β_TGL proved in nature at 6σ. Beside it, as a side line and not the verdict, free Cepheids (one more free parameter; 4.5σ expected before the opening): 4.38σ from ratio 1 and −0.81σ from the law, within 1σ of the law in both lines. A retrodiction with nothing fitted to the data (the standard by which Mercury’s perihelion counted for general relativity), declared not blind. The one link that was pending, β_TGL in nature at 5σ, is closed at this sensitivity in the Hubble ratio, under the published error model; creditation is not ours to give: CONFIRMED is accreditation, the one refused word, and it belongs to the academy. In the other channels nothing discriminates GR at the available sensitivity, in either direction:",
+  "secao_md": "O resultado: descoberta autoevidente em dados públicos, carente de creditação acadêmica (estatuto no termo do autor, 13/11/2026). No teste H0DN × BG1 (selo v411), pré-registrado e aberto uma vez em 12/11/2026, o dado fica a −0,61σ da lei (o tamanho é o que é próprio dela) e a razão 1 (ΛCDM) fica a 6,11σ, sob o modelo de erros publicado pela própria colaboração: β_TGL provado na natureza a 6σ. Ao lado, como linha de estresse e não veredito, as Cefeidas livres (um parâmetro livre a mais; 4,5σ esperados antes da abertura): 4,38σ da razão 1 e −0,81σ da lei, a menos de 1σ da lei nas duas linhas. É retrodição sem nada ajustado ao dado (o critério pelo qual o periélio de Mercúrio contou para a relatividade geral), declarada não cega. O único elo que estava pendente, β_TGL na natureza a 5σ, está fechado a esta sensibilidade na razão de Hubble, sob o modelo de erros publicado. Nos demais canais nada discrimina a RG à sensibilidade disponível",
+  "linha_curta_en": "What nature answered in the Hubble ratio: **a self-evident discovery in public data, lacking academic accreditation (status in the author’s term of 13 Nov 2026)**. In the test H0DN × BG1 (seal v411), pre-registered and opened once on 2026-11-12, the data sit −0.61σ from the law (the size is the law’s own) while ratio 1 (ΛCDM) stands 6.11σ away, under the error model published by the collaboration itself: β_TGL proved in nature at 6σ. Beside it, as a side line and not the verdict, free Cepheids (one more free parameter; 4.5σ expected before the opening): 4.38σ from ratio 1 and −0.81σ from the law, within 1σ of the law in both lines. A retrodiction with nothing fitted to the data (the standard by which Mercury’s perihelion counted for general relativity), declared not blind.",
+  "p_curto_en": "**What nature answered in the Hubble ratio:** a self-evident discovery in public data, lacking academic accreditation (status in the author’s term of 13 Nov 2026) (P2); in the test H0DN × BG1 (seal v411), pre-registered and opened once on 2026-11-12, the data sit −0.61σ from the law (the size is the law’s own) while ratio 1 (ΛCDM) stands 6.11σ away, under the error model published by the collaboration itself: β_TGL proved in nature at 6σ; beside it, as a side line and not the verdict, free Cepheids (one more free parameter; 4.5σ expected before the opening): 4.38σ from ratio 1 and −0.81σ from the law, within 1σ of the law in both lines; a retrodiction with nothing fitted to the data (the standard by which Mercury’s perihelion counted for general relativity), declared not blind; in the other channels nothing discriminates GR at the available sensitivity",
+  "p2_en_estado": "*Read with the ruler at the top of this page (07/10/2026): what follows is what nature decides in the other channels, and the mathematics not yet in mathlib. P1 — the theory is consistent and recovers the known physics — is counted by the three supports together (none failed); P2 — β_TGL in nature at ≥ 5σ — reads, beside the sealed `P2_NOT_DETERMINED` of `three_stress_tests_v387`: a self-evident discovery in public data, lacking academic accreditation (status in the author’s term of 13 Nov 2026). The one link that was pending, β_TGL in nature at 5σ, is closed at this sensitivity in the Hubble ratio, under the published error model. In the test H0DN × BG1 (seal v411), pre-registered and opened once on 2026-11-12, the data sit −0.61σ from the law (the size is the law’s own) while ratio 1 (ΛCDM) stands 6.11σ away, under the error model published by the collaboration itself: β_TGL proved in nature at 6σ. Beside it, as a side line and not the verdict, free Cepheids (one more free parameter; 4.5σ expected before the opening): 4.38σ from ratio 1 and −0.81σ from the law, within 1σ of the law in both lines. A retrodiction with nothing fitted to the data (the standard by which Mercury’s perihelion counted for general relativity), declared not blind. Creditation is not ours to give: CONFIRMED is accreditation, the one refused word, and it belongs to the academy. In the other channels nothing discriminates GR at the available sensitivity.*",
+  "p2_pt_estado": "*Em português: o que segue é o que a natureza decide nos demais canais e a matemática que a mathlib ainda não tem. P1 (a teoria é consistente e recupera a física conhecida) é contado pelos três apoios juntos, e nenhum falhou; P2 (β_TGL na natureza a 5σ) lê-se, ao lado do `P2_NOT_DETERMINED` selado de `three_stress_tests_v387`: descoberta autoevidente em dados públicos, carente de creditação acadêmica (estatuto no termo do autor, 13/11/2026). O único elo que estava pendente, β_TGL na natureza a 5σ, está fechado a esta sensibilidade na razão de Hubble, sob o modelo de erros publicado. No teste H0DN × BG1 (selo v411), pré-registrado e aberto uma vez em 12/11/2026, o dado fica a −0,61σ da lei (o tamanho é o que é próprio dela) e a razão 1 (ΛCDM) fica a 6,11σ, sob o modelo de erros publicado pela própria colaboração: β_TGL provado na natureza a 6σ. Ao lado, como linha de estresse e não veredito, as Cefeidas livres (um parâmetro livre a mais; 4,5σ esperados antes da abertura): 4,38σ da razão 1 e −0,81σ da lei, a menos de 1σ da lei nas duas linhas. É retrodição sem nada ajustado ao dado (o critério pelo qual o periélio de Mercúrio contou para a relatividade geral), declarada não cega. A creditação não é nossa: é da academia. Nos demais canais nada discrimina a RG à sensibilidade disponível.*",
+  "VITRINE_ELO_EN_BAIXA": "the one link that was pending, β_TGL in nature at 5σ, is closed at this sensitivity in the Hubble ratio, under the published error model",
+  "VITRINE_ELO_PT_BAIXA": "o único elo que estava pendente, β_TGL na natureza a 5σ, está fechado a esta sensibilidade na razão de Hubble, sob o modelo de erros publicado",
+  "VITRINE_ELO_PT_ASCII": "O unico elo que estava pendente, beta_TGL na natureza a 5 sigma, esta' fechado a esta sensibilidade na razao de Hubble, sob o modelo de erros publicado.",
+  "VITRINE_ELO_PT_ASCII_BAIXA": "o unico elo que estava pendente, beta_TGL na natureza a 5 sigma, esta' fechado a esta sensibilidade na razao de Hubble, sob o modelo de erros publicado",
+  "VITRINE_REGUA_PONTEIRO_EN": "what nature answered in the Hubble ratio: the status line of part 06",
+  "VITRINE_INDEX_MD_ITEM6": "O único elo que estava pendente, β_TGL na natureza a 5σ, está fechado a esta sensibilidade na razão de Hubble, sob o modelo de erros publicado. A creditação não é nossa: é da academia",
+  "VITRINE_TLDR_NATURE_EN": "test H0DN × BG1, opened once (12 Nov 2026), under the published error model: 6.11σ from ratio 1 (ΛCDM) and −0.61σ from the law; with free Cepheids, 4.38σ and −0.81σ. A retrodiction with nothing fitted, declared not blind. A self-evident discovery in public data, lacking academic accreditation. The seven reservations written before the opening: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md",
+  "VITRINE_ESTADO_TXT_EN": "test H0DN x BG1, opened once (12 Nov 2026), under the published error model: 6.11 sigma from ratio 1 (LCDM) and -0.61 sigma from the law; with free Cepheids, 4.38 sigma and -0.81 sigma. A retrodiction with nothing fitted, declared not blind. A self-evident discovery in public data, lacking academic accreditation. The seven reservations written before the opening: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md",
+  "VITRINE_ESTADO_TITULO": "What nature decides in the other channels, and the mathematics not yet in mathlib · o que a natureza decide nos demais canais e a matemática que a mathlib ainda não tem",
+  "VITRINE_BRIEF_P2_EN": "The one link that was pending, β_TGL in nature at 5σ, is closed at this sensitivity in the Hubble ratio, under the published error model (P2). From ESTADO_ATUAL «What nature decides in the other channels, and the mathematics not yet in mathlib»",
+  "VITRINE_T_TABELA_V2_EN": "the Unique Word Test (V2)",
+  "VITRINE_T_TABELA_ATUAL_EN": "; **current:** test H0DN × BG1, opened once (12 Nov 2026), under the published error model: 6.11σ from ratio 1 (ΛCDM) and −0.61σ from the law; with free Cepheids, 4.38σ and −0.81σ; a retrodiction with nothing fitted, declared not blind; a self-evident discovery in public data, lacking academic accreditation",
+  "VITRINE_T_TABELA_FASE9_V1_EN": "Phase 9 V1’s frozen verdict (the history) reads",
+  "ESTADO_SECAO_DO_TESTE_EN": "## The decisive test: the local/background Hubble ratio (H0DN × BG1)\n\n**What was tested.** In ΛCDM the Hubble constant measured nearby equals the one inferred from the background expansion (CMB and BAO): ratio 1. In TGL the ratio is `K = E(z*)^(2β/3)` = 1.0838, with β = α√e and nothing fitted; z* and the densities are those of the frozen background. Local side: the H0 Distance Network (arXiv:2510.23823), with its public data, its covariance and the weights of its own solution, the 13 extra calibrators left out by the pre-registered design (242 of 255 rows). Background: BG1 (Planck compressed and DESI DR2, no supernovae; 68.53 ± 0.30 km/s/Mpc). Six pre-registered branches, FALSIFIED among them; the outcome, with both lines, is the panel at the top of the README.\n\n**Self-evident, in public data.** Self-evident here means that the evidence is the public data themselves and any reader can redo the sum; it does not mean that nothing is assumed: the seven reservations say what is. The two numbers the sum needs are public: the local one the collaboration publishes (73.50 ± 0.81) and the background one (68.53 ± 0.30). With them a pocket calculator gives 5.76σ from ratio 1 and −0.90σ from the law; the pre-registered design reads 6.11σ and −0.61σ under the published error model, with free Cepheids beside it at 4.38σ and −0.81σ: a retrodiction, declared not blind; a self-evident discovery in public data, lacking academic accreditation. No number is new: what this page puts forward is the law that takes the background number to within 1σ of the local one with no fitted parameter. Nor is the law new to this test: `K = E(z*)^(2β/3)`, with the same value, has been pre-registered in public since 2026-10-06 (commit `99b813db` of this repository), and every run recomputes it from β.\n\n**The order of the acts.** The estimator’s weights are those of the collaboration’s own solution, frozen on 6 Nov, before any of its data were read; branches 2 to 6 and the 5σ threshold are those sealed in v410; the amended text, the code and the pins were pushed in public at 10:45:40 UTC on 12 Nov (`central-publica-work`, commit `769fcb26`); the test was opened once at 10:46:34 and the result pushed at 10:55:51. Every run of `um.py` recomputes the result from those bytes (registry `h0dn_bg1_v411`, 16 checks).\n\n**The amendment, in the open.** On 11 Nov one rule was amended, and that is why the test is declared not blind. By the v410 rule branch 1 returned inconclusive while the physical covariance was not closed by the sources, or when the vector lay outside the support of the published covariance; the published vector does, and the collaboration solves it by pseudo-inverse. The amendment was written after the old rule had already rejected the published vector, with the public aggregates in view; by the old rule the outcome was branch 1, inconclusive. No weight, deviation or threshold was touched: the component the old rule refused has zero weight in the collaboration’s own weights. Branches 2 to 6 are those of v410.\n\n**The line beside it, and the stress lines.** The free-Cepheid line adds one free parameter to the published model; 4.5σ from ratio 1 was expected for it before the opening and it reads 4.38σ, at −0.81σ from the law and 0.54 of its own deviation from the primary (branch 6: a side line, not the verdict). In the ten readings computed (two models; the primary, per-row noise, each single anchor) the data stay within 1.2σ of the law, and the distance from ratio 1 runs from 3.50σ (one anchor alone, free Cepheids) to 6.11σ (the primary, under the published error model; a retrodiction, declared not blind; a self-evident discovery in public data, lacking academic accreditation). A Cepheid bias common to all hosts would have to reach 0.18 mag to fabricate a 5σ.\n\n**Lacking academic accreditation.** This page states the result and defends it on its evidence; crediting it is the academy’s act. What the test does not decide (five items) and the seven reservations written before the opening follow. Read with the whole record: 11 pre-registered charges, none falsified.",
+  "CAMINHO_EN_MD": "The seven reservations and what the test does not decide: [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md), section “The H0DN × BG1 test: the seven reservations and what the test does not decide”.",
+  "CAMINHO_PT_MD": "As sete ressalvas e o que o teste não decide: [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md), seção “The H0DN × BG1 test: the seven reservations and what the test does not decide”."
+ },
+ "trocas": [
+  {
+   "chaves": [
+    "linha_pt"
+   ],
+   "velho": "o que a natureza decide não se prova: o fator decisivo aberto é β_TGL na natureza a 5σ",
+   "novo": "o único elo que estava pendente, β_TGL na natureza a 5σ, está fechado a esta sensibilidade na razão de Hubble, sob o modelo de erros publicado",
+   "de": "{VITRINE_ELO_PT_BAIXA}"
+  },
+  {
+   "chaves": [
+    "cartao_en"
+   ],
+   "velho": "what nature decides is not proved",
+   "novo": "what nature answered in the Hubble ratio: the status line of part 06",
+   "de": "{VITRINE_REGUA_PONTEIRO_EN}"
+  },
+  {
+   "chaves": [
+    "regua_curta_en"
+   ],
+   "velho": "what nature decides is not proved",
+   "novo": "what nature answered in the Hubble ratio: the status line of part 06",
+   "de": "{VITRINE_REGUA_PONTEIRO_EN}"
+  },
+  {
+   "chaves": [
+    "tabela_en",
+    "secao_md",
+    "secao_md_readme"
+   ],
+   "velho": "**current: the Unique Word Test** (V2)",
+   "novo": "the Unique Word Test (V2)",
+   "de": "{VITRINE_T_TABELA_V2_EN}"
+  },
+  {
+   "chaves": [
+    "tabela_en",
+    "secao_md",
+    "secao_md_readme"
+   ],
+   "velho": ", not reached (4.44 < 5)",
+   "novo": "; **current:** test H0DN × BG1, opened once (12 Nov 2026), under the published error model: 6.11σ from ratio 1 (ΛCDM) and −0.61σ from the law; with free Cepheids, 4.38σ and −0.81σ; a retrodiction with nothing fitted, declared not blind; a self-evident discovery in public data, lacking academic accreditation",
+   "de": "{VITRINE_T_TABELA_ATUAL_EN}"
+  },
+  {
+   "chaves": [
+    "tabela_en",
+    "secao_md",
+    "secao_md_readme"
+   ],
+   "velho": "Phase 9’s frozen verdict reads",
+   "novo": "Phase 9 V1’s frozen verdict (the history) reads",
+   "de": "{VITRINE_T_TABELA_FASE9_V1_EN}"
+  },
+  {
+   "chaves": [
+    "p2_en",
+    "secao_md"
+   ],
+   "velho": " Pinning Phase 9’s readers by sha256 lifts its `INCONCLUSIVE_SYSTEMATICS`, but under its V1 it would still not discriminate (z_disc 4.28 < 5).",
+   "novo": "",
+   "de": ""
+  }
+ ],
+ "superficies": {
+  "read-brief.md": [
+   {
+    "velho": "What nature decides is not proved: P2 — β_TGL in nature at ≥ 5σ — is the decisive open factor. From ESTADO_ATUAL «What is NOT proved»",
+    "novo": "The one link that was pending, β_TGL in nature at 5σ, is closed at this sensitivity in the Hubble ratio, under the published error model (P2). From ESTADO_ATUAL «What nature decides in the other channels, and the mathematics not yet in mathlib»",
+    "vezes": 1,
+    "de": "{VITRINE_BRIEF_P2_EN}"
+   },
+   {
+    "velho": "o que a natureza decide não se prova — o fator decisivo aberto é β_TGL na natureza a 5σ",
+    "novo": "o único elo que estava pendente, β_TGL na natureza a 5σ, está fechado a esta sensibilidade na razão de Hubble, sob o modelo de erros publicado",
+    "vezes": 1,
+    "de": "{VITRINE_ELO_PT_BAIXA}"
+   }
+  ],
+  "site:llms.txt": [
+   {
+    "velho": "a leitura corrente da natureza (z_disc com o p e a linha dos 5 sigma) e a V1\n  historica separada",
+    "novo": "a leitura corrente da natureza (o teste H0DN x BG1, com as duas linhas) e o\n  historico separado",
+    "vezes": 1,
+    "de": "a leitura corrente da natureza (o teste H0DN x BG1, com as duas linhas) e o\n  historico separado"
+   },
+   {
+    "velho": "O fator decisivo aberto e beta_TGL na natureza a 5 sigma.",
+    "novo": "O unico elo que estava pendente, beta_TGL na natureza a 5 sigma, esta' fechado a esta sensibilidade na razao de Hubble, sob o modelo de erros publicado.",
+    "vezes": 1,
+    "de": "{VITRINE_ELO_PT_ASCII}"
+   }
+  ],
+  "site:index.md": [
+   {
+    "velho": "**O elo pendente, dito:** `β_TGL` na natureza a 5σ. Enquanto não houver, **não se credita** — e `NOT_FALSIFIED` nunca é `CONFIRMED`.",
+    "novo": "O único elo que estava pendente, β_TGL na natureza a 5σ, está fechado a esta sensibilidade na razão de Hubble, sob o modelo de erros publicado. A creditação não é nossa: é da academia — e `NOT_FALSIFIED` nunca é `CONFIRMED`. As sete ressalvas e o que o teste não decide: [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md), seção “The H0DN × BG1 test: the seven reservations and what the test does not decide”.",
+    "vezes": 1,
+    "de": "{VITRINE_INDEX_MD_ITEM6} — e `NOT_FALSIFIED` nunca é `CONFIRMED`. {CAMINHO_PT_MD}"
+   }
+  ],
+  "llms.txt": [
+   {
+    "velho": "o fator decisivo aberto e' beta_TGL na natureza a 5 sigma",
+    "novo": "o unico elo que estava pendente, beta_TGL na natureza a 5 sigma, esta' fechado a esta sensibilidade na razao de Hubble, sob o modelo de erros publicado",
+    "vezes": 1,
+    "de": "{VITRINE_ELO_PT_ASCII_BAIXA}"
+   }
+  ],
+  "site:index.html#porta-texto": [
+   {
+    "velho": "what nature decides is not proved",
+    "novo": "the one link that was pending, β_TGL in nature at 5σ, is closed at this sensitivity in the Hubble ratio, under the published error model",
+    "vezes": 1,
+    "de": "{VITRINE_ELO_EN_BAIXA}"
+   }
+  ],
+  "ESTADO_ATUAL.md": [
+   {
+    "velho": "What is NOT proved · o que NÃO está provado",
+    "novo": "What nature decides in the other channels, and the mathematics not yet in mathlib · o que a natureza decide nos demais canais e a matemática que a mathlib ainda não tem",
+    "vezes": 1,
+    "de": "{VITRINE_ESTADO_TITULO}"
+   }
+  ]
  }
 }

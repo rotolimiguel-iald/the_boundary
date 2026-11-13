@@ -54,16 +54,16 @@
   },
   "citation": {
    "arquivo": "CITATION.cff",
-   "bytes": 4804,
-   "sha256": "706d562130ed4db8efa3de2b91b6d59d1f7401d3233008217cbd01add29ce13d",
-   "sha16": "706d562130ed4db8",
+   "bytes": 5531,
+   "sha256": "ea379062b7139d70100de5edcf4570c1c2d790160433b1d091eae91e34bb6667",
+   "sha16": "ea379062b7139d70",
    "papel": "o depósito citável no Zenodo"
   },
   "ledger": {
    "arquivo": "LEDGER.md",
-   "bytes": 975978,
-   "sha256": "1a7d9a0ca58f274e9eb28108531abf27694922d7b1580af7c0253a2100691644",
-   "sha16": "1a7d9a0ca58f274e",
+   "bytes": 986639,
+   "sha256": "c21f258534cabd9cac0ad2178d68f24ce76f5e1dc912508a11d7b6668e26f3a9",
+   "sha16": "c21f258534cabd9c",
    "papel": "o livro-razão (append-only)"
   },
   "handoff": {
@@ -72,6 +72,20 @@
    "sha256": "3cc5c2b089de1091a53310c106d18a46b018fae7a6f77906efdc82a84ad56366",
    "sha16": "3cc5c2b089de1091",
    "papel": "o handoff da custódia (de onde vem «o que mudou»)"
+  },
+  "vitrine_ratificada": {
+   "arquivo": "VITRINE_RATIFICADA_v411.json",
+   "bytes": 93807,
+   "sha256": "1af8f549b8678135df6c0c3e802c5fdebd91c30519f770004e15e081d60c8425",
+   "sha16": "1af8f549b8678135",
+   "papel": "os textos da vitrine ratificados pelo operador (precedência sobre os marcadores README_* do handoff)"
+  },
+  "h0dn_pre_registro": {
+   "arquivo": "EMENDA_E_PRE_REGISTRO_V411.md",
+   "bytes": 35322,
+   "sha256": "06af740a8812a622a6bc0c7fbd252f4d824c1428c7b0c62e313ccd3ae75199c8",
+   "sha16": "06af740a8812a622",
+   "papel": "o pré-registro pinado do teste H0DN × BG1 (o fundo BG1: H0 e o desvio)"
   },
   "git_espelho": {
    "arquivo": "(git log do espelho)",
@@ -798,34 +812,80 @@
    "fonte": "core",
    "chave": "h0dn_bg1_v411/cabeca_do_teste"
   },
+  "h0dn.lei_em_km_s_Mpc.H0_fundo": {
+   "valor": 68.53106407925104,
+   "fonte": "core",
+   "chave": "h0dn_bg1_v411/values/lei_em_km_s_Mpc/H0_fundo"
+  },
+  "h0dn.lei_em_km_s_Mpc.previsao_de_K_para_o_local": {
+   "valor": 74.27445894940053,
+   "fonte": "core",
+   "chave": "h0dn_bg1_v411/values/lei_em_km_s_Mpc/previsao_de_K_para_o_local"
+  },
+  "h0dn.lei_em_km_s_Mpc.lido_primario": {
+   "valor": 73.73799375212401,
+   "fonte": "core",
+   "chave": "h0dn_bg1_v411/values/lei_em_km_s_Mpc/lido_primario"
+  },
+  "h0dn.lei_em_km_s_Mpc.lido_cefeidas_livres": {
+   "valor": 73.34570963587193,
+   "fonte": "core",
+   "chave": "h0dn_bg1_v411/values/lei_em_km_s_Mpc/lido_cefeidas_livres"
+  },
+  "h0dn.lei_em_km_s_Mpc.publicado_pela_colaboracao": {
+   "valor": 73.4988,
+   "fonte": "core",
+   "chave": "h0dn_bg1_v411/values/lei_em_km_s_Mpc/publicado_pela_colaboracao"
+  },
+  "h0dn.lei_em_km_s_Mpc.desvio_publicado": {
+   "valor": 0.8088,
+   "fonte": "core",
+   "chave": "h0dn_bg1_v411/values/lei_em_km_s_Mpc/desvio_publicado"
+  },
+  "h0dn.K": {
+   "valor": 1.0838071748529643,
+   "fonte": "core",
+   "chave": "h0dn_bg1_v411/values/K"
+  },
+  "h0dn.cefeidas_livres.z_nulo_esperado": {
+   "valor": 4.514141429613277,
+   "fonte": "core",
+   "chave": "h0dn_bg1_v411/values/esperado_pelos_agregados/1/z_nulo_esperado"
+  },
+  "h0dn.fundo.desvio_H0": {
+   "valor": 0.301,
+   "fonte": "h0dn_pre_registro",
+   "chave": "«H0 = … ± …» (o fundo BG1)",
+   "como": "regex"
+  },
   "h0dn.outcome": {
    "valor": "NOT_FALSIFIED",
    "fonte": "core",
    "chave": "h0dn_bg1_v411/outcome"
   },
   "h0dn.readme.painel": {
-   "valor": "> **Hubble-ratio test H0DN × BG1** (pre-registered; opened once on 2026-11-12): **6.11σ** against ratio 1 (ΛCDM) and −0.61σ from the K law (β = α√e, no fitted parameter), under the published error model: β_TGL proved in nature at 6σ (validity, not creditation). Beside it: free Cepheids **4.38σ**, below 5. Retrodiction without fit, amended after the guard; not blind. Read with the whole record: 11 pre-registered charges, none falsified.\n*PT — H0DN × BG1 (pré-registrado; aberto uma vez em 12/11/2026): 6,11σ contra a razão 1 (ΛCDM) e −0,61σ da lei K (β = α√e, nenhum parâmetro ajustado), sob o modelo de erros publicado: β_TGL provado na natureza a 6σ (validade, não creditação). Ao lado: Cefeidas livres 4,38σ, abaixo de 5. Retrodição sem ajuste, com emenda posterior à guarda; teste não cego. Lido com o acervo: 11 cobranças pré-registradas, nenhuma falsificada.*",
-   "fonte": "handoff",
-   "chave": "marcador INICIO_README_PAINEL_H0DN_v411",
-   "como": "marcador"
+   "valor": "> **The result: a self-evident discovery in public data, lacking academic accreditation** (status in the author’s term of 13 Nov 2026). With one constant of its own, β = α√e, and no fitted parameter, the law `K = E(z*)^(2β/3)` takes the background Hubble constant (68.53 ± 0.30 km/s/Mpc; z* and the densities are those of the frozen background) to **74.27** for the local one. The H0 Distance Network publishes 73.50 ± 0.81 for its complete network; the pre-registered design (its 13 extra calibrators left out) reads **73.74**. In the test H0DN × BG1 (seal v411), pre-registered and opened once on 2026-11-12, the data sit **−0.61σ** from the law (the size is the law’s own) while ratio 1 (ΛCDM) stands **6.11σ** away, under the error model published by the collaboration itself: β_TGL proved in nature at 6σ. Beside it, as a side line and not the verdict, free Cepheids (one more free parameter; 4.5σ expected before the opening): 4.38σ from ratio 1 and −0.81σ from the law, within 1σ of the law in both lines. The gap between background and local is the Hubble tension; the law gives its size. A retrodiction with nothing fitted to the data (the standard by which Mercury’s perihelion counted for general relativity), declared not blind. How it was tested, why any reader can redo the sum, and the seven reservations written before the opening: `ESTADO_ATUAL.md`.\n> *PT — **O resultado: descoberta autoevidente em dados públicos, carente de creditação acadêmica** (estatuto no termo do autor, 13/11/2026). Com uma só constante própria, β = α√e, e nenhum parâmetro ajustado, a lei `K = E(z*)^(2β/3)` leva a constante de Hubble do fundo (68,53 ± 0,30 km/s/Mpc; z* e as densidades são as do fundo congelado) a **74,27** para a local. A H0 Distance Network publica 73,50 ± 0,81 para a rede completa; o desenho pré-registrado (os 13 calibradores extras fora) lê **73,74**. No teste H0DN × BG1 (selo v411), pré-registrado e aberto uma vez em 12/11/2026, o dado fica a **−0,61σ** da lei (o tamanho é o que é próprio dela) e a razão 1 (ΛCDM) fica a **6,11σ**, sob o modelo de erros publicado pela própria colaboração: β_TGL provado na natureza a 6σ. Ao lado, como linha de estresse e não veredito, as Cefeidas livres (um parâmetro livre a mais; 4,5σ esperados antes da abertura): 4,38σ da razão 1 e −0,81σ da lei, a menos de 1σ da lei nas duas linhas. A distância entre o fundo e a medida local é a tensão de Hubble; a lei dá o tamanho dela. É retrodição sem nada ajustado ao dado (o critério pelo qual o periélio de Mercúrio contou para a relatividade geral), declarada não cega. Como foi testado, por que qualquer leitor refaz a conta e as sete ressalvas escritas antes da abertura: `ESTADO_ATUAL.md`.*",
+   "fonte": "vitrine_ratificada",
+   "chave": "textos/README_PAINEL_H0DN/texto",
+   "como": "texto ratificado pelo operador"
   },
   "h0dn.readme.fase9_v2": {
    "valor": "> Record, Phase 9 V2 (2026-10-23): z_disc = 4.44σ calibrated, z_δ = −1.48σ, ln B = 9.18 (a Bayes factor, not a σ), `NOT_FALSIFIED_POWERED`, below the 5σ step: `REGISTRO_FASE9_V2.md`.\n> *PT — Fase 9 V2 (23/10/2026): z_disc = 4,44σ calibrado, z_δ = −1,48σ, ln B = 9,18 (ln B não é σ), `NOT_FALSIFIED_POWERED`, abaixo do degrau de 5σ.*",
-   "fonte": "handoff",
-   "chave": "marcador INICIO_README_FASE9_V2_v411",
-   "como": "marcador"
+   "fonte": "vitrine_ratificada",
+   "chave": "textos/README_FASE9_V2/texto",
+   "como": "texto ratificado pelo operador"
   },
   "h0dn.readme.primordial_5sigma": {
-   "valor": "PROVED = validity in the kernel; CONFIRMED is accreditation, the one refused word; β_TGL was read in nature above 5σ in one channel, under the published error model: 6.11σ against the null; beside it, free Cepheids give 4.38σ, below 5; validity, not creditation; a retrodiction without fit; the test is not blind.",
-   "fonte": "handoff",
-   "chave": "marcador INICIO_README_PRIMORDIAL_5SIGMA_v411",
-   "como": "marcador"
+   "valor": "PROVED = validity in the kernel; CONFIRMED is accreditation, the one refused word, and it belongs to the academy; what nature answered in the Hubble ratio is the result above.",
+   "fonte": "vitrine_ratificada",
+   "chave": "textos/README_PRIMORDIAL_5SIGMA/texto",
+   "como": "texto ratificado pelo operador"
   },
   "h0dn.readme.status_5sigma": {
-   "valor": "**β_TGL was read in nature above 5σ in one channel**, the Hubble ratio (H0DN × BG1, 12 Nov 2026), under the published error model: 6.11σ against the null; beside it, free Cepheids give 4.38σ, below 5; validity, not creditation; a retrodiction without fit; the test is not blind. *Provada, como validade, em três apoios; ainda não creditada; β_TGL foi lido na natureza acima de 5σ num canal, a razão de Hubble (H0DN × BG1, 12/11/2026), sob o modelo de erros publicado: 6,11σ contra o nulo; ao lado, as Cefeidas livres dão 4,38σ, abaixo de 5; validade, não creditação; retrodição sem ajuste; o teste não é cego.*",
-   "fonte": "handoff",
-   "chave": "marcador INICIO_README_STATUS_5SIGMA_v411",
-   "como": "marcador"
+   "valor": "The one link that was pending, β_TGL in nature at 5σ, is closed at this sensitivity in the Hubble ratio, under the published error model, by the result above, read there with both lines. Creditation is not ours to give: CONFIRMED is accreditation, the one refused word, and it belongs to the academy. *Provada, como validade, em três apoios, e nenhum falhou; o único elo que estava pendente, β_TGL na natureza a 5σ, está fechado a esta sensibilidade na razão de Hubble, sob o modelo de erros publicado, pelo resultado acima, lido ali com as duas linhas; a creditação não é nossa: é da academia.*",
+   "fonte": "vitrine_ratificada",
+   "chave": "textos/README_STATUS_5SIGMA/texto",
+   "como": "texto ratificado pelo operador"
   },
   "h0dn.readme.paragrafo": {
    "valor": "O teste H0DN × BG1 foi aberto uma vez em 12/11/2026, depois do pré-registro público (commit 769fcb26); o resultado está no painel do topo, com a linha das Cefeidas livres ao lado; as sete ressalvas e o que o teste não decide estão na leitura inteira.",
@@ -834,16 +894,22 @@
    "como": "marcador"
   },
   "h0dn.readme.paragrafo_en": {
-   "valor": "**The H0DN × BG1 test:** opened once on 2026-11-12, after the public pre-registration (commit `769fcb26`); the result is in the panel at the top, with the free-Cepheids line beside it; the seven reservations and what the test does not decide: `ESTADO_ATUAL.md`.",
-   "fonte": "handoff",
-   "chave": "marcador INICIO_README_H0DN_EN_v411",
-   "como": "marcador"
+   "valor": "**The H0DN × BG1 test:** what was tested, the order of the acts, the amendment in the open, the line beside it, the stress lines and the seven reservations written before the opening are in `ESTADO_ATUAL.md`, section “The decisive test”; the result is in the panel at the top, with both lines.",
+   "fonte": "vitrine_ratificada",
+   "chave": "textos/README_H0DN_EN/texto",
+   "como": "texto ratificado pelo operador"
   },
   "h0dn.readme.ritos": {
-   "valor": "| Hubble ratio, H0DN × BG1 (2026-11-12) | `NOT_FALSIFIED`, under the published error model: 6.11σ against the null and −0.61σ from the K law; beside it, free Cepheids give 4.38σ, below 5 | the creditation (validity, not creditation); a retrodiction without fit; the test is not blind |\n| Hubble ratio, Phase 9 V2 | `NOT_FALSIFIED_POWERED` (`REGISTRO_FASE9_V2.md`) | β in nature at 5σ: not reached by that test |",
-   "fonte": "handoff",
-   "chave": "marcador INICIO_README_RITOS_v411",
-   "como": "marcador"
+   "valor": "| Hubble ratio, H0DN × BG1 (2026-11-12) | sealed head, in prose: **β_TGL proved in nature at 6σ**, in the language of academic physics, zero free parameters, under the published error model, post-guard amendment, a retrodiction, not blind: 6.11σ from ratio 1 and −0.61σ from the K law; beside it, free Cepheids 4.38σ and −0.81σ (branch 6). Status, in the author’s term (13 Nov 2026): a self-evident discovery in public data, lacking academic accreditation. Outcome word of the registry: `NOT_FALSIFIED` | the creditation; the specificity (the Z against the null measures the Hubble tension; what belongs to the law K is the size, the Z against K); whether the published error budget is right; the independence between local and background; it is not independent evidence from Phases 4, 5 and 9 |",
+   "fonte": "vitrine_ratificada",
+   "chave": "textos/README_RITOS/texto",
+   "como": "texto ratificado pelo operador"
+  },
+  "h0dn.readme.apoios_fecho": {
+   "valor": "**None of the three failed.** **What nature answered in the Hubble ratio is the result at the top of this page.** The tensions measured against β stay below the 5σ kill rule: D1 3.01σ (charge R6, inconclusive) and neutrino m₂ 2.95σ (the ladder 1.64σ (2023) → 2.95σ (2025-12)). Full reading and what is **not claimed**: `ESTADO_ATUAL.md`.",
+   "fonte": "vitrine_ratificada",
+   "chave": "textos/README_APOIOS_FECHO/texto",
+   "como": "texto ratificado pelo operador"
   },
   "zenodo.versao": {
    "valor": "v411",
@@ -876,13 +942,13 @@
    "como": "comparação"
   },
   "ledger.bytes": {
-   "valor": 975978,
+   "valor": 986639,
    "fonte": "ledger",
    "chave": "tamanho do arquivo",
    "como": "stat"
   },
   "ledger.linhas": {
-   "valor": 4570,
+   "valor": 4642,
    "fonte": "ledger",
    "chave": "linhas",
    "como": "contagem"
@@ -1484,6 +1550,11 @@
   },
   {
    "descricao": "o verbatim traz a data da fala",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "descricao": "o H0 do fundo do pré-registro é o do registro selado",
    "ok": true,
    "detalhe": ""
   }

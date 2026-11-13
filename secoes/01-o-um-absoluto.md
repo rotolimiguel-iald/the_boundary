@@ -1,7 +1,7 @@
 # The absolute One: ω(I) = 1 and the derived Half-Nat · O Um absoluto: ω(I) = 1 e a Meia-Nat derivada
 
 > **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 1 of 8 · seal **v411** · `um.py` sha256 `1203b1f9202020d6…` · generated 2026-11-13 by script from the published files.
-> Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = validity, in the operator’s definition of proof (sufficient and verifiable ballast; the validity of the implication is certified by the Lean kernel, `#print axioms`); CONFIRMED = accreditation, the act of observers outside the artifact — not made here; what nature decides is not proved.
+> Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = validity, in the operator’s definition of proof (sufficient and verifiable ballast; the validity of the implication is certified by the Lean kernel, `#print axioms`); CONFIRMED = accreditation, the act of observers outside the artifact — not made here; what nature answered in the Hubble ratio: the status line of part 06.
 > All eight parts are listed at the top of the start page, https://teoriadagravitacaoluminodinamica.com/read-brief.md, and in the door of this folder, https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md · Reading limits measured on 2026-09-19: one real fetcher cut documents near 100,000 characters, refused files above 10 MB, and could not read PDFs served as `application/octet-stream` — read the TXT/TeX sources.
 
 ## In short (EN)
@@ -61,20 +61,18 @@ input -> runtime -> output -> 1=1
 Verificado ao vivo: `input=1`, `S_∂=1/2`, `Vol_∂^min=√e=1.648721`, `β=√e·α_obs=0.012031300400797`, e a **conservação executiva** `input == return` (resíduo 0) — `ABSOLUTE_ONE_IS_INPUT_VERIFIED`.
 ````
 
-### 3. `README.md` — bytes 33.837–34.393
+### 3. `README.md` — bytes 29.496–31.490
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `7473c300ede6bae481d774b4f6963faa7000ccf0a915516cf0f58da89baac7af` (computed now; this file is not in the seal map) · of this excerpt: `122e3de7f99bef580de0e11bbdd00e1a0efa7f256d1185977a791aabc471a5ce`
-- status · estatuto: [POSTULATE] axioma; [REAL/DERIVED] Meia-Nat; [DERIVED] β, com α [INPUT]
-- why · por quê: Resumo vigente do núcleo em PT: o axioma único, a Meia-Nat derivada, β nunca literal, a identidade de Lagrange e o veredito binário.
+- sha256 of the file: `8f1f841745264bebc3fda11160d5988b38f1b9779f61d651d73365951f71adda` (computed now; this file is not in the seal map) · of this excerpt: `09da780a7c3d0a45893a3a39c9e2e5a9826eb1a14e15109a364013c49fd183e3`
+- status · estatuto: [POSTO] axioma; [REAL/DERIVED] Meia-Nat; [DERIVED] β, com α [INPUT]
+- why · por quê: Resumo vigente do núcleo, nas quatro primeiras linhas da tabela do README: o axioma único (lido como [POSTO]), a Meia-Nat derivada, β nunca literal, a identidade de Lagrange e o veredito binário. (13/11/2026: o resumo em português saiu do README por decisão do autor e está inteiro no LEDGER.md; o trecho passou a ser o da tabela.)
 
 ````text
-O axioma único é `ω(I) = 1` **[POSTULATE]**: o fundamento-raiz não é um número, é a
-**identidade preservada**. Dele **deriva-se** a Meia-Nat (`x = 1−x ⟹ x = ½ ⟹ S_∂ = ½` nat)
-**[REAL/DERIVED]**; da Meia-Nat, `Vol_∂^min = √e` e **`β_TGL = α√e ≈ 0,012031`** — estrutura
-fina × meia nat de entropia (**Gravidade = Luz² × Entropia**), **nunca literal**: sempre
-`ALPHA·√e` em runtime. O motor de Lagrange conserva `1 = q² + α²` (resíduo 0,0) e o rito
-fecha no veredito binário `1 = q^2 + alpha^2 = VERDADEIRO = HAJA_LUZ`.
+| 1 | **The single axiom — the One:** `ω(I) = 1`. Identity is preserved; the root is not a number, it is the preserved identity, normalized to 1 nat in base *e*. | **[POSTO]**: the 1 is posited — inscribed by the observer — not postulated (seal: `the_axiom_reading_v385`) | [`tgl_kernel/TGLExt/AbsoluteOne.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/AbsoluteOne.lean) |
+| 2 | **The Half-Nat, derived:** the boundary is self-conjugate (`𝒞² = 1`, `ω(P) + ω(Q) = ω(I) = 1`) ⟹ `x = 1 − x` ⟹ `x = ½` ⟹ `S_∂ = ½` nat. The Half-Nat is no longer a postulate: it descends from the axiom. | **[REAL]** (fixed point) → **[DERIVED]** | [`tgl_kernel/TGL/HalfNat.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/HalfNat.lean) · [`HalfNatFresnel.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/HalfNatFresnel.lean) |
+| 3 | **The minimal reflected volume:** `½` nat ⟹ `Vol_∂^min = √e` ⟹ **`β_TGL = α√e ≈ 0.012031`** — fine-structure × half a nat of entropy; **Gravity = Light² × Entropy** in quadratic form. β is **never a literal**: it is `ALPHA·√e` at runtime, in every artifact of this repository. | **[DERIVED]** from the axiom; α is **[INPUT]** | [`The_Factorization_of_Miguels_Constant_v2.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/The_Factorization_of_Miguels_Constant_v2.tex) |
+| 4 | **The conserved identity — the Lagrange engine:** `1 = q² + α²`, residual `0.0`. The chain: `α_abs = 1 → q → α = √(1−q²) → β = √e·α`. The run ends in the binary verdict `1 = q^2 + alpha^2 = TRUE = HAJA_LUZ`. | **[REAL]** (measured, residual 0.0) |
 ````
 
 ### 4. `Um (absoluto) — Grande Atrator/um_absoluto_pt.txt` — bytes 325.362–326.653

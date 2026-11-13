@@ -1,7 +1,7 @@
 # The three articles and the instruments · Os três artigos e os instrumentos
 
 > **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 8 of 8 · seal **v411** · `um.py` sha256 `1203b1f9202020d6…` · generated 2026-11-13 by script from the published files.
-> Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = validity, in the operator’s definition of proof (sufficient and verifiable ballast; the validity of the implication is certified by the Lean kernel, `#print axioms`); CONFIRMED = accreditation, the act of observers outside the artifact — not made here; what nature decides is not proved.
+> Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = validity, in the operator’s definition of proof (sufficient and verifiable ballast; the validity of the implication is certified by the Lean kernel, `#print axioms`); CONFIRMED = accreditation, the act of observers outside the artifact — not made here; what nature answered in the Hubble ratio: the status line of part 06.
 > All eight parts are listed at the top of the start page, https://teoriadagravitacaoluminodinamica.com/read-brief.md, and in the door of this folder, https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md · Reading limits measured on 2026-09-19: one real fetcher cut documents near 100,000 characters, refused files above 10 MB, and could not read PDFs served as `application/octet-stream` — read the TXT/TeX sources.
 
 ## In short (EN)
@@ -12,16 +12,20 @@ Article A, O Custo Geométrico do Zero Absoluto: haja luz, takes CODATA α [KNOW
 
 > ⚠ **Beside (07/10/2026):** where the synthesis above pairs PROVED with *NOT CONFIRMED by nature*, read the status line of part 06: PROVED in the operator’s definition of proof, on three supports, each with its own status; not yet confirmed = not yet accredited; what nature decides is not proved.
 
+> ⚠ **Beside (13/11/2026):** What nature answered in the Hubble ratio: the status line of part 06.
+
 ## Em resumo (PT)
 
 O Artigo A, O Custo Geométrico do Zero Absoluto: haja luz, toma α CODATA [KNOWN] e √e como entradas e apresenta β_TGL = α√e ≈ 0.0120313 como constante derivada pelo argumento do meio-nat [DERIVED]. Enuncia a lagrangiana TGL e é emitido por tgl_paper_unified.py; DOI conceito 10.5281/zenodo.20563904 [A resumo][README][Zenodo, conferido 19/09]. As formas do axioma nele são linhagem: o paper_PT põe a Meia-Nat como postulado irredutível [A §Meia-Nat], e o site nomeia g = √|L_φ| [site]. O axioma vigente é ω(I) = 1 [POSTULATE], com S_∂ = ½ nat derivada [DERIVED] [brief linha 1]. O Artigo B, A Ponte Einstein–Cartan–Miguel, lê a torção de Cartan como face geométrica de β [README]; o fecho é estrutural e condicional [OPEN]; DOI 10.5281/zenodo.20630106 [B resumo][Zenodo, conferido 19/09]. O Artigo C, Um: Absoluto, é o um.py: um arquivo que verifica por máquina o kernel Lean embutido (1764 arquivos, 34300 termos; rito 12308/12308) e emite o artigo em PT/EN, como PDF e TXT [README][brief]. Selo v411, pin 1203b1f9202020d6, gate TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE: PROVADA como modelo formal [REAL no kernel], não confirmada pela natureza [brief]. O Zenodo 10.5281/zenodo.24196546 guarda a v411 (depositada em 2026-11-13), idêntica byte a byte ao selo; o DOI conceito é 10.5281/zenodo.20999494 [README][brief]. O POA é o instrumento do Artigo A, o coração do critério de sucesso do Teorema 6 [A §sec:poa]. O arquivo T6 pré-registrado diz que o controle da singularidade (stage6) NÃO RODOU, anedótico até rodar [T6], e seu stage1 mantém o axioma da linhagem g = √|L_φ| [T6].
 
+> ⚠ **Beside (13/11/2026):** What nature answered in the Hubble ratio: the status line of part 06.
+
 ## Sources, verbatim · fontes, verbatim
 
-### 1. `README.md` — bytes 22.904–26.197
+### 1. `README.md` — bytes 24.978–28.271
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `7473c300ede6bae481d774b4f6963faa7000ccf0a915516cf0f58da89baac7af` (computed now; this file is not in the seal map) · of this excerpt: `64a8f73a3ce17cf7440dad5b43d42165762859da6fefacc964f50995b35235a3`
+- sha256 of the file: `8f1f841745264bebc3fda11160d5988b38f1b9779f61d651d73365951f71adda` (computed now; this file is not in the seal map) · of this excerpt: `64a8f73a3ce17cf7440dad5b43d42165762859da6fefacc964f50995b35235a3`
 - status · estatuto: [REAL — index of the v368 mirror]
 - why · por quê: The canonical table of the three articles (A, B, C): for each, the canonical file, the PDF/TeX route and the door; current in v368.
 
@@ -69,10 +73,10 @@ POA com honestidade (inclusive nulos) e reconhece a abertura angular como
 \emph{conceito fundador} da geometria modular --- nunca por declarar identidade.
 ````
 
-### 3. `README.md` — bytes 14.670–15.328
+### 3. `README.md` — bytes 16.744–17.402
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `7473c300ede6bae481d774b4f6963faa7000ccf0a915516cf0f58da89baac7af` (computed now; this file is not in the seal map) · of this excerpt: `13c1926b0cb35641ecad381d4e1b5855f38b37bfc261b1f1cdc504eb8f412775`
+- sha256 of the file: `8f1f841745264bebc3fda11160d5988b38f1b9779f61d651d73365951f71adda` (computed now; this file is not in the seal map) · of this excerpt: `13c1926b0cb35641ecad381d4e1b5855f38b37bfc261b1f1cdc504eb8f412775`
 - status · estatuto: [REAL — three commands, v368]
 - why · por quê: How Article C (um.py) is fetched, checked by hash and run; also covers HTTP Range and GitHub not rendering files above 5 MB (the raw URL serves the whole file).
 

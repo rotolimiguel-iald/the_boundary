@@ -111,6 +111,10 @@ def main() -> int:
     from estatuto_tres_apoios import _h0dn_registro_aberto as _h0dn_ab, h0dn_secao_estado as _h0dn_secao
     _h0dn_nome = _h0dn_ab(mundo_json.get("core") or {})
     if _h0dn_nome:
+        # estatuto_h0dn.json v2 (AO LADO 13/11/2026, claude-site-custodia): antes das ressalvas, a secao do teste (texto ratificado, de tools/estatuto_h0dn.json)
+        from estatuto_tres_apoios import h0dn_texto as _h0dn_texto
+        L.extend(_h0dn_texto("ESTADO_SECAO_DO_TESTE_EN", Path(__file__).resolve().parent.parent).split("\n"))
+        L.append("")
         L.extend(_h0dn_secao(_h0dn_nome, mundo_json["core"][_h0dn_nome]))
         L.append("")
     L.append("## The seal · o selo `[REAL — read from the artifact]`")
@@ -926,6 +930,9 @@ def main() -> int:
     L.append("")
     L.append("*Cosmology never becomes mathematical proof. The gate does not move by this page. NOT_FALSIFIED ≠ CONFIRMED.*")
     L.append("")
+    # estatuto_h0dn.json v2 (AO LADO 13/11/2026, claude-site-custodia): os trechos de superficie do ESTADO_ATUAL (o titulo da secao que abrigava o resultado)
+    from estatuto_tres_apoios import h0dn_superficie as _h0dn_sup
+    L = _h0dn_sup("ESTADO_ATUAL.md", "\n".join(L), Path(__file__).resolve().parent.parent).split("\n")
     out = RAIZ / "ESTADO_ATUAL.md"
     tmp = out.with_suffix(".md.tmp")
     _i = [j for j, l in enumerate(L) if "__KB_DESTA_PAGINA__" in l]
