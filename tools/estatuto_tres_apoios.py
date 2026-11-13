@@ -64,6 +64,92 @@ def _milhar(n, sep):
     return format(int(n), ',').replace(',', sep)
 
 
+# estatuto_h0dn.json (AO LADO 12/11/2026, claude-site-custodia): o teste H0DN x BG1 ABERTO (de acordo da gerencia c1). Com um h0dn_bg1_vNNN de
+# opened_once = true no core, os trechos que diziam que beta_TGL na natureza a 5 sigma e o fator decisivo aberto saem de tools/estatuto_h0dn.json,
+# gravado pela custodia (G1, E04) dos marcadores ESTATUTO_* do handoff, conferidos (F67, numeros, cabeca, portao). Sem o arquivo, ou de outra
+# versao ou registro, FALHA. Sem registro aberto, nada muda. O token P2_NOT_DETERMINED do veredito selado three_stress_tests_v387 segue
+# conferido como dado (registro historico; nao muda).
+H0DN_TRECHOS = {
+    'linha_en': 'What nature decides is not proved: the decisive open factor is **β_TGL itself in nature at ≥ 5σ**.',
+    'linha_06_en': 'what nature decides is not proved: the decisive open factor is **β_TGL in nature at ≥ 5σ**.',
+    'linha_06_pt': 'o que a natureza decide não se prova: o fator decisivo aberto é **β_TGL na natureza a 5σ**.',
+    'curto_en': 'What nature decides is not proved: the decisive open factor is beta_TGL itself in nature at 5 sigma.',
+    'curto_pt_ascii': "O que a natureza decide nao se prova: o fator decisivo aberto e' beta_TGL na natureza a 5 sigma.",
+    'p2_en': '**What nature decides is not proved — the decisive open factor is β_TGL itself in nature at ≥ 5σ (P2, `P2_NOT_DETERMINED`).** No channel discriminates GR at the available sensitivity, in either direction:',
+    'secao_md': 'O que a natureza decide não se prova: o fator decisivo aberto é **β_TGL na natureza a 5σ**',
+    'linha_curta_en': 'What nature decides is not proved: the decisive open factor is **β_TGL itself in nature at ≥ 5σ**.',
+    'p_curto_en': '**What nature decides is not proved:** the decisive open factor is β_TGL itself at ≥ 5σ (P2)',
+}
+
+
+def _h0dn_registro_aberto(core):
+    ab = sorted(k for k, r in core.items() if re.fullmatch(r'h0dn_bg1_v\d{3}', k) and isinstance(r, dict) and r.get('opened_once') is True)
+    return ab[-1] if ab else None
+
+
+def ao_lado_h0dn(raiz=RAIZ, core=None, versao=None):
+    """None se o H0DN nao foi aberto; senao o conteudo de tools/estatuto_h0dn.json, conferido (versao do selo, registro, chaves)."""
+    raiz = Path(raiz)
+    if core is None:
+        core = json.loads((raiz / A3 / 'um_absoluto.json').read_text(encoding='utf-8'))['core']
+    if versao is None:
+        versao = json.loads((raiz / A3 / 'um_absoluto_selo.json').read_text(encoding='utf-8')).get('um_version')
+    reg = _h0dn_registro_aberto(core)
+    if not reg:
+        return None
+    p = raiz / 'tools' / 'estatuto_h0dn.json'
+    _exige(p.is_file(), 'o H0DN foi aberto (%s) e tools/estatuto_h0dn.json nao existe: as frases do fator aberto nao saem do molde' % reg)
+    d = json.loads(p.read_text(encoding='utf-8'))
+    _exige(d.get('versao') == versao and d.get('registro') == reg, 'tools/estatuto_h0dn.json e de outra versao ou registro (%s, %s; o selo diz %s, %s)'
+           % (d.get('versao'), d.get('registro'), versao, reg))
+    falta = [k for k in list(H0DN_TRECHOS) + ['p2_en_estado', 'p2_pt_estado'] if not isinstance((d.get('textos') or {}).get(k), str)]
+    _exige(not falta, 'tools/estatuto_h0dn.json sem: ' + ', '.join(falta))
+    return d
+
+
+def _h0dn_ao_lado(v, core, versao, raiz):
+    d = ao_lado_h0dn(raiz, core, versao)
+    if not d:
+        return
+    for k, velho in H0DN_TRECHOS.items():
+        novo = d['textos'][k]
+        _exige(isinstance(v.get(k), str) and v[k].count(velho) == 1, 'H0DN aberto: o trecho do fator aberto nao esta uma vez em %s' % k)
+        _exige('\n' not in novo and (novo.isascii() or not v[k].isascii()), 'H0DN aberto: o texto de %s quebra a linha ou perde o ASCII da chave' % k)
+        v[k] = v[k].replace(velho, novo)
+    # chaves compostas (secao_md leva o p2_en; secao_md_readme, o p_curto_en): o trecho que sobrar em QUALQUER chave sai tambem
+    novos = {}
+    for k, velho in H0DN_TRECHOS.items():
+        novos.setdefault(velho, set()).add(d['textos'][k])
+    for k2 in list(v):
+        if not isinstance(v[k2], str):
+            continue
+        for velho, ns in novos.items():
+            if velho in v[k2]:
+                _exige(len(ns) == 1, 'H0DN aberto: o trecho de %s sobra em %s com textos diferentes por chave'
+                       % ([k for k, x in H0DN_TRECHOS.items() if x == velho], k2))
+                novo = next(iter(ns))
+                _exige(novo.isascii() or not v[k2].isascii(), 'H0DN aberto: o texto que entra em %s perde o ASCII da chave' % k2)
+                v[k2] = v[k2].replace(velho, novo)
+
+
+def h0dn_secao_estado(nome, r):
+    """As linhas da secao do ESTADO_ATUAL com o H0DN aberto: as sete ressalvas e o que o teste nao decide, VERBATIM do registro do core."""
+    rs, nd = r.get('ressalvas_secao8'), r.get('o_que_o_teste_nao_decide')
+    _exige(isinstance(rs, list) and len(rs) == 7 and all(isinstance(x, str) and x.strip() and '\n' not in x for x in rs),
+           'H0DN aberto: %s.ressalvas_secao8 nao sao sete linhas de texto' % nome)
+    _exige(isinstance(nd, list) and len(nd) > 0 and all(isinstance(x, str) and x.strip() and '\n' not in x for x in nd),
+           'H0DN aberto: %s.o_que_o_teste_nao_decide vazio ou fora do formato' % nome)
+    L = ['## The H0DN × BG1 test: the seven reservations and what the test does not decide · as sete ressalvas e o que o teste não decide '
+         '`[REAL — read from the sealed core]`', '',
+         '*Read by script from `um_absoluto.json` → `core.%s`, keys `ressalvas_secao8` and `o_que_o_teste_nao_decide`, verbatim and in Portuguese, '
+         'as registered · lidas por script do core, sem digitação.*' % nome, '',
+         '**As sete ressalvas · the seven reservations** (`ressalvas_secao8`):', '']
+    L += ['%d. %s' % (i, x) for i, x in enumerate(rs, 1)]
+    L += ['', '**O que o teste não decide · what the test does not decide** (`o_que_o_teste_nao_decide`):', '']
+    L += ['- %s' % x for x in nd]
+    return L
+
+
 def ler(raiz=RAIZ):
     raiz = Path(raiz)
     core = json.loads((raiz / A3 / 'um_absoluto.json').read_text(encoding='utf-8'))['core']
@@ -269,6 +355,7 @@ def ler(raiz=RAIZ):
         _exige('KERNEL_%d_OF_%d_FLAGS' % (nk, nk) in ev['verdict'] if ep else True, 'o veredito do estatuto não diz FLAGS')
     v['escada_bandeiras'] = bool(kh4)
     v.update(_textos(v))
+    _h0dn_ao_lado(v, core, versao, raiz)   # estatuto_h0dn.json (AO LADO 12/11/2026, claude-site-custodia)
     return v
 
 

@@ -4,7 +4,7 @@
   "titulo": "tools",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-11-11T05:59:01Z",
+  "gerado_utc": "2026-11-13T07:53:34Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -29,14 +29,24 @@
   "dependencias": null,
   "arquivos": [
     {
+      "nome": "estatuto_h0dn.json",
+      "caminho": "tools/estatuto_h0dn.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/estatuto_h0dn.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/estatuto_h0dn.json",
+      "sha256_16": "c63dcc4762158679",
+      "bytes": 8908
+    },
+    {
       "nome": "estatuto_tres_apoios.py",
       "caminho": "tools/estatuto_tres_apoios.py",
       "papel": "codigo",
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/estatuto_tres_apoios.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/estatuto_tres_apoios.py",
-      "sha256_16": "e97b0e801d70cf36",
-      "bytes": 50499
+      "sha256_16": "62e9436c0810a6ef",
+      "bytes": 56580
     },
     {
       "nome": "gerar_estado_atual.py",
@@ -45,8 +55,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_estado_atual.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/gerar_estado_atual.py",
-      "sha256_16": "54f4e86c20f82202",
-      "bytes": 327129
+      "sha256_16": "afacd5491be21d1f",
+      "bytes": 340294
     },
     {
       "nome": "gerar_portas.py",
@@ -109,8 +119,8 @@
       "bytes": 9398
     }
   ],
-  "total_arquivos_nesta_pasta": 8,
-  "total_arquivos_com_subpastas": 15,
+  "total_arquivos_nesta_pasta": 9,
+  "total_arquivos_com_subpastas": 16,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/tools",
-  "rodape": "gerado por script de git ls-files em 2026-11-11 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-11-13 -- nao editar a mao"
 }

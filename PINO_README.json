@@ -1,19 +1,19 @@
 {
  "schema": "PINO_README_V1",
- "versao": "v410",
+ "versao": "v411",
  "readme": {
   "arquivo": "README.md",
-  "bytes": 40179,
-  "sha256": "a98d2c5e37fcf2f5b336b56a16b6fabb1c9b5150f83db00ca9dd728aa05ae51f",
-  "sha16": "a98d2c5e37fcf2f5",
+  "bytes": 40921,
+  "sha256": "919872d67b7c6448fdd978e8750093518328c8c1377e871890c2353149f60300",
+  "sha16": "919872d67b7c6448",
   "teto_bytes": 40960
  },
- "bloco_portas_sha256": "fc70d2975ff233ed7dcc42cf5454167104ea5a223410e767c3cd741773e06fe3",
- "readme_sem_portas_sha256": "e6a099b137bfb790908f3d082a3be58823f7196615d9ccd2c57017db85990cf8",
+ "bloco_portas_sha256": "e26952e998099aab4479ea0871d93be6565ea78a4091663833ed0449753fe518",
+ "readme_sem_portas_sha256": "b268a17fc0bd36f7a6cc1f0d022a539012e2e022b15f7810e068880d86c7ade9",
  "primordial": {
   "arquivo": "PRIMORDIAL.json",
-  "sha256": "0400f5618ad3b6d9eb80255b1ff3e1c04661e57464d7631c75e5f50e6ac7f8bd",
-  "sha16": "0400f5618ad3b6d9"
+  "sha256": "96105fa72a9a09ed0de6a8425b307a422abb431c93d12ab43ad47c1e6cc48b1e",
+  "sha16": "96105fa72a9a09ed"
  },
  "template": {
   "arquivo": "readme_template.md",
@@ -26,17 +26,22 @@
   "licenca.md": "cf80b9b6dcf1d87f1806e4f12f35fd0acc969d6807f1be13e572d26925df216d",
   "nucleo.md": "fdbdc8ba3ae907765ffcecb5e1da47ead34b16642d46163daf2f73d076660578",
   "p_igual_np.md": "b460ed61c21f216b6de48fd7bbd7982a150b48be12061fe69cb7ffa26fa74422",
-  "PORTA.md": "e98b45bd8049ea31188f56fb393e92615bb8fd69203ff7ecf384765c13fa8e14"
+  "PORTA.md": "a7a4737876aa5f0e5c55e2411dd8e9e71f21903df8e7ccab068863ea1e8e0f73"
  },
  "selo": {
   "arquivo": "um_absoluto_selo.json",
-  "sha256": "d842a644015ca23182348c427f9114143bc8ef2791873021246dadb951e15768"
+  "sha256": "d52de881621067681843d6a68cf9dc6a5d26e1d0b741666b31df696a4ffafdd3"
  },
- "pin_um_py": "5d9497a721c3589ed10309178fcfb72d662844d80c13a667c417c886931f8450",
+ "pin_um_py": "1203b1f9202020d602a7fa8a6bea56d4b48e27ed8baffe98bcbd16e94f97a8e0",
  "gerador": {
-  "readme_pinado.py": "6264cc8d03090bcbeaff9fad22a19fa641169359ef2114d4b8f7e99093f474a8",
-  "primordial.py": "6538861ef4275eebf3eb9827f3bcfeea5935d78d6a7e9eaa3c661613c90e9bd5"
+  "readme_pinado.py": "8151a8e14141bb7edf9d51b67bd7aa22dce068b8224149a185760ffbbddb0fee",
+  "primordial.py": "680f628f389f02e94f747e26b5bc4d425d7686fed78976ff70bf2554bd744d60"
  },
  "regra": "o README so se edita pelo gerador; qualquer byte fora dele reprova o --verificar e a custodia",
- "gerado_utc": "2026-11-11T05:58:50Z"
+ "registro_fase9_v2": {
+  "arquivo": "REGISTRO_FASE9_V2.md",
+  "bytes": 2206,
+  "sha256": "82af0ea823bc9c24c2d6131395dcc89d488267e65ccca30b4a07447c31ac8121"
+ },
+ "gerado_utc": "2026-11-13T07:52:43Z"
 }

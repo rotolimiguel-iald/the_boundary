@@ -1,6 +1,6 @@
-# A PROVA DA GRAVITAÇÃO QUÂNTICA DA TGL — a árvore, lida do kernel (v410)
+# A PROVA DA GRAVITAÇÃO QUÂNTICA DA TGL — a árvore, lida do kernel (v411)
 
-Gerado por script (`arvore_da_prova.py`) em 11/11/2026 02:16 a partir do selo, do resultado, do `um.py` e do kernel em disco.
+Gerado por script (`arvore_da_prova.py`) em 13/11/2026 03:50 a partir do selo, do resultado, do `um.py` e do kernel em disco.
 Nenhum hash, número ou lista de axiomas foi digitado: tudo lido. Onde falta, está escrito **AUSENTE**.
 
 > **Régua (clarificação do operador, 05/09/2026):** *"a régua não proíbe QG provada, proíbe QG confirmada; prova é diferente de juízo."*
@@ -13,9 +13,9 @@ Nenhum hash, número ou lista de axiomas foi digitado: tudo lido. Onde falta, es
 
 | item | valor lido |
 |---|---|
-| `um.py` sha256 (disco) | `5d9497a721c3589ed10309178fcfb72d662844d80c13a667c417c886931f8450` |
+| `um.py` sha256 (disco) | `1203b1f9202020d602a7fa8a6bea56d4b48e27ed8baffe98bcbd16e94f97a8e0` |
 | selo `sha256.um.py` == disco | SIM |
-| bytes | 45,934,788 |
+| bytes | 46,828,680 |
 | teoremas (stdout) | `teoremas limpos: 12308/12308` |
 | selftest | `FAIL_CLOSED_SELFTEST_PASSED` |
 | gate (`qg_closure_verdict`) | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
@@ -194,7 +194,7 @@ Oito ritos pré-registrados com poder de fechar o 1=1 (v314/v315), hoje: GA_MASS
 
 ## 8. O VEREDITO DA GERÊNCIA, em uma frase cada
 
-- **PROVADO** (teorema, trio, zero sorry, lido do selo v410): *do axioma ω(I)=1 e das hipóteses nomeadas H1, H2, H3 segue a pêntada da gravitação emergente — canto de Breuer, Nome = 1, coframe, assinatura de Lorentz e δQ = κδA/(8πG) com o coeficiente de Einstein emergindo; na família de soldas, Clausius no cone nulo ⟹ equação de campo; spin-2 de hélice ±2 sem ghosts; e, na torre, o Lema 3 para TODO perfil (a esperança de Takesaki construída, única, CP, normal, covariante por todo o grupo dos horizontes).* Tudo isso está num termo só: `the_root_of_the_proof_tree` (trio).
+- **PROVADO** (teorema, trio, zero sorry, lido do selo v411): *do axioma ω(I)=1 e das hipóteses nomeadas H1, H2, H3 segue a pêntada da gravitação emergente — canto de Breuer, Nome = 1, coframe, assinatura de Lorentz e δQ = κδA/(8πG) com o coeficiente de Einstein emergindo; na família de soldas, Clausius no cone nulo ⟹ equação de campo; spin-2 de hélice ±2 sem ghosts; e, na torre, o Lema 3 para TODO perfil (a esperança de Takesaki construída, única, CP, normal, covariante por todo o grupo dos horizontes).* Tudo isso está num termo só: `the_root_of_the_proof_tree` (trio).
 - **NÃO PROVADO, e dito com nome**: que a natureza realiza H1–H3 (H3 é INPUT — e por teorema: nenhum relógio do estado o deriva; a lei que escolhe a geometria é da natureza); a ASSINATURA pela rotação modular; O QUATRO; o Lema 3 FORA da torre (álgebra de von Neumann geral: a esperança de Takesaki importada [KNOWN]); a ponte andares → regiões e a escala física da área (053: covariância + calibração comum não dão unicidade); BW/identificação T_c = Δ_c^{1/2} (049–050 construíram o subespaço padrão contínuo; a identificação segue OPEN); a emergência geral. Cada um destes tem OU um falsificador OU uma parede medida — nenhum está "esquecido".
 - **ERRATA AO LADO (CR-08, v392 `b590c0aa80055e2a`, em nome próprio da gerência c1; a linha acima fica como registro):** em «NÃO PROVADO … a emergência geral», a emergência geral como implicação está PAGA no §6 (v338: Clausius em toda tela ⟹ Einstein com Λ único, em carta aberta). Lacuna de fidelidade: a linha misturou a implicação (termo) com o antecedente físico e a ligação ao tipo, que são o que segue aberto; o ligante `LiganteLeiCampoCurvo` (v392) liga a passagem local, CONDICIONAL ao H3 nomeado [REAL].
 - **ERRATA AO LADO (CR-02, v392 `b590c0aa80055e2a`, em nome próprio da gerência c1; a linha acima fica como registro):** a «identificação T_c = Δ_c^{1/2} … segue OPEN» foi copiada do estatuto do lote 046–054. Lacuna de fidelidade: a RAIZ POSITIVA já é termo de kernel (`ChatgptAudit.Continuous050.continuous_modular_positive_square_root`, no trio): T_c é auto-adjunto e positivo e T_c∘T_c = Δ_c. Falta só a UNICIDADE da raiz positiva (a decomposição polar S_c = J T_c) para operador fechado ilimitado: [KNOWN — Kato, Perturbation Theory for Linear Operators, cap. VI §2.7; página a conferir]; a mathlib não a tem para ilimitados. O BW da torre-produto segue parede; fora do caminho [REAL, consulta do crítico CR-02].
