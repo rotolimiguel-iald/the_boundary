@@ -103,7 +103,7 @@ Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para 
 ### 4. `README.md` — bytes 16.744–17.402
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `c52b039f4fc02ad67528e314f7eee106fdbfe28d27bac612b6f86f21224367ac` (computed now; this file is not in the seal map) · of this excerpt: `ea4bd5f5d4d6672ba710065c35a4d2ec08af8945ec2a5b700d75057230daab36`
+- sha256 of the file: `8c5436f4a5936c02a19fb69b29c56c486fa72b25b4fbfe7a43ab1a200fe88881` (computed now; this file is not in the seal map) · of this excerpt: `ea4bd5f5d4d6672ba710065c35a4d2ec08af8945ec2a5b700d75057230daab36`
 - status · estatuto: [REAL — three commands] README do espelho
 - why · por quê: Os três comandos de reprodução (curl, sha256sum, echo 1 | python um.py), a leitura por Range, o limite de renderização do GitHub e a necessidade de clonar para os ritos lerem ../cache.
 

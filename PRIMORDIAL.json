@@ -61,9 +61,9 @@
   },
   "ledger": {
    "arquivo": "LEDGER.md",
-   "bytes": 999552,
-   "sha256": "3fb6fe82ecd8079366a347eccd0aab50f4c544933362ccdf527724b678d49a58",
-   "sha16": "3fb6fe82ecd80793",
+   "bytes": 1000516,
+   "sha256": "5e65e2753c4574db0ca0c6f94c133af66377a2fa4ce9cd3ecf609163a3688e07",
+   "sha16": "5e65e2753c4574db",
    "papel": "o livro-razão (append-only)"
   },
   "handoff": {
@@ -935,13 +935,13 @@
    "como": "comparação"
   },
   "ledger.bytes": {
-   "valor": 999552,
+   "valor": 1000516,
    "fonte": "ledger",
    "chave": "tamanho do arquivo",
    "como": "stat"
   },
   "ledger.linhas": {
-   "valor": 4665,
+   "valor": 4669,
    "fonte": "ledger",
    "chave": "linhas",
    "como": "contagem"

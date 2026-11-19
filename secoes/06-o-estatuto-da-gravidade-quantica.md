@@ -29,7 +29,7 @@ PROVADO [REAL, kernel]: um termo, the_root_of_the_proof_tree, cuja parte (i) é 
 ### 1. `Um (absoluto) — Grande Atrator/A_PROVA_DA_QG_TGL_arvore.md` — bytes 8.088–9.430
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md
-- sha256 of the file: `c722518ce243d14d97e24df82ec234a1216009725ce3fbf688ea9c591acf3291` (computed now; this file is not in the seal map) · of this excerpt: `51381bc4f176e3164d88b16c008c00e0148b9e099da42c92ce17e43cc0019da9`
+- sha256 of the file: `e6ea15e475eb2dff4d91635dff65ac723ac68266fb46f624bd363d00b0145e98` (computed now; this file is not in the seal map) · of this excerpt: `51381bc4f176e3164d88b16c008c00e0148b9e099da42c92ce17e43cc0019da9`
 - status · estatuto: [REAL — kernel]
 - why · por quê: O enunciado Lean do teorema mestre e a leitura das três hipóteses nomeadas e da pêntada; seção autocontida da árvore v368.
 
@@ -58,7 +58,7 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 ### 2. `Um (absoluto) — Grande Atrator/A_PROVA_DA_QG_TGL_arvore.md` — bytes 1.013–2.400
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md
-- sha256 of the file: `c722518ce243d14d97e24df82ec234a1216009725ce3fbf688ea9c591acf3291` (computed now; this file is not in the seal map) · of this excerpt: `cf787825ed75c9f9304c174b789d1a63de4e2ec34b8b18d56b7671ef903bf8a9`
+- sha256 of the file: `e6ea15e475eb2dff4d91635dff65ac723ac68266fb46f624bd363d00b0145e98` (computed now; this file is not in the seal map) · of this excerpt: `b4ba2e05e6e79c789cc9484f8c75d28f59df23d5eeaedd94ec7b893e0e23ef1c`
 - status · estatuto: [REAL — lido do selo]
 - why · por quê: O selo v368 lido por script: sha256 do um.py, o rito, o selftest, a string inteira do gate, os oito ritos do contorno (nenhum FALSIFIED) e zero termos fora do trio.
 
@@ -67,17 +67,17 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 
 | item | valor lido |
 |---|---|
-| `um.py` sha256 (disco) | `1203b1f9202020d602a7fa8a6bea56d4b48e27ed8baffe98bcbd16e94f97a8e0` |
+| `um.py` sha256 (disco) | `3e741dcaa58ef2b8c2044ff264570c5d82b499308b70a84b422170609d25bd3b` |
 | selo `sha256.um.py` == disco | SIM |
-| bytes | 46,828,680 |
-| teoremas (stdout) | `teoremas limpos: 12308/12308` |
+| bytes | 50,167,683 |
+| teoremas (stdout) | `teoremas limpos: 17786/17786` |
 | selftest | `FAIL_CLOSED_SELFTEST_PASSED` |
 | gate (`qg_closure_verdict`) | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | identidade | `1=1=VERDADEIRO=HAJA_LUZ` (`identity_true = True`) |
 | contorno | `[v314 CONTORNO] ritos com poder de fechar o 1=1: 8 ; falsificacao limpa: NENHUMA (todos NOT_FALSIFIED/AWAITING)` |
 | ritos no contorno | `GA_massa_janela`→`GA_MASS_FORM_RETIRED__REFLECTION_WAS_MISREAD_AS_SOURCE__LINEAR_ORDER_IS_GR_STEALTH__BETA_LIVES_IN_RESPONSE`, `piso_dos_vazios`→`TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED`, `neutrino_massa`→`TGL_NEUTRINO_MASS_NOT_FALSIFIED_POWERED`, `neutrino_soma`→`TGL_NEUTRINO_SUM_ARMED_CONSISTENT_WITH_CURRENT_BOUND`, `neutrino_m2_vivo`→`TGL_NU_M2_ARMED_CONSISTENT`, `piso_densidade_v41`→`TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED`, `coma_dephasing`→`COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL`, `coma_cego`→`COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE` |
 | `contorno_broken_v314` | `[]` |
-| entradas no relatório de axiomas | 34300 |
+| entradas no relatório de axiomas | 43468 |
 | termos com axioma FORA do trio | 0  |
 ````
 
