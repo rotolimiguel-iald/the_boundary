@@ -1,8 +1,8 @@
 # Record · registro: the Phase 9 V2 panel (Hubble ratio, opened once on 2026-10-23)
 
-<!-- PINADO por tools/custodia_g1/readme_pinado.py · fonte PRIMORDIAL.json sha16 c5ddc4203cd6d7b6 · pino PINO_README.json · não editar à mão -->
+<!-- PINADO por tools/custodia_g1/readme_pinado.py · fonte PRIMORDIAL.json sha16 7d7040affd7b8c24 · pino PINO_README.json · não editar à mão -->
 
-*This panel stood at the top of the README until the custody of v411, when the H0DN × BG1 test, opened once (registry `h0dn_bg1_v411`), took the top; it moved here from the same generator and the same PRIMORDIAL items, unchanged except for the author’s sentence of 02/11/2026, which is now cited by date and sha256 instead of transcribed, under the author’s rule of 12/11/2026 (verbatim file sha16 `93d812a00da1c8a6`). It stays true about that test.*
+*This panel stood at the top of the README until the custody of v412, when the H0DN × BG1 test, opened once (registry `h0dn_bg1_v411`), took the top; it moved here from the same generator and the same PRIMORDIAL items, unchanged except for the author’s sentence of 02/11/2026, which is now cited by date and sha256 instead of transcribed, under the author’s rule of 12/11/2026 (verbatim file sha16 `93d812a00da1c8a6`). It stays true about that test.*
 
 > **Hubble-ratio test** (Phase 9 V2, pre-registered, opened once on 2026-10-23, frozen verdict function): z_disc = **4.44σ** calibrated (one-sided p = 4.4×10⁻⁶) against the flat-ΛCDM reading of the ladder, for K = E(z*)^{2β/3} with β = α√e fixed by the axiom and zero adjusted parameters · TGL’s own side z_δ = −1.48σ (prior power 5.73σ) · ln B(TGL/ΛCDM) = 9.18 and ln B(TGL/β free) = 2.14 (a Bayes factor, not a σ; fixed β beats free β) · `NOT_FALSIFIED_POWERED` · **below the 5σ step of accreditation (4.44 < 5)**; the calibration `sup_caixa` was the management’s choice (raw 4.29 and −1.88). `NOT_FALSIFIED ≠ CONFIRMED`.
 >

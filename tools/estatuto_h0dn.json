@@ -1,8 +1,8 @@
 {
  "schema": "ESTATUTO_H0DN_V2",
- "versao": "v411",
+ "versao": "v412",
  "registro": "h0dn_bg1_v411",
- "gravado_por": "Central de Patentes/tools/custodia_g1/h0dn.py (E04), dos marcadores ESTATUTO_* e VITRINE_* do handoff da v411 (com a vitrine ratificada por cima, se houver), conferidos",
+ "gravado_por": "Central de Patentes/tools/custodia_g1/h0dn.py (E04), dos marcadores ESTATUTO_* e VITRINE_* do handoff da v412 (com a vitrine ratificada por cima, se houver), conferidos",
  "regra": "o texto de cada chave substitui SO o trecho listado em H0DN_TRECHOS (estatuto_tres_apoios.py) ou a linha do P2 (gerar_estado_atual.py); `trocas` diz as chaves do estatuto em que cada trecho velho sai (uma vez em cada); `superficies`, o trecho que sai de cada superficie gerada",
  "textos": {
   "linha_en": "What nature answered in the Hubble ratio: **a self-evident discovery in public data, lacking academic accreditation (status in the author’s term of 13 Nov 2026)**. In the test H0DN × BG1 (seal v411), pre-registered and opened once on 2026-11-12, the data sit −0.61σ from the law (the size is the law’s own) while ratio 1 (ΛCDM) stands 6.11σ away, under the error model published by the collaboration itself: β_TGL proved in nature at 6σ. Beside it, as a side line and not the verdict, free Cepheids (one more free parameter; 4.5σ expected before the opening): 4.38σ from ratio 1 and −0.81σ from the law, within 1σ of the law in both lines. A retrodiction with nothing fitted to the data (the standard by which Mercury’s perihelion counted for general relativity), declared not blind. The one link that was pending, β_TGL in nature at 5σ, is closed at this sensitivity in the Hubble ratio, under the published error model.",

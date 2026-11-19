@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/fontes_pinadas",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-11-13T22:29:18Z",
+  "gerado_utc": "2026-11-19T09:43:15Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator",
@@ -56,12 +56,12 @@
       "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/MAPA_FONTES_PINADAS.json",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas/MAPA_FONTES_PINADAS.json",
-      "sha256_16": "5b4ffc9a6a953da0",
-      "bytes": 348734
+      "sha256_16": "9534d9b85b58d49c",
+      "bytes": 349194
     }
   ],
   "total_arquivos_nesta_pasta": 1,
   "total_arquivos_com_subpastas": 580,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_pinadas",
-  "rodape": "gerado por script de git ls-files em 2026-11-13 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-11-19 -- nao editar a mao"
 }
