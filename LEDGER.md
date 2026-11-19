@@ -4659,3 +4659,7 @@ poderia cair vale mais do que um que não diz.*
 
 > ⚠ **Beside (v385):** where the axiom `ω(I) = 1` is tagged **[POSTULATE]** above, read **[POSTO]**: the 1 is posited — inscribed by the observer (`echo 1 | python um.py`; without it the program locks) — not postulated (seal: `the_axiom_reading_v385`).
 ```
+
+### The Zenodo deposit of v412 (2026-11-19)
+
+Beside the custody of v412 (written on 2026-11-19 by the custody session of the Central, after the operator’s deposit): the operator deposited v412 on Zenodo, **[10.5281/zenodo.24367035](https://doi.org/10.5281/zenodo.24367035)** (concept DOI 10.5281/zenodo.20999494, all versions; record title «Um: Absoluto», version «412», published 2026-11-19, open access). The 15 deposited files are byte-identical by md5, read from the public record (API) and recomputed here: 13 to the Nós (`um.py` sha256 `3e741dcaa58ef2b8…`, the seal, the core, the articles PT/EN, the canonical form, the manifest, the quantum pillar, the lineage diary, the design and the proof tree) and 2 doors (`PORTA.md`, `PORTA.json`) to the folder «Um (absoluto) — Grande Atrator» of this repository (`PORTA.md` as of commit `555a3d79`, `PORTA.json` as of commit `555a3d79`: the custody commit of v412). The previous deposit holds v411 (10.5281/zenodo.24196546). `CITATION.cff` now cites v412; the site links to the latest version. A deposit is an archive, not accreditation; the gate did not move.

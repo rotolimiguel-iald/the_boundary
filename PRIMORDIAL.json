@@ -54,16 +54,16 @@
   },
   "citation": {
    "arquivo": "CITATION.cff",
-   "bytes": 5517,
-   "sha256": "f6ff0687e093f6a1951387b7f6632b14d16cf99cb58f202a102ebc4702a0ed61",
-   "sha16": "f6ff0687e093f6a1",
+   "bytes": 5690,
+   "sha256": "f0dbadeb79ec015c6699f7e6207ba59acf66311bb977b34bf2ce8078762cf2d3",
+   "sha16": "f0dbadeb79ec015c",
    "papel": "o depósito citável no Zenodo"
   },
   "ledger": {
    "arquivo": "LEDGER.md",
-   "bytes": 998427,
-   "sha256": "18858097de8e33324af5a4c0ae94aa960fc153296af1df8acd2e9ee4aaf786bd",
-   "sha16": "18858097de8e3332",
+   "bytes": 999552,
+   "sha256": "3fb6fe82ecd8079366a347eccd0aab50f4c544933362ccdf527724b678d49a58",
+   "sha16": "3fb6fe82ecd80793",
    "papel": "o livro-razão (append-only)"
   },
   "handoff": {
@@ -905,43 +905,43 @@
    "como": "marcador"
   },
   "zenodo.versao": {
-   "valor": "v411",
+   "valor": "v412",
    "fonte": "citation",
    "chave": "Zenodo deposit of vNNN",
    "como": "regex"
   },
   "zenodo.data": {
-   "valor": "2026-11-13",
+   "valor": "2026-11-19",
    "fonte": "citation",
    "chave": "deposited AAAA-MM-DD",
    "como": "regex"
   },
   "zenodo.pin16": {
-   "valor": "1203b1f9202020d6",
+   "valor": "3e741dcaa58ef2b8",
    "fonte": "citation",
    "chave": "um.py sha256 (16)",
    "como": "regex"
   },
   "zenodo.doi": {
-   "valor": "10.5281/zenodo.24196546",
+   "valor": "10.5281/zenodo.24367035",
    "fonte": "citation",
    "chave": "doi",
    "como": "regex"
   },
   "zenodo.mesmo_selo": {
-   "valor": false,
+   "valor": true,
    "fonte": "citation",
    "chave": "zenodo.versao == selo.versao",
    "como": "comparação"
   },
   "ledger.bytes": {
-   "valor": 998427,
+   "valor": 999552,
    "fonte": "ledger",
    "chave": "tamanho do arquivo",
    "como": "stat"
   },
   "ledger.linhas": {
-   "valor": 4661,
+   "valor": 4665,
    "fonte": "ledger",
    "chave": "linhas",
    "como": "contagem"
@@ -965,19 +965,19 @@
    "como": "git"
   },
   "custodia.commit_espelho": {
-   "valor": "dc61e0c021faa006878f9c5c7dc63bcf49012efe",
+   "valor": "555a3d797d68c9386719aebc2b67d9258e854428",
    "fonte": "git_espelho",
    "chave": "git log -1 --grep='^custodia(vNNN)'",
    "como": "git"
   },
   "custodia.versao_do_commit": {
-   "valor": "v411",
+   "valor": "v412",
    "fonte": "git_espelho",
    "chave": "assunto do commit",
    "como": "regex"
   },
   "custodia.data_do_commit": {
-   "valor": "2026-11-13",
+   "valor": "2026-11-19",
    "fonte": "git_espelho",
    "chave": "data do commit",
    "como": "git"
@@ -995,7 +995,7 @@
    "como": "PORTA.json"
   },
   "portas.doi_um_absoluto": {
-   "valor": "https://doi.org/10.5281/zenodo.24196546",
+   "valor": "https://doi.org/10.5281/zenodo.24367035",
    "fonte": "porta",
    "chave": "doi_um_absoluto",
    "como": "PORTA.json"

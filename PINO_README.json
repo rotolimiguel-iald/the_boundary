@@ -3,17 +3,17 @@
  "versao": "v412",
  "readme": {
   "arquivo": "README.md",
-  "bytes": 40742,
-  "sha256": "8903a0b6725af16714f3e3c5878a3792cae53256e19bc69b8fc1ca038e65a70e",
-  "sha16": "8903a0b6725af167",
+  "bytes": 40635,
+  "sha256": "c52b039f4fc02ad67528e314f7eee106fdbfe28d27bac612b6f86f21224367ac",
+  "sha16": "c52b039f4fc02ad6",
   "teto_bytes": 40960
  },
- "bloco_portas_sha256": "47c804e258e13ade2f883a513c689370b24eeccfec8c030efedb52e7cf9c75e6",
- "readme_sem_portas_sha256": "6a554fe46220a027662733184e8fa4c10952c20bf7adbdcc2f0c46b8a6aa2412",
+ "bloco_portas_sha256": "2c8dbe24bd744a794a92b5bac4892690136b7e9ee56cf0a3cb8deeaab90be0b6",
+ "readme_sem_portas_sha256": "12a9a4229f80f04de984336c7499c0415c82d8c510028fa667a0fbf255469878",
  "primordial": {
   "arquivo": "PRIMORDIAL.json",
-  "sha256": "7d7040affd7b8c24b8aa57460e7f321d8fb50ce876cb5d818ff7ddf6a22dede1",
-  "sha16": "7d7040affd7b8c24"
+  "sha256": "e3f80d1f41b15bbe571426b3d2ae93bfdb3eeab199f80252c2e8254ba8ab7252",
+  "sha16": "e3f80d1f41b15bbe"
  },
  "template": {
   "arquivo": "readme_template.md",
@@ -41,7 +41,7 @@
  "registro_fase9_v2": {
   "arquivo": "REGISTRO_FASE9_V2.md",
   "bytes": 2384,
-  "sha256": "08f4665a581417eb3431127dac0f3e8a0f0ae6c4250776b14c0b6cb7662a1e9b"
+  "sha256": "64e34f7a4252ff44bf40eee2a28e83ae958dd936cd0c8e80adb7aa66e1a372dc"
  },
- "gerado_utc": "2026-11-19T09:42:25Z"
+ "gerado_utc": "2026-11-19T13:26:03Z"
 }
