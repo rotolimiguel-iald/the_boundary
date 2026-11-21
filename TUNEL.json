@@ -471,8 +471,8 @@
   {
    "path": "ESTADO_ATUAL.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md",
-   "bytes": 339459,
-   "sha256_16": "539acbff57f30d5e",
+   "bytes": 340136,
+   "sha256_16": "7a42594068c5ab98",
    "papel": "documento"
   },
   {
@@ -29753,7 +29753,7 @@
    "path": "read-brief.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md",
    "bytes": 24535,
-   "sha256_16": "722b7df1189f7ea2",
+   "sha256_16": "ab229728dc5813b5",
    "papel": "documento"
   },
   {
@@ -29794,8 +29794,8 @@
   {
    "path": "secoes/06-o-estatuto-da-gravidade-quantica.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/06-o-estatuto-da-gravidade-quantica.md",
-   "bytes": 20707,
-   "sha256_16": "1f3130a4807ba42b",
+   "bytes": 20703,
+   "sha256_16": "6bac05a7d43a5afb",
    "papel": "documento"
   },
   {
@@ -29843,8 +29843,8 @@
   {
    "path": "tools/gerar_estado_atual.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_estado_atual.py",
-   "bytes": 356125,
-   "sha256_16": "9584dc2bf2afc59f",
+   "bytes": 359680,
+   "sha256_16": "f3f4c529c9345ede",
    "papel": "codigo"
   },
   {

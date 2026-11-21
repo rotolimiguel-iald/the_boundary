@@ -39,6 +39,50 @@ def sha16(p: Path) -> str:
     return hashlib.sha256(p.read_bytes()).hexdigest()[:16]
 
 
+FECHO_DA_PAGINA = "*Cosmology never becomes mathematical proof. The gate does not move by this page. NOT_FALSIFIED ≠ CONFIRMED.*"
+CABECALHO_DA_LINHAGEM = ("## The lineage of the seals and custodies · a linhagem dos selos e das custódias "
+                         "`[REAL — the arcs and every custody since v351, read by script; unchanged and in the same order]`")
+
+
+def _reordenar_pagina(L):
+    """21/11/2026 (gerencia c1, por ordem do operador; aviso L02 da custodia v413: «Reading order» comecava depois do caractere 330.000, e a
+    pagina quebrava a regra que ensina). A ORDEM DA PAGINA: o cabecalho; a ordem de leitura, as portas diretas e o «Reproduce it»; as secoes do
+    estado, na ordem relativa de antes (os tres apoios, o teste decisivo, as ressalvas, o selo, o que esta' provado, a natureza); e, por ultimo,
+    a LINHAGEM (os blocos «### The arc …» e «### vNNN · the custody», que viviam dentro do selo), intacta e na mesma ordem; a frase de fecho
+    fica no fim. Nada e' cortado, reescrito nem duplicado: a guarda confere o multiconjunto das linhas nao vazias (menos o cabecalho novo)."""
+    from collections import Counter
+    idx = [i for i, l in enumerate(L) if l.startswith("## ")]
+    assert idx, "a pagina sem secoes ## -- PARAR"
+    pre = L[:idx[0]]
+    secs = [L[a:b] for a, b in zip(idx, idx[1:] + [len(L)])]
+
+    def tira(prefixo):
+        ach = [s for s in secs if s[0].startswith(prefixo)]
+        assert len(ach) == 1, ("secao nao achada exatamente uma vez -- PARAR", prefixo, len(ach))
+        secs.remove(ach[0])
+        return ach[0]
+
+    leitura, portas, reproduza, selo = tira("## Reading order"), tira("## Direct doors"), tira("## Reproduce it"), tira("## The seal")
+    k = next((i for i, l in enumerate(selo) if l.startswith("### ")), None)
+    selo_proprio, linhagem = (selo[:k], selo[k:]) if k is not None else (selo, [])
+    fecho = [l for l in leitura if l.strip() == FECHO_DA_PAGINA]
+    leitura = [l for l in leitura if l.strip() != FECHO_DA_PAGINA]
+    pos = [i for i, s in enumerate(secs) if s[0].startswith("## What is PROVED")]
+    assert len(pos) == 1, "sem a secao «What is PROVED» -- PARAR"
+    estado = secs[:pos[0]] + [selo_proprio] + secs[pos[0]:]
+    nova = pre + leitura + portas + reproduza + [l for s in estado for l in s]
+    if linhagem:
+        nova += [CABECALHO_DA_LINHAGEM, ""] + linhagem
+    if fecho:
+        nova += [""] + fecho + [""]
+    a = Counter(l for l in L if l.strip())
+    b = Counter(l for l in nova if l.strip())
+    if linhagem:
+        b[CABECALHO_DA_LINHAGEM] -= 1
+    assert a == +b, "a reordenacao cortou ou duplicou linhas -- PARAR"
+    return nova
+
+
 def main() -> int:
     d = RAIZ / A3
     selo = json.loads((d / "um_absoluto_selo.json").read_text(encoding="utf-8"))
@@ -917,7 +961,7 @@ def main() -> int:
     L.append("")
     L.append("The kernel alone: `cd \"%s/Lean/tgl_kernel\" && lake build` (Lean 4 v4.31.0 + mathlib pinned in `lake-manifest.json`); then `#print axioms` of any term in [`tgl_kernel_proof_manifest.json`](%s). GitHub does not render `um.py` (above 5 MB): the raw link above serves the whole file, byte-exact (`* -text`)." % (A3, raw(A3 + "/Lean/tgl_kernel_proof_manifest.json")))
     L.append("")
-    L.append("To reproduce the nature rites v340\u2013v350 as sealed, clone the repository (not only `um.py`): they read their results from `../cache` by hash \u2014 see *Nature answers* above.")
+    L.append("To reproduce the nature rites v340\u2013v350 as sealed, clone the repository (not only `um.py`): they read their results from `../cache` by hash \u2014 see *Nature answers* below.")   # 21/11/2026: \u00ababove\u00bb -> \u00abbelow\u00bb (a reordenacao da pagina poe a natureza depois do \u00abReproduce it\u00bb)
     L.append("")
     L.append("## Direct doors · portas diretas")
     L.append("")
@@ -947,6 +991,9 @@ def main() -> int:
     L.append("")
     L.append("Many fetchers cut a document after a few hundred KB. Sizes measured now, smallest first; each file stands on its own:")
     L.append("")
+    # 21/11/2026 (gerencia c1, por ordem do operador; aviso L02 da custodia v413): a propria pagina na ordem de quem trunca
+    L.append("This page is itself ordered for readers that truncate: this list, the direct doors and the three commands come first, then the state (the three supports, the decisive test, the seal, what is proved, what nature answered); the lineage of every seal and custody since v351, the long part, closes the page. · Esta página já vem na ordem de quem trunca: esta lista, as portas e os três comandos primeiro; depois o estado; a linhagem dos selos e das custódias, a parte longa, no fim.")
+    L.append("")
     def _kb(rel):
         if rel == "ESTADO_ATUAL.md":
             return "__KB_DESTA_PAGINA__"   # errata 19/09 (v368): medido depois de escrita (antes: "about 12 KB", fixo)
@@ -971,6 +1018,7 @@ def main() -> int:
     # estatuto_h0dn.json v2 (AO LADO 13/11/2026, claude-site-custodia): os trechos de superficie do ESTADO_ATUAL (o titulo da secao que abrigava o resultado)
     from estatuto_tres_apoios import h0dn_superficie as _h0dn_sup
     L = _h0dn_sup("ESTADO_ATUAL.md", "\n".join(L), Path(__file__).resolve().parent.parent).split("\n")
+    L = _reordenar_pagina(L)   # 21/11/2026: A ORDEM DA PAGINA (ver a funcao)
     out = RAIZ / "ESTADO_ATUAL.md"
     tmp = out.with_suffix(".md.tmp")
     _i = [j for j, l in enumerate(L) if "__KB_DESTA_PAGINA__" in l]
