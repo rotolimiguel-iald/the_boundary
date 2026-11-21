@@ -6,7 +6,7 @@ porque as pastas canonicas tem acento, travessao e parenteses. O tunel entrega t
 uma vez: **[`TUNEL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json)** traz cada arquivo com a URL raw direta, o tamanho, o
 hash e o papel. **Uma requisicao, zero navegacao, zero adivinhacao.**
 
-**Deposito citavel do Um: Absoluto:** Zenodo [10.5281/zenodo.24367035](https://doi.org/10.5281/zenodo.24367035) guarda a **v412** (um.py 3e741dcaa58ef2b8, depositada em 2026-11-19), byte-identica AQUELE selo.
+**Deposito citavel do Um: Absoluto:** Zenodo [10.5281/zenodo.24367035](https://doi.org/10.5281/zenodo.24367035) guarda a **v412** (um.py 3e741dcaa58ef2b8, depositada em 2026-11-19), byte-identica AQUELE selo. O selo corrente desta arvore e' **v413**, mais novo que o deposito (versao nova no Zenodo e' ato do operador).
 
 ## Os atalhos (ASCII, sem acento)
 
@@ -43,4 +43,4 @@ hash e o papel. **Uma requisicao, zero navegacao, zero adivinhacao.**
 Porta acima: [`PORTA.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md) · [`llms.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt) · site: <https://teoriadagravitacaoluminodinamica.com>
 
 *Gerado por `tools/gerar_portas.py` a partir de `git ls-files`. URL nunca digitada,
-hash lido do arquivo. 4228 arquivos mapeados.*
+hash lido do arquivo. 4256 arquivos mapeados.*

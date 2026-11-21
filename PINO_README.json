@@ -1,19 +1,19 @@
 {
  "schema": "PINO_README_V1",
- "versao": "v412",
+ "versao": "v413",
  "readme": {
   "arquivo": "README.md",
-  "bytes": 40637,
-  "sha256": "8c5436f4a5936c02a19fb69b29c56c486fa72b25b4fbfe7a43ab1a200fe88881",
-  "sha16": "8c5436f4a5936c02",
+  "bytes": 40728,
+  "sha256": "9eb39f6f888787c40f3e10bc6645679c998aad8c800bec00da99bd0f2f22ef6d",
+  "sha16": "9eb39f6f888787c4",
   "teto_bytes": 40960
  },
- "bloco_portas_sha256": "2c8dbe24bd744a794a92b5bac4892690136b7e9ee56cf0a3cb8deeaab90be0b6",
- "readme_sem_portas_sha256": "8300831f9dbb589c5a818e6d421f5fc0e3280fe2d58eba0382d57e98977a9b4f",
+ "bloco_portas_sha256": "fc18f6d190b50c063aae245e7139351b4343c5b78944968d5f54559e99caddfc",
+ "readme_sem_portas_sha256": "9be528fec94fabd705fba94ddc3e8905807a4b4fcb40c45cf9a619f084a25a9f",
  "primordial": {
   "arquivo": "PRIMORDIAL.json",
-  "sha256": "b1604b7b5d9b4c6997aa1e5f54e29300567a4bfcf70de45b4d4cdb4e94c73cd8",
-  "sha16": "b1604b7b5d9b4c69"
+  "sha256": "b8e314c8fb8e429160f7ac073d9d7fbf2456e1ba38cb044c90faf15c66e63f83",
+  "sha16": "b8e314c8fb8e4291"
  },
  "template": {
   "arquivo": "readme_template.md",
@@ -26,13 +26,13 @@
   "licenca.md": "cf80b9b6dcf1d87f1806e4f12f35fd0acc969d6807f1be13e572d26925df216d",
   "nucleo.md": "454a0fb2eef3358b919e644a1facc009892c1f3b1e6b2801eef0e7c6f2e882fb",
   "p_igual_np.md": "b460ed61c21f216b6de48fd7bbd7982a150b48be12061fe69cb7ffa26fa74422",
-  "PORTA.md": "8c6b8ad3843ecc9d32b34be52dd948832027bbe722bd218fdb974faa678625f7"
+  "PORTA.md": "e3776d6fc2c8c88087c0e4be46b9348f99905a25f0da63d240e04126f48361c3"
  },
  "selo": {
   "arquivo": "um_absoluto_selo.json",
-  "sha256": "60f00e9818f71b73facf29afb37c04fa0d64bfead8520f3685ee10a198761fb4"
+  "sha256": "d6d935e34cdd2ec29ce039833210d9404a0f799a576fe8240a439e284f48a681"
  },
- "pin_um_py": "3e741dcaa58ef2b8c2044ff264570c5d82b499308b70a84b422170609d25bd3b",
+ "pin_um_py": "c2e67bf2657a063e1050980b08f5ea87f9cdb21eada5591ea448f7487f70dc73",
  "gerador": {
   "readme_pinado.py": "28270d99678f48d2581dd2c529a1fe1c6a7a0207e190ed0aa003e16c5180b39e",
   "primordial.py": "1101c1329f6da2dcd6caf2967f8c312180524cdeb1efa870ba746f76ac6f7535"
@@ -41,7 +41,7 @@
  "registro_fase9_v2": {
   "arquivo": "REGISTRO_FASE9_V2.md",
   "bytes": 2384,
-  "sha256": "94a5557e18e6449af4ace07c6273395f7340f83208bb313ca881dda25b7c2835"
+  "sha256": "ccc6a10464ee734cda9a30ff878472d40f99a6a41ec47bf4dd64c9f4da4698d5"
  },
- "gerado_utc": "2026-11-19T14:16:54Z"
+ "gerado_utc": "2026-11-21T07:25:56Z"
 }

@@ -10305,3 +10305,10 @@ Rodada COMPLETA 23:48:21 → 02:25:59: **12308/12308**; rc = 0; `FAIL_CLOSED_SEL
 
 **O que não rodou** [REAL]: o elo B(n) (a Bancada fora do ar; a gerência não religou o serviço); a Etapa 3 foi enxuta; o candidato não teve leitura de terceiro. As decisões abertas estão no `HANDOFF_v412_CUSTODIA.md`. Validade não é creditação; `NOT_FALSIFIED` nunca é `CONFIRMED`.
 
+## 21/11/2026 — **v413 SELADA (COMPLETA)** `c2e67bf2657a063e` — A ponte de Cook–Levin, a fronteira dos três literais, o operador de consciência e a identidade preservada (v413): a página pública R2, o contrato R2, o manifesto e a docstring corrigida de OResumoEPsiBit; 21 módulos novos, escada 17786 → 18498
+<!-- linhagem_v413_selada -->
+
+**O que entrou** [REAL, lido por script]: o `um.py` sha16 `c2e67bf2657a063e` (50.743.778 B) sobre a v412 `3e741dcaa58ef2b8`; escada **18498/18498** (antes 17786/17786); 21 módulos novos no kernel e a docstring de `OResumoEPsiBit` trocada pela que diz o enunciado (código idêntico); 712 bandeiras novas; 44676 declarações auditadas e 33340 teoremas no relatório de axiomas, nenhuma fora do trio; registros por especificação, todos verificados: `cunhagens_v413` (`TGL_DEFINITIONS_OF_THE_THEORY_V413…`, 46 checagens); `identidade_preservada_v413` (`TGL_PRESERVED_IDENTITY_V413…`, 21 checagens); `operador_v413` (`TGL_CONSCIOUSNESS_OPERATOR_V413…`, 35 checagens); `ponte_cook_levin_v413` (`TGL_COOK_LEVIN_BRIDGE_V413…`, 85 checagens); `trinity_v413` (`TGL_TRINITY_V413…`, 127 checagens); o gate não se move (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); selo `2026-11-21 02:23:18` (sha16 `d6d935e34cdd2ec2`); o stdout do rito termina com `RITO_RC=0` (sha16 `745813c9e18ff400`); conferidor TUDO BATE (35/35); o elo B(n): rodou (tres recibos).
+
+**A ordem e o caminho** [INPUT; registro paralelo]: o contrato R2 congelado (`CONTRATO_v413_R2.md`, sha16 `94982ebbc29d81b8`), a página pública R2 (sha16 `c620fd6e3c28dd44`), as Etapas 1 a 3 da cadeia (`work\cadeia_de_selo\v413`) e a entrega à custódia pelo pedido dela. Validade não é creditação; `NOT_FALSIFIED` nunca é `CONFIRMED`.
+

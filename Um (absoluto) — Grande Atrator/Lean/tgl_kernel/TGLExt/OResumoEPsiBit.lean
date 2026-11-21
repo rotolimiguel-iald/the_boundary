@@ -270,9 +270,10 @@ theorem peso_succ (φ : CNF n) (t : ℝ) {j : ℕ} (hj : j < φ.length) (x : Fin
   rw [List.map_append, List.prod_append]
   simp
 
-/-- ★ **A ATUALIZAÇÃO PELA CLÁUSULA SEGUINTE**: o resumo novo, na célula `u`, é a soma sobre a fibra de `u` do resumo
-velho vezes o fator da cláusula lida — estender pagando ou não pagando, depois contrair. A fibra nunca é o universo:
-é a célula da fronteira. -/
+/-- ★ **A ATUALIZAÇÃO PELA CLÁUSULA SEGUINTE**: o resumo novo, na célula `u`, é a soma, sobre a fibra de `u` na
+fronteira nova, do peso de cada atribuição nas `j` cláusulas lidas vezes o fator da cláusula seguinte. O integrando é o
+peso de cada atribuição, não o resumo anterior; a fibra é a célula da fronteira nova, e é o universo das atribuições
+quando essa fronteira é vazia (por exemplo, ao fim da fórmula). -/
 theorem a_atualizacao_pela_clausula_seguinte (φ : CNF n) (t : ℝ) {j : ℕ} (hj : j < φ.length)
     (u : Fin n → Bool) :
     resumo φ t (j + 1) u

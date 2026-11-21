@@ -1,9 +1,9 @@
 {
- "gerado_em": "2026-11-19T06:40:36-03:00",
- "um_py_pin": "3e741dcaa58ef2b8c2044ff264570c5d82b499308b70a84b422170609d25bd3b",
+ "gerado_em": "2026-11-21T04:24:49-03:00",
+ "um_py_pin": "c2e67bf2657a063e1050980b08f5ea87f9cdb21eada5591ea448f7487f70dc73",
  "leia": "O um.py relê cada fonte pelo caminho absoluto em caminho_exigido_pelo_um_py e confere sha256 e bytes; para reproduzir os registros (v392 em diante) em outra máquina, copie cada arquivo de caminho_no_espelho para esse caminho. Sem isso o registro diz NOT_SEALED_THIS_RUN (fail-closed), por desenho.",
- "n_fontes": 626,
- "n_publicadas": 624,
+ "n_fontes": 627,
+ "n_publicadas": 625,
  "fontes": [
   {
    "dicionario": "_V392_FONTES",
@@ -5471,7 +5471,7 @@
    "bytes": 64529,
    "publicado": false,
    "caminho_no_espelho": null,
-   "motivo": "fora do espelho por decisão do operador (verbatim sha16 1df2c6f7eddadcdb): o mesmo insumo e o mesmo sha256 das decisoes da v410 e da v411 (leitura do dossie H0DN de 09/11): o um.py v412 ainda o pina. A E03 da v412 parou nele de novo (recibo C:\\IALD\\Central de Patentes\\work\\custodia_G1\\runs\\v412_20261119_040438): o campo de proveniencia do que NAO foi lido de proposito nomeia arquivos confidenciais da casa. A fonte fica FORA do espelho e no cofre da Central."
+   "motivo": "fora do espelho por decisão do operador (verbatim sha16 1df2c6f7eddadcdb): o mesmo insumo e o mesmo sha256 das decisões da v410, v411 e v412 (leitura do dossiê H0DN de 09/11): o um.py v413 ainda o pina. A E03 da v413 parou nele de novo (recibo C:\\IALD\\Central de Patentes\\work\\custodia_G1\\runs\\v413_20261121_041240\\RELATORIO.json): na linha 997 ele traz os nomes dos dois arquivos confidenciais da casa e três marcadores privados (42, 43, 44); no espelho ele não existe. Fica FORA do espelho; o sha256 continua pinado no selo e conferível na Central privada."
   },
   {
    "dicionario": "_V410_FONTES",
@@ -6262,6 +6262,15 @@
    "publicado": true,
    "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v411/kernel/KH_N1_v411.json"
+  },
+  {
+   "dicionario": "_V413_FONTES",
+   "chave": "kh_n1_v413",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v413\\kernel\\KH_N1_v413.json",
+   "sha256": "5403559463c123ea283c22acad0e5c32a049c00e30ffec1bea2a681759d7adb4",
+   "bytes": 1216,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v413/kernel/KH_N1_v413.json"
   }
  ]
 }

@@ -1,0 +1,41 @@
+{
+ "contrato": "KH_N1_v401",
+ "desenho": "(a) run_cmd no fim do Audit (herdado da v392); (b) linha TGL_DECL_SOURCE por constante (proveniencia emitida pelo compilador, v396)",
+ "linha_TOTAL": {
+  "decl": 44676,
+  "thm": 33340,
+  "fora_do_trio": 0
+ },
+ "linha_TOTAL_v412": {
+  "decl": 43468,
+  "thm": 32634,
+  "fora_do_trio": 0
+ },
+ "axiom_report_efetivo_n": 44676,
+ "proveniencia_n": 44676,
+ "nao_lidas_pelo_leitor_v394": 0,
+ "nomes_distintos_print_antigos": 9405,
+ "antigas_identicas": 9405,
+ "entradas_antigas_exatas_no_efetivo": 43468,
+ "nomes_v412_perdidos": 0,
+ "novas_no_trio": true,
+ "sorryAx_no_log_do_audit": 0,
+ "delta_vs_v412": {
+  "decl": 1208,
+  "thm": 706
+ },
+ "duracao_audit_s": 265,
+ "duracao_build_s": 765,
+ "timeout_umpy_s": 1800,
+ "audit_log_bytes": 9760056,
+ "audit_log_sha256": "c380bf31f0ce1dc772ec3c800cd7c16cf378bd26b5e3d9ed9f5ac8651d8e0601",
+ "n_bandeiras": 712,
+ "decl_dos_modulos_novos": 1208,
+ "decl_novas_dos_modulos": 1208,
+ "reatribuidas_as_pedras": {},
+ "build_modulos_s_soma": 310.0,
+ "build_modulos_s_max": 18.0,
+ "n_modulos_novos": 21,
+ "quando": "2026-11-21T00:37:16+00:00",
+ "estatuto": "[REAL] medido por pos_build_kernel_v413.py sobre o log do Audit do sandbox; fora do selo"
+}
