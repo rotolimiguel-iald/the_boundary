@@ -21,7 +21,7 @@
   "versao_da_pedra": "v371"
  },
  "regra": "NOT_FALSIFIED nunca e CONFIRMED. Fechar a arquitetura matematica interna nao e gravidade quantica confirmada. beta_TGL = alpha*sqrt(e) e CONSTANTE, nunca literal no codigo: e computada em runtime.",
- "n_arquivos": 4257,
+ "n_arquivos": 4258,
  "aliases_ausentes": [],
  "aliases": {
   "um.py": {
@@ -1370,6 +1370,13 @@
    "bytes": 1010394,
    "sha256_16": "2abbd5b72638b7f7",
    "papel": "documento"
+  },
+  {
+   "path": "MANIFESTO_DE_CONFERENCIA_v413.json",
+   "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/MANIFESTO_DE_CONFERENCIA_v413.json",
+   "bytes": 12480,
+   "sha256_16": "e997baf74b29bfe5",
+   "papel": "resultado selado"
   },
   {
    "path": "O Custo Geométrico do Zero Absoluto — Haja Luz/ERRATA_20260919_sinal_do_acoplamento_nao_minimo.md",

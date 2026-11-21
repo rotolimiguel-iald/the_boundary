@@ -61,6 +61,7 @@ auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela n
 | `CITING.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITING.md) |
 | `ESTADO_ATUAL.md` | UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- a segunda leitura, depois do read-brief | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) |
 | `LEDGER.md` | O LIVRO-RAZAO: o README como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove) -- o atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le (987 KB; leia por ultimo) | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md) |
+| `MANIFESTO_DE_CONFERENCIA_v413.json` | Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/MANIFESTO_DE_CONFERENCIA_v413.json) |
 | `PINO_README.json` | O PINO do README: sha256 do README gerado, do PRIMORDIAL.json, do template, das partes e do selo de que nasceu -- o README so' se edita pelo gerador | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PINO_README.json) |
 | `PRIMORDIAL.json` | A FONTE UNICA das informacoes primordiais (README pinado e site): cada numero com a chave de origem, o arquivo e o sha256 da fonte -- gerada por tools/custodia_g1/primordial.py, nunca a mao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PRIMORDIAL.json) |
 | `README.md` | A PAGINA DE FRENTE, gerada por script (tools/custodia_g1/readme_pinado.py a partir de PRIMORDIAL.json, pinado por PINO_README.json; antes tools/gerar_readme_frente.py, 11/09/2026): o selo, reproduzir em tres comandos, as portas, os tres artigos, a ordem de leitura, abstract, citar, licenca, autor -- <= 40 KB; o atlas completo esta em LEDGER.md | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md) |
@@ -347,4 +348,4 @@ auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela n
 
 ---
 
-Total rastreado por `git ls-files`: **4257 arquivos** (antes das portas). gerado por script de git ls-files em 2026-11-21 -- nao editar a mao
+Total rastreado por `git ls-files`: **4258 arquivos** (antes das portas). gerado por script de git ls-files em 2026-11-21 -- nao editar a mao
