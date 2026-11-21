@@ -63,7 +63,7 @@ Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para 
 
 ## OS ARQUIVOS DESTA PASTA
 
-20 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator
+21 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator
 
 **CANONICO**
 
@@ -78,6 +78,7 @@ Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para 
 | `um_absoluto.json` | O MUNDO: todos os numeros da rodada serializados (nucleo, ritos, vereditos) [hasheado no selo] | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json) |
 | `um_absoluto_pilar_quantico.json` | Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta [hasheado no selo] | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pilar_quantico.json) |
 | `um_absoluto_selo.json` | O SELO CORRENTE: hash de cada saida, o veredito do gate, o result_hash da rodada. E a verdade de base do repositorio | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) |
+| `um_absoluto_selo_acom.json` | Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo_acom.json) |
 
 **ARTIGO**
 

@@ -83,7 +83,7 @@ FORMALIZACAO POR KERNEL [v22 -- o Python NAO prova; o kernel do Lean prova]:
 ### 3. `Um (absoluto) — Grande Atrator/PORTA.md` — bytes 2.578–3.061
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md
-- sha256 of the file: `21fdc037e6a54a658a46457639afdc1970594b9a84d6553f2f9890e532adbd2d` (computed now; this file is not in the seal map) · of this excerpt: `ac10e0507fa4704f6f4ac2a7711968dd82a15d54ade45f6558e67dd3fe156320`
+- sha256 of the file: `650dab3cfa20d6d283a2c2dc70f9a849f6c1dbc821e92765ff593e811f54b55b` (computed now; this file is not in the seal map) · of this excerpt: `ac10e0507fa4704f6f4ac2a7711968dd82a15d54ade45f6558e67dd3fe156320`
 - status · estatuto: [REAL] porta do Artigo C gerada por script
 - why · por quê: Os comandos de execução e as dependências: Python 3 + numpy; elan/Lean 4 v4.31.0 + lake (sem eles, FORMAL_CHECKER_UNAVAILABLE, fail-closed); pdflatex opcional.
 

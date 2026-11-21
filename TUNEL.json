@@ -21,7 +21,7 @@
   "versao_da_pedra": "v371"
  },
  "regra": "NOT_FALSIFIED nunca e CONFIRMED. Fechar a arquitetura matematica interna nao e gravidade quantica confirmada. beta_TGL = alpha*sqrt(e) e CONSTANTE, nunca literal no codigo: e computada em runtime.",
- "n_arquivos": 4256,
+ "n_arquivos": 4257,
  "aliases_ausentes": [],
  "aliases": {
   "um.py": {
@@ -28301,6 +28301,13 @@
    "papel": "resultado selado"
   },
   {
+   "path": "Um (absoluto) — Grande Atrator/um_absoluto_selo_acom.json",
+   "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo_acom.json",
+   "bytes": 15158,
+   "sha256_16": "5cf2ec40f8bdd937",
+   "papel": "resultado selado"
+  },
+  {
    "path": "cache/auditoria/AUDITORIA_28SET_REGISTRO.json",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/auditoria/AUDITORIA_28SET_REGISTRO.json",
    "bytes": 111268,
@@ -29753,7 +29760,7 @@
    "path": "read-brief.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md",
    "bytes": 24535,
-   "sha256_16": "ab229728dc5813b5",
+   "sha256_16": "8a7d9e0f81c4e717",
    "papel": "documento"
   },
   {
@@ -29802,7 +29809,7 @@
    "path": "secoes/07-o-programa-um-py.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/07-o-programa-um-py.md",
    "bytes": 11867,
-   "sha256_16": "c3d192bcb6ebde43",
+   "sha256_16": "76e1ee264516f3f1",
    "papel": "documento"
   },
   {

@@ -5,7 +5,7 @@
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
   "doi_um_absoluto": "https://doi.org/10.5281/zenodo.24417552",
-  "gerado_utc": "2026-11-21T12:21:02Z",
+  "gerado_utc": "2026-11-21T21:53:13Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
     "versao": "v371",
@@ -84,7 +84,7 @@
         "echo 1 | python -u um.py       # sem buffer: o rito ao vivo",
         "TGL_COMA_REVEAL=1 echo 1 | python um.py   # com a abertura de Coma (Windows: set TGL_COMA_REVEAL=1)"
       ],
-      "total_arquivos": 3837
+      "total_arquivos": 3838
     },
     {
       "nome": "Genesis da Unificação",
@@ -253,7 +253,7 @@
       "papel": "documento",
       "descricao": "O READ BRIEF (gerado por script pela sessao do site): a ENTRADA UNICA -- a teoria em oito partes curtas (secoes/), cada uma com a resposta nos primeiros 2 KB e as fontes citadas verbatim; a ordem de leitura por tamanho; o que ainda nao esta provado, ou ainda nao creditado",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/read-brief.md",
-      "sha256_16": "ab229728dc5813b5",
+      "sha256_16": "8a7d9e0f81c4e717",
       "bytes": 24535
     }
   ],
@@ -400,7 +400,7 @@
       "pasta": "Um (absoluto) — Grande Atrator",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json",
-      "total_arquivos": 3837
+      "total_arquivos": 3838
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/Lean",
@@ -1819,6 +1819,6 @@
       "total_arquivos": 6
     }
   ],
-  "total_arquivos": 4256,
+  "total_arquivos": 4257,
   "rodape": "gerado por script de git ls-files em 2026-11-21 -- nao editar a mao"
 }

@@ -4,7 +4,7 @@
   "titulo": "secoes",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-11-21T12:21:02Z",
+  "gerado_utc": "2026-11-21T21:53:13Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -87,7 +87,7 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The program um.py: what it is, how to run it, how to read it without running · O programa um.py: o que é, como se roda, como se lê sem rodar",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/07-o-programa-um-py.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/07-o-programa-um-py.md",
-      "sha256_16": "c3d192bcb6ebde43",
+      "sha256_16": "76e1ee264516f3f1",
       "bytes": 11867
     },
     {
