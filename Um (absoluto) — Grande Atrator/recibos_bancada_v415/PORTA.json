@@ -1,0 +1,68 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/recibos_bancada_v415",
+  "porta_id": "Um (absoluto) — Grande Atrator/recibos_bancada_v415",
+  "titulo": "Um (absoluto) — Grande Atrator/recibos_bancada_v415",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-11-26T16:38:17Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "PINO_RECIBOS_B22_v415.json",
+      "caminho": "Um (absoluto) — Grande Atrator/recibos_bancada_v415/PINO_RECIBOS_B22_v415.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/recibos_bancada_v415/PINO_RECIBOS_B22_v415.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/recibos_bancada_v415/PINO_RECIBOS_B22_v415.json",
+      "sha256_16": "628c1966a5d95734",
+      "bytes": 1719
+    },
+    {
+      "nome": "RECIBO_PARADA_v415.json",
+      "caminho": "Um (absoluto) — Grande Atrator/recibos_bancada_v415/RECIBO_PARADA_v415.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/recibos_bancada_v415/RECIBO_PARADA_v415.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/recibos_bancada_v415/RECIBO_PARADA_v415.json",
+      "sha256_16": "7c063b9ce7091126",
+      "bytes": 2912
+    },
+    {
+      "nome": "RECIBO_RELIGAMENTO_v415.json",
+      "caminho": "Um (absoluto) — Grande Atrator/recibos_bancada_v415/RECIBO_RELIGAMENTO_v415.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/recibos_bancada_v415/RECIBO_RELIGAMENTO_v415.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/recibos_bancada_v415/RECIBO_RELIGAMENTO_v415.json",
+      "sha256_16": "2639141ec7c702ac",
+      "bytes": 4058
+    },
+    {
+      "nome": "RECIBO_SINCRONIZACAO_v415_20261126_131641.json",
+      "caminho": "Um (absoluto) — Grande Atrator/recibos_bancada_v415/RECIBO_SINCRONIZACAO_v415_20261126_131641.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/recibos_bancada_v415/RECIBO_SINCRONIZACAO_v415_20261126_131641.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/recibos_bancada_v415/RECIBO_SINCRONIZACAO_v415_20261126_131641.json",
+      "sha256_16": "dd69a01efae3875c",
+      "bytes": 77962
+    }
+  ],
+  "total_arquivos_nesta_pasta": 4,
+  "total_arquivos_com_subpastas": 4,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/recibos_bancada_v415",
+  "rodape": "gerado por script de git ls-files em 2026-11-26 -- nao editar a mao"
+}

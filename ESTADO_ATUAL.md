@@ -923,6 +923,8 @@ theorem bell_reduced_half : ptr bellProjector = (2⁻¹ : ℂ) • 1 := by
 
 > *The Zenodo deposit (beside, 26/11/2026)*: the status paragraph above was written at the handoff, before this version was deposited. Since 2026-11-26 the Zenodo deposit holds v415 ([10.5281/zenodo.24559707](https://doi.org/10.5281/zenodo.24559707); byte-identical: the record’s md5 of `um.py` equals the sealed file’s); the previous deposit holds v413 (10.5281/zenodo.24417552).
 
+> *The B(n) of v415 (beside, 26/11/2026)*: the status paragraph above was written at the handoff. The Bancada passed to v415 on 2026-11-26, after this custody (`B21-v413-GPU3` → `B22-v415-20261126-R1`), with the three receipts in `recibos_bancada_v415/`.
+
 > **Errata beside (26/11/2026, the custody of v415; read from the registries of the sealed core, from the lineage diary and from the handoff, none typed):**
 > 1. *kh_n1 coverage*: 44676 -> 46850 constants, 33340 -> 34800 theorems; the formal tree of the Nós 1941 -> 2027 entries.
 

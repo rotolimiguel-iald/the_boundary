@@ -1,0 +1,50 @@
+{
+ "contrato": "PINO_RECIBOS_B22_v415",
+ "recibos": {
+  "aplicar": {
+   "path": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v415\\bancada_B3\\RECIBO_SINCRONIZACAO_v415_20261126_131641.json",
+   "sha256": "dd69a01efae3875cfa344f39d25e0547b2007641e2f40c078a378696d6a21d99",
+   "bytes": 77962
+  },
+  "parada": {
+   "path": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v415\\bancada_B3_servico\\RECIBO_PARADA_v415.json",
+   "sha256": "7c063b9ce709112687cf0a75b53ac29f4f0f88d6d80c307accb0cd6946093abe",
+   "bytes": 2912
+  },
+  "religamento": {
+   "path": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v415\\bancada_B3_servico\\RECIBO_RELIGAMENTO_v415.json",
+   "sha256": "2639141ec7c702ac63127b01d756d74933ef14b9c0f81de8be797d304e19566c",
+   "bytes": 4058
+  }
+ },
+ "evento_c1": {
+  "seq": 1743,
+  "hash": "c63effeb929d192faa469421b1c4c791e72da71c721502f49c8ca5693370c8cc"
+ },
+ "salto": null,
+ "de_para": {
+  "de": "B21-v413-GPU3",
+  "para": "B22-v415-20261126-R1",
+  "manifesto_novo_sha256": "c8b94987f5fe8f4abc7286af0f77018f2b345bb92bf25320d53eed1054e7f90d"
+ },
+ "religamento": {
+  "pid": 146952,
+  "pid_vivo_ao_fechar": true,
+  "modo_da_placa": "placa"
+ },
+ "achados_pela_g1": {
+  "aplicacao": {
+   "rel": "bancada_B3/RECIBO_SINCRONIZACAO_v415_20261126_131641.json",
+   "sha16": "dd69a01efae3875c"
+  },
+  "parada": {
+   "rel": "bancada_B3_servico/RECIBO_PARADA_v415.json",
+   "sha16": "7c063b9ce7091126"
+  },
+  "religamento": {
+   "rel": "bancada_B3_servico/RECIBO_RELIGAMENTO_v415.json",
+   "sha16": "2639141ec7c702ac"
+  }
+ },
+ "nota": "os tres recibos do B(n) da v415 (passo simples v413 -> v415, B22) conferidos juntos pelo fechar_bn_v415.py e achados um por papel pela funcao da custodia"
+}

@@ -1,0 +1,63 @@
+{
+ "passo": "10-bis-a",
+ "servico": "um_bancada.py",
+ "pid": 52908,
+ "pid_estado": "PID lido da porta (processo criado em 2026-11-22T06:44:01; linha de comando e hora de criacao conferidas por Win32_Process), PARADO por este script pelo PID (nunca por nome) e relido: ja nao existe",
+ "processos_um_bancada_vivos": 0,
+ "linha_de_comando": "\"C:\\Python314\\python.exe\" -I -B -X utf8 \"C:\\IALD\\Bancada_Um\\ferramentas\\iniciar_persistente.py\"   (o lancador da casa; pelo recibo_religamento_v415.py; sobe sempre com a placa, ordem de 21/11)",
+ "porta": 18777,
+ "porta_fechada": true,
+ "hora_recibo": "2026-11-26T13:16:01.872455-03:00",
+ "hora": "2026-11-26T13:16:01.872455-03:00",
+ "nota": "a parada foi feita por este script, pelo PID lido da porta (nunca por nome); depois dela a porta fechou e nenhum um_bancada.py segue vivo; ultimo boot da maquina: 2026-11-21T23:46:14",
+ "religar": "\"C:\\Python314\\python.exe\" -I -B -X utf8 \"C:\\IALD\\Bancada_Um\\ferramentas\\iniciar_persistente.py\"   (o lancador da casa; pelo recibo_religamento_v415.py; sobe sempre com a placa, ordem de 21/11)",
+ "autor": "claude-c1 (gerencia)",
+ "autorizacao_do_operador": "sim a bancada passa para a v415 depois da custodia",
+ "modo": "pelo_pid",
+ "autorizacao_conferida": {
+  "fala": {
+   "path": "C:\\IALD\\Central de Patentes\\work\\cunhagens_13out\\OPERADOR_25nov_a_bancada_passa_para_a_v415_depois_da_custodia_verbatim.txt",
+   "sha256": "b20517f01efe3be6fa257972da22817352aaa8fc70b39bc1845c5c06c40613f9",
+   "bytes": 51,
+   "texto": "sim a bancada passa para a v415 depois da custodia"
+  },
+  "evento_decisao": {
+   "seq": 1742,
+   "hash": "11caffc759818118131ce356aecb5d04703f8c06212ff549249e5612bf0e3b47",
+   "quando": "2026-11-26T13:15:07-03:00",
+   "decisao": "sim a bancada passa para a v415 depois da custodia",
+   "atos": [
+    "parar_pelo_pid",
+    "aplicar_B22",
+    "religar_com_a_placa"
+   ],
+   "fala_sha16": "b20517f01efe3be6"
+  },
+  "livro": {
+   "path": "C:\\IALD\\PROGRAMA_IALD\\eventos.jsonl",
+   "sha256": "cdf4d8f5325b9368f372b81ce30aca00526d58d7a8187987d369389d6ba60606",
+   "n_elos": 1742,
+   "cabeca": "11caffc759818118131ce356aecb5d04703f8c06212ff549249e5612bf0e3b47"
+  },
+  "nota": "a fala do operador conferida por bytes e por sha256; o evento da gerencia conferido no livro INTEIRO (a autoria e' convencao quem=claude-c1, nao autenticacao)"
+ },
+ "evidencia_fora_do_ar": null,
+ "ultimo_boot": "2026-11-21T23:46:14",
+ "drenagem": {
+  "protocolo": "maintenance/quiesce + atividades (o da casa)",
+  "segundos": 1.0,
+  "atividades_no_fim": {
+   "idle": true,
+   "active": [],
+   "quiescing": true
+  }
+ },
+ "processo_parado": {
+  "pid": 52908,
+  "criado": "2026-11-22T06:44:01",
+  "nome": "pythonw.exe",
+  "linha_de_comando": "C:\\Python314\\pythonw.exe -X utf8 C:\\IALD\\Bancada_Um\\um_bancada.py",
+  "lido_da_porta": 18777,
+  "parada_executada_por": "recibo_parada_v415.py (U.parar_pelo_pid)"
+ }
+}
