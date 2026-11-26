@@ -1,9 +1,9 @@
 {
- "gerado_em": "2026-11-21T04:24:49-03:00",
- "um_py_pin": "c2e67bf2657a063e1050980b08f5ea87f9cdb21eada5591ea448f7487f70dc73",
+ "gerado_em": "2026-11-26T08:53:55-03:00",
+ "um_py_pin": "7e2eee223c6d07258884a9e5acbb7014b6249b713aae31525a7301eb031225de",
  "leia": "O um.py relê cada fonte pelo caminho absoluto em caminho_exigido_pelo_um_py e confere sha256 e bytes; para reproduzir os registros (v392 em diante) em outra máquina, copie cada arquivo de caminho_no_espelho para esse caminho. Sem isso o registro diz NOT_SEALED_THIS_RUN (fail-closed), por desenho.",
- "n_fontes": 627,
- "n_publicadas": 625,
+ "n_fontes": 628,
+ "n_publicadas": 627,
  "fontes": [
   {
    "dicionario": "_V392_FONTES",
@@ -5465,16 +5465,6 @@
   },
   {
    "dicionario": "_V410_FONTES",
-   "chave": "h0dn_leitura_dossie",
-   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v410\\insumos\\h0dn_LEITURA_DOSSIE_5SIGMA_09nov.json",
-   "sha256": "ba7116c83444a696eca52ed2a912bbc3489400c11d721a20fb5d89d2c745871a",
-   "bytes": 64529,
-   "publicado": false,
-   "caminho_no_espelho": null,
-   "motivo": "fora do espelho por decisão do operador (verbatim sha16 1df2c6f7eddadcdb): o mesmo insumo e o mesmo sha256 das decisões da v410, v411 e v412 (leitura do dossiê H0DN de 09/11): o um.py v413 ainda o pina. A E03 da v413 parou nele de novo (recibo C:\\IALD\\Central de Patentes\\work\\custodia_G1\\runs\\v413_20261121_041240\\RELATORIO.json): na linha 997 ele traz os nomes dos dois arquivos confidenciais da casa e três marcadores privados (42, 43, 44); no espelho ele não existe. Fica FORA do espelho; o sha256 continua pinado no selo e conferível na Central privada."
-  },
-  {
-   "dicionario": "_V410_FONTES",
    "chave": "h0dn_ordem_kimi",
    "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v410\\insumos\\h0dn_ORDEM_KIMI_H0DN_01_09nov.md",
    "sha256": "fd00d3f4631c0a0128a4efd1c9119d5be81611e4ce896b53ef8bec0f9ef1c3d3",
@@ -6270,7 +6260,26 @@
    "sha256": "5403559463c123ea283c22acad0e5c32a049c00e30ffec1bea2a681759d7adb4",
    "bytes": 1216,
    "publicado": true,
+   "ja_no_espelho": true,
    "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v413/kernel/KH_N1_v413.json"
+  },
+  {
+   "dicionario": "_V414_FONTES",
+   "chave": "kh_n1_v414",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v414\\kernel\\KH_N1_v414.json",
+   "sha256": "685825bf736c9be11b63abe559cd4b79737ba979a5e69eb9b68913b568dc85fa",
+   "bytes": 268,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v414/kernel/KH_N1_v414.json"
+  },
+  {
+   "dicionario": "_V415_FONTES",
+   "chave": "kh_n1_v415",
+   "caminho_exigido_pelo_um_py": "C:\\IALD\\Central de Patentes\\work\\cadeia_de_selo\\v415\\kernel\\KH_N1_v415.json",
+   "sha256": "bd0702f9ad404b0bf9680ff4ad656591f6f2f134f22b5c4c6299b38eaef7c3a0",
+   "bytes": 270,
+   "publicado": true,
+   "caminho_no_espelho": "Um (absoluto) — Grande Atrator/fontes_pinadas/Central de Patentes/work/cadeia_de_selo/v415/kernel/KH_N1_v415.json"
   }
  ]
 }

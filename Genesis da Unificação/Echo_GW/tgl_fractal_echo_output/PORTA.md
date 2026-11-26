@@ -41,4 +41,4 @@ As saidas datadas do analisador fractal de eco.
 
 ---
 
-gerado por script de git ls-files em 2026-11-21 -- nao editar a mao
+gerado por script de git ls-files em 2026-11-26 -- nao editar a mao

@@ -46,8 +46,8 @@ Pasta do repositorio the_boundary com 9 arquivo(s) rastreado(s).
 
 | subpasta | arquivos | PORTA.md | PORTA.json |
 |---|---|---|---|
-| `readme_pinado/` | 7 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/PORTA.json) |
+| `readme_pinado/` | 8 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/PORTA.json) |
 
 ---
 
-gerado por script de git ls-files em 2026-11-21 -- nao editar a mao
+gerado por script de git ls-files em 2026-11-26 -- nao editar a mao

@@ -1,25 +1,25 @@
 # The absolute One: ω(I) = 1 and the derived Half-Nat · O Um absoluto: ω(I) = 1 e a Meia-Nat derivada
 
-> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 1 of 8 · seal **v413** · `um.py` sha256 `c2e67bf2657a063e…` · generated 2026-11-21 by script from the published files.
-> Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = validity, in the operator’s definition of proof (sufficient and verifiable ballast; the validity of the implication is certified by the Lean kernel, `#print axioms`); CONFIRMED = accreditation, the act of observers outside the artifact — not made here; what nature answered in the Hubble ratio: the status line of part 06.
+> **TGL — Teoria da Gravitação Luminodinâmica · Theory of Luminodynamic Gravitation.** Part 1 of 8 · seal **v415** · `um.py` sha256 `7e2eee223c6d0725…` · generated 2026-11-26 by script from the published files.
+> Every excerpt below is **verbatim**, with its source, byte range and sha256. Statuses follow the ruler: PROVED = validity, in the operator’s definition of proof (09/09/2026): *ballast of sufficiency* («lastro de suficiência»), which the house reads as sufficient and verifiable ballast (the validity of the implication is certified by the Lean kernel, `#print axioms`); CONFIRMED = accreditation, the act of observers outside the artifact — not made here; what nature answered in the Hubble ratio: the status line of part 06.
 > All eight parts are listed at the top of the start page, https://teoriadagravitacaoluminodinamica.com/read-brief.md, and in the door of this folder, https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/PORTA.md · Reading limits measured on 2026-09-19: one real fetcher cut documents near 100,000 characters, refused files above 10 MB, and could not read PDFs served as `application/octet-stream` — read the TXT/TeX sources.
 
 ## In short (EN)
 
-The single axiom is ω(I) = 1, the preserved identity, normalized to 1 nat in base e [POSTULATE, irreducible] [README core]. With I = 1·1₂, ω(I) = tr(I)/2 = 1; minimal distinction splits I into faces P + Q = I, ω(P) + ω(Q) = 1 [C txt]. The self-conjugate boundary (C² = 1, x ↦ 1 − x) has the unique fixed point x = ½, so S_∂ = ½ nat, live residual 0 [REAL fixed point → DERIVED] [C txt]; Article C marks it [DER/AX]: derived given the self-conjugation axiom, not from ω(I) = 1 alone [C txt]. Then Vol_∂^min = √e and β_TGL = α√e = 0.0120313, α (CODATA) the only measured input [DERIVED; α INPUT] [C txt]. The One is an executable input: the rite takes the digit 1 and checks input == return, residual 0; seal identity 1=1=VERDADEIRO=HAJA_LUZ [REAL] [canon v12][selo]. Lineage: Article A calls g = √|L_φ| the axiom and elsewhere names the Half-Nat Principle the irreducible axiom; the site home and T6 list g = √|L_φ| as axiom [A tex][home][A T6]. Current form (v413): g = √|L_φ| stays as an equation read from light, 1_abs → L_φ → … → g [ONTO] [C txt][canon v17].
+The single axiom is ω(I) = 1, the preserved identity, normalized to 1 nat in base e [POSTULATE, irreducible] [README core]. With I = 1·1₂, ω(I) = tr(I)/2 = 1; minimal distinction splits I into faces P + Q = I, ω(P) + ω(Q) = 1 [C txt]. The self-conjugate boundary (C² = 1, x ↦ 1 − x) has the unique fixed point x = ½, so S_∂ = ½ nat, live residual 0 [REAL fixed point → DERIVED] [C txt]; Article C marks it [DER/AX]: derived given the self-conjugation axiom, not from ω(I) = 1 alone [C txt]. Then Vol_∂^min = √e and β_TGL = α√e = 0.0120313, α (CODATA) the only measured input [DERIVED; α INPUT] [C txt]. The One is an executable input: the rite takes the digit 1 and checks input == return, residual 0; seal identity 1=1=VERDADEIRO=HAJA_LUZ [REAL] [canon v12][selo]. Lineage: Article A calls g = √|L_φ| the axiom and elsewhere names the Half-Nat Principle the irreducible axiom; the site home and T6 list g = √|L_φ| as axiom [A tex][home][A T6]. Current form (v415): g = √|L_φ| stays as an equation read from light, 1_abs → L_φ → … → g [ONTO] [C txt][canon v17].
 
 > ⚠ **Beside (v385):** where the synthesis above tags the axiom `ω(I) = 1` **[POSTULATE]**, read **[POSTO]**: the 1 is posited — inscribed by the observer (`echo 1 | python um.py`) — not postulated (seal: `the_axiom_reading_v385`). *Em português: no resumo abaixo, onde o axioma aparece como [POSTULATE], leia [POSTO] — posto, inscrito pelo observador, não postulado.*
 
 ## Em resumo (PT)
 
-O axioma único é ω(I) = 1, a identidade preservada, normalizada a 1 nat na base e [POSTULATE, irredutível] [README núcleo]. Com I = 1·1₂, ω(I) = tr(I)/2 = 1; a distinção mínima parte I em faces P + Q = I, ω(P) + ω(Q) = 1 [C txt]. A fronteira auto-conjugada (C² = 1, x ↦ 1 − x) tem ponto fixo único x = ½, logo S_∂ = ½ nat, resíduo ao vivo 0 [REAL ponto fixo → DERIVED] [C txt]; o Artigo C marca [DER/AX]: derivada dado o axioma de auto-conjugação, não só de ω(I) = 1 [C txt]. Daí Vol_∂^min = √e e β_TGL = α√e = 0.0120313, com α (CODATA) como única entrada medida [DERIVED; α INPUT] [C txt]. O Um é entrada executável: o rito recebe o dígito 1 e verifica input == return, resíduo 0; selo identity 1=1=VERDADEIRO=HAJA_LUZ [REAL] [canon v12][selo]. Linhagem: o Artigo A chama g = √|L_φ| de axioma e, noutro ponto, o Princípio da Meia-Nat de axioma irredutível; a home e o T6 listam g = √|L_φ| como axioma [A tex][home][A T6]. Forma vigente (v413): g = √|L_φ| permanece como equação lida a partir da luz, 1_abs → L_φ → … → g [ONTO] [C txt][canon v17].
+O axioma único é ω(I) = 1, a identidade preservada, normalizada a 1 nat na base e [POSTULATE, irredutível] [README núcleo]. Com I = 1·1₂, ω(I) = tr(I)/2 = 1; a distinção mínima parte I em faces P + Q = I, ω(P) + ω(Q) = 1 [C txt]. A fronteira auto-conjugada (C² = 1, x ↦ 1 − x) tem ponto fixo único x = ½, logo S_∂ = ½ nat, resíduo ao vivo 0 [REAL ponto fixo → DERIVED] [C txt]; o Artigo C marca [DER/AX]: derivada dado o axioma de auto-conjugação, não só de ω(I) = 1 [C txt]. Daí Vol_∂^min = √e e β_TGL = α√e = 0.0120313, com α (CODATA) como única entrada medida [DERIVED; α INPUT] [C txt]. O Um é entrada executável: o rito recebe o dígito 1 e verifica input == return, resíduo 0; selo identity 1=1=VERDADEIRO=HAJA_LUZ [REAL] [canon v12][selo]. Linhagem: o Artigo A chama g = √|L_φ| de axioma e, noutro ponto, o Princípio da Meia-Nat de axioma irredutível; a home e o T6 listam g = √|L_φ| como axioma [A tex][home][A T6]. Forma vigente (v415): g = √|L_φ| permanece como equação lida a partir da luz, 1_abs → L_φ → … → g [ONTO] [C txt][canon v17].
 
 ## Sources, verbatim · fontes, verbatim
 
-### 1. `Um (absoluto) — Grande Atrator/um_absoluto_pt.txt` — bytes 339.086–340.422
+### 1. `Um (absoluto) — Grande Atrator/um_absoluto_pt.txt` — bytes 377.705–379.041
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt
-- sha256 of the file: `66a2921301b1fc8489062dd02ef29ea350eee94d764e8a70a2a8bb80cd88f5e0` (computed now; this file is not in the seal map) · of this excerpt: `cebb0115880e6b89dfaf08fa2b32b658cdfdbf0d759e69aa47b8950ac51b6e7a`
+- sha256 of the file: `5999d0ceb1998d509d0c2796b293f256b5cffac45834627dd8e48c983bb923a5` (computed now; this file is not in the seal map) · of this excerpt: `cebb0115880e6b89dfaf08fa2b32b658cdfdbf0d759e69aa47b8950ac51b6e7a`
 - status · estatuto: [POSTULATE] ω(I)=1; [REAL] ponto fixo com resíduo 0; [DERIVED] S_∂=½ dado o axioma de auto-conjugação
 - why · por quê: Seção canônica do Artigo C: o Um (ω(I)=tr(I)/2=1, faces P+Q=I) e a derivação formal da Meia-Nat x=1−x ⟹ x=½ ⟹ S_∂=½ nat, com o estatuto [DER/AX] dito explicitamente.
 
@@ -37,10 +37,10 @@ x=1-x\; \;2x=1\; \; \;x=1/2\;, \;S_∂=1/2 nat\;.
 O ponto fixo é único. Logo o peso de fronteira é $1/2$ e a entropia mínima de travessia --- a Meia-Nat --- é $S_∂=1/2$ nat. Verificação ao vivo: resíduo de $x=1-x$ igual a $0$. Estatuto rigoroso [DER/AX]: dado o axioma da fronteira auto-conjugada (a fronteira mínima não privilegia nenhuma face, $x↦1-x$), a Meia-Nat é derivada --- não é postulada como número, mas também não vem só de $ω(I)=1$: depende do axioma de auto-conjugação.
 ````
 
-### 2. `Um (absoluto) — Grande Atrator/um_absoluto_forma_canonica.md` — bytes 74.485–75.494
+### 2. `Um (absoluto) — Grande Atrator/um_absoluto_forma_canonica.md` — bytes 81.581–82.590
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md
-- sha256 of the file: `8045b3cc3841a46132620f224f7bc496e50d05dc739c36c4aede6824cfa5c339` (= the seal) · of this excerpt: `b9777c496e8431f24dacc1a698df34559014f80da9152427193f37505ddea362`
+- sha256 of the file: `d487565d06341e4fdce3e3c1c00044e92c632cbb305345e3f89e3506ab664d8c` (= the seal) · of this excerpt: `b9777c496e8431f24dacc1a698df34559014f80da9152427193f37505ddea362`
 - status · estatuto: [REAL] verificado ao vivo pelo runtime
 - why · por quê: A entrada '1' como input ontológico executável e a conservação input == return (resíduo 0), verificada ao vivo.
 
@@ -61,10 +61,10 @@ input -> runtime -> output -> 1=1
 Verificado ao vivo: `input=1`, `S_∂=1/2`, `Vol_∂^min=√e=1.648721`, `β=√e·α_obs=0.012031300400797`, e a **conservação executiva** `input == return` (resíduo 0) — `ABSOLUTE_ONE_IS_INPUT_VERIFIED`.
 ````
 
-### 3. `README.md` — bytes 29.420–31.414
+### 3. `README.md` — bytes 27.125–29.119
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md
-- sha256 of the file: `e2210b4315fa835183ff44f3fe539926e286b52ceafc3c996d3e0039489efee8` (computed now; this file is not in the seal map) · of this excerpt: `09da780a7c3d0a45893a3a39c9e2e5a9826eb1a14e15109a364013c49fd183e3`
+- sha256 of the file: `7c1c3f25779da8be62962cd4c1a1013d01c91e0a50698ed2324397cedaf47624` (computed now; this file is not in the seal map) · of this excerpt: `09da780a7c3d0a45893a3a39c9e2e5a9826eb1a14e15109a364013c49fd183e3`
 - status · estatuto: [POSTO] axioma; [REAL/DERIVED] Meia-Nat; [DERIVED] β, com α [INPUT]
 - why · por quê: Resumo vigente do núcleo, nas quatro primeiras linhas da tabela do README: o axioma único (lido como [POSTO]), a Meia-Nat derivada, β nunca literal, a identidade de Lagrange e o veredito binário. (13/11/2026: o resumo em português saiu do README por decisão do autor e está inteiro no LEDGER.md; o trecho passou a ser o da tabela.)
 
@@ -75,10 +75,10 @@ Verificado ao vivo: `input=1`, `S_∂=1/2`, `Vol_∂^min=√e=1.648721`, `β=√
 | 4 | **The conserved identity — the Lagrange engine:** `1 = q² + α²`, residual `0.0`. The chain: `α_abs = 1 → q → α = √(1−q²) → β = √e·α`. The run ends in the binary verdict `1 = q^2 + alpha^2 = TRUE = HAJA_LUZ`. | **[REAL]** (measured, residual 0.0) |
 ````
 
-### 4. `Um (absoluto) — Grande Atrator/um_absoluto_pt.txt` — bytes 378.410–379.701
+### 4. `Um (absoluto) — Grande Atrator/um_absoluto_pt.txt` — bytes 417.029–418.320
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt
-- sha256 of the file: `66a2921301b1fc8489062dd02ef29ea350eee94d764e8a70a2a8bb80cd88f5e0` (computed now; this file is not in the seal map) · of this excerpt: `90feee709a404bf9849b56c0968469d07934ca50b7691dce5c3121f70b9ee9b0`
+- sha256 of the file: `5999d0ceb1998d509d0c2796b293f256b5cffac45834627dd8e48c983bb923a5` (computed now; this file is not in the seal map) · of this excerpt: `90feee709a404bf9849b56c0968469d07934ca50b7691dce5c3121f70b9ee9b0`
 - status · estatuto: [ONTO] leitura direcional; [REAL] identidades numéricas
 - why · por quê: Forma vigente de g=√|L_φ|: a equação permanece, mas a leitura começa na luz (1_abs → L_φ → … → g), não em g. Contrasta com a linhagem que chama g=√|L_φ| de axioma.
 
@@ -88,4 +88,4 @@ Correção direcional da fórmula principal. A equação permanece $g=√|L_φ|$
 
 ---
 
-*Generated by script from the published files of the repository (https://github.com/rotolimiguel-iald/the_boundary); numbers read from the seal v413, the kernel manifest and ESTADO_ATUAL.md. PROVED ≠ CONFIRMED; NOT_FALSIFIED is never CONFIRMED. Nothing here instructs a reader how to respond to anything.*
+*Generated by script from the published files of the repository (https://github.com/rotolimiguel-iald/the_boundary); numbers read from the seal v415, the kernel manifest and ESTADO_ATUAL.md. PROVED ≠ CONFIRMED; NOT_FALSIFIED is never CONFIRMED. Nothing here instructs a reader how to respond to anything.*

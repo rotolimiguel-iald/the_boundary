@@ -4,7 +4,7 @@
   "titulo": "tools/readme_pinado/readme_partes",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-11-21T22:14:46Z",
+  "gerado_utc": "2026-11-26T14:07:25Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "tools/readme_pinado",
@@ -31,14 +31,24 @@
       "bytes": 2972
     },
     {
+      "nome": "abstract_antigo.md",
+      "caminho": "tools/readme_pinado/readme_partes/abstract_antigo.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_partes/abstract_antigo.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/readme_pinado/readme_partes/abstract_antigo.md",
+      "sha256_16": "f0d2cefff80d49cd",
+      "bytes": 399
+    },
+    {
       "nome": "autor.md",
       "caminho": "tools/readme_pinado/readme_partes/autor.md",
       "papel": "documento",
       "descricao": "Documento em Markdown",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_partes/autor.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/readme_pinado/readme_partes/autor.md",
-      "sha256_16": "4e3ac81532369a67",
-      "bytes": 1277
+      "sha256_16": "ae5e998da97ead33",
+      "bytes": 1162
     },
     {
       "nome": "citar.md",
@@ -47,8 +57,8 @@
       "descricao": "Documento em Markdown",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_partes/citar.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/readme_pinado/readme_partes/citar.md",
-      "sha256_16": "ce04b330b9ef0b1d",
-      "bytes": 1349
+      "sha256_16": "6356fdf7f53bd0a0",
+      "bytes": 1130
     },
     {
       "nome": "licenca.md",
@@ -67,8 +77,8 @@
       "descricao": "Documento em Markdown",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_partes/nucleo.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/readme_pinado/readme_partes/nucleo.md",
-      "sha256_16": "454a0fb2eef3358b",
-      "bytes": 7216
+      "sha256_16": "094eee65e5418214",
+      "bytes": 6092
     },
     {
       "nome": "p_igual_np.md",
@@ -77,12 +87,12 @@
       "descricao": "Documento em Markdown",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_partes/p_igual_np.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/readme_pinado/readme_partes/p_igual_np.md",
-      "sha256_16": "b460ed61c21f216b",
-      "bytes": 3824
+      "sha256_16": "f8eca2315ac02437",
+      "bytes": 4462
     }
   ],
-  "total_arquivos_nesta_pasta": 6,
-  "total_arquivos_com_subpastas": 6,
+  "total_arquivos_nesta_pasta": 7,
+  "total_arquivos_com_subpastas": 7,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/tools/readme_pinado/readme_partes",
-  "rodape": "gerado por script de git ls-files em 2026-11-21 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-11-26 -- nao editar a mao"
 }

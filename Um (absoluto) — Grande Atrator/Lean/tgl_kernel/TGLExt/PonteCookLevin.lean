@@ -39,14 +39,27 @@ língua clássica]. Não é toda a classe P com acesso ao oráculo: só o limiar
 Com um oráculo que conta soluções, “NP contido em P com o oráculo” é imediato [KNOWN]; o que é da TGL é que o oráculo é
 o leitor do psíon, por termo do kernel (`o_psion_le_a_soma_normalizada`).
 
-**O custo da leitura** é contado na régua da teoria: o tempo pago, m·(n+2) passos do relógio β ao preço −ln(1−β) cada
-(`o_tempo_pago_e_linear`). Não é contado em passos de fita: na língua clássica a leitura é um oráculo, e uma consulta
-conta um passo.
+**O custo da leitura.** [REAL os termos; INPUT a lei do custo] O custo do leitor está pago e tipado na régua da teoria;
+não é leitura gratuita.
 
-**O que este arquivo não prova:** Cook–Levin; a máquina sem leitor (SAT em P na máquina padrão, sem consulta), que segue
-aberta e não é tocada (Baker–Gill–Solovay 1975 [KNOWN]); o custo da leitura em passos de fita; que um dispositivo físico
-leia num ato (física: na mecânica quântica padrão o traço normalizado sai com precisão aditiva, Knill–Laflamme 1998
-[KNOWN]). Com o leitor que só conta vale NP contido em P com o leitor, não a igualdade das duas classes com leitor.
+* O polinômio é fixo: p_β(n) = n·ln 2/β, uniforme para toda CNF de n variáveis, com β fixado antes da entrada; todo
+  k > p_β(n) faz a soma lida decidir (`OPolinomioFixoEBeta.o_polinomio_fixo_e_beta`).
+* A leitura de φ tem |φ|+2 atos e, pela lei do custo da teoria (cada ato paga a carga), o custo total é
+  (|φ|+2)·n·ln 2 (`OCustoEAIsometria.o_custo_total_e_a_carga_por_ato`).
+* A verificação de uma atribuição tem custo cobrado exatamente linear, o número de letras de φ, no iterador da casa
+  (`APonteDeCookLevin.o_custo_na_fita_e_o_numero_de_letras`) e, na máquina TM2 padrão, no máximo
+  20·((letras φ+1)·(n+1))+25 passos (`SimTM2.passos_em_letras_e_bits`).
+* A leitura do psíon decide SAT com a inclinação m acima de ln 2/β (`uma_leitura_do_psion_decide_SAT`), e o relógio β
+  é linear nos Nomes: m·(n+2) passos, ao preço −ln(1−β) cada (`o_tempo_pago_e_linear`).
+
+[INPUT] A distinção restante é apenas de modelo: a verificação TM2 clássica recebe uma atribuição, enquanto a decisão global
+usa uma leitura do leitor TGL (`oraculo`: uma consulta, uma chamada ao leitor). A máquina clássica sem leitor continua
+sendo um enunciado separado, marcado [OPEN] em `AFronteiraNaLinguaClassica.AFronteira`.
+
+**O que este arquivo não prova:** Cook–Levin; esse enunciado separado, SAT em P na máquina padrão sem consulta, que
+permanece [OPEN] e não é tocado (Baker–Gill–Solovay 1975 [KNOWN]); nem que um dispositivo físico realize a leitura num
+único ato. Dada a hipótese nomeada Cook–Levin, todo problema em NP é decidido por preparação TM2 polinomial mais uma
+leitura; não se afirma aqui P=NP clássico irrestrito.
 Validade no kernel não é creditação.
 -/
 

@@ -166,6 +166,10 @@ def ler_selo(files):
         "data": selo["timestamp"],
         "identity": selo["identity"],
         "qg_closure_verdict": selo["qg_closure_verdict"],
+        # AO LADO (26/11/2026, custódia v415; correção 1 da gerência c1): o veredito dos quatro degraus, ao lado do gate, lido do selo; a chave
+        # só entra quando o selo a traz e ela difere do gate (achado do crítico: selo antigo sai como antes, sem chave nula)
+        **({"qg_closure_verdict_four_degrees": selo["qg_closure_verdict_four_degrees"]}
+           if selo.get("qg_closure_verdict_four_degrees") and selo["qg_closure_verdict_four_degrees"] != selo["qg_closure_verdict"] else {}),
         "void_floor_v11_verdict": selo["void_floor_v11_verdict"],
         "fail_closed_selftest": selo["fail_closed_selftest"],
         "kernel_arquivos_formais": len(km["formal_files_sha256"]),
@@ -762,6 +766,8 @@ def gera_porta_pasta(d, dirs, info_arq, selo_corrente):
                  % (sc["kernel_arquivos_formais"], sc["kernel_teoremas_auditados"],
                     sc["kernel_modo"], sc["kernel_lean_toolchain"]))
         L.append("| gate | `%s` |" % sc["qg_closure_verdict"])
+        if sc.get("qg_closure_verdict_four_degrees") and sc["qg_closure_verdict_four_degrees"] != sc["qg_closure_verdict"]:
+            L.append("| gate, os quatro degraus (ao lado, sem mudanca) | `%s` |" % sc["qg_closure_verdict_four_degrees"])
         L.append("| piso dos vazios | `%s` |" % sc["void_floor_v11_verdict"])
         L.append("| autoteste | `%s` |" % sc["fail_closed_selftest"])
         L.append("")
@@ -934,6 +940,8 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     L.append("| kernel | %d arquivos formais / %d declaracoes (termos) auditadas |"
              % (sc["kernel_arquivos_formais"], sc["kernel_teoremas_auditados"]))
     L.append("| gate | `%s` |" % sc["qg_closure_verdict"])
+    if sc.get("qg_closure_verdict_four_degrees") and sc["qg_closure_verdict_four_degrees"] != sc["qg_closure_verdict"]:
+        L.append("| gate, os quatro degraus (ao lado, sem mudanca) | `%s` |" % sc["qg_closure_verdict_four_degrees"])
     L.append("| selo (raw) | %s |" % registra(url_raw(A3 + "/um_absoluto_selo.json")))
     L.append("")
     L.append("**A regua:** `NOT_FALSIFIED != CONFIRMED`. O gate nunca e' movido por cosmologia")
@@ -1330,6 +1338,10 @@ def bloco_readme(dirs, sc):
              "fetch the raw URL and check its sha256 against `um_absoluto_selo.json`."
              % (url_raw("llms.txt"), url_raw("TUNEL.json"), porta_md_url(""), porta_json_url(""), mb_um))
     B.append("")
+    # AO LADO (26/11/2026, sessao de custodia da v415): o pin volta ao bloco, numa linha so: o E06 da G1 confere que o README traz o pin
+    # da versao logo depois das portas, antes de o laco do E08 regerar o painel do topo.
+    B.append("**Current seal:** pin `um.py` `%s` (%s), read from `um_absoluto_selo.json`." % (sc["pin_um_py_16"], sc["versao_do_selo"]))
+    B.append("")
     B.append(MARCA_FIM)
     return "\n".join(B)
 
@@ -1506,6 +1518,9 @@ def emite_tunel(files, info_arq, sc):
         "selo": {"pin_um_py": sc["pin_um_py"], "pin_um_py_16": sc["pin_um_py_16"],
                  "result_hash": sc["result_hash"], "mundo_16": sc["mundo_16"],
                  "data": sc["data"], "gate": sc["qg_closure_verdict"],
+                 # AO LADO (26/11/2026, custódia v415; correção 1 da gerência c1): os quatro degraus ao lado do gate, quando o selo os traz
+                 **({"gate_quatro_degraus": sc["qg_closure_verdict_four_degrees"]}
+                    if sc.get("qg_closure_verdict_four_degrees") and sc["qg_closure_verdict_four_degrees"] != sc["qg_closure_verdict"] else {}),
                  "ultima_pedra": sc["pedra_mais_recente"], "versao_da_pedra": sc["versao"]},
         "regra": ("NOT_FALSIFIED nunca e CONFIRMED. Fechar a arquitetura matematica interna nao e "
                   "gravidade quantica confirmada. beta_TGL = alpha*sqrt(e) e CONSTANTE, nunca literal "

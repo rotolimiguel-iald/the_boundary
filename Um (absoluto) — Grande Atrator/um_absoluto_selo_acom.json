@@ -1,6 +1,6 @@
 {
   "esquema": "um_absoluto_selo_acom/v1 (v399)",
-  "gerado_por": "um.py v413",
+  "gerado_por": "um.py v415",
   "duas_testemunhas": {
     "primeira": "SHA-256 (hashlib), de sempre -- no campo `sha256` de cada objeto; nao muda e nao sai",
     "segunda": "ACOM Mirror Crypto (a tecnologia do operador), embutida -- no campo `acom` de cada objeto"
@@ -58,60 +58,60 @@
   "objetos": [
     {
       "nome": "um.py",
-      "bytes": 50743778,
-      "sha256": "c2e67bf2657a063e1050980b08f5ea87f9cdb21eada5591ea448f7487f70dc73",
+      "bytes": 52376221,
+      "sha256": "7e2eee223c6d07258884a9e5acbb7014b6249b713aae31525a7301eb031225de",
       "acom": {
         "perfil": "ACOM-INT-C96-Q8",
         "psi": {
-          "sha256": "b563b267329c7d20880dc3e14df3bd307deb11b0f28cf40468f204f35abbaad3",
-          "bytes": 12685945
+          "sha256": "5b15d3e2c9f99613c9968a09ea594530944dd99827fe47c34bbe21a77d56d9bc",
+          "bytes": 13094056
         },
         "theta": {
-          "sha256": "7e77061a9bc067b83d0a49fa3deb974244890510b4c5a50695c5453f2765a469",
-          "bytes": 50743778
+          "sha256": "e46333a2adf4939bf643831e537117952bcb17ce4accf866cb1b619ab8ba3a80",
+          "bytes": 52376221
         },
         "kappa": {
-          "sha256": "145d82add3d90aa3854753d1ae50c7dad943514843f8719168831abc8ca322a7",
+          "sha256": "bd0430f24b7abf0a2c0f24dbcfc23669a62bc14a13b9bf1d8f882f3f0e11466a",
           "bytes": 575,
           "campos": {
             "esquema": "ACOM-MIRROR-CRYPTO/SELO-v1",
             "perfil": "ACOM-INT-C96-Q8",
             "centro": 96,
             "angular_bits": 8,
-            "n_elements": 50743778,
+            "n_elements": 52376221,
             "shape": [
-              50743778
+              52376221
             ],
             "m_max_abs": 144,
             "g_max": "12.0",
             "state_counts": [
-              8217576,
-              17116129,
-              14911411,
-              10498662
+              8571623,
+              17701131,
+              15293673,
+              10809794
             ],
-            "f_exp_numerador": 13311302,
-            "psi_hash": "b563b267329c7d20880dc3e14df3bd307deb11b0f28cf40468f204f35abbaad3",
-            "theta_hash": "7e77061a9bc067b83d0a49fa3deb974244890510b4c5a50695c5453f2765a469",
+            "f_exp_numerador": 13613387,
+            "psi_hash": "5b15d3e2c9f99613c9968a09ea594530944dd99827fe47c34bbe21a77d56d9bc",
+            "theta_hash": "e46333a2adf4939bf643831e537117952bcb17ce4accf866cb1b619ab8ba3a80",
             "lut_sha256": "948824a173099ffbdf2d81c33924f3bebba9153ff8a244242ca605288bde0bb1",
-            "share_id": "cad0a05048d2992eac808bf945a5cee8",
-            "key_id": "07f38c94f3ab1e15c689ccee9869cb73"
+            "share_id": "15b40ac8dc1c65fb9bc25b1ac6024caf",
+            "key_id": "e16e06b6705ce4cf52228204e3f74de1"
           }
         },
         "estrutura": {
-          "f_exp": 0.26232382618416783,
-          "f_exp_numerador": 13311302,
-          "entropia_dos_estados_bits": 1.943654660898,
+          "f_exp": 0.2599154108502788,
+          "f_exp_numerador": 13613387,
+          "entropia_dos_estados_bits": 1.944715514558,
           "state_counts": [
-            8217576,
-            17116129,
-            14911411,
-            10498662
+            8571623,
+            17701131,
+            15293673,
+            10809794
           ]
         },
         "prova_de_reconstrucao": {
           "metodo": "Dobra L' = sinal(psi) * [g_max sin(theta)]^2, theta = codigo/255*pi/2; arredondamento ao reticulado inteiro (rint) [ADAPTACAO]; byte = L + CENTRO",
-          "reconstruido_sha256": "c2e67bf2657a063e1050980b08f5ea87f9cdb21eada5591ea448f7487f70dc73",
+          "reconstruido_sha256": "7e2eee223c6d07258884a9e5acbb7014b6249b713aae31525a7301eb031225de",
           "igual_ao_objeto_byte_a_byte": true,
           "bytes_divergentes": 0,
           "erro_real_maximo_antes_do_rint": 0.443516158,
@@ -125,24 +125,24 @@
           }
         },
         "auditoria_de_separacao": {
-          "n": 50743778,
-          "bytes_com_L_negativo": 25410073,
-          "bytes_com_L_zero": 38784,
-          "bytes_com_L_positivo": 25294921,
-          "fracao_de_L_negativo": 0.5007524863442371,
+          "n": 52376221,
+          "bytes_com_L_negativo": 26103467,
+          "bytes_com_L_zero": 44614,
+          "bytes_com_L_positivo": 26228140,
+          "fracao_de_L_negativo": 0.49838393266287767,
           "theta_mais_kappa_com_sinal_unico": {
-            "bytes_errados": 25294921,
-            "fracao_errada": 0.49848320320177975,
+            "bytes_errados": 26103467,
+            "fracao_errada": 0.49838393266287767,
             "basta": false
           },
           "psi_ou_psi_mais_kappa_sem_magnitudes": {
-            "bytes_errados": 41852920,
-            "fracao_errada": 0.8247891987861053,
+            "bytes_errados": 43077841,
+            "fracao_errada": 0.822469437037086,
             "basta": false
           },
           "kappa_sozinho_melhor_chute_constante": {
-            "bytes_errados": 44219418,
-            "fracao_errada": 0.871425418895692,
+            "bytes_errados": 45541394,
+            "fracao_errada": 0.8695051519658129,
             "basta": false
           },
           "escala_m_candidatos": 159,
@@ -152,66 +152,66 @@
             "kappa": false
           },
           "psi_redundante": false,
-          "leitura": "nenhuma parte isolada basta; Theta+kappa com sinal unico erra 49.8483% dos bytes (a confidencialidade NAO e' alegada)"
+          "leitura": "nenhuma parte isolada basta; Theta+kappa com sinal unico erra 49.8384% dos bytes (a confidencialidade NAO e' alegada)"
         }
       }
     },
     {
       "nome": "um_absoluto.json",
-      "bytes": 20082017,
-      "sha256": "762208a19a6f4f15e1afa5ea2f8fe4c6b938ee5c210a1811fe7990d9638293b8",
+      "bytes": 21105159,
+      "sha256": "5b12b0f8c39473c2e6c791fc5b93b250e12eda405f503f9110aa3bfee5a6f10e",
       "acom": {
         "perfil": "ACOM-INT-C96-Q8",
         "psi": {
-          "sha256": "73751520cc67763217f4786ce73c845591f6e7a9aeb91d194aa12dff3bd55320",
-          "bytes": 5020505
+          "sha256": "de8b82039b05688c15fcc6661a583c89c1d4299f13e878d5a30228208aceb2c5",
+          "bytes": 5276290
         },
         "theta": {
-          "sha256": "46afcecaefc655957517cef64325f74b9056590807bce67569fb5bef343be558",
-          "bytes": 20082017
+          "sha256": "1139d0e961857c25f14047d66624e5cae178b6df615b0056808e2500239461ba",
+          "bytes": 21105159
         },
         "kappa": {
-          "sha256": "b8099eb5bb1cab2630300a6e0cb27d5c33fd07c9a95b879b3167c5f6bb091afa",
+          "sha256": "4612bb5f640d5b5a5058baf59930d3ff3f98b161aa3b8a5b160c5dd652f76230",
           "bytes": 582,
           "campos": {
             "esquema": "ACOM-MIRROR-CRYPTO/SELO-v1",
             "perfil": "ACOM-INT-C96-Q8",
             "centro": 96,
             "angular_bits": 8,
-            "n_elements": 20082017,
+            "n_elements": 21105159,
             "shape": [
-              20082017
+              21105159
             ],
             "m_max_abs": 86,
             "g_max": "9.273618495495704",
             "state_counts": [
-              3661318,
-              5637844,
-              4364767,
-              6418088
+              3837192,
+              5914631,
+              4611317,
+              6742019
             ],
-            "f_exp_numerador": -76795,
-            "psi_hash": "73751520cc67763217f4786ce73c845591f6e7a9aeb91d194aa12dff3bd55320",
-            "theta_hash": "46afcecaefc655957517cef64325f74b9056590807bce67569fb5bef343be558",
+            "f_exp_numerador": -53263,
+            "psi_hash": "de8b82039b05688c15fcc6661a583c89c1d4299f13e878d5a30228208aceb2c5",
+            "theta_hash": "1139d0e961857c25f14047d66624e5cae178b6df615b0056808e2500239461ba",
             "lut_sha256": "c1ed4dd5a027da94c13b4bf46df844aab8f6063d8ccafd94774769506371a8ad",
-            "share_id": "3dc6202d61e567a4e7e519af0aeb0434",
-            "key_id": "85ec377bf8e442ddbb6430b015e4e15c"
+            "share_id": "ee3efca286528872b8be90e2262a4162",
+            "key_id": "be5a38e301d20d56a338d6519246e830"
           }
         },
         "estrutura": {
-          "f_exp": -0.0038240680704532816,
-          "f_exp_numerador": -76795,
-          "entropia_dos_estados_bits": 1.966721897838,
+          "f_exp": -0.002523695746618161,
+          "f_exp_numerador": -53263,
+          "entropia_dos_estados_bits": 1.96685121679,
           "state_counts": [
-            3661318,
-            5637844,
-            4364767,
-            6418088
+            3837192,
+            5914631,
+            4611317,
+            6742019
           ]
         },
         "prova_de_reconstrucao": {
           "metodo": "Dobra L' = sinal(psi) * [g_max sin(theta)]^2, theta = codigo/255*pi/2; arredondamento ao reticulado inteiro (rint) [ADAPTACAO]; byte = L + CENTRO",
-          "reconstruido_sha256": "762208a19a6f4f15e1afa5ea2f8fe4c6b938ee5c210a1811fe7990d9638293b8",
+          "reconstruido_sha256": "5b12b0f8c39473c2e6c791fc5b93b250e12eda405f503f9110aa3bfee5a6f10e",
           "igual_ao_objeto_byte_a_byte": true,
           "bytes_divergentes": 0,
           "erro_real_maximo_antes_do_rint": 0.264877705,
@@ -225,24 +225,24 @@
           }
         },
         "auditoria_de_separacao": {
-          "n": 20082017,
-          "bytes_com_L_negativo": 10782855,
-          "bytes_com_L_zero": 1173,
-          "bytes_com_L_positivo": 9297989,
-          "fracao_de_L_negativo": 0.5369408361719841,
+          "n": 21105159,
+          "bytes_com_L_negativo": 11353336,
+          "bytes_com_L_zero": 1175,
+          "bytes_com_L_positivo": 9750648,
+          "fracao_de_L_negativo": 0.5379412682936907,
           "theta_mais_kappa_com_sinal_unico": {
-            "bytes_errados": 9297989,
-            "fracao_errada": 0.4630007533605813,
+            "bytes_errados": 9750648,
+            "fracao_errada": 0.46200305811484293,
             "basta": false
           },
           "psi_ou_psi_mais_kappa_sem_magnitudes": {
-            "bytes_errados": 14365529,
-            "fracao_errada": 0.7153429359212274,
+            "bytes_errados": 15129608,
+            "fracao_errada": 0.7168677573099544,
             "basta": false
           },
           "kappa_sozinho_melhor_chute_constante": {
-            "bytes_errados": 15495097,
-            "fracao_errada": 0.7715906723911249,
+            "bytes_errados": 16315874,
+            "fracao_errada": 0.7730751519095402,
             "basta": false
           },
           "escala_m_candidatos": 159,
@@ -252,66 +252,66 @@
             "kappa": false
           },
           "psi_redundante": false,
-          "leitura": "nenhuma parte isolada basta; Theta+kappa com sinal unico erra 46.3001% dos bytes (a confidencialidade NAO e' alegada)"
+          "leitura": "nenhuma parte isolada basta; Theta+kappa com sinal unico erra 46.2003% dos bytes (a confidencialidade NAO e' alegada)"
         }
       }
     },
     {
       "nome": "um_absoluto_selo.json",
-      "bytes": 294323,
-      "sha256": "d6d935e34cdd2ec29ce039833210d9404a0f799a576fe8240a439e284f48a681",
+      "bytes": 824277,
+      "sha256": "64e90ce9b8b967d5f433972f26d346c5c858c11629b5f997cc50208674535c72",
       "acom": {
         "perfil": "ACOM-INT-C96-Q8",
         "psi": {
-          "sha256": "af15005d9dcb9234699208a2582f94e5f5830e2bfa113b1bd9e09df5a2826876",
-          "bytes": 73581
+          "sha256": "dac383eb2993bd7e181336f115982c50769ea3bd989dda8c016bd0dd07b28789",
+          "bytes": 206070
         },
         "theta": {
-          "sha256": "5a3c7b90c544548cf6044c409171d44dacfd24a6b2fb97471840ba13d7b75be0",
-          "bytes": 294323
+          "sha256": "afb18aa2eceb3d9db8cc052784789b3bbe254a16c2e9c555a8ca6062e6b198b2",
+          "bytes": 824277
         },
         "kappa": {
-          "sha256": "9760ba3030e84d24c005c392bf94126c93d5922e54cd22cead634c2fad3a29ce",
-          "bytes": 569,
+          "sha256": "d682057268ef8c4fedd433dd05f2885f514ed2084b14940d4ede1b02871b087f",
+          "bytes": 572,
           "campos": {
             "esquema": "ACOM-MIRROR-CRYPTO/SELO-v1",
             "perfil": "ACOM-INT-C96-Q8",
             "centro": 96,
             "angular_bits": 8,
-            "n_elements": 294323,
+            "n_elements": 824277,
             "shape": [
-              294323
+              824277
             ],
             "m_max_abs": 86,
             "g_max": "9.273618495495704",
             "state_counts": [
-              39802,
-              65924,
-              96498,
-              92099
+              92371,
+              188876,
+              252801,
+              290229
             ],
-            "f_exp_numerador": 30521,
-            "psi_hash": "af15005d9dcb9234699208a2582f94e5f5830e2bfa113b1bd9e09df5a2826876",
-            "theta_hash": "5a3c7b90c544548cf6044c409171d44dacfd24a6b2fb97471840ba13d7b75be0",
+            "f_exp_numerador": 59077,
+            "psi_hash": "dac383eb2993bd7e181336f115982c50769ea3bd989dda8c016bd0dd07b28789",
+            "theta_hash": "afb18aa2eceb3d9db8cc052784789b3bbe254a16c2e9c555a8ca6062e6b198b2",
             "lut_sha256": "c1ed4dd5a027da94c13b4bf46df844aab8f6063d8ccafd94774769506371a8ad",
-            "share_id": "a0f734faa0a46ea37a3a1e905154f7f3",
-            "key_id": "70785dc4dd2b2299c88d4339caa28953"
+            "share_id": "7c66fe56803a3d67827299ad644730d2",
+            "key_id": "9716a3a601a3dad0a135cb2029cf2611"
           }
         },
         "estrutura": {
-          "f_exp": 0.10369899736004322,
-          "f_exp_numerador": 30521,
-          "entropia_dos_estados_bits": 1.925797328305,
+          "f_exp": 0.0716712949651634,
+          "f_exp_numerador": 59077,
+          "entropia_dos_estados_bits": 1.894131034691,
           "state_counts": [
-            39802,
-            65924,
-            96498,
-            92099
+            92371,
+            188876,
+            252801,
+            290229
           ]
         },
         "prova_de_reconstrucao": {
           "metodo": "Dobra L' = sinal(psi) * [g_max sin(theta)]^2, theta = codigo/255*pi/2; arredondamento ao reticulado inteiro (rint) [ADAPTACAO]; byte = L + CENTRO",
-          "reconstruido_sha256": "d6d935e34cdd2ec29ce039833210d9404a0f799a576fe8240a439e284f48a681",
+          "reconstruido_sha256": "64e90ce9b8b967d5f433972f26d346c5c858c11629b5f997cc50208674535c72",
           "igual_ao_objeto_byte_a_byte": true,
           "bytes_divergentes": 0,
           "erro_real_maximo_antes_do_rint": 0.264877705,
@@ -325,24 +325,24 @@
           }
         },
         "auditoria_de_separacao": {
-          "n": 294323,
-          "bytes_com_L_negativo": 188597,
+          "n": 824277,
+          "bytes_com_L_negativo": 543030,
           "bytes_com_L_zero": 3,
-          "bytes_com_L_positivo": 105723,
-          "fracao_de_L_negativo": 0.6407824057243233,
+          "bytes_com_L_positivo": 281244,
+          "fracao_de_L_negativo": 0.6587955262611962,
           "theta_mais_kappa_com_sinal_unico": {
-            "bytes_errados": 105723,
-            "fracao_errada": 0.35920740139234786,
+            "bytes_errados": 281244,
+            "fracao_errada": 0.3412008341855954,
             "basta": false
           },
           "psi_ou_psi_mais_kappa_sem_magnitudes": {
-            "bytes_errados": 243367,
-            "fracao_errada": 0.8268704790315402,
+            "bytes_errados": 631364,
+            "fracao_errada": 0.7659609572995486,
             "basta": false
           },
           "kappa_sozinho_melhor_chute_constante": {
-            "bytes_errados": 257038,
-            "fracao_errada": 0.8733194483611543,
+            "bytes_errados": 673109,
+            "fracao_errada": 0.8166053401951043,
             "basta": false
           },
           "escala_m_candidatos": 159,
@@ -352,7 +352,7 @@
             "kappa": false
           },
           "psi_redundante": false,
-          "leitura": "nenhuma parte isolada basta; Theta+kappa com sinal unico erra 35.9207% dos bytes (a confidencialidade NAO e' alegada)"
+          "leitura": "nenhuma parte isolada basta; Theta+kappa com sinal unico erra 34.1201% dos bytes (a confidencialidade NAO e' alegada)"
         }
       }
     }

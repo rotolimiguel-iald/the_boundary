@@ -217,7 +217,23 @@ def ler(raiz=RAIZ):
     n_arq = len(kf['formal_files_sha256'])
     _exige('TGLExt/TheReservedConfirmation.lean' in kf['formal_files_sha256'], 'a pedra TheReservedConfirmation sumiu do kernel')
     gate = selo['qg_closure_verdict']
-    _exige(k['gate_verdict'] == gate, 'o gate do core e o do selo divergem')
+    # AO LADO (26/11/2026, claude-site-custodia; HANDOFF_v415_CUSTODIA.md): desde a v415 o gate tem o degrau da prova final, por decisão do
+    # operador. O veredito dos três testes (recalculado a cada rodada) fica no dos quatro degraus, que o selo traz ao lado
+    # (qg_closure_verdict_four_degrees). A diferença só passa com o registro da prova final verificado no selo e no core, com a avaliação
+    # do core dando o gate do selo e o mesmo veredito dos quatro degraus; fora disso, para como antes.
+    gate_dos_degraus = gate
+    fps = sorted(kk for kk in selo if kk.startswith('final_proof_v'))
+    if k['gate_verdict'] != gate and fps:
+        fk = fps[-1]
+        fsel, fcor = selo[fk], core.get(fk) or {}
+        ev = fcor.get('evaluation') or {}
+        _exige(fsel.get('all_verified') is True and fcor.get('all_verified') is True and ev.get('final_proof') is True,
+               '%s não está verificado no selo e no core' % fk)
+        _exige(ev.get('verdict') == gate, 'o gate do selo não é o da avaliação de %s no core' % fk)
+        _exige(selo.get('qg_closure_verdict_four_degrees') == ev.get('verdict_four_degrees') == k['gate_verdict'],
+               'o veredito dos quatro degraus diverge entre o selo, %s e os três testes' % fk)
+        gate_dos_degraus = selo['qg_closure_verdict_four_degrees']
+    _exige(k['gate_verdict'] == gate_dos_degraus, 'o gate do core e o do selo divergem')
 
     # apoio 2 — os ritos contra a natureza, com falsificadores pré-registrados
     led = t['ledger']

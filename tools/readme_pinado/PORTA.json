@@ -4,7 +4,7 @@
   "titulo": "tools/readme_pinado",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-11-21T22:14:46Z",
+  "gerado_utc": "2026-11-26T14:07:25Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "tools",
@@ -21,7 +21,7 @@
       "caminho": "tools/readme_pinado/readme_partes",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_partes/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_partes/PORTA.json",
-      "total_arquivos": 6
+      "total_arquivos": 7
     }
   ],
   "canonico_url": null,
@@ -35,12 +35,12 @@
       "descricao": "Documento em Markdown",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_template.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/readme_pinado/readme_template.md",
-      "sha256_16": "994e9f8be989bc73",
-      "bytes": 3983
+      "sha256_16": "8438d4bac2e162d2",
+      "bytes": 3309
     }
   ],
   "total_arquivos_nesta_pasta": 1,
-  "total_arquivos_com_subpastas": 7,
+  "total_arquivos_com_subpastas": 8,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/tools/readme_pinado",
-  "rodape": "gerado por script de git ls-files em 2026-11-21 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-11-26 -- nao editar a mao"
 }

@@ -1,0 +1,12 @@
+{
+ "versao": "v414",
+ "duracao_audit_s": 277,
+ "sorryAx_no_log_do_audit": 0,
+ "novas_no_trio": true,
+ "decl": 45015,
+ "thm": 33617,
+ "novas": 339,
+ "perdidas": 0,
+ "n_bandeiras": 244,
+ "log_sha256": "05ec651a2603968aeb4f687db233a005508d2c7aef7bc72193be263ee4fc14b2"
+}

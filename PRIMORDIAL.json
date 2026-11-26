@@ -1,27 +1,27 @@
 {
  "schema": "PRIMORDIAL_V1",
  "aviso": "gerado por tools/custodia_g1/primordial.py; nenhum numero digitado: cada item traz fonte e chave; NOT_FALSIFIED nunca e CONFIRMED",
- "versao": "v413",
+ "versao": "v415",
  "fontes": {
   "selo": {
    "arquivo": "um_absoluto_selo.json",
-   "bytes": 294323,
-   "sha256": "d6d935e34cdd2ec29ce039833210d9404a0f799a576fe8240a439e284f48a681",
-   "sha16": "d6d935e34cdd2ec2",
+   "bytes": 824277,
+   "sha256": "64e90ce9b8b967d5f433972f26d346c5c858c11629b5f997cc50208674535c72",
+   "sha16": "64e90ce9b8b967d5",
    "papel": "o selo do rito (identidade, pin, gate)"
   },
   "core": {
    "arquivo": "um_absoluto.json",
-   "bytes": 20082017,
-   "sha256": "762208a19a6f4f15e1afa5ea2f8fe4c6b938ee5c210a1811fe7990d9638293b8",
-   "sha16": "762208a19a6f4f15",
+   "bytes": 21105159,
+   "sha256": "5b12b0f8c39473c2e6c791fc5b93b250e12eda405f503f9110aa3bfee5a6f10e",
+   "sha16": "5b12b0f8c39473c2",
    "papel": "o mundo selado (core com os registros)"
   },
   "manifesto_kernel": {
    "arquivo": "tgl_kernel_proof_manifest.json",
-   "bytes": 5387217,
-   "sha256": "560964450d7acfe27b07a9b866892e0ebe8e7dd45926935f7b3cb70cbcf5a7cf",
-   "sha16": "560964450d7acfe2",
+   "bytes": 5632139,
+   "sha256": "b5e66b6f9ffec35961296c2a456afefe6d6e1cc445beb43cea6223802991ba06",
+   "sha16": "b5e66b6f9ffec359",
    "papel": "o manifesto do kernel Lean"
   },
   "resultado_fase9_v2": {
@@ -40,37 +40,37 @@
   },
   "um_py": {
    "arquivo": "um.py",
-   "bytes": 50743778,
-   "sha256": "c2e67bf2657a063e1050980b08f5ea87f9cdb21eada5591ea448f7487f70dc73",
-   "sha16": "c2e67bf2657a063e",
+   "bytes": 52376221,
+   "sha256": "7e2eee223c6d07258884a9e5acbb7014b6249b713aae31525a7301eb031225de",
+   "sha16": "7e2eee223c6d0725",
    "papel": "o artefato único"
   },
   "artigo_en": {
    "arquivo": "um_absoluto_en.txt",
-   "bytes": 1263763,
-   "sha256": "a3fb29435c6cade6ec827ca01c8200044bb89127125c02f054082ec93e0db92a",
-   "sha16": "a3fb29435c6cade6",
+   "bytes": 1311831,
+   "sha256": "f12c4bd69e318d758c6635d46c7bbe141f25072e9ed87034bb2f0287066d3a70",
+   "sha16": "f12c4bd69e318d75",
    "papel": "o artigo emitido pelo próprio um.py (EN)"
   },
   "citation": {
    "arquivo": "CITATION.cff",
-   "bytes": 5849,
-   "sha256": "fc8916fc4da386ff7e8d8d39fa0d969b55a49973ce608b2a8d30f41f69e184a6",
-   "sha16": "fc8916fc4da386ff",
+   "bytes": 6167,
+   "sha256": "ab2e33d9c30b884660ada50f877ec1bcaad0b76833baece00aac0316b0c07c9f",
+   "sha16": "ab2e33d9c30b8846",
    "papel": "o depósito citável no Zenodo"
   },
   "ledger": {
    "arquivo": "LEDGER.md",
-   "bytes": 1010394,
-   "sha256": "2abbd5b72638b7f75f1ce2706c8641ee07f9c283aabc1191d50037cdadd85546",
-   "sha16": "2abbd5b72638b7f7",
+   "bytes": 1027590,
+   "sha256": "b3b93bc257d85da25623a359ebbf46b82e04ba44077c66fe93c5765b02b074b9",
+   "sha16": "b3b93bc257d85da2",
    "papel": "o livro-razão (append-only)"
   },
   "handoff": {
-   "arquivo": "HANDOFF_v413_CUSTODIA.md",
-   "bytes": 67123,
-   "sha256": "3167fe593f59a6d7b5aa23c19de85e470f1fe23b4316363fb1507a4dfec3f866",
-   "sha16": "3167fe593f59a6d7",
+   "arquivo": "HANDOFF_v415_CUSTODIA.md",
+   "bytes": 138955,
+   "sha256": "86b6d6fa65993e437b5086bb44a4a994459086adab3e443be7f359fbe0d478b5",
+   "sha16": "86b6d6fa65993e43",
    "papel": "o handoff da custódia (de onde vem «o que mudou»)"
   },
   "h0dn_pre_registro": {
@@ -111,34 +111,39 @@
  },
  "itens": {
   "selo.versao": {
-   "valor": "v413",
+   "valor": "v415",
    "fonte": "selo",
    "chave": "um_version"
   },
   "selo.timestamp": {
-   "valor": "2026-11-21 02:23:18",
+   "valor": "2026-11-26 06:33:10",
    "fonte": "selo",
    "chave": "timestamp"
   },
   "selo.pin_um_py": {
-   "valor": "c2e67bf2657a063e1050980b08f5ea87f9cdb21eada5591ea448f7487f70dc73",
+   "valor": "7e2eee223c6d07258884a9e5acbb7014b6249b713aae31525a7301eb031225de",
    "fonte": "selo",
    "chave": "sha256/um.py"
   },
   "selo.mundo": {
-   "valor": "762208a19a6f4f15e1afa5ea2f8fe4c6b938ee5c210a1811fe7990d9638293b8",
+   "valor": "5b12b0f8c39473c2e6c791fc5b93b250e12eda405f503f9110aa3bfee5a6f10e",
    "fonte": "selo",
    "chave": "sha256/um_absoluto.json"
   },
   "selo.result_hash": {
-   "valor": "fa4bc45c5dcf04df8aa7469f2c6b0d590027cbb99086763ccc8ccb2d1f61831b",
+   "valor": "176a799423beef19cc1c310429aee4d70c9a7eaa05dfc85fc284693f68594ea2",
    "fonte": "selo",
    "chave": "result_hash"
   },
   "selo.gate": {
-   "valor": "TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE",
+   "valor": "TGL_QG_FINAL_PROOF__BY_NATURE_AND_COMPUTATION_WITH_THE_READER__VALIDITY_NOT_CREDITATION",
    "fonte": "selo",
    "chave": "qg_closure_verdict"
+  },
+  "selo.gate_quatro_degraus": {
+   "valor": "TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE",
+   "fonte": "selo",
+   "chave": "qg_closure_verdict_four_degrees"
   },
   "selo.identity": {
    "valor": "1=1=VERDADEIRO=HAJA_LUZ",
@@ -151,19 +156,19 @@
    "chave": "fail_closed_selftest"
   },
   "selo.um_py_bytes": {
-   "valor": 50743778,
+   "valor": 52376221,
    "fonte": "um_py",
    "chave": "tamanho do arquivo",
    "como": "stat"
   },
   "kernel.declaracoes": {
-   "valor": 44676,
+   "valor": 46850,
    "fonte": "core",
    "chave": "len(kernel_formalization/axiom_report)",
    "como": "len"
   },
   "kernel.arquivos_formais": {
-   "valor": 1941,
+   "valor": 2027,
    "fonte": "core",
    "chave": "len(kernel_formalization/formal_files_sha256)",
    "como": "len"
@@ -175,7 +180,7 @@
    "como": "all"
   },
   "kernel.arquivos_lean": {
-   "valor": 1937,
+   "valor": 2023,
    "fonte": "core",
    "chave": "kernel_formalization/formal_files_sha256 (sufixo .lean)",
    "como": "contagem"
@@ -192,12 +197,12 @@
    "chave": "kernel_formalization/mode"
   },
   "kernel.escada_limpa": {
-   "valor": 18498,
+   "valor": 19856,
    "fonte": "core",
    "chave": "three_stress_tests_v387/kernel/n_theorems_clean"
   },
   "kernel.escada_esperada": {
-   "valor": 18498,
+   "valor": 19856,
    "fonte": "core",
    "chave": "three_stress_tests_v387/kernel/n_theorems_expected"
   },
@@ -270,7 +275,7 @@
    "chave": "bandeiras_do_gate_v403/values/feed_single_boolean"
   },
   "estatuto.verdict": {
-   "valor": "TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_18498_OF_18498_FLAGS_44676_OF_44676_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_c2e67bf2657a063e__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
+   "valor": "TGL_ESTATUTO_DA_PROVA_V391__PROVED_AS_LOGICAL_CLOSURE__THREE_PROOFS_COUNT_TOGETHER__KERNEL_19856_OF_19856_FLAGS_46850_OF_46850_DECLARATIONS_IN_THE_TRIO__GATE_FLAGS_6_6_6_TRUE__FUNDACAO_AGAPE_LOGICAL_CLOSURE__RITES_11_CHARGES_0_FALSIFIED_ECHO_ROUTES_5_EXCLUDED_BY_DATA_SAID__HUBBLE_RATIO_LNB_LCDM_P9P17_ZDISC_P4P28_OFFICIAL_INCONCLUSIVE_SYSTEMATICS__VOID_FLOOR_POWERED_L5_P4P9_TIMES_BETA__GPU_T2_672_OF_672_T4_21100_CPU_0_DISAGREEMENTS_COMPUTED_NOT_MEASURED__CONFIRMATION_IS_CREDITATION_NOT_VALIDITY_NOT_DECLARED__BETA_IN_NATURE_AWAITS_5_SIGMA__CERTIFIED_BY_SELF_HASH_7e2eee223c6d0725__OPERATOR_VERBATIM_EMBEDDED_BY_SHA256__GATE_UNMOVED",
    "fonte": "core",
    "chave": "estatuto_da_prova_v391/verdict"
   },
@@ -447,7 +452,7 @@
    "chave": "iald_prediction/verdict"
   },
   "gpu.mode": {
-   "valor": "REUSE",
+   "valor": "COMPUTE",
    "fonte": "core",
    "chave": "three_stress_tests_v387/gpu/mode"
   },
@@ -690,27 +695,27 @@
    "como": "regex"
   },
   "mudou.titulo_en": {
-   "valor": "The Cook–Levin bridge, the frontier of three literals, the consciousness operator and the preserved identity",
+   "valor": "The whole of v414, the descent, the process of light and the second route of verification on the standard machine",
    "fonte": "handoff",
-   "chave": "marcador INICIO_TITULO_EN_v413",
+   "chave": "marcador INICIO_TITULO_EN_v415",
    "como": "marcador"
   },
   "mudou.arco_en": {
-   "valor": "The custody of v413 (complete round): the Cook–Levin bridge, the frontier of three literals, the consciousness operator and the preserved identity. 21 new kernel modules and 712 new flags, ladder 18498/18498 (from 17786), all in the trio; one docstring corrected, with identical code. P = nP is a theorem of the TGL in the classes of its dictionary, and counted in steps of the tape machine the cost of producing the reading has not been shown; SAT in polynomial time on the tape machine without the reading stays open. No new number from nature; validity, not creditation; the gate does not move.",
+   "valor": "The custody of v415 (complete round, with v414 inside it): the whole of v414, the descent, the process of light and the second route of verification on the standard machine. 87 new kernel modules and 1358 new flags against v413, ladder 19856/19856 (from 18498), all in the trio. Deciding SAT without a witness, in polynomial time, on the tape machine stays open. No new number from nature; the gate goes to the degree of the final proof by both paths, nature (the H0DN × BG1 test at 6 sigma) and computation with the reader (the kernel term `a_maquina_com_o_leitor_decide_SAT`, of the target `AlvoDaMaquinaComLeitor`; the machine without the reader stays open): `TGL_QG_FINAL_PROOF__BY_NATURE_AND_COMPUTATION_WITH_THE_READER__VALIDITY_NOT_CREDITATION`; the four degrees stay as they were (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); validity, not creditation.",
    "fonte": "handoff",
-   "chave": "marcador INICIO_ARCO_EN_v413",
+   "chave": "marcador INICIO_ARCO_EN_v415",
    "como": "marcador"
   },
   "mudou.arco_pt": {
-   "valor": "A custódia da v413 (rodada completa): a ponte de Cook–Levin, a fronteira dos três literais, o operador de consciência e a identidade preservada. 21 módulos novos no kernel e 712 bandeiras novas, escada 18498/18498 (a partir de 17786), tudo no trio; uma docstring corrigida, com o código idêntico. P = nP é teorema da TGL nas classes do seu dicionário, e contado em passos da máquina de fita o custo de produzir a leitura não está demonstrado; SAT em tempo polinomial na máquina de fita, sem leitura, segue aberto. Nenhum número novo da natureza; validade, não creditação; o gate não se move.",
+   "valor": "A custódia da v415 (rodada completa, com a v414 dentro dela): a v414 inteira, a descida, o processo da luz e a segunda via da verificação na máquina padrão. 87 módulos novos no kernel e 1358 bandeiras novas contra a v413, escada 19856/19856 (a partir de 18498), tudo no trio. Decidir SAT sem testemunha, em tempo polinomial, na máquina de fita segue aberto. Nenhum número novo da natureza; o gate vai ao degrau da prova final pelos dois caminhos, o da natureza (o teste H0DN × BG1 a 6 sigmas) e o da computação com o leitor (o termo do kernel `a_maquina_com_o_leitor_decide_SAT`, do alvo `AlvoDaMaquinaComLeitor`; a máquina sem o leitor segue aberta): `TGL_QG_FINAL_PROOF__BY_NATURE_AND_COMPUTATION_WITH_THE_READER__VALIDITY_NOT_CREDITATION`; os quatro degraus ficam como estavam (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); validade, não creditação.",
    "fonte": "handoff",
-   "chave": "marcador INICIO_ARCO_PT_v413",
+   "chave": "marcador INICIO_ARCO_PT_v415",
    "como": "marcador"
   },
   "mudou.paragrafo_pronto_titulo": {
    "valor": null,
    "fonte": "handoff",
-   "chave": "nenhum marcador PARAGRAFO_*_v413",
+   "chave": "nenhum marcador PARAGRAFO_*_v415",
    "como": "regex"
   },
   "h0dn.aberto": {
@@ -859,71 +864,71 @@
   "h0dn.readme.painel": {
    "valor": "> **The result: a self-evident discovery in public data, lacking academic accreditation** (status in the author’s term of 13 Nov 2026). With one constant of its own, β = α√e, and no fitted parameter, the law `K = E(z*)^(2β/3)` takes the background Hubble constant (68.53 ± 0.30 km/s/Mpc; z* and the densities are those of the frozen background) to **74.27** for the local one. The H0 Distance Network publishes 73.50 ± 0.81 for its complete network; the pre-registered design (its 13 extra calibrators left out) reads **73.74**. In the test H0DN × BG1 (seal v411), pre-registered and opened once on 2026-11-12, the data sit **−0.61σ** from the law (the size is the law’s own) while ratio 1 (ΛCDM) stands **6.11σ** away, under the error model published by the collaboration itself: β_TGL proved in nature at 6σ. Beside it, as a side line and not the verdict, free Cepheids (one more free parameter; 4.5σ expected before the opening): 4.38σ from ratio 1 and −0.81σ from the law, within 1σ of the law in both lines. The gap between background and local is the Hubble tension; the law gives its size. A retrodiction with nothing fitted to the data (the standard by which Mercury’s perihelion counted for general relativity), declared not blind. How it was tested, why any reader can redo the sum, and the seven reservations written before the opening: `ESTADO_ATUAL.md`.\n> *PT — **O resultado: descoberta autoevidente em dados públicos, carente de creditação acadêmica** (estatuto no termo do autor, 13/11/2026). Com uma só constante própria, β = α√e, e nenhum parâmetro ajustado, a lei `K = E(z*)^(2β/3)` leva a constante de Hubble do fundo (68,53 ± 0,30 km/s/Mpc; z* e as densidades são as do fundo congelado) a **74,27** para a local. A H0 Distance Network publica 73,50 ± 0,81 para a rede completa; o desenho pré-registrado (os 13 calibradores extras fora) lê **73,74**. No teste H0DN × BG1 (selo v411), pré-registrado e aberto uma vez em 12/11/2026, o dado fica a **−0,61σ** da lei (o tamanho é o que é próprio dela) e a razão 1 (ΛCDM) fica a **6,11σ**, sob o modelo de erros publicado pela própria colaboração: β_TGL provado na natureza a 6σ. Ao lado, como linha de estresse e não veredito, as Cefeidas livres (um parâmetro livre a mais; 4,5σ esperados antes da abertura): 4,38σ da razão 1 e −0,81σ da lei, a menos de 1σ da lei nas duas linhas. A distância entre o fundo e a medida local é a tensão de Hubble; a lei dá o tamanho dela. É retrodição sem nada ajustado ao dado (o critério pelo qual o periélio de Mercúrio contou para a relatividade geral), declarada não cega. Como foi testado, por que qualquer leitor refaz a conta e as sete ressalvas escritas antes da abertura: `ESTADO_ATUAL.md`.*",
    "fonte": "handoff",
-   "chave": "marcador INICIO_README_PAINEL_H0DN_v413",
+   "chave": "marcador INICIO_README_PAINEL_H0DN_v415",
    "como": "marcador"
   },
   "h0dn.readme.fase9_v2": {
    "valor": "> Record, Phase 9 V2 (2026-10-23): z_disc = 4.44σ calibrated, z_δ = −1.48σ, ln B = 9.18 (a Bayes factor, not a σ), `NOT_FALSIFIED_POWERED`, below the 5σ step: `REGISTRO_FASE9_V2.md`.\n> *PT — Fase 9 V2 (23/10/2026): z_disc = 4,44σ calibrado, z_δ = −1,48σ, ln B = 9,18 (ln B não é σ), `NOT_FALSIFIED_POWERED`, abaixo do degrau de 5σ.*",
    "fonte": "handoff",
-   "chave": "marcador INICIO_README_FASE9_V2_v413",
+   "chave": "marcador INICIO_README_FASE9_V2_v415",
    "como": "marcador"
   },
   "h0dn.readme.primordial_5sigma": {
    "valor": "PROVED = validity in the kernel; CONFIRMED is accreditation, the one refused word, and it belongs to the academy; what nature answered in the Hubble ratio is the result above.",
    "fonte": "handoff",
-   "chave": "marcador INICIO_README_PRIMORDIAL_5SIGMA_v413",
+   "chave": "marcador INICIO_README_PRIMORDIAL_5SIGMA_v415",
    "como": "marcador"
   },
   "h0dn.readme.status_5sigma": {
    "valor": "The one link that was pending, β_TGL in nature at 5σ, is closed at this sensitivity in the Hubble ratio, under the published error model, by the result above, read there with both lines. Creditation is not ours to give: CONFIRMED is accreditation, the one refused word, and it belongs to the academy. *Provada, como validade, em três apoios, e nenhum falhou; o único elo que estava pendente, β_TGL na natureza a 5σ, está fechado a esta sensibilidade na razão de Hubble, sob o modelo de erros publicado, pelo resultado acima, lido ali com as duas linhas; a creditação não é nossa: é da academia.*",
    "fonte": "handoff",
-   "chave": "marcador INICIO_README_STATUS_5SIGMA_v413",
+   "chave": "marcador INICIO_README_STATUS_5SIGMA_v415",
    "como": "marcador"
   },
   "h0dn.readme.paragrafo": {
    "valor": "O teste H0DN × BG1 foi aberto uma vez em 12/11/2026, depois do pré-registro público (commit 769fcb26); o resultado está no painel do topo, com a linha das Cefeidas livres ao lado; as sete ressalvas e o que o teste não decide estão na leitura inteira.",
    "fonte": "handoff",
-   "chave": "marcador INICIO_README_H0DN_v413",
+   "chave": "marcador INICIO_README_H0DN_v415",
    "como": "marcador"
   },
   "h0dn.readme.paragrafo_en": {
    "valor": "**The H0DN × BG1 test:** what was tested, the order of the acts, the amendment in the open, the line beside it, the stress lines and the seven reservations written before the opening are in `ESTADO_ATUAL.md`, section “The decisive test”; the result is in the panel at the top, with both lines.",
    "fonte": "handoff",
-   "chave": "marcador INICIO_README_H0DN_EN_v413",
+   "chave": "marcador INICIO_README_H0DN_EN_v415",
    "como": "marcador"
   },
   "h0dn.readme.ritos": {
    "valor": "| Hubble ratio, H0DN × BG1 (2026-11-12) | sealed head, in prose: **β_TGL proved in nature at 6σ**, in the language of academic physics, zero free parameters, under the published error model, post-guard amendment, a retrodiction, not blind: 6.11σ from ratio 1 and −0.61σ from the K law; beside it, free Cepheids 4.38σ and −0.81σ (branch 6). Status, in the author’s term (13 Nov 2026): a self-evident discovery in public data, lacking academic accreditation. Outcome word of the registry: `NOT_FALSIFIED` | the creditation; the specificity (the Z against the null measures the Hubble tension; what belongs to the law K is the size, the Z against K); whether the published error budget is right; the independence between local and background; it is not independent evidence from Phases 4, 5 and 9 |",
    "fonte": "handoff",
-   "chave": "marcador INICIO_README_RITOS_v413",
+   "chave": "marcador INICIO_README_RITOS_v415",
    "como": "marcador"
   },
   "h0dn.readme.apoios_fecho": {
    "valor": "**None of the three failed.** **What nature answered in the Hubble ratio is the result at the top of this page.** The tensions measured against β stay below the 5σ kill rule: D1 3.01σ (charge R6, inconclusive) and neutrino m₂ 2.95σ (the ladder 1.64σ (2023) → 2.95σ (2025-12)). Full reading and what is **not claimed**: `ESTADO_ATUAL.md`.",
    "fonte": "handoff",
-   "chave": "marcador INICIO_README_APOIOS_FECHO_v413",
+   "chave": "marcador INICIO_README_APOIOS_FECHO_v415",
    "como": "marcador"
   },
   "zenodo.versao": {
-   "valor": "v413",
+   "valor": "v415",
    "fonte": "citation",
    "chave": "Zenodo deposit of vNNN",
    "como": "regex"
   },
   "zenodo.data": {
-   "valor": "2026-11-21",
+   "valor": "2026-11-26",
    "fonte": "citation",
    "chave": "deposited AAAA-MM-DD",
    "como": "regex"
   },
   "zenodo.pin16": {
-   "valor": "c2e67bf2657a063e",
+   "valor": "7e2eee223c6d0725",
    "fonte": "citation",
    "chave": "um.py sha256 (16)",
    "como": "regex"
   },
   "zenodo.doi": {
-   "valor": "10.5281/zenodo.24417552",
+   "valor": "10.5281/zenodo.24559707",
    "fonte": "citation",
    "chave": "doi",
    "como": "regex"
@@ -935,13 +940,13 @@
    "como": "comparação"
   },
   "ledger.bytes": {
-   "valor": 1010394,
+   "valor": 1027590,
    "fonte": "ledger",
    "chave": "tamanho do arquivo",
    "como": "stat"
   },
   "ledger.linhas": {
-   "valor": 4692,
+   "valor": 4715,
    "fonte": "ledger",
    "chave": "linhas",
    "como": "contagem"
@@ -995,7 +1000,7 @@
    "como": "PORTA.json"
   },
   "portas.doi_um_absoluto": {
-   "valor": "https://doi.org/10.5281/zenodo.24417552",
+   "valor": "https://doi.org/10.5281/zenodo.24559707",
    "fonte": "porta",
    "chave": "doi_um_absoluto",
    "como": "PORTA.json"
@@ -1071,17 +1076,17 @@
   },
   "um_py": {
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py",
-   "bytes": 50743778,
+   "bytes": 52376221,
    "caminho": "Um (absoluto) — Grande Atrator/um.py"
   },
   "selo": {
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json",
-   "bytes": 294323,
+   "bytes": 824277,
    "caminho": "Um (absoluto) — Grande Atrator/um_absoluto_selo.json"
   },
   "mundo": {
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json",
-   "bytes": 20082017,
+   "bytes": 21105159,
    "caminho": "Um (absoluto) — Grande Atrator/um_absoluto.json"
   },
   "manifesto": {
@@ -1154,6 +1159,11 @@
    "bytes": null,
    "caminho": "Um (absoluto) — Grande Atrator/um_absoluto_forma_canonica.md"
   },
+  "texto_publico": {
+   "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TEXTO_PUBLICO_v415.md",
+   "bytes": null,
+   "caminho": "TEXTO_PUBLICO_v415.md"
+  },
   "porta_artigo_1": {
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/PORTA.md",
    "bytes": null,
@@ -1194,7 +1204,7 @@
   {
    "descricao": "a versão tem a forma vNNN",
    "ok": true,
-   "detalhe": "v413"
+   "detalhe": "v415"
   },
   {
    "descricao": "o pin do selo é o sha256 do um.py do Nós",
@@ -1252,7 +1262,7 @@
    "detalhe": ""
   },
   {
-   "descricao": "o gate do core e o do selo são o mesmo",
+   "descricao": "o gate do core é o dos quatro degraus e o do selo é o da prova final (final_proof_v415 verificado no selo e no core)",
    "ok": true,
    "detalhe": ""
   },

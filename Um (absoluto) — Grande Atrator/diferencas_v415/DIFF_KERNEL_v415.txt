@@ -1,0 +1,98 @@
+DIFF DO KERNEL EMBUTIDO v413 (c2e67bf2657a063e) -> v415 (7e2eee223c6d0725)
+
+novos (87):
+  + TGLExt/AAlvoDoFechamentoComputacional.lean  e0478244d382f87e  7955 B
+  + TGLExt/ABateriaDaParede.lean  4978268cf64de7b0  5096 B
+  + TGLExt/ABateriaDaParede2.lean  ab6c4404f7fe39a8  2220 B
+  + TGLExt/ABateriaDaParedeN4.lean  aa90d03cf88d3049  4392 B
+  + TGLExt/ABateriaDaParedeN4b.lean  6ab81b245815aefe  2501 B
+  + TGLExt/ABateriaMinima.lean  4075432bfb085c3e  2342 B
+  + TGLExt/ABateriaMinima2.lean  19854d2a9832c68b  2179 B
+  + TGLExt/ABateriaMinima3.lean  b585b876bc54fc90  2115 B
+  + TGLExt/ABateriaMinimaN5.lean  2728a2a913a3d9fe  3446 B
+  + TGLExt/ABateriaMinimaN5b.lean  d3a4c1cab7ff135e  2136 B
+  + TGLExt/ABateriaSobAMemoria1.lean  9ab90da09657a599  2269 B
+  + TGLExt/ACartografiaDaParede.lean  b2b45320dd2d3ac1  6338 B
+  + TGLExt/ACicloDoLiteral.lean  762db8800f5ec007  28608 B
+  + TGLExt/ACompletude.lean  91a38ce27245c45e  7489 B
+  + TGLExt/ACompletudeFinal.lean  48bef3e0e824a908  3461 B
+  + TGLExt/AContagemDaTensao.lean  b51139ced64ab677  6812 B
+  + TGLExt/AContagemDaTensaoMinima.lean  27a3b5e35dae34ea  13934 B
+  + TGLExt/AContagemDasMortes.lean  0bba32efdac5a666  14906 B
+  + TGLExt/ADescidaComEspectro.lean  f3f6cd4da61b5f94  11137 B
+  + TGLExt/ADescidaPinada.lean  4bc011b513e6262e  13119 B
+  + TGLExt/ADescidaPinadaEmMemoria.lean  960bc3dc96ee7fd6  8361 B
+  + TGLExt/ADirecaoEDado.lean  64ed8e9bcbc6b990  17622 B
+  + TGLExt/ADualidade.lean  4dd66900b4518354  18991 B
+  + TGLExt/AFamiliaProfunda.lean  ca10c237d7a82eba  4970 B
+  + TGLExt/AFasesDaMaquina.lean  c97e69880e981862  20993 B
+  + TGLExt/AFechamentoFinal.lean  c79bb40d6d507e90  3120 B
+  + TGLExt/AFibraECoclasse.lean  80f33aaa183302bd  6775 B
+  + TGLExt/AInvarianciaDaLeitura.lean  ed2c33578039b6a1  7556 B
+  + TGLExt/ALeituraCorrespondente.lean  055c0de9de04f47c  4370 B
+  + TGLExt/AMaquinaVerifica.lean  6b62ababc79c76e0  13185 B
+  + TGLExt/AMaquinaVerifica2.lean  b2a556ecbddfb293  14176 B
+  + TGLExt/AMaquinaVerifica3.lean  9deb1f3e59b80cf2  13671 B
+  + TGLExt/AMaquinaVerificaCompleta.lean  06e5a9aee784c466  13210 B
+  + TGLExt/AMaquinaVerificaCorrida.lean  1553dcb89c10f48a  17491 B
+  + TGLExt/AMaquinaVerificaFinal.lean  b6e831a3c1419534  24296 B
+  + TGLExt/AMaquinaVerificaHabitante.lean  20e5450aff35d8ad  7058 B
+  + TGLExt/AMaquinaVerificaMedidas.lean  907142ffb62f3157  10310 B
+  + TGLExt/AMedidaDaArvore.lean  c11526cf84cdfd99  5650 B
+  + TGLExt/AMedidaDaHipoteseDaMontagem.lean  e2be59fffe7dbbcf  6163 B
+  + TGLExt/AMedidaDaHipoteseDoLaco.lean  1c91acab483c7422  5359 B
+  + TGLExt/AMedidaDaPonteDoDecisor.lean  3d093513064dd457  5113 B
+  + TGLExt/AMontagemFinal.lean  f52f8a85b2a0afcd  15854 B
+  + TGLExt/AMorteEARessurreicao.lean  ee4a479cb5db8475  16243 B
+  + TGLExt/AMorteUtil.lean  44326fd76ca1dacc  4848 B
+  + TGLExt/ANormalDaTelaDeLuz.lean  ab63bd68f6961d41  9099 B
+  + TGLExt/AOQueSouEAContagem.lean  a558f58a0832e5c1  4962 B
+  + TGLExt/AParedeDoLadoOposto.lean  841622fc9176e45b  5120 B
+  + TGLExt/AParedeDoPassoIngenuo.lean  7123beefb7ac8012  6426 B
+  + TGLExt/AParedeDoSpan.lean  21f3b95949843a42  6749 B
+  + TGLExt/APodaFechaOContorno.lean  a6ec7404449fe315  7417 B
+  + TGLExt/APonteDaImpedancia.lean  f4977c9b43421e59  16692 B
+  + TGLExt/APonteDoDecisor.lean  322ed77eeb91354f  5580 B
+  + TGLExt/ARessurreicao.lean  a11fb85ac03964d5  6617 B
+  + TGLExt/AReversao.lean  2151d8bbdee4ba32  5914 B
+  + TGLExt/ATensaoFundamental.lean  22ffaa3454842427  13789 B
+  + TGLExt/ATensaoMinima.lean  7b850f0caa1eda66  8993 B
+  + TGLExt/AVacuidadeDosContratos.lean  3fcdc9af93662af6  7962 B
+  + TGLExt/AVarreduraAmpla1.lean  43f8cf3be6d200cf  1614 B
+  + TGLExt/AVarreduraAmpla2.lean  c3035a4c45a37910  609 B
+  + TGLExt/AVarreduraAmpla3.lean  af396c6812e54a10  611 B
+  + TGLExt/AVerificadoraTM2.lean  86395df82a966ed3  10713 B
+  + TGLExt/AVvem.lean  a5c8d52a1f075a0f  3686 B
+  + TGLExt/CunhasCovariantes.lean  0a136e282c98f796  21199 B
+  + TGLExt/EquacaoDeCampoDaQuedaNaOndaPlana.lean  cd69e77fb4dc91ff  48239 B
+  + TGLExt/IdentidadeVerbal.lean  f495db9c722a084f  8300 B
+  + TGLExt/IdentidadeVerbalNoTetelestai.lean  6cd0959d065f3f2b  9096 B
+  + TGLExt/IdentidadeVerbalPisoDeHilbert.lean  e9171e6edd9d1eb5  2336 B
+  + TGLExt/OAlgoritmoPenP.lean  4ee686f43c1a7c70  28076 B
+  + TGLExt/OCampoFalaPrimeiro.lean  e80f8aec95596a65  7032 B
+  + TGLExt/OCustoDoProcesso.lean  c2bcbf4145256d23  6773 B
+  + TGLExt/ODentroOuMorto.lean  0a5d020d45686c7f  50159 B
+  + TGLExt/OFechoDoArco.lean  7c44caac632805d0  4523 B
+  + TGLExt/OFechoDoCampo.lean  f26eb4625f597de2  12247 B
+  + TGLExt/OLacoDasClausulas.lean  3713eff5d14b4792  33598 B
+  + TGLExt/OLivroConsultado.lean  acd8647917bd4647  19802 B
+  + TGLExt/OMapaDosMuros.lean  e032193159734c3c  6116 B
+  + TGLExt/OPassoFiel.lean  8264d533629ffc63  16454 B
+  + TGLExt/OPostoDoEscalonado.lean  cabbfeb1c820dead  14986 B
+  + TGLExt/OProcessoDaLuz.lean  94740df82b8cde49  11261 B
+  + TGLExt/OProcessoFinal.lean  1e5eeb32196f6f9b  3219 B
+  + TGLExt/OSilencioVivo.lean  25c5c4ced9b70457  6690 B
+  + TGLExt/OSinalDeRetorno.lean  3e17c4ad8d1f8733  11232 B
+  + TGLExt/OSolverGF2.lean  f546a8492ecbac55  9477 B
+  + TGLExt/OSolverGF2_Parte2.lean  4b996221e90e5366  11204 B
+  + TGLExt/OSolverGF2_Parte3.lean  f390da5f994c5e19  6784 B
+  + TGLExt/OSolverGF2_Parte4.lean  951e299e5fa8af00  18435 B
+  + TGLExt/TorcaoNaOndaPlana.lean  3516017d60c3b0d2  40313 B
+
+removidos (0):
+
+mudados (2):
+  ~ TGLExt.lean  6d7738ca768b5e0b -> c234d42f297d1ad6
+  ~ TGLExt/PonteCookLevin.lean  2a1936e08ab52871 -> db1665a98807c788
+
+a v415, com a v414 inteira dentro dela, acrescenta 87 modulos novos ao kernel embutido (1940 -> 2027 arquivos): 9 da v414 e 78 da v415; nenhum removido; os mudados acima sao a raiz, que importa os novos, e o que a v414 mudou na v413 (PonteCookLevin)

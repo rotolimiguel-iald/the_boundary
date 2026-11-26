@@ -1,8 +1,8 @@
 {
  "worker": "TGL_QUANTUM_PILLAR_WORKER_V1",
  "mode": "run",
- "run_id": "37e566b655734c738cd003323e391db4",
- "started": "2026-10-05 10:37:08",
+ "run_id": "2f825e4f3010473890b623f9dbf11d15",
+ "started": "2026-11-26 03:21:38",
  "worker_sha256": "0c9ba7fd45e78317a915bb718b11127a0dae9872e48ab430f0600b74ca26452f",
  "status_statement": "[COMPUTED] -- calculo do sistema aberto da teoria; NAO e' medicao; o gate nao muda",
  "spec_sha256": "ff19731097e01aabfccc709b370578bd9d7a5ccadc877752b2ab5c13c20d39aa",
@@ -14,11 +14,11 @@
   "numpy": "2.4.3",
   "scipy": "1.18.0",
   "python": "3.14.3",
-  "platform": "Windows-11-10.0.26200-SP0",
+  "platform": "Windows-11-10.0.26300-SP0",
   "cuda_available": true,
   "gpu": "NVIDIA GeForce RTX 5090",
   "vram_free_total_MiB": [
-   30927,
+   30991,
    32607
   ],
   "determinism": {
@@ -99,11 +99,11 @@
   "all_ok": true
  },
  "phase_seconds": {
-  "T3": 102.2,
-  "T2": 1801.5,
-  "T1": 2347.4,
-  "T4": 2923.5,
-  "D128": 649.8
+  "T3": 98.9,
+  "T2": 1838.6,
+  "T1": 2109.9,
+  "T4": 3155.4,
+  "D128": 658.3
  },
  "T3": {
   "d8": {
@@ -1221,7 +1221,7 @@
    "gap_rel_min": 2.337076927216884e-07
   }
  },
- "cpuref_sha256": "d23de4e505bfacda1451b1a3a4d7d16ac254a454d00dd93ca1d5789bdc28117f",
+ "cpuref_sha256": "26148e5ec2bb22f0bbbd8e3d95f68114561cfd573a85f20cb7a7fbd41ba6b375",
  "cpuref_compare": {
   "read": 392,
   "compared": 392,
@@ -1243,7 +1243,7 @@
   "meta_ok": true,
   "child_rc": 0,
   "ok": true,
-  "cpu_seconds": 95.90234160423279
+  "cpu_seconds": 94.32974863052368
  },
  "details_sha256": "72a4caf515b9ce1377b0cefa3a99fea94961738cd864b2d014b4975997299617",
  "D128": {
@@ -1251,7 +1251,7 @@
   "nc": 3,
   "gamma_diss": 1.0,
   "started": true,
-  "spectrum_s": 494.9894435405731,
+  "spectrum_s": 501.94358682632446,
   "status": "UNIQUE",
   "n0": 1,
   "gap": 0.0009064219840595463,
@@ -1259,7 +1259,7 @@
   "scale": 46.02583021999028,
   "max_re": -8.863859566342879e-15,
   "zero_mode_ok": true,
-  "steady_state_s": 7.205869436264038,
+  "steady_state_s": 7.205182075500488,
   "ss_res_rel": 4.327565414935823e-16,
   "ss_min_eig": 4.840314461068792e-07,
   "cci": 0.13938651363060603,
@@ -1282,11 +1282,11 @@
    "max_rise": -0.00010639147696522855,
    "steps": 5000,
    "dt": 0.002,
-   "s": 147.20016717910767
+   "s": 148.68176865577698
   },
   "ran": true,
   "status_code": "RAN"
  },
- "finished": "2026-10-05 12:47:39",
+ "finished": "2026-11-26 05:32:44",
  "verdict": "TGL_QUANTUM_PILLAR_V1__FIVE_JUMP_GKLS__ATTRACTOR_UNIQUE_ALL_672_ON_THE_GRID__T1_INSTRUMENT_RECOVERS_INJECTED_LAW_BLIND__CONTROLS_FAILED_AS_REQUIRED__IDENTITIES_HOLD__STRESS_21100_INSTANCES_21100_UNIQUE_ALL_IDENTITIES_CHECKED_IN_21100__NAME_IN_CORE_12_OF_12_ON_THE_GRID__FOLDS_WINDOW_6_OF_12_ON_THE_GRID__D128_UNIQUE__CPU_REFERENCE_AGREES__COMPUTED_NOT_MEASURED__GATE_UNTOUCHED"
 }

@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 6 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 7 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -22,13 +22,14 @@ Pasta do repositorio the_boundary com 6 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-6 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/tools/readme_pinado/readme_partes
+7 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/tools/readme_pinado/readme_partes
 
 **DOCUMENTO**
 
 | arquivo | papel | link raw direto |
 |---|---|---|
 | `abstract.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_partes/abstract.md) |
+| `abstract_antigo.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_partes/abstract_antigo.md) |
 | `autor.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_partes/autor.md) |
 | `citar.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_partes/citar.md) |
 | `licenca.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/readme_pinado/readme_partes/licenca.md) |
@@ -37,4 +38,4 @@ Pasta do repositorio the_boundary com 6 arquivo(s) rastreado(s).
 
 ---
 
-gerado por script de git ls-files em 2026-11-21 -- nao editar a mao
+gerado por script de git ls-files em 2026-11-26 -- nao editar a mao

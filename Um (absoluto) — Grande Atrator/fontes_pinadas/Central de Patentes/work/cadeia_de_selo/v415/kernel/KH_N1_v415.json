@@ -1,0 +1,12 @@
+{
+ "versao": "v415",
+ "duracao_audit_s": 306,
+ "sorryAx_no_log_do_audit": 0,
+ "novas_no_trio": true,
+ "decl": 46850,
+ "thm": 34800,
+ "novas": 1835,
+ "perdidas": 0,
+ "n_bandeiras": 1114,
+ "log_sha256": "1fcb32c6b2d334eb99a6c7878c3dd9e82092766e8d21a375bf6d63b4a3a8fcda"
+}
