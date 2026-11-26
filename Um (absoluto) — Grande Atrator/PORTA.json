@@ -4,7 +4,7 @@
   "titulo": "Artigo 3 -- Um: Absoluto (o programa terminal)",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-11-26T16:38:17Z",
+  "gerado_utc": "2026-11-26T19:38:06Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -439,8 +439,8 @@
       "descricao": "Documento em Markdown",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md",
-      "sha256_16": "a752ad65df3c9fe2",
-      "bytes": 115543
+      "sha256_16": "83a03f795decf797",
+      "bytes": 117046
     },
     {
       "nome": "DESENHO_DO_FECHAMENTO_QG.md",

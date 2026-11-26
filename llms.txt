@@ -15,7 +15,7 @@ A REGRA DA PORTA: toda pasta canonica tem PORTA.md + PORTA.json; toda porta apon
 - [README.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md): a PAGINA DE FRENTE (<= 40 KB, gerada por script): o selo, reproduzir, as portas, os tres artigos, a ordem de leitura, abstract, citar.
 - [PRIMORDIAL.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PRIMORDIAL.json): a FONTE UNICA das informacoes primordiais -- cada numero do README e do site com a chave de origem, o arquivo e o sha256 da fonte (gerada por script).
 - [PINO_README.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PINO_README.json): o PINO do README -- sha256 do README, do PRIMORDIAL.json, do template, das partes e do selo; o README so' se edita pelo gerador.
-- [LEDGER.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md): o LIVRO-RAZAO -- o atlas da fronteira como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove): toda afirmacao com seu status e o link direto do arquivo onde se le (1004 KB; leia por ultimo).
+- [LEDGER.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/LEDGER.md): o LIVRO-RAZAO -- o atlas da fronteira como estava ate 11/09/2026, byte a byte, com os blocos das custodias seguintes ao lado (nada se remove): toda afirmacao com seu status e o link direto do arquivo onde se le (1005 KB; leia por ultimo).
 - [site oficial](https://teoriadagravitacaoluminodinamica.com): a face publica da teoria; a porta acima da raiz.
 - [repositorio](https://github.com/rotolimiguel-iald/the_boundary): a arvore no GitHub.
 - [Zenodo DOI 10.5281/zenodo.24559707](https://doi.org/10.5281/zenodo.24559707): o deposito CITAVEL do Um: Absoluto -- guarda a v415 (2026-11-26; um.py 7e2eee223c6d0725, md5 conferido pela API).
@@ -64,9 +64,9 @@ A REGRA DA PORTA: toda pasta canonica tem PORTA.md + PORTA.json; toda porta apon
 
 Do menor para o maior; cada arquivo se sustenta sozinho (tamanhos lidos agora):
 
-- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md   (346 KB) -- uma pagina: pin, gate, o que esta provado, o que nao esta
+- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md   (347 KB) -- uma pagina: pin, gate, o que esta provado, o que nao esta
 - https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json   (805 KB) -- o selo: todo sha256, o hash do mundo, o gate
-- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md   (113 KB) -- a arvore da prova, termo a termo
+- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md   (114 KB) -- a arvore da prova, termo a termo
 - https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md   (335 KB) -- a forma canonica
 - https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt   (1254 KB) -- o artigo em texto puro (PT); a versao EN esta ao lado
 - https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json   (5500 KB) -- o manifesto do kernel: cada teorema com seus axiomas

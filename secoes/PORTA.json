@@ -4,7 +4,7 @@
   "titulo": "secoes",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-11-26T16:38:17Z",
+  "gerado_utc": "2026-11-26T19:38:06Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -27,7 +27,7 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The absolute One: ω(I) = 1 and the derived Half-Nat · O Um absoluto: ω(I) = 1 e a Meia-Nat derivada",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/01-o-um-absoluto.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/01-o-um-absoluto.md",
-      "sha256_16": "91384b2215fdcdbc",
+      "sha256_16": "725b73af1c0db7ee",
       "bytes": 13005
     },
     {
@@ -57,7 +57,7 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The modular generator and the floor of the spectrum · O gerador modular e o piso do espectro",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/04-o-gerador-e-o-piso-do-espectro.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/04-o-gerador-e-o-piso-do-espectro.md",
-      "sha256_16": "215085cd08399925",
+      "sha256_16": "1e6aac7b1d8be73a",
       "bytes": 13568
     },
     {
@@ -77,8 +77,8 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The status of quantum gravity: proved on three supports, each with its own status; not yet confirmed (accredited) · O estatuto da gravidade quântica: provada em três apoios, cada um com o seu estatuto; ainda não confirmada (creditada)",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/06-o-estatuto-da-gravidade-quantica.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/06-o-estatuto-da-gravidade-quantica.md",
-      "sha256_16": "1c18e3ed2c6ba9a1",
-      "bytes": 21331
+      "sha256_16": "76afd33eacb9928c",
+      "bytes": 21551
     },
     {
       "nome": "07-o-programa-um-py.md",
@@ -87,7 +87,7 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The program um.py: what it is, how to run it, how to read it without running · O programa um.py: o que é, como se roda, como se lê sem rodar",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/07-o-programa-um-py.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/07-o-programa-um-py.md",
-      "sha256_16": "3184fecdda1edfc0",
+      "sha256_16": "0bc76dd59394b561",
       "bytes": 12258
     },
     {
@@ -97,7 +97,7 @@
       "descricao": "Parte da teoria para leitores que truncam (resposta nos primeiros 2 KB; trechos verbatim com fonte, faixa de bytes e sha256): The three articles and the instruments · Os três artigos e os instrumentos",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/08-os-artigos-e-os-instrumentos.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/secoes/08-os-artigos-e-os-instrumentos.md",
-      "sha256_16": "6943ad416901d109",
+      "sha256_16": "1501316f83239bd2",
       "bytes": 13150
     },
     {

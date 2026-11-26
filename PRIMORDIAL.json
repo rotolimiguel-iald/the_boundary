@@ -61,9 +61,9 @@
   },
   "ledger": {
    "arquivo": "LEDGER.md",
-   "bytes": 1027590,
-   "sha256": "b3b93bc257d85da25623a359ebbf46b82e04ba44077c66fe93c5765b02b074b9",
-   "sha16": "b3b93bc257d85da2",
+   "bytes": 1029017,
+   "sha256": "57ddc8b292a7249266266c8b09219bc0e50412dd632fcb90706980acfa1badbd",
+   "sha16": "57ddc8b292a72492",
    "papel": "o livro-razão (append-only)"
   },
   "handoff": {
@@ -940,13 +940,13 @@
    "como": "comparação"
   },
   "ledger.bytes": {
-   "valor": 1027590,
+   "valor": 1029017,
    "fonte": "ledger",
    "chave": "tamanho do arquivo",
    "como": "stat"
   },
   "ledger.linhas": {
-   "valor": 4715,
+   "valor": 4723,
    "fonte": "ledger",
    "chave": "linhas",
    "como": "contagem"
@@ -970,7 +970,7 @@
    "como": "git"
   },
   "custodia.commit_espelho": {
-   "valor": "58ce0858aae9e67b1f4e056672a72a458f831968",
+   "valor": "1adc5b5418172107f43841e8c10665c99ba08971",
    "fonte": "git_espelho",
    "chave": "git log -1 --grep='^custodia(vNNN)'",
    "como": "git"

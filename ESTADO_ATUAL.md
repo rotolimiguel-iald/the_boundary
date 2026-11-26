@@ -10,9 +10,9 @@ Many fetchers cut a document after a few hundred KB. Sizes measured now, smalles
 
 This page is itself ordered for readers that truncate: this list, the direct doors and the three commands come first, then the state (the three supports, the decisive test, the seal, what is proved, what nature answered); the lineage of every seal and custody since v351, the long part, closes the page. · Esta página já vem na ordem de quem trunca: esta lista, as portas e os três comandos primeiro; depois o estado; a linhagem dos selos e das custódias, a parte longa, no fim.
 
-1. [`A_PROVA_DA_QG_TGL_arvore.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md) — the proof tree, term by term · 113 KB
+1. [`A_PROVA_DA_QG_TGL_arvore.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md) — the proof tree, term by term · 114 KB
 2. [`um_absoluto_forma_canonica.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md) — the canonical form · 335 KB
-3. [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) — this page · 346 KB
+3. [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) — this page · 347 KB
 4. [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) — the seal: every sha256, the world hash, the gate · 805 KB
 5. [`um_absoluto_pt.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt) — the article, plain text (PT) · 1254 KB
 6. [`um_absoluto_en.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.txt) — the article, plain text (EN) · 1281 KB
@@ -924,6 +924,8 @@ theorem bell_reduced_half : ptr bellProjector = (2⁻¹ : ℂ) • 1 := by
 > *The Zenodo deposit (beside, 26/11/2026)*: the status paragraph above was written at the handoff, before this version was deposited. Since 2026-11-26 the Zenodo deposit holds v415 ([10.5281/zenodo.24559707](https://doi.org/10.5281/zenodo.24559707); byte-identical: the record’s md5 of `um.py` equals the sealed file’s); the previous deposit holds v413 (10.5281/zenodo.24417552).
 
 > *The B(n) of v415 (beside, 26/11/2026)*: the status paragraph above was written at the handoff. The Bancada passed to v415 on 2026-11-26, after this custody (`B21-v413-GPU3` → `B22-v415-20261126-R1`), with the three receipts in `recibos_bancada_v415/`.
+
+> *The gate flags (beside, 26/11/2026)*: the status paragraph above says "15 computed + 3 literal gate flags". Since v403 the sealed core says that all 18 flags of the four degrees are computed, none is a literal, and 15 enter the verdict (`bandeiras_do_gate_v403`); the experimental step still reads the V11 rite, which is unilateral.
 
 > **Errata beside (26/11/2026, the custody of v415; read from the registries of the sealed core, from the lineage diary and from the handoff, none typed):**
 > 1. *kh_n1 coverage*: 44676 -> 46850 constants, 33340 -> 34800 theorems; the formal tree of the Nós 1941 -> 2027 entries.

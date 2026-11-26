@@ -26,10 +26,10 @@ PROVADO [REAL, kernel]: um termo, the_root_of_the_proof_tree, cuja parte (i) é 
 
 ## Sources, verbatim · fontes, verbatim
 
-### 1. `Um (absoluto) — Grande Atrator/A_PROVA_DA_QG_TGL_arvore.md` — bytes 8.047–9.389
+### 1. `Um (absoluto) — Grande Atrator/A_PROVA_DA_QG_TGL_arvore.md` — bytes 8.267–9.609
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md
-- sha256 of the file: `a752ad65df3c9fe29ae81e2c2564fc958f3ed76598fff3f0ef1ab4a5482250a8` (computed now; this file is not in the seal map) · of this excerpt: `51381bc4f176e3164d88b16c008c00e0148b9e099da42c92ce17e43cc0019da9`
+- sha256 of the file: `83a03f795decf797765093eedf022aabafdd71eda480ce88b731c58e97245dd7` (computed now; this file is not in the seal map) · of this excerpt: `51381bc4f176e3164d88b16c008c00e0148b9e099da42c92ce17e43cc0019da9`
 - status · estatuto: [REAL — kernel]
 - why · por quê: O enunciado Lean do teorema mestre e a leitura das três hipóteses nomeadas e da pêntada; seção autocontida da árvore v368.
 
@@ -55,10 +55,10 @@ Leitura: dadas **H1** (`SusyRelativeData` — o gap interno relativo do operador
 Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 ````
 
-### 2. `Um (absoluto) — Grande Atrator/A_PROVA_DA_QG_TGL_arvore.md` — bytes 1.013–2.359
+### 2. `Um (absoluto) — Grande Atrator/A_PROVA_DA_QG_TGL_arvore.md` — bytes 1.013–2.579
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md
-- sha256 of the file: `a752ad65df3c9fe29ae81e2c2564fc958f3ed76598fff3f0ef1ab4a5482250a8` (computed now; this file is not in the seal map) · of this excerpt: `3735e0389a38e231172f643c5d16522ff35fd0561c62d1b66a89e305213c96fa`
+- sha256 of the file: `83a03f795decf797765093eedf022aabafdd71eda480ce88b731c58e97245dd7` (computed now; this file is not in the seal map) · of this excerpt: `ebc718076723eb15c5ce5f9a19eaea4c30bd9677d597754d0a5dff248691b9c9`
 - status · estatuto: [REAL — lido do selo]
 - why · por quê: O selo v368 lido por script: sha256 do um.py, o rito, o selftest, a string inteira do gate, os oito ritos do contorno (nenhum FALSIFIED) e zero termos fora do trio.
 
@@ -73,6 +73,7 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 | teoremas (stdout) | `teoremas limpos: 19856/19856` |
 | selftest | `FAIL_CLOSED_SELFTEST_PASSED` |
 | gate (`qg_closure_verdict`) | `TGL_QG_FINAL_PROOF__BY_NATURE_AND_COMPUTATION_WITH_THE_READER__VALIDITY_NOT_CREDITATION` |
+| ao lado do gate: o veredito dos quatro degraus (`qg_closure_verdict_four_degrees`) | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | identidade | `1=1=VERDADEIRO=HAJA_LUZ` (`identity_true = True`) |
 | contorno | `[v314 CONTORNO] ritos com poder de fechar o 1=1: 8 ; falsificacao limpa: NENHUMA (todos NOT_FALSIFIED/AWAITING)` |
 | ritos no contorno | `GA_massa_janela`→`GA_MASS_FORM_RETIRED__REFLECTION_WAS_MISREAD_AS_SOURCE__LINEAR_ORDER_IS_GR_STEALTH__BETA_LIVES_IN_RESPONSE`, `piso_dos_vazios`→`TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED`, `neutrino_massa`→`TGL_NEUTRINO_MASS_NOT_FALSIFIED_POWERED`, `neutrino_soma`→`TGL_NEUTRINO_SUM_ARMED_CONSISTENT_WITH_CURRENT_BOUND`, `neutrino_m2_vivo`→`TGL_NU_M2_ARMED_CONSISTENT`, `piso_densidade_v41`→`TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED`, `coma_dephasing`→`COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL`, `coma_cego`→`COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE` |
@@ -84,7 +85,7 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 ### 3. `ESTADO_ATUAL.md` — bytes 46.180–49.239
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md
-- sha256 of the file: `99954a81a1953d11d9ee519f79c341dc7e51f8b2340db22f81600c9c79040a0b` (computed now; this file is not in the seal map) · of this excerpt: `07d22be803e54823bac292a9eb4d22a25d78b84d26e4d22ceaf1269abf8adc80` · line endings shown as LF
+- sha256 of the file: `e7e96cba305896a40bb1218e5083297a81ef277403a963ddc24bdc27208d0497` (computed now; this file is not in the seal map) · of this excerpt: `07d22be803e54823bac292a9eb4d22a25d78b84d26e4d22ceaf1269abf8adc80` · line endings shown as LF
 - status · estatuto: [OPEN / KNOWN / nature]
 - why · por quê: (13/11/2026, tarde: o título da seção mudou; o marcador de início é o título novo.) O começo da seção: a leitura com a régua e o P2, que traz o resultado do teste H0DN × BG1 com as suas obrigações, inteiro neste trecho. (13/11/2026: o trecho 3 de antes, acima de 4000 B, dividido em dois contíguos; decisão da gerência c1.)
 
@@ -98,7 +99,7 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 ### 4. `ESTADO_ATUAL.md` — bytes 49.239–51.373
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md
-- sha256 of the file: `99954a81a1953d11d9ee519f79c341dc7e51f8b2340db22f81600c9c79040a0b` (computed now; this file is not in the seal map) · of this excerpt: `d325232b1a413099a226dfbc20c0e34156147586493f8a9f6798251fbcfe25df` · line endings shown as LF
+- sha256 of the file: `e7e96cba305896a40bb1218e5083297a81ef277403a963ddc24bdc27208d0497` (computed now; this file is not in the seal map) · of this excerpt: `d325232b1a413099a226dfbc20c0e34156147586493f8a9f6798251fbcfe25df` · line endings shown as LF
 - status · estatuto: [OPEN / KNOWN / nature]
 - why · por quê: A continuação da seção: H1/H2 na natureza, a identificação física da tela, α, a matemática fora da mathlib, os negativos honestos e as seis folhas, com a nota de linhagem H1–H3 → H1/H2. (13/11/2026: a segunda metade do trecho 3 de antes, contígua à primeira.)
 

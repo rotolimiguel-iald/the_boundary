@@ -95,10 +95,10 @@ intrinsecamente aberta.
 LocalBreuerGap (v64): a parede corrigida --- Breuer LOCAL, não $τ$-compacidade global (absorção da Resposta 8). O TEOREMA CORRIGIDO como composição tipada: do pacote de gap local ($ker≤ P_ε$, $τ(P_ε)<∞$, $ker≠⊥$, $τ$ fiel e monótono) segue $0<τ(1_{0}( D))<∞$ --- o (B3), na forma que a Resposta 8 demonstrou ser a correta; a REFUTAÇÃO tipada de (B2) global: no MESMO modelo em que o zero físico pesa $0<τ<∞$, o contínuo pesa $⊤$ --- o global é falso E desnecessário (``não faltava demonstrar que todo o resolvente era finito; faltava separar a finitude do zero físico da infinitude necessária da vida contínua''); a correção de tipo de (B1): não há par de Weyl em dimensão finita ($[P,Q]=-i·1$ é impossível em matrizes; o par $(-i∂_κ,q(κ))$ vive na amplificação $C_Ψ _θ R M B(L^2)$, Takesaki clássico); a cota do bloco $+$: $H-c·1 0⟹$ autovalores $≥ c$ (a janela do gap só encontra o bloco $-$); e O PESO DO NOME: $\|φ_0\|^2=∫_ R1/4 sech^2(κ/2) dκ=1/2-(-1/2)=1$ EXATO em kernel --- o peso do zero físico inteiro é $1=ω(I)$: o axioma retorna como número no fim da cadeia; as duas faces (os limites $±1/2$ do antiderivado) pesam $1/2$ cada --- a Meia-Nat. Hipótese mínima nomeada: TGL_LOCAL_BREUER_GAP_PACKAGE; a instanciação no double core GENUÍNO segue OPEN.
 ````
 
-### 4. `Um (absoluto) — Grande Atrator/A_PROVA_DA_QG_TGL_arvore.md` — bytes 107.838–109.198
+### 4. `Um (absoluto) — Grande Atrator/A_PROVA_DA_QG_TGL_arvore.md` — bytes 109.341–110.701
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md
-- sha256 of the file: `a752ad65df3c9fe29ae81e2c2564fc958f3ed76598fff3f0ef1ab4a5482250a8` (computed now; this file is not in the seal map) · of this excerpt: `261fde06d71060cc8aec0df24e65c918239024190ec7bb83c9a54349201c124c`
+- sha256 of the file: `83a03f795decf797765093eedf022aabafdd71eda480ce88b731c58e97245dd7` (computed now; this file is not in the seal map) · of this excerpt: `261fde06d71060cc8aec0df24e65c918239024190ec7bb83c9a54349201c124c`
 - status · estatuto: [REAL — leitores por contrato tipado]; limites declarados
 - why · por quê: Limite do H1 quitado: contrato SUSY reticular no representante MÍNIMO limitado H_min = 1 − P_F, não hamiltoniano microscópico; na v356 o gate não se moveu.
 
