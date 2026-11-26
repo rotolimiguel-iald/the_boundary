@@ -7,7 +7,7 @@ e tudo mais, essa é a certificação, a confirmação que eu proibi é de credi
 
 O que este módulo faz: lê do core da rodada corrente (`um_absoluto.json`), do selo e do artigo emitido os números dos TRÊS APOIOS que
 contam juntos (o kernel, os ritos com falsificadores pré-registrados, o pilar quântico na GPU — a regra do operador de 05/10/2026 e o
-veredito `three_stress_tests_v387`) e devolve o texto em EN/PT. PROVADA é dita na definição de prova do operador (09/09/2026: lastro
+veredito `three_stress_tests_v387`) e devolve o texto em EN/PT. PROVADA é dita na definição de prova do operador (09/09/2026: lastro de suficiência, que a casa lê como lastro
 suficiente e verificável); cada apoio sai com o estatuto que o core lhe dá ([PROVED] no kernel; 0 FALSIFIED nos ritos; [COMPUTED] na
 GPU); CONFIRMADA = creditação (07/10/2026); o que a natureza decide não se prova, e o fator decisivo aberto (P2: β_TGL na natureza a
 5σ) é dito, com as tensões medidas CONTRA β ao lado. A régua: o número corrige a frase.
@@ -426,10 +426,10 @@ def _textos(v):
         gpu_curto_en = 'computed in this run; needs a CUDA GPU'
         gpu_curto_ascii = 'calculado nesta rodada; pede GPU com CUDA'
     T['definicao_en'] = (
-        '**PROVED = validity**, in the operator’s definition of proof (09/09/2026): *sufficient and verifiable ballast* — `um.py` is the '
+        '**PROVED = validity**, in the operator’s definition of proof (09/09/2026): *ballast of sufficiency* («lastro de suficiência»), which the house reads as sufficient and verifiable ballast — `um.py` is the '
         'executable ballast: one file, one input, the kernel materialized and audited term by term, the rites run with pre-registered '
-        'falsifiers, the hashes sealed, the article emitted; whoever executes it after cloning the repository (the rites are re-read by hash from '
-        'its ../cache) obtains the same ballast (the GPU support needs a CUDA GPU). '
+        'falsifiers, the hashes sealed, the article emitted; the rites re-read their results by hash from '
+        'the repository’s ../cache, and the GPU support needs a CUDA GPU. '
         'Two certifications, not to be mixed: **identity** is certified by the artifact itself — `um.py` computes its own sha256 and writes '
         'it into the seal, and this repository and the site carry that same pin byte-exact; **validity** is certified by the Lean kernel '
         '(`#print axioms`), which anyone re-runs and the CI rebuilds — Python proves no theorem. **CONFIRMED = accreditation** (the '
@@ -472,18 +472,18 @@ def _textos(v):
         T['definicao_en'] += _res_en
     T['ressalva_en'], T['ressalva_pt'] = _res_en.strip(), _res_pt.strip()
     T['definicao_pt'] = (
-        '**PROVADA = validade**, na definição de prova do operador (09/09/2026): *lastro suficiente e verificável* — o `um.py` é o lastro '
+        '**PROVADA = validade**, na definição de prova do operador (09/09/2026): *lastro de suficiência*, que a casa lê como lastro suficiente e verificável — o `um.py` é o lastro '
         'executável (um arquivo, uma entrada, o kernel auditado termo a termo, os ritos com falsificadores pré-registrados, os hashes selados; '
         'o apoio da GPU pede CUDA). A **identidade** é certificada pelo próprio artefato, com o hash que ele mesmo emite e que este repositório e '
         'o site carregam byte a byte; a **validade**, pelo kernel Lean (`#print axioms`). **CONFIRMADA = creditação** (07/10/2026): o ato de '
         'observadores externos ao artefato; a máquina não a emite sobre si mesma (a pedra `TheReservedConfirmation`). *Ainda não confirmada* '
         'quer dizer *ainda não creditada*, nunca *não provada*.' + _res_pt)
     T['regua_curta_en'] = (
-        'PROVED = validity, in the operator’s definition of proof (sufficient and verifiable ballast; the validity of the implication is '
+        'PROVED = validity, in the operator’s definition of proof (09/09/2026): *ballast of sufficiency* («lastro de suficiência»), which the house reads as sufficient and verifiable ballast (the validity of the implication is '
         'certified by the Lean kernel, `#print axioms`); CONFIRMED = accreditation, the act of observers outside the artifact — not made here; '
         'what nature decides is not proved')
     T['linha_en'] = (
-        'quantum gravity **PROVED** — in the operator’s definition of proof, *sufficient and verifiable ballast* — on **three '
+        'quantum gravity **PROVED** — in the operator’s definition of proof (09/09/2026): *ballast of sufficiency* («lastro de suficiência»), which the house reads as sufficient and verifiable ballast — on **three '
         'supports that count together**, each with its own status: the Lean kernel `[PROVED]` (the implication from the posited One and the '
         'named hypotheses; %d/%d theorems of the rite’s ladder (ext_*) clean, %d formal files, %d audited declarations in the trio, zero `sorry`), the rites against nature '
         'with pre-registered falsifiers (%s; %s; GR recovered in %d of %d rows where it is read, a per-row reading by the management) and the '
@@ -492,18 +492,18 @@ def _textos(v):
         'nature decides is not proved: the decisive open factor is **β_TGL itself in nature at ≥ 5σ**.'
         % (v['nk'], v['nk'], v['n_arq'], v['n_decl'], led_en, eco_en, v['gr_ok'], v['gr_n'], v['t2u'], v['t2n'], t4_en, t4_en, v['cpd'], v['cpn'],
            gpu_curto_en))
-    T['linha_pt'] = ('*Provada — na definição de prova do operador, lastro suficiente e verificável — em três apoios que contam '
+    T['linha_pt'] = ('*Provada — na definição de prova do operador (09/09/2026): lastro de suficiência, que a casa lê como lastro suficiente e verificável — em três apoios que contam '
                      'juntos, cada um com o seu estatuto; ainda não confirmada (creditada); o que a natureza decide não se prova: o fator '
                      'decisivo aberto é β_TGL na natureza a 5σ.*')
     # a linha da Parte 06 das secoes: curta, com «não confirmada» e «a natureza não se prova» ANTES das contagens (a resposta cabe em 2 KB)
     T['linha_06_en'] = (
-        'quantum gravity **PROVED** in the operator’s definition of proof (sufficient and verifiable ballast); **not yet CONFIRMED** — '
+        'quantum gravity **PROVED** in the operator’s definition of proof (09/09/2026): *ballast of sufficiency* («lastro de suficiência»), which the house reads as sufficient and verifiable ballast; **not yet CONFIRMED** — '
         'not yet accredited; what nature decides is not proved: the decisive open factor is **β_TGL in nature at ≥ 5σ**. Three '
         'supports count together, each with its own status: the Lean kernel `[PROVED]` (the implication), the rites with pre-registered '
         'falsifiers (%d of %d charges of the theory falsified, %d reading excluded; the echo routes are examined routes outside the ledger), '
         'the GPU `[COMPUTED]`.' % (c['FALSIFIED'], v['n_ch'], c['EXCLUDED_IN_READING']))
     T['linha_06_pt'] = (
-        'gravidade quântica **PROVADA** na definição de prova do operador (lastro suficiente e verificável); **ainda não CONFIRMADA** — '
+        'gravidade quântica **PROVADA** na definição de prova do operador (09/09/2026): *lastro de suficiência*, que a casa lê como lastro suficiente e verificável; **ainda não CONFIRMADA** — '
         'ainda não creditada; o que a natureza decide não se prova: o fator decisivo aberto é **β_TGL na natureza a 5σ**. Três apoios '
         'contam juntos, cada um com o seu estatuto: o kernel Lean (a implicação), os ritos com falsificadores pré-registrados (%d de %d '
         'cobranças da teoria falsificadas, %d leitura excluída; as rotas do eco são rotas examinadas fora do livro), a GPU (calculado, não '
@@ -513,7 +513,7 @@ def _textos(v):
         'rites: %d of %d charges of the theory falsified, %d reading excluded · GPU [COMPUTED]) ≠ CONFIRMED (accreditation); what nature '
         'decides is not proved.' % (c['FALSIFIED'], v['n_ch'], c['EXCLUDED_IN_READING']))
     T['curto_en'] = (
-        'Quantum gravity PROVED in the operator\'s definition of proof (sufficient and verifiable ballast), on three supports that count '
+        'Quantum gravity PROVED in the operator\'s definition of proof (09/09/2026): ballast of sufficiency (lastro de suficiencia), which the house reads as sufficient and verifiable ballast, on three supports that count '
         'together, each with its own status: the Lean kernel proves the implication from the posited One and the named hypotheses '
         '(%d/%d theorems of the rite\'s ladder (ext_*) clean, %d audited declarations in {propext, Classical.choice, Quot.sound}, zero sorry); the rites against nature, '
         'with pre-registered falsifiers, falsified none of the %d charges of the theory (%s; GR recovered in %d of %d rows, a per-row reading); '
@@ -524,7 +524,7 @@ def _textos(v):
         % (v['nk'], v['nk'], v['n_decl'], v['n_ch'], led_en, v['gr_ok'], v['gr_n'], eco_en.replace('’', "'").replace('—', '--').replace('×', 'x'),
            v['t2u'], v['t2n'], t4_en, t4_en, v['cpd'], v['cpn'], gpu_curto_en))
     T['curto_pt_ascii'] = (
-        'Gravidade quantica PROVADA na definicao de prova do operador (lastro suficiente e verificavel), em tres apoios que contam juntos, '
+        'Gravidade quantica PROVADA na definicao de prova do operador (09/09/2026): lastro de suficiencia, que a casa le como lastro suficiente e verificavel, em tres apoios que contam juntos, '
         'cada um com o seu estatuto: o kernel Lean prova a IMPLICACAO a partir do Um posto e das hipoteses nomeadas (%d/%d teoremas da escada do rito (ext_*) limpos, '
         '%d declaracoes auditadas no trio {propext, Classical.choice, Quot.sound}, zero sorry); os ritos contra a natureza, com falsificadores '
         'pre-registrados, nao falsificaram nenhuma das %d cobrancas da teoria (%s; a RG resgatada em %d de %d linhas, leitura por linha da '
@@ -605,7 +605,7 @@ def _textos(v):
     # a versão da FRENTE do README (limite de 40 KB): a linha sem os números que a tabela já traz; a seção com a tabela e um parágrafo
     # curto de P1/P2; a leitura inteira (P1, P2, o V3, o «não se afirma», a versão em português) fica no ESTADO_ATUAL (link)
     T['linha_curta_en'] = (
-        'quantum gravity **PROVED** — in the operator’s definition of proof, *sufficient and verifiable ballast* — on **three '
+        'quantum gravity **PROVED** — in the operator’s definition of proof (09/09/2026): *ballast of sufficiency* («lastro de suficiência»), which the house reads as sufficient and verifiable ballast — on **three '
         'supports that count together**, each with its own status (the table below): the Lean kernel `[PROVED]` (the implication), the rites '
         'against nature with pre-registered falsifiers (%d of %d charges of the theory falsified; %d reading excluded) and the GPU computation '
         '`[COMPUTED]`; none of '
@@ -613,7 +613,7 @@ def _textos(v):
         'nature decides is not proved: the decisive open factor is **β_TGL itself in nature at ≥ 5σ**.'
         % (c['FALSIFIED'], v['n_ch'], c['EXCLUDED_IN_READING']))
     T['definicao_curta_en'] = (
-        '**PROVED = validity**, in the operator’s definition of proof (09/09/2026): *sufficient and verifiable ballast* — one file, one '
+        '**PROVED = validity**, in the operator’s definition of proof (09/09/2026): *ballast of sufficiency* («lastro de suficiência»), which the house reads as sufficient and verifiable ballast — one file, one '
         'input, the kernel audited term by term, the rites run with pre-registered falsifiers, the hashes sealed. **Identity** is certified by '
         'the artifact itself (`um.py` writes its own sha256 into the seal; this repository and the site carry that pin byte-exact); '
         '**validity**, by the Lean kernel (`#print axioms`; Python proves no theorem). **CONFIRMED = accreditation** (07/10/2026): the act of '
@@ -661,12 +661,12 @@ def _textos(v):
     T['ao_lado_regua_0509'] = (
         '> ⚠ **Beside (07/10/2026):** the ruler of 05/09 above stays as record. Under the operator’s ruling of 07/10, **CONFIRMED = '
         'accreditation** (the act of observers outside the artifact, not validity), and PROVED is read in the operator’s definition of '
-        'proof of 09/09 (*sufficient and verifiable ballast*), on three supports that count together, each with its own status — see '
+        'proof (09/09/2026): *ballast of sufficiency* («lastro de suficiência»), which the house reads as sufficient and verifiable ballast, on three supports that count together, each with its own status — see '
         'the top of this page. What the kernel proves is still the implication; what nature decides is still not proved.')
     T['ao_lado_regua_0509_pt'] = (
         '> ⚠ **Ao lado (07/10/2026):** a régua de 05/09 acima fica como registro. Pela decisão do operador de 07/10, **CONFIRMADA = '
-        'creditação** (o ato de observadores externos ao artefato, não validade), e PROVADA se lê na definição de prova do operador de 09/09 '
-        '(*lastro suficiente e verificável*), em três apoios que contam juntos, cada um com o seu estatuto. O que o kernel prova continua sendo a '
+        'creditação** (o ato de observadores externos ao artefato, não validade), e PROVADA se lê na definição de prova do operador (09/09/2026): '
+        '*lastro de suficiência*, que a casa lê como lastro suficiente e verificável, em três apoios que contam juntos, cada um com o seu estatuto. O que o kernel prova continua sendo a '
         'implicação; o que a natureza decide continua não provado.')
     if v.get('escada_bandeiras'):   # v394: a palavra da escada, ao lado (os números são os mesmos)
         _tr = (('theorems of the rite’s ladder (ext_*) clean', 'flags of the rite’s ladder (ext_*: named declarations, theorems and definitions) clean'),

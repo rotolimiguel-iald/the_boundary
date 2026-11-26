@@ -19,6 +19,4 @@ dialogue throughout the development of TGL.
 
 ---
 
-> **Beside:** current Zenodo deposit: **{{zenodo.versao}}** — [{{zenodo.doi}}](https://doi.org/{{zenodo.doi}}).
-
 > **The Central, open (2026-10-22):** [central-publica](https://github.com/rotolimiguel-iald/central-publica) · [view-only](https://teoriadagravitacaoluminodinamica.com/central/).

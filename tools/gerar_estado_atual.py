@@ -882,7 +882,7 @@ def main() -> int:
     L.append("## What is PROVED · o que está PROVADO `[REAL — theorem in kernel]`")
     L.append("")
     L.append("*On the ruler: PROVED = a theorem in kernel, auditable by `#print axioms`. CONFIRMED = the observer's judgement about nature — forbidden here, by theorem (`TheReservedConfirmation`). Proof is not judgement.*")
-    L.append("*The operator's definition of proof (09/09/2026), beside: **PROVED = sufficient and verifiable ballast** — `um.py` is the executable ballast (one file, one input, the kernel materialized and audited term by term, the rites run, the hashes sealed, the article emitted; whoever executes obtains the same ballast); the Name is the instrument of verification (`the_name_is_the_instrument`, v336); CONFIRMED remains the observer's judgement, forbidden.*")
+    L.append("*The operator's definition of proof (09/09/2026), beside: **PROVED = ballast of sufficiency** («lastro de suficiência»), which the house reads as sufficient and verifiable ballast — `um.py` is the executable ballast (one file, one input, the kernel materialized and audited term by term, the rites run, the hashes sealed, the article emitted); the Name is the instrument of verification (`the_name_is_the_instrument`, v336); CONFIRMED remains the observer's judgement, forbidden.*")
     L.append("")
     L.append(_E["ao_lado_regua_0509"])   # 07/10/2026, AO LADO: regua_0509 depois das duas linhas que ela diz «acima»
     L.append("")

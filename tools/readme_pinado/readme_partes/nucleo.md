@@ -14,22 +14,7 @@ file where it is read — click and read the source, not the summary.
 | 7 | **The boundary S-matrix:** `θ_M = arcsin√β`, `𝒮_∂ = exp(θ_M·G)`, `Spec = {e^{±iθ_M}}`, `\|R\|² = β`, `\|T\|² = 1 − β` — the identification is **closed** (Theorem S-∂). | **[REAL]** in kernel | [`tgl_kernel/TGLExt/SMatrix.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/SMatrix.lean) |
 | 8 | **The dephasing law — where nature can answer:** `Γ_ω = ½βτ★ω²` (GKLS/Lindblad), with `τ★ ≈ t_Planck`. β does **not** renormalize local `G`: TGL is stealth at linear order; β lives in the boundary **response**. | **[REAL]** in form; the physics is testable | [`tgl_paper_unified.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/tgl_paper_unified.py) |
 | 9 | **The Bridge equation:** `G_μν + Λ g_μν = 8πG · 𝒫_μν[K_∂]`, `𝒫_μν` the metric variation of the boundary modular Hamiltonian; **β = sin²θ_M writes itself into geometry** as Einstein–Cartan torsion `K_β`. | **[REAL]** as a **conditional** closure | [`A Ponte Einstein Cartan Miguel.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/A%20Ponte%20Einstein%20Cartan%20Miguel.tex) |
-| 10 | **The gate:** `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`. | see below | [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) (`qg_closure_verdict`) |
-
-**What the gate means.** Every formal seal the artifact demands has been *constructed* in
-the embedded Lean kernel with clean axiom bases, and the pre-registered nature rites have
-*run to completion* and returned their verdicts. The gate is a **function of the kernel and
-of the data**, not a sentence: it moves only by kernel construction or by a pre-registered
-data rite — **never by declaration, never by cosmology**.
-
-**Why the gate carries its own reach on its face.** The tail
-`…_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` is neither a
-demotion nor a promotion — the gate has not moved in any of the twenty waves of this arc. It
-is a **domain of validity written into the verdict itself**: the nature test was completed
-*inside the local bulk*, *at the sensitivity actually available*, and **more sensitive data
-can revise it**. A verdict that names the conditions under which it could be overturned is
-worth more than one that does not: honesty paid for in the only currency the régua accepts —
-a longer string that says less.
+| 10 | **The gate:** `{{selo.gate}}`. | **[REAL]** read from the seal | [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) (`qg_closure_verdict`) |
 
 **What the gate means, above all.** Quantum gravity **PROVED** as validity — logical closure in the Lean kernel (`#print axioms`) — on three supports that count together. What the kernel PROVES is the implication from the posited One and the named hypotheses; what nature answered in the Hubble ratio is the result at the top of this page. It does **not** mean `CONFIRMED` — that verdict is **forbidden to the machine by kernel theorem** (`TheReservedConfirmation.lean`), because confirmation belongs to the human observer. The kernel checks the **internal architecture**; external published theorems it composes are **[KNOWN]** and named. The global lift (Lemma 3): the core of {{selo.versao}} reads `GLOBAL_LIFT` as the superposition, by the operator’s definition (07/10/2026, `[INPUT/ONTO]`); the refusal is proved in the kernel (the Agape clause, 9/9) and the local passage is `[KNOWN]` (Jacobson 1995, H3 named): a **logical closure**; the program stays open; this is not a proof of global existence, and the field law in curved spacetime is a kernel term only CONDITIONAL on the named H3 (`lei_de_campo_curvo_v392`; the earlier tokens stay as record).
 

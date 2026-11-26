@@ -942,7 +942,7 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
              % registra(url_raw(A3 + "/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean")))
     L.append("Nunca *\"gravitacao quantica CONFIRMADA\"*. Provada como MODELO FORMAL, sim -- e' teorema em kernel,")
     L.append("auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela natureza, nao")
-    L.append("(regua clarificada pelo operador em 05/09/2026: *prova nao e' juizo*; definicao de prova do operador, 09/09/2026: *PROVADA = lastro suficiente e verificavel* -- o um.py e' o lastro executavel; o Nome e' o instrumento de verificacao, v336).")
+    L.append("(regua clarificada pelo operador em 05/09/2026: *prova nao e' juizo*; definicao de prova do operador (09/09/2026): *PROVADA = lastro de suficiencia*, que a casa le como lastro suficiente e verificavel -- o um.py e' o lastro executavel; o Nome e' o instrumento de verificacao, v336).")
     L.append("")
     L.append("> Ao lado (07/10/2026, decisao do operador): CONFIRMADA = CREDITACAO -- ato de observadores externos ao artefato, nao validade; "
              "PROVADA na definicao de prova de 09/09, em tres apoios que contam juntos, cada um com o seu estatuto (o kernel prova a implicacao; "
@@ -1181,7 +1181,7 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.extend(secao_como_matar())   # v301: o criterio (d) no ponto de entrada das IAs
     T.append("## A regua (leia antes de resumir)")
     T.append("")
-    T.append("- [TheReservedConfirmation.lean](%s): CONFIRMED e' proibido a maquina POR TEOREMA DE KERNEL -- confirmar e' CREDITAR, ato do observador humano externo ao artefato, nao validade. NOT_FALSIFIED != CONFIRMED; nunca \"gravitacao quantica CONFIRMADA\". PROVADA e' validade, na definicao de prova do operador (09/09/2026: lastro suficiente e verificavel), em tres apoios que contam juntos, cada um com o seu estatuto: o kernel PROVA a implicacao a partir do Um posto e das hipoteses nomeadas; %s; a GPU calcula (COMPUTED, nao medido). Ao lado, e valendo: fechar a arquitetura matematica interna nao e' fisica provada -- a natureza nao se prova (o artigo emitido pelo um.py); o fator decisivo aberto e' beta_TGL na natureza a 5 sigma (regua clarificada em 05/09/2026 e 07/10/2026: prova nao e' juizo; confirmacao e' creditacao)." % (registra(url_raw(A3 + "/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean")), _E["regua_llms_ascii"]))
+    T.append("- [TheReservedConfirmation.lean](%s): CONFIRMED e' proibido a maquina POR TEOREMA DE KERNEL -- confirmar e' CREDITAR, ato do observador humano externo ao artefato, nao validade. NOT_FALSIFIED != CONFIRMED; nunca \"gravitacao quantica CONFIRMADA\". PROVADA e' validade, na definicao de prova do operador (09/09/2026): lastro de suficiencia, que a casa le como lastro suficiente e verificavel, em tres apoios que contam juntos, cada um com o seu estatuto: o kernel PROVA a implicacao a partir do Um posto e das hipoteses nomeadas; %s; a GPU calcula (COMPUTED, nao medido). Ao lado, e valendo: fechar a arquitetura matematica interna nao e' fisica provada -- a natureza nao se prova (o artigo emitido pelo um.py); o fator decisivo aberto e' beta_TGL na natureza a 5 sigma (regua clarificada em 05/09/2026 e 07/10/2026: prova nao e' juizo; confirmacao e' creditacao)." % (registra(url_raw(A3 + "/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean")), _E["regua_llms_ascii"]))
     T.append("- [04_CATALOGO_FALSOS_POSITIVOS.md](%s): o que foi reprovado. Um resumo que relata so' os fechamentos e' leitura errada -- resuma tambem as recusas." % registra(url_raw(A3 + "/bancada/catalogos/04_CATALOGO_FALSOS_POSITIVOS.md")))
     T.append("- [T08_VEREDITO_FINAL.md](%s): o veredito adversarial de bancada, por extenso." % registra(url_raw(A3 + "/bancada/testes/T08_VEREDITO_FINAL.md")))
     T.append("")
@@ -1310,6 +1310,32 @@ MARCA_FIM = "<!-- PORTAS:FIM -->"
 
 
 def bloco_readme(dirs, sc):
+    """AO LADO (25/11/2026, sessao de custodia da v415; ordem da gerencia c1, A4 do ENCAMINHAMENTO_README_v415_CUSTODIA.md): o README ganhou o resumo e a
+    dedicatoria do artigo e o teto de 40.960 bytes nao deixava espaco; a LISTA das portas (a tabela de cada porta) ja existe, inteira, em PORTA.md/PORTA.json da
+    raiz e no TUNEL, entao o bloco entre os marcadores passa a ser um PONTEIRO: a regra da porta, as quatro portas de entrada (llms.txt, TUNEL.json, PORTA.md,
+    PORTA.json) e o aviso de que o GitHub nao renderiza o um.py. Os marcadores ficam (o laco do E08 e o readme_pinado.py os leem). Saem tambem as duas linhas
+    «Current seal» e «Citable deposit»: o pin, o selo e o kernel estao no painel do topo e na tabela «The seal», e o deposito citavel (com «older than this seal»)
+    esta na nota «Beside» da parte Autor. A funcao anterior (a tabela completa, a tabela das rotas, o selo e o deposito) fica logo abaixo como
+    bloco_readme_com_a_tabela, intacta, como registro."""
+    mb_um = os.path.getsize(os.path.join(REPO, A3, "um.py")) / 1048576.0
+    B = []
+    B.append(MARCA_INI)
+    B.append("")
+    B.append("## ◈ THE DOORS · AS PORTAS — direct binding for AI readers")
+    B.append("")
+    B.append("> **The rule of the door · a regra da porta.** Every folder has a `PORTA.md` + a `PORTA.json` pointing **up** and **down**, generated from `git ls-files`. "
+             "If you are an AI and cannot resolve the long, accented folder names, open [`llms.txt`](%s) (the entry door), [`TUNEL.json`](%s) (the flat index: every file, "
+             "with its raw URL, size and hash) or the root door [`PORTA.md`](%s) · [`PORTA.json`](%s), which lists every door. *Nao adivinhe nome de pasta — abra a porta.* "
+             "**GitHub will not render `um.py`** (%.2f MB, above its ~5 MB viewer limit: the page looks empty): never conclude from a blob page that a file is missing; "
+             "fetch the raw URL and check its sha256 against `um_absoluto_selo.json`."
+             % (url_raw("llms.txt"), url_raw("TUNEL.json"), porta_md_url(""), porta_json_url(""), mb_um))
+    B.append("")
+    B.append(MARCA_FIM)
+    return "\n".join(B)
+
+
+def bloco_readme_com_a_tabela(dirs, sc):
+    """O bloco completo das portas (a tabela de cada porta, a tabela das rotas), como esteve no README ate a v413 (registro; ver bloco_readme acima)."""
     B = []
     B.append(MARCA_INI)
     B.append("")
