@@ -5,7 +5,7 @@
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
   "doi_um_absoluto": "https://doi.org/10.5281/zenodo.24559707",
-  "gerado_utc": "2026-11-26T14:07:25Z",
+  "gerado_utc": "2026-11-26T14:15:28Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
     "versao": "v371",
@@ -226,11 +226,19 @@
       "bytes": 11745
     },
     {
+      "nome": "MANIFESTO_DE_CONFERENCIA_v415.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/MANIFESTO_DE_CONFERENCIA_v415.json",
+      "sha256_16": "912386e969f32e19",
+      "bytes": 11611
+    },
+    {
       "nome": "PINO_README.json",
       "papel": "resultado selado",
       "descricao": "O PINO do README: sha256 do README gerado, do PRIMORDIAL.json, do template, das partes e do selo de que nasceu -- o README so' se edita pelo gerador",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PINO_README.json",
-      "sha256_16": "98cad70e3178fe82",
+      "sha256_16": "921a612c5b172d82",
       "bytes": 2374
     },
     {
@@ -238,7 +246,7 @@
       "papel": "resultado selado",
       "descricao": "A FONTE UNICA das informacoes primordiais (README pinado e site): cada numero com a chave de origem, o arquivo e o sha256 da fonte -- gerada por tools/custodia_g1/primordial.py, nunca a mao",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PRIMORDIAL.json",
-      "sha256_16": "d5f7f4dcd46a3658",
+      "sha256_16": "f5eb53141d0f3d04",
       "bytes": 55329
     },
     {
@@ -246,7 +254,7 @@
       "papel": "documento",
       "descricao": "A PAGINA DE FRENTE, gerada por script (tools/custodia_g1/readme_pinado.py a partir de PRIMORDIAL.json, pinado por PINO_README.json; antes tools/gerar_readme_frente.py, 11/09/2026): o selo, reproduzir em tres comandos, as portas, os tres artigos, a ordem de leitura, abstract, citar, licenca, autor -- <= 40 KB; o atlas completo esta em LEDGER.md",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-      "sha256_16": "7c1c3f25779da8be",
+      "sha256_16": "119eba14790d9874",
       "bytes": 40860
     },
     {
@@ -254,7 +262,7 @@
       "papel": "documento",
       "descricao": "Documento em Markdown",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/REGISTRO_FASE9_V2.md",
-      "sha256_16": "0c55510802be4c0a",
+      "sha256_16": "8a6754a32109e1ea",
       "bytes": 2384
     },
     {
@@ -1866,6 +1874,6 @@
       "total_arquivos": 7
     }
   ],
-  "total_arquivos": 4351,
+  "total_arquivos": 4352,
   "rodape": "gerado por script de git ls-files em 2026-11-26 -- nao editar a mao"
 }

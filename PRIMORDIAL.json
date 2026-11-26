@@ -970,19 +970,19 @@
    "como": "git"
   },
   "custodia.commit_espelho": {
-   "valor": "ca295d5518ba876821a640fc8bda93494c0cc897",
+   "valor": "58ce0858aae9e67b1f4e056672a72a458f831968",
    "fonte": "git_espelho",
    "chave": "git log -1 --grep='^custodia(vNNN)'",
    "como": "git"
   },
   "custodia.versao_do_commit": {
-   "valor": "v413",
+   "valor": "v415",
    "fonte": "git_espelho",
    "chave": "assunto do commit",
    "como": "regex"
   },
   "custodia.data_do_commit": {
-   "valor": "2026-11-21",
+   "valor": "2026-11-26",
    "fonte": "git_espelho",
    "chave": "data do commit",
    "como": "git"

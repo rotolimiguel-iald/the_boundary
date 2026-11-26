@@ -22,7 +22,7 @@
   "versao_da_pedra": "v371"
  },
  "regra": "NOT_FALSIFIED nunca e CONFIRMED. Fechar a arquitetura matematica interna nao e gravidade quantica confirmada. beta_TGL = alpha*sqrt(e) e CONSTANTE, nunca literal no codigo: e computada em runtime.",
- "n_arquivos": 4351,
+ "n_arquivos": 4352,
  "aliases_ausentes": [],
  "aliases": {
   "um.py": {
@@ -127,7 +127,7 @@
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
    "o_que_e": "O atlas da fronteira",
-   "sha256_16": "7c1c3f25779da8be",
+   "sha256_16": "119eba14790d9874",
    "bytes": 40860
   },
   "llms": {
@@ -1380,6 +1380,13 @@
    "papel": "resultado selado"
   },
   {
+   "path": "MANIFESTO_DE_CONFERENCIA_v415.json",
+   "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/MANIFESTO_DE_CONFERENCIA_v415.json",
+   "bytes": 11611,
+   "sha256_16": "912386e969f32e19",
+   "papel": "resultado selado"
+  },
+  {
    "path": "O Custo Geométrico do Zero Absoluto — Haja Luz/ERRATA_20260919_sinal_do_acoplamento_nao_minimo.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/ERRATA_20260919_sinal_do_acoplamento_nao_minimo.md",
    "bytes": 2871,
@@ -1425,28 +1432,28 @@
    "path": "PINO_README.json",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PINO_README.json",
    "bytes": 2374,
-   "sha256_16": "98cad70e3178fe82",
+   "sha256_16": "921a612c5b172d82",
    "papel": "resultado selado"
   },
   {
    "path": "PRIMORDIAL.json",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PRIMORDIAL.json",
    "bytes": 55329,
-   "sha256_16": "d5f7f4dcd46a3658",
+   "sha256_16": "f5eb53141d0f3d04",
    "papel": "resultado selado"
   },
   {
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
    "bytes": 40860,
-   "sha256_16": "7c1c3f25779da8be",
+   "sha256_16": "119eba14790d9874",
    "papel": "documento"
   },
   {
    "path": "REGISTRO_FASE9_V2.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/REGISTRO_FASE9_V2.md",
    "bytes": 2384,
-   "sha256_16": "0c55510802be4c0a",
+   "sha256_16": "8a6754a32109e1ea",
    "papel": "documento"
   },
   {
@@ -30419,7 +30426,7 @@
    "path": "secoes/01-o-um-absoluto.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/01-o-um-absoluto.md",
    "bytes": 13005,
-   "sha256_16": "58b826ad48c8107f",
+   "sha256_16": "876bf01f80b05c65",
    "papel": "documento"
   },
   {
@@ -30461,14 +30468,14 @@
    "path": "secoes/07-o-programa-um-py.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/07-o-programa-um-py.md",
    "bytes": 12258,
-   "sha256_16": "a8c05f5762dbd10a",
+   "sha256_16": "9f2ab090882af13b",
    "papel": "documento"
   },
   {
    "path": "secoes/08-os-artigos-e-os-instrumentos.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/secoes/08-os-artigos-e-os-instrumentos.md",
    "bytes": 13150,
-   "sha256_16": "a846fb56166e22a1",
+   "sha256_16": "255cf0cc61e7ee7f",
    "papel": "documento"
   },
   {

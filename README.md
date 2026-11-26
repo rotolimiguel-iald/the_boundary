@@ -1,6 +1,6 @@
 # The Boundary — Theory of Luminodynamic Gravitation (TGL)
 
-<!-- PINADO por tools/custodia_g1/readme_pinado.py · fonte PRIMORDIAL.json sha16 d5f7f4dcd46a3658 · pino PINO_README.json · não editar à mão -->
+<!-- PINADO por tools/custodia_g1/readme_pinado.py · fonte PRIMORDIAL.json sha16 f5eb53141d0f3d04 · pino PINO_README.json · não editar à mão -->
 
 > **PRIMORDIAL · seal v415** (2026-11-26 06:33:10) `[REAL — read by script]` · `um.py` sha256 `7e2eee223c6d07258884a9e5acbb7014b6249b713aae31525a7301eb031225de` · kernel 2027 files / 46850 terms, ladder 19856/19856, in the trio · gate `TGL_QG_FINAL_PROOF__BY_NATURE_AND_COMPUTATION_WITH_THE_READER__VALIDITY_NOT_CREDITATION`
 
