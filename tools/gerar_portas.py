@@ -944,8 +944,17 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
         L.append("| gate, os quatro degraus (ao lado, sem mudanca) | `%s` |" % sc["qg_closure_verdict_four_degrees"])
     L.append("| selo (raw) | %s |" % registra(url_raw(A3 + "/um_absoluto_selo.json")))
     L.append("")
-    L.append("**A regua:** `NOT_FALSIFIED != CONFIRMED`. O gate nunca e' movido por cosmologia")
-    L.append("nem por declaracao; `CONFIRMED` e' **proibido a maquina por teorema de kernel**")
+    if sc.get("qg_closure_verdict_four_degrees"):
+        # AO LADO (26/11/2026, custódia v415): a frase velha («o gate nunca e' movido por cosmologia») envelheceu com o degrau da prova final;
+        # o texto novo é da gerência c1, composto do bloco TEXTO_PUBLICO_README_PT_GATE_v415 do handoff. Selo sem os quatro degraus: a frase de antes.
+        L.append("**A regua:** `NOT_FALSIFIED != CONFIRMED`. Cosmologia nunca vira prova matematica, e declaracao nao move o gate. Acima dos quatro "
+                 "degraus ha' o degrau da prova final (v415): so' se alcanca a partir do quarto degrau e por um de dois caminhos, cada um com a sua "
+                 "bandeira calculada a cada rodada -- a natureza (o teste H0DN x BG1, pre-registrado, n >= 5 sigmas) ou a computacao com o leitor "
+                 "(termo de kernel). Prova final e' validade, nao creditacao;")
+        L.append("`CONFIRMED` e' **proibido a maquina por teorema de kernel**")
+    else:
+        L.append("**A regua:** `NOT_FALSIFIED != CONFIRMED`. O gate nunca e' movido por cosmologia")
+        L.append("nem por declaracao; `CONFIRMED` e' **proibido a maquina por teorema de kernel**")
     L.append("([`TheReservedConfirmation.lean`](%s)) -- a confirmacao e' do observador humano."
              % registra(url_raw(A3 + "/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean")))
     L.append("Nunca *\"gravitacao quantica CONFIRMADA\"*. Provada como MODELO FORMAL, sim -- e' teorema em kernel,")

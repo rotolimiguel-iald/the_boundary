@@ -84,7 +84,7 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 ### 3. `ESTADO_ATUAL.md` — bytes 46.180–49.239
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md
-- sha256 of the file: `384111c43ce108b2e27c32200af54e96fe46dd6a4b3a8fa7b67f0a1a14663c5e` (computed now; this file is not in the seal map) · of this excerpt: `07d22be803e54823bac292a9eb4d22a25d78b84d26e4d22ceaf1269abf8adc80` · line endings shown as LF
+- sha256 of the file: `46cf16634df9925df237ce3384f0fc0be8a35bd277e04abcd800dbd44165b8b4` (computed now; this file is not in the seal map) · of this excerpt: `07d22be803e54823bac292a9eb4d22a25d78b84d26e4d22ceaf1269abf8adc80` · line endings shown as LF
 - status · estatuto: [OPEN / KNOWN / nature]
 - why · por quê: (13/11/2026, tarde: o título da seção mudou; o marcador de início é o título novo.) O começo da seção: a leitura com a régua e o P2, que traz o resultado do teste H0DN × BG1 com as suas obrigações, inteiro neste trecho. (13/11/2026: o trecho 3 de antes, acima de 4000 B, dividido em dois contíguos; decisão da gerência c1.)
 
@@ -98,7 +98,7 @@ Versão sem H3: `TGLExt.emergence_reduced_to_named_hypotheses` (trio).
 ### 4. `ESTADO_ATUAL.md` — bytes 49.239–51.373
 
 - raw: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md
-- sha256 of the file: `384111c43ce108b2e27c32200af54e96fe46dd6a4b3a8fa7b67f0a1a14663c5e` (computed now; this file is not in the seal map) · of this excerpt: `d325232b1a413099a226dfbc20c0e34156147586493f8a9f6798251fbcfe25df` · line endings shown as LF
+- sha256 of the file: `46cf16634df9925df237ce3384f0fc0be8a35bd277e04abcd800dbd44165b8b4` (computed now; this file is not in the seal map) · of this excerpt: `d325232b1a413099a226dfbc20c0e34156147586493f8a9f6798251fbcfe25df` · line endings shown as LF
 - status · estatuto: [OPEN / KNOWN / nature]
 - why · por quê: A continuação da seção: H1/H2 na natureza, a identificação física da tela, α, a matemática fora da mathlib, os negativos honestos e as seis folhas, com a nota de linhagem H1–H3 → H1/H2. (13/11/2026: a segunda metade do trecho 3 de antes, contígua à primeira.)
 

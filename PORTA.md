@@ -40,8 +40,8 @@ porta acima: https://teoriadagravitacaoluminodinamica.com   (o site -- a porta a
 | gate, os quatro degraus (ao lado, sem mudanca) | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | selo (raw) | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json |
 
-**A regua:** `NOT_FALSIFIED != CONFIRMED`. O gate nunca e' movido por cosmologia
-nem por declaracao; `CONFIRMED` e' **proibido a maquina por teorema de kernel**
+**A regua:** `NOT_FALSIFIED != CONFIRMED`. Cosmologia nunca vira prova matematica, e declaracao nao move o gate. Acima dos quatro degraus ha' o degrau da prova final (v415): so' se alcanca a partir do quarto degrau e por um de dois caminhos, cada um com a sua bandeira calculada a cada rodada -- a natureza (o teste H0DN x BG1, pre-registrado, n >= 5 sigmas) ou a computacao com o leitor (termo de kernel). Prova final e' validade, nao creditacao;
+`CONFIRMED` e' **proibido a maquina por teorema de kernel**
 ([`TheReservedConfirmation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean)) -- a confirmacao e' do observador humano.
 Nunca *"gravitacao quantica CONFIRMADA"*. Provada como MODELO FORMAL, sim -- e' teorema em kernel,
 auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela natureza, nao

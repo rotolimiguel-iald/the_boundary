@@ -3,13 +3,13 @@
  "versao": "v415",
  "readme": {
   "arquivo": "README.md",
-  "bytes": 40860,
-  "sha256": "119eba14790d987422b37c725a48799d2a5dba1768c1c7ce5576ea9025f0f4d7",
-  "sha16": "119eba14790d9874",
+  "bytes": 40903,
+  "sha256": "ab7bfa345e31a1ad1688f888e6b59ae5f485506942f4187b1b280be8c1aabd03",
+  "sha16": "ab7bfa345e31a1ad",
   "teto_bytes": 40960
  },
  "bloco_portas_sha256": "745bcf5e632b9f2ce894d268bffa5f558d5c89d9be367e3c4015a1b149706f6b",
- "readme_sem_portas_sha256": "7ebe8e3d9b1619b417318d8444bd7aed19f7134e7ac7b02edae5fb95a2ae2bb3",
+ "readme_sem_portas_sha256": "760090c3388b803f7ed953367a9d4e720cd1b8b60a1e8ece777debd2af028ed1",
  "primordial": {
   "arquivo": "PRIMORDIAL.json",
   "sha256": "f5eb53141d0f3d048e0ef91a0b8df7830b10dd0348b5d8d18aba00bc693fa888",
@@ -35,7 +35,7 @@
  },
  "pin_um_py": "7e2eee223c6d07258884a9e5acbb7014b6249b713aae31525a7301eb031225de",
  "gerador": {
-  "readme_pinado.py": "1e33b14659d9108a48c946599fb9571ed807219437c99c6e8ff35a6bf75f585e",
+  "readme_pinado.py": "42a4da7c36379be1072c9dec52c3c59dcb3f8c831be98c3ae378e0061b4a4db0",
   "primordial.py": "8c475edfacffc3ebe3279a4adb7c52f15e036b79c89fc0d065f9b0da96f193f8"
  },
  "tex": {
@@ -53,5 +53,5 @@
   "bytes": 2384,
   "sha256": "8a6754a32109e1ea12f1f4d5a758dc14bc2df5492c103f7dee2373ede5166f24"
  },
- "gerado_utc": "2026-11-26T14:14:40Z"
+ "gerado_utc": "2026-11-26T14:47:15Z"
 }
