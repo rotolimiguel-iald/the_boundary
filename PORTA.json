@@ -5,7 +5,7 @@
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
   "doi_um_absoluto": "https://doi.org/10.5281/zenodo.24559707",
-  "gerado_utc": "2026-11-26T14:50:31Z",
+  "gerado_utc": "2026-11-26T14:52:33Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
     "versao": "v371",
@@ -230,8 +230,8 @@
       "papel": "resultado selado",
       "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/MANIFESTO_DE_CONFERENCIA_v415.json",
-      "sha256_16": "912386e969f32e19",
-      "bytes": 11611
+      "sha256_16": "f3ccf18c2b8cf657",
+      "bytes": 11745
     },
     {
       "nome": "PINO_README.json",
